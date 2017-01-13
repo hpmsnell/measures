@@ -1,0 +1,60 @@
+measure:
+  name: 17.MIPS.Mips130
+  required:
+    display_title: Documentation of Current Medications in the Medical Record
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 130
+    version: 2017
+exclusion_reasons:
+  - metadata_identifier_link: G8430
+    required:
+      display_title: Eligible clinician attests to documenting in the medical record the patient is not eligible for a current list of medications being obtained, updated, or reviewed by the eligible clinician (G8430)
+      validation_records:
+        group:
+          count: 1
+          - model: ClinicalActivity
+            value_set_name: MIPS; MIPS 130 Encounter
+        group:
+          count: 1
+          - model: ClinicalActivity
+            value_set_name: MIPS; Denominator Exception: G8430
+    optional:
+      code_value: G8430
+success_reasons:
+  - metadata_identifier_link: G8427
+    required:
+      display_title: Eligible clinician attests to documenting in the medical record they obtained, updated, or reviewed the patient’s current medications (G8427)
+      validation_records:
+        group:
+          count: 1
+          - model: ClinicalActivity
+            value_set_name: MIPS; MIPS 130 Encounter
+        group:
+          count: 1
+          - model: ClinicalActivity
+            value_set_name: MIPS; Performance Met: G8427
+          - model: ClinicalActivity
+            value_set_name: VSAC; Current Medications Documented SNMD
+    optional:
+      code_value: G8427
+failure_reasons:
+  - metadata_identifier_link: G8428
+    required:
+      display_title: Current list of medications not documented as obtained, updated, or reviewed by the eligible clinician, reason not given (G8428)
+      validation_records:
+        group:
+          count: 1
+          - model: ClinicalActivity
+            value_set_name: MIPS; MIPS 130 Encounter
+        group:
+          count: 1
+          - model: ClinicalActivity
+            value_set_name: MIPS; Performance Met: G8427
+          - model: ClinicalActivity
+            value_set_name: MIPS; Performance Met: G8427
+          - model: ClinicalActivity
+            value_set_name: VSAC; Current Medications Documented SNMD
+    optional:
+      code_value: G8428
