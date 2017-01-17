@@ -18,7 +18,6 @@ For more information:
 * [Clinical Quality Language](https://ecqi.healthit.gov/cql)
 * [Quality Data Model](https://ecqi.healthit.gov/qdm)
 * [QDM-Able Domain Mapping](https://docs.google.com/a/ablehealth.com/spreadsheets/d/1rqgov-26ChvKZEIPy1i1L1TxlQ9T8vduY0-EZccpx_s/edit?usp=sharing)
-* [Value Sets on Podio](https://podio.com/ablehealth/product/apps/assets/items/34)
 
 ## Configuration files
 Configuration files specify the metadata for each measure and are written in YAML.
@@ -44,10 +43,13 @@ Test data files specify the clinical data for all test patients, as well as an o
 
 Each file contains the following data:
 
-* Organization-level test key
+* Organization-level and provider-level test keys
     * Expected population results for each patient (denominator, denominator exclusion, numerator)
 * Clinical data for each patient
     * Attributes (first name, last name, sex, date of birth
     * Clinical models and associated metadata
     
 Test data is specified using Able domain model categories.
+
+## Value sets
+Value sets can be found in the `value_sets` directory in CSV format according to source, e.g. `VSAC` or `Able`. CSVs can be downloaded and imported into the application.
