@@ -32,7 +32,7 @@ valueset "VSAC; Bilateral Mastectomy": '2.16.840.1.113883.3.464.1003.198.12.1005
 valueset "VSAC; History of bilateral mastectomy": '2.16.840.1.113883.3.464.1003.198.12.1068'
 valueset "VSAC; Mammogram":'2.16.840.1.113883.3.464.1003.108.12.1018'
 valueset "VSAC; Female": '2.16.840.1.113883.3.560.100.2'
-valueset "VSAC; Palliative Care" '2.16.840.1.113883.3.600.1.1579'
+valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -41,8 +41,8 @@ context Patient
 define "Denominator":
   AgeInYearsAt(start of "Measurement Period") >= 51
   and AgeInYearsAt(start of "Measurement Period") < 74
-  and Patient Characteristic Sex in "VSAC; Female"
-  and exists(["Encounter, Performed": "MIPS; 112 Encounter"] E
+  and "Patient Characteristic Sex" in "VSAC; Female"
+  and exists(["Encounter, Performed": "MIPS; MIPS 112 Encounters"] E
     where E.relevantPeriod starts during "Measurement Period")
     and E.signingProvider.pqrsProvider = true
 
@@ -59,7 +59,7 @@ define "Denominator Exclusion 1":
   or exists(["Diagnosis": "VSAC; History of bilateral mastectomy"] D
     where D.prevalencePeriod starts before end "Measurement Period")
 
-define "Denominaor Exclusion 2"
+define "Denominaor Exclusion 2":
   /*
    * metadata_identifier_link: denominator_exclusion_2
    */
@@ -75,13 +75,13 @@ define "Denominaor Exclusion 2"
       where D.prevalencePeriod starts before end "Measurement Period")
    )
 
-define "Denominator Exclusion 3"
+define "Denominator Exclusion 3":
   /*
    * metadata_identifier_link: denominator_exclusion_2
    */
-  exists([Intervention, Performed: "VSAC; Palliative Care"] I
+  exists(["Intervention, Performed": "VSAC; Palliative Care"] I
     where I.relevantPeriod overlaps "Measurement Period")
-  or exists([Intervention, Performed: "MIPS; Hospice Service: G9687"] I
+  or exists(["Intervention, Performed": "MIPS; Hospice Service: G9687"] I
     where I.relevantPeriod overlaps "Measurement Period")
 
 define "Numerator Performance Met: 3014F":
