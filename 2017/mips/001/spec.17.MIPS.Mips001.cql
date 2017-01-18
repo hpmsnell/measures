@@ -42,9 +42,11 @@ define "Denominator":
     where E.relevantPeriod starts during "Measurement Period")
     and E.signingProvider.pqrsProvider = true
 
-define "Denominator Exclusion":
+define "Denominator_exclusion_1":
   exists([Intervention, Performed: "VSAC; Palliative Care"] I
     where I.relevantPeriod overlaps "Measurement Period")
+
+define "Denominator_exclusion_2":
   or exists([Intervention, Performed: "MIPS; Hospice Service: G9687"] I
     where I.relevantPeriod overlaps "Measurement Period")
 
