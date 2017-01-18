@@ -44,7 +44,6 @@ define "Denominator Exclusion: G8430":
   "Valid Encounter" E //This is the encounter from the denominator
     with ["Procedure, Performed": "MIPS; Denominator Exception: G8430"] P
       such that P.relevantPeriod begins E.relevantPeriod
-      and P.signingProvider.id = E.signingProvider.id
 
 define "Numerator Success: G8427":
   /*
