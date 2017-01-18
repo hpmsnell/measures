@@ -1,110 +1,218 @@
 test_set_key:
   measure_id: 17.MIPS.Mips113
-  patients:
-  - name: Too Young # Patient is too young for the denominator but has an encounter
-    denominator:
-    denominator_exclusion:
-    numerator:
-  - name: Too Old # Patient is too old for the denominator but has an encounter
-    denominator:
-    denominator_exclusion:
-    numerator:
-  - name: Age Lower # Patient is at lower bound of age range but has an encounter
-    denominator: 1
-    denominator_exclusion:
-    numerator: F/3017F-8P
-  - name: Age Upper # Patient is at upper bound of age range but has an encounter
-    denominator: 1
-    denominator_exclusion:
-    numerator: F/3017F-8P
-  - name: No Encounter # Patient has no encounter but has appropriate age
-    denominator:
-    denominator_exclusion:
-    numerator:
-  - name: Encounter Early # Patient has an encounter prior to the measurement period
-    denominator:
-    denominator_exclusion:
-    numerator:
-  - name: Encounter Late # Patient has an encounter after the measurement period
-    denominator:
-    denominator_exclusion:
-    numerator:
-  - name: Denominator Exclusion # Patient has an exclusion for colorectal cancer
-    denominator: 1
-    denominator_exclusion: exclusion_1
-    numerator:
-  - name: Exclusion Late # Patient has an exclusion that is too late
-    denominator: 1
-    denominator_exclusion:
-    numerator: F/3017F-8P
-  - name: MIPSExclusion Colectomy # Patient has a MIPS history of colectomy or colorectal cancer screening
-    denominator: 1
-    denominator_exclusion: exclusion_1
-    numerator:
-  - name: MIPSExclusion Hospice # Patient has a MIPS hospice service
-    denominator: 1
-    denominator_exclusion: exclusion_2
-    numerator:
-  - name: MIPSExclusion Late # Patient has a MIPS exclusion but it is too late
-    denominator: 1
-    denominator_exclusion:
-    numerator: F/3017F-8P
-  - name: MIPSExclusion Early # Patient has a MIPS exclusion but it is too early
-    denominator: 1
-    denominator_exclusion:
-    numerator: F/3017F-8P
-  - name: Colonoscopy Start # Patient was screened at the start of the allowable period
-    denominator: 1
-    denominator_exclusion:
-    numerator: S/3017F
-  - name: Colonoscopy End # Patient was screened at the end of the allowable period
-    denominator: 1
-    denominator_exclusion:
-    numerator: S/3017F
-  - name: Colonoscopy Late # Patient was screened too late
-    denominator: 1
-    denominator_exclusion:
-    numerator: F/3017F-8P
-  - name: Colonoscopy Early # Patient was screened too early
-    denominator: 1
-    denominator_exclusion:
-    numerator: F/3017F-8P
-  - name: Sigmoidoscopy Start # Patient was screened at the start of the allowable period
-    denominator: 1
-    denominator_exclusion:
-    numerator: S/3017F
-  - name: Sigmoidoscopy End # Patient was screened at the end of the allowable period
-    denominator: 1
-    denominator_exclusion:
-    numerator: S/3017F
-  - name: Sigmoidoscopy Late # Patient was screened too late
-    denominator: 1
-    denominator_exclusion:
-    numerator: F/3017F-8P
-  - name: Sigmoidoscopy Early # Patient was screened too early
-    denominator: 1
-    denominator_exclusion:
-    numerator: F/3017F-8P
-  - name: FOBT Start # Patient had an FOBT at the start of the measurement period
-    denominator: 1
-    denominator_exclusion:
-    numerator: S/3017F
-  - name: FOBT End
- # Patient had an FOBT at the end of the measurement period    denominator: 1
-    denominator_exclusion:
-    numerator: S/3017F
-  - name: FOBT Late # Patient had an FOBT too late
-    denominator: 1
-    denominator_exclusion:
-    numerator: F/3017F-8P
-  - name: FOBT Early # Patient had an FOBT too early
-    denominator: 1
-    denominator_exclusion:
-    numerator: F/3017F-8P
-  - name: 3017F Success # 3017F hard-coded
-    denominator: 1
-    denominator_exclusion:
-    numerator: S/3017F
+  organization_key:
+    patients:
+    - name: Too Young # Patient is too young for the denominator but has an encounter
+      denominator:
+      denominator_exclusion:
+      numerator:
+    - name: Too Old # Patient is too old for the denominator but has an encounter
+      denominator:
+      denominator_exclusion:
+      numerator:
+    - name: Age Lower # Patient is at lower bound of age range but has an encounter
+      denominator: 1
+      denominator_exclusion:
+      numerator: F/3017F-8P
+    - name: Age Upper # Patient is at upper bound of age range but has an encounter
+      denominator: 1
+      denominator_exclusion:
+      numerator: F/3017F-8P
+    - name: No Encounter # Patient has no encounter but has appropriate age
+      denominator:
+      denominator_exclusion:
+      numerator:
+    - name: Encounter Early # Patient has an encounter prior to the measurement period
+      denominator:
+      denominator_exclusion:
+      numerator:
+    - name: Encounter Late # Patient has an encounter after the measurement period
+      denominator:
+      denominator_exclusion:
+      numerator:
+    - name: Denominator Exclusion # Patient has an exclusion for colorectal cancer
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      numerator:
+    - name: Exclusion Late # Patient has an exclusion that is too late
+      denominator: 1
+      denominator_exclusion:
+      numerator: F/3017F-8P
+    - name: MIPSExclusion Colectomy # Patient has a MIPS history of colectomy or colorectal cancer screening
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      numerator:
+    - name: MIPSExclusion Hospice # Patient has a MIPS hospice service
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      numerator:
+    - name: MIPSExclusion Late # Patient has a MIPS exclusion but it is too late
+      denominator: 1
+      denominator_exclusion:
+      numerator: F/3017F-8P
+    - name: MIPSExclusion Early # Patient has a MIPS exclusion but it is too early
+      denominator: 1
+      denominator_exclusion:
+      numerator: F/3017F-8P
+    - name: Colonoscopy Start # Patient was screened at the start of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      numerator: S/3017F
+    - name: Colonoscopy End # Patient was screened at the end of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      numerator: S/3017F
+    - name: Colonoscopy Late # Patient was screened too late
+      denominator: 1
+      denominator_exclusion:
+      numerator: F/3017F-8P
+    - name: Colonoscopy Early # Patient was screened too early
+      denominator: 1
+      denominator_exclusion:
+      numerator: F/3017F-8P
+    - name: Sigmoidoscopy Start # Patient was screened at the start of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      numerator: S/3017F
+    - name: Sigmoidoscopy End # Patient was screened at the end of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      numerator: S/3017F
+    - name: Sigmoidoscopy Late # Patient was screened too late
+      denominator: 1
+      denominator_exclusion:
+      numerator: F/3017F-8P
+    - name: Sigmoidoscopy Early # Patient was screened too early
+      denominator: 1
+      denominator_exclusion:
+      numerator: F/3017F-8P
+    - name: FOBT Start # Patient had an FOBT at the start of the measurement period
+      denominator: 1
+      denominator_exclusion:
+      numerator: S/3017F
+    - name: FOBT End # Patient had an FOBT at the end of the measurement period
+      denominator: 1
+      denominator_exclusion:
+      numerator: S/3017F
+    - name: FOBT Late # Patient had an FOBT too late
+      denominator: 1
+      denominator_exclusion:
+      numerator: F/3017F-8P
+    - name: FOBT Early # Patient had an FOBT too early
+      denominator: 1
+      denominator_exclusion:
+      numerator: F/3017F-8P
+    - name: 3017F Success # 3017F hard-coded
+      denominator: 1
+      denominator_exclusion:
+      numerator: S/3017F
+  providers_key:
+    - name: Rachel
+      patients:
+      - name: Too Young # Patient is too young for the denominator but has an encounter
+        denominator:
+        denominator_exclusion:
+        numerator:
+      - name: Too Old # Patient is too old for the denominator but has an encounter
+        denominator:
+        denominator_exclusion:
+        numerator:
+      - name: Age Lower # Patient is at lower bound of age range but has an encounter
+        denominator: 1
+        denominator_exclusion:
+        numerator: F/3017F-8P
+      - name: Age Upper # Patient is at upper bound of age range but has an encounter
+        denominator: 1
+        denominator_exclusion:
+        numerator: F/3017F-8P
+      - name: No Encounter # Patient has no encounter but has appropriate age
+        denominator:
+        denominator_exclusion:
+        numerator:
+      - name: Encounter Early # Patient has an encounter prior to the measurement period
+        denominator:
+        denominator_exclusion:
+        numerator:
+      - name: Encounter Late # Patient has an encounter after the measurement period
+        denominator:
+        denominator_exclusion:
+        numerator:
+      - name: Denominator Exclusion # Patient has an exclusion for colorectal cancer
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        numerator:
+      - name: Exclusion Late # Patient has an exclusion that is too late
+        denominator: 1
+        denominator_exclusion:
+        numerator: F/3017F-8P
+      - name: MIPSExclusion Colectomy # Patient has a MIPS history of colectomy or colorectal cancer screening
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        numerator:
+      - name: MIPSExclusion Hospice # Patient has a MIPS hospice service
+        denominator: 1
+        denominator_exclusion: exclusion_2
+        numerator:
+      - name: MIPSExclusion Late # Patient has a MIPS exclusion but it is too late
+        denominator: 1
+        denominator_exclusion:
+        numerator: F/3017F-8P
+      - name: MIPSExclusion Early # Patient has a MIPS exclusion but it is too early
+        denominator: 1
+        denominator_exclusion:
+        numerator: F/3017F-8P
+      - name: Colonoscopy Start # Patient was screened at the start of the allowable period
+        denominator: 1
+        denominator_exclusion:
+        numerator: S/3017F
+      - name: Colonoscopy End # Patient was screened at the end of the allowable period
+        denominator: 1
+        denominator_exclusion:
+        numerator: S/3017F
+      - name: Colonoscopy Late # Patient was screened too late
+        denominator: 1
+        denominator_exclusion:
+        numerator: F/3017F-8P
+      - name: Colonoscopy Early # Patient was screened too early
+        denominator: 1
+        denominator_exclusion:
+        numerator: F/3017F-8P
+      - name: Sigmoidoscopy Start # Patient was screened at the start of the allowable period
+        denominator: 1
+        denominator_exclusion:
+        numerator: S/3017F
+      - name: Sigmoidoscopy End # Patient was screened at the end of the allowable period
+        denominator: 1
+        denominator_exclusion:
+        numerator: S/3017F
+      - name: Sigmoidoscopy Late # Patient was screened too late
+        denominator: 1
+        denominator_exclusion:
+        numerator: F/3017F-8P
+      - name: Sigmoidoscopy Early # Patient was screened too early
+        denominator: 1
+        denominator_exclusion:
+        numerator: F/3017F-8P
+      - name: FOBT Start # Patient had an FOBT at the start of the measurement period
+        denominator: 1
+        denominator_exclusion:
+        numerator: S/3017F
+      - name: FOBT End # Patient had an FOBT at the end of the measurement period
+        denominator: 1
+        denominator_exclusion:
+        numerator: S/3017F
+      - name: FOBT Late # Patient had an FOBT too late
+        denominator: 1
+        denominator_exclusion:
+        numerator: F/3017F-8P
+      - name: FOBT Early # Patient had an FOBT too early
+        denominator: 1
+        denominator_exclusion:
+        numerator: F/3017F-8P
+      - name: 3017F Success # 3017F hard-coded
+        denominator: 1
+        denominator_exclusion:
+        numerator: S/3017F
 providers:
 - given_name: Rachel
   family_name: Kohler
