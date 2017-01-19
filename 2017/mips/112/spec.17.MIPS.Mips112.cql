@@ -21,7 +21,6 @@ using QDM
 valueset "MIPS; MIPS 112 Encounters"
 valueset "MIPS; History of Mastectomy: G9708"
 valueset "MIPS; Hospice Service: G9709"
-valueset "MIPS; History of Bilateral Mastectomy: G9708"
 valueset "MIPS; Performance Met: 3014F"
 valueset "MIPS; Performance Not Met: 3014F-8P"
 
@@ -58,17 +57,13 @@ define "Denominator Exclusion 1":
     where P.relevantPeriod starts before end "Measurement Period")
   or exists(["Diagnosis": "VSAC; History of bilateral mastectomy"] D
     where D.prevalencePeriod starts before end "Measurement Period")
-
-define "Denominaor Exclusion 2":
-  /*
-   * metadata_identifier_link: denominator_exclusion_2
-   */
-   (
+  or (
      exists(["Procedure, Performed": "VSAC; Left Mastectomy"] P
       where P.relevantPeriod starts before end "Measurement Period")
      and exists(["Procedure, Performed": "VSAC; Right Mastectomy"] P
       where P.relevantPeriod starts before end "Measurement Period")
-   ) or (
+  )
+   or (
      exists(["Diagnosis": "VSAC; Left Mastectomy"] D
       where D.prevalencePeriod starts before end "Measurement Period")
      and exists(["Diagnosis": "VSAC; Right Mastectomy"] D
@@ -92,7 +87,7 @@ define "Numerator Performance Met: 3014F":
   and not "Denominator Exclusion 1"
   and not "Denominator Exclusion 2"
   and (
-    exists(["Procedure, Performed": "VSAC; Mammogram"] P where P.relevantPeriod starts 27 months or less before end "Measurement Period")
+    exists(["Diagnostic Study, Performed": "VSAC; Mammogram"] D where D.relevantPeriod starts 27 months or less before end "Measurement Period")
     or exists(["Procedure, Performed": "MIPS; Performance Met: 3014F"] P where P.relevantPeriod starts 27 months or less before end "Measurement Period")
     )
 
