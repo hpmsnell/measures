@@ -2,43 +2,43 @@ test_set_key:
   measure_id: 17.MIPS.Mips112
   organization_key:
     patients:
-    - name: Too Young # Patient is too young for the denominator but has an encounter
+    - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
       denominator:
       denominator_exclusion:
       numerator:
-    - name: Too Old # Patient is too Old for the denominator but has an encounter
+    - name: Too Old # Patient is too Old for the denominator but otherwise meets the denominator
       denominator:
       denominator_exclusion:
       numerator:
-    - name: Age LowerBound # Patient is at lower age bound
+    - name: Age LowerBound # Patient is at lower age bound and otherwise meets the denominator
       denominator: 1
       denominator_exclusion:
       numerator: F/3014F-8P
-    - name: Age UpperBound ## Patient is upper age bound
+    - name: Age UpperBound # Patient is upper age bound and otherwise meets the denominator
       denominator: 1
       denominator_exclusion:
       numerator: F/3014F-8P
-    - name: Patient Male # Patient is a Male
+    - name: Patient Male # Patient is a Male but otherwise meets the denominator
       denominator:
       denominator_exclusion:
       numerator:
-    - name: No Encounter # Patient has not denominator eligible encounters
+    - name: No Encounter # Patient has no denominator eligible encounters but otherwise meets the denominator
       denominator:
       denominator_exclusion:
       numerator:
-    - name: Encounter Early # Patient has an encounter that is early
+    - name: Encounter Early # Patient has an encounter that is early but otherwise meets the denominator
       denominator:
       denominator_exclusion:
       numerator:
-    - name: Encounter Late  # Patient has an encounter that is late.
+    - name: Encounter Late  # Patient has an encounter that is late but otherwise meets the denominator
       denominator:
       denominator_exclusion:
       numerator:
-    - name: Exclusion BilateralMastectomy # Patient has an excluvsion bilteral exclusion
+    - name: Exclusion BilateralMastectomy # Patient has an exclusion for bilateral mastectomy
       denominator: 1
       denominator_exclusion: denominator_exclusion_1
       numerator:
-    - name: Exclusion BilateralMastectomyLate  # Patient has a late bilateral exclusion
+    - name: Exclusion BilateralMastectomyLate  # Patient has an exclusion for bilateral mastectomy but it is too late
       denominator: 1
       denominator_exclusion:
       numerator: F/3014F-8P
@@ -46,19 +46,19 @@ test_set_key:
       denominator: 1
       denominator_exclusion: denominator_exclusion_2
       numerator:
-    - name: Exclusion UnilateralMastectomyLate  # Patient has an exclusion for unilateral mastectomy late
+    - name: Exclusion UnilateralMastectomyLate  # Patient has an exclusion for unilateral mastectomy but it is too late
       denominator: 1
       denominator_exclusion:
       numerator: F/3014F-8P
-    - name: Exclusion HospiceService #Patient has an exclusion for hospitce service
+    - name: Exclusion HospiceService #Patient has an exclusion for hospice service
       denominator: 1
       denominator_exclusion: deminator_exclusion_3
       numerator:
-    - name: Exclusion HospiceServiceEarly # Patient has an exclusion for early hospice service
+    - name: Exclusion HospiceServiceEarly # Patient has an exclusion for hospice service but it is too early
       denominator: 1
       denominator_exclusion:
       numerator: F/3014F-8P
-    - name: Exclusion HospiceServiceLate # Patient has an exclusion for late hospice service
+    - name: Exclusion HospiceServiceLate # Patient has an exclusion for hospice service but it is too late
       denominator: 1
       denominator_exclusion:
       numerator:  F/3014F-8P
@@ -70,15 +70,15 @@ test_set_key:
       denominator: 1
       denominator_exclusion:
       numerator: S/3014F
-    - name: Screened Early # Patient screened early
+    - name: Screened Early # Patient screened too early
       denominator: 1
       denominator_exclusion:
       numerator: F/3014F-8P
-    - name: Screened Late # Patient screened late
+    - name: Screened Late # Patient screened too late
       denominator: 1
       denominator_exclusion:
       numerator: F/3014F-8P
-    - name: Screeened MIPS # Patient screened with MIPS value set
+    - name: Screeened MIPS # Patient screened with MIPS value set during the allowable period
       denominator: 1
       denominator_exclusion:
       numerator: S/3014F
@@ -93,7 +93,7 @@ providers:
   credential: MD
   primary_specialty: Family Medicine
   pqrs_provider: true
-patients: 
+patients:
 - name: Patient is too young for the denominator
   attributes:
     date_of_birth: 1965-01-02 # Too late
