@@ -1,98 +1,108 @@
+test_set_key:
+  measure_id: 17.MIPS.Mips112
+  organization_key:
+    patients:
+    - name: Too Young # Patient is too young for the denominator but has an encounter
+      denominator:
+      denominator_exclusion:
+      numerator:
+    - name: Too Old # Patient is too Old for the denominator but has an encounter
+      denominator:
+      denominator_exclusion:
+      numerator:
+    - name: Age LowerBound # Patient is at lower age bound
+      denominator: 1
+      denominator_exclusion:
+      numerator: F/3014F-8P
+    - name: Age UpperBound ## Patient is upper age bound
+      denominator: 1
+      denominator_exclusion:
+      numerator: F/3014F-8P
+    - name: Patient Male # Patient is a Male
+      denominator:
+      denominator_exclusion:
+      numerator:
+    - name: No Encounter # Patient has not denominator eligible encounters
+      denominator:
+      denominator_exclusion:
+      numerator:
+    - name: Encounter Early # Patient has an encounter that is early
+      denominator:
+      denominator_exclusion:
+      numerator:
+    - name: Encounter Late  # Patient has an encounter that is late.
+      denominator:
+      denominator_exclusion:
+      numerator:
+    - name: Exclusion BilateralMastectomy # Patient has an excluvsion bilteral exclusion
+      denominator: 1
+      denominator_exclusion: denominator_exclusion_1
+      numerator:
+    - name: Exclusion BilateralMastectomyLate  # Patient has a late bilateral exclusion
+      denominator: 1
+      denominator_exclusion:
+      numerator: F/3014F-8P
+    - name: Exclusion UnilateralMastectomy  # Patient has an exclusion for unilateral mastectomy
+      denominator: 1
+      denominator_exclusion: denominator_exclusion_2
+      numerator:
+    - name: Exclusion UnilateralMastectomyLate  # Patient has an exclusion for unilateral mastectomy late
+      denominator: 1
+      denominator_exclusion:
+      numerator: F/3014F-8P
+    - name: Exclusion HospiceService #Patient has an exclusion for hospitce service
+      denominator: 1
+      denominator_exclusion: deminator_exclusion_3
+      numerator:
+    - name: Exclusion HospiceServiceEarly # Patient has an exclusion for early hospice service
+      denominator: 1
+      denominator_exclusion:
+      numerator: F/3014F-8P
+    - name: Exclusion HospiceServiceLate # Patient has an exclusion for late hospice service
+      denominator: 1
+      denominator_exclusion:
+      numerator:  F/3014F-8P
+    - name: Screened Start # Patient screened at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      numerator: S/3014F
+    - name: Screened End # Patient screened at end of alllowable period
+      denominator: 1
+      denominator_exclusion:
+      numerator: S/3014F
+    - name: Screened Early # Patient screened early
+      denominator: 1
+      denominator_exclusion:
+      numerator: F/3014F-8P
+    - name: Screened Late # Patient screened late
+      denominator: 1
+      denominator_exclusion:
+      numerator: F/3014F-8P
+    - name: Screeened MIPS # Patient screened with MIPS value set
+      denominator: 1
+      denominator_exclusion:
+      numerator: S/3014F
 providers:
-- given_name:S
-  family_name:
-  credential:
-  primary_specialty:
-  provider_type:
-  tin:
-  pqrs_provider: # true/false
-- given_name:
-  family_name:
-  credential:
-  primary_specialty:
-  provider_type:
-  tin:
-  pqrs_provider:
-patients:
-- name:
+- given_name: Rachel
+  family_name: Kohler
+  credential: DO
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+- given_name: Patty
+  family_name: PrimaryCare
+  credential: MD
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+patients: 
+- name: Patient is too young for the denominator
   attributes:
-    date_of_birth: # 1998-12-31
-    given_name:
-    family_name:
-    sex:
-    provider: # first name of a provider from the list above
-    external_id:
-  health_plan_id:
+    date_of_birth: 1965-01-02 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Female
   clinical_models:
-    diagnoses:
-    - code_type:
-      code_value:
-      start_datetime: # 2016-10-01
-      stop_datetime:
-      claim_id:
-      provider: # first name of a provider from the list above
-      link_id:
     clinical_activities:
-    - code_type:
-      code_value:
-      start_datetime:
-      result:
-      stop_datetime:
-      claim_id:
-      provider:
-      link_id:
-      place_of_service:
-    laboratory_test_performeds:
-    - code_type:
-      code_value:
-      start_datetime:
-      result:
-    medications:
-    - code_type:
-      code_value:
-      start_datetime:
-      stop_datetime:
-      provider:
-      days_supplied:
-      quantity:
-- name:
-  attributes:
-    date_of_birth: # 1998-12-31
-    given_name:
-    family_name:
-    sex:
-    provider: # first name of a provider from the list above
-    external_id:
-  health_plan_id:
-  clinical_models:
-    diagnoses:
-    - code_type:
-      code_value:
-      start_datetime: # 2016-10-01
-      stop_datetime:
-      claim_id:
-      provider: # first name of a provider from the list above
-      link_id:
-    clinical_activities:
-    - code_type:
-      code_value:
-      start_datetime:
-      result:
-      stop_datetime:
-      claim_id:
-      provider:
-      link_id:
-      place_of_service:
-    laboratory_test_performeds:
-    - code_type:
-      code_value:
-      start_datetime:
-      result:
-    medications:
-    - code_type:
-      code_value:
-      start_datetime:
-      stop_datetime:
-      provider:
-      days_supplied:
-      quantity:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
+      provider: Rachel
