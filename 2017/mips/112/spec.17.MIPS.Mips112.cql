@@ -77,7 +77,7 @@ define "Denominaor Exclusion 2":
 
 define "Denominator Exclusion 3":
   /*
-   * metadata_identifier_link: denominator_exclusion_2
+   * metadata_identifier_link: denominator_exclusion_3
    */
   exists(["Intervention, Performed": "VSAC; Palliative Care"] I
     where I.relevantPeriod overlaps "Measurement Period")
@@ -92,7 +92,7 @@ define "Numerator Performance Met: 3014F":
   and not "Denominator Exclusion 1"
   and not "Denominator Exclusion 2"
   and (
-    exists(["Procedure, Performed": "VSAC; Mammogram"] P where P.relevantPeriod starts 27 months or less before end "Measurement Period")
+    exists(["Diagnostic Study, Performed": "VSAC; Mammogram"] D where D.relevantPeriod starts 27 months or less before end "Measurement Period")
     or exists(["Procedure, Performed": "MIPS; Performance Met: 3014F"] P where P.relevantPeriod starts 27 months or less before end "Measurement Period")
     )
 
