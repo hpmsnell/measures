@@ -6,76 +6,92 @@ test_set_key:
       start_datetime: 2016-01-01
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Wrong Encounter #  Encounter is not in the value set
       start_datetime: 2016-01-01
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Wrong Encounter #  Encounter prior to measurement year
       start_datetime: 2015-12-31
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Wrong Encounter #  Encounter after measurement year
       start_datetime: 2017-01-01
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Right Encounter #  Encounter at beginning of measurement year
       start_datetime: 2016-01-01
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/G8428
     - name: Right Encounter #  Encounter at end of measurement year
       start_datetime: 2016-12-31
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
+      denominator_exception:
       numerator: F/G8428
     - name: Denominator Exclusion #  Exclusion on date of encounter
       start_datetime: 2016-06-01
       denominator: 1
-      denominator_exclusion: G8430
+      denominator_exclusion:
+      denominator_exception: G8430
       numerator:
     - name: Denominator Exclusion #  Exclusion prior to date of encounter
       start_datetime: 2016-07-01
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/G8428
     - name: Denominator Exclusion #  Exclusion after date of encounter
       start_datetime: 2016-08-01
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/G8428
     - name: Denominator Exclusion #  Exclusion does not have the same signing provider
       start_datetime: 2016-09-01
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/G8428
     - name: Numerator Success #  Success on date of encounter
       start_datetime: 2016-06-01
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: S/G8427
     - name: Numerator Success #  Success prior to encounter
       start_datetime: 2016-07-01
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/G8428
     - name: Numerator Success #  Success after encounter
       start_datetime: 2016-08-01
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/G8428
     - name: VSAC Success #  VSAC success on date of encounter
       start_datetime: 2016-06-01
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: S/G8427
     - name: VSAC Success #  VSAC success prior to encounter
       start_datetime: 2016-07-01
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/G8428
   providers_key:
   - name: Rachel
@@ -84,76 +100,91 @@ test_set_key:
       start_datetime: 2016-01-01
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Wrong Encounter #  Encounter is not in the value set
       start_datetime: 2016-01-01
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Wrong Encounter #  Encounter prior to measurement year
       start_datetime: 2015-12-31
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Wrong Encounter #  Encounter after measurement year
       start_datetime: 2017-01-01
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Right Encounter #  Encounter at beginning of measurement year
       start_datetime: 2016-01-01
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/G8428
     - name: Right Encounter #  Encounter at end of measurement year
       start_datetime: 2016-12-31
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/G8428
     - name: Denominator Exclusion #  Exclusion on date of encounter
       start_datetime: 2016-06-01
       denominator: 1
-      denominator_exclusion: G8430
+      denominator_exclusion:
+      denominator_exception: G8430
       numerator:
     - name: Denominator Exclusion #  Exclusion prior to date of encounter
       start_datetime: 2016-07-01
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/G8428
     - name: Denominator Exclusion #  Exclusion after date of encounter
       start_datetime: 2016-08-01
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/G8428
     - name: Denominator Exclusion #  Exclusion does not have the same signing provider
       start_datetime: 2016-09-01
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/G8428
     - name: Numerator Success #  Success on date of encounter
       start_datetime: 2016-06-01
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: S/G8427
     - name: Numerator Success #  Success prior to encounter
       start_datetime: 2016-07-01
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/G8428
     - name: Numerator Success #  Success after encounter
       start_datetime: 2016-08-01
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/G8428
     - name: VSAC Success #  VSAC success on date of encounter
       start_datetime: 2016-06-01
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: VSAC Success #  VSAC success prior to encounter
       start_datetime: 2016-07-01
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
   - name: Patty
     episodes_of_care:
@@ -161,76 +192,91 @@ test_set_key:
       start_datetime: 2016-01-01
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Wrong Encounter #  Encounter is not in the value set
       start_datetime: 2016-01-01
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Wrong Encounter #  Encounter prior to measurement year
       start_datetime: 2015-12-31
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Wrong Encounter #  Encounter after measurement year
       start_datetime: 2017-01-01
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Right Encounter #  Encounter at beginning of measurement year
       start_datetime: 2016-01-01
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Right Encounter #  Encounter at end of measurement year
       start_datetime: 2016-12-31
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Denominator Exclusion #  Exclusion on date of encounter
       start_datetime: 2016-06-01
       denominator:
-      denominator_exclusion: G8430
+      denominator_exclusion:
+      denominator_exception: G8430
       numerator:
     - name: Denominator Exclusion #  Exclusion prior to date of encounter
       start_datetime: 2016-07-01
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Denominator Exclusion #  Exclusion after date of encounter
       start_datetime: 2016-08-01
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Denominator Exclusion #  Exclusion does not have the same signing provider
       start_datetime: 2016-09-01
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Numerator Success #  Success on date of encounter
       start_datetime: 2016-06-01
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Numerator Success #  Success prior to encounter
       start_datetime: 2016-07-01
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Numerator Success #  Success after encounter
       start_datetime: 2016-08-01
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: VSAC Success #  VSAC success on date of encounter
       start_datetime: 2016-06-01
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: S/G8427
     - name: VSAC Success #  VSAC success prior to encounter
       start_datetime: 2016-07-01
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/G8428
 providers:
 - given_name: Rachel

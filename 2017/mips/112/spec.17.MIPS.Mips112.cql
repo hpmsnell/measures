@@ -70,7 +70,7 @@ define "Denominator Exclusion 1":
       where D.prevalencePeriod starts before end "Measurement Period")
    )
 
-define "Denominator Exclusion 3":
+define "Denominator Exclusion 2":
   /*
    * metadata_identifier_link: denominator_exclusion_2
    */

@@ -37,7 +37,15 @@ define "Valid Procedures"
 define "Denominator":
   "Valid Encounter"
 
-define "Denominator Exclusion: G8430":
+define "Numerator Success: G8427":
+  /*
+   * metadata_identifier_link: G8427
+   */
+   "Valid Encounter" E //This is the encounter from the denominator
+    with "Valid Procedures" P
+      such that P.relevantPeriod begins E.relevantPeriod
+
+define "Denominator Exception: G8430":
   /*
    * metadata_identifier_link: G8430
    */
@@ -45,21 +53,9 @@ define "Denominator Exclusion: G8430":
     with ["Procedure, Performed": "MIPS; Denominator Exception: G8430"] P
       such that P.relevantPeriod begins E.relevantPeriod
 
-define "Numerator Success: G8427":
-  /*
-   * metadata_identifier_link: G8427
-   */
-  "Denominator"
-  and not "Denominator Exclusions"
-  and "Valid Encounter" E //This is the encounter from the denominator
-    with "Valid Procedures" P
-      such that P.relevantPeriod begins E.relevantPeriod
-      and P.signingProvider.id = E.signingProvider.id
-
 define "Numerator Failure: G8428":
   /*
    * metadata_identifier_link: G8428
    */
-  "Denominator"
-  and not "Denominator Exclusion: G8430"
+  not "Denominator Exception: G8430"
   and not "Numerator Success: G8427"
