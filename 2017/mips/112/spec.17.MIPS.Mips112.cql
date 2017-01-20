@@ -83,19 +83,13 @@ define "Numerator Performance Met: 3014F":
   /*
    * metadata_identifier_link: 3014F
    */
-  "Denominator"
-  and not "Denominator Exclusion 1"
-  and not "Denominator Exclusion 2"
-  and (
-    exists(["Diagnostic Study, Performed": "VSAC; Mammogram"] D where D.relevantPeriod starts 27 months or less before end "Measurement Period")
-    or exists(["Procedure, Performed": "MIPS; Performance Met: 3014F"] P where P.relevantPeriod starts 27 months or less before end "Measurement Period")
-    )
+  exists(["Diagnostic Study, Performed": "VSAC; Mammogram"] D where D.relevantPeriod starts 27 months or less before end "Measurement Period")
+  or exists(["Procedure, Performed": "MIPS; Performance Met: 3014F"] P where P.relevantPeriod starts 27 months or less before end "Measurement Period")
 
 define "Numerator Performance Not Met: 3014F-8P":
   /*
    * metadata_identifier_link: 3014F-8P
    */
-  "Denominator"
-  and not "Denominator Exclusion 1"
+  not "Denominator Exclusion 1"
   and not "Denominator Exclusion 2"
   and not "Numerator Performance Met: 3014F"
