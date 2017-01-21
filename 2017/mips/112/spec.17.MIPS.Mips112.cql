@@ -18,7 +18,7 @@ using QDM
 
 // Able Custom Value Sets
 
-valueset "MIPS; MIPS 112 Encounters"
+valueset "MIPS; MIPS 112 Encounter"
 valueset "MIPS; History of Mastectomy: G9708"
 valueset "MIPS; Hospice Service: G9709"
 valueset "MIPS; Performance Met: 3014F"
@@ -41,7 +41,7 @@ define "Denominator":
   AgeInYearsAt(start of "Measurement Period") >= 51
   and AgeInYearsAt(start of "Measurement Period") < 74
   and "Patient Characteristic Sex" in "VSAC; Female"
-  and exists(["Encounter, Performed": "MIPS; MIPS 112 Encounters"] E
+  and exists(["Encounter, Performed": "MIPS; MIPS 112 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period")
     and E.signingProvider.pqrsProvider = true
 
