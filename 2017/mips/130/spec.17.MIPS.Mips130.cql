@@ -39,7 +39,7 @@ define "Denominator":
 
 define "Numerator Success: G8427":
   /*
-   * metadata_identifier_link: G8427
+   * config_link_id: G8427
    */
    "Valid Encounter" E //This is the encounter from the denominator
     with "Valid Procedures" P
@@ -47,7 +47,7 @@ define "Numerator Success: G8427":
 
 define "Denominator Exception: G8430":
   /*
-   * metadata_identifier_link: G8430
+   * config_link_id: G8430
    */
   "Valid Encounter" E //This is the encounter from the denominator
     with ["Procedure, Performed": "MIPS; Denominator Exception: G8430"] P
@@ -55,7 +55,7 @@ define "Denominator Exception: G8430":
 
 define "Numerator Failure: G8428":
   /*
-   * metadata_identifier_link: G8428
+   * config_link_id: G8428
    */
   not "Denominator Exception: G8430"
   and not "Numerator Success: G8427"
