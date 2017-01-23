@@ -10,7 +10,7 @@ measure:
 exclusion_reasons:
   - metadata_identifier_link: denominator_exclusion_1
     required:
-      display_title: Patient is excluded for this measure due to history of bilateral mastectomy
+      display_title: Patient is excluded for this measure due to history of bilateral mastectomy or left and right mastectomy
       validation_records:
         group:
           count: 1
@@ -24,23 +24,19 @@ exclusion_reasons:
             value_set_name: "VSAC; Bilateral Mastectomy"
           - model: ClinicalActivity
             value_set_name: "VSAC; History of bilateral mastectomy"
-  - metadata_identifier_link: denominator_exclusion_2
-    required:
-      display_title: Patient is excluded for this measure due to history of left and right mastectomy
-      validation_records:
         group:
           count: 1
           - model: ClinicalActivity
-            value_set_name: MIPS; MIPS 112 Encounter
-        group:
-          count: 1
-          - model: ClinicalActivity
+            value_set_name: "VSAC; Left Mastectomy"
+          - model: Diagnosis
             value_set_name: "VSAC; Left Mastectomy"
         group:
           count: 1
           - model: ClinicalActivity
             value_set_name: "VSAC; Right Mastectomy"
-  - metadata_identifier_link: denominator_exclusion_3
+          - model: Diagnosis
+            value_set_name: "VSAC; Right Mastectomy"
+  - metadata_identifier_link: denominator_exclusion_2
     required:
       display_title: Patient is excluded for this measure due to hospice service during the measurement period
       validation_records:
