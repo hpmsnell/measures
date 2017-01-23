@@ -11,36 +11,22 @@ exclusion_reasons:
   - metadata_identifier_link: exclusion
     required:
       display_title:
-      validation_records:
-        last_of_each:
-          - model:
-            value_set_name:
-        last_of_all:
-          - model:
-            value_set_name:
+      validation_record_groups:
+        - count:
+          validation_records:
+            - model:
+              value_set:
 success_reasons:
   - metadata_identifier_link: # corresponds to constant in measure reason class
     required:
       display_title:
-      validation_records:
-        last_of_each:
-          - model: # Procedure, Performed
-            value_set_name: # HEDIS; Colonoscopy
-        last_of_all:
-          - model: # Procedure, Performed
-            value_set_name: # HEDIS; Colonoscopy
+      validation_record_groups:
     optional:
       code_value: # 1004-F
 failure_reasons:
   - metadata_identifier_link: # corresponds to constant in measure reason class
     required:
       display_title:
-      validation_records:
-        last_of_each:
-          - model: # Procedure, Performed
-            value_set_name: # HEDIS; Colonoscopy
-        last_of_all:
-          - model: # Procedure, Performed
-            value_set_name: # HEDIS; Colonoscopy
+      validation_record_groups:
     optional:
       code_value: # 1004-F
