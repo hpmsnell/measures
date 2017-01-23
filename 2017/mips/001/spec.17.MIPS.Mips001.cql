@@ -27,7 +27,7 @@ valueset "MIPS; Performance Not Met: 3045F"
 
 valueset "VSAC; Diabetes": '2.16.840.1.113883.3.464.1003.103.12.1002' //Note this is the value set for the ICD-10-CM extensional value set—only import ICD-10-CM codes
 valueset "VSAC; Palliative Care" '2.16.840.1.113883.3.600.1.1579'
-valueset "VSAC; HbA1c Laboratory Test"
+valueset "VSAC; HbA1c Laboratory Test" '2.16.840.1.113762.1.4.1053.7'
 
 parameter "Measurement Period" Interval<DateTime>
 
