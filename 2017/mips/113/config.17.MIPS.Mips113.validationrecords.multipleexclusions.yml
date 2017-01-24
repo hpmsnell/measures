@@ -11,33 +11,25 @@ exclusion_reasons:
   - config_link_id: exclusion_1
     required:
       display_title: Patient is excluded for this measure due to a history of total colectomy or colorectal cancer
-      validation_records:
-        group:
-          count: 1
+      validation_record_groups:
+        - count: 1
           - model: ClinicalActivity
             value_set_name: MIPS; MIPS 113 Encounter
-        group:
-          count: 1
+        - count: 1
           - model: Diagnosis
             value_set_name: VSAC; Malignant Neoplasm of Colon
           - model: ClinicalActivity
             value_set_name: VSAC; Total Colectomy
-          - model: Diagnosis
-            value_set_name: HEDIS; Colorectal Cancer
-          - model: ClinicalActivity
-            value_set_name: HEDIS; Total Colectomy
           - model: ClinicalActivity
             value_set_name: MIPS; History of Total Colectomy or Colorectal Cancer
   - config_link_id: exclusion_2
     required:
       display_title: Patient is excluded for this measure due to hospice service during the measurement period
-      validation_records:
-        group:
-          count: 1
+      validation_record_groups:
+        - count: 1
           - model: ClinicalActivity
             value_set_name: MIPS; MIPS 113 Encounter
-        group:
-          count: 1
+        - count: 1
           - model: ClinicalActivity
             value_set_name: MIPS; Hospice Service
           - model: ClinicalActivity
@@ -46,53 +38,37 @@ success_reasons:
   - config_link_id: 3017F
     required:
       display_title: Colorectal cancer screening results documented and reviewed (3017F)
-      validation_records:
-        group:
-          count: 1
+      validation_record_groups:
+        - count: 1
           - model: ClinicalActivity
             value_set_name: MIPS; MIPS 113 Encounter
-        group:
-          count: 1
+        - count: 1
           - model: ClinicalActivity
             value_set_name: 'MIPS; Performance Met: 3017F'
           - model: ClinicalActivity
             value_set_name: VSAC; Colonoscopy
           - model: ClinicalActivity
-            value_set_name: HEDIS; Colonoscopy
-          - model: ClinicalActivity
             value_set_name: VSAC; Flexible Sigmoidoscopy
-          - model: ClinicalActivity
-            value_set_name: HEDIS; Flexible Sigmoidoscopy
           - model: LaboratoryTest
             value_set_name: VSAC; Fecal Occult Blood Test (FOBT)
-          - model: LaboratoryTest
-            value_set_name: HEDIS; FOBT
     optional:
       code_value: 3017F
 failure_reasons:
   - config_link_id: 3017F-8P
     required:
       display_title: Colorectal cancer screening results were not documented and reviewed, reason not otherwise specified (3017F-8P)
-      validation_records:
-        group:
-          count: 1
+      validation_record_groups:
+        - count: 1
           - model: ClinicalActivity
             value_set_name: MIPS; MIPS 113 Encounter
-        group:
-          count: 1
+        - count: 1
           - model: ClinicalActivity
             value_set_name: 'MIPS; Performance Met: 3017F'
           - model: ClinicalActivity
             value_set_name: VSAC; Colonoscopy
           - model: ClinicalActivity
-            value_set_name: HEDIS; Colonoscopy
-          - model: ClinicalActivity
             value_set_name: VSAC; Flexible Sigmoidoscopy
-          - model: ClinicalActivity
-            value_set_name: HEDIS; Flexible Sigmoidoscopy
           - model: LaboratoryTestPerformed
             value_set_name: VSAC; Fecal Occult Blood Test (FOBT)
-          - model: LaboratoryTestPerformed
-            value_set_name: HEDIS; FOBT
     optional:
       code_value: 3017F-8P

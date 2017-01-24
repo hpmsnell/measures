@@ -12,7 +12,7 @@ success_reasons:
   - config_link_id: G8427
     required:
       display_title: Eligible clinician attests to documenting in the medical record they obtained, updated, or reviewed the patient’s current medications (G8427)
-      validation_records:
+      validation_record_groups:
         - count: 1
           - model: ClinicalActivity
             value_set_name: MIPS; MIPS 130 Encounter
@@ -27,7 +27,7 @@ exception_reasons:
   - config_link_id: G8430
     required:
       display_title: Eligible clinician attests to documenting in the medical record the patient is not eligible for a current list of medications being obtained, updated, or reviewed by the eligible clinician (G8430)
-      validation_records:
+      validation_record_groups:
         - count: 1
           - model: ClinicalActivity
             value_set_name: MIPS; MIPS 130 Encounter
@@ -40,7 +40,7 @@ failure_reasons:
   - config_link_id: G8428
     required:
       display_title: Current list of medications not documented as obtained, updated, or reviewed by the eligible clinician, reason not given (G8428)
-      validation_records:
+      validation_record_groups:
         - count: 1
           - model: ClinicalActivity
             value_set_name: MIPS; MIPS 130 Encounter
