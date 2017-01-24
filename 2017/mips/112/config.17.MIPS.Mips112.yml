@@ -8,7 +8,7 @@ measure:
     external_id: 112
     version: 2017
 exclusion_reasons:
-  - metadata_identifier_link: denominator_exclusion_1
+  - config_link_id: denominator_exclusion_1
     required:
       display_title: Patient is excluded for this measure due to history of bilateral mastectomy or left and right mastectomy
       validation_records:
@@ -36,7 +36,7 @@ exclusion_reasons:
             value_set_name: "VSAC; Right Mastectomy"
           - model: Diagnosis
             value_set_name: "VSAC; Right Mastectomy"
-  - metadata_identifier_link: denominator_exclusion_2
+  - config_link_id: denominator_exclusion_2
     required:
       display_title: Patient is excluded for this measure due to hospice service during the measurement period
       validation_records:
@@ -49,7 +49,7 @@ exclusion_reasons:
           - model: ClinicalActivity
             value_set_name: "MIPS; Hospice Service: G9709"
 success_reasons:
-  - metadata_identifier_link: 3014F
+  - config_link_id: 3014F
     required:
       display_title: Screening mammography results documented and reviewed (3014F)
       validation_records:
@@ -66,7 +66,7 @@ success_reasons:
     optional:
       code_value: 3014F
 failure_reasons:
-  - metadata_identifier_link: 3014F-8P
+  - config_link_id: 3014F-8P
     required:
       display_title: Screening mammography results were not documented and reviewed, reason not otherwise specified (3014F-8P)
       validation_records:

@@ -53,7 +53,7 @@ define "Denominator":
 
 define "Denominator Exclusion 1":
   /*
-   * metadata_identifier_link: exclusion_1
+   * config_link_id: exclusion_1
    */
   exists(["Diagnosis": "VSAC; Malignant Neoplasm of Colon"] D
     where D.prevalencePeriod starts before end "Measurement Period")
@@ -68,7 +68,7 @@ define "Denominator Exclusion 1":
 
 define "Denominator Exclusion 1":
   /*
-   * metadata_identifier_link: exclusion_2
+   * config_link_id: exclusion_2
    */
   exists(["Intervention, Performed": "MIPS; Hospice Service: G9710"] I //Updated to Intervention, Performed
     where I.relevantPeriod overlaps "Measurement Period")
@@ -77,7 +77,7 @@ define "Denominator Exclusion 1":
 
 define "Numerator Performance Met: 3017F":
   /*
-   * metadata_identifier_link: 3017F
+   * config_link_id: 3017F
    */
   "Denominator"
   and not "Denominator Exclusion"
@@ -96,7 +96,7 @@ define "Numerator Performance Met: 3017F":
 
 define "Numerator Performance Not Met: 3017F-8P":
   /*
-   * metadata_identifier_link: 3017F-8P
+   * config_link_id: 3017F-8P
    */
   "Denominator"
   and not "Denominator Exclusion"

@@ -8,7 +8,7 @@ measure:
     external_id: 113
     version: 2017
 exclusion_reasons:
-  - metadata_identifier_link: exclusion
+  - config_link_id: exclusion
     required:
       display_title: Patient is excluded for this measure due to a history of total colectomy or colorectal cancer
       validation_records:
@@ -33,7 +33,7 @@ exclusion_reasons:
           - model: ClinicalActivity
             value_set_name: VSAC; Palliative Care
 success_reasons:
-  - metadata_identifier_link: 3017F
+  - config_link_id: 3017F
     required:
       display_title: Colorectal cancer screening results documented and reviewed (3017F)
       validation_records:
@@ -60,7 +60,7 @@ success_reasons:
     optional:
       code_value: 3017F
 failure_reasons:
-  - metadata_identifier_link: 3017F-8P
+  - config_link_id: 3017F-8P
     required:
       display_title: Colorectal cancer screening results were not documented and reviewed, reason not otherwise specified (3017F-8P)
       validation_records:

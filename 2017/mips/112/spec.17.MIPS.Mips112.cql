@@ -47,7 +47,7 @@ define "Denominator":
 
 define "Denominator Exclusion 1":
   /*
-   * metadata_identifier_link: denominator_exclusion_1
+   * config_link_id: denominator_exclusion_1
    */
   exists(["Procedure, Performed": "MIPS; History of Bilateral Mastectomy: G9708"] P
     where P.relevantPeriod starts before end "Measurement Period")
@@ -72,7 +72,7 @@ define "Denominator Exclusion 1":
 
 define "Denominator Exclusion 2":
   /*
-   * metadata_identifier_link: denominator_exclusion_2
+   * config_link_id: denominator_exclusion_2
    */
   exists(["Intervention, Performed": "VSAC; Palliative Care"] I
     where I.relevantPeriod overlaps "Measurement Period")
@@ -81,14 +81,14 @@ define "Denominator Exclusion 2":
 
 define "Numerator Performance Met: 3014F":
   /*
-   * metadata_identifier_link: 3014F
+   * config_link_id: 3014F
    */
   exists(["Diagnostic Study, Performed": "VSAC; Mammogram"] D where D.relevantPeriod starts 27 months or less before end "Measurement Period")
   or exists(["Procedure, Performed": "MIPS; Performance Met: 3014F"] P where P.relevantPeriod starts 27 months or less before end "Measurement Period")
 
 define "Numerator Performance Not Met: 3014F-8P":
   /*
-   * metadata_identifier_link: 3014F-8P
+   * config_link_id: 3014F-8P
    */
   not "Denominator Exclusion 1"
   and not "Denominator Exclusion 2"

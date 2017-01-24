@@ -53,7 +53,7 @@ define "Denominator":
 
 define "Denominator Exclusion":
   /*
-   * metadata_identifier_link: exclusion //Note: Need to break out multiple exlcusion reasons
+   * config_link_id: exclusion //Note: Need to break out multiple exlcusion reasons
    */
   exists(["Diagnosis": "VSAC; Malignant Neoplasm of Colon"] D
     where D.prevalencePeriod starts before end "Measurement Period")
@@ -72,7 +72,7 @@ define "Denominator Exclusion":
 
 define "Numerator Performance Met: 3017F":
   /*
-   * metadata_identifier_link: 3017F
+   * config_link_id: 3017F
    */
   "Denominator"
   and not "Denominator Exclusion"
@@ -91,7 +91,7 @@ define "Numerator Performance Met: 3017F":
 
 define "Numerator Performance Not Met: 3017F-8P":
   /*
-   * metadata_identifier_link: 3017F-8P
+   * config_link_id: 3017F-8P
    */
   "Denominator"
   and not "Denominator Exclusion"
