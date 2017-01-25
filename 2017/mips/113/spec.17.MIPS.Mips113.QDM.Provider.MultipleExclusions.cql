@@ -66,14 +66,14 @@ define "Denominator Exclusion 1":
   or exists (["Procedure, Performed": "MIPS; History of Total Colectomy or Colorectal Cancer: G9711"] P
     where P.relevantPeriod starts before end "Measurement Period")
 
-define "Denominator Exclusion 1":
+define "Denominator Exclusion 2":
   /*
    * config_link_id: exclusion_2
    */
   exists(["Intervention, Performed": "MIPS; Hospice Service: G9710"] I //Updated to Intervention, Performed
-    where I.relevantPeriod overlaps "Measurement Period")
+    where I.relevantPeriod starts during "Measurement Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I //New value set added
-    where I.relevantPeriod overlaps "Measurement Period")
+    where I.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Met: 3017F":
   /*
