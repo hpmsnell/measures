@@ -11,132 +11,66 @@ test_set_key:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name:	Meets LowerBound
+    - name:	Patient Lower
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name:	Meets UpperBound
+    - name:	Patient Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Meets Male
+    - name: Patient Male
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Meets Female
+    - name: Patient Female
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Meets 10DiagnosisDuring
+    - name: Patient NoEncounter
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Patient AfterEncounter
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Patient BeforeEncounter
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Patient Excluded
+      denominator:
+      denominator_exclusion: exclusion
+      denominator_exception:
+      numerator:
+    - name:	Patient NumSuccessLabGreater9
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator:
-    - name: Meets 10DiagnosisPrior
-      denominator:
+      numerator: F/3046
+    - name:	Patient PerfMetNoLabResult
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator:
-    - name: Meets 10DiagnosisAfter
-      denominator:
+      numerator: S/4036F-8P
+    - name:	Patient NumFailMostRecentLabLess9
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator:
-    - name: Meets 9DiagnosisDuring
-      denominator:
+      numerator: F/3044
+    - name:	Patient NumFailMostRecentLab7to9
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator:
-    - name: Meets NoEncounter
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Meets EncounterPrior
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Meets EncounterAfter
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Exclusion DueToHospice
-      denominator:
-      denominator_exclusion: G9687
-      denominator_exception:
-      numerator:
-    - name: HasLab Greater9During
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 3046F
-    - name: NoLab During
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 3046F-8P
-      numerator:
-    - name: HasLab Greater9Prior
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 3046F-8P
-    - name: HasLab Greater9After
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 3046F-8P
-    - name: HasLab MostRecentLess7
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 3044F
-    - name: HasLab MostRecent7to9
-      denominator:
-      denominator_exclusion:
-      demoniator_exception:
-      nuemrator:
-    - name: PerformanceMet 3046FDuring
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 3046F
-    - name: PerformanceMet 3046FBefore
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 3046F
-    - name: PerformanceMet 3046F8PBefore
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 3046F-8P
-    - name: PerformanceMet 3046F8PAfter
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 3046F-8P
-    - name: PerformanceMet 3046F8PDuring
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 3046F-8P
-    - name: PerformanceMet 3045F
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 3045F
-    - name: PerformanceMet 3044F
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 3044F
+      numerator: F/3045
 providers:
   - given_name:	Rachel
     family_name:	Katz
@@ -184,8 +118,8 @@ patients:
 - name: Patient is at lower end of the age range but meets denominator otherwise
   attributes:
     date_of_birth: 12/31/1997
-    given_name: Meets
-    family_name: LowerBound
+    given_name: Patient
+    family_name: Lower
     sex: Female
   clinical_models:
     clinical_activities:
@@ -200,8 +134,8 @@ patients:
 - name: Patient is at upper end of the age range but meets denominator otherwise
   attributes:
     date_of_birth: 1/2/1941
-    given_name: Meets
-    family_name: UpperBound
+    given_name: Patient
+    family_name: Upper
     sex: Female
   clinical_models:
     clinical_activities:
@@ -216,7 +150,7 @@ patients:
 - name: Patient male, meets denominator
   attributes:
     date_of_birth:
-    given_name: Meets
+    given_name: Patient
     family_name: Male
     sex: Male
   clinical_models:
@@ -232,7 +166,7 @@ patients:
 - name: Patient female, meets denominator
   attributes:
     date_of_birth:
-    given_name: Meets
+    given_name: Patient
     family_name: Female
     sex: Female
   clinical_models:
@@ -245,364 +179,178 @@ patients:
     - code_type: ICD10CM
       code_value: E10.21
       start_datetime: 2010-01-01
-- name: Patient has ICD-10 diagnosis during the measurement period
+- name: Patient has no qualifying encounters
   attributes:
-    date_of_birth:
-    given_name: Meets
-    family_name: 10DiagnosisDuring
+    date_of_birth: 1998-01-01
+    given_name: Patient
+    family_name: NoEncounter
     sex: Female
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 99212
-      start_datetime: 2017-09-01
-      provider: Rachel
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2016-01-01
-- name: Patient has ICD-10 diagnosis prior to the measurement period
-  attributes:
-    date_of_birth:
-    given_name: Meets
-    family_name: 10DiagnosisPrior
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99212
-      start_datetime: 2017-09-01
-      provider: Rachel
+      code_value: 92508
+      start_datetime:2017-10-01
     diagnoses:
     - code_type: ICD10CM
       code_value: E10.21
       start_datetime: 2010-01-01
-- name: Patient has ICD-10 diagnosis after the measurement period
+- name: Qualifying encounter after the measurement period
   attributes:
-    date_of_birth:
-    given_name: Meets
-    family_name: 10DiagnosisAfter
-    sex: Female
+    date_of_birth: 1966-01-01
+    given_name: Patient
+    family_name: AfterEncounter
+    sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 99212
-      start_datetime: 2017-09-01
+      code_value: 99211
+      start_datetime: 2018-01-10
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2017-10-01
-- name: Patient has ICD-9 diagnosis after the measurement period
-  attributes:
-    date_of_birth:
-    given_name: Meets
-    family_name: 9DiagnosisDuring
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99212
-      start_datetime: 2016-09-01
-      provider: Rachel
+      code_value: E10.29
+      start_datetime: 2010-01-01
+  - name: Qualifying encounter before the measurement period
+    attributes:
+      date_of_birth: 1966-01-01
+      given_name: Patient
+      family_name: BeforeEncounter
+      sex: Male
     diagnoses:
     - code_type: ICD10CM
-      code_value: 250.01
-      start_datetime: 2016-10-01
-- name: Patient doesn't have an encounter the meets denominator
-  attributes:
-    date_of_birth:
-    given_name: Meets
-    family_name: NoEncounter
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 90791
-      start_datetime: 2016-09-01
-      provider: Rachel
+      code_value: E10.29
+      start_datetime: 2010-01-01
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99211
+        start_datetime: 2016-01-01
+        provider: Rachel
     diagnoses:
     - code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2016-10-01
-- name: Patient has encounter prior to measurement period
-  attributes:
-    date_of_birth:
-    given_name: Meets
-    family_name: NoEncounter
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99318
-      start_datetime: 2015-09-01
-      provider: Rachel
+      code_value: E10.319
+      start_datetime: 2010-01-01
+  - name: Patient Excluded from encounter because of hospice services
+    attributes:
+      date_of_birth: 1966-01-01
+      given_name: Patient
+      family_name: Excluded
+      sex: Male
     diagnoses:
     - code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2016-10-01
-- name: Patient has encounter after the measurement period
-  attributes:
-    date_of_birth:
-    given_name: Meets
-    family_name: NoEncounter
-    sex: Female
-  clinical_models:
+      code_value: E11.3392
+      start_datetime: 2010-01-01
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99211
+        start_datetime: 2016-01-01
+        provider: Rachel
     clinical_activities:
-    - code_type: CPT
-      code_value: 99318
-      start_datetime: 2017-09-01
-      provider: Rachel
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2016-10-01
-- name: Patient has an exclusion due to hospice or palliative care
-  attributes:
-    date_of_birth:
-    given_name: Exclusion
-    family_name: DueToHospice
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: G9687
-      start_datetime: 2016-09-01
-      provider: Rachel
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2016-10-01
-- name: Patient has evidence of an HbA1c result > 9% during measurement period
-  attributes:
-    date_of_birth:
-    given_name: HasLab
-    family_name: Greater9During
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: G9687
-      start_datetime: 2016-09-01
-      provider: Rachel
-    - code_type: LOINC
-      code_value: 4548-4
-      start_datetime: 2016-07-01
-      provider: Rachel
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2012-10-01
-- name: Patient no has evidence of an HbA1c result > 9% during measurement period
-  attributes:
-    date_of_birth:
-    given_name: HasLab
-    family_name: Greater9During
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: G9687
-      start_datetime: 2016-09-01
-      provider: Rachel
-    - code_type:
-      code_value:
-      start_datetime:
-      provider: Rachel
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2012-10-01
-- name: Patient has evidence of an HbA1c result > 9% prior to the measurement period
-  attributes:
-    date_of_birth:
-    given_name: HasLab
-    family_name: Greater9Prior
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: G9687
-      start_datetime: 2016-09-01
-      provider: Rachel
-    - code_type: LOINC
-      code_value: 4548-4
-      result: >9%
-      start_datetime: 2015-06-01
-      provider: Rachel
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2012-10-01
-- name: Patient has evidence of an HbA1c result > 9% after the measurement period
-  attributes:
-    date_of_birth:
-    given_name: HasLab
-    family_name: Greater9After
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: G9687
-      start_datetime: 2016-09-01
-      provider: Rachel
-    - code_type: LOINC
-      code_value: 4548-4
-      result: >9%
-      start_datetime: 2017-01-01
-      diagnoses:
-    - code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2012-10-01
-- name: Patient's most recent HbA1c result = < 7%
-  attributes:
-    date_of_birth:
-    given_name: HasLab
-    family_name: MostRecentLess7
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: G9687
-      start_datetime: 2016-09-01
-      provider: Rachel
-    - code_type: LOINC
-      code_value: 4548-4
-      result: <7%
-      start_datetime: 2016-10-01
-      diagnoses:
-    - code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2012-10-01
-- name: Patient's most recent HbA1c result = 8%
-  attributes:
-    date_of_birth:
-    given_name: HasLab
-    family_name: MostRecent7to9
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: G9687
-      start_datetime: 2016-09-01
-      provider: Rachel
-    - code_type: LOINC
-      code_value: 4548-4
-      result: 8%
-      start_datetime: 2016-11-01
-      diagnoses:
-    - code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2012-10-01
-- name: Patient met the performance 3046F during measurement period
-  attributes:
-    date_of_birth:
-    given_name: PerformanceMet
-    family_name: 3046FDuring
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPTII
-      code_value: 3046F
-      start_datetime: 2015-09-01
-      provider: Rachel
-      diagnoses:
-    - code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2012-10-01
-- name: Patient met the performance 3046F before measurement period
-  attributes:
-    date_of_birth:
-    given_name: PerformanceMet
-    family_name: 3046FBefore
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPTII
-      code_value: 3046F
-      start_datetime: 2015-09-01
-      provider: Rachel
-    - diagnoses:
-      code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2012-10-01
-- name: Patient met the performance 3046F-8P before measurement period
-  attributes:
-    date_of_birth:
-    given_name: PerformanceMet
-    family_name: 3046F8PDuring
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPTII
-      code_value: 3046F-8P
-      start_datetime: 2016-09-01
-      provider: Rachel
-      diagnoses:
-    - code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2012-10-01
-- name: Patient met the performance 3046F-8P after measurement period
-  attributes:
-    date_of_birth:
-    given_name: PerformanceMet
-    family_name: 3046F8PAfter
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPTII
-      code_value: 3046F-8P
-      start_datetime: 2017-01-01
-      provider: Rachel
-      diagnoses:
-    - code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2012-10-01
-- name: Patient met the performance 3046F-8P during measurement period
-  attributes:
-    date_of_birth:
-    given_name: PerformanceMet
-    family_name: 3046F8During
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPTII
-      code_value: 3046F-8P
+    - code_type: SNOMEDCT
+      code_value: 306288008
       start_datetime: 2016-01-01
-      provider: Rachel
-      diagnoses:
+  - name: Patient has lab test and result > 9%
+    attributes:
+      date_of_birth: 1975-10-01
+      given_name: Patient
+      family_name: NumSuccessLabGreater9
+      sex: Male
+    diagnoses:
     - code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2012-10-01
-- name: Patient met the performance 3045F during measurement period
-  attributes:
-    date_of_birth:
-    given_name: PerformanceMet
-    family_name: 3045F
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPTII
-      code_value: 3046F-8P
-      start_datetime: 2017-01-01
-      provider: Rachel
-      diagnoses:
+      code_value: E11.3392
+      start_datetime: 2010-01-01
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99291
+        start_datetime: 2016-01-01
+        provider: Rachel
+      laboratory_tests:
+      - code_type: LOINC
+        code_value: 4548-4
+        start_datetime: 2017-10-01
+        result: 9
+  - name: Patient did not have a lab test performed for HbA1c
+    attributes:
+      date_of_birth: 1975-10-01
+      given_name: Patient
+      family_name: NumSuccessNoLabResult
+      sex: Male
+    diagnoses:
     - code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2012-10-01
-- name: Patient met the performance 3044F during measurement period
-  attributes:
-    date_of_birth:
-    given_name: PerformanceMet
-    family_name: 3044F
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPTII
-      code_value: 3046F-8P
-      start_datetime: 2017-01-01
-      provider: Rachel
-      diagnoses:
+      code_value: E11.3392
+      start_datetime: 2010-01-01
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99291
+        start_datetime: 2016-01-01
+        provider: Rachel
+      laboratory_tests:
+      - code_type:
+        code_value:
+        start_datetime:
+        result:
+  - name: Patient's most recent HbA1c < 7.0%
+    attributes:
+      date_of_birth: 1975-10-01
+      given_name: Patient
+      family_name: NumFailMostRecentLabLess9
+      sex: Male
+    diagnoses:
     - code_type: ICD10CM
-      code_value: E10.21
-      start_datetime: 2012-10-01
+      code_value: E11.3392
+      start_datetime: 2010-01-01
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99291
+        start_datetime: 2016-01-01
+        provider: Rachel
+      laboratory_tests:
+      - code_type: LOINC
+        code_value: 4548-4
+        start_datetime: 2011-10-01
+        result: 6
+  - name: Patient's most recent HbA1c between 8-9%
+    attributes:
+      date_of_birth: 1975-10-01
+      given_name: Patient
+      family_name: NumFailMostRecentLabLess9
+      sex: Male
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E11.3392
+      start_datetime: 2010-01-01
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99291
+        start_datetime: 2016-01-01
+        provider: Rachel
+      laboratory_tests:
+      - code_type: LOINC
+        code_value: 4548-4
+        start_datetime: 2011-10-01
+        result: 8
+  - name: Patient's most recent HbA1c between 8-9%
+    attributes:
+      date_of_birth: 1975-10-01
+      given_name: Patient
+      family_name: NumFailMostRecentLabLess9
+      sex: Male
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E11.3392
+      start_datetime: 2010-01-01
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99291
+        start_datetime: 2016-01-01
+        provider: Rachel
+      laboratory_tests:
+      - code_type: LOINC
+        code_value: 4548-4
+        start_datetime: 2011-10-01
