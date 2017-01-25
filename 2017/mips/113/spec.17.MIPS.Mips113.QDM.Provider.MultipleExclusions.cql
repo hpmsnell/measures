@@ -66,7 +66,7 @@ define "Denominator Exclusion 1":
   or exists (["Procedure, Performed": "MIPS; History of Total Colectomy or Colorectal Cancer: G9711"] P
     where P.relevantPeriod starts before end "Measurement Period")
 
-define "Denominator Exclusion 1":
+define "Denominator Exclusion 2":
   /*
    * metadata_identifier_link: exclusion_2
    */
