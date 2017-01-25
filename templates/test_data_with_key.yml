@@ -2,16 +2,18 @@ measure_id: # 16.PQRS.Pqrs123
 test_set_keys:
   organization_key:
     patients:
-    - name: # given and family name of patient
-      denominator: # true or leave blank
-      denominator_exclusion: # true or leave blank
-      numerator: # S/888F-1 or leave blank
+      - name: # given and family name of patient
+        denominator: # true or leave blank
+        denominator_exclusion: # exclusion_1
+        denominator_exception: # exception_1
+        numerator: # S/888F-1 or leave blank
   providers_key:
     - name: # given name of provider
       patients:
         - name: # given and family name of patient
           denominator: # true or leave blank
-          denominator_exclusion: # true or leave blank
+          denominator_exclusion: # exclusion_1
+          denominator_exception: # exception_1
           numerator: # S/888F-1 or leave blank
 providers:
 - given_name:
