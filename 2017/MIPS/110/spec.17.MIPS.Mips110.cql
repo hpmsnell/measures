@@ -1,121 +1,120 @@
-library MIPS_110_2017 version '1'
+library MIPS_001_2017 version '1'
 
 /*
  * Source: MIPS
- * ID: 110
+ * ID: 001
  * Year: 2017
- * Version: 1
- * Clinical Lead: Calvin Newman
- *
  */
 
 using QDM
 
-// VSAC Value Sets
+// Able custom value sets
 
-valueset "Encounter, Performed: MIPS; MIPS 110 Encounters Set A"
-valueset "Encounter, Performed: MIPS; MIPS 110 Encounters Set B"
-valueset "Immunization, Administered: Influenza Vaccine"
+valueset "MIPS; MIPS 110 Encounter A"
+valueset "MIPS; MIPS 110 Encounter B"
 
-"Communication: From Patient to Provider: Influenza Vaccination Declined" using "Influenza Vaccination Declined Grouping Value Set (2.16.840.1.113883.3.526.3.1255)"
-"Communication: From Patient to Provider: Previous Receipt of Influenza Vaccine" using "Previous Receipt of Influenza Vaccine Grouping Value Set (2.16.840.1.113883.3.526.3.1185)"
-"Diagnosis: Allergy to Eggs" using "Allergy to Eggs Grouping Value Set (2.16.840.1.113883.3.526.3.1253)"
-"Diagnosis: Allergy to Influenza Vaccine" using "Allergy to Influenza Vaccine Grouping Value Set (2.16.840.1.113883.3.526.3.1256)"
-"Diagnosis: Intolerance to Influenza Vaccine" using "Intolerance to Influenza Vaccine Grouping Value Set (2.16.840.1.113883.3.526.3.1257)"
+// CMS created VSACs
 
-"Immunization, Administered not done: Medical Reason" using "Medical Reason Grouping Value Set (2.16.840.1.113883.3.526.3.1007)"
-"Immunization, Administered not done: Patient Reason" using "Patient Reason Grouping Value Set (2.16.840.1.113883.3.526.3.1008)"
-"Immunization, Administered not done: System Reason" using "System Reason Grouping Value Set (2.16.840.1.113883.3.526.3.1009)"
-"Immunization, Allergy: Influenza Vaccine" using "Influenza Vaccine Grouping Value Set (2.16.840.1.113883.3.526.3.1254)"
-"Immunization, Intolerance: Influenza Vaccine" using "Influenza Vaccine Grouping Value Set (2.16.840.1.113883.3.526.3.1254)"
+valueset "VSAC; Allergy to Eggs" '2.16.840.1.113883.3.526.3.1253'
+valueset "VSAC; Allergy to Influenza Vaccine" '2.16.840.1.113883.3.526.3.1256'
+valueset "VSAC; Intolerance to Influenza Vaccine" '2.16.840.1.113883.3.526.3.1257'
+valueset "VSAC; Not Done: Medical Reason" '2.16.840.1.113883.3.526.3.1007'
+valueset "VSAC; Not Done: Patient Reason" '2.16.840.1.113883.3.526.3.100'
+valueset "VSAC; Not Done: System Reason" '2.16.840.1.113883.3.526.3.1009'
+valueset "VSAC; Influenza Vaccine" '2.16.840.1.113883.3.526.3.1254'
+valueset "VSAC; Influenza Vaccine" '2.16.840.1.113883.3.526.3.1254'
 
-"Procedure, Intolerance: Influenza Vaccination" using "Influenza Vaccination Grouping Value Set (2.16.840.1.113883.3.526.3.402)"
-"Procedure, Performed: Hemodialysis" using "Hemodialysis Grouping Value Set (2.16.840.1.113883.3.526.3.1083)"
-"Procedure, Performed: Influenza Vaccination" using "Influenza Vaccination Grouping Value Set (2.16.840.1.113883.3.526.3.402)"
-"Procedure, Performed: Peritoneal Dialysis" using "Peritoneal Dialysis Grouping Value Set (2.16.840.1.113883.3.526.3.1084)"
-"Procedure, Performed not done: Medical Reason" using "Medical Reason Grouping Value Set (2.16.840.1.113883.3.526.3.1007)"
-"Procedure, Performed not done: Patient Reason" using "Patient Reason Grouping Value Set (2.16.840.1.113883.3.526.3.1008)"
-"Procedure, Performed not done: System Reason" using "System Reason Grouping Value Set (2.16.840.1.113883.3.526.3.1009)"
-Supplemental Data Elements
-"Encounter, Performed: Office Visit"
-"Encounter, Performed: Outpatient Consultation"
-"Encounter, Performed: Care Services in Long-Term Residential Facility"
-"Encounter, Performed: Home Healthcare Services"
-"Encounter, Performed: Patient Provider Interaction"
-during "Measurement Period"
+define "Measurement Interval A": Interval[@2017-01-01T00:00:00.0, @2017-03-31T00:00:00.0]
+define "Measurement Interval B": Interval[@2016-10-01T00:00:00.0, @2016-12-31T00:00:00.0]
 
-context Patient
+define "Measurement Period" default Interval
 
-parameter "Measurement Period A"
-  default interval{@2016-01-01T00:00:00.0, @2016-03-31T00:00:00.0)
+context Population
 
-parameter "Measurement Period B"
-  default interval(@2016-10-01T00:00:00.0, @2017-01-01T00:00:00.0)
+define "Denominator":
+  AgeInMonthsAt(start of "Measurement Period") >= 6
+  where D.prevalencePeriod overlaps "Measurement Period")
+    and exists ([Encounter, Performed: "MIPS; MIPS 110 Encounter A"] during "Measurement Interval A")
+      or exists ([Encounter, Performed: "MIPS; MIPS 110 Encounter A"] during "Measurement Interval B")
+    and not ([Encounter, Performe: "Telemedicine GC Modifier"])
+    OR
+  where D.prevelancePeriod overlaps "Measurement Period")
+    and exists ([Encounter, Performed: "MIPS; MIPS 110 Encounter B"] during "Measurement Interval A")
+      or exists ([Encounter, Performed: "MIPS; MIPS 110 Encoutner B"] during "Measurement Interval B")
+    and not (["Encounter, Performed: Telemedicne GC Modifier")
 
-define "Denominator"
+define "Numerator Performance Met: G8482":
 /*
-* metadata_identifier_link: dennominator
+* config_link_id: G8482
 */
-  AgeInYearsAt(start of "Measurement Period") >= 6 months
-  and (["Encounter, Performed": "MIPS; MIPS 110 Encounters"] Ea
-    count = 2;
-    where Ea.relevantPeriod starts during "Measurement Period A")
-  And exists(["Encounter Performed": "MIPS; MIPS 110 Encounters"] Eb
-    count = 1;
-    where Eb.relevantPeriod starts during "Measurement Period B")
-      and not exists([TELEHEALTH MODIFIER: GQ, GT***])
+  exists ([Medication, Administered: "VSAC; Influenza Vaccine"] during "Measurement Period")
+
+define "Numerator Performance Not Met: G8484":
+/*
+* config_link_id: G8484
+*/
+  not exists([Medication, Administered: "VSAC; Influenza Vaccine"] overlaps "Measurement Period")
+
+define "Denominator Exception 1: G8483":
+/*
+* config_link_id: G8483
+*/
+  exists([VSAC; Diagnosis, Active: "VSAC; Allergy to Eggs"] D
+    or exists([Diagnosis, Active: "VSAC; Allergy to Influenza Vaccine"] D
+    or exists([Diagnosis, Active: "VSAC; Intolerance to Influenza Vaccine"] D
+    where D.prevelancePeriod overlaps "Measurement Period")
+
+define "Denominator Exception 2: G8483":
+/*
+* config_link_id: G8483
+*/
+  exists
 
 
-define "Numerator Performance Met: G8482"
+, Allergy: Influenza Vaccine" <= 89 day(s) ends after start of "Measurement Period"
+define "Denominator Exclusion":
   /*
-   * metadata_identifier_link: G8482
+   * config_link_id: exclusion
    */
-    exists([Immunization, Administered: Influenza Vaccine"] P where P.relevantPeriod during "Measuremenet Period"
-    )
+  exists([Intervention, Performed: "VSAC; Palliative Care"] I
+    where I.relevantPeriod overlaps "Measurement Period")
+  or exists([Intervention, Performed: "MIPS; Hospice Service: G9687"] I
+    where I.relevantPeriod overlaps "Measurement Period")
 
-define "Numerator Performance Not Met: G8484"
-      /*
-       * metadata_identifier_link: G8484
-       */
+define "Numerator Performance Met: 3046F":
+  /*
+   * config_link_id: 3046F
+   */
+  Last([Laboratory Test, Performed: "VSAC; HbA1c Laboratory Test"] L
+    where L.resultDateTime during "Measurement Period").result.value > 9 //Note that this is verifying the result of the last test
+  or exists([Procedure, Performed: "MIPS; Performance Met: 3046F"] P
+    where P.relevantPeriod starts during "Measurement Period")
+  )
 
-        exists([Immunization, Administered: Influenza Vaccine"] P where P.relevantPeriod during "Measuremenet Period"
-        )
+define "Numerator Performance Met: 3046-8P":
+  /*
+   * config_link_id: 3046F-8P
+   */
+  not exists(Laboratory Test, Performed: "VSAC; HbA1c Laboratory Test"] L
+    where L.resultDateTime during "Measurement Period")
+  or exists([Procedure, Performed: "MIPS; Performance Met: 3046F-8P"] P
+    where P.relevantPeriod starts during "Measurement Period")
+  )
 
-  define "Denominator Exception"
-    /*
-     * metadata_identifier_link: Denominator_Exclusion
-     */
-    exists(["Procedure, Performed": "MIPS; History of Bilateral Mastectomy: G9708"] P
-      where P.relevantPeriod starts before end "Measurement Period")
-    or exists(["Procedure, Performed": "VSAC; Bilateral Mastectomy"] P
-      where P.relevantPeriod starts before end "Measurement Period")
+define "Numerator Performance Not Met: 3044F":
+  /*
+   * config_link_id: 3044F
+   */
+  Last([Laboratory Test, Performed: "VSAC; HbA1c Laboratory Test"] L
+    where L.resultDateTime during "Measurement Period").result.value < 7
+  or exists([Procedure, Performed: "MIPS; Performance Not Met: 3044F"] P
+    where P.relevantPeriod starts during "Measurement Period")
+  )
 
-
-
-
-  define "Denominaor Exclusion 2"
-    /*
-     * metadata_identifier_link: denominator_exclusion_2
-     */
-     (
-       exists(["Procedure, Performed": "VSAC; Left Mastectomy"] P
-        where P.relevantPeriod starts before end "Measurement Period")
-       and exists(["Procedure, Performed": "VSAC; Right Mastectomy"] P
-        where P.relevantPeriod starts before end "Measurement Period")
-     ) or (
-       exists(["Diagnosis": "VSAC; Left Mastectomy"] D
-        where D.prevalencePeriod starts before end "Measurement Period")
-       and exists(["Diagnosis": "VSAC; Right Mastectomy"] D
-        where D.prevalencePeriod starts before end "Measurement Period")
-     )
-
-
-
-  define "Denominator Exclusion 3"
-    /*
-     * metadata_identifier_link: denominator_exclusion_2
-     */
-    exists([Intervention, Performed: "VSAC; Palliative Care"] I
-      where I.relevantPeriod overlaps "Measurement Period")
-    or exists([Intervention, Performed: "MIPS; Hospice Service: G9687"] I
-      where I.relevantPeriod overlaps "Measurement Period")
+define "Numerator Performance Not Met: 3045F":
+  /*
+   * config_link_id: 3045F
+   */
+  not "Numerator Performance Met: 3046F"
+  and not "Numerator Performance Met: 3046-8P"
+  and not "Numerator Performance Not Met: 3044F"
