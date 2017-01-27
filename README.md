@@ -40,7 +40,7 @@ Each file contains the following metadata for each measure:
 
 Validation records are specified using Able domain model categories, as specified [in this mapping (see "Able to YAML" tab)](https://docs.google.com/a/ablehealth.com/spreadsheets/d/1rqgov-26ChvKZEIPy1i1L1TxlQ9T8vduY0-EZccpx_s/edit?usp=sharing).
 
-[View the template for this file here](https://github.com/AbleHealth/measures/blob/master/templates/measure_metadata.yml)
+[View the template for this file here](https://github.com/AbleHealth/measures/blob/master/templates/measure_metadata.yml)  
 [Use this tool to validate your files](https://acceptance.ablehealth.com/able_admin/measure_test_set_format_validations/new)
 
 ## Test data
