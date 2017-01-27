@@ -1,0 +1,57 @@
+measure:
+  name: 17.MIPS.MIPS_110
+  required:
+    display_title: Preentative Care & Screening: Influenza Immunization
+  optional:
+    gap_resolution_action: Patient requires influenza vaccination
+    set: MIPS
+    external_id: 110
+    version: 2017
+exclusion_reasons:
+  - metadata_identifier_link: denominator_exception_1
+    required:
+      display_title: Patient is exclued because of an allergy
+      validation_records:
+        group:
+          count: 1
+          - model: ClinicalActivity
+            value_set_name: MIPS; MIPS Encounter 110
+        group:
+          count: 1
+          - model: ClinicalActivity
+            value_set_name: "VSAC; Allergy to Eggs"
+          - model: ClinicalActivity
+            value_set_name: "VSAC; Allergy to Influenza Vaccine"
+          - model: ClinicalActivity
+            value_set_name: "VSAC; Intolerance to Influenza Vaccine"
+  - metadata_identifier_link: denominator_exception_2
+    required:
+      display_title: Patient is excluded because of a medical or other reason
+      validation_records:
+        group:
+          count: 1
+          - model: ClinicalActivity
+            value_set_name: MIPS; MIPS Encounter 110
+        group:
+          count: 1
+          - model: ClinicalActivity
+            value_set_name: "VSAC; Not Done: Medical Reason"
+          - model: ClinicalActivity
+            value_set_name: "VSAC; Not Done: Patient Reason"
+          - model: ClinicalActivity
+            value_set_name: "VSAC; Not Done: System Reason"
+faiure_reasons:
+  - metadata_identifier_link: G8484
+    required:
+      display_title: Influenza vaccination not administered or documented in the medical record (G8484)
+      validation_records:
+        group:
+          count: 1
+          - model: ClinicalActivity
+            value_set_name: MIPS; MIPS 110 Encounter
+        group:
+          count: 1
+          - model: ClinicalActivity
+            value_set_name: "VSAC; Influenza Vaccine"
+    optional:
+      code_value: G8484
