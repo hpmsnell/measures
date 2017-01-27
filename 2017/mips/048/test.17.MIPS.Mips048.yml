@@ -5,50 +5,62 @@ test_set_keys:
     - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Age LowerBound # Patient is at lower age bound and otherwise meets the denominator
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/1090F-8P
-    - name: No Encounter # Patient has no denominator eligible encounters but otherwise meets the denominator
+    - name: "No Encounter" # Patient has "No" denominator eligible encounters but otherwise meets the denominator
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Encounter Early # Patient has an encounter that is early but otherwise meets the denominator
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Encounter Late  # Patient has an encounter that is late but otherwise meets the denominator
       denominator:
       denominator_exclusion:
+      denominator_exception:
       numerator:
     - name: Exclusion HospiceService #Patient has an exclusion for hospice service
       denominator: 1
       denominator_exclusion: deminator_exclusion
+      denominator_exception:
       numerator:
     - name: Exclusion HospiceServiceEarly # Patient has an exclusion for hospice service but it is too early
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/1090F-8P
     - name: Exclusion HospiceServiceLate # Patient has an exclusion for hospice service but it is too late
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator:  F/1090F-8P
     - name: Assessed Start # Patient assessed at start of allowable period
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: S/1090F
     - name: Assessed End # Patient assessed at end of allowable period
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: S/1090F
     - name: Assessed Early # Patient assessed too early
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/1090F-8P
     - name: Assessed Late # Patient assessed too late
       denominator: 1
       denominator_exclusion:
+      denominator_exception:
       numerator: F/1090F-8P
   providers_key:
   - name: Rachel
@@ -56,100 +68,124 @@ test_set_keys:
       - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
         denominator:
         denominator_exclusion:
+        denominator_exception:
         numerator:
       - name: Age LowerBound # Patient is at lower age bound and otherwise meets the denominator
         denominator: 1
         denominator_exclusion:
+        denominator_exception:
         numerator: F/1090F-8P
-      - name: No Encounter # Patient has no denominator eligible encounters but otherwise meets the denominator
+      - name: "No Encounter" # Patient has "No" denominator eligible encounters but otherwise meets the denominator
         denominator:
         denominator_exclusion:
+        denominator_exception:
         numerator:
       - name: Encounter Early # Patient has an encounter that is early but otherwise meets the denominator
         denominator:
         denominator_exclusion:
+        denominator_exception:
         numerator:
       - name: Encounter Late  # Patient has an encounter that is late but otherwise meets the denominator
         denominator:
         denominator_exclusion:
+        denominator_exception:
         numerator:
       - name: Exclusion HospiceService #Patient has an exclusion for hospice service
         denominator: 1
         denominator_exclusion: deminator_exclusion
+        denominator_exception:
         numerator:
       - name: Exclusion HospiceServiceEarly # Patient has an exclusion for hospice service but it is too early
         denominator: 1
         denominator_exclusion:
+        denominator_exception:
         numerator: F/1090F-8P
       - name: Exclusion HospiceServiceLate # Patient has an exclusion for hospice service but it is too late
         denominator: 1
         denominator_exclusion:
+        denominator_exception:
         numerator:  F/1090F-8P
       - name: Assessed Start # Patient assessed at start of allowable period
         denominator:
         denominator_exclusion:
+        denominator_exception:
         numerator:
       - name: Assessed End # Patient assessed at end of allowable period
         denominator:
         denominator_exclusion:
+        denominator_exception:
         numerator:
       - name: Assessed Early # Patient assessed too early
         denominator:
         denominator_exclusion:
+        denominator_exception:
         numerator:
       - name: Assessed Late # Patient assessed too late
         denominator:
         denominator_exclusion:
+        denominator_exception:
         numerator:
   - name: Patty
     patients:
       - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
         denominator:
         denominator_exclusion:
+        denominator_exception:
         numerator:
       - name: Age LowerBound # Patient is at lower age bound and otherwise meets the denominator
         denominator:
         denominator_exclusion:
+        denominator_exception:
         numerator:
-      - name: No Encounter # Patient has no denominator eligible encounters but otherwise meets the denominator
+      - name: "No Encounter" # Patient has "No" denominator eligible encounters but otherwise meets the denominator
         denominator:
         denominator_exclusion:
+        denominator_exception:
         numerator:
       - name: Encounter Early # Patient has an encounter that is early but otherwise meets the denominator
         denominator:
         denominator_exclusion:
+        denominator_exception:
         numerator:
       - name: Encounter Late  # Patient has an encounter that is late but otherwise meets the denominator
         denominator:
         denominator_exclusion:
+        denominator_exception:
         numerator:
       - name: Exclusion HospiceService #Patient has an exclusion for hospice service
         denominator:
         denominator_exclusion:
+        denominator_exception:
         numerator:
       - name: Exclusion HospiceServiceEarly # Patient has an exclusion for hospice service but it is too early
         denominator:
         denominator_exclusion:
+        denominator_exception:
         numerator:
       - name: Exclusion HospiceServiceLate # Patient has an exclusion for hospice service but it is too late
         denominator:
         denominator_exclusion:
+        denominator_exception:
         numerator:
       - name: Assessed Start # Patient assessed at start of allowable period
         denominator: 1
         denominator_exclusion:
+        denominator_exception:
         numerator: S/1090F
       - name: Assessed End # Patient assessed at end of allowable period
         denominator: 1
         denominator_exclusion:
+        denominator_exception:
         numerator: S/1090F
       - name: Assessed Early # Patient assessed too early
         denominator: 1
         denominator_exclusion:
+        denominator_exception:
         numerator: F/1090F-8P
       - name: Assessed Late # Patient assessed too late
         denominator: 1
         denominator_exclusion:
+        denominator_exception:
         numerator: F/1090F-8P
 providers:
 - given_name: Rachel
@@ -187,10 +223,10 @@ patients:
       code_value: 99201
       start_datetime: 2016-01-01
       provider: Rachel
-- name: Patient has no denominator eligible encounters but otherwise meets the denominator
+- name: Patient has "No" denominator eligible encounters but otherwise meets the denominator
   attributes:
     date_of_birth: 1950-01-01
-    given_name: No
+    given_name: "No"
     family_name: Encounter
     sex: Female
   clinical_models:

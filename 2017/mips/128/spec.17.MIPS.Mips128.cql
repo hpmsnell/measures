@@ -83,7 +83,7 @@ define "Numerator Performance Met: G8420":
     exists(["Assessment, Performed": "VSAC; BMI LOINC Value"] A
       where A.authorDateTime starts during "Measurement Period")
       and A.result >= 25
-      with ["Intervention, Performed": "VSAC; Above Normal Follow-Up"] I
+      with ["Intervention, Performed": "VSAC; Above Normal Follow-up"] I
         such that I.relevantPeriod starts 6 months or less before A.authorDateTime
   )
 

@@ -32,7 +32,12 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Exclusion NotEligible # Patient has an exclusion
+    - name: Exclusion Start # Patient has an exclusion
+      denominator: 1
+      denominator_exclusion: denominator_exclusion
+      denominator_exception:
+      numerator:
+    - name: Exclusion End # Patient has an exclusion
       denominator: 1
       denominator_exclusion: denominator_exclusion
       denominator_exception:
@@ -67,12 +72,12 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: S/G8420
-    - name: BMI Early # Patient screened too early
+    - name: BMI NormalEarly # Patient screened too early
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: F/G8421
-    - name: BMI Late # Patient screened too late
+    - name: BMI NormalLate # Patient screened too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -117,22 +122,22 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: F/G8419
-    - name: Denominator ExceptionStart # Patient has a denominator exception at the start of the allowable period
+    - name: Exception Start # Patient has a denominator exception at the start of the allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception: G9716
       numerator:
-    - name: Denominator ExceptionStart # Patient has a denominator exception at the end of the allowable period
+    - name: Exception Start # Patient has a denominator exception at the end of the allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception: G9716
       numerator:
-    - name: Denominator ExceptionEarly # Patient has a denominator exception but it is too early
+    - name: Exception Early # Patient has a denominator exception but it is too early
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: F/G8421
-    - name: Denominator ExceptionLate # Patient has a denominator exception but it is too late
+    - name: Exception Late # Patient has a denominator exception but it is too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -150,7 +155,7 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: F/G8421
-    - name: "No Encounter" # Patient has no denominator eligible encounters but otherwise meets the denominator
+    - name: "No Encounter" # Patient has "No" denominator eligible encounters but otherwise meets the denominator
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -170,7 +175,12 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Exclusion NotEligible # Patient has an exclusion
+    - name: Exclusion Start # Patient has an exclusion
+      denominator: 1
+      denominator_exclusion: denominator_exclusion
+      denominator_exception:
+      numerator:
+    - name: Exclusion End # Patient has an exclusion
       denominator: 1
       denominator_exclusion: denominator_exclusion
       denominator_exception:
@@ -205,12 +215,12 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: S/G8420
-    - name: BMI Early # Patient screened too early
+    - name: BMI NormalEarly # Patient screened too early
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: F/G8421
-    - name: BMI Late # Patient screened too late
+    - name: BMI NormalLate # Patient screened too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -255,22 +265,22 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: F/G8419
-    - name: Denominator ExceptionStart # Patient has a denominator exception at the start of the allowable period
+    - name: Exception Start # Patient has a denominator exception at the start of the allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Denominator ExceptionStart # Patient has a denominator exception at the end of the allowable period
+    - name: Exception Start # Patient has a denominator exception at the end of the allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Denominator ExceptionEarly # Patient has a denominator exception but it is too early
+    - name: Exception Early # Patient has a denominator exception but it is too early
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Denominator ExceptionLate # Patient has a denominator exception but it is too late
+    - name: Exception Late # Patient has a denominator exception but it is too late
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -287,7 +297,7 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: "No Encounter" # Patient has no denominator eligible encounters but otherwise meets the denominator
+    - name: "No Encounter" # Patient has "No" denominator eligible encounters but otherwise meets the denominator
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -307,7 +317,12 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Exclusion NotEligible # Patient has an exclusion
+    - name: Exclusion Start # Patient has an exclusion
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exclusion End # Patient has an exclusion
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -342,12 +357,12 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: BMI Early # Patient screened too early
+    - name: BMI NormalEarly # Patient screened too early
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: BMI Late # Patient screened too late
+    - name: BMI NormalLate # Patient screened too late
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -392,22 +407,22 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Denominator ExceptionStart # Patient has a denominator exception at the start of the allowable period
+    - name: Exception Start # Patient has a denominator exception at the start of the allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception: G9716
       numerator:
-    - name: Denominator ExceptionStart # Patient has a denominator exception at the end of the allowable period
+    - name: Exception Start # Patient has a denominator exception at the end of the allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception: G9716
       numerator:
-    - name: Denominator ExceptionEarly # Patient has a denominator exception but it is too early
+    - name: Exception Early # Patient has a denominator exception but it is too early
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: F/G8421
-    - name: Denominator ExceptionLate # Patient has a denominator exception but it is too late
+    - name: Exception Late # Patient has a denominator exception but it is too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -451,7 +466,7 @@ patients:
 - name: Patient has no denominator eligible encounters but otherwise meets the denominator
   attributes:
     date_of_birth: 1950-01-01
-    given_name: No
+    given_name: "No"
     family_name: Encounter
     sex: Female
   clinical_models:
@@ -832,7 +847,7 @@ patients:
       start_datetime: 2016-01-01
       provider: Patty
     - code_type: CPT
-      code_value: G9716 # G-code for not exception
+      code_value: G9716 # G-code for exception
       start_datetime: 2016-12-31
 - name: Patient has a denominator exception but it is too late
   attributes:
