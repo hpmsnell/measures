@@ -14,7 +14,7 @@ Each measure specification specifies the logic for placing a patient or episode 
 
 Value sets come from a number of sources, such as VSAC and HEDIS. Each value set is identified by a source and name, e.g. `VSAC; Palliative Care` and paired with a QDM element, such as `Procedure, Performed`.
 
-[View the template for measure specs](https://github.com/AbleHealth/measures/blob/master/templates/spec_template.cql)
+[View the template for measure specs here](https://github.com/AbleHealth/measures/blob/master/templates/spec_template.cql)
 
 For more information:
 
@@ -42,8 +42,7 @@ Each file contains the following metadata for each measure:
 
 Validation records are specified using Able domain model categories, as specified [in this mapping (see "Able to YAML" tab)](https://docs.google.com/a/ablehealth.com/spreadsheets/d/1rqgov-26ChvKZEIPy1i1L1TxlQ9T8vduY0-EZccpx_s/edit?usp=sharing).
 
-[View the template for this file here](https://github.com/AbleHealth/measures/blob/master/templates/measure_metadata.yml)  
-[Use this tool to validate your files](https://acceptance.ablehealth.com/able_admin/measure_test_set_format_validations/new)
+[View the template for config files here](https://github.com/AbleHealth/measures/blob/master/templates/measure_metadata.yml)  
 
 ## Test data
 Test data files specify the clinical data for all test patients, as well as an organization-level test key, and are written in YAML. Test data files are used for both patient-based and episode-of-care-based measures.
@@ -60,7 +59,8 @@ Each file contains the following data:
     
 Validation records are specified using Able domain model categories, as specified [in this mapping (see "Able to YAML" tab)](https://docs.google.com/a/ablehealth.com/spreadsheets/d/1rqgov-26ChvKZEIPy1i1L1TxlQ9T8vduY0-EZccpx_s/edit?usp=sharing).
 
-[View the template for this file here](https://github.com/AbleHealth/measures/blob/master/templates/test_data_with_key.yml)
+[View the template for test data files here](https://github.com/AbleHealth/measures/blob/master/templates/test_data_with_key.yml)  
+[Use this tool to validate test data files](https://acceptance.ablehealth.com/able_admin/measure_test_set_format_validations/new)
 
 ## Value sets
 Value sets can be found in the `value_sets` directory in CSV format according to source, e.g. `VSAC` or `Able`. CSVs can be downloaded and imported into the application.
