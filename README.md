@@ -8,6 +8,7 @@ Each measure specification specifies the logic for placing a patient or episode 
 
 * Denominator
 * Denominator exclusion reason
+* Denominator exception reason
 * Numerator performance met reason
 * Numerator performance not met reason
 
@@ -24,6 +25,7 @@ Configuration files specify the metadata for each measure and are written in YAM
 
 Each file contains the following metadata for each measure:
 
+* Able measure ID
 * Display name
 * External set
 * External ID
@@ -36,20 +38,27 @@ Each file contains the following metadata for each measure:
         * Count (number of most recent records to display)
         * Value sets (model and value set name)
 
-Validation records are specified using Able domain model categories.
+Validation records are specified using Able domain model categories, as specified [in this mapping (see "Able to YAML" tab)](https://docs.google.com/a/ablehealth.com/spreadsheets/d/1rqgov-26ChvKZEIPy1i1L1TxlQ9T8vduY0-EZccpx_s/edit?usp=sharing).
+
+[View the template for this file here](https://github.com/AbleHealth/measures/blob/master/templates/measure_metadata.yml)
+[Use this tool to validate your files](https://acceptance.ablehealth.com/able_admin/measure_test_set_format_validations/new)
 
 ## Test data
-Test data files specify the clinical data for all test patients, as well as an organization-level test key, and are written in YAML. Test data files are currently only used for patient-based measures and not episode-of-care-based measures.
+Test data files specify the clinical data for all test patients, as well as an organization-level test key, and are written in YAML. Test data files are used for both patient-based and episode-of-care-based measures.
 
 Each file contains the following data:
 
+* Able measure ID
 * Organization-level and provider-level test keys
-    * Expected population results for each patient (denominator, denominator exclusion, numerator)
+    * Expected population results for each patient or episode of care (denominator, denominator exclusion, denominator exception, numerator)
+* Provider information
 * Clinical data for each patient
-    * Attributes (first name, last name, sex, date of birth
-    * Clinical models and associated metadata
+    * Attributes (first name, last name, sex, date of birth)
+    * Clinical models, codes, and associated metadata
     
-Test data is specified using Able domain model categories.
+Validation records are specified using Able domain model categories, as specified [in this mapping (see "Able to YAML" tab)](https://docs.google.com/a/ablehealth.com/spreadsheets/d/1rqgov-26ChvKZEIPy1i1L1TxlQ9T8vduY0-EZccpx_s/edit?usp=sharing).
+
+[View the template for this file here](https://github.com/AbleHealth/measures/blob/master/templates/test_data_with_key.yml)
 
 ## Value sets
 Value sets can be found in the `value_sets` directory in CSV format according to source, e.g. `VSAC` or `Able`. CSVs can be downloaded and imported into the application.
