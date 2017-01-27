@@ -14,6 +14,8 @@ Each measure specification specifies the logic for placing a patient or episode 
 
 Value sets come from a number of sources, such as VSAC and HEDIS. Each value set is identified by a source and name, e.g. `VSAC; Palliative Care` and paired with a QDM element, such as `Procedure, Performed`.
 
+[View the template for measure specs](https://github.com/AbleHealth/measures/blob/master/templates/spec_template.cql)
+
 For more information:
 
 * [Clinical Quality Language](https://ecqi.healthit.gov/cql)
