@@ -8,8 +8,8 @@ Each measure specification specifies the logic for placing a patient or episode 
 
 * Denominator
 * Denominator exclusion reason
-* Denominator exception reason
 * Numerator performance met reason
+* Denominator exception reason
 * Numerator performance not met reason
 
 Value sets come from a number of sources, such as VSAC and HEDIS. Each value set is identified by a source and name, e.g. `VSAC; Palliative Care` and paired with a QDM element, such as `Procedure, Performed`.
