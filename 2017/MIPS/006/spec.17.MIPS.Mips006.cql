@@ -35,19 +35,24 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Denominator":
-  AgeInYearsAt(start of "Measurement Period") >= 18 and exists([Diagnosis, Code "Diagnosis of Diabates"] D
+  AgeInYearsAt(start of "Measurement Period") >= 18
+  and exists(["Diagnosis": "MIPS; CAD Diagnosis"] D
     where D.prevalencePeriod overlaps "Measurement Period")
-  and exists([Encounter, Performed: "MIPS; 006 Encounter"] E
+  and exists(["Encounter, Performed": "MIPS; MIPS 006 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period")
-//and not exists([Encounter, performed (Includes?): "MIPS; Telemedicine Modifier"] E)
-    and d E.signingProvider.pqrsProvider = true
+      and not E.code.modifier in "MIPS; Telehealth Modifier"
+      and E.signingProvider.pqrsProvider = true
 
 define "Numerator Performance Met: 4086F":
   /*
    * config_link_id: 4086
    */
-   exists ([Medication, Active: "VSAC; Aspirin and Other Antiplatelet Agents"]) M
-    where M.relevantPeriod starts before end of "Measurement Period")
+  exists (["Medication, Order": "VSAC; Aspirin and Other Antiplatelet Agents"] M
+    where M.relevantPeriod starts during "Measurement Period")
+  exists (["Medication, Active": "VSAC; Aspirin and Other Antiplatelet Agents"] M
+   where M.relevantPeriod overlaps "Measurement Period")
+   or exists(["Procedure, Performed": "MIPS; Performance Met: 4086F"] M
+    where M.relevantPeriod starts during "Measurement Period")
 
 //Exception 1: patient is excepted from the denominator if the presence of drug allergy or intolerance is documented
 define "Denominator Exception 1: 4086F-1P":
