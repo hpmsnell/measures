@@ -43,9 +43,10 @@ Each file contains the following metadata for each measure:
 Validation records are specified using Able domain model categories, as specified [in this mapping (see "Able to YAML" tab)](https://docs.google.com/a/ablehealth.com/spreadsheets/d/1rqgov-26ChvKZEIPy1i1L1TxlQ9T8vduY0-EZccpx_s/edit?usp=sharing).
 
 [View the template for config files here](https://github.com/AbleHealth/measures/blob/master/templates/measure_metadata.yml)  
+[Use this tool to validate config files](https://acceptance.ablehealth.com/able_admin/measure_config_format_validations/new)
 
 ## Test data
-Test data files specify the clinical data for all test patients, as well as an organization-level test key, and are written in YAML. Test data files are used for both patient-based and episode-of-care-based measures.
+Test data files specify the clinical data for all test patients, as well as an organization-level test key, and are written in YAML. Test data files are used for both patient-based and episode-of-care-based measures. Test data should be evaluated using the 2016 calendar year (2016-01-01 to 2016-12-31) as the measurement period.
 
 Each file contains the following data:
 
