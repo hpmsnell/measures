@@ -1,6 +1,8 @@
 # measures
 This repo houses the Able Health measures library, which includes measure specifications, configuration files, test data, and value sets for all measures starting January 1, 2017.
 
+Further documentation is available in the [Measures Wiki](https://github.com/AbleHealth/measures/wiki).
+
 ## Measure specifications
 Measure specifications specify the logic for each measure and are written in Clinical Quality Language (CQL) version 1.0, using the Quality Data Model (QDM) version 5.0.
 
