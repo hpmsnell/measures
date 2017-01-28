@@ -1,0 +1,32 @@
+measure:
+  name:
+  required:
+    display_title:
+  optional:
+    gap_resolution_action:
+    set:
+    external_id:
+    version:
+exclusion_reasons:
+  - metadata_identifier_link: exclusion
+    required:
+      display_title:
+      validation_record_groups:
+        - count:
+          validation_records:
+            - model:
+              value_set:
+success_reasons:
+  - metadata_identifier_link: # corresponds to constant in measure reason class
+    required:
+      display_title:
+      validation_record_groups:
+    optional:
+      code_value: # 1004-F
+failure_reasons:
+  - metadata_identifier_link: # corresponds to constant in measure reason class
+    required:
+      display_title:
+      validation_record_groups:
+    optional:
+      code_value: # 1004-F
