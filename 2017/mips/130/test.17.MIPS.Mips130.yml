@@ -57,12 +57,6 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: F/G8428
-    - name: Denominator Exclusion #  Exclusion does not have the same signing provider
-      start_datetime: 2016-09-01
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: F/G8428
     - name: Numerator Success #  Success on date of encounter
       start_datetime: 2016-06-01
       denominator: 1
@@ -150,12 +144,6 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: F/G8428
-    - name: Denominator Exclusion #  Exclusion does not have the same signing provider
-      start_datetime: 2016-09-01
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: F/G8428
     - name: Numerator Success #  Success on date of encounter
       start_datetime: 2016-06-01
       denominator: 1
@@ -228,7 +216,7 @@ test_set_keys:
       start_datetime: 2016-06-01
       denominator:
       denominator_exclusion:
-      denominator_exception: G8430
+      denominator_exception:
       numerator:
     - name: Denominator Exclusion #  Exclusion prior to date of encounter
       start_datetime: 2016-07-01
@@ -238,12 +226,6 @@ test_set_keys:
       numerator:
     - name: Denominator Exclusion #  Exclusion after date of encounter
       start_datetime: 2016-08-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Denominator Exclusion #  Exclusion does not have the same signing provider
-      start_datetime: 2016-09-01
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -299,7 +281,7 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 90791 # 130 Encounter
+      code_value: 90792 # 130 Encounter
       start_datetime: 2016-01-01
       provider: Rachel
 - name: Encounter is not in the value set / Encounter prior to measurement year / Encounter after measurement year
@@ -315,11 +297,11 @@ patients:
       start_datetime: 2016-01-01
       provider: Rachel
     - code_type: CPT
-      code_value: 90791 # 130 Encounter
+      code_value: 90792 # 130 Encounter
       start_datetime: 2015-12-31 # Too early
       provider: Rachel
     - code_type: CPT
-      code_value: 90791 # 130 Encounter
+      code_value: 90792 # 130 Encounter
       start_datetime: 2017-01-01 # Too late
       provider: Rachel
 - name: Encounter at the beginning/end of measurement year
@@ -331,11 +313,11 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 90791 # 130 Encounter
+      code_value: 90792 # 130 Encounter
       start_datetime: 2016-01-01
       provider: Rachel
     - code_type: CPT
-      code_value: 90791 # 130 Encounter
+      code_value: 90792 # 130 Encounter
       start_datetime: 2016-12-31
       provider: Rachel
 - name: Exclusion on / prior to / after date of encounter
@@ -347,15 +329,15 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 90791 # 130 Encounter
+      code_value: 90792 # 130 Encounter
       start_datetime: 2016-06-01
       provider: Rachel
     - code_type: CPT
-      code_value: 90791 # 130 Encounter
+      code_value: 90792 # 130 Encounter
       start_datetime: 2016-07-01
       provider: Rachel
     - code_type: CPT
-      code_value: 90791 # 130 Encounter
+      code_value: 90792 # 130 Encounter
       start_datetime: 2016-08-01
       provider: Rachel
     - code_type: HCPCS
@@ -376,15 +358,15 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 90791 # 130 Encounter
+      code_value: 90792 # 130 Encounter
       start_datetime: 2016-06-01
       provider: Rachel
     - code_type: CPT
-      code_value: 90791 # 130 Encounter
+      code_value: 90792 # 130 Encounter
       start_datetime: 2016-07-01
       provider: Rachel
     - code_type: CPT
-      code_value: 90791 # 130 Encounter
+      code_value: 90792 # 130 Encounter
       start_datetime: 2016-08-01
       provider: Rachel
     - code_type: HCPCS
@@ -405,11 +387,11 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 90791 # 130 Encounter
+      code_value: 90792 # 130 Encounter
       start_datetime: 2016-06-01
       provider: Patty
     - code_type: CPT
-      code_value: 90791 # 130 Encounter
+      code_value: 90792 # 130 Encounter
       start_datetime: 2016-07-01
       provider: Patty
     - code_type: SNOMEDCT
