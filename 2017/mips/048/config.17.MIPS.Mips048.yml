@@ -1,7 +1,7 @@
 measure:
   name: 17.MIPS.Mips048
   required:
-    display_title: Urinary Incontinence: Assessment of Presence or Absence of Urinary Incontinence in Women Aged 65 Years and Older
+    display_title: "Urinary Incontinence: Assessment of Presence or Absence of Urinary Incontinence in Women Aged 65 Years and Older"
   optional:
     gap_resolution_action: Patient is due for an assessment of urinary incontinence
     set: MIPS
@@ -13,25 +13,30 @@ exclusion_reasons:
       display_title: Patient is excluded for this measure due to hospice service during the measurement period
       validation_record_groups:
         - count: 1
-          - model: ClinicalActivity
-            value_set_name: MIPS; MIPS 048 Encounter
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 048 Encounter
         - count: 1
-          - model: ClinicalActivity
-            value_set_name: "MIPS; Hospice Service: G9709"
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Hospice Service: G9709"
         - count: 1
-          - model: ClinicalActivity
-            value_set_name: "VSAC; Palliative Care"
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
 success_reasons:
   - config_link_id: 1090F
     required:
       display_title: Presence or absence of urinary incontinence assessed
       validation_record_groups:
         - count: 1
-          - model: ClinicalActivity
-            value_set_name: MIPS; MIPS 048 Encounter
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 048 Encounter
         - count: 1
-          - model: ClinicalActivity
-            value_set_name: "MIPS; Performance Met: 1090F"
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 1090F"
     optional:
       code_value: 1090F
 gap_reasons:
@@ -40,12 +45,14 @@ gap_reasons:
       display_title: Presence or absence of urinary incontinence not assessed, reason not otherwise specified
       validation_record_groups:
         - count: 1
-          - model: ClinicalActivity
-            value_set_name: MIPS; MIPS 048 Encounter
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 048 Encounter
         - count: 1
-          - model: ClinicalActivity
-            value_set_name: "MIPS; Performance Met: 1090F"
-          - model: ClinicalActivity
-            value_set_name: "MIPS; Performance Not Met: 1090F-8P"
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 1090F"
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 1090F-8P"
     optional:
       code_value: 1090F-8P

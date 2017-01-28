@@ -1,79 +1,88 @@
 measure:
-  name: 17.MIPS.Mips1130 # BAD MEASURE ID
+  name: 17.MIPS.Mips113
   required:
-    display_title: # NO DISPLAY TITLE
+    display_title: Colorectal Cancer Screening
   optional:
     gap_resolution_action: Patient is due for a colorectal cancer screening
-    external_id: 113 # NO SET FIELD
+    set: MIPS
+    external_id: 113
     version: 2017
 exclusion_reasons:
-  - config_link_id: exclusion
-    # MISSING REQUIRED
-    display_title: Patient is excluded for this measure due to a history of total colectomy or colorectal cancer
-    validation_records:
-      last_of_each:
-        - model: ClinicalActivity
-          value_set_name: MIPS; MIPS 113 Encounter
-      last_of_all:
-          - model: Diagnosis # BAD INDENTATION
-            value_set_name: VSAC; Malignant Neoplasm of Colon
-        - model: ClinicalActivityPerformed # WRONG MODEL NAME
-          value_set_name: VSAC; Total Colectomy
-        - model: Diagnosis
-          value_set_name: HEDIS; Colorectal Cancer
-        - model: ClinicalActivity
-          value_set_name: HEDIS; Total Colectomy
-        - model: ClinicalActivity
-          value_set_name: MIPS; History of Total Colectomy or Colorectal Cancer
-        - model: ClinicalActivity
-          value_set_name: MIPS; Hospice Service
-success_reason: # SUCCESS REASON SINGULAR
-    config_link_id: 3017F # NO DASH
+  - config_link_id: exclusion_1
+    required:
+      display_title: Patient is excluded for this measure due to a history of total colectomy or colorectal cancer
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 113 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: VSAC; Malignant Neoplasm of Colon
+            - model: ClinicalActivityPerformed
+              value_set: VSAC; Total Colectomy
+            - model: ClinicalActivity
+              value_set: MIPS; History of Total Colectomy or Colorectal Cancer
+            - model: ClinicalActivity
+              value_set: MIPS; Hospice Service
+  - config_link_id: exclusion_2
+    required:
+      display_title: Patient is excluded for this measure due to a history of total colectomy or colorectal cancer
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 113 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: VSAC; Malignant Neoplasm of Colon
+            - model: ClinicalActivity
+              value_set: VSAC; Total Colectomy
+            - model: ClinicalActivity
+              value_set: MIPS; History of Total Colectomy or Colorectal Cancer
+            - model: ClinicalActivity
+              value_set: MIPS; Hospice Service
+success_reasons:
+  - config_link_id: Mips3017f
     required:
       display_title: Colorectal cancer screening results documented and reviewed (3017F)
-      validation_records:
-        last_of_each:
-          - model: ClinicalActivity
-            value_set_name: MIPS; MIPS 113 Encounter
-        last_of_all:
-          - model: ClinicalActivity
-            value_set_name: 'MIPS; Performance Met: 3017F'
-          - model: ClinicalActivity
-            value_set_name: VSAC; Colonoscopy
-          - model: ClinicalActivity
-            value_set_name: HEDIS; Colonoscopy
-          - model: ClinicalActivity
-            value_set_name: VSAC; Flexible Sigmoidoscopy
-          - model: ClinicalActivity
-            value_set_name: HEDIS; Flexible Sigmoidoscopy
-          - model: ClinicalActivity
-            value_set_name: VSAC; Fecal Occult Blood Test (FOBT)
-          - model: ClinicalActivity
-            value_set_name: HEDIS; FOBT
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 113 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: VSAC; Malignant Neoplasm of Colon
+            - model: ClinicalActivity
+              value_set: VSAC; Total Colectomy
+            - model: ClinicalActivity
+              value_set: MIPS; History of Total Colectomy or Colorectal Cancer
+            - model: ClinicalActivity
+              value_set: MIPS; Hospice Service
     optional:
       code_value: 3017F
 failure_reasons:
-  - config_link_id: 3017F-8R # BAD LINK ID
+  - config_link_id: Mips3017f8p
     required:
       display_title: Colorectal cancer screening results were not documented and reviewed, reason not otherwise specified (3017F-8P)
-      validation_records:
-        last_of_each:
-          - model: ClinicalActivity
-            value_set_name: MIPS; MIPS 113 Encounter
-        last_of_all:
-          - model: ClinicalActivity
-            value_set_name: 'MIPS; Performance Met: 3017F'
-          - model: ClinicalActivity
-            value_set_name: VSAC; Colonoscopy
-          - model: ClinicalActivity
-            value_set_name: HEDIS; Colonoscopy
-          - model: ClinicalActivity
-            value_set_name: VSAC; Flexible Sigmoidoscopy
-          - model: ClinicalActivity
-            value_set_name: HEDIS; Flexible Sigmoidoscopy
-          - model: LaboratoryTestPerformed
-            value_set_name: VSAC; Fecal Occult Blood Test (FOBT)
-          - model: LaboratoryTestPerformed
-            value_set_name: HEDIS; FOBT
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 113 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: VSAC; Malignant Neoplasm of Colon
+            - model: ClinicalActivity
+              value_set: VSAC; Total Colectomy
+            - model: ClinicalActivity
+              value_set: MIPS; History of Total Colectomy or Colorectal Cancer
+            - model: ClinicalActivity
+              value_set: MIPS; Hospice Service
     optional:
       code_value: 3017F-8P
