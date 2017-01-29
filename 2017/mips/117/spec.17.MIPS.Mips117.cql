@@ -40,65 +40,65 @@ define "Patient Age at Encounter":
 define "Denominator":
   "Patient Age at Encounter" >= 18
   and "Patient Age at Encounter" < 75
-  and ["Diagnosis": "MIPS; Diagnosis"] D
-    where D.prevalencePeriod overlaps "Measurement Period"
+  and exists(["Diagnosis": "MIPS; Diagnosis"] D
+    where D.prevalencePeriod overlaps "Measurement Period")
 
 define "Denominator Exclusion":
   /*
    * config_link_id: denominator_exclusion
    */
-    ["Intervention, Performed": "MIPS; Hospice Service: G9714"] I
-      where I.relevantPeriod starts during "Measurement Period"
-    or ["Intervention, Performed": "VSAC; Palliative Care"] I
-      where I.relevantPeriod overlaps "Measurement Period"
+  exists(["Intervention, Performed": "MIPS; Hospice Service: G9714"] I
+    where I.relevantPeriod starts during "Measurement Period")
+  or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
+    where I.relevantPeriod overlaps "Measurement Period")
 
 define "Numerator Performance Met: 2022F":
   /*
    * config_link_id: 2022F
    */
-    ["Procedure, Performed": "MIPS; Performance Met: 2022F"] P
-      where P.relevantPeriod starts during "Measurement Period"
-    ["Physical Exam, Performed": "VSAC; Retinal or Dilated Eye Exam"] P
-      where P.relevantPeriod starts during "Measurement Period"
+  exists(["Procedure, Performed": "MIPS; Performance Met: 2022F"] P
+    where P.relevantPeriod starts during "Measurement Period")
+  or exists(["Physical Exam, Performed": "VSAC; Retinal or Dilated Eye Exam"] P
+    where P.relevantPeriod starts during "Measurement Period")
 
 
 define "Numerator Performance Met: 2024F": //Confirm whether there are imaging value sets for this and the subsequent reason
   /*
    * config_link_id: 2024F
    */
-   ["Procedure, Performed": "MIPS; Performance Met: 2024F"] P
-      where P.relevantPeriod starts during "Measurement Period"
+  exists(["Procedure, Performed": "MIPS; Performance Met: 2024F"] P
+    where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Met: 2026F":
   /*
    * config_link_id: 2026F
    */
-   ["Procedure, Performed": "MIPS; Performance Met: 2026F"] P
-      where P.relevantPeriod starts during "Measurement Period"
+  exists(["Procedure, Performed": "MIPS; Performance Met: 2026F"] P
+    where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Met: 3072F":
   /*
    * config_link_id: 3072F
    */
-    ["Procedure, Performed": "MIPS; Performance Met: 3072F"] P
-      where P.relevantPeriod starts during "Measurement Period"
-    ["Physical Exam, Performed": "VSAC; Retinal or Dilated Eye Exam"] P
-      where P.relevantPeriod starts 12 months or less before start "Measurement Period"
-        and P.result = 'negative'
+  exists(["Procedure, Performed": "MIPS; Performance Met: 3072F"] P
+    where P.relevantPeriod starts during "Measurement Period")
+  exists(["Physical Exam, Performed": "VSAC; Retinal or Dilated Eye Exam"] P
+    where P.relevantPeriod starts 12 months or less before start "Measurement Period"
+      and P.result = 'negative')
 
 define "Numerator Performance Not Met: 2022F-8P":
   /*
    * config_link_id: 2022F-8P
    */
-   ["Procedure, Performed": "MIPS; Performance Met: 2022F-8P"] P
-     where P.relevantPeriod starts during "Measurement Period"
+  exists(["Procedure, Performed": "MIPS; Performance Met: 2022F-8P"] P
+    where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met: 2024F-8P":
  /*
   * config_link_id: 2024F-8P
   */
-  ["Procedure, Performed": "MIPS; Performance Met: 2024F-8P"] P
-    where P.relevantPeriod starts during "Measurement Period"
+  exists(["Procedure, Performed": "MIPS; Performance Met: 2024F-8P"] P
+    where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met: 2026F-8P":
   /*
