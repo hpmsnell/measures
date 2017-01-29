@@ -1,8 +1,8 @@
-library MIPS_238_Systolic_2017 version '#'
+library MIPS_236_Diastolic_2017 version '1'
 
 /*
  * Source: MIPS
- * ID: 238-Systolic
+ * ID: 236-Diastolic
  * Year: 2017
  * Version: 1
  * Written By: Steve Daniels
@@ -14,12 +14,12 @@ using QDM
 
 // MIPS Value Sets
 
-valueset "MIPS; MIPS 238 Encounters"
+valueset "MIPS; MIPS 236 Encounters"
 valueset "MIPS; Hypertension"
 valueset "MIPS; Hospice Service: G9740"
 valueset "MIPS; Clinical Exclusion: G9231"
-valueset "MIPS; Performance Met: G8752"
-valueset "MIPS; Performance Not Met: G8753"
+valueset "MIPS; Performance Met: G8754"
+valueset "MIPS; Performance Not Met: G8755"
 valueset "MIPS; Performance Not Met: G8756"
 
 // VSAC Value Sets
@@ -34,7 +34,7 @@ valueset "VSAC; Dialysis Services": '2.16.840.1.113883.3.464.1003.109.12.1013'
 valueset "VSAC; Other Services Related to Dialysis": '2.16.840.1.113883.3.464.1003.109.12.1015'
 valueset "VSAC; Dialysis Education": '2.16.840.1.113883.3.464.1003.109.12.1016'
 valueset "VSAC; Adult Outpatient Encounter": '2.16.840.1.113883.3.464.1003.101.12.1065'
-valueset "VSAC; Systolic Blood Pressure": '2.16.840.1.113883.3.526.3.1032'
+valueset "VSAC; Diastolic Blood Pressure": '2.16.840.1.113883.3.526.3.1033'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -42,7 +42,7 @@ context Patient
 
 define "Patient Age at Encounter":
   AgeInYearsAt(
-    ["Encounter, Performed": "MIPS; MIPS 238 Encounter"] E
+    ["Encounter, Performed": "MIPS; MIPS 236 Encounter"] E
       where E.relevantPeriod starts during "Measurement Period"
   )
 
@@ -85,27 +85,27 @@ define "Denominator Exclusion 1":
   or exists("Excluded Procedures" P
     where P.relevantPeriod starts before end "Measurement Period")
 
-define "Numerator Performance Met: G8752":
+define "Numerator Performance Met: G8754":
   /*
-   * config_link_id: G8752
+   * config_link_id: G8754
    */
-  exists(["Procedure, Performed": "MIPS; Performance Met: G8752"] P
+  exists(["Procedure, Performed": "MIPS; Performance Met: G8754"] P
     where P.relevantPeriod starts during "Measurement Period")
   or Last("Encounter, Performed": "VSAC; Adult Outpatient Visit") E
     with ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] P
       such that P.relevantPeriod starts during E.relevantPeriod
-        and P.result < 140
+        and P.result < 90
 
-define "Numerator Performance Not Met: G8753":
+define "Numerator Performance Not Met: G8755":
   /*
-   * config_link_id: G8753
+   * config_link_id: G8755
    */
-  exists("Procedure, Performed": "MIPS; Performance Met: G8753"] P
+  exists("Procedure, Performed": "MIPS; Performance Met: G8755"] P
     where P.relevantPeriod starts during "Measurement Period")
   or Last("Encounter, Performed": "VSAC; Adult Outpatient Visit") E
     with ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] P
       such that P.relevantPeriod starts during E.relevantPeriod
-        and P.result >= 140
+        and P.result >= 90
 
 define "Numerator Performance Not Met: G8756":
   /*
@@ -113,5 +113,5 @@ define "Numerator Performance Not Met: G8756":
    */
   not "Denominator Exclusion 1"
   and not "Denominator Exclusion 2"
-  and not "Numerator Performance Met: G8752"
-  and not "Numerator Performance Not Met: G8753"
+  and not "Numerator Performance Met: G8754"
+  and not "Numerator Performance Not Met: G8755"

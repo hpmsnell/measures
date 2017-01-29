@@ -1,0 +1,123 @@
+measure:
+  name: 17.MIPS.Mips236
+  required:
+    display_title: "Controlling High Blood Pressure"
+  optional:
+    gap_resolution_action: "Patient is due for a blood pressure screening or needs attention for uncontrolled blood pressure"
+    set: MIPS
+    external_id: 236
+    version: 2017
+exclusion_reasons:
+  - config_link_id: denominator_exclusion_1
+    required:
+      display_title: "Patient is excluded due to hospice service during the measurement period"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 236 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Hospice Service: G9740"
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+  - config_link_id: denominator_exclusion_2
+    required:
+      display_title: "Patient is excluded due end stage renal disease (ESRD), dialysis, renal transplant before or during the measurement period or pregnancy during the measurement period"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 236 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Clinical Exclusion: G9231"
+            - model: ClinicalActivity
+              value_set: "VSAC; Pregnancy"
+            - model: ClinicalActivity
+              value_set: "VSAC; End Stage Renal Disease"
+            - model: ClinicalActivity
+              value_set: "VSAC; Chronic Kidney Disease, Stage 5"
+            - model: ClinicalActivity
+              value_set: "VSAC; Vascular Access for Dialysis"
+            - model: ClinicalActivity
+              value_set: "VSAC; ESRD Monthly Outpatient Services"
+            - model: ClinicalActivity
+              value_set: "VSAC; Kidney Transplant"
+            - model: ClinicalActivity
+              value_set: "VSAC; Dialysis Services"
+            - model: ClinicalActivity
+              value_set: "VSAC; Other Services Related to Dialysis"
+            - model: ClinicalActivity
+              value_set: "VSAC; Dialysis Education"
+success_reasons:
+  - config_link_id: G8754
+    required:
+      display_title: "Most recent systolic blood pressure < 140 mmHg"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 236 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8754"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Adult Outpatient Encounter"
+        - count: 3
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Diastolic Blood Pressure"
+    optional:
+      code_value: G8754
+exception_reasons:
+failure_reasons:
+  - config_link_id: G8755
+    required:
+      display_title: "Most recent systolic blood pressure >= 140 mmHg"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 236 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G8755"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Adult Outpatient Encounter"
+        - count: 3
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Diastolic Blood Pressure"
+    optional:
+      code_value: G8755
+  - config_link_id: G8756
+    required:
+      display_title: "No documentation of blood pressure measurement, reason not given"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 236 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G8756"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Adult Outpatient Encounter"
+        - count: 3
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Diastolic Blood Pressure"
+    optional:
+      code_value: G8756
