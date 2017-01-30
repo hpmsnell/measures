@@ -42,12 +42,16 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
+define "Patient Age at Encounter":
+  AgeInYearsAt(
+    ["Encounter, Performed": "MIPS; MIPS 128 Encounter"] E
+      where E.relevantPeriod starts during "Measurement Period"
+      and not E.code.modifier = "MIPS; Telehealth Modifier"
+      and E.signingProvider.pqrsProvider = true
+  )
+
 define "Denominator":
-  AgeInYearsAt(start of "Measurement Period") >= 18
-  and exists(["Encounter, Performed": "MIPS; MIPS 128 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period")
-    and not E.code.modifier = "MIPS; Telehealth Modifier"
-    and E.signingProvider.pqrsProvider = true
+  "Patient Age at Encounter" >= 18
 
 define "Denominator Exclusion":
   /*
