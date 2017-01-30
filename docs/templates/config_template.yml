@@ -1,0 +1,39 @@
+measure:
+  name:
+  required:
+    display_title: # display name of the measure
+  optional:
+    gap_resolution_action: # single gap resolution action for the measure
+    set:
+    external_id:
+    version:
+exclusion_reasons:
+  - config_link_id: # corresponds to constant in measure reason class
+    required:
+      display_title:
+      validation_record_groups:
+        - count:
+          validation_records:
+            - model:
+              value_set:
+success_reasons:
+  - config_link_id: # corresponds to constant in measure reason class
+    required:
+      display_title: # message displayed for the reason on the patient page
+      validation_record_groups:
+    optional:
+      code_value: # 1004-F
+exception_reasons:
+  - config_link_id: # corresponds to constant in measure reason class
+    required:
+      display_title: # message displayed for the reason on the patient page
+        validation_record_groups:
+    optional:
+      code_value: # 1004-F
+failure_reasons:
+  - config_link_id: # corresponds to constant in measure reason class
+    required:
+      display_title: # message displayed for the reason on the patient page
+      validation_record_groups:
+    optional:
+      code_value: # 1004-F

@@ -441,7 +441,7 @@ providers:
 patients:
 - name: Patient is too young for the denominator but otherwise meets the denominator
   attributes:
-    date_of_birth: 1998-01-02 # Too late
+    date_of_birth: 1998-02-02 # Too late
     given_name: Too
     family_name: Young
     sex: Female
@@ -449,11 +449,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_datetime: 2016-02-01
       provider: Rachel
 - name: Patient is at lower age bound and otherwise meets the denominator
   attributes:
-    date_of_birth: 1998-01-01
+    date_of_birth: 1998-02-01
     given_name: Age
     family_name: LowerBound
     sex: Female
@@ -461,7 +461,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_datetime: 2016-02-01
       provider: Rachel
 - name: Patient has no denominator eligible encounters but otherwise meets the denominator
   attributes:
