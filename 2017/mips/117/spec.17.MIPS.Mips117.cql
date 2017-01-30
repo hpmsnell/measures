@@ -22,6 +22,10 @@ valueset "MIPS; Performance Met: 2024F"
 valueset "MIPS; Performance Met: 2026F"
 valueset "MIPS; Performance Met: 3072F"
 
+// Able Value Sets
+
+valueset "Able; Diabetic Retinopathy Study 7 field stereoscopic fundus photography"
+
 // VSAC Value Sets
 
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
@@ -41,7 +45,7 @@ define "Patient Age at Encounter":
 define "Denominator":
   "Patient Age at Encounter" >= 18
   and "Patient Age at Encounter" < 75
-  and exists(["Diagnosis": "MIPS; Diagnosis"] D
+  and exists(["Diagnosis": "MIPS; Diabetes"] D
     where D.prevalencePeriod overlaps "Measurement Period")
 
 define "Denominator Exclusion":
@@ -61,7 +65,8 @@ define "Numerator Performance Met: 2022F":
     where P.relevantPeriod starts during "Measurement Period")
   or exists(["Physical Exam, Performed": "VSAC; Retinal or Dilated Eye Exam"] P
     where P.relevantPeriod starts during "Measurement Period")
-
+  or exists(["Procedure, Performed": "VSAC; Retinal or Dilated Eye Exam"] P //Same as revious Physical Exam - both are clinical activities
+    where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Met: 2024F": //Confirm whether there are imaging value sets for this and the subsequent reason
   /*
@@ -85,7 +90,7 @@ define "Numerator Performance Met: 3072F":
     where P.relevantPeriod starts during "Measurement Period")
   exists(["Physical Exam, Performed": "VSAC; Retinal or Dilated Eye Exam"] P
     where P.relevantPeriod starts 12 months or less before start "Measurement Period"
-      and P.result = 'negative')
+      and P.result = 'negative') // Confirm result format in production data
 
 define "Numerator Performance Not Met: 2022F-8P":
   /*
