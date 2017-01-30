@@ -35,6 +35,7 @@ define "Patient Age at Encounter":
   AgeInYearsAt(
     ["Encounter, Performed": "MIPS; MIPS 117 Encounter"] E
       where E.relevantPeriod starts during "Measurement Period"
+        and E.signingProvider.pqrsProvider = true
   )
 
 define "Denominator":
