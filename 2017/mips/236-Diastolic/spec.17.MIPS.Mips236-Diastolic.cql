@@ -93,8 +93,9 @@ define "Numerator Performance Met: G8754":
   exists(["Procedure, Performed": "MIPS; Performance Met: G8754"] P
     where P.relevantPeriod starts during "Measurement Period")
   or Last("Encounter, Performed": "VSAC; Adult Outpatient Visit") E
-    with ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] P
+    with ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] P
       such that P.relevantPeriod starts during E.relevantPeriod
+        and E.relevantPeriod starts during "Measurement Period"
         and P.result < 90
 
 define "Numerator Performance Not Met: G8755":
@@ -104,8 +105,9 @@ define "Numerator Performance Not Met: G8755":
   exists("Procedure, Performed": "MIPS; Performance Met: G8755"] P
     where P.relevantPeriod starts during "Measurement Period")
   or Last("Encounter, Performed": "VSAC; Adult Outpatient Visit") E
-    with ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] P
+    with ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] P
       such that P.relevantPeriod starts during E.relevantPeriod
+        and E.relevantPeriod starts during "Measurement Period"
         and P.result >= 90
 
 define "Numerator Performance Not Met: G8756":
