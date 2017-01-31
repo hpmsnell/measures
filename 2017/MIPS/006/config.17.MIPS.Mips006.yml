@@ -1,40 +1,30 @@
 measure: MIPS_006_2017
 name:
   required:
-    display_title:Coronary Artery Disease (CAD): Coronary Artery Disease (CAD):Antiplatelet Therapy
+    display_title: "Coronary Artery Disease (CAD): Antiplatelet Therapy"
   optional:
-    gap_resolution_action:  Patient is due for Antiplatelet Therapy
+    gap_resolution_action:  Patient is due for antiplatelet therapy
     set: MIPS
     external_id: 006
     version: 2017
 exception_reasons:
-  - config_link_id: denominator_exception
-    required:
-      display_title: Patient is excepted for non-specific reason.
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: MIPS; MIPS 006 Encounter
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Denominator Exception:4086F-1P"
   - config_link_id: denominator_exception_1
     required:
-      display_title: Patient is excepted due to presence of drug allergy or intolerance
+      display_title: Patient is excepted for documentation of medical reason(s) for not prescribing aspirin or clopidogrel (e.g., allergy, intolerance, receiving other thienopyridine therapy, receiving warfarin therapy, or bleeding coagulation disorders)
       validation_record_groups:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: MIPS; MIPS 006 Encounter
+              value_set: "MIPS; MIPS 006 Encounter"
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "VSAC; Medical Reason:2.16.840.1.113883.3.526.3.1007"
+              value_set: "MIPS; Denominator Exception: 4086F-1P"
+    optional:
+      code_value: 4086F-1P
   - config_link_id: denominator_exception_2
     required:
-      display_title: Patient is excepted due to an active prescription for another Antiplatet agent.
+      display_title: "Patient is excepted due to presence of a drug allergy or intolerance to aspirin or clopidogrel"
       validation_record_groups:
         - count: 1
           validation_records:
@@ -42,76 +32,97 @@ exception_reasons:
               value_set: MIPS; MIPS 006 Encounter
         - count: 1
           validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Aspirin and Other Antiplatelet Agents"
+            - model: Allergy
+              value_set: "Able; Aspirin and Clopidogrel"
+    optional:
+      code_value: 4086F-1P
   - config_link_id: denominator_exception_3
     required:
-      display_title: Patient is excepted due to history of Thrombocytopenia Disorder.
+      display_title: "Patient is excepted due to another active or prescribed antiplatet agent"
       validation_record_groups:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: MIPS; MIPS 006 Encounter
+              value_set: "MIPS; MIPS 006 Encounter"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "Able; Other Thienopyridine Agent"
+    optional:
+      code_value: 4086F-1P
+  - config_link_id: denominator_exception_4
+    required:
+      display_title: Patient is excepted due to history of thrombocytopenia
+      validation_record_groups:
         - count: 1
           validation_records:
             - model: ClinicalActivity
+              value_set: "MIPS; MIPS 006 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
               value_set: "VSAC; Thrombocytopenia"
-  - config_link_id: denominator_exception_4
-    required:
-        display_title: Patient is excepted due to refusal.
-        validation_record_groups:
-          - count: 1
-            validation_records:
-              - model: ClinicalActivity
-                value_set: MIPS; MIPS 006 Encounter
-          - count: 1
-            validation_records:
-              - model: ClinicalActivity
-                value_set: "VSAC; Patient Reason Refused"
+    optional:
+      code_value: 4086F-1P
   - config_link_id: denominator_exception_5
     required:
-        display_title: Patient excepted due to system reason.
+        display_title: Patient is excepted due to refusal
         validation_record_groups:
           - count: 1
             validation_records:
               - model: ClinicalActivity
-                value_set: MIPS; MIPS 006 Encounter
+                value_set: "MIPS; MIPS 006 Encounter"
           - count: 1
             validation_records:
               - model: ClinicalActivity
-                value_set: "VSAC; System Reason"
+                value_set: "MIPS; Denominator Exception: 4086F-2P"
+    optional:
+      code_value: 4086F-2P
   - config_link_id: denominator_exception_6
     required:
-        display_title: Patient excepted due to non-specified system reason.
+        display_title: Patient excepted due to system reason
         validation_record_groups:
           - count: 1
             validation_records:
               - model: ClinicalActivity
-                value_set: MIPS; MIPS 006 Encounter
+                value_set: "MIPS; MIPS 006 Encounter"
           - count: 1
             validation_records:
               - model: ClinicalActivity
-                value_set: "MIPS; Denominator Exception:4086F-3P"
+                value_set: "MIPS; Denominator Exception: 4086F-3P"
+    optional:
+      code_value: 4086F-3P
 success_reasons:
   - config_link_id: 4086F
     required:
-      display_title: Patient was prescribed appropriate Antiplatlet agent for Coronary Artery Disease.
+      display_title: Patient was prescribed appropriate antiplatlet agent for coronary artery disease
       validation_record_groups:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: MIPS; MIPS 006 Encounter
+              value_set: "MIPS; MIPS 006 Encounter"
         - count: 1
           validation_records:
+            - model: Medication
+              value_set: "Able; Aspirin or Clopidogrel"
             - model: ClinicalActivity
-              value_set: "VSAC; Aspirin and Other Antiplatelet Agents"
+              value_set: "MIPS; Performance Met: 4086F"
+    optional:
+      code_value: 4086F
 failure_reasons:
-  - metadata_identifier_link: numerator_performance_not_met
+  - metadata_identifier_link: 4086F-8P
     required:
       display_title: Patient was not prescribed an appropriate Antiplatelet agent for Coronary Artery Disease.
-      count: 1
       validation_record_groups:
-        - model: ClinicalActivity
-          value_set: "MIPS; Performance Not Met:4086F-8P"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 006 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 4086F-8P"
+            - model: Medication
+              value_set: "Able; Aspirin or Clopidogrel"
     optional:
       code_value: 4086F-8P
