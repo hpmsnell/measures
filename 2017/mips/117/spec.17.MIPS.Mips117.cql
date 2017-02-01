@@ -71,7 +71,7 @@ define "Numerator Performance Met: 2022F":
   or exists(["Procedure, Performed": "VSAC; Retinal or Dilated Eye Exam"] P //Same as revious Physical Exam - both are clinical activities
     where P.relevantPeriod starts during "Measurement Period")
 
-define "Numerator Performance Met: 2024F": //Confirm whether there are imaging value sets for this and the subsequent reason
+define "Numerator Performance Met: 2024F":
   /*
    * config_link_id: 2024F
    */
@@ -91,7 +91,7 @@ define "Numerator Performance Met: 3072F":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 3072F"] P
     where P.relevantPeriod starts during "Measurement Period")
-  exists(["Physical Exam, Performed": "VSAC; Retinal or Dilated Eye Exam"] P
+  or exists(["Physical Exam, Performed": "VSAC; Retinal or Dilated Eye Exam"] P
     where P.relevantPeriod starts 12 months or less before start "Measurement Period"
       and P.result = 'negative') // Confirm result format in production data
 
