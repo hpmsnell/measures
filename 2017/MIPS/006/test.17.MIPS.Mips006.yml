@@ -1,113 +1,398 @@
-measure_id: # 16.PQRS.Pqrs123
+measure_id: 17.MIPS_006_2017
 test_set_keys:
   organization_key:
     patients:
-    - name: # given and family name of patient
-      denominator: # true or leave blank
-      denominator_exclusion: # true or leave blank
-      numerator: # S/888F-1 or leave blank
-  providers_key:
-    - name: # given name of provider
-      patients:
-        - name: # given and family name of patient
-          denominator: # true or leave blank
-          denominator_exclusion: # true or leave blank
-          numerator: # S/888F-1 or leave blank
+    - name: Too Young
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Meets Male
+      denominator: 1
+      denominator_exclusion:
+      numerator:
+      exception:
+    - name: Meets Female
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Meets NoDiagnosis
+      denominator:
+      denominator_exclusion:
+      denomiantor_exception:
+      numerator:
+    - name: Meets Diagnosis10Prior
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Meets Diagnosis10After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Meets Diagnosis9During
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Meets Diagnosis10During
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Meets NoEncounter
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Meets PriorEncounter
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Meets AfterEncounter
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExceptedDueTo Allergy
+      denominator:
+      denominator_exclusion:
+      denominator_exception: 4086F-1P
+      numerator:
+    - name: ExceptedDueTo Intolerance
+      denominator:
+      denominator_exclusion:
+      denominator_exception: 4086F-1P
+      numerator:
+    - name: ExceptedDueTo ThienoPyridineRx
+      denominator:
+      denominator_exclusion:
+      denominator_exception: 4086F-1P
+      numerator:
+    - name: ExceptedDueTo BleedingDisorder
+      denominator:
+      denominator_exclusion:
+      denominator_exception: 4086F-1P
+      numerator:
+    - name: ExceptedDueTo NonSpecificMedicalReason
+      denominator:
+      denominator_exclusion:
+      denominator_exception: 4086F-1P
+      numerator:
+    - name: MeetsNumerator 4086F
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4086F
+    - name: ExceptedDueTo PatientDeclined
+      denominator:
+      denominator_exclusion:
+      denominator_exception: 4086F-2P
+      numerator:
+    - name: ExceptedDueTo SystemReason
+      denominator:
+      denominator_exclusion:
+      denominator_exception: 4086F-3P
+      numerator:
+    - name: AspirinPrescription During
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4086F
+    - name: AspirinPrescription Prior
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4086F
+    - name: ClopidogrelPrescription During
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4086F
+    - name: ClopidogrelPrescription Prior
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4086F
+    - name: NotMeetNumerator 4086F-8P
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4086F-8P
 providers:
-- given_name:
-  family_name:
-  credential:
-  primary_specialty:
-  provider_type:
-  tin:
-  pqrs_provider: # true/false
-- given_name:
-  family_name:
-  credential:
-  primary_specialty:
-  provider_type:
-  tin:
-  pqrs_provider:
+- given_name: Rachel
+  family_name: Kohler
+  credenti  al: DO
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+- given_name: Patty
+  family_name: PrimaryCare
+  credential: MD
+  primary_specialty: Family Medicine
+  pqrs_provider: true
 patients:
-- name:
-  attributes:
-    date_of_birth: # 1998-12-31
-    given_name:
-    family_name:
-    sex:
-    provider: # first name of a provider from the list above
-    external_id:
-  health_plan_id:
-  clinical_models:
-    diagnoses:
-    - code_type:
-      code_value:
-      start_datetime: # 2016-10-01
-      stop_datetime:
-      claim_id:
-      provider: # first name of a provider from the list above
-      link_id:
-    clinical_activities:
-    - code_type:
-      code_value:
-      start_datetime:
-      result:
-      stop_datetime:
-      claim_id:
-      provider:
-      link_id:
-      place_of_service:
-    laboratory_test_performeds:
-    - code_type:
-      code_value:
-      start_datetime:
-      result:
-    medications:
-    - code_type:
-      code_value:
-      start_datetime:
-      stop_datetime:
-      provider:
-      days_supplied:
-      quantity:
-- name:
-  attributes:
-    date_of_birth: # 1998-12-31
-    given_name:
-    family_name:
-    sex:
-    provider: # first name of a provider from the list above
-    external_id:
-  health_plan_id:
-  clinical_models:
-    diagnoses:
-    - code_type:
-      code_value:
-      start_datetime: # 2016-10-01
-      stop_datetime:
-      claim_id:
-      provider: # first name of a provider from the list above
-      link_id:
-    clinical_activities:
-    - code_type:
-      code_value:
-      start_datetime:
-      result:
-      stop_datetime:
-      claim_id:
-      provider:
-      link_id:
-      place_of_service:
-    laboratory_test_performeds:
-    - code_type:
-      code_value:
-      start_datetime:
-      result:
-    medications:
-    - code_type:
-      code_value:
-      start_datetime:
-      stop_datetime:
-      provider:
-      days_supplied:
-      quantity:
+  - name: Patient is at lower bound of age range but otherwise meets denominator
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: Age
+      family_name: Lower
+      sex: Male
+      provider: Rachel
+      external_id:
+      health_plan_id:
+      clinical_models:
+        diagnoses:
+        - code_type: ICD10
+          code_value: I20.8
+          start_datetime: 2016-01-01
+          provider: Rachel
+        clinical_activities:
+        - code_type: CPT
+          code_value: 99201
+          start_datetime: 2016-01-01
+          provider: Rachel
+  - name: Patient is a male but otherwise meets denominator
+    attributes:
+      date_of_birth: 1980-06-01
+      given_name: Meets
+      family_name: Male
+      sex: Male
+      provider: Rachel
+      external_id:
+      health_plan_id:
+      clinical_models:
+        diagnoses:
+        - code_type: ICD10
+          code_value: I20.8
+          start_datetime: 2016-01-01
+          provider: Rachel
+        clinical_activities:
+        - code_type: CPT
+          code_value: 99201
+          start_datetime: 2016-01-01
+          provider: Rachel
+  - name: Patient is a female but otherwise meets denominator
+    attributes:
+      date_of_birth: 1980-06-01
+      given_name: Meets
+      family_name: Male
+      sex: Female
+      provider: Rachel
+      external_id:
+      health_plan_id:
+      clinical_models:
+        diagnoses:
+        - code_type: ICD10
+          code_value: I20.8
+          start_datetime: 2016-01-01
+          provider: Rachel
+        clinical_activities:
+        - code_type: CPT
+          code_value: 99201
+          start_datetime: 2016-01-01
+          provider: Rachel
+  - name: Patient has no diagnosis but otherwise meets the denominator
+    attributes:
+      date_of_birth: 1980-06-01
+      given_name: Meets
+      family_name: NoDiagnosis
+      sex: Male
+      provider: Rachel
+      external_id:
+      health_plan_id:
+      clinical_models:
+        clinical_activities:
+        - code_type: CPT
+          code_value: 99201
+          start_datetime: 2016-01-01
+          provider: Rachel
+  - name: Patient has a ICD-10 coded diagnosis prior to the measurement period
+    attributes:
+      date_of_birth: 1980-06-01
+      given_name: Diagnosis10
+      family_name: Prior
+      sex: Female
+      provider: Rachel
+      external_id:
+      health_plan_id:
+      clinical_models:
+        diagnoses:
+        - code_type: ICD10
+          code_value: I20.8
+          start_datetime: 2014-01-01
+          provider: Rachel
+        clinical_activities:
+        - code_type: CPT
+          code_value: 99201
+          start_datetime: 2016-01-01
+          provider: Rachel
+  - name: Patient has a ICD-10 coded diagnosis after the measurement period
+    attributes:
+      date_of_birth: 1980-06-01
+      given_name: Diagnosis10
+      family_name: After
+      sex: Female
+      provider: Rachel
+      external_id:
+      health_plan_id:
+      clinical_models:
+        diagnoses:
+        - code_type: ICD10
+          code_value: I20.8
+          start_datetime: 2015-01-01
+          provider: Rachel
+        clinical_activities:
+        - code_type: CPT
+          code_value: 99201
+          start_datetime: 2018-01-01
+          provider: Rachel
+  - name: Patient has a ICD-10 coded diagnosis during the measurement period
+    attributes:
+      date_of_birth: 1980-06-01
+      given_name: Diagnosis10
+      family_name: During
+      sex: Female
+      provider: Rachel
+      external_id:
+      health_plan_id:
+      clinical_models:
+        diagnoses:
+        - code_type: ICD10
+          code_value: I20.8
+          start_datetime: 2016-05-01
+          provider: Rachel
+        clinical_activities:
+        - code_type: CPT
+          code_value: 99201
+          start_datetime: 2016-05-01
+          provider: Rachel
+  - name: Patient has a ICD-9 coded diagnosis during the measurement period
+    attributes:
+      date_of_birth: 1980-06-01
+      given_name: Diagnosis10
+      family_name: During
+      sex: Female
+      provider: Rachel
+      external_id:
+      health_plan_id:
+      clinical_models:
+        diagnoses:
+        - code_type: ICD9
+          code_value: 250.0
+          start_datetime: 2016-05-01
+          provider: Rachel
+        clinical_activities:
+        - code_type: CPT
+          code_value: 99201
+          start_datetime: 2016-05-01
+          provider: Rachel
+  - name: Patient has no encounter but otherwise meets denominator
+    attributes:
+      date_of_birth: 1980-06-01
+      given_name: Meets
+      family_name: NoEncounter
+      sex: Female
+      provider: Rachel
+      external_id:
+      health_plan_id:
+      clinical_models:
+        diagnoses:
+        - code_type: ICD9
+          code_value: 250.0
+          start_datetime: 2016-05-01
+          provider: Rachel
+        clinical_activities:
+        - code_type: CPT
+          code_value: 99810
+          start_datetime: 2016-05-01
+          provider: Rachel
+  - name: Patient has an encounter prior to the measurement period
+    attributes:
+      date_of_birth: 1980-06-01
+      given_name: Meets
+      family_name: PriorEncounter
+      sex: Female
+      provider: Rachel
+      external_id:
+      health_plan_id:
+      clinical_models:
+        diagnoses:
+        - code_type: ICD-10
+          code_value: I20.0
+          start_datetime: 2016-05-01
+          provider: Rachel
+        clinical_activities:
+        - code_type: CPT
+          code_value: 99201
+          start_datetime: 2014-05-01
+          provider: Rachel
+  - name: Patient has an encounter after the measurement period
+    attributes:
+      date_of_birth: 1980-06-01
+      given_name: Meets
+      family_name: EncounterAfter
+      sex: Female
+      provider: Rachel
+      external_id:
+      health_plan_id:
+      clinical_models:
+        clinical_activities:
+          diagnoses:
+          - code_type: ICD-10
+            code_value: I20.0
+            start_datetime: 2016-05-01
+            provider: Rachel
+          - code_type: CPT
+            code_value: 99201
+            start_datetime: 2019-05-01
+            provider: Rachel
+  - name: Patient excepted because of an allergy to aspirin 4086F-1P
+    attributes:
+      date_of_birth: 1980-06-01
+      given_name: Meets
+      family_name: EncounterAfter
+      sex: Female
+      provider: Rachel
+      clinical_models:
+        clinical_activities:
+          diagnoses:
+          - code_type: ICD-10
+            code_value: I20.0
+            start_datetime: 2016-05-01
+            provider: Rachel
+          - code_type: CPT
+            code_value: 99201
+            start_datetime: 2019-05-01
+            provider: Rachel
+          allergies:
+          - code_type:
+            code_value:
+  - name: Patient is too young for the denominator but otherwise meets denominator
+    attributes:
+      date_of_birth: 2000-01-06
+      given_name: Too
+      family_name: Young
+      sex: Male
+      provider: Rachel
+      external_id:
+    health_plan_id:
+    clinical_models:
+      clinical_activities:
+        - code_type: CPT
+          code_value: 99201
+          start_datetime: 2017-06-01
+          provider: Rachel
+      clinical_activities:
+        diagnoses:
+        - code_type: ICD10
+          code_value: I20.8
+          start_datetime: 2016-01-01
+          provider: Rachel
