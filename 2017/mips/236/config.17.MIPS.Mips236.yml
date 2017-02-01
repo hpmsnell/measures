@@ -1,7 +1,7 @@
 measure:
   name: 17.MIPS.Mips236
   required:
-    display_title: "Controlling High Blood Pressure: Diastolic"
+    display_title: "Controlling High Blood Pressure"
   optional:
     gap_resolution_action: "Patient is due for a blood pressure screening or needs attention for uncontrolled blood pressure"
     set: MIPS
@@ -53,14 +53,18 @@ exclusion_reasons:
             - model: ClinicalActivity
               value_set: "VSAC; Dialysis Education"
 success_reasons:
-  - config_link_id: G8754
+  - config_link_id: G8752/G8754
     required:
-      display_title: "Most recent systolic blood pressure < 140 mmHg"
+      display_title: "Most recent systolic blood pressure < 140 mmHg and most recent diastolic blood pressure < 90 mmHg"
       validation_record_groups:
         - count: 1
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; MIPS 236 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8752"
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -73,13 +77,17 @@ success_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "VSAC; Diastolic Blood Pressure"
+        - count: 3
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Systolic Blood Pressure"
     optional:
-      code_value: G8754
+      code_value: G8752/G8754
 exception_reasons:
 failure_reasons:
-  - config_link_id: G8755
+  - config_link_id: G8753/G8754
     required:
-      display_title: "Most recent systolic blood pressure >= 140 mmHg"
+      display_title: "Most recent systolic blood pressure < 140 mmHg and most recent diastolic blood pressure >= 90 mmHg"
       validation_record_groups:
         - count: 1
           validation_records:
@@ -88,7 +96,11 @@ failure_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Performance Not Met: G8755"
+              value_set: "MIPS; Performance Met: G8753"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8754"
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -97,11 +109,75 @@ failure_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "VSAC; Diastolic Blood Pressure"
+        - count: 3
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Systolic Blood Pressure"
     optional:
-      code_value: G8755
+      code_value: G8753/G8754
+  - config_link_id: G8752/G8755
+    required:
+      display_title: "Most recent systolic blood pressure >= 140 mmHg and most recent diastolic blood pressure < 90 mmHg"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 236 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8752"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8755"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Adult Outpatient Encounter"
+        - count: 3
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Diastolic Blood Pressure"
+        - count: 3
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Systolic Blood Pressure"
+    optional:
+      code_value: G8752/G8755
+  - config_link_id: G8753/G8755
+    required:
+      display_title: "Most recent systolic blood pressure >= 140 mmHg and most recent diastolic blood pressure >= 90 mmHg"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 236 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8753"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8755"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Adult Outpatient Encounter"
+        - count: 3
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Diastolic Blood Pressure"
+        - count: 3
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Systolic Blood Pressure"
+    optional:
+      code_value: G8753/G8755
   - config_link_id: G8756
     required:
-      display_title: "No documentation of blood pressure measurement, reason not given"
+      display_title: "No documentation of blood pressure measurement during the measurement period, reason not given"
       validation_record_groups:
         - count: 1
           validation_records:
@@ -110,7 +186,15 @@ failure_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Performance Not Met: G8756"
+              value_set: "MIPS; Performance Met: G8752"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8754"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8756"
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -119,5 +203,9 @@ failure_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "VSAC; Diastolic Blood Pressure"
+        - count: 3
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Systolic Blood Pressure"
     optional:
       code_value: G8756
