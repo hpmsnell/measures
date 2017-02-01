@@ -21,6 +21,9 @@ valueset "MIPS; Performance Met: 2022F"
 valueset "MIPS; Performance Met: 2024F"
 valueset "MIPS; Performance Met: 2026F"
 valueset "MIPS; Performance Met: 3072F"
+valueset "MIPS; Performance Not Met: 2022F-8P"
+valueset "MIPS; Performance Not Met: 2024F-8P"
+valueset "MIPS; Performance Not Met: 2026F-8P"
 
 // Able Value Sets
 
