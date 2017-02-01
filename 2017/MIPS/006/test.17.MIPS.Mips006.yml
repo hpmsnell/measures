@@ -32,6 +32,11 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
+    - name: Meets Diagnosis10Prior
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
     - name: Meets Diagnosis10After
       denominator: 1
       denominator_exclusion:
@@ -129,16 +134,28 @@ test_set_keys:
       numerator: 4086F-8P
 providers:
 - given_name: Rachel
-  family_name: Kohler
-  credentials: DO
+  family_name: Cats
+  credentiall: DO
   primary_specialty: Family Medicine
   pqrs_provider: true
-- given_name: Patty
-  family_name: PrimaryCare
+- given_name: Steve
+  family_name: Richards
   credential: MD
   primary_specialty: Family Medicine
   pqrs_provider: true
 patients:
+- name: Patient is too young for the denominator but otherwise meets denominator
+  attributes:
+    date_of_birth: 2000-01-06
+    given_name: Too
+    family_name: Young
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
+      provider: Rachel
   - name: Patient is at lower bound of age range but otherwise meets denominator
     attributes:
       date_of_birth: 1998-01-01
@@ -254,6 +271,10 @@ patients:
           code_value: 99201
           start_datetime: 2018-01-01
           provider: Rachel
+        - code_type:
+          code_value:
+          start_datetime:
+          provider:
   - name: Patient has a ICD-10 coded diagnosis during the measurement period
     attributes:
       date_of_birth: 1980-06-01
