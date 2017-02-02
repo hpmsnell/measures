@@ -11,17 +11,17 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator:
+      numerator: 4086F-8P
     - name: Meets Male
       denominator: 1
       denominator_exclusion:
-      numerator:
+      numerator: 4086F-8P
       exception:
     - name: Meets Female
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator:
+      numerator: 4086F-8P
     - name: Meets NoDiagnosis
       denominator:
       denominator_exclusion:
@@ -31,14 +31,9 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator:
-    - name: Meets Diagnosis10Prior
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
+      numerator: 4086F-8P
     - name: Meets Diagnosis10After
-      denominator: 1
+      denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
@@ -51,7 +46,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator:
+      numerator: 4086F-8P
     - name: Meets NoEncounter
       denominator:
       denominator_exclusion:
@@ -67,68 +62,68 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: ExceptedDueTo Allergy
-      denominator:
+    - name: ExceptedDueTo AspirinAllergy
+      denominator: 1
       denominator_exclusion:
       denominator_exception: 4086F-1P
       numerator:
-    - name: ExceptedDueTo Intolerance
-      denominator:
+    - name: ExceptedDueTo AspirinIntolerance
+      denominator: 1
       denominator_exclusion:
       denominator_exception: 4086F-1P
       numerator:
     - name: ExceptedDueTo ThienoPyridineRx
-      denominator:
+      denominator: 1
       denominator_exclusion:
       denominator_exception: 4086F-1P
       numerator:
     - name: ExceptedDueTo BleedingDisorder
-      denominator:
+      denominator: 1
       denominator_exclusion:
       denominator_exception: 4086F-1P
       numerator:
     - name: ExceptedDueTo NonSpecificMedicalReason
-      denominator:
+      denominator: 1
       denominator_exclusion:
       denominator_exception: 4086F-1P
       numerator:
     - name: MeetsNumerator 4086F
-      denominator:
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4086F
     - name: ExceptedDueTo PatientDeclined
-      denominator:
+      denominator: 1
       denominator_exclusion:
       denominator_exception: 4086F-2P
       numerator:
     - name: ExceptedDueTo SystemReason
-      denominator:
+      denominator: 1
       denominator_exclusion:
       denominator_exception: 4086F-3P
       numerator:
     - name: AspirinPrescription During
-      denominator:
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4086F
-    - name: AspirinPrescription Prior
-      denominator:
+    - name: AspirinPrescription BeforeMeasurementPeriod
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 4086F
+      numerator: 4086F-8P
     - name: ClopidogrelPrescription During
-      denominator:
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4086F
     - name: ClopidogrelPrescription Prior
-      denominator:
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4086F
     - name: NotMeetNumerator 4086F-8P
-      denominator:
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4086F-8P
@@ -139,17 +134,17 @@ providers:
   primary_specialty: Family Medicine
   pqrs_provider: true
 - given_name: Steve
-  family_name: Richards
+  family_name: Dogs
   credential: MD
   primary_specialty: Family Medicine
   pqrs_provider: true
 patients:
 - name: Patient is too young for the denominator but otherwise meets denominator
   attributes:
-    date_of_birth: 2000-01-06
+    date_of_birth: 2000-01-01
     given_name: Too
     family_name: Young
-    sex: Male
+    sex: male
   clinical_models:
     clinical_activities:
     - code_type: CPT
@@ -170,494 +165,485 @@ patients:
     - code_type: ICD10CM
       code_value: I20.8
       start_datetime: 2016-01-01
-      provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-01-01
       provider: Rachel
-  - name: Patient is a male but otherwise meets denominator
-    attributes:
-      date_of_birth: 1980-06-01
-      given_name: Meets
-      family_name: Male
-      sex: Male
+- name: Patient is a male but otherwise meets denominator
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: Male
+    sex: Male
+    provider: Rachel
+    external_id:
+    health_plan_id:
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.8
+      start_datetime: 2016-01-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
       provider: Rachel
-      external_id:
-      health_plan_id:
-    clinical_models:
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: I20.8
-        start_datetime: 2016-01-01
-        provider: Rachel
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-01-01
-        provider: Rachel
-  - name: Patient is a female but otherwise meets denominator
-    attributes:
-      date_of_birth: 1980-06-01
-      given_name: Meets
-      family_name: Male
-      sex: Female
+- name: Patient is a female but otherwise meets denominator
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: Female
+    sex: Female
+    provider: Rachel
+    external_id:
+    health_plan_id:
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.8
+      start_datetime: 2016-01-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
       provider: Rachel
-      external_id:
-      health_plan_id:
-    clinical_models:
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: I20.8
-        start_datetime: 2016-01-01
-        provider: Rachel
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-01-01
-        provider: Rachel
-  - name: Patient has no diagnosis but otherwise meets the denominator
-    attributes:
-      date_of_birth: 1980-06-01
-      given_name: Meets
-      family_name: NoDiagnosis
-      sex: Male
+- name: Patient has no diagnosis but otherwise meets the denominator
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: NoDiagnosis
+    sex: Male
+    provider: Rachel
+    external_id:
+    health_plan_id:
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
       provider: Rachel
-      external_id:
-      health_plan_id:
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-01-01
-        provider: Rachel
-  - name: Patient has a ICD10 coded diagnosis prior to the measurement period
-    attributes:
-      date_of_birth: 1980-06-01
-      given_name: Diagnosis10
-      family_name: Prior
-      sex: Female
+- name: Patient has a ICD10 coded diagnosis prior to the measurement period
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: Diagnosis10Prior
+    sex: Female
+    provider: Rachel
+    external_id:
+    health_plan_id:
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.8
+      start_datetime: 2014-05-01
+      end_datetime: 2015-07-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-06-01
       provider: Rachel
-      external_id:
-      health_plan_id:
-    clinical_models:
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: I20.8
-        start_datetime: 2014-05-01
-        end_datetime: 2016-07-01
-        provider: Rachel
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2018-06-01
-        provider: Rachel
-  - name: Patient has a ICD10 coded diagnosis after the measurement period
-    attributes:
-      date_of_birth: 1980-06-01
-      given_name: Diagnosis10
-      family_name: After
-      sex: Female
-      provider: Steve
-      external_id:
-      health_plan_id:
-    clinical_models:
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: I20.8
-        start_datetime: 2018-01-01
-        provider: Rachel
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2018-01-01
-        provider: Rachel
-  - name: Patient has a ICD10 coded diagnosis during the measurement period
-    attributes:
-      date_of_birth: 1980-06-01
-      given_name: Diagnosis10
-      family_name: During
-      sex: Female
+- name: Patient has a ICD10 coded diagnosis after the measurement period
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: Diagnosis10After
+    sex: Female
+    provider: Steve
+    external_id:
+    health_plan_id:
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.8
+      start_datetime: 2018-01-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
       provider: Rachel
-      external_id:
-      health_plan_id:
-    clinical_models:
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: I20.8
-        start_datetime: 2016-05-01
-        provider: Rachel
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-05-01
-        provider: Rachel
-  - name: Patient has a ICD9CM coded diagnosis during the measurement period
-    attributes:
-      date_of_birth: 1980-06-01
-      given_name: Diagnosis10
-      family_name: During
-      sex: Female
+- name: Patient has a ICD10 coded diagnosis during the measurement period
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: Diagnosis10During
+    sex: Female
+    provider: Rachel
+    external_id:
+    health_plan_id:
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.8
+      start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
       provider: Rachel
-      external_id:
-      health_plan_id:
-    clinical_models:
-      diagnoses:
-      - code_type: ICD9
-        code_value: 250.0
-        start_datetime: 2016-05-01
-        provider: Rachel
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-05-01
-        provider: Rachel
-  - name: Patient has no encounter but otherwise meets denominator
-    attributes:
-      date_of_birth: 1980-06-01
-      given_name: Meets
-      family_name: NoEncounter
-      sex: Female
+- name: Patient has a ICD9CM coded diagnosis during the measurement period
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: Diagnosis9During
+    sex: Female
+    provider: Rachel
+    external_id:
+    health_plan_id:
+  clinical_models:
+    diagnoses:
+    - code_type: ICD9CM
+      code_value: 250.0
+      start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
       provider: Rachel
-      external_id:
-      health_plan_id:
-    clinical_models:
-      diagnoses:
-      - code_type: ICD9
-        code_value: 250.0
-        start_datetime: 2016-05-01
-        provider: Rachel
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99810
-        start_datetime: 2016-05-01
-        provider: Rachel
-  - name: Patient has an encounter prior to the measurement period
-    attributes:
-      date_of_birth: 1980-06-01
-      given_name: Meets
-      family_name: PriorEncounter
-      sex: Female
+- name: Patient has no encounter but otherwise meets denominator
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: NoEncounter
+    sex: Female
+    provider: Rachel
+    external_id:
+    health_plan_id:
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.8
+      start_datetime: 2016-05-01
       provider: Rachel
-      external_id:
-      health_plan_id:
-    clinical_models:
-      diagnoses:
-      - code_type: ICD10CMCM
-        code_value: I20.0
-        start_datetime: 2016-05-01
-        provider: Rachel
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2014-05-01
-        provider: Rachel
-  - name: Patient has an encounter after the measurement period
-    attributes:
-      date_of_birth: 1980-06-01
-      given_name: Meets
-      family_name: EncounterAfter
-      sex: Female
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99810
+      start_datetime: 2016-05-01
       provider: Rachel
-      external_id:
-      health_plan_id:
-    clinical_models:
-      diagnoses:
-      - code_type: ICD10CMCM
-        code_value: I20.0
-        start_datetime: 2016-05-01
-        provider: Rachel
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2019-05-01
-        provider: Rachel
-  - name: Patient excepted because of an allergy to aspirin 4086F-1P
-    attributes:
-      date_of_birth: 1980-06-01
-      given_name: ExceptedDueTo
-      family_name: AspirinAllergy
-      sex: Female
+- name: Patient has an encounter prior to the measurement period
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: PriorEncounter
+    sex: Female
+    provider: Rachel
+    external_id:
+    health_plan_id:
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2014-05-01
       provider: Rachel
-    clinical_models:
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: I25.810
-        start_datetime: 2016-05-01
-        provider: Rachel
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-05-01
-        provider: Rachel
-      - code_type: CPT
-        code_value:  4086F-1P
-        start_datetime: 2016-05-01
-        provider: Rachel
-    - name: Patient excepted because of an intolerance to aspirin 4086F-1P
-      attributes:
-        date_of_birth: 1980-06-01
-        given_name: ExceptedDueTo
-        family_name: AspirinIntolerance
-        sex: Female
-        provider: Rachel
-      clinical_models:
-        diagnoses:
-        - code_type: ICD10CM
-          code_value: I25.810
-          start_datetime: 2016-05-01
-          provider: Rachel
-        clinical_activities:
-        - code_type: CPT
-          code_value: 99201
-          start_datetime: 2016-05-01
-          provider: Rachel
-        - code_type: CPT
-          code_value:  4086F-1P
-          start_datetime: 2016-05-01
-          provider: Rachel
-    - name: Patient excepted because of an active order/prescription for another anticoagulant 4086F-1P
-      attributes:
-        date_of_birth: 1980-06-01
-        given_name: ExceptedDueTo
-        family_name: ThienoPyridineRx
-        sex: Female
-        provider: Rachel
-      clinical_models:
-        diagnoses:
-        - code_type: ICD10CM
-          code_value: I25.810
-          start_datetime: 2016-05-01
-          provider: Rachel
-        clinical_activities:
-        - code_type: CPT
-          code_value: 99201
-          start_datetime: 2016-05-01
-          provider: Rachel
-        medications:
-        - code_type: RXNORM
-          code_value: 855812
-          start_datetime: 2014-01-01
-    - name: Excepted due to presence of thrombocytopenia
-      attributes:
-        date_of_birth: 1980-06-01
-        given_name: ExceptedDueTo
-        family_name: ThienoPyridineRx
-        sex: Female
-        provider: Rachel
-      clinical_models:
-        diagnoses:
-        - code_type: ICD10CM
-          code_value: I25.810
-          start_datetime: 2016-05-01
-          provider: Rachel
-        - code_type: ICD10CM
-          code_value: D69.49
-          start_datetime: 2016-05-01
-          provider: Rachel
-        clinical_activities:
-        - code_type: CPT
-          code_value: 99201
-          start_datetime: 2016-05-01
-          provider: Rachel
-    - name: Patient excepted because of a non-specific medical reason
-      attributes:
-        date_of_birth: 1980-06-01
-        given_name: ExceptedDueTo
-        family_name: NonSpecificMedicalReason
-        sex: Female
-        provider: Rachel
-      clinical_models:
-        diagnoses:
-        - code_type: ICD10CM
-          code_value: I25.810
-          start_datetime: 2016-05-01
-          provider: Rachel
-        clinical_activities:
-        - code_type: CPT
-          code_value: 99201
-          start_datetime: 2016-05-01
-          provider: Rachel
-        - code_type: CPT
-          code_value:  4086F-1P
-          start_datetime: 2016-05-01
-          provider: Rachel
-    - name: Patient declined treatment
-      attributes:
-        date_of_birth: 1980-06-01
-        given_name: ExceptedDueTo
-        family_name: PatientDecline
-        sex: Female
-        provider: Rachel
-      clinical_models:
-        diagnoses:
-        - code_type: ICD10CM
-          code_value: I25.810
-          start_datetime: 2016-05-01
-          provider: Rachel
-        clinical_activities:
-        - code_type: CPT
-          code_value: 99201
-          start_datetime: 2016-05-01
-          provider: Rachel
-        - code_type: CPT
-          code_value: 4086F-2P
-          start_datetime: 2016-05-01
-          provider: Rachel
-    - name: Patient declined treatment
-      attributes:
-        date_of_birth: 1980-06-01
-        given_name: ExceptedDueTo
-        family_name: PatientDeclined
-        sex: Female
-        provider: Rachel
-      clinical_models:
-        diagnoses:
-        - code_type: ICD10CM
-          code_value: I25.810
-          start_datetime: 2016-05-01
-          provider: Rachel
-        clinical_activities:
-        - code_type: CPT
-          code_value: 99201
-          start_datetime: 2016-05-01
-          provider: Rachel
-        - code_type: CPT
-          code_value: 4086F-2P
-          start_datetime: 2016-05-01
-          provider: Rachel
-    - name: Patient treated with aspirin therapy during measurement period.
-      attributes:
-        date_of_birth: 1980-06-01
-        given_name: AspirinTreatment
-        family_name: DuringMeasurementPeriod
-        sex: Female
-        provider: Rachel
-      clinical_models:
-        diagnoses:
-        - code_type: ICD10CM
-          code_value: I25.810
-          start_datetime: 2016-05-01
-          provider: Rachel
-        clinical_activities:
-        - code_type: CPT
-          code_value: 99201
-          start_datetime: 2016-05-01
-          provider: Rachel
-        medications:
-        - code_type: RXNORM
-          code_value: 198466
-          start_datetime: 2016-01-01
-    - name: Patient treated with aspirin before measurement period.
-      attributes:
-        date_of_birth: 1980-06-01
-        given_name: AspirinTreatment
-        family_name: BeforeMeasurementPeriod
-        sex: Female
-        provider: Rachel
-      clinical_models:
-        diagnoses:
-        - code_type: ICD10CM
-          code_value: I25.810
-          start_datetime: 2016-05-01
-          provider: Rachel
-        clinical_activities:
-        - code_type: CPT
-          code_value: 99201
-          start_datetime: 2016-05-01
-          provider: Rachel
-        medications:
-        - code_type: RXNORM
-          code_value: 198466
-          start_datetime: 2013-01-01
-          end_datetime: 2013-05-01
-    - name: Patient treated with clopidogrel during measurement period.
-      attributes:
-        date_of_birth: 1980-06-01
-        given_name: ClopidogrelTreatment
-        family_name: DuringMeasurementPeriod
-        sex: Female
-        provider: Rachel
-      clinical_models:
-        diagnoses:
-        - code_type: ICD10CM
-          code_value: I25.810
-          start_datetime: 2016-05-01
-          provider: Rachel
-        clinical_activities:
-        - code_type: CPT
-          code_value: 99201
-          start_datetime: 2016-05-01
-          provider: Rachel
-        medications:
-        - code_type: RXNORM
-          code_value: 309362
-          start_datetime: 2016-01-01
-          end_datetime: 2016-05-01
-    - name: Patient treated with clopidogrel prior to measurement period.
-      attributes:
-        date_of_birth: 1980-06-01
-        given_name: ClopidogrelTreatment
-        family_name: PriorToMeasurementPeriod
-        sex: Female
-        provider: Rachel
-      clinical_models:
-        diagnoses:
-        - code_type: ICD10CM
-          code_value: I25.810
-          start_datetime: 2016-05-01
-          provider: Rachel
-        clinical_activities:
-        - code_type: CPT
-          code_value: 99201
-          start_datetime: 2016-05-01
-          provider: Rachel
-        medications:
-        - code_type: RXNORM
-          code_value: 309362
-          start_datetime: 2014-01-01
-          end_datetime: 2014-05-01
-    - name: Patient Aspirin or clopidogrel prescribed during measurement period
-      attributes:
-        date_of_birth: 1980-06-01
-        given_name: MeetsNumerator
-        family_name: 4086F
-        sex: Female
-        provider: Rachel
-      clinical_models:
-        diagnoses:
-        - code_type: ICD10CM
-          code_value: I25.810
-          start_datetime: 2016-05-01
-          provider: Rachel
-        clinical_activities:
-        - code_type: CPT
-          code_value: 99201
-          start_datetime: 2016-05-01
-          provider: Rachel
-        - code_type: CPT
-          code_value: 4068F
-          start_datetime: 2016-05-01
-          provider: Rachel
-    - name: Aspirin or clopidogrel not prescribed during measurement period, reason unknown
-      attributes:
-        date_of_birth: 1980-06-01
-        given_name: NotMeetNumerator
-        family_name: 4086F-8P
-        sex: Female
-        provider: Rachel
-      clinical_models:
-        diagnoses:
-        - code_type: ICD10CM
-          code_value: I25.810
-          start_datetime: 2016-05-01
-          provider: Rachel
-        clinical_activities:
-        - code_type: CPT
-          code_value: 99201
-          start_datetime: 2016-05-01
-          provider: Rachel
-        - code_type: CPT
-          code_value: 4068F
-          start_datetime: 2016-05-01
-          provider: Rachel
+- name: Patient has an encounter after the measurement period
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: AfterEncounter
+    sex: Female
+    provider: Rachel
+    external_id:
+    health_plan_id:
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2019-05-01
+      provider: Rachel
+- name: Patient excepted because of an allergy to aspirin 4086F-1P
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: AspirinAllergy
+    sex: Female
+    provider: Rachel
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 4086F-1P
+      start_datetime: 2016-05-01
+      provider: Rachel
+- name: Patient excepted because of an intolerance to aspirin 4086F-1P
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: AspirinIntolerance
+    sex: Female
+    provider: Rachel
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    - code_type: CPT
+      code_value:  4086F-1P
+      start_datetime: 2016-05-01
+      provider: Rachel
+- name: Patient excepted because of an active order/prescription for another anticoagulant 4086F-1P
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: ThienoPyridineRx
+    sex: Female
+    provider: Rachel
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 855812
+      start_datetime: 2014-01-01
+- name: Excepted due to presence of thrombocytopenia
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: BleedingDisorder
+    sex: Female
+    provider: Rachel
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2015-05-01
+      provider: Rachel
+    - code_type: ICD10CM
+      code_value: D69.49
+      start_datetime: 2015-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+- name: Patient excepted because of a non-specific medical reason
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: NonSpecificMedicalReason
+    sex: Female
+    provider: Rachel
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    - code_type: CPT
+      code_value:  4086F-1P
+      start_datetime: 2016-05-01
+      provider: Rachel
+- name: Patient declined treatment
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: PatientDeclined
+    sex: Female
+    provider: Rachel
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 4086F-2P
+      start_datetime: 2016-05-01
+      provider: Rachel
+- name: Patient declined treatment
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: PatientDeclined
+    sex: Female
+    provider: Rachel
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 4086F-2P
+      start_datetime: 2016-05-01
+      provider: Rachel
+- name: Patient prescribed aspirin therapy during measurement period.
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: AspirinPrescription
+    family_name: During
+    sex: Female
+    provider: Rachel
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 198466
+      start_datetime: 2016-01-01
+- name: Patient prescribed aspirin before measurement period.
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: AspirinPrescription
+    family_name: BeforeMeasurementPeriod
+    sex: Female
+    provider: Rachel
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 198466
+      start_datetime: 2013-01-01
+      end_datetime: 2013-05-01
+- name: Patient prescribed clopidogrel during measurement period.
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ClopidogrelPrescription
+    family_name: During
+    sex: Female
+    provider: Rachel
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 309362
+      start_datetime: 2016-01-01
+      end_datetime: 2016-05-01
+- name: Patient prescribed clopidogrel prior to measurement period.
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ClopidogrelPrescription
+    family_name: Prior
+    sex: Female
+    provider: Rachel
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 309362
+      start_datetime: 2014-01-01
+      end_datetime: 2014-05-01
+- name: Patient Aspirin or clopidogrel prescribed during measurement period
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: MeetsNumerator
+    family_name: 4086F
+    sex: Female
+    provider: Rachel
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 4068F
+      start_datetime: 2016-05-01
+      provider: Rachel
+- name: Aspirin or clopidogrel not prescribed during measurement period, reason unknown
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: NotMeetNumerator
+    family_name: 4086F-8P
+    sex: Female
+    provider: Rachel
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 4068F-8P
+      start_datetime: 2016-05-01
+      provider: Rachel
