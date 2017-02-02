@@ -13,16 +13,17 @@ using QDM
 
 valueset "Able; Other Thienopyridine Agent"
 valueset "Able; Aspirin and Clopidogrel"
+valueset "Able; Warfarin Therapy"
 
 valueset "MIPS; MIPS 006 Encounter"
 valueset "MIPS; Telehealth Modifier"
 valueset "MIPS; Coronary Artery Disease (CAD)"
 valueset "MIPS; Denominator Exception: 4086F-1P"
-valueset "MIPS; Denominator Exception: 4086F-2P"
+valueset "MIPS; Patient Refusal Reason: 4086F-2P"
 valueset "MIPS; Denominator Exception: 4086F-3P"
 valueset "MIPS; Performance Met: 4086F"
 valueset "MIPS; Performance Not Met: 4086F-8P"
-valueset "MIPS; Patient Refusal: 4086F-2P"
+
 
 // Value Sets from VSAC
 
@@ -81,6 +82,12 @@ define "Denominator Exception 3: 4086F-1P"
     where M.authorDateTime during of "Measurement Period")
   or exists(["Medication, Active": "Able; Other Thienopyridine Agent"] M
     where M.relevantPeriod overlaps "Measurement Period")
+  or exists(["Medication, Order": "Able; Warfarin Therapy"] M
+      where M.authorDateTime during of "Measurement Period")
+  or exists(["Medication, Active": "Able; Warfarin Therapy"] M
+      where M.relevantPeriod overlaps "Measurement Period")
+
+    //add warfarin to a new valueset and inlude
 
 define "Denominator Exception 4: 4086F-1P"
  /*
@@ -95,7 +102,7 @@ define "Denominator Exception 5: 4086F-2P"
 * config_link_id: denominator_exception_5
 * Exception 5: patient declined treatment with aspirin or clopidogrel
 */
-  exists(["Procedure, Performed": "MIPS; Patient Refusal: 4086F-2P"] P
+  exists(["Procedure, Performed": "MIPS; Patient Refusal Reason: 4086F-2P"] P
     where P.revelvantPeriod starts during "Measurement Period")
 
 define "Denominator Exception 6: 4086F-3P":
@@ -103,13 +110,13 @@ define "Denominator Exception 6: 4086F-3P":
 * config_link_id:  denominator_exception_6
 * Exception 6: Excepted for non-specified reason
 */
-  or exists(["Medication, not administered": "MIPS; Denominator Exception: 4086F-3P"]
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: 4086F-3P"] P
     where P.revelvantPeriod starts starts during "Measurement Period")
 
-//Numerator Performance Not Met for reasons not otherwise specified
 define "Numerator Performance Not Met: 4086F-8P":
   /*
    * config_link_id: 4086F-8P
+   * Numerator Performance Not Met for reasons not otherwise specified
    */
   not "Numerator Performance Met: 4086F"
   and not "Denominator Exception 1: 4086F-1P"
