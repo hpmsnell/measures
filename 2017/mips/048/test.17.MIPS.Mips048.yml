@@ -29,7 +29,7 @@ test_set_keys:
       numerator:
     - name: Exclusion HospiceService #Patient has an exclusion for hospice service
       denominator: 1
-      denominator_exclusion: deminator_exclusion
+      denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
     - name: Exclusion HospiceServiceEarly # Patient has an exclusion for hospice service but it is too early
@@ -92,7 +92,7 @@ test_set_keys:
         numerator:
       - name: Exclusion HospiceService #Patient has an exclusion for hospice service
         denominator: 1
-        denominator_exclusion: deminator_exclusion
+        denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: Exclusion HospiceServiceEarly # Patient has an exclusion for hospice service but it is too early
