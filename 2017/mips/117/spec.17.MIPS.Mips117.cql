@@ -25,10 +25,6 @@ valueset "MIPS; Performance Not Met: 2022F-8P"
 valueset "MIPS; Performance Not Met: 2024F-8P"
 valueset "MIPS; Performance Not Met: 2026F-8P"
 
-// Able Value Sets
-
-valueset "Able; Diabetic Retinopathy Study 7 field stereoscopic fundus photography"
-
 // VSAC Value Sets
 
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
