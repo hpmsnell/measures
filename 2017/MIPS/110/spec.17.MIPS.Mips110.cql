@@ -87,7 +87,7 @@ define "Denominator Exception 4: G8483": //Exception due to non-specific reason
 /*
 * config_link_id: exception_4
 */
-  exists(["Procedure, Performed":"MIPS; Performance Exception: G8483"] P
+  exists(["Procedure, Performed": "MIPS; Performance Exception: G8483"] P
     where P.prevelancePeriod overlaps "Measurement Period")
 
   )
