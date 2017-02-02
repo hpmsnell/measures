@@ -64,12 +64,12 @@ test_set_keys:
         numerator: F/2026F-8P
       - name: Hospice Lower # MIPS hospice at lower bound of MP
         denominator: 1
-        denominator_exclusion: 1
+        denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: Hospice Upper # MIPS hospice at upper bound of MP
         denominator: 1
-        denominator_exclusion: 1
+        denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: Hospice Late # MIPS hospice after MP
@@ -84,12 +84,12 @@ test_set_keys:
         numerator: F/2026F-8P
       - name: VHospice Lower # VSAC hospice end date at lower bound (2nd day)
         denominator: 1
-        denominator_exclusion: 1
+        denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: VHospice Upper # VSAC hospice start date at upper bound (2nd day)
         denominator: 1
-        denominator_exclusion: 1
+        denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: VHospice Late # VSAC hospice start date after end of measurement period
@@ -282,12 +282,12 @@ test_set_keys:
           numerator: F/2026F-8P
         - name: Hospice Lower # MIPS hospice at lower bound of MP
           denominator: 1
-          denominator_exclusion: 1
+          denominator_exclusion: exclusion_1
           denominator_exception:
           numerator:
         - name: Hospice Upper # MIPS hospice at upper bound of MP
           denominator: 1
-          denominator_exclusion: 1
+          denominator_exclusion: exclusion_1
           denominator_exception:
           numerator:
         - name: Hospice Late # MIPS hospice after MP
@@ -302,12 +302,12 @@ test_set_keys:
           numerator: F/2026F-8P
         - name: VHospice Lower # VSAC hospice end date at lower bound (2nd day)
           denominator: 1
-          denominator_exclusion: 1
+          denominator_exclusion: exclusion_1
           denominator_exception:
           numerator:
         - name: VHospice Upper # VSAC hospice start date at upper bound (2nd day)
           denominator: 1
-          denominator_exclusion: 1
+          denominator_exclusion: exclusion_1
           denominator_exception:
           numerator:
         - name: VHospice Late # VSAC hospice start date after end of measurement period
