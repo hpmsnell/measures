@@ -14,7 +14,7 @@ using QDM
 
 // MIPS Value Sets
 
-valueset "MIPS; MIPS 236 Encounters"
+valueset "MIPS; MIPS 236 Encounter"
 valueset "MIPS; Hypertension"
 valueset "MIPS; Hospice Service: G9740"
 valueset "MIPS; Clinical Exclusion: G9231"
@@ -45,14 +45,13 @@ context Patient
 
 define "Patient Age at Encounter":
   AgeInYearsAt(
-    ["Encounter, Performed": "MIPS; MIPS 048 Encounter"] E
+    ["Encounter, Performed": "MIPS; MIPS 236 Encounter"] E
       where E.relevantPeriod starts during "Measurement Period"
         and E.signingProvider.pqrsProvider = true
   )
 
 define "Excluded Diagnoses":
-  ["Diagnosis": "VSAC; Pregnancy"]
-  union ["Diagnosis": "VSAC; End Stage Renal Disease"]
+  ["Diagnosis": "VSAC; End Stage Renal Disease"]
   union ["Diagnosis": "VSAC; Chronic Kidney Disease, Stage 5"]
 
 define "Excluded Procedures":
@@ -71,7 +70,7 @@ define "Denominator":
 
 define "Denominator Exclusion 1":
   /*
-   * config_link_id: denominator_exclusion_1
+   * config_link_id: exclusion_1
    */
  exists(["Procedure, Performed": "MIPS; Hospice Service: G9740"] I
    where I.relevantPeriod starts during "Measurement Period")
@@ -80,14 +79,48 @@ define "Denominator Exclusion 1":
 
  define "Denominator Exclusion 2":
    /*
-    * config_link_id: denominator_exclusion_2
+    * config_link_id: exclusion_2
     */
   exists(["Procedure, Performed": "Clinical Exclusion: G9231"] I
     where I.relevantPeriod starts during "Measurement Period")
   or exists("Excluded Diagnoses" D
-    where D.prevalencePeriod overlaps "Measurement Period")
+    where D.prevalencePeriod starts before end "Measurement Period")
   or exists("Excluded Procedures" P
     where P.relevantPeriod starts before end "Measurement Period")
+  or exists(["Diagnosis": "VSAC; Pregnancy"] D
+    where D.prevalencePeriod overlaps "Measurement Period")
+
+define "Good Most Recent Diastolic Blood Pressure":
+  Last("Encounter, Performed": "VSAC; Adult Outpatient Visit") E
+    where E.relevantPeriod starts during "Measurement Period"
+    with ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] D
+      such that
+        D.relevantPeriod starts during E.relevantPeriod
+        and D.result < 90
+
+define "Bad Most Recent Diastolic Blood Pressure":
+  Last("Encounter, Performed": "VSAC; Adult Outpatient Visit") E
+    where E.relevantPeriod starts during "Measurement Period"
+    with ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] D
+      such that
+        D.relevantPeriod starts during E.relevantPeriod
+        and D.result >= 90
+
+define "Good Most Recent Systolic Blood Pressure":
+  Last("Encounter, Performed": "VSAC; Adult Outpatient Visit") E
+    where E.relevantPeriod starts during "Measurement Period"
+    with ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] S
+      such that
+        S.relevantPeriod starts during E.relevantPeriod
+        and S.result < 140
+
+define "Bad Most Recent Systolic Blood Pressure":
+  Last("Encounter, Performed": "VSAC; Adult Outpatient Visit") E
+    where E.relevantPeriod starts during "Measurement Period"
+    with ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] S
+      such that
+        S.relevantPeriod starts during E.relevantPeriod
+        and S.result >= 140
 
 define "Numerator Performance Met: G8752 and G8754":
   /*
@@ -96,90 +129,58 @@ define "Numerator Performance Met: G8752 and G8754":
   (
     exists(["Procedure, Performed": "MIPS; Performance Met: G8752"] P
       where P.relevantPeriod starts during "Measurement Period")
-    and exists(["Procedure, Performed": "MIPS; Performance Met: G8754"] P
-      where P.relevantPeriod starts during "Measurement Period")
+    or exists("Good Most Recent Systolic Blood Pressure")
   )
-  or (
-    Last("Encounter, Performed": "VSAC; Adult Outpatient Visit") E
-      where E.relevantPeriod starts during "Measurement Period"
-      with ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] D
-        such that
-          D.relevantPeriod starts during E.relevantPeriod
-          and D.result < 90
-      and with ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] S
-        such that
-          S.relevantPeriod starts during E.relevantPeriod
-          and S.result < 140
+  and (
+    exists(["Procedure, Performed": "MIPS; Performance Met: G8754"] P
+      where P.relevantPeriod starts during "Measurement Period")
+    or exists("Good Most Recent Diastolic Blood Pressure")
   )
 
 define "Numerator Performance Not Met: G8753 and G8754":
   /*
    * config_link_id: G8753/G8754
    */
-  (
-    exists(["Procedure, Performed": "MIPS; Performance Met: G8753"] P
-      where P.relevantPeriod starts during "Measurement Period")
-    and exists(["Procedure, Performed": "MIPS; Performance Met: G8754"] P
-      where P.relevantPeriod starts during "Measurement Period")
-  )
-  or (
-    Last("Encounter, Performed": "VSAC; Adult Outpatient Visit") E
-      where E.relevantPeriod starts during "Measurement Period"
-      with ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] D
-        such that
-          D.relevantPeriod starts during E.relevantPeriod
-          and D.result >= 90
-      and with ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] S
-        such that
-          S.relevantPeriod starts during E.relevantPeriod
-          and S.result < 140
-  )
+   (
+     exists(["Procedure, Performed": "MIPS; Performance Met: G8753"] P
+       where P.relevantPeriod starts during "Measurement Period")
+     or exists("Bad Most Recent Systolic Blood Pressure")
+   )
+   and (
+     exists(["Procedure, Performed": "MIPS; Performance Met: G8754"] P
+       where P.relevantPeriod starts during "Measurement Period")
+     or exists("Good Most Recent Diastolic Blood Pressure")
+   )
 
 define "Numerator Performance Not Met: G8752 and G8755":
   /*
    * config_link_id: G8752/G8755
    */
-  (
-    exists(["Procedure, Performed": "MIPS; Performance Met: G8752"] P
-      where P.relevantPeriod starts during "Measurement Period")
-    and exists(["Procedure, Performed": "MIPS; Performance Met: G8755"] P
-      where P.relevantPeriod starts during "Measurement Period")
-  )
-  or (
-    Last("Encounter, Performed": "VSAC; Adult Outpatient Visit") E
-      where E.relevantPeriod starts during "Measurement Period"
-      with ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] D
-        such that
-          D.relevantPeriod starts during E.relevantPeriod
-          and D.result < 90
-      and with ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] S
-        such that
-          S.relevantPeriod starts during E.relevantPeriod
-          and S.result >= 140
-  )
+   (
+     exists(["Procedure, Performed": "MIPS; Performance Met: G8752"] P
+       where P.relevantPeriod starts during "Measurement Period")
+     or exists("Good Most Recent Systolic Blood Pressure")
+   )
+   and (
+     exists(["Procedure, Performed": "MIPS; Performance Met: G8755"] P
+       where P.relevantPeriod starts during "Measurement Period")
+     or exists("Bad Most Recent Diastolic Blood Pressure")
+   )
 
 define "Numerator Performance Not Met: G8753 and G8755":
   /*
    * config_link_id: G8753/G8755
    */
-  (
-    exists(["Procedure, Performed": "MIPS; Performance Met: G8753"] P
-      where P.relevantPeriod starts during "Measurement Period")
-    and exists(["Procedure, Performed": "MIPS; Performance Met: G8755"] P
-      where P.relevantPeriod starts during "Measurement Period")
-  )
-  or (
-    Last("Encounter, Performed": "VSAC; Adult Outpatient Visit") E
-      where E.relevantPeriod starts during "Measurement Period"
-      with ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] D
-        such that
-          D.relevantPeriod starts during E.relevantPeriod
-          and D.result >= 90
-      and with ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] S
-        such that
-          S.relevantPeriod starts during E.relevantPeriod
-          and S.result >= 140
-  )
+   (
+     exists(["Procedure, Performed": "MIPS; Performance Met: G8753"] P
+       where P.relevantPeriod starts during "Measurement Period")
+     or exists("Bad Most Recent Systolic Blood Pressure")
+   )
+   and (
+     exists(["Procedure, Performed": "MIPS; Performance Met: G8755"] P
+       where P.relevantPeriod starts during "Measurement Period")
+     or exists("Bad Most Recent Diastolic Blood Pressure")
+   )
 
 define "Numerator Performance Not Met: G8756":
   /*

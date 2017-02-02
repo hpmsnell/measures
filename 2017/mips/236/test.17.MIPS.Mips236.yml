@@ -1,4 +1,4 @@
-measure_id: 17.MIPS.Mips236-Diastolic
+measure_id: 17.MIPS.Mips236
 test_set_keys:
   organization_key:
     patients:
@@ -59,12 +59,12 @@ test_set_keys:
         numerator: F/G8756
       - name: Hospice Lower # Hospice at lower bound
         denominator: 1
-        denominator_exclusion: denominator_exclusion_1
+        denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: Hospice Upper # Hospice at upper bound
         denominator: 1
-        denominator_exclusion: denominator_exclusion_1
+        denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: Hospice Late # Hospice too late
@@ -78,13 +78,13 @@ test_set_keys:
         denominator_exception:
         numerator: F/G8756
       - name: VSACHospice Lower # VSAC hospice ends at lower bound
-        denominator: denominator_exclusion_1
+        denominator: exclusion_1
         denominator_exclusion: 1
         denominator_exception:
         numerator:
       - name: VSACHospice Upper # VSAC hospice starts at upper bound
         denominator: 1
-        denominator_exclusion: denominator_exclusion_1
+        denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: VSACHospice Late # VSAC hospice starts too late
@@ -99,12 +99,12 @@ test_set_keys:
         numerator: F/G8756
       - name: Exclusion Lower # Clinical exclusion at lower bound
         denominator: 1
-        denominator_exclusion: denominator_exclusion_2
+        denominator_exclusion: exclusion_2
         denominator_exception:
         numerator:
       - name: Exclusion Upper # Clinical exclusion at upper bound
         denominator: 1
-        denominator_exclusion: denominator_exclusion_2
+        denominator_exclusion: exclusion_2
         denominator_exception:
         numerator:
       - name: Exclusion Late # Clinical exclusion too late
@@ -119,7 +119,7 @@ test_set_keys:
         numerator: F/G8756
       - name: DiagnosisExclusion Overlaps # Diagnosis exclusion overlaps measurement period
         denominator: 1
-        denominator_exclusion: denominator_exclusion_2
+        denominator_exclusion: exclusion_2
         denominator_exception:
         numerator:
       - name: DiagnosisExclusion Late # Diagnosis exclusion starts late
@@ -129,7 +129,7 @@ test_set_keys:
         numerator: F/G8756
       - name: Exclusion Procedure # Excluded procedure
         denominator: 1
-        denominator_exclusion: denominator_exclusion_2
+        denominator_exclusion: exclusion_2
         denominator_exception:
         numerator:
       - name: Exclusion ProcedureLate # Excluded procedure late
@@ -267,12 +267,12 @@ test_set_keys:
           numerator: F/G8756
         - name: Hospice Lower # Hospice at lower bound
           denominator: 1
-          denominator_exclusion: denominator_exclusion_1
+          denominator_exclusion: exclusion_1
           denominator_exception:
           numerator:
         - name: Hospice Upper # Hospice at upper bound
           denominator: 1
-          denominator_exclusion: denominator_exclusion_1
+          denominator_exclusion: exclusion_1
           denominator_exception:
           numerator:
         - name: Hospice Late # Hospice too late
@@ -286,13 +286,13 @@ test_set_keys:
           denominator_exception:
           numerator: F/G8756
         - name: VSACHospice Lower # VSAC hospice ends at lower bound
-          denominator: denominator_exclusion_1
+          denominator: exclusion_1
           denominator_exclusion: 1
           denominator_exception:
           numerator:
         - name: VSACHospice Upper # VSAC hospice starts at upper bound
           denominator: 1
-          denominator_exclusion: denominator_exclusion_1
+          denominator_exclusion: exclusion_1
           denominator_exception:
           numerator:
         - name: VSACHospice Late # VSAC hospice starts too late
@@ -307,12 +307,12 @@ test_set_keys:
           numerator: F/G8756
         - name: Exclusion Lower # Clinical exclusion at lower bound
           denominator: 1
-          denominator_exclusion: denominator_exclusion_2
+          denominator_exclusion: exclusion_2
           denominator_exception:
           numerator:
         - name: Exclusion Upper # Clinical exclusion at upper bound
           denominator: 1
-          denominator_exclusion: denominator_exclusion_2
+          denominator_exclusion: exclusion_2
           denominator_exception:
           numerator:
         - name: Exclusion Late # Clinical exclusion too late
@@ -327,7 +327,7 @@ test_set_keys:
           numerator: F/G8756
         - name: DiagnosisExclusion Overlaps # Diagnosis exclusion overlaps measurement period
           denominator: 1
-          denominator_exclusion: denominator_exclusion_2
+          denominator_exclusion: exclusion_2
           denominator_exception:
           numerator:
         - name: DiagnosisExclusion Late # Diagnosis exclusion starts late
@@ -337,7 +337,7 @@ test_set_keys:
           numerator: F/G8756
         - name: Exclusion Procedure # Excluded procedure
           denominator: 1
-          denominator_exclusion: denominator_exclusion_2
+          denominator_exclusion: exclusion_2
           denominator_exception:
           numerator:
         - name: Exclusion ProcedureLate # Excluded procedure late
@@ -346,7 +346,7 @@ test_set_keys:
           denominator_exception:
           numerator: F/G8756
         - name: SystolicGood DiastolicGood # Good blood pressure during last visit
-          denominator: 
+          denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
