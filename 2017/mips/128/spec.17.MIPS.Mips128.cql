@@ -63,8 +63,8 @@ define "Denominator Exclusion":
     where P.relevantPeriod starts during "Measurement Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
     where I.relevantPeriod starts during "Measurement Period")
-  or or exists(["Diagnosis": "VSAC; Preganancy"] D
-    where D.prevalencePeriod starts before end "Measurement Period")
+  or or exists(["Diagnosis": "VSAC; Pregnancy"] D
+    where D.prevalencePeriod overlaps "Measurement Period")
 
 define "Numerator Performance Met: G8420":
   /*
