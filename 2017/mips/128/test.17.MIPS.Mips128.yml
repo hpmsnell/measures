@@ -34,12 +34,12 @@ test_set_keys:
       numerator:
     - name: Exclusion Start # Patient has an exclusion
       denominator: 1
-      denominator_exclusion: denominator_exclusion
+      denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
     - name: Exclusion End # Patient has an exclusion
       denominator: 1
-      denominator_exclusion: denominator_exclusion
+      denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
     - name: Exclusion Late  # Patient has an exclusion but it is too late
@@ -54,7 +54,7 @@ test_set_keys:
       numerator: F/G8421
     - name: Exclusion Pregnant  # Patient has an exclusion but it is too late
       denominator: 1
-      denominator_exclusion: denominator_exclusion
+      denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
     - name: Exclusion PregnantLate  # Patient has an exclusion but it is too late
@@ -127,7 +127,7 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception: G9716
       numerator:
-    - name: Exception Start # Patient has a denominator exception at the end of the allowable period
+    - name: Exception End # Patient has a denominator exception at the end of the allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception: G9716
@@ -177,12 +177,12 @@ test_set_keys:
       numerator:
     - name: Exclusion Start # Patient has an exclusion
       denominator: 1
-      denominator_exclusion: denominator_exclusion
+      denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
     - name: Exclusion End # Patient has an exclusion
       denominator: 1
-      denominator_exclusion: denominator_exclusion
+      denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
     - name: Exclusion Late  # Patient has an exclusion but it is too late
@@ -197,7 +197,7 @@ test_set_keys:
       numerator: F/G8421
     - name: Exclusion Pregnant  # Patient has an exclusion but it is too late
       denominator: 1
-      denominator_exclusion: denominator_exclusion
+      denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
     - name: Exclusion PregnantLate  # Patient has an exclusion but it is too late
@@ -266,12 +266,12 @@ test_set_keys:
       denominator_exception:
       numerator: F/G8419
     - name: Exception Start # Patient has a denominator exception at the start of the allowable period
-      denominator: 1
+      denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Exception Start # Patient has a denominator exception at the end of the allowable period
-      denominator: 1
+    - name: Exception End # Patient has a denominator exception at the end of the allowable period
+      denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
@@ -412,7 +412,7 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception: G9716
       numerator:
-    - name: Exception Start # Patient has a denominator exception at the end of the allowable period
+    - name: Exception End # Patient has a denominator exception at the end of the allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception: G9716
@@ -523,7 +523,7 @@ patients:
       code_value: 99201
       start_datetime: 2016-01-01
       provider: Rachel
-    - code_type: CPT
+    - code_type: HCPCS
       code_value: G8422 # G-code for not eligible
       start_datetime: 2016-01-01
 - name: Patient has an exclusion at the end of the allowable period
@@ -538,7 +538,7 @@ patients:
       code_value: 99201
       start_datetime: 2016-01-01
       provider: Rachel
-    - code_type: CPT
+    - code_type: HCPCS
       code_value: G8422 # G-code for not eligible
       start_datetime: 2016-12-31
 - name: Patient has an exclusion but it is too late
@@ -553,7 +553,7 @@ patients:
       code_value: 99201
       start_datetime: 2016-01-01
       provider: Rachel
-    - code_type: CPT
+    - code_type: HCPCS
       code_value: G8422 # G-code for not eligible
       start_datetime: 2017-01-01
 - name: Patient has an exclusion but it is too early
@@ -568,9 +568,10 @@ patients:
       code_value: 99201
       start_datetime: 2016-01-01
       provider: Rachel
-    - code_type: CPT
+    - code_type: HCPCS
       code_value: G8422 # G-code for not eligible
-      start_datetime: 2015-12-31
+      start_datetime: 2015-03-01
+      stop_datetime: 2015-12-31
 - name: Patient has an exclusion for pregnancy
   attributes:
     date_of_birth: 1950-01-01
@@ -831,7 +832,7 @@ patients:
       code_value: 99201
       start_datetime: 2016-01-01
       provider: Patty
-    - code_type: CPT
+    - code_type: HCPCS
       code_value: G9716 # G-code for exception
       start_datetime: 2016-01-01
 - name: Patient has a denominator exception at the end of the allowable period
@@ -846,7 +847,7 @@ patients:
       code_value: 99201
       start_datetime: 2016-01-01
       provider: Patty
-    - code_type: CPT
+    - code_type: HCPCS
       code_value: G9716 # G-code for exception
       start_datetime: 2016-12-31
 - name: Patient has a denominator exception but it is too late
