@@ -11,122 +11,430 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 4086F-8P
-    - name: Meets Male
-      denominator: 1
-      denominator_exclusion:
-      numerator: 4086F-8P
-      exception:
-    - name: Meets Female
+      numerator: F/4086F-8P
+    - name: Diagnosis 10Prior
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 4086F-8P
-    - name: Meets NoDiagnosis
-      denominator:
-      denominator_exclusion:
-      denomiantor_exception:
-      numerator:
-    - name: Meets Diagnosis10Prior
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 4086F-8P
-    - name: Meets Diagnosis10After
+      numerator: F/4086F-8P
+    - name: Diagnosis 10After
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Meets Diagnosis9During
+    - name: Diagnosis 9Overlapping
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Meets Diagnosis10During
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 4086F-8P
-    - name: Meets NoEncounter
+    - name: Encounter Prior
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Meets PriorEncounter
+    - name: Encounter After
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Meets AfterEncounter
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: ExceptedDueTo AspirinAllergy
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception: 4086F-1P
-      numerator:
-    - name: ExceptedDueTo AspirinIntolerance
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception: 4086F-1P
-      numerator:
-    - name: ExceptedDueTo ThienoPyridineRx
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception: 4086F-1P
-      numerator:
-    - name: ExceptedDueTo BleedingDisorder
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception: 4086F-1P
-      numerator:
-    - name: ExceptedDueTo NonSpecificMedicalReason
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception: 4086F-1P
-      numerator:
-    - name: MeetsNumerator 4086F
+    - name: ExceptedDueTo MIPS1PEarly
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 4086F
-    - name: ExceptedDueTo PatientDeclined
+      numerator: F/4086F-8P
+    - name: ExceptedDueTo MIPS1PLower
       denominator: 1
       denominator_exclusion:
-      denominator_exception: 4086F-2P
+      denominator_exception: denominator_exception_1
       numerator:
-    - name: ExceptedDueTo SystemReason
+    - name: ExceptedDueTo MIPS1PUpper
       denominator: 1
       denominator_exclusion:
-      denominator_exception: 4086F-3P
+      denominator_exception: denominator_exception_1
       numerator:
-    - name: AspirinPrescription During
+    - name: ExceptedDueTo MIPS1PLate
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 4086F
-    - name: AspirinPrescription BeforeMeasurementPeriod
+      numerator: F/4086F-8P
+    - name: ExceptedDueTo AllergyEarly
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 4086F-8P
-    - name: ClopidogrelPrescription During
+      numerator: F/4086F-8P
+    - name: ExceptedDueTo AllergyOverlapping
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: denominator_exception_2
+      numerator:
+    - name: ExceptedDueTo AllergyLate
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 4086F
-    - name: ClopidogrelPrescription Prior
+      numerator: F/4086F-8P
+    - name: ExceptedDueTo ThienopyridineRxEarly
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 4086F
-    - name: NotMeetNumerator 4086F-8P
+      numerator: F/4086F-8P
+    - name: ExceptedDueTo ThienopyridineRxDuring
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: denominator_exception_3
+      numerator:
+    - name: ExceptedDueTo ThienopyridineRxLate
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 4086F-8P
+      numerator: F/4086F-8P
+    - name: ExceptedDueTo ThienopyridineActiveEarly
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: F/4086F-8P
+    - name: ExceptedDueTo ThienopyridineActiveOverlapping
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: denominator_exception_3
+      numerator:
+    - name: ExceptedDueTo ThienopyridineActiveLate
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: F/4086F-8P
+    - name: ExceptedDueTo WarfarinRxDuring
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: denominator_exception_3
+      numerator:
+    - name: ExceptedDueTo WarfarinActiveOverlapping
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: denominator_exception_3
+      numerator:
+    - name: ExceptedDueTo BleedingEarly
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: F/4086F-8P
+    - name: ExceptedDueTo BleedingOverlapping
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: denominator_exception_4
+      numerator:
+    - name: ExceptedDueTo BleedingLate
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: F/4086F-8P
+    - name: ExceptedDueTo RefusalEarly
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: F/4086F-8P
+    - name: ExceptedDueTo RefusalDuring
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: denominator_exception_5
+      numerator:
+    - name: ExceptedDueTo RefusalLate
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: F/4086F-8P
+    - name: ExceptedDueTo NonspecifiedEarly
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: F/4086F-8P
+    - name: ExceptedDueTo NonspecifiedDuring
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: denominator_exception_6
+      numerator:
+    - name: ExceptedDueTo NonspecifiedLate
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: F/4086F-8P
+    - name: PerformanceMet Early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: F/4086F-8P
+    - name: PerformanceMet Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: S/4086F
+    - name: PerformanceMet Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: S/4086F
+    - name: PerformanceMet Late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: F/4086F-8P
+    - name: AspirinRx Early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: F/4086F-8P
+    - name: AspirinRx Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: S/4086F
+    - name: AspirinRx Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: S/4086F
+    - name: AspirinRx Late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: F/4086F-8P
+    - name: AspirinActive Early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: F/4086F-8P
+    - name: AspirinActive Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: S/4086F
+    - name: AspirinActive Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: S/4086F
+    - name: AspirinActive Late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: F/4086F-8P
+  providers_key:
+    - name: Rachel
+      patients:
+      - name: Too Young
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: Diagnosis 10Prior
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: Diagnosis 10After
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Diagnosis 9Overlapping
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Prior
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter After
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: ExceptedDueTo MIPS1PEarly
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: ExceptedDueTo MIPS1PLower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: denominator_exception_1
+        numerator:
+      - name: ExceptedDueTo MIPS1PUpper
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: denominator_exception_1
+        numerator:
+      - name: ExceptedDueTo MIPS1PLate
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: ExceptedDueTo AllergyEarly
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: ExceptedDueTo AllergyOverlapping
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: denominator_exception_2
+        numerator:
+      - name: ExceptedDueTo AllergyLate
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: ExceptedDueTo ThienopyridineRxEarly
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: ExceptedDueTo ThienopyridineRxDuring
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: denominator_exception_3
+        numerator:
+      - name: ExceptedDueTo ThienopyridineRxLate
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: ExceptedDueTo ThienopyridineActiveEarly
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: ExceptedDueTo ThienopyridineActiveOverlapping
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: denominator_exception_3
+        numerator:
+      - name: ExceptedDueTo ThienopyridineActiveLate
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: ExceptedDueTo WarfarinRxDuring
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: denominator_exception_3
+        numerator:
+      - name: ExceptedDueTo WarfarinActiveOverlapping
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: denominator_exception_3
+        numerator:
+      - name: ExceptedDueTo BleedingEarly
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: ExceptedDueTo BleedingOverlapping
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: denominator_exception_4
+        numerator:
+      - name: ExceptedDueTo BleedingLate
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: ExceptedDueTo RefusalEarly
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: ExceptedDueTo RefusalDuring
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: denominator_exception_5
+        numerator:
+      - name: ExceptedDueTo RefusalLate
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: ExceptedDueTo NonspecifiedEarly
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: ExceptedDueTo NonspecifiedDuring
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: denominator_exception_6
+        numerator:
+      - name: ExceptedDueTo NonspecifiedLate
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: PerformanceMet Early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: PerformanceMet Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/4086F
+      - name: PerformanceMet Upper
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/4086F
+      - name: PerformanceMet Late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: AspirinRx Early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: AspirinRx Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/4086F
+      - name: AspirinRx Upper
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/4086F
+      - name: AspirinRx Late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4086F-8P
+      - name: AspirinActive Early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F
+      - name: AspirinActive Lower
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: AspirinActive Upper
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: AspirinActive Late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
 providers:
 - given_name: Rachel
   family_name: Cats
@@ -141,103 +449,48 @@ providers:
 patients:
 - name: Patient is too young for the denominator but otherwise meets denominator
   attributes:
-    date_of_birth: 2000-01-01
+    date_of_birth: 1998-02-02
     given_name: Too
     family_name: Young
     sex: male
   clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.8
+      start_datetime: 2010-01-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_datetime: 2016-02-01
       provider: Rachel
 - name: Patient is at lower bound of age range but otherwise meets denominator
   attributes:
-    date_of_birth: 1998-01-01
+    date_of_birth: 1998-02-01
     given_name: Age
     family_name: Lower
     sex: Male
-    provider: Rachel
-    external_id:
-    health_plan_id:
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.8
-      start_datetime: 2016-01-01
+      start_datetime: 2010-01-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
-      provider: Rachel
-- name: Patient is a male but otherwise meets denominator
-  attributes:
-    date_of_birth: 1980-06-01
-    given_name: Meets
-    family_name: Male
-    sex: Male
-    provider: Rachel
-    external_id:
-    health_plan_id:
-  clinical_models:
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: I20.8
-      start_datetime: 2016-01-01
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99201
-      start_datetime: 2016-01-01
-      provider: Rachel
-- name: Patient is a female but otherwise meets denominator
-  attributes:
-    date_of_birth: 1980-06-01
-    given_name: Meets
-    family_name: Female
-    sex: Female
-    provider: Rachel
-    external_id:
-    health_plan_id:
-  clinical_models:
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: I20.8
-      start_datetime: 2016-01-01
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99201
-      start_datetime: 2016-01-01
-      provider: Rachel
-- name: Patient has no diagnosis but otherwise meets the denominator
-  attributes:
-    date_of_birth: 1980-06-01
-    given_name: Meets
-    family_name: NoDiagnosis
-    sex: Male
-    provider: Rachel
-    external_id:
-    health_plan_id:
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99201
-      start_datetime: 2016-01-01
+      start_datetime: 2016-02-01
       provider: Rachel
 - name: Patient has a ICD10 coded diagnosis prior to the measurement period
   attributes:
     date_of_birth: 1980-06-01
-    given_name: Meets
-    family_name: Diagnosis10Prior
+    given_name: Diagnosis
+    family_name: 10Prior
     sex: Female
-    provider: Rachel
-    external_id:
-    health_plan_id:
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.8
       start_datetime: 2014-05-01
-      end_datetime: 2015-07-01
+      end_datetime: 2015-12-31
     clinical_activities:
     - code_type: CPT
       code_value: 99201
@@ -246,89 +499,41 @@ patients:
 - name: Patient has a ICD10 coded diagnosis after the measurement period
   attributes:
     date_of_birth: 1980-06-01
-    given_name: Meets
-    family_name: Diagnosis10After
+    given_name: Diagnosis
+    family_name: 10After
     sex: Female
-    provider: Steve
-    external_id:
-    health_plan_id:
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.8
-      start_datetime: 2018-01-01
+      start_datetime: 2017-01-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-01-01
       provider: Rachel
-- name: Patient has a ICD10 coded diagnosis during the measurement period
-  attributes:
-    date_of_birth: 1980-06-01
-    given_name: Meets
-    family_name: Diagnosis10During
-    sex: Female
-    provider: Rachel
-    external_id:
-    health_plan_id:
-  clinical_models:
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: I20.8
-      start_datetime: 2016-05-01
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99201
-      start_datetime: 2016-05-01
-      provider: Rachel
 - name: Patient has a ICD9CM coded diagnosis during the measurement period
   attributes:
     date_of_birth: 1980-06-01
-    given_name: Meets
-    family_name: Diagnosis9During
+    given_name: Diagnosis
+    family_name: 9Overlapping
     sex: Female
-    provider: Rachel
-    external_id:
-    health_plan_id:
   clinical_models:
     diagnoses:
     - code_type: ICD9CM
       code_value: 250.0
-      start_datetime: 2016-05-01
+      start_datetime: 2015-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
-      provider: Rachel
-- name: Patient has no encounter but otherwise meets denominator
-  attributes:
-    date_of_birth: 1980-06-01
-    given_name: Meets
-    family_name: NoEncounter
-    sex: Female
-    provider: Rachel
-    external_id:
-    health_plan_id:
-  clinical_models:
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: I20.8
-      start_datetime: 2016-05-01
-      provider: Rachel
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99810
       start_datetime: 2016-05-01
       provider: Rachel
 - name: Patient has an encounter prior to the measurement period
   attributes:
     date_of_birth: 1980-06-01
-    given_name: Meets
-    family_name: PriorEncounter
+    given_name: Encounter
+    family_name: Prior
     sex: Female
-    provider: Rachel
-    external_id:
-    health_plan_id:
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
@@ -337,41 +542,35 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2014-05-01
+      start_datetime: 2015-12-31
       provider: Rachel
 - name: Patient has an encounter after the measurement period
   attributes:
     date_of_birth: 1980-06-01
-    given_name: Meets
-    family_name: AfterEncounter
+    given_name: Encounter
+    family_name: After
     sex: Female
-    provider: Rachel
-    external_id:
-    health_plan_id:
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0
       start_datetime: 2016-05-01
-      provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2019-05-01
+      start_datetime: 2017-01-01
       provider: Rachel
-- name: Patient excepted because of an allergy to aspirin 4086F-1P
+- name: Patient has an exception too early for an allergy to aspirin 4086F-1P
   attributes:
     date_of_birth: 1980-06-01
     given_name: ExceptedDueTo
-    family_name: AspirinAllergy
+    family_name: MIPS1PLower
     sex: Female
-    provider: Rachel
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
-      provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
@@ -379,15 +578,13 @@ patients:
       provider: Rachel
     - code_type: CPT
       code_value: 4086F-1P
-      start_datetime: 2016-05-01
-      provider: Rachel
-- name: Patient excepted because of an intolerance to aspirin 4086F-1P
+      start_datetime: 2015-12-31
+- name: Patient excepted at lower bound for of an allergy to aspirin 4086F-1P
   attributes:
     date_of_birth: 1980-06-01
     given_name: ExceptedDueTo
-    family_name: AspirinIntolerance
+    family_name: MIPS1PLower
     sex: Female
-    provider: Rachel
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
@@ -399,16 +596,114 @@ patients:
       start_datetime: 2016-05-01
       provider: Rachel
     - code_type: CPT
-      code_value:  4086F-1P
-      start_datetime: 2016-05-01
-      provider: Rachel
-- name: Patient excepted because of an active order/prescription for another anticoagulant 4086F-1P
+      code_value: 4086F-1P
+      start_datetime: 2016-01-01
+- name: Patient excepted at upper bound for of an allergy to aspirin 4086F-1P
   attributes:
     date_of_birth: 1980-06-01
     given_name: ExceptedDueTo
-    family_name: ThienoPyridineRx
+    family_name: MIPS1PUpper
     sex: Female
-    provider: Rachel
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 4086F-1P
+      start_datetime: 2016-12-31
+- name: Patient has an exception too late for of an allergy to aspirin 4086F-1P
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: MIPS1PLate
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 4086F-1P
+      start_datetime: 2017-01-01
+- name: Patient has an exception too early because of an allergy to aspirin RXNORM
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: AllergyEarly
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    allergies:
+    - code_type: RXNORM
+      code_value: 243670
+      start_datetime: 2015-01-01
+      stop_datetime: 2015-12-31
+- name: Patient has an exception because of an allergy to aspirin RXNORM
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: AllergyOverlapping
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    allergies:
+    - code_type: RXNORM
+      code_value: 243670
+      start_datetime: 2015-01-01
+      stop_datetime: 2016-01-02
+- name: Patient has an exception too late because of an allergy to aspirin RXNORM
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: AllergyLate
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    allergies:
+    - code_type: RXNORM
+      code_value: 243670
+      start_datetime: 2017-01-01
+- name: Patient has an exception too early for a prescription for another anticoagulant 4086F-1P
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: ThienopyridineRxEarly
+    sex: Female
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
@@ -423,108 +718,421 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 855812
-      start_datetime: 2014-01-01
-- name: Excepted due to presence of thrombocytopenia
+      quantity: 30
+      start_datetime: 2015-12-31
+- name: Patient excepted because of a prescription for another anticoagulant 4086F-1P
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: ThienopyridineRxDuring
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 855812
+      quantity: 30
+      start_datetime: 2016-01-01
+- name: Patient has an exception too late because of a prescription for another anticoagulant 4086F-1P
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: ThienopyridineRxLate
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 855812
+      quantity: 30
+      start_datetime: 2017-01-01
+- name: Patient has an exception too early for an active medication for another anticoagulant 4086F-1P
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: ThienopyridineActiveEarly
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 855812
+      start_datetime: 2015-01-01
+      stop_datetime: 2015-12-31
+- name: Patient excepted for an active medication for another anticoagulant 4086F-1P
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: ThienopyridineActiveOverlapping
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 855812
+      start_datetime: 2015-01-01
+      stop_datetime: 2016-01-02
+- name: Patient has an exception too late for an active medication for another anticoagulant 4086F-1P
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: ThienopyridineActiveLate
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 855812
+      start_datetime: 2017-01-01
+- name: Patient excepted because of a prescription for warfarin 4086F-1P
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: WarfarinRxDuring
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 855288
+      quantity: 30
+      start_datetime: 2016-01-01
+- name: Patient excepted because of an active medication for warfarin 4086F-1P
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: WarfarinActiveOverlapping
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 855288
+      start_datetime: 2015-01-01
+- name: Patient has an exception too early due to presence of thrombocytopenia
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: BleedingEarly
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2015-05-01
+    - code_type: ICD10CM
+      code_value: D69.49
+      start_datetime: 2015-05-01
+      stop_datetime: 2015-12-31
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+- name: Patient excepted due to presence of thrombocytopenia
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: BleedingOverlapping
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2015-05-01
+    - code_type: ICD10CM
+      code_value: D69.49
+      start_datetime: 2015-05-01
+      stop_datetime: 2016-01-02
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+- name: Patient has an exception too late due to presence of thrombocytopenia
   attributes:
     date_of_birth: 1980-06-01
     given_name: ExceptedDueTo
     family_name: BleedingDisorder
     sex: Female
-    provider: Rachel
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2015-05-01
-      provider: Rachel
     - code_type: ICD10CM
       code_value: D69.49
       start_datetime: 2015-05-01
-      provider: Rachel
+      stop_datetime: 2017-01-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-05-01
       provider: Rachel
+- name: Patient declined treatment too early
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: RefusalEarly
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 4086F-2P
+      start_datetime: 2015-12-31
+- name: Patient declined treatment
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: RefusalDuring
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 4086F-2P
+      start_datetime: 2016-01-01
+- name: Patient declined treatment too late
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: RefusalLate
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 4086F-2P
+      start_datetime: 2017-01-01
+- name: Patient has an exception too early because of a non-specific medical reason
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: NonspecifiedEarly
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    - code_type: CPT
+      code_value:  4086F-3P
+      start_datetime: 2015-12-31
 - name: Patient excepted because of a non-specific medical reason
   attributes:
     date_of_birth: 1980-06-01
     given_name: ExceptedDueTo
-    family_name: NonSpecificMedicalReason
+    family_name: NonspecifiedEarly
     sex: Female
-    provider: Rachel
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
-      provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-05-01
       provider: Rachel
     - code_type: CPT
-      code_value:  4086F-1P
-      start_datetime: 2016-05-01
-      provider: Rachel
-- name: Patient declined treatment
+      code_value:  4086F-3P
+      start_datetime: 2016-01-01
+- name: Patient has an exception too late because of a non-specific medical reason
   attributes:
     date_of_birth: 1980-06-01
     given_name: ExceptedDueTo
-    family_name: PatientDeclined
+    family_name: NonspecifiedEarly
     sex: Female
-    provider: Rachel
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
-      provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-05-01
       provider: Rachel
     - code_type: CPT
-      code_value: 4086F-2P
-      start_datetime: 2016-05-01
-      provider: Rachel
-- name: Patient declined treatment
+      code_value:  4086F-3P
+      start_datetime: 2017-01-01
+- name: Patient has performance met too early
   attributes:
     date_of_birth: 1980-06-01
-    given_name: ExceptedDueTo
-    family_name: PatientDeclined
+    given_name: PerformanceMet
+    family_name: Early
     sex: Female
-    provider: Rachel
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
-      provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-05-01
       provider: Rachel
     - code_type: CPT
-      code_value: 4086F-2P
-      start_datetime: 2016-05-01
-      provider: Rachel
-- name: Patient prescribed aspirin therapy during measurement period.
+      code_value: 4086F
+      start_datetime: 2015-12-31
+- name: Patient has performance met at lower bound of measurement period
   attributes:
     date_of_birth: 1980-06-01
-    given_name: AspirinPrescription
-    family_name: During
+    given_name: AspirinRx
+    family_name: Lower
     sex: Female
-    provider: Rachel
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
       provider: Rachel
+    - code_type: CPT
+      code_value: 4086F
+      start_datetime: 2016-01-01
+- name: Patient has performance met at upper bound of measurement period
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: AspirinRx
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 4086F
+      start_datetime: 2016-12-31
+- name: Patient has performance met too late
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: AspirinRx
+    family_name: Late
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 4086F
+      start_datetime: 2017-01-01
+- name: Patient prescribed aspirin therapy too early
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: AspirinRx
+    family_name: Early
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
@@ -533,20 +1141,19 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 198466
-      start_datetime: 2016-01-01
-- name: Patient prescribed aspirin before measurement period.
+      quantity: 30
+      start_datetime: 2015-12-31
+- name: Patient prescribed aspirin therapy at lower bound of measurement period
   attributes:
     date_of_birth: 1980-06-01
-    given_name: AspirinPrescription
-    family_name: BeforeMeasurementPeriod
+    given_name: AspirinRx
+    family_name: Lower
     sex: Female
-    provider: Rachel
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
-      provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
@@ -555,44 +1162,19 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 198466
-      start_datetime: 2013-01-01
-      end_datetime: 2013-05-01
-- name: Patient prescribed clopidogrel during measurement period.
-  attributes:
-    date_of_birth: 1980-06-01
-    given_name: ClopidogrelPrescription
-    family_name: During
-    sex: Female
-    provider: Rachel
-  clinical_models:
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: I25.810
-      start_datetime: 2016-05-01
-      provider: Rachel
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99201
-      start_datetime: 2016-05-01
-      provider: Rachel
-    medications:
-    - code_type: RXNORM
-      code_value: 309362
+      quantity: 30
       start_datetime: 2016-01-01
-      end_datetime: 2016-05-01
-- name: Patient prescribed clopidogrel prior to measurement period.
+- name: Patient prescribed aspirin therapy at upper bound of measurement period
   attributes:
     date_of_birth: 1980-06-01
-    given_name: ClopidogrelPrescription
-    family_name: Prior
+    given_name: AspirinRx
+    family_name: Upper
     sex: Female
-    provider: Rachel
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
-      provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
@@ -600,50 +1182,109 @@ patients:
       provider: Rachel
     medications:
     - code_type: RXNORM
-      code_value: 309362
-      start_datetime: 2014-01-01
-      end_datetime: 2014-05-01
-- name: Patient Aspirin or clopidogrel prescribed during measurement period
+      code_value: 198466
+      quantity: 30
+      start_datetime: 2016-12-31
+- name: Patient prescribed aspirin therapy too late
   attributes:
     date_of_birth: 1980-06-01
-    given_name: MeetsNumerator
-    family_name: 4086F
+    given_name: AspirinRx
+    family_name: Late
     sex: Female
-    provider: Rachel
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
-      provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-05-01
       provider: Rachel
-    - code_type: CPT
-      code_value: 4068F
-      start_datetime: 2016-05-01
-      provider: Rachel
-- name: Aspirin or clopidogrel not prescribed during measurement period, reason unknown
+    medications:
+    - code_type: RXNORM
+      code_value: 198466
+      quantity: 30
+      start_datetime: 2017-01-01
+- name: Patient has an active medication for aspirin therapy too early
   attributes:
     date_of_birth: 1980-06-01
-    given_name: NotMeetNumerator
-    family_name: 4086F-8P
+    given_name: AspirinActive
+    family_name: Early
     sex: Female
-    provider: Rachel
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
-      provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-05-01
-      provider: Rachel
-    - code_type: CPT
-      code_value: 4068F-8P
+      provider: Steve
+    medications:
+    - code_type: RXNORM
+      code_value: 198466
+      start_datetime: 2015-01-01
+      stop_datetime: 2015-12-31
+- name: Patient has an active medication for aspirin therapy ending at lower bound of measurement period
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: AspirinActive
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
       start_datetime: 2016-05-01
-      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Steve
+    medications:
+    - code_type: RXNORM
+      code_value: 198466
+      start_datetime: 2015-01-01
+      stop_datetime: 2016-01-02
+- name: Patient has an active medication for aspirin therapy starting at upper bound of measurement period
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: AspirinActive
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Steve
+    medications:
+    - code_type: RXNORM
+      code_value: 198466
+      start_datetime: 2016-12-31
+- name: Patient has an active medication for aspirin therapy too late
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: AspirinActive
+    family_name: Late
+    sex: Female
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I25.810
+      start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-01
+      provider: Steve
+    medications:
+    - code_type: RXNORM
+      code_value: 198466
+      start_datetime: 2017-01-01

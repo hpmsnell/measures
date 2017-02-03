@@ -28,6 +28,7 @@ valueset "MIPS; Performance Not Met: 4086F-8P"
 // Value Sets from VSAC
 
 valueset "VSAC; Thrombocytopenia": '2.16.840.1.113762.1.4.1045.45'
+valueset "VSAC; Warfarin": '2.16.840.1.113883.3.117.1.7.1.232'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -82,12 +83,10 @@ define "Denominator Exception 3: 4086F-1P"
     where M.authorDateTime during of "Measurement Period")
   or exists(["Medication, Active": "Able; Other Thienopyridine Agent"] M
     where M.relevantPeriod overlaps "Measurement Period")
-  or exists(["Medication, Order": "Able; Warfarin Therapy"] M
-      where M.authorDateTime during of "Measurement Period")
-  or exists(["Medication, Active": "Able; Warfarin Therapy"] M
-      where M.relevantPeriod overlaps "Measurement Period")
-
-    //add warfarin to a new valueset and inlude
+  or exists(["Medication, Order": "VSAC; Warfarin"] M
+    where M.authorDateTime during of "Measurement Period")
+  or exists(["Medication, Active": "VSAC; Warfarin"] M
+    where M.relevantPeriod overlaps "Measurement Period")
 
 define "Denominator Exception 4: 4086F-1P"
  /*
