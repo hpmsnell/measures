@@ -35,7 +35,7 @@ context Population
 
 define "Denominator":
 /*
-* config_link_id: Denominator
+* config_link_id: denominator
 */
   exists AgeInMonthsAt(start of "Measurement Period") >= 6
     where D.prevalencePeriod overlaps "Measurement Period")
@@ -66,35 +66,31 @@ define "Denominator Exception 1: G8483": //Exception due to egg allergy
 define "Denominator Exception 2: G8483":  //Exceptio due to influenza vaccine allergy or intolerance
 /*
 * config_link_id: exception_2
+* Exception due to a influenza allergy or intolerance
 */
   or exists (["Diagnosis, Active": "VSAC; Allergy to Influenza Vaccine"] D2
     where D2.prevelancePeriod overlaps "Measurement Period"
   or exists (["Diagnosis, Active": "VSAC; Intolerance to Influenza Vaccine"] D3
     where D3.prevlancePeriod overlaps "Measurement Period"
 
-define "Denominator Exception 3: G8483": //Exception due to patient, medical or system reason
+
+define "Denominator Exception 3: G8483":
 /*
 * config_link_id: exception_3
+* Exception due to a medical, patient or system reason
 */
-  exists (["Diagnosis, Active": "VSAC; Not Done: Medical Reason"] D1
+  exists (["Diagnosis, Active": "VSAC; Not Done: Medical Reason"] D
     where D1.prevlancePeriod overlaps "Measurement Period"
-  or exists (["Diagnosis, Active": "VSAC; Not Done: Patient Reason"] D2
+  or exists (["Diagnosis, Active": "VSAC; Not Done: Patient Reason"] D
     where D2.prevlancePeriod overlaps "Measurement Period"
-  or exists (["Diagnosis, Active": "VSAC; Not Done: System Reason"] D3
-    where D3.prevlancePeriod overlaps "Measurement Period"
+  or exists (["Diagnosis, Active": "VSAC; Not Done: System Reason"] D
+    where D3.prevlancePeriod overlaps "Measurement Period"_
 
-define "Denominator Exception 4: G8483": //Exception due to non-specific reason
-/*
-* config_link_id: exception_4
-*/
-  exists(["Procedure, Performed": "MIPS; Performance Exception: G8483"] P
-    where P.prevelancePeriod overlaps "Measurement Period")
 
-  )
-
-define "Numerator Performace Not Met: G8484": //Vaccie not administered due to unspecified Reason
+define "Numerator Performace Not Met: G8484":
 /*
 * config_link_id: G8484
+* Immunization not administered for an unspecified reason
 */
   exists "denominator"
   not "Numerator Performance Met: G8482"
