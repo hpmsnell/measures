@@ -570,7 +570,8 @@ patients:
       provider: Rachel
     - code_type: HCPCS
       code_value: G8422 # G-code for not eligible
-      start_datetime: 2015-12-31
+      start_datetime: 2015-03-01
+      stop_datetime: 2015-12-31
 - name: Patient has an exclusion for pregnancy
   attributes:
     date_of_birth: 1950-01-01
@@ -586,7 +587,7 @@ patients:
     diagnoses:
     - code_type: SNOMEDCT
       code_value: 102872000 # Pregnant
-      start_datetime: 2016-01-01
+      start_datetime: 2010-01-01
 - name: Patient has an exclusion for pregnancy but it is too late
   attributes:
     date_of_birth: 1950-01-01
