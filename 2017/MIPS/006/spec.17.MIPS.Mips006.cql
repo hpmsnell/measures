@@ -83,10 +83,19 @@ define "Denominator Exception 3: 4086F-1P"
     where M.authorDateTime during of "Measurement Period")
   or exists(["Medication, Active": "Able; Other Thienopyridine Agent"] M
     where M.relevantPeriod overlaps "Measurement Period")
+<<<<<<< HEAD
   or exists(["Medication, Order": "VSAC; Warfarin"] M
     where M.authorDateTime during of "Measurement Period")
   or exists(["Medication, Active": "VSAC; Warfarin"] M
     where M.relevantPeriod overlaps "Measurement Period")
+=======
+  or exists(["Medication, Order": "Able; Warfarin Therapy"] M
+      where M.authorDateTime during of "Measurement Period")
+  or exists(["Medication, Active": "Able; Warfarin Therapy"] M
+      where M.relevantPeriod overlaps "Measurement Period")
+
+    //add warfarin to a new valueset and inlude
+>>>>>>> origin/MIPS-006-2
 
 define "Denominator Exception 4: 4086F-1P"
  /*

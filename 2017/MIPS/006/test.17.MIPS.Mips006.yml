@@ -11,6 +11,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
+<<<<<<< HEAD
       numerator: F/4086F-8P
     - name: Diagnosis 10Prior
       denominator: 1
@@ -33,10 +34,35 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: Encounter After
+=======
+      numerator: 4086F-8P
+    - name: Meets Male
+      denominator: 1
+      denominator_exclusion:
+      numerator: 4086F-8P
+      exception:
+    - name: Meets Female
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4086F-8P
+    - name: Meets NoDiagnosis
+      denominator:
+      denominator_exclusion:
+      denomiantor_exception:
+      numerator:
+    - name: Meets Diagnosis10Prior
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4086F-8P
+    - name: Meets Diagnosis10After
+>>>>>>> origin/MIPS-006-2
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
+<<<<<<< HEAD
     - name: ExceptedDueTo MIPS1PEarly
       denominator: 1
       denominator_exclusion:
@@ -435,6 +461,98 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator:
+=======
+    - name: Meets Diagnosis9During
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Meets Diagnosis10During
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4086F-8P
+    - name: Meets NoEncounter
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Meets PriorEncounter
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Meets AfterEncounter
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExceptedDueTo AspirinAllergy
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4086F-1P
+      numerator:
+    - name: ExceptedDueTo AspirinIntolerance
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4086F-1P
+      numerator:
+    - name: ExceptedDueTo ThienoPyridineRx
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4086F-1P
+      numerator:
+    - name: ExceptedDueTo BleedingDisorder
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4086F-1P
+      numerator:
+    - name: ExceptedDueTo NonSpecificMedicalReason
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4086F-1P
+      numerator:
+    - name: MeetsNumerator 4086F
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4086F
+    - name: ExceptedDueTo PatientDeclined
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4086F-2P
+      numerator:
+    - name: ExceptedDueTo SystemReason
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4086F-3P
+      numerator:
+    - name: AspirinPrescription During
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4086F
+    - name: AspirinPrescription BeforeMeasurementPeriod
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4086F-8P
+    - name: ClopidogrelPrescription During
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4086F
+    - name: ClopidogrelPrescription Prior
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4086F
+    - name: NotMeetNumerator 4086F-8P
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4086F-8P
+>>>>>>> origin/MIPS-006-2
 providers:
 - given_name: Rachel
   family_name: Cats
@@ -449,11 +567,16 @@ providers:
 patients:
 - name: Patient is too young for the denominator but otherwise meets denominator
   attributes:
+<<<<<<< HEAD
     date_of_birth: 1998-02-02
+=======
+    date_of_birth: 2000-01-01
+>>>>>>> origin/MIPS-006-2
     given_name: Too
     family_name: Young
     sex: male
   clinical_models:
+<<<<<<< HEAD
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.8
@@ -469,10 +592,27 @@ patients:
     given_name: Age
     family_name: Lower
     sex: Male
+=======
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
+      provider: Rachel
+- name: Patient is at lower bound of age range but otherwise meets denominator
+  attributes:
+    date_of_birth: 1998-01-01
+    given_name: Age
+    family_name: Lower
+    sex: Male
+    provider: Rachel
+    external_id:
+    health_plan_id:
+>>>>>>> origin/MIPS-006-2
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.8
+<<<<<<< HEAD
       start_datetime: 2010-01-01
     clinical_activities:
     - code_type: CPT
@@ -485,10 +625,28 @@ patients:
     given_name: Diagnosis
     family_name: 10Prior
     sex: Female
+=======
+      start_datetime: 2016-01-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
+      provider: Rachel
+- name: Patient is a male but otherwise meets denominator
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: Male
+    sex: Male
+    provider: Rachel
+    external_id:
+    health_plan_id:
+>>>>>>> origin/MIPS-006-2
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.8
+<<<<<<< HEAD
       start_datetime: 2014-05-01
       end_datetime: 2015-12-31
     clinical_activities:
@@ -502,10 +660,28 @@ patients:
     given_name: Diagnosis
     family_name: 10After
     sex: Female
+=======
+      start_datetime: 2016-01-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
+      provider: Rachel
+- name: Patient is a female but otherwise meets denominator
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: Female
+    sex: Female
+    provider: Rachel
+    external_id:
+    health_plan_id:
+>>>>>>> origin/MIPS-006-2
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.8
+<<<<<<< HEAD
       start_datetime: 2017-01-01
     clinical_activities:
     - code_type: CPT
@@ -667,12 +843,88 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
+=======
+      start_datetime: 2016-01-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
+      provider: Rachel
+- name: Patient has no diagnosis but otherwise meets the denominator
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: NoDiagnosis
+    sex: Male
+    provider: Rachel
+    external_id:
+    health_plan_id:
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
+      provider: Rachel
+- name: Patient has a ICD10 coded diagnosis prior to the measurement period
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: Diagnosis10Prior
+    sex: Female
+    provider: Rachel
+    external_id:
+    health_plan_id:
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.8
+      start_datetime: 2014-05-01
+      end_datetime: 2015-07-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-06-01
+      provider: Rachel
+- name: Patient has a ICD10 coded diagnosis after the measurement period
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: Diagnosis10After
+    sex: Female
+    provider: Steve
+    external_id:
+    health_plan_id:
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.8
+      start_datetime: 2018-01-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
+      provider: Rachel
+- name: Patient has a ICD10 coded diagnosis during the measurement period
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: Diagnosis10During
+    sex: Female
+    provider: Rachel
+    external_id:
+    health_plan_id:
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.8
+>>>>>>> origin/MIPS-006-2
       start_datetime: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-05-01
       provider: Rachel
+<<<<<<< HEAD
     allergies:
     - code_type: RXNORM
       code_value: 243670
@@ -688,12 +940,28 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
+=======
+- name: Patient has a ICD9CM coded diagnosis during the measurement period
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: Diagnosis9During
+    sex: Female
+    provider: Rachel
+    external_id:
+    health_plan_id:
+  clinical_models:
+    diagnoses:
+    - code_type: ICD9CM
+      code_value: 250.0
+>>>>>>> origin/MIPS-006-2
       start_datetime: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-05-01
       provider: Rachel
+<<<<<<< HEAD
     allergies:
     - code_type: RXNORM
       code_value: 243670
@@ -708,10 +976,26 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
+=======
+- name: Patient has no encounter but otherwise meets denominator
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: NoEncounter
+    sex: Female
+    provider: Rachel
+    external_id:
+    health_plan_id:
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.8
+>>>>>>> origin/MIPS-006-2
       start_datetime: 2016-05-01
       provider: Rachel
     clinical_activities:
     - code_type: CPT
+<<<<<<< HEAD
       code_value: 99201
       start_datetime: 2016-05-01
       provider: Rachel
@@ -752,11 +1036,49 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
+=======
+      code_value: 99810
+      start_datetime: 2016-05-01
+      provider: Rachel
+- name: Patient has an encounter prior to the measurement period
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: PriorEncounter
+    sex: Female
+    provider: Rachel
+    external_id:
+    health_plan_id:
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_datetime: 2016-05-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2014-05-01
+      provider: Rachel
+- name: Patient has an encounter after the measurement period
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: Meets
+    family_name: AfterEncounter
+    sex: Female
+    provider: Rachel
+    external_id:
+    health_plan_id:
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.0
+>>>>>>> origin/MIPS-006-2
       start_datetime: 2016-05-01
       provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
+<<<<<<< HEAD
       start_datetime: 2016-05-01
       provider: Rachel
     medications:
@@ -770,6 +1092,17 @@ patients:
     given_name: ExceptedDueTo
     family_name: ThienopyridineActiveEarly
     sex: Female
+=======
+      start_datetime: 2019-05-01
+      provider: Rachel
+- name: Patient excepted because of an allergy to aspirin 4086F-1P
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: AspirinAllergy
+    sex: Female
+    provider: Rachel
+>>>>>>> origin/MIPS-006-2
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
@@ -781,6 +1114,7 @@ patients:
       code_value: 99201
       start_datetime: 2016-05-01
       provider: Rachel
+<<<<<<< HEAD
     medications:
     - code_type: RXNORM
       code_value: 855812
@@ -814,17 +1148,34 @@ patients:
     given_name: ExceptedDueTo
     family_name: ThienopyridineActiveLate
     sex: Female
+=======
+    - code_type: CPT
+      code_value: 4086F-1P
+      start_datetime: 2016-05-01
+      provider: Rachel
+- name: Patient excepted because of an intolerance to aspirin 4086F-1P
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: AspirinIntolerance
+    sex: Female
+    provider: Rachel
+>>>>>>> origin/MIPS-006-2
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
+<<<<<<< HEAD
       provider: Rachel
+=======
+>>>>>>> origin/MIPS-006-2
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-05-01
       provider: Rachel
+<<<<<<< HEAD
     medications:
     - code_type: RXNORM
       code_value: 855812
@@ -857,6 +1208,19 @@ patients:
     given_name: ExceptedDueTo
     family_name: WarfarinActiveOverlapping
     sex: Female
+=======
+    - code_type: CPT
+      code_value:  4086F-1P
+      start_datetime: 2016-05-01
+      provider: Rachel
+- name: Patient excepted because of an active order/prescription for another anticoagulant 4086F-1P
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: ThienoPyridineRx
+    sex: Female
+    provider: Rachel
+>>>>>>> origin/MIPS-006-2
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
@@ -870,6 +1234,7 @@ patients:
       provider: Rachel
     medications:
     - code_type: RXNORM
+<<<<<<< HEAD
       code_value: 855288
       start_datetime: 2015-01-01
 - name: Patient has an exception too early due to presence of thrombocytopenia
@@ -878,30 +1243,60 @@ patients:
     given_name: ExceptedDueTo
     family_name: BleedingEarly
     sex: Female
+=======
+      code_value: 855812
+      start_datetime: 2014-01-01
+- name: Excepted due to presence of thrombocytopenia
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: BleedingDisorder
+    sex: Female
+    provider: Rachel
+>>>>>>> origin/MIPS-006-2
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2015-05-01
+<<<<<<< HEAD
     - code_type: ICD10CM
       code_value: D69.49
       start_datetime: 2015-05-01
       stop_datetime: 2015-12-31
+=======
+      provider: Rachel
+    - code_type: ICD10CM
+      code_value: D69.49
+      start_datetime: 2015-05-01
+      provider: Rachel
+>>>>>>> origin/MIPS-006-2
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-05-01
       provider: Rachel
+<<<<<<< HEAD
 - name: Patient excepted due to presence of thrombocytopenia
   attributes:
     date_of_birth: 1980-06-01
     given_name: ExceptedDueTo
     family_name: BleedingOverlapping
     sex: Female
+=======
+- name: Patient excepted because of a non-specific medical reason
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: NonSpecificMedicalReason
+    sex: Female
+    provider: Rachel
+>>>>>>> origin/MIPS-006-2
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
+<<<<<<< HEAD
       start_datetime: 2015-05-01
     - code_type: ICD10CM
       code_value: D69.49
@@ -927,11 +1322,16 @@ patients:
       code_value: D69.49
       start_datetime: 2015-05-01
       stop_datetime: 2017-01-01
+=======
+      start_datetime: 2016-05-01
+      provider: Rachel
+>>>>>>> origin/MIPS-006-2
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-05-01
       provider: Rachel
+<<<<<<< HEAD
 - name: Patient declined treatment too early
   attributes:
     date_of_birth: 1980-06-01
@@ -951,17 +1351,30 @@ patients:
     - code_type: CPT
       code_value: 4086F-2P
       start_datetime: 2015-12-31
+=======
+    - code_type: CPT
+      code_value:  4086F-1P
+      start_datetime: 2016-05-01
+      provider: Rachel
+>>>>>>> origin/MIPS-006-2
 - name: Patient declined treatment
   attributes:
     date_of_birth: 1980-06-01
     given_name: ExceptedDueTo
+<<<<<<< HEAD
     family_name: RefusalDuring
     sex: Female
+=======
+    family_name: PatientDeclined
+    sex: Female
+    provider: Rachel
+>>>>>>> origin/MIPS-006-2
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
+<<<<<<< HEAD
     clinical_activities:
     - code_type: CPT
       code_value: 99201
@@ -981,6 +1394,9 @@ patients:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
+=======
+      provider: Rachel
+>>>>>>> origin/MIPS-006-2
     clinical_activities:
     - code_type: CPT
       code_value: 99201
@@ -988,6 +1404,7 @@ patients:
       provider: Rachel
     - code_type: CPT
       code_value: 4086F-2P
+<<<<<<< HEAD
       start_datetime: 2017-01-01
 - name: Patient has an exception too early because of a non-specific medical reason
   attributes:
@@ -1052,11 +1469,23 @@ patients:
     given_name: PerformanceMet
     family_name: Early
     sex: Female
+=======
+      start_datetime: 2016-05-01
+      provider: Rachel
+- name: Patient declined treatment
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ExceptedDueTo
+    family_name: PatientDeclined
+    sex: Female
+    provider: Rachel
+>>>>>>> origin/MIPS-006-2
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
+<<<<<<< HEAD
     clinical_activities:
     - code_type: CPT
       code_value: 99201
@@ -1076,12 +1505,16 @@ patients:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
+=======
+      provider: Rachel
+>>>>>>> origin/MIPS-006-2
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-05-01
       provider: Rachel
     - code_type: CPT
+<<<<<<< HEAD
       code_value: 4086F
       start_datetime: 2016-01-01
 - name: Patient has performance met at upper bound of measurement period
@@ -1109,11 +1542,24 @@ patients:
     given_name: AspirinRx
     family_name: Late
     sex: Female
+=======
+      code_value: 4086F-2P
+      start_datetime: 2016-05-01
+      provider: Rachel
+- name: Patient prescribed aspirin therapy during measurement period.
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: AspirinPrescription
+    family_name: During
+    sex: Female
+    provider: Rachel
+>>>>>>> origin/MIPS-006-2
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
+<<<<<<< HEAD
     clinical_activities:
     - code_type: CPT
       code_value: 99201
@@ -1133,6 +1579,9 @@ patients:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
+=======
+      provider: Rachel
+>>>>>>> origin/MIPS-006-2
     clinical_activities:
     - code_type: CPT
       code_value: 99201
@@ -1141,6 +1590,7 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 198466
+<<<<<<< HEAD
       quantity: 30
       start_datetime: 2015-12-31
 - name: Patient prescribed aspirin therapy at lower bound of measurement period
@@ -1149,11 +1599,25 @@ patients:
     given_name: AspirinRx
     family_name: Lower
     sex: Female
+=======
+      start_datetime: 2016-01-01
+- name: Patient prescribed aspirin before measurement period.
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: AspirinPrescription
+    family_name: BeforeMeasurementPeriod
+    sex: Female
+    provider: Rachel
+>>>>>>> origin/MIPS-006-2
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
+<<<<<<< HEAD
+=======
+      provider: Rachel
+>>>>>>> origin/MIPS-006-2
     clinical_activities:
     - code_type: CPT
       code_value: 99201
@@ -1162,6 +1626,7 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 198466
+<<<<<<< HEAD
       quantity: 30
       start_datetime: 2016-01-01
 - name: Patient prescribed aspirin therapy at upper bound of measurement period
@@ -1170,11 +1635,26 @@ patients:
     given_name: AspirinRx
     family_name: Upper
     sex: Female
+=======
+      start_datetime: 2013-01-01
+      end_datetime: 2013-05-01
+- name: Patient prescribed clopidogrel during measurement period.
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ClopidogrelPrescription
+    family_name: During
+    sex: Female
+    provider: Rachel
+>>>>>>> origin/MIPS-006-2
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
+<<<<<<< HEAD
+=======
+      provider: Rachel
+>>>>>>> origin/MIPS-006-2
     clinical_activities:
     - code_type: CPT
       code_value: 99201
@@ -1182,6 +1662,7 @@ patients:
       provider: Rachel
     medications:
     - code_type: RXNORM
+<<<<<<< HEAD
       code_value: 198466
       quantity: 30
       start_datetime: 2016-12-31
@@ -1191,11 +1672,27 @@ patients:
     given_name: AspirinRx
     family_name: Late
     sex: Female
+=======
+      code_value: 309362
+      start_datetime: 2016-01-01
+      end_datetime: 2016-05-01
+- name: Patient prescribed clopidogrel prior to measurement period.
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: ClopidogrelPrescription
+    family_name: Prior
+    sex: Female
+    provider: Rachel
+>>>>>>> origin/MIPS-006-2
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
+<<<<<<< HEAD
+=======
+      provider: Rachel
+>>>>>>> origin/MIPS-006-2
     clinical_activities:
     - code_type: CPT
       code_value: 99201
@@ -1203,6 +1700,7 @@ patients:
       provider: Rachel
     medications:
     - code_type: RXNORM
+<<<<<<< HEAD
       code_value: 198466
       quantity: 30
       start_datetime: 2017-01-01
@@ -1212,15 +1710,32 @@ patients:
     given_name: AspirinActive
     family_name: Early
     sex: Female
+=======
+      code_value: 309362
+      start_datetime: 2014-01-01
+      end_datetime: 2014-05-01
+- name: Patient Aspirin or clopidogrel prescribed during measurement period
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: MeetsNumerator
+    family_name: 4086F
+    sex: Female
+    provider: Rachel
+>>>>>>> origin/MIPS-006-2
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
+<<<<<<< HEAD
+=======
+      provider: Rachel
+>>>>>>> origin/MIPS-006-2
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-05-01
+<<<<<<< HEAD
       provider: Steve
     medications:
     - code_type: RXNORM
@@ -1254,15 +1769,34 @@ patients:
     given_name: AspirinActive
     family_name: Upper
     sex: Female
+=======
+      provider: Rachel
+    - code_type: CPT
+      code_value: 4068F
+      start_datetime: 2016-05-01
+      provider: Rachel
+- name: Aspirin or clopidogrel not prescribed during measurement period, reason unknown
+  attributes:
+    date_of_birth: 1980-06-01
+    given_name: NotMeetNumerator
+    family_name: 4086F-8P
+    sex: Female
+    provider: Rachel
+>>>>>>> origin/MIPS-006-2
   clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
       start_datetime: 2016-05-01
+<<<<<<< HEAD
+=======
+      provider: Rachel
+>>>>>>> origin/MIPS-006-2
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-05-01
+<<<<<<< HEAD
       provider: Steve
     medications:
     - code_type: RXNORM
@@ -1288,3 +1822,10 @@ patients:
     - code_type: RXNORM
       code_value: 198466
       start_datetime: 2017-01-01
+=======
+      provider: Rachel
+    - code_type: CPT
+      code_value: 4068F-8P
+      start_datetime: 2016-05-01
+      provider: Rachel
+>>>>>>> origin/MIPS-006-2

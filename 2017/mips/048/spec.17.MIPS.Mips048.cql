@@ -48,7 +48,7 @@ define "Denominator Exclusion":
   exists(["Intervention, Performed": "VSAC; Palliative Care"] I
     where I.relevantPeriod overlaps "Measurement Period")
   or exists(["Intervention, Performed": "MIPS; Hospice Service: G9693"] I
-    where I.relevantPeriod overlaps "Measurement Period")
+    where I.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Met: 1090F":
   /*
@@ -56,6 +56,8 @@ define "Numerator Performance Met: 1090F":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 1090F"] P
     where P.relevantPeriod starts during "Measurement Period")
+  or exists(["Assessment, Performed": "Able; Urinary Incontinence Assessment"] P
+    where P.authorDateTime during "Measurement Period")
 
 define "Numerator Performance Not Met: 1090F-8P":
   /*

@@ -19,7 +19,7 @@ exclusion_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Hospice Service: G9709"
+              value_set: "MIPS; MIPS Hospice Service: G9693"
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -37,6 +37,8 @@ success_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: 1090F"
+            - model: ClinicalActivity
+              value_set: "Able; Urinary Incontinence Assessment"
     optional:
       code_value: 1090F
 gap_reasons:
@@ -52,6 +54,8 @@ gap_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: 1090F"
+            - model: ClinicalActivity
+              value_set: "Able; Urinary Incontinence Assessment"
             - model: ClinicalActivity
               value_set: "MIPS; Performance Not Met: 1090F-8P"
     optional:
