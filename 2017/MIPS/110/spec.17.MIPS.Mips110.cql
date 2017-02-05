@@ -3,7 +3,7 @@ library MIPS_110_2017 version '1'
 /*
  * Source: MIPS
  * ID: 110
- * Year: 2017
+ * Year: 2017\
  */
 
 using QDM
@@ -17,7 +17,6 @@ valueset "MIPS; Performance Met: G8482"
 valueset "MIPS; Performance Not Met: G8484"
 
 // CMS created VSACs
-
 valueset "VSAC; Allergy to Eggs" '2.16.840.1.113883.3.526.3.1253'
 valueset "VSAC; Allergy to Influenza Vaccine" '2.16.840.1.113883.3.526.3.1256'
 valueset "VSAC; Intolerance to Influenza Vaccine" '2.16.840.1.113883.3.526.3.1257'
@@ -48,44 +47,52 @@ define "Denominator":
       or exists (["Encounter, Performed": "MIPS; MIPS 110 Encoutner B"] during "Measurement Interval B")
     and not (["Encounter, Performed": Telemedicne GC Modifier")
 
-define "Numerator Performance Met: G8482":
+define "Numerator Performance Met 1: G8482":
 /*
-* config_link_id: G8482
+* config_link_id: numerator_1
 */
   exists (["Medication, Administered": "VSAC; Influenza Vaccine"] during "Measurement Period" M
     where M.prevlancePeriod overlaps "Measurement Period")
 
+define "Numerator Performance Met 2: G8482"
+/*
+* config_link_id: numerator_2
+*/
+  exists(["Procedure, Performed": "MIPS; Performance Met: G8482"] during "Measurement Period" M
+    where M.prevelancePeriod overlaps "Measurement Period")
 
-define "Denominator Exception 1: G8483": //Exception due to egg allergy
+define "Denominator Exception 1: G8483":
 /*
 * config_link_id: exception_1
-*/
-  exists (["Diagnosis, Active": "VSAC; Allergy to Eggs"] D
-    where D.prevelancePeriod overlaps "Measurement Period")
-
-define "Denominator Exception 2: G8483":  //Exceptio due to influenza vaccine allergy or intolerance
-/*
-* config_link_id: exception_2
 * Exception due to a influenza allergy or intolerance
 */
-  or exists (["Diagnosis, Active": "VSAC; Allergy to Influenza Vaccine"] D2
-    where D2.prevelancePeriod overlaps "Measurement Period"
-  or exists (["Diagnosis, Active": "VSAC; Intolerance to Influenza Vaccine"] D3
-    where D3.prevlancePeriod overlaps "Measurement Period"
+  or exists (["Diagnosis, Active": "VSAC; Allergy to Influenza Vaccine"] D
+    where D.prevelancePeriod overlaps "Measurement Period"
+  or exists (["Diagnosis, Active": "VSAC; Intolerance to Influenza Vaccine"] D
+    where D.prevlancePeriod overlaps "Measurement Period")
+
+define "Denominator Exception 2: G8483":
+/*
+* config_link_id: exception_2
+* Exception due to an egg ellergy
+*/
+  or exists (["Diagnosis, Active": "VSAC; Allergy to Eggs"] D
+    where D.prevelancePeriod overlaps "Measurement Period")
 
 
 define "Denominator Exception 3: G8483":
 /*
 * config_link_id: exception_3
-* Exception due to a medical, patient or system reason
+* Exception due to a medical, patient or system reason or other non-specified reason
 */
   exists (["Diagnosis, Active": "VSAC; Not Done: Medical Reason"] D
-    where D1.prevlancePeriod overlaps "Measurement Period"
+    where D.prevlancePeriod overlaps "Measurement Period"
   or exists (["Diagnosis, Active": "VSAC; Not Done: Patient Reason"] D
-    where D2.prevlancePeriod overlaps "Measurement Period"
+    where D.prevlancePeriod overlaps "Measurement Period"
   or exists (["Diagnosis, Active": "VSAC; Not Done: System Reason"] D
-    where D3.prevlancePeriod overlaps "Measurement Period"_
-
+    where D.prevlancePeriod overlaps "Measurement Period")
+  or exists (["Procedure, Performed": "MIPS; Performance Exception: G8483"] D
+      where D.prevlancePeriod overlaps "Measurement Period")
 
 define "Numerator Performace Not Met: G8484":
 /*
