@@ -1,113 +1,497 @@
 measure_id: 17.MIPS.Mips110
-test_set_keys: 
-   organization_key: 
+test_set_keys:
+   organization_key:
    - name: Too YoungFor2016InfluenzaSeason
-     denominator: 
-     denominator_exclusion: 
-     denominator_exception: 
-     numerator: 
+     denominator:
+     denominator_exclusion:
+     denominator_exception:
+     numerator:
    - name: Lower BoundFor2016InfluenzaSeason
      denominator: 1
-     denominator_exclusion: 
-     denominator_exception: 
-     numerator: 
+     denominator_exclusion:
+     denominator_exception:
+     numerator:
    - name: Meets NoEncounters
-     denominator: 
-     denominator_exclusion: 
-     denominator_exception: 
-     numerator: 
+     denominator:
+     denominator_exclusion:
+     denominator_exception:
+     numerator:
    - name: Meets OneEncounterGroupAIntervalA
-     denominator: 
-     denominator_exclusion: 
-     denominator_exception: 
-     numerator: 
+     denominator:
+     denominator_exclusion:
+     denominator_exception:
+     numerator:
    - name: Meets TwoEncountersGroupAIntervalAandB
      denominator: 1
-     denominator_exclusion: 
-     denominator_exception: 
-     numerator: 
+     denominator_exclusion:
+     denominator_exception:
+     numerator:
    - name: Meets TwoEncountesrGroupAIntervalAandC
      denominator: 1
-     denominator_exclusion: 
-     denominator_exception: 
-     numerator: 
+     denominator_exclusion:
+     denominator_exception:
+     numerator:
    - name: Meets TwoEncountersGroupAIntervalBandC
      denominator: 1
-     denominator_exclusion: 
-     denominator_exception: 
-     numerator: 
+     denominator_exclusion:
+     denominator_exception:
+     numerator:
    - name: Meets OneEncounterGroupAOutsideIntervalAandB
-     denominator: 
-     denominator_exclusion: 
-     denominator_exception: 
-     numerator: 
+     denominator:
+     denominator_exclusion:
+     denominator_exception:
+     numerator:
    - name: Meets OneEncounterGroupBIntervalA
      denominator: 1
-     denominator_exclusion: 
-     denominator_exception: 
-     numerator: 
+     denominator_exclusion:
+     denominator_exception:
+     numerator:
    - name: Meets OneEncounterGroupBIntervalB
      denominator: 1
-     denominator_exclusion: 
-     denominator_exception: 
-     numerator: 
+     denominator_exclusion:
+     denominator_exception:
+     numerator:
    - name: Meets TwoEncountersGroupBIntervalAandC
      denominator: 1
-     denominator_exclusion: 
-     denominator_exception: 
-     numerator: 
+     denominator_exclusion:
+     denominator_exception:
+     numerator:
    - name: Meets TwoEncountersGroupBIntervalBandC
      denominator: 1
-     denominator_exclusion: 
-     denominator_exception: 
-     numerator: 
+     denominator_exclusion:
+     denominator_exception:
+     numerator:
    - name: ExceptedDueTo InfluenzaAllergy
      denominator: 1
-     denominator_exclusion: 
+     denominator_exclusion:
      denominator_exception: G8483
-     numerator: 
+     numerator:
    - name: ExceptedDueTo InfluenzaIntolerance
      denominator: 1
-     denominator_exclusion: 
+     denominator_exclusion:
      denominator_exception: G8483
-     numerator: 
+     numerator:
    - name: ExceptedDueTo EggAllergyVSAC
      denominator: 1
-     denominator_exclusion: 
+     denominator_exclusion:
      denominator_exception: G8483
-     numerator: 
+     numerator:
    - name: ExceptedDueTo MedicalPatientSystemReason
      denominator: 1
-     denominator_exclusion: 
+     denominator_exclusion:
      denominator_exception: G8483
-     numerator: 
+     numerator:
    - name: ExceptedDueTo PatientDeclined
      denominator: 1
-     denominator_exclusion: 
+     denominator_exclusion:
      denominator_exception: G8483
-     numerator: 
+     numerator:
    - name: ExceptedDueTo SystemReason
      denominator: 1
-     denominator_exclusion: 
+     denominator_exclusion:
      denominator_exception: G8483
-     numerator: 
+     numerator:
    - name: ExceptedDueTo NonSpecificReason
      denominator: 1
-     denominator_exclusion: 
+     denominator_exclusion:
      denominator_exception: G8483
-     numerator: 
+     numerator:
    - name: PerformanceMet ImmunizationAdministeredVSAC
      denominator: 1
-     denominator_exclusion: 
-     denominator_exception: 
+     denominator_exclusion:
+     denominator_exception:
      numerator: G8482
    - name: PerformanceMet G8482
      denominator: 1
-     denominator_exclusion: 
-     denominator_exception: 
+     denominator_exclusion:
+     denominator_exception:
      numerator: G8482
    - name: PerfromanceNotMet G8484
      denominator: 1
-     denominator_exclusion: 
-     denominator_exception: 
+     denominator_exclusion:
+     denominator_exception:
      numerator: G8484
+providers:
+- given_name: Rachel
+  family_name: Cats
+  credential: MD
+  primary_specialty: Rheumatologist
+  pqrs_provider: true
+- given_name: Steve
+  family_name: Dogs
+  credential: MD
+  primary_specialty: Gastroenterology
+  pqrs_provider: true
+patients:
+- name: Too YoungFor2016InfluenzaSeason
+  attributes:
+    date_of_birth: 2016-10-31
+    given_name: Too
+    family_name: YoungFor2016InfluenzaSeason
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-11-01
+      provider: Rachel
+- name: Lower BoundFor2016InfluenzaSeason
+  attributes:
+    date_of_birth: 2016-05-01
+    given_name: Lower
+    family_name: BoundFor2016InfluenzaSeason
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90945
+      start_datetime: 2016-10-01
+- name: Lower NoEncounters
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Lower
+    family_name: NoEncounters
+    sex: male
+- name: Meets OneEncounterGroupAIntervalA
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Meets
+    family_name: OneEncounterGroupAIntervalA
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99202
+      start_datetime: 2016-02-01
+      provider: Steve
+- name: Meets TwoEncountersGroupAIntervalAandB
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Meets
+    family_name: TwoEncountersGroupAIntervalAandB
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99202
+      start_datetime: 2016-02-01
+      provider: Steve
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99204
+      start_datetime: 2016-10-01
+      provider: Steve
+  - name: Meets TwoEncountesrGroupAIntervalAandC
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Meets
+    family_name: TwoEncountesrGroupAIntervalAandC
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99205
+      start_datetime: 2016-02-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-06-01
+      provider: Steve
+- name: Meets TwoEncountersGroupAIntervalBandC
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Meets
+    family_name: TwoEncountersGroupAIntervalBandC
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-10-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-06-01
+      provider: Steve
+- name: Meets OneEncounterGroupAIntervalCOnly
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Meets
+    family_name: OneEncounterGroupAIntervalCOnly
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90945
+      start_datetime: 2016-06-01
+      provider: Rachel
+- name: Meets OneEncounterGroupAIntervalCOnly
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Meets
+    family_name: OneEncounterGroupAIntervalCOnly
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90945
+      start_datetime: 2016-06-01
+      provider: Steve
+- name: Meets OneEncounterGroupBIntervalA
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Meets
+    family_name: OneEncounterGroupBIntervalA
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90945
+      start_datetime: 2016-01-01
+      provider: Rachel
+- name: Meets OneEncounterGroupBIntervalB
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Meets
+    family_name: OneEncounterGroupBIntervalB
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90963
+      start_datetime: 2016-11-01
+      provider: Steve
+- name: Meets TwoEncountersGroupBIntervalAandC
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Meets
+    family_name: OneEncounterGroupBIntervalB
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90945
+      start_datetime: 2016-01-01
+      provider: Steve
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-06-01
+      provider: Steve
+- name: Meets TwoEncountersGroupBIntervalBandC
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Meets
+    family_name: TwoEncountersGroupBIntervalBandC
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90963
+      start_datetime: 2016-11-01
+      provider: Steve
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-06-01
+      provider: Steve
+- name: ExceptedDueTo InfluenzaAllergy
+  attributes:
+    date_of_birth: 1974-08-01
+    given_name: ExceptedDueTo
+    family_name: InfluenzaAllergy
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99205
+      start_datetime: 2016-02-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99212
+      start_datetime: 2016-11-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: SNOMEDCT
+      code_value: 91930004
+      start_datetime: 2016-01-01
+      provider: Rachel
+- name: ExceptedDueTo InfluenzaIntolerance
+  attributes:
+    date_of_birth: 1974-08-01
+    given_name: ExceptedDueTo
+    family_name: InfluenzaIntolerance
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99205
+      start_datetime: 2016-02-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99212
+      start_datetime: 2016-11-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: SNOMEDCT
+      code_value: 390796006
+      start_datetime: 2016-01-01
+      provider: Rachel
+- name: ExceptedDueTo EggAllergy
+  attributes:
+    date_of_birth: 1974-08-01
+    given_name: ExceptedDueTo
+    family_name: EggAllergy
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-10-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-06-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: SNOMEDCT
+      code_value: 213020009
+      start_datetime: 2016-01-01
+      provider: Rachel
+- name: ExceptedDueTo MedicalPatientSystemReason
+  attributes:
+    date_of_birth: 1974-08-01
+    given_name: ExceptedDueTo
+    family_name: MedicalPatientSystemReason
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-10-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-06-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: G8483
+      start_datetime: 2016-01-01
+      provider: Rachel
+- name: ExceptedDueTo MedicalPatientSystemReason
+  attributes:
+    date_of_birth: 1974-08-01
+    given_name: ExceptedDueTo
+    family_name: PatientDeclined
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-10-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-06-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: G8483
+      start_datetime: 2016-01-01
+      provider: Rachel
+- name: ExceptedDueTo NonSpecificReason
+  attributes:
+    date_of_birth: 1974-08-01
+    given_name: ExceptedDueTo
+    family_name: NonSpecificReason
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99205
+      start_datetime: 2016-02-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-06-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: G8483
+      start_datetime: 2016-01-01
+      provider: Rachel
+- name: PerformanceMet ImmunizationAdministeredVSAC
+  attributes:
+    date_of_birth: 1974-08-01
+    given_name: PerformanceMet
+    family_name: ImmunizationAdministeredVSAC
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90945
+      start_datetime: 2016-01-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-06-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: SNOMEDCT
+      code_value: 86198006
+      start_datetime: 2016-12-01
+      provider: Rachel
+- name: PerformanceMet G8482
+  attributes:
+    date_of_birth: 1974-08-01
+    given_name: PerformanceMet
+    family_name: G8482
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90945
+      start_datetime: 2016-01-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-06-01
+      provider: Steve
+    clinical_activities:
+    - code_type: CPT
+      code_value: G8482
+      start_datetime: 2016-12-01
+      provider: Rachel
+- name: PerformanceMet G8484
+  attributes:
+    date_of_birth: 1974-08-01
+    given_name: PerformanceMet
+    family_name: G8484=
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90945
+      start_datetime: 2016-01-01
+      provider: Rachel
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-06-01
+      provider: Steve
+    clinical_activities:
+    - code_type: CPT
+      code_value: G8484
+      start_datetime: 2016-12-01
+      provider: Rachel
