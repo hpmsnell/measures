@@ -15,6 +15,7 @@ valueset "MIPS; MIPS 110 Encounter B"
 valueset "MIPS; Performance Exception: G8483"
 valueset "MIPS; Performance Met: G8482"
 valueset "MIPS; Performance Not Met: G8484"
+valueset "MIPS; Telemedicine Modifier: GQ"
 
 // CMS created VSACs
 valueset "VSAC; Allergy to Eggs" '2.16.840.1.113883.3.526.3.1253'
@@ -23,29 +24,46 @@ valueset "VSAC; Intolerance to Influenza Vaccine" '2.16.840.1.113883.3.526.3.125
 valueset "VSAC; Not Done: Medical Reason" '2.16.840.1.113883.3.526.3.1007'
 valueset "VSAC; Not Done: Patient Reason" '2.16.840.1.113883.3.526.3.100'
 valueset "VSAC; Not Done: System Reason" '2.16.840.1.113883.3.526.3.1009'
-valueset "VSAC; Influenza Vaccine" '2.16.840.1.113883.3.526.3.1254'
+valueset "VSAC; Influenza Vaccine" '2.16.840.1.113883.3.526.2.1351'
 
-define "Measurement Interval A": Interval[@2017-01-01T00:00:00.0, @2017-03-31T00:00:00.0]
-define "Measurement Interval B": Interval[@2016-10-01T00:00:00.0, @2016-12-31T00:00:00.0]
-
-define "Measurement Period" default Interval
+define "Encounter Interval A": Interval[@2016-01-01T00:00:00.0, @2016-03-31T00:00:00.0]
+define "Encounter Interval B": Interval[@2017-10-01T00:00:00.0, @2016-12-31T00:00:00.0]
+define "Encounter Interval C": Interval[@2016-01-01T00:00:00.0, @2016-12-31T00:00:00.0]
 
 context Population
 
-define "Denominator":
-/*
-* config_link_id: denominator
-*/
-  exists AgeInMonthsAt(start of "Measurement Period") >= 6
-    where D.prevalencePeriod overlaps "Measurement Period")
-  and exists (["Encounter, Performed": "MIPS; MIPS 110 Encounter A"] during "Measurement Interval A")
-      or exists (["Encounter, Performed": "MIPS; MIPS 110 Encounter A"] during "Measurement Interval B")
-    and not ([Encounter, Performe": "Telemedicine GC Modifier"])
-    OR
-  where D.prevelancePeriod overlaps "Measurement Period")
-    and exists (["Encounter, Performed": "MIPS; MIPS 110 Encounter B"] during "Measurement Interval A")
-      or exists (["Encounter, Performed": "MIPS; MIPS 110 Encoutner B"] during "Measurement Interval B")
-    and not (["Encounter, Performed": Telemedicne GC Modifier")
+define "Define Denominator":
+  exists (["Encounter, Performed": "2 Regular Encounters"] E
+    where E.relevantPeriod starts during "Measurement Period"
+      and E.signingProvider.pqrsProvider = true)
+  or exists (["Encounter, Performed": "1 Preventive Encounter"] E
+    where E.relevantPeriod starts during "Measurement Period"
+      and E.signingProvider.pqrsProvider = true)
+  )
+
+define "2 Regular Encounters":
+  AgeInYearsAt("Patient Age at Encounter")
+    exists (["Encounter, Performed": "MIPS; MIPS Encounter A"] E
+      where E.relevantPeriod during "Encounter Interval A"
+        and E.signingProvider.pqrsProvider = true
+      or
+      where E.relevantPeriod during "Encounter Interval B"
+        and E.signingProvider.pqrsProvider = true)
+    and exists (["Encounter, Performed": "MIPS; MIPS Encounter A"] E
+      where E.relevantPeriod during "Encounter Interval C"
+        and E.SigningProvider.pqrsProvider = true)
+
+define "1 Preventive Encounter":
+  exists (["Encounter, Performed": "MIPS; MIPS Encounter B"] E
+    where E.relevantPeriod during "Encounter Interval A"
+      and E.signingProvider.pqrsProvider = true
+    or
+    where E.relevantPeriod during "Encounter Interval B"
+      and E.signingProvider.pqrsProvider = true)
+
+define "Patient Age at Encounter":
+  AgeInYears >= 6 months;
+  )
 
 define "Numerator Performance Met 1: G8482":
 /*
@@ -66,9 +84,9 @@ define "Denominator Exception 1: G8483":
 * config_link_id: exception_1
 * Exception due to a influenza allergy or intolerance
 */
-  or exists (["Diagnosis, Active": "VSAC; Allergy to Influenza Vaccine"] D
+  or exists (["Procedure, Performed": "VSAC; Allergy to Influenza Vaccine"] D
     where D.prevelancePeriod overlaps "Measurement Period"
-  or exists (["Diagnosis, Active": "VSAC; Intolerance to Influenza Vaccine"] D
+  or exists (["Procedure, Performed": "VSAC; Intolerance to Influenza Vaccine"] D
     where D.prevlancePeriod overlaps "Measurement Period")
 
 define "Denominator Exception 2: G8483":
@@ -76,7 +94,7 @@ define "Denominator Exception 2: G8483":
 * config_link_id: exception_2
 * Exception due to an egg ellergy
 */
-  or exists (["Diagnosis, Active": "VSAC; Allergy to Eggs"] D
+  or exists ([""Procedure, Performed": "VSAC; Allergy to Eggs"] D
     where D.prevelancePeriod overlaps "Measurement Period")
 
 
@@ -85,11 +103,11 @@ define "Denominator Exception 3: G8483":
 * config_link_id: exception_3
 * Exception due to a medical, patient or system reason or other non-specified reason
 */
-  exists (["Diagnosis, Active": "VSAC; Not Done: Medical Reason"] D
+  exists (["Procedure, Performed": "VSAC; Not Done: Medical Reason"] D
     where D.prevlancePeriod overlaps "Measurement Period"
-  or exists (["Diagnosis, Active": "VSAC; Not Done: Patient Reason"] D
+  or exists (["Procedure, Performed": "VSAC; Not Done: Patient Reason"] D
     where D.prevlancePeriod overlaps "Measurement Period"
-  or exists (["Diagnosis, Active": "VSAC; Not Done: System Reason"] D
+  or exists (["Procedure, Performed": "VSAC; Not Done: System Reason"] D
     where D.prevlancePeriod overlaps "Measurement Period")
   or exists (["Procedure, Performed": "MIPS; Performance Exception: G8483"] D
       where D.prevlancePeriod overlaps "Measurement Period")
