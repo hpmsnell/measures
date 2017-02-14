@@ -1,0 +1,28 @@
+measure:
+  name: 17.MIPS.MipsHie
+  required:
+    display_title: "Health Information Exchange"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: HIE
+    version: 2017
+exclusion_reasons:
+success_reasons:
+  - config_link_id: 2022F
+    required:
+      display_title: "Dilated retinal eye exam with interpretation by an ophthalmologist or optometrist documented and reviewed"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 117 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 2022F"
+            - model: ClinicalActivity
+              value_set: "VSAC; Retinal or Dilated Eye Exam"
+    optional:
+      code_value:
+gap_reasons:
