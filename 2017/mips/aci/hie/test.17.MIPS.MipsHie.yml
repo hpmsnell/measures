@@ -1,440 +1,174 @@
-measure_id: 17.MIPS.Mips117
+measure_id: 17.MIPS.MipsHie
 test_set_keys:
   organization_key:
-    patients:
-      - name: Too Young # Below age range
+    episodes_of_care:
+      - name: Referral Early # Referral too early
+        start_datetime: 2015-12-31
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
-      - name: Age Lower # Lower bound of age range
+      - name: Referral Lower # Referral at lower bound
+        start_datetime: 2016-01-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/2026F-8P
-      - name: Age Upper # Upper bound of age range
+        numerator: performance_not_met
+      - name: Referral Upper # Referral at upper bound
+        start_datetime: 2016-12-31
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/2026F-8P
-      - name: Too Old # Above age range
+        numerator: performance_not_met
+      - name: Referral Late # Referral too late
+        start_datetime: 2017-01-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
-      - name: Diagnosis Late # Diagnosis too late
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Diagnosis Early # Diagnosis ends before start of MP
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Diagnosis Upper # Diagnosis starts at upper bound of allowable period
+      - name: Summary Before # Summary of care before referral
+        start_datetime: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/2026F-8P
-      - name: Encounter Early # Encounter too early
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Encounter Lower # Encounter at lower bound
+        numerator: performance_not_met
+      - name: Summary Lower # Summary of care lower bound referral
+        start_datetime: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/2026F-8P
-      - name: Encounter Upper # Encounter at upper bound
+        numerator: performance_met
+      - name: Summary Upper # Summary of care upper bound referral
+        start_datetime: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/2026F-8P
-      - name: Encounter Late # Encounter too late
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Hospice Before # MIPS hospice service before measurement period
+        numerator: performance_met
+      - name: Summary After # Summary of care after referral
+        start_datetime: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/2026F-8P
-      - name: Hospice Lower # MIPS hospice at lower bound of MP
-        denominator: 1
-        denominator_exclusion: exclusion_1
-        denominator_exception:
-        numerator:
-      - name: Hospice Upper # MIPS hospice at upper bound of MP
-        denominator: 1
-        denominator_exclusion: exclusion_1
-        denominator_exception:
-        numerator:
-      - name: Hospice Late # MIPS hospice after MP
+        numerator: performance_not_met
+      - name: Summary LOINC # Summary of care using LOINC value set
+        start_datetime: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/2026F-8P
-      - name: VHospice Before # VSAC hospice service end date before measurement period
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: F/2026F-8P
-      - name: VHospice Lower # VSAC hospice end date at lower bound (2nd day)
-        denominator: 1
-        denominator_exclusion: exclusion_1
-        denominator_exception:
-        numerator:
-      - name: VHospice Upper # VSAC hospice start date at upper bound (2nd day)
-        denominator: 1
-        denominator_exclusion: exclusion_1
-        denominator_exception:
-        numerator:
-      - name: VHospice Late # VSAC hospice start date after end of measurement period
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: F/2026F-8P
-      - name: 2022F Before # Performance met 2022F before MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: F/2026F-8P
-      - name: 2022F Lower # Performance met 2022F lower bound MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: S/2022F
-      - name: 2022F Upper # Performance met 2022F upper bound MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: S/2022F
-      - name: 2022F After # Performance met 2022F after MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: F/2026F-8P
-      - name: 2024F Before # Performance met 2024F before MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: F/2026F-8P
-      - name: 2024F Lower # Performance met 2024F lower bound MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: S/2024F
-      - name: 2024F Upper # Performance met 2024F upper bound MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: S/2024F
-      - name: 2024F After # Performance met 2024F after MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: F/2026F-8P
-      - name: 2026F Before # Performance met 2026F before MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: F/2026F-8P
-      - name: 2026F Lower # Performance met 2026F lower bound MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: S/2026F
-      - name: 2026F Upper # Performance met 2026F upper bound MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: S/2026F
-      - name: 2026F After # Performance met 2026F after MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: F/2026F-8P
-      - name: 3072F Before # Performance met 3072F before MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: F/2026F-8P
-      - name: 3072F Lower # Performance met 3072F lower bound MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: S/3072F
-      - name: 3072F Upper # Performance met 3072F upper bound MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: S/3072F
-      - name: 3072F After # Performance met 3072F after MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: F/2026F-8P
-      - name: VSAC Before # VSAC eye exam before previous MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: F/2026F-8P
-      - name: VSAC Lower # VSAC eye exam at lower bound of previous MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: S/3072F
-      - name: VSAC Upper # VSAC eye exam at upper bound of previous MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: S/3072F
-      - name: VSAC After # VSAC eye exam after previous MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: S/2022F
-      - name: VSAC Positive # VSAC during previous MP with positive result
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: F/2026F-8P
-      - name: 2022F Failure # Performance not met 2022F-8P during MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: F/2022F-8P
-      - name: 2024F Failure # Performance not met 2024F-8P during MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: F/2024F-8P
-      - name: 2026F Failure # Performance not met 2026F-8P during MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: F/2026F-8P
+        numerator: performance_met
   providers_key:
     - name: Rachel
-      patients:
-        - name: Too Young # Below age range
+      episodes_of_care:
+        - name: Referral Early # Referral too early
+          start_datetime: 2015-12-31
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Age Lower # Lower bound of age range
+        - name: Referral Lower # Referral at lower bound
+          start_datetime: 2016-01-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/2026F-8P
-        - name: Age Upper # Upper bound of age range
+          numerator: performance_not_met
+        - name: Referral Upper # Referral at upper bound
+          start_datetime: 2016-12-31
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/2026F-8P
-        - name: Too Old # Above age range
+          numerator: performance_not_met
+        - name: Referral Late # Referral too late
+          start_datetime: 2017-01-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Diagnosis Late # Diagnosis too late
+        - name: Summary Before # Summary of care before referral
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: Summary Lower # Summary of care lower bound referral
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met
+        - name: Summary Upper # Summary of care upper bound referral
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met
+        - name: Summary After # Summary of care after referral
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: Summary LOINC # Summary of care using LOINC value set
+          start_datetime: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Diagnosis Early # Diagnosis ends before start of MP
+    - name: Patty
+      episodes_of_care:
+        - name: Referral Early # Referral too early
+          start_datetime: 2015-12-31
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Diagnosis Upper # Diagnosis starts at upper bound of allowable period
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: F/2026F-8P
-        - name: Encounter Early # Encounter too early
+        - name: Referral Lower # Referral at lower bound
+          start_datetime: 2016-01-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Encounter Lower # Encounter at lower bound
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: F/2026F-8P
-        - name: Encounter Upper # Encounter at upper bound
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: F/2026F-8P
-        - name: Encounter Late # Encounter too late
+        - name: Referral Upper # Referral at upper bound
+          start_datetime: 2016-12-31
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Hospice Before # MIPS hospice service before measurement period
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: F/2026F-8P
-        - name: Hospice Lower # MIPS hospice at lower bound of MP
-          denominator: 1
-          denominator_exclusion: exclusion_1
-          denominator_exception:
-          numerator:
-        - name: Hospice Upper # MIPS hospice at upper bound of MP
-          denominator: 1
-          denominator_exclusion: exclusion_1
-          denominator_exception:
-          numerator:
-        - name: Hospice Late # MIPS hospice after MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: F/2026F-8P
-        - name: VHospice Before # VSAC hospice service end date before measurement period
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: F/2026F-8P
-        - name: VHospice Lower # VSAC hospice end date at lower bound (2nd day)
-          denominator: 1
-          denominator_exclusion: exclusion_1
-          denominator_exception:
-          numerator:
-        - name: VHospice Upper # VSAC hospice start date at upper bound (2nd day)
-          denominator: 1
-          denominator_exclusion: exclusion_1
-          denominator_exception:
-          numerator:
-        - name: VHospice Late # VSAC hospice start date after end of measurement period
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: F/2026F-8P
-        - name: 2022F Before # Performance met 2022F before MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: F/2026F-8P
-        - name: 2022F Lower # Performance met 2022F lower bound MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: S/2022F
-        - name: 2022F Upper # Performance met 2022F upper bound MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: S/2022F
-        - name: 2022F After # Performance met 2022F after MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: F/2026F-8P
-        - name: 2024F Before # Performance met 2024F before MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: F/2026F-8P
-        - name: 2024F Lower # Performance met 2024F lower bound MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: S/2024F
-        - name: 2024F Upper # Performance met 2024F upper bound MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: S/2024F
-        - name: 2024F After # Performance met 2024F after MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: F/2026F-8P
-        - name: 2026F Before # Performance met 2026F before MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: F/2026F-8P
-        - name: 2026F Lower # Performance met 2026F lower bound MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: S/2026F
-        - name: 2026F Upper # Performance met 2026F upper bound MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: S/2026F
-        - name: 2026F After # Performance met 2026F after MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: F/2026F-8P
-        - name: 3072F Before # Performance met 3072F before MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: F/2026F-8P
-        - name: 3072F Lower # Performance met 3072F lower bound MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: S/3072F
-        - name: 3072F Upper # Performance met 3072F upper bound MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: S/3072F
-        - name: 3072F After # Performance met 3072F after MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: F/2026F-8P
-        - name: VSAC Before # VSAC eye exam before previous MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: F/2026F-8P
-        - name: VSAC Lower # VSAC eye exam at lower bound of previous MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: S/3072F
-        - name: VSAC Upper # VSAC eye exam at upper bound of previous MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: S/3072F
-        - name: VSAC After # VSAC eye exam after previous MP
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: S/2022F
-        - name: VSAC Positive # VSAC during previous MP with positive result
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: F/2026F-8P
-        - name: 2022F Failure # Performance not met 2022F-8P during MP
+        - name: Referral Late # Referral too late
+          start_datetime: 2017-01-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: 2024F Failure # Performance not met 2024F-8P during MP
+        - name: Summary Before # Summary of care before referral
+          start_datetime: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: 2026F Failure # Performance not met 2026F-8P during MP
+        - name: Summary Lower # Summary of care lower bound referral
+          start_datetime: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
+        - name: Summary Upper # Summary of care upper bound referral
+          start_datetime: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Summary After # Summary of care after referral
+          start_datetime: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Summary LOINC # Summary of care using LOINC value set
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met
 providers:
 - given_name: Rachel
   family_name: Kohler
@@ -447,837 +181,140 @@ providers:
   primary_specialty: Family Medicine
   pqrs_provider: true
 patients:
-  - name: Too Young
-    attributes:
-      date_of_birth: 1998-02-02
-      given_name: Too
-      family_name: Young
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: Age Lower
-    attributes:
-      date_of_birth: 1998-02-01
-      given_name: Age
-      family_name: Lower
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: Age Upper
-    attributes:
-      date_of_birth: 1941-02-02
-      given_name: Age
-      family_name: Upper
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: Too Old
-    attributes:
-      date_of_birth: 1941-02-01
-      given_name: Too
-      family_name: Old
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: Diagnosis Late
+  - name: Referral Early
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Diagnosis
-      family_name: Late
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2017-01-01
-  - name: Diagnosis Early
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: Diagnosis
+      given_name: Referral
       family_name: Early
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-        stop_datetime: 2015-12-31
-  - name: Diagnosis Upper
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: Diagnosis
-      family_name: Upper
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2016-12-31
-  - name: Encounter Early
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: Encounter
-      family_name: Early
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
+      - code_type: SNOMEDCT
+        code_value: 306338003
         start_datetime: 2015-12-31
         provider: Rachel
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: Encounter Lower
+  - name: Referral Lower
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Encounter
+      given_name: Referral
       family_name: Lower
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
-      - code_type: CPT
-        code_value: 99201
+      - code_type: SNOMEDCT
+        code_value: 306338003
         start_datetime: 2016-01-01
         provider: Rachel
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: Encounter Upper
+  - name: Referral Upper
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Encounter
+      given_name: Referral
       family_name: Upper
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
-      - code_type: CPT
-        code_value: 99201
+      - code_type: SNOMEDCT
+        code_value: 306338003
         start_datetime: 2016-12-31
         provider: Rachel
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: Encounter Late
+  - name: Referral Late
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Encounter
+      given_name: Referral
       family_name: Late
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
-      - code_type: CPT
-        code_value: 99201
+      - code_type: SNOMEDCT
+        code_value: 306338003
         start_datetime: 2017-01-01
         provider: Rachel
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: Hospice Before
+  - name: Summary Before
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Hospice
+      given_name: Summary
       family_name: Before
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
-      - code_type: CPT
-        code_value: 99201
+      - code_type: SNOMEDCT
+        code_value: 306338003
         start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
         provider: Rachel
-      - code_type: HCPCS
-        code_value: G9714
-        start_datetime: 2015-12-31
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: Hospice Lower
+      - code_type: SNOMEDCT
+        code_value: 429111000124101
+        start_datetime: 2016-01-31
+  - name: Summary Lower
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Hospice
+      given_name: Summary
       family_name: Lower
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
-      - code_type: CPT
-        code_value: 99201
+      - code_type: SNOMEDCT
+        code_value: 306338003
         start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
         provider: Rachel
-      - code_type: HCPCS
-        code_value: G9714
-        start_datetime: 2016-01-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: Hospice Upper
+      - code_type: SNOMEDCT
+        code_value: 429111000124101
+        start_datetime: 2016-02-01
+  - name: Summary Upper
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Hospice
+      given_name: Summary
       family_name: Upper
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
-      - code_type: CPT
-        code_value: 99201
+      - code_type: SNOMEDCT
+        code_value: 306338003
         start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: HCPCS
-        code_value: G9714
-        start_datetime: 2016-12-31
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: Hospice Late
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: Hospice
-      family_name: Late
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: HCPCS
-        code_value: G9714
-        start_datetime: 2017-01-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: VHospice Before
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: VHospice
-      family_name: Before
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
         provider: Rachel
       - code_type: SNOMEDCT
-        code_value: 182964004
-        start_datetime: 2015-01-01
-        stop_datetime: 2015-12-31
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: VHospice Lower
+        code_value: 429111000124101
+        start_datetime: 2016-02-02
+  - name: Summary After
     attributes:
       date_of_birth: 1988-03-22
-      given_name: VHospice
-      family_name: Lower
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: SNOMEDCT
-        code_value: 182964004
-        start_datetime: 2016-01-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: VHospice Upper
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: VHospice
-      family_name: Upper
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: SNOMEDCT
-        code_value: 182964004
-        start_datetime: 2016-12-31
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: VHospice Late
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: VHospice
-      family_name: Late
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: SNOMEDCT
-        code_value: 182964004
-        start_datetime: 2017-01-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 2022F Before
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 2022F
-      family_name: Before
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: 2022F
-        start_datetime: 2015-12-31
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 2022F Lower
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 2022F
-      family_name: Lower
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: 2022F
-        start_datetime: 2016-01-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 2022F Upper
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 2022F
-      family_name: Upper
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: 2022F
-        start_datetime: 2016-12-31
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 2022F After
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 2022F
+      given_name: Summary
       family_name: After
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
-      - code_type: CPT
-        code_value: 99201
+      - code_type: SNOMEDCT
+        code_value: 306338003
         start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: 2022F
-        start_datetime: 2017-01-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 2024F Before
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 2024F
-      family_name: Before
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: 2024F
-        start_datetime: 2015-12-31
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 2024F Lower
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 2024F
-      family_name: Lower
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: 2024F
-        start_datetime: 2016-01-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 2024F Upper
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 2024F
-      family_name: Upper
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: 2024F
-        start_datetime: 2016-12-31
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 2024F After
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 2024F
-      family_name: After
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: 2024F
-        start_datetime: 2017-01-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 2026F Before
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 2026F
-      family_name: Before
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: 2026F
-        start_datetime: 2015-12-31
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 2026F Lower
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 2026F
-      family_name: Lower
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: 2026F
-        start_datetime: 2016-01-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 2026F Upper
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 2026F
-      family_name: Upper
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: 2026F
-        start_datetime: 2016-12-31
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 2026F After
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 2026F
-      family_name: After
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: 2026F
-        start_datetime: 2017-01-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 3072F Before
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 3072F
-      family_name: Before
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: 3072F
-        start_datetime: 2015-12-31
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 3072F Lower
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 3072F
-      family_name: Lower
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: 3072F
-        start_datetime: 2016-01-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 3072F Upper
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 3072F
-      family_name: Upper
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: 3072F
-        start_datetime: 2016-12-31
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 3072F After
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 3072F
-      family_name: After
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: 3072F
-        start_datetime: 2017-01-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: VSAC Before
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: VSAC
-      family_name: Before
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
         provider: Rachel
       - code_type: SNOMEDCT
-        code_value: 252779009
-        start_datetime: 2014-12-31
-        result: negative
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: VSAC Lower
+        code_value: 429111000124101
+        start_datetime: 2016-02-03
+  - name: Summary LOINC
     attributes:
       date_of_birth: 1988-03-22
-      given_name: VSAC
-      family_name: Lower
+      given_name: Summary
+      family_name: LOINC
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
       - code_type: SNOMEDCT
-        code_value: 252779009
-        start_datetime: 2015-01-01
-        result: negative
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: VSAC Upper
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: VSAC
-      family_name: Upper
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
+        code_value: 306338003
         start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: SNOMEDCT
-        code_value: 252779009
-        start_datetime: 2015-12-31
-        result: negative
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: VSAC After
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: VSAC
-      family_name: After
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: SNOMEDCT
-        code_value: 252779009
-        start_datetime: 2016-01-01
-        result: negative
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: VSAC Positive
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: VSAC
-      family_name: Positive
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Rachel
-      - code_type: SNOMEDCT
-        code_value: 252779009
-        start_datetime: 2015-03-01
-        result: positive
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 2022F Failure
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 2022F
-      family_name: Failure
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
         provider: Patty
-      - code_type: CPT
-        code_value: 2022F-8P
-        start_datetime: 2016-03-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 2024F Failure
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 2024F
-      family_name: Failure
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Patty
-      - code_type: CPT
-        code_value: 2024F-8P
-        start_datetime: 2016-03-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
-  - name: 2026F Failure
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: 2026F
-      family_name: Failure
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_datetime: 2016-02-01
-        provider: Patty
-      - code_type: CPT
-        code_value: 2026F-8P
-        start_datetime: 2016-03-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522
-        start_datetime: 2010-01-01
+      - code_type: LOINC
+        code_value: 18761-7
+        start_datetime: 2016-02-02

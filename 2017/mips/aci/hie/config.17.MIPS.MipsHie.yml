@@ -9,20 +9,32 @@ measure:
     version: 2017
 exclusion_reasons:
 success_reasons:
-  - config_link_id: 2022F
+  - config_link_id: performance_met
     required:
-      display_title: "Dilated retinal eye exam with interpretation by an ophthalmologist or optometrist documented and reviewed"
+      display_title: "Summary of care was created using CEHRT and exchanged electronically"
       validation_record_groups:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; MIPS 117 Encounter"
+              value_set: "VSAC; Referral"
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: 2022F"
+              value_set: "VSAC; TransferDocumentType"
             - model: ClinicalActivity
-              value_set: "VSAC; Retinal or Dilated Eye Exam"
-    optional:
-      code_value:
+              value_set: "Able; Summary of Care"
 gap_reasons:
+  - config_link_id: performance_not_met
+    required:
+      display_title: "No summary of care found"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Referral"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; TransferDocumentType"
+            - model: ClinicalActivity
+              value_set: "Able; Summary of Care"
