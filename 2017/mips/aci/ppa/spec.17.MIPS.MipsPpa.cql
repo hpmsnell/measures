@@ -31,9 +31,9 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   exists(["Encounter, Performed": "Able; ACI Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period")
+    where E.relevantPeriod starts during "Measurement Period"
     with  ["Procedure, Performed": "Able; Patient Portal Notification"] P
-      such that P.relevantPeriod starts during or 36 hours or less after end E.relevantPeriod
+      such that P.relevantPeriod starts during or 36 hours or less after end E.relevantPeriod)
 
 define "Numerator Performance Not Met"
   /*
