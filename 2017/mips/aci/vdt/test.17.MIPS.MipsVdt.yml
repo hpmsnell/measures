@@ -1,0 +1,257 @@
+measure_id: 17.MIPS.MipsVdt
+test_set_keys:
+  organization_key:
+    patients:
+      - name: Encounter Early # Encounter too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Lower # Encounter at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Encounter Upper # Encounter at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Encounter Late # Encounter too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: VDT Before # VDT of care before referral
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: VDT Lower # VDT of care lower bound referral
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
+      - name: VDT Upper # VDT of care upper bound referral
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
+      - name: VDT After # VDT of care after referral
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+  providers_key:
+    - name: Rachel
+      patients:
+        - name: Encounter Early # Encounter too early
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Lower # Encounter at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: Encounter Upper # Encounter at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: Encounter Late # Encounter too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: VDT Before # VDT of care before referral
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: VDT Lower # VDT of care lower bound referral
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: VDT Upper # VDT of care upper bound referral
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: VDT After # VDT of care after referral
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+    - name: Patty
+      patients:
+        - name: Encounter Early # Encounter too early
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Lower # Encounter at lower bound
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Upper # Encounter at upper bound
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Late # Encounter too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: VDT Before # VDT of care before referral
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: VDT Lower # VDT of care lower bound referral
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met
+        - name: VDT Upper # VDT of care upper bound referral
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met
+        - name: VDT After # VDT of care after referral
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  credential: DO
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+- given_name: Patty
+  family_name: PrimaryCare
+  credential: MD
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+patients:
+  - name: Encounter Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Early
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99397
+        start_datetime: 2015-12-31
+        provider: Rachel
+  - name: Encounter Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99397
+        start_datetime: 2016-01-01
+        provider: Rachel
+  - name: Encounter Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99397
+        start_datetime: 2016-12-31
+        provider: Rachel
+  - name: Encounter Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Late
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99397
+        start_datetime: 2017-01-01
+        provider: Rachel
+  - name: VDT Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: VDT
+      family_name: Early
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99397
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 312854002
+        start_datetime: 2015-12-31
+  - name: VDT Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: VDT
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99397
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 312854002
+        start_datetime: 2016-01-01
+  - name: VDT Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: VDT
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99397
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 312854002
+        start_datetime: 2016-12-31
+  - name: VDT Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: VDT
+      family_name: Late
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99397
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 312854002
+        start_datetime: 2017-01-01
