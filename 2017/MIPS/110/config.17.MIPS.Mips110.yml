@@ -1,0 +1,128 @@
+measure:
+  name: 17.MIPS.Mips110
+  required:
+    display_title: "Preventative Care and Screening: Influenza Immunization"
+  optional:
+    gap_resolution_action: Patient is due for influenza vaccination or missed one last influenza season
+    set: MIPS
+    external_id: 110
+    version: 2017
+exclusion_reasons:
+  - config_link_id: G8483_1
+    required:
+      display_title: Patient is exclued because of an allergy
+      validation_record_groups:
+      - count: 1
+        validation_records:
+        - model: ClinicalActivity
+          value_set_name: MIPS; MIPS Encounter 110
+      - count: 2
+        validation_records:
+        - model: ClinicalActivity
+          value_set_name: MIPS; MIPS Preventive Encounter 110
+      - count: 1
+        validation_records:
+        - model: ClinicalActivity
+          value_set_name: "VSAC; Allergy to Eggs"
+        - model: ClinicalActivity
+          value_set_name: "VSAC; Allergy to Influenza Vaccine"
+        - model: ClinicalActivity
+          value_set_name: "VSAC; Intolerance to Influenza Vaccine"
+    optional:
+      code_value: G8483
+  - config_link_id: G8483_2
+    required:
+      display_title: Patient is excluded because of a medical or other reason
+      validation_record_groups:
+      - count: 1
+        validation_records:
+        - model: ClinicalActivity
+          value_set_name: MIPS; MIPS Encounter 110
+      - count: 2
+        validation_records:
+        - model: ClinicalActivity
+          value_set_name: MIPS; MIPS Preventive Encounter 110
+      - count: 1
+        validation_records:
+          - model: ClinicalActivity
+            value_set_name: "MIPS; Denominator Exception: G8483"
+    optional:
+      code_value: G8483
+success_reasons:
+  - config_link_id: G8482_1
+    required:
+      display_title: Influenza immunization administered or previously received
+      validation_record_groups:
+      - count: 1
+        validation_records:
+        - model: ClinicalActivity
+          value_set_name: MIPS; MIPS Encounter 110
+      - count: 2
+        validation_records:
+        - model: ClinicalActivity
+          value_set_name: MIPS; MIPS Preventive Encounter 110
+      - count: 1
+        validation_records:
+          - model: Medication
+            value_set_name: "VSAC; Influenza Immunization"
+    optional:
+      code_value: G8482
+  - config_link_id: G8482_2
+    required:
+      display_title: Influenza immunization administered or previously received during the flu season ending March 31 of the measurement year
+      validation_record_groups:
+      - count: 1
+        validation_records:
+        - model: ClinicalActivity
+          value_set_name: MIPS; MIPS Encounter 110
+      - count: 2
+        validation_records:
+        - model: ClinicalActivity
+          value_set_name: MIPS; MIPS Preventive Encounter 110
+      - count: 1
+        validation_records:
+          - model: Medication
+            value_set_name: "VSAC; Influenza Immunization"
+      optional:
+        code_value: G8482
+  - config_link_id: G8482_3
+    required:
+      display_title: Influenza immunization administered or previously received during the flu season ending March 31 after the measurement year
+      validation_record_groups:
+      - count: 1
+        validation_records:
+        - model: ClinicalActivity
+          value_set_name: MIPS; MIPS Encounter 110
+      - count: 2
+        validation_records:
+        - model: ClinicalActivity
+          value_set_name: MIPS; MIPS Preventive Encounter 110
+      - count: 1
+        validation_records:
+          - model: Medication
+            value_set_name: "VSAC; Influenza Immunization"
+      optional:
+        code_value: G8482
+gap_reasons:
+  - config_link_id: G8484
+    required:
+      display_title: Influenza vaccination not administered or documented in the medical record (G8484)
+      validation_record_groups:
+      - count: 1
+        validation_records:
+        - model: ClinicalActivity
+          value_set_name: MIPS; MIPS Encounter 110
+      - count: 2
+        validation_records:
+        - model: ClinicalActivity
+          value_set_name: MIPS; MIPS Preventive Encounter 110
+      - count: 1
+        validation_records:
+          - model: Medication
+            value_set_name: "VSAC; Influenza Immunization"
+          - model: ClinicalActivity
+            value_set_name: "MIPS; Performance Met: G8482"
+          - model: ClinicalActivity
+            value_set_name: "MIPS; Performance Not Met: G8484"
+    optional:
+      code_value: G8484
