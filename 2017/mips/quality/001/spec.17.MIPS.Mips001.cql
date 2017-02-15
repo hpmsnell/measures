@@ -1,6 +1,8 @@
 library MIPS_001_2017 version '1'
 
 /*
+ * THIS MEASURE IS NOT READY!!!!
+ *
  * Source: MIPS
  * ID: 001
  * Year: 2017
@@ -9,6 +11,8 @@ library MIPS_001_2017 version '1'
  * Engineer: TBD
  * Q/A Reviewer: TBD
  * Date of Validation:
+ *
+ * THIS MEASURE IS NOT READY!!!!
  *
   */
 
