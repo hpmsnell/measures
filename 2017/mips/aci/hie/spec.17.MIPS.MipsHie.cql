@@ -39,9 +39,10 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   exists(["Intervention, Performed": "Able; Referral"] I
-    where I.relevantPeriod starts during "Measurement Period")
+    where I.relevantPeriod starts during "Measurement Period"
+      and I.signingProvider.pqrsProvider = 1
     with  "Summary of Care" P
-      such that P.relevantPeriod starts during I.relevantPeriod
+      such that P.relevantPeriod starts during I.relevantPeriod)
 
 define "Numerator Performance Not Met"
   /*
