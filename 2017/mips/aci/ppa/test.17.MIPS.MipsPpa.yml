@@ -1,174 +1,132 @@
-measure_id: 17.MIPS.MipsHie
+measure_id: 17.MIPS.MipsPpa
 test_set_keys:
   organization_key:
-    episodes_of_care:
-      - name: Referral Early # Referral too early
-        start_datetime: 2015-12-31
+    patients:
+      - name: Encounter Early # Encounter too early
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
-      - name: Referral Lower # Referral at lower bound
-        start_datetime: 2016-01-01
+      - name: Encounter Lower # Encounter at lower bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
-      - name: Referral Upper # Referral at upper bound
-        start_datetime: 2016-12-31
+      - name: Encounter Upper # Encounter at upper bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
-      - name: Referral Late # Referral too late
-        start_datetime: 2017-01-01
+      - name: Encounter Late # Encounter too late
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
-      - name: Summary Before # Summary of care before referral
-        start_datetime: 2016-02-01
+      - name: Notification Before # Notification of care before referral
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
-      - name: Summary Lower # Summary of care lower bound referral
-        start_datetime: 2016-02-01
+      - name: Notification Lower # Notification of care lower bound referral
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_met
-      - name: Summary Upper # Summary of care upper bound referral
-        start_datetime: 2016-02-01
+      - name: Notification Upper # Notification of care upper bound referral
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_met
-      - name: Summary After # Summary of care after referral
-        start_datetime: 2016-02-01
+      - name: Notification After # Notification of care after referral
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
-      - name: Summary LOINC # Summary of care using LOINC value set
-        start_datetime: 2016-02-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_met
   providers_key:
     - name: Rachel
-      episodes_of_care:
-        - name: Referral Early # Referral too early
-          start_datetime: 2015-12-31
+      patients:
+        - name: Encounter Early # Encounter too early
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Referral Lower # Referral at lower bound
-          start_datetime: 2016-01-01
+        - name: Encounter Lower # Encounter at lower bound
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
-        - name: Referral Upper # Referral at upper bound
-          start_datetime: 2016-12-31
+        - name: Encounter Upper # Encounter at upper bound
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
-        - name: Referral Late # Referral too late
-          start_datetime: 2017-01-01
+        - name: Encounter Late # Encounter too late
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Summary Before # Summary of care before referral
-          start_datetime: 2016-02-01
-          denominator: 1
+        - name: Notification Before # Notification of care before referral
+          denominator:
           denominator_exclusion:
           denominator_exception:
-          numerator: performance_not_met
-        - name: Summary Lower # Summary of care lower bound referral
-          start_datetime: 2016-02-01
-          denominator: 1
+          numerator:
+        - name: Notification Lower # Notification of care lower bound referral
+          denominator:
           denominator_exclusion:
           denominator_exception:
-          numerator: performance_met
-        - name: Summary Upper # Summary of care upper bound referral
-          start_datetime: 2016-02-01
-          denominator: 1
+          numerator:
+        - name: Notification Upper # Notification of care upper bound referral
+          denominator:
           denominator_exclusion:
           denominator_exception:
-          numerator: performance_met
-        - name: Summary After # Summary of care after referral
-          start_datetime: 2016-02-01
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: performance_not_met
-        - name: Summary LOINC # Summary of care using LOINC value set
-          start_datetime: 2016-02-01
+          numerator:
+        - name: Notification After # Notification of care after referral
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
     - name: Patty
-      episodes_of_care:
-        - name: Referral Early # Referral too early
-          start_datetime: 2015-12-31
+      patients:
+        - name: Encounter Early # Encounter too early
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Referral Lower # Referral at lower bound
-          start_datetime: 2016-01-01
+        - name: Encounter Lower # Encounter at lower bound
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Referral Upper # Referral at upper bound
-          start_datetime: 2016-12-31
+        - name: Encounter Upper # Encounter at upper bound
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Referral Late # Referral too late
-          start_datetime: 2017-01-01
+        - name: Encounter Late # Encounter too late
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Summary Before # Summary of care before referral
-          start_datetime: 2016-02-01
-          denominator:
+        - name: Notification Before # Notification of care before referral
+          denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator:
-        - name: Summary Lower # Summary of care lower bound referral
-          start_datetime: 2016-02-01
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: Summary Upper # Summary of care upper bound referral
-          start_datetime: 2016-02-01
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: Summary After # Summary of care after referral
-          start_datetime: 2016-02-01
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: Summary LOINC # Summary of care using LOINC value set
-          start_datetime: 2016-02-01
+          numerator: performance_not_met
+        - name: Notification Lower # Notification of care lower bound referral
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: performance_met
+        - name: Notification Upper # Notification of care upper bound referral
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met
+        - name: Notification After # Notification of care after referral
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
 providers:
 - given_name: Rachel
   family_name: Kohler
@@ -181,140 +139,123 @@ providers:
   primary_specialty: Family Medicine
   pqrs_provider: true
 patients:
-  - name: Referral Early
+  - name: Encounter Early
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Referral
+      given_name: Encounter
       family_name: Early
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
-      - code_type: SNOMEDCT
-        code_value: 306338003
+      - code_type: CPT
+        code_value: 99397
         start_datetime: 2015-12-31
         provider: Rachel
-  - name: Referral Lower
+  - name: Encounter Lower
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Referral
+      given_name: Encounter
       family_name: Lower
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
-      - code_type: SNOMEDCT
-        code_value: 306338003
+      - code_type: CPT
+        code_value: 99397
         start_datetime: 2016-01-01
         provider: Rachel
-  - name: Referral Upper
+  - name: Encounter Upper
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Referral
+      given_name: Encounter
       family_name: Upper
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
-      - code_type: SNOMEDCT
-        code_value: 306338003
+      - code_type: CPT
+        code_value: 99397
         start_datetime: 2016-12-31
         provider: Rachel
-  - name: Referral Late
+  - name: Encounter Late
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Referral
+      given_name: Encounter
       family_name: Late
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
-      - code_type: SNOMEDCT
-        code_value: 306338003
+      - code_type: CPT
+        code_value: 99397
         start_datetime: 2017-01-01
         provider: Rachel
-  - name: Summary Before
+  - name: Notification Before
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Summary
+      given_name: Notification
       family_name: Before
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
+      - code_type: CPT
+        code_value: 99397
+        start_datetime: 2016-02-01 09:00:00
+        stop_datetime: 2016-02-01 09:30:00
+        provider: Patty
       - code_type: SNOMEDCT
-        code_value: 306338003
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
-        provider: Rachel
-      - code_type: SNOMEDCT
-        code_value: 429111000124101
-        start_datetime: 2016-01-31
-  - name: Summary Lower
+        code_value: 449451000124107
+        start_datetime: 2016-02-01 08:59:59
+  - name: Notification Lower
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Summary
+      given_name: Notification
       family_name: Lower
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
+      - code_type: CPT
+        code_value: 99397
+        start_datetime: 2016-02-01 09:00:00
+        stop_datetime: 2016-02-01 09:30:00
+        provider: Patty
       - code_type: SNOMEDCT
-        code_value: 306338003
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
-        provider: Rachel
-      - code_type: SNOMEDCT
-        code_value: 429111000124101
-        start_datetime: 2016-02-01
-  - name: Summary Upper
+        code_value: 449451000124107
+        start_datetime: 2016-02-01 09:00:00
+  - name: Notification Upper
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Summary
+      given_name: Notification
       family_name: Upper
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
+      - code_type: CPT
+        code_value: 99397
+        start_datetime: 2016-02-01 09:00:00
+        stop_datetime: 2016-02-01 09:30:00
+        provider: Patty
       - code_type: SNOMEDCT
-        code_value: 306338003
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
-        provider: Rachel
-      - code_type: SNOMEDCT
-        code_value: 429111000124101
-        start_datetime: 2016-02-02
-  - name: Summary After
+        code_value: 449451000124107
+        start_datetime: 2016-02-02 21:30:00
+  - name: Notification After
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Summary
+      given_name: Notification
       family_name: After
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
-      - code_type: SNOMEDCT
-        code_value: 306338003
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
-        provider: Rachel
-      - code_type: SNOMEDCT
-        code_value: 429111000124101
-        start_datetime: 2016-02-03
-  - name: Summary LOINC
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: Summary
-      family_name: LOINC
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: SNOMEDCT
-        code_value: 306338003
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+      - code_type: CPT
+        code_value: 99397
+        start_datetime: 2016-02-01 09:00:00
+        stop_datetime: 2016-02-01 09:30:00
         provider: Patty
-      - code_type: LOINC
-        code_value: 18761-7
-        start_datetime: 2016-02-02
+      - code_type: SNOMEDCT
+        code_value: 449451000124107
+        start_datetime: 2016-02-02 21:30:01
