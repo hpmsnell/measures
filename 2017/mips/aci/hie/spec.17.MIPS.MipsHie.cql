@@ -6,7 +6,7 @@ library MIPS_HIE_2017 version '1'
  * Year: 2017
  * Version: 1
  * Written By: Steve Daniels
- * Reviewed By: Rachel Katz
+ * Reviewed By:
  *
   */
 
@@ -15,7 +15,7 @@ using QDM
 // Able Value Sets
 
 valueset "Able; Summary of Care"
-valueset "Able; Transfer Document": '2.16.840.1.113883.1.11.20.2.4'
+valueset "Able; Transfer Document"
 
 // VSAC Value Sets
 
@@ -26,8 +26,8 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Denominator":
-  exists(["Intervention, Performed": "Able; Referral"] I
-    where I.relevantPeriod starts during "Measurement Period")
+  ["Intervention, Performed": "Able; Referral"] I
+    where I.relevantPeriod starts during "Measurement Period"
       and I.signingProvider.pqrsProvider = 1
 
 define "Summary of Care":
