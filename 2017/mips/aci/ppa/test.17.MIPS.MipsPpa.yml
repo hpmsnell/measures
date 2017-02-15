@@ -1,0 +1,320 @@
+measure_id: 17.MIPS.MipsHie
+test_set_keys:
+  organization_key:
+    episodes_of_care:
+      - name: Referral Early # Referral too early
+        start_datetime: 2015-12-31
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Referral Lower # Referral at lower bound
+        start_datetime: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Referral Upper # Referral at upper bound
+        start_datetime: 2016-12-31
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Referral Late # Referral too late
+        start_datetime: 2017-01-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Summary Before # Summary of care before referral
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Summary Lower # Summary of care lower bound referral
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
+      - name: Summary Upper # Summary of care upper bound referral
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
+      - name: Summary After # Summary of care after referral
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Summary LOINC # Summary of care using LOINC value set
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
+  providers_key:
+    - name: Rachel
+      episodes_of_care:
+        - name: Referral Early # Referral too early
+          start_datetime: 2015-12-31
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Referral Lower # Referral at lower bound
+          start_datetime: 2016-01-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: Referral Upper # Referral at upper bound
+          start_datetime: 2016-12-31
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: Referral Late # Referral too late
+          start_datetime: 2017-01-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Summary Before # Summary of care before referral
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: Summary Lower # Summary of care lower bound referral
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met
+        - name: Summary Upper # Summary of care upper bound referral
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met
+        - name: Summary After # Summary of care after referral
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: Summary LOINC # Summary of care using LOINC value set
+          start_datetime: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+    - name: Patty
+      episodes_of_care:
+        - name: Referral Early # Referral too early
+          start_datetime: 2015-12-31
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Referral Lower # Referral at lower bound
+          start_datetime: 2016-01-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Referral Upper # Referral at upper bound
+          start_datetime: 2016-12-31
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Referral Late # Referral too late
+          start_datetime: 2017-01-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Summary Before # Summary of care before referral
+          start_datetime: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Summary Lower # Summary of care lower bound referral
+          start_datetime: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Summary Upper # Summary of care upper bound referral
+          start_datetime: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Summary After # Summary of care after referral
+          start_datetime: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Summary LOINC # Summary of care using LOINC value set
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  credential: DO
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+- given_name: Patty
+  family_name: PrimaryCare
+  credential: MD
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+patients:
+  - name: Referral Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Referral
+      family_name: Early
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 306338003
+        start_datetime: 2015-12-31
+        provider: Rachel
+  - name: Referral Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Referral
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 306338003
+        start_datetime: 2016-01-01
+        provider: Rachel
+  - name: Referral Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Referral
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 306338003
+        start_datetime: 2016-12-31
+        provider: Rachel
+  - name: Referral Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Referral
+      family_name: Late
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 306338003
+        start_datetime: 2017-01-01
+        provider: Rachel
+  - name: Summary Before
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Summary
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 306338003
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 429111000124101
+        start_datetime: 2016-01-31
+  - name: Summary Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Summary
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 306338003
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 429111000124101
+        start_datetime: 2016-02-01
+  - name: Summary Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Summary
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 306338003
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 429111000124101
+        start_datetime: 2016-02-02
+  - name: Summary After
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Summary
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 306338003
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 429111000124101
+        start_datetime: 2016-02-03
+  - name: Summary LOINC
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Summary
+      family_name: LOINC
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 306338003
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
+        provider: Patty
+      - code_type: LOINC
+        code_value: 18761-7
+        start_datetime: 2016-02-02
