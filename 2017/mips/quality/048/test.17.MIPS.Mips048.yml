@@ -1,0 +1,366 @@
+measure_id: 17.MIPS.Mips048
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age LowerBound # Patient is at lower age bound and otherwise meets the denominator
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: F/1090F-8P
+    - name: "No Encounter" # Patient has "No" denominator eligible encounters but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Early # Patient has an encounter that is early but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Late  # Patient has an encounter that is late but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exclusion HospiceService #Patient has an exclusion for hospice service
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: Exclusion HospiceServiceEarly # Patient has an exclusion for hospice service but it is too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: F/1090F-8P
+    - name: Exclusion HospiceServiceLate # Patient has an exclusion for hospice service but it is too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:  F/1090F-8P
+    - name: Assessed Start # Patient assessed at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: S/1090F
+    - name: Assessed End # Patient assessed at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: S/1090F
+    - name: Assessed Early # Patient assessed too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: F/1090F-8P
+    - name: Assessed Late # Patient assessed too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: F/1090F-8P
+  providers_key:
+  - name: Rachel
+    patients:
+      - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age LowerBound # Patient is at lower age bound and otherwise meets the denominator
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/1090F-8P
+      - name: "No Encounter" # Patient has "No" denominator eligible encounters but otherwise meets the denominator
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Early # Patient has an encounter that is early but otherwise meets the denominator
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Late  # Patient has an encounter that is late but otherwise meets the denominator
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Exclusion HospiceService #Patient has an exclusion for hospice service
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: Exclusion HospiceServiceEarly # Patient has an exclusion for hospice service but it is too early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/1090F-8P
+      - name: Exclusion HospiceServiceLate # Patient has an exclusion for hospice service but it is too late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator:  F/1090F-8P
+      - name: Assessed Start # Patient assessed at start of allowable period
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Assessed End # Patient assessed at end of allowable period
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Assessed Early # Patient assessed too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Assessed Late # Patient assessed too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+  - name: Patty
+    patients:
+      - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age LowerBound # Patient is at lower age bound and otherwise meets the denominator
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: "No Encounter" # Patient has "No" denominator eligible encounters but otherwise meets the denominator
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Early # Patient has an encounter that is early but otherwise meets the denominator
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Late  # Patient has an encounter that is late but otherwise meets the denominator
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Exclusion HospiceService #Patient has an exclusion for hospice service
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Exclusion HospiceServiceEarly # Patient has an exclusion for hospice service but it is too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Exclusion HospiceServiceLate # Patient has an exclusion for hospice service but it is too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Assessed Start # Patient assessed at start of allowable period
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/1090F
+      - name: Assessed End # Patient assessed at end of allowable period
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/1090F
+      - name: Assessed Early # Patient assessed too early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/1090F-8P
+      - name: Assessed Late # Patient assessed too late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/1090F-8P
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  credential: DO
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+- given_name: Patty
+  family_name: PrimaryCare
+  credential: MD
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+patients:
+- name: Patient is too young for the denominator but otherwise meets the denominator
+  attributes:
+    date_of_birth: 1951-02-02 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Rachel
+- name: Patient is at lower age bound and otherwise meets the denominator
+  attributes:
+    date_of_birth: 1951-02-01
+    given_name: Age
+    family_name: LowerBound
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Rachel
+- name: Patient has no denominator eligible encounters but otherwise meets the denominator
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: "No"
+    family_name: Encounter
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 11111 # Fake encounter code
+      start_datetime: 2016-01-01
+      provider: Rachel
+- name: Patient has an encounter that is early but otherwise meets the denominator
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: Early
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2015-12-31 # Too early
+      provider: Rachel
+- name: Patient has an encounter that is late but otherwise meets the denominator
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: Late
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2017-01-01 # Too late
+      provider: Rachel
+- name: Patient has an exclusion for hospice service
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: HospiceService
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9693 # G-code for hospice service
+      start_datetime: 2016-01-01
+- name: Patient has an exclusion for hospice service but it is too early
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: HospiceServiceEarly
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9693 # G-code for hospice service
+      start_datetime: 2015-12-31 # Too early
+- name: Patient has an exclusion for hospice service but it is too late
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: HospiceServiceLate
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9693 # G-code for hospice service
+      start_datetime: 2017-01-01 # Too late
+- name: Patient assessed at start of allowable period
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Assessed
+    family_name: Start
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
+      provider: Patty
+    - code_type: CPT
+      code_value: 1090F # Performance Met
+      start_datetime: 2016-10-01
+- name: Patient assessed at end of allowable period
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Assessed
+    family_name: End
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
+      provider: Patty
+    - code_type: SNOMEDCT
+      code_value: 252908007 # Bladder diary
+      start_datetime: 2016-12-31
+- name: Patient screened too early
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Assessed
+    family_name: Early
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
+      provider: Patty
+    - code_type: CPT
+      code_value: 1090F # Performance Met
+      start_datetime: 2014-09-30 # Too early
+- name: Patient screened too late
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Assessed
+    family_name: Late
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
+      provider: Patty
+    - code_type: CPT
+      code_value: 1090F # Performance Met
+      start_datetime: 2017-01-01

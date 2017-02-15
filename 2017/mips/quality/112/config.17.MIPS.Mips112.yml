@@ -1,0 +1,86 @@
+measure:
+  name: 17.MIPS.Mips112
+  required:
+    display_title: Breast Cancer Screening
+  optional:
+    gap_resolution_action: Patient is due for breast cancer screening
+    set: MIPS
+    external_id: 112
+    version: 2017
+exclusion_reasons:
+  - config_link_id: denominator_exclusion_1
+    required:
+      display_title: Patient is excluded for this measure due to history of bilateral mastectomy or left and right mastectomy
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 112 Encounter
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; History of Bilateral Mastectomy: G9708"
+            - model: ClinicalActivity
+              value_set: "VSAC; Bilateral Mastectomy"
+            - model: ClinicalActivity
+              value_set: "VSAC; History of bilateral mastectomy"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Left Mastectomy"
+            - model: Diagnosis
+              value_set: "VSAC; Left Mastectomy"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Right Mastectomy"
+            - model: Diagnosis
+              value_set: "VSAC; Right Mastectomy"
+  - config_link_id: denominator_exclusion_2
+    required:
+      display_title: Patient is excluded for this measure due to hospice service during the measurement period
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 112 Encounter
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Hospice Service: G9709"
+success_reasons:
+  - config_link_id: 3014F
+    required:
+      display_title: Screening mammography results documented and reviewed (3014F)
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 112 Encounter
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Mammogram"
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3014F"
+    optional:
+      code_value: 3014F
+gap_reasons:
+  - config_link_id: 3014F-8P
+    required:
+      display_title: Screening mammography results were not documented and reviewed, reason not otherwise specified (3014F-8P)
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 112 Encounter
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Mammogram"
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3014F"
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 3014F-8P"
+    optional:
+      code_value: 3014F-8P

@@ -1,0 +1,149 @@
+measure:
+  name: 17.MIPS.Mips128
+  required:
+    display_title: "Preventive Care and Screening: Body Mass Index (BMI) Screening and Follow-Up Plan"
+  optional:
+    gap_resolution_action: Patient is due for a BMI screening or follow-up for BMI outside of normal parameters
+    set: MIPS
+    external_id: 128
+    version: 2017
+exclusion_reasons:
+  - config_link_id: denominator_exclusion
+    required:
+      display_title: Patient is excluded from this measure
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 128 Encounter
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Patient Not Eligible: G8422"
+            - model: ClinicalActivity
+              value_set: "MIPS; Patient Not Eligible: G8938"
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+            - model: Diagnosis
+              value_set: "VSAC; Pregnancy"
+success_reasons:
+  - config_link_id: G8420
+    required:
+      display_title: BMI is documented within normal parameters and no follow-up plan is required
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 128 Encounter
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8420"
+            - model: ClinicalActivity
+              value_set: "VSAC; BMI LOINC Value"
+    optional:
+      code_value: G8420
+  - config_link_id: G8417
+    required:
+      display_title: BMI is documented above normal parameters and a follow-up plan is documented
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 128 Encounter
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8417"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; BMI LOINC Value"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Above Normal Follow-Up"
+    optional:
+      code_value: G8417
+  - config_link_id: G8418
+    required:
+      display_title: BMI is documented below normal parameters and a follow-up plan is documented
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 128 Encounter
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8418"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; BMI LOINC Value"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Below Normal Follow up"
+    optional:
+      code_value: G8418
+exception_reasons:
+  - config_link_id: G9716
+    required:
+      display_title: BMI is documented as being outside of normal limits, follow-up plan is not completed for documented reason
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 128 Encounter
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G9716"
+    optional:
+      code_value: G9716
+gap_reasons:
+  - config_link_id: G8419
+    required:
+      display_title: BMI documented outside normal parameters, no follow-up plan documented, no reason given
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 128 Encounter
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G8419"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; BMI LOINC Value"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Above Normal Follow-Up"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Below Normal Follow up"
+    optional:
+      code_value: G8419
+  - config_link_id: G8421
+    required:
+      display_title: BMI not documented and no reason is given
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 128 Encounter
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G8421"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; BMI LOINC Value"
+    optional:
+      code_value: G8421

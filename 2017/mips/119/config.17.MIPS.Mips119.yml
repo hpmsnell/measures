@@ -1,0 +1,212 @@
+measure:
+  name: 17.MIPS.Mips119
+  required:
+    display_title: "Diabetes: Medical Attention for Nephropathy"
+  optional:
+    gap_resolution_action: "Patient is due for nephropathy screening or treatment"
+    set: MIPS
+    external_id: 119
+    version: 2017
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: "Patient is excluded due to hospice service during the measurement period"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 119 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Hospice Serice: G9715"
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+success_reasons:
+  - config_link_id: 3060F
+    required:
+      display_title: "Positive microalbuminuria test result documented and reviewed"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 119 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3060F"
+            - model: LaboratoryTestPerformed
+              value_set: "VSAC; Microalbumin Test"
+    optional:
+      code_value: 3060F
+  - config_link_id: 3061F
+    required:
+      display_title: "Negative microalbuminuria test result documented and reviewed"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 119 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3061F"
+            - model: LaboratoryTestPerformed
+              value_set: "VSAC; Microalbumin Test"
+    optional:
+      code_value: 3061F
+  - config_link_id: 3062F
+    required:
+      display_title: "Eye imaging validated to match diagnosis fromseven standard field stereoscopic photos results documented and reviewed"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 119 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3062F"
+            - model: LaboratoryTestPerformed
+              value_set: "VSAC; Macroalbumin Test"
+    optional:
+      code_value: 3062F
+  - config_link_id: 3066F
+    required:
+      display_title: "Documentation of treatment for nephropathy (e.g., patient receiving dialysis, patient being treated for ESRD, CRF, ARF, or renal insufficiency, any visit to a nephrologist)"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 119 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3066F"
+            - model: ClinicalActivity
+              value_set: "VSAC; ESRD Monthly Outpatient Services"
+            - model: ClinicalActivity
+              value_set: "VSAC; Dialysis Education"
+            - model: ClinicalActivity
+              value_set: "VSAC; Other Services Related to Dialysis"
+            - model: ClinicalActivity
+              value_set: "VSAC; Dialysis Services"
+            - model: ClinicalActivity
+              value_set: "VSAC; Kidney Transplant"
+            - model: ClinicalActivity
+              value_set: "VSAC; Vascular Access for Dialysis"
+    optional:
+      code_value: 3066F
+  - config_link_id: G8506
+    required:
+      display_title: "Patient receiving angiotensin converting enzyme (ACE) inhibitor or angiotensin receptor blocker (ARB) therapy"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 119 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8506"
+            - model: Medication
+              value_set: "VSAC; ACE Inhibitor or ARB"
+    optional:
+      code_value: G8506
+gap_reasons:
+  - config_link_id: 3060F-8P
+    required:
+      display_title: "Nephropathy screening was not performed, reason not otherwise specified"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 119 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3060F-8P"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Microalbumin Test"
+            - model: ClinicalActivity
+              value_set: "VSAC; Macroalbumin Test"
+            - model: ClinicalActivity
+              value_set: "VSAC; ESRD Monthly Outpatient Services"
+            - model: ClinicalActivity
+              value_set: "VSAC; Dialysis Education"
+            - model: ClinicalActivity
+              value_set: "VSAC; Other Services Related to Dialysis"
+            - model: ClinicalActivity
+              value_set: "VSAC; Dialysis Services"
+            - model: ClinicalActivity
+              value_set: "VSAC; Kidney Transplant"
+            - model: ClinicalActivity
+              value_set: "VSAC; Vascular Access for Dialysis"
+    optional:
+      code_value: 3060F-8P
+  - config_link_id: 3061F-8P
+    required:
+      display_title: "Nephropathy screening was not performed, reason not otherwise specified"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 119 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3061F-8P"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Microalbumin Test"
+            - model: ClinicalActivity
+              value_set: "VSAC; Macroalbumin Test"
+            - model: ClinicalActivity
+              value_set: "VSAC; ESRD Monthly Outpatient Services"
+            - model: ClinicalActivity
+              value_set: "VSAC; Dialysis Education"
+            - model: ClinicalActivity
+              value_set: "VSAC; Other Services Related to Dialysis"
+            - model: ClinicalActivity
+              value_set: "VSAC; Dialysis Services"
+            - model: ClinicalActivity
+              value_set: "VSAC; Kidney Transplant"
+            - model: ClinicalActivity
+              value_set: "VSAC; Vascular Access for Dialysis"
+    optional:
+      code_value: 3061F-8P
+  - config_link_id: 3062F-8P
+    required:
+      display_title: "Nephropathy screening was not performed, reason not otherwise specified"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 119 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3062F-8P"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Microalbumin Test"
+            - model: ClinicalActivity
+              value_set: "VSAC; Macroalbumin Test"
+            - model: ClinicalActivity
+              value_set: "VSAC; ESRD Monthly Outpatient Services"
+            - model: ClinicalActivity
+              value_set: "VSAC; Dialysis Education"
+            - model: ClinicalActivity
+              value_set: "VSAC; Other Services Related to Dialysis"
+            - model: ClinicalActivity
+              value_set: "VSAC; Dialysis Services"
+            - model: ClinicalActivity
+              value_set: "VSAC; Kidney Transplant"
+            - model: ClinicalActivity
+              value_set: "VSAC; Vascular Access for Dialysis"
+    optional:
+      code_value: 3062F-8P

@@ -1,0 +1,1510 @@
+measure_id: 17.MIPS.Mips119
+test_set_keys:
+  organization_key:
+    patients:
+      - name: Too Young # Below age range
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower # Lower bound of age range
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: Age Upper # Upper bound of age range
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: Too Old # Above age range
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Diagnosis Late # Diagnosis too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Diagnosis Early # Diagnosis ends before start of MP
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Diagnosis Upper # Diagnosis starts at upper bound of allowable period
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: Encounter Early # Encounter too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Lower # Encounter at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: Encounter Upper # Encounter at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: Encounter Late # Encounter too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Hospice Before # MIPS hospice service before measurement period
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: Hospice Lower # MIPS hospice at lower bound of MP
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: Hospice Upper # MIPS hospice at upper bound of MP
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: Hospice Late # MIPS hospice after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: VHospice Before # VSAC hospice service end date before measurement period
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: VHospice Lower # VSAC hospice end date at lower bound (2nd day)
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: VHospice Upper # VSAC hospice start date at upper bound (2nd day)
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: VHospice Late # VSAC hospice start date after end of measurement period
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: 3060F Before # Performance met 3060F before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: 3060F Lower # Performance met 3060F lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3060F
+      - name: 3060F Upper # Performance met 3060F upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3060F
+      - name: 3060F After # Performance met 3060F after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: Microalbumin Negative # Negative microalbumin test during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3060F
+      - name: Microalbumin NoResult # Microalbumin test with no result during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: 3061F Before # Performance met 3061F before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: 3061F Lower # Performance met 3061F lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3061F
+      - name: 3061F Upper # Performance met 3061F upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3061F
+      - name: 3061F After # Performance met 3061F after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: Microalbumin Positive # Positive microalbumin test during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3061F
+      - name: 3062F Before # Performance met 3062F before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/2026F-8P
+      - name: 3062F Lower # Performance met 3062F lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/2026F
+      - name: 3062F Upper # Performance met 3062F upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/2026F
+      - name: 3062F After # Performance met 3062F after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/2026F-8P
+      - name: Macroalbumin Positive # Positive macroalbumin test during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3061F
+      - name: 3066F Before # Performance met 3066F before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: 3066F Lower # Performance met 3066F lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3066F
+      - name: 3066F Upper # Performance met 3066F upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3066F
+      - name: 3066F After # Performance met 3066F after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: Kidney Transplant # Kidney transplant during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3066F
+      - name: ESRD Service # ESRD service during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3066F
+      - name: G8506 Before # Performance met G8506 before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: G8506 Lower # Performance met G8506 lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G8506
+      - name: G8506 Upper # Performance met G8506 upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G8506
+      - name: G8506 After # Performance met G8506 after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: ACE RxBefore # ACE inhibitor prescribed before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: ACE RxDuring # ACE inhibitor prescribed during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G8506
+      - name: ACE ActiveBefore # ACE inhibitor active before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: ACE ActiveDuring # ACE inhibitor active during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G8506
+      - name: 3060F Failure # Performance not met 3060F-8P during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3060F-8P
+      - name: 3061F Failure # Performance not met 3061F-8P during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3061F-8P
+      - name: 3062F Failure # Performance not met 3062F-8P during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+  providers_key:
+    - name: Rachel
+      patients:
+      - name: Too Young # Below age range
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower # Lower bound of age range
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: Age Upper # Upper bound of age range
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: Too Old # Above age range
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Diagnosis Late # Diagnosis too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Diagnosis Early # Diagnosis ends before start of MP
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Diagnosis Upper # Diagnosis starts at upper bound of allowable period
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: Encounter Early # Encounter too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Lower # Encounter at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: Encounter Upper # Encounter at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: Encounter Late # Encounter too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Hospice Before # MIPS hospice service before measurement period
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: Hospice Lower # MIPS hospice at lower bound of MP
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: Hospice Upper # MIPS hospice at upper bound of MP
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: Hospice Late # MIPS hospice after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: VHospice Before # VSAC hospice service end date before measurement period
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: VHospice Lower # VSAC hospice end date at lower bound (2nd day)
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: VHospice Upper # VSAC hospice start date at upper bound (2nd day)
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: VHospice Late # VSAC hospice start date after end of measurement period
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: 3060F Before # Performance met 3060F before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: 3060F Lower # Performance met 3060F lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3060F
+      - name: 3060F Upper # Performance met 3060F upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3060F
+      - name: 3060F After # Performance met 3060F after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: Microalbumin Negative # Negative microalbumin test during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3060F
+      - name: Microalbumin NoResult # Microalbumin test with no result during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: 3061F Before # Performance met 3061F before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: 3061F Lower # Performance met 3061F lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3061F
+      - name: 3061F Upper # Performance met 3061F upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3061F
+      - name: 3061F After # Performance met 3061F after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: Microalbumin Positive # Positive microalbumin test during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3061F
+      - name: 3062F Before # Performance met 3062F before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/2026F-8P
+      - name: 3062F Lower # Performance met 3062F lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/2026F
+      - name: 3062F Upper # Performance met 3062F upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/2026F
+      - name: 3062F After # Performance met 3062F after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/2026F-8P
+      - name: Macroalbumin Positive # Positive macroalbumin test during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3061F
+      - name: 3066F Before # Performance met 3066F before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: 3066F Lower # Performance met 3066F lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3066F
+      - name: 3066F Upper # Performance met 3066F upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3066F
+      - name: 3066F After # Performance met 3066F after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: Kidney Transplant # Kidney transplant during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3066F
+      - name: ESRD Service # ESRD service during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3066F
+      - name: G8506 Before # Performance met G8506 before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: G8506 Lower # Performance met G8506 lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G8506
+      - name: G8506 Upper # Performance met G8506 upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G8506
+      - name: G8506 After # Performance met G8506 after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: ACE RxBefore # ACE inhibitor prescribed before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: ACE RxDuring # ACE inhibitor prescribed during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G8506
+      - name: ACE ActiveBefore # ACE inhibitor active before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/3062F-8P
+      - name: ACE ActiveDuring # ACE inhibitor active during MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G8506
+      - name: 3060F Failure # Performance not met 3060F-8P during MP
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: 3061F Failure # Performance not met 3061F-8P during MP
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: 3062F Failure # Performance not met 3062F-8P during MP
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  credential: DO
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+- given_name: Patty
+  family_name: PrimaryCare
+  credential: MD
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+patients:
+  - name: Too Young
+    attributes:
+      date_of_birth: 1998-02-02
+      given_name: Too
+      family_name: Young
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: Age Lower
+    attributes:
+      date_of_birth: 1998-02-01
+      given_name: Age
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: Age Upper
+    attributes:
+      date_of_birth: 1941-02-02
+      given_name: Age
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: Too Old
+    attributes:
+      date_of_birth: 1941-02-01
+      given_name: Too
+      family_name: Old
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: Diagnosis Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Diagnosis
+      family_name: Late
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2017-01-01
+  - name: Diagnosis Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Diagnosis
+      family_name: Early
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+        stop_datetime: 2015-12-31
+  - name: Diagnosis Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Diagnosis
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2016-12-31
+  - name: Encounter Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Early
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2015-12-31
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: Encounter Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: Encounter Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-12-31
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: Encounter Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Late
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2017-01-01
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: Hospice Before
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Hospice
+      family_name: Before
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9714
+        start_datetime: 2015-12-31
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: Hospice Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Hospice
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9714
+        start_datetime: 2016-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: Hospice Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Hospice
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9714
+        start_datetime: 2016-12-31
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: Hospice Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Hospice
+      family_name: Late
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9714
+        start_datetime: 2017-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: VHospice Before
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: VHospice
+      family_name: Before
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 182964004
+        start_datetime: 2015-01-01
+        stop_datetime: 2015-12-31
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: VHospice Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: VHospice
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 182964004
+        start_datetime: 2016-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: VHospice Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: VHospice
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 182964004
+        start_datetime: 2016-12-31
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: VHospice Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: VHospice
+      family_name: Late
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 182964004
+        start_datetime: 2017-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3060F Before
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3060F
+      family_name: Before
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 3060F
+        start_datetime: 2015-12-31
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3060F Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3060F
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 3060F
+        start_datetime: 2016-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3060F Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3060F
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 3060F
+        start_datetime: 2016-12-31
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3060F After
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3060F
+      family_name: After
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 3060F
+        start_datetime: 2017-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: Microalbumin Negative
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Microalbumin
+      family_name: Negative
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 50949-7
+        start_datetime: 2016-01-01
+        result: negative
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: Microalbumin NoResult
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Microalbumin
+      family_name: NoResult
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 50949-7
+        start_datetime: 2016-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3061F Before
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3061F
+      family_name: Before
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 3061F
+        start_datetime: 2015-12-31
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3061F Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3061F
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 3061F
+        start_datetime: 2016-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3061F Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3061F
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 3061F
+        start_datetime: 2016-12-31
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3061F After
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3061F
+      family_name: After
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 3061F
+        start_datetime: 2017-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: Microalbumin Positive
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Microalbumin
+      family_name: Positive
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 50949-7
+        start_datetime: 2016-01-01
+        result: positive
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3062F Before
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3062F
+      family_name: Before
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 3062F
+        start_datetime: 2015-12-31
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3062F Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3062F
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 3062F
+        start_datetime: 2016-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3062F Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3062F
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 3062F
+        start_datetime: 2016-12-31
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3062F After
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3062F
+      family_name: After
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 3062F
+        start_datetime: 2017-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: Macroalbumin Positive
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Macroalbumin
+      family_name: Positive
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1753-3
+        start_datetime: 2016-01-01
+        result: positive
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3066F Before
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3066F
+      family_name: Before
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 3066F
+        start_datetime: 2015-12-31
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3066F Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3066F
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 3066F
+        start_datetime: 2016-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3066F Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3066F
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 3066F
+        start_datetime: 2016-12-31
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3066F After
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3066F
+      family_name: After
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 3066F
+        start_datetime: 2017-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: Kidney Transplant
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Kidney
+      family_name: Transplant
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 175899003
+        start_datetime: 2016-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: ESRD Service
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: ESRD
+      family_name: Service
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 50340
+        start_datetime: 2016-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: G8506 Before
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G8506
+      family_name: Before
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G8506
+        start_datetime: 2015-12-31
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: G8506 Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G8506
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G8506
+        start_datetime: 2016-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: G8506 Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G8506
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G8506
+        start_datetime: 2016-12-31
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: G8506 After
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G8506
+      family_name: After
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G8506
+        start_datetime: 2017-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: ACE RxBefore
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: ACE
+      family_name: RxBefore
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      medications:
+      - code_type: RXNORM
+        code_value: 1000001
+        quantity: 30
+        start_datetime: 2015-12-31
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: ACE RxDuring
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: ACE
+      family_name: RxDuring
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      medications:
+      - code_type: RXNORM
+        code_value: 1000001
+        quantity: 30
+        start_datetime: 2016-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: ACE ActiveBefore
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: ACE
+      family_name: ActiveBefore
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      medications:
+      - code_type: RXNORM
+        code_value: 1000001
+        start_datetime: 2015-01-01
+        stop_datetime: 2015-12-31
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: ACE ActiveDuring
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: ACE
+      family_name: ActiveDuring
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      medications:
+      - code_type: RXNORM
+        code_value: 1000001
+        start_datetime: 2015-01-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3060F Failure
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3060F
+      family_name: Failure
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Patty
+      - code_type: CPT
+        code_value: 3060F-8P
+        start_datetime: 2016-03-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3061F Failure
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3061F
+      family_name: Failure
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Patty
+      - code_type: CPT
+        code_value: 3061F-8P
+        start_datetime: 2016-03-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
+  - name: 3062F Failure
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 3062F
+      family_name: Failure
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Patty
+      - code_type: CPT
+        code_value: 3062F-8P
+        start_datetime: 2016-03-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522
+        start_datetime: 2010-01-01
