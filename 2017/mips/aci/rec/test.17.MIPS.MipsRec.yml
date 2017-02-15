@@ -1,0 +1,373 @@
+measure_id: 17.MIPS.MipsHie
+test_set_keys:
+  organization_key:
+    episodes_of_care:
+      - name: Encounter Early # Encounter too early
+        start_datetime: 2015-12-31
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Lower # Encounter at lower bound
+        start_datetime: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Encounter Upper # Encounter at upper bound
+        start_datetime: 2016-12-31
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Encounter Late # Encounter too late
+        start_datetime: 2017-01-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Reconciliation Before # Reconciliation of care before Encounter
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Reconciliation Lower # Reconciliation of care lower bound Encounter
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
+      - name: Reconciliation Upper # Reconciliation of care upper bound Encounter
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
+      - name: Reconciliation After # Reconciliation of care after Encounter
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Reconciliation NoAllergy # No allergy reconciliation
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Reconciliation NoProblem # No problem list reconciliation
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+  providers_key:
+    - name: Rachel
+      episodes_of_care:
+        - name: Encounter Early # Encounter too early
+          start_datetime: 2015-12-31
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Lower # Encounter at lower bound
+          start_datetime: 2016-01-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: Encounter Upper # Encounter at upper bound
+          start_datetime: 2016-12-31
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: Encounter Late # Encounter too late
+          start_datetime: 2017-01-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Reconciliation Before # Reconciliation of care before Encounter
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: Reconciliation Lower # Reconciliation of care lower bound Encounter
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met
+        - name: Reconciliation Upper # Reconciliation of care upper bound Encounter
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met
+        - name: Reconciliation After # Reconciliation of care after Encounter
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: Reconciliation LOINC # Reconciliation of care using LOINC value set
+          start_datetime: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+    - name: Patty
+      episodes_of_care:
+        - name: Encounter Early # Encounter too early
+          start_datetime: 2015-12-31
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Lower # Encounter at lower bound
+          start_datetime: 2016-01-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Upper # Encounter at upper bound
+          start_datetime: 2016-12-31
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Late # Encounter too late
+          start_datetime: 2017-01-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Reconciliation Before # Reconciliation of care before Encounter
+          start_datetime: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Reconciliation Lower # Reconciliation of care lower bound Encounter
+          start_datetime: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Reconciliation Upper # Reconciliation of care upper bound Encounter
+          start_datetime: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Reconciliation After # Reconciliation of care after Encounter
+          start_datetime: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Reconciliation LOINC # Reconciliation of care using LOINC value set
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  credential: DO
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+- given_name: Patty
+  family_name: PrimaryCare
+  credential: MD
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+patients:
+  - name: Encounter Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Early
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2015-12-31
+        provider: Rachel
+  - name: Encounter Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-01-01
+        provider: Rachel
+  - name: Encounter Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-12-31
+        provider: Rachel
+  - name: Encounter Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Late
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2017-01-01
+        provider: Rachel
+  - name: Reconciliation Before
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Reconciliation
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-01-31
+      - code_type: SNOMEDCT
+        code_value: 370860007
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 398214005
+        start_datetime: 2016-02-01
+  - name: Reconciliation Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Reconciliation
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 370860007
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 398214005
+        start_datetime: 2016-02-01
+  - name: Reconciliation Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Reconciliation
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-02-02
+      - code_type: SNOMEDCT
+        code_value: 370860007
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 398214005
+        start_datetime: 2016-02-01
+  - name: Reconciliation After
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Reconciliation
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-02-03
+      - code_type: SNOMEDCT
+        code_value: 370860007
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 398214005
+        start_datetime: 2016-02-01
+  - name: Reconciliation NoAllergy
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Reconciliation
+      family_name: NoAllergy
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-02-02
+      - code_type: SNOMEDCT
+        code_value: 398214005
+        start_datetime: 2016-02-01
+  - name: Reconciliation NoProblem
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Reconciliation
+      family_name: NoProblem
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-02-02
+      - code_type: SNOMEDCT
+        code_value: 370860007
+        start_datetime: 2016-02-01

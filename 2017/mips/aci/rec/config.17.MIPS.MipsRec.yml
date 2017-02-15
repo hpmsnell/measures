@@ -1,0 +1,52 @@
+measure:
+  name: 17.MIPS.MipsRec
+  required:
+    display_title: "Medication Reconciliation"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: REC
+    version: 2017
+exclusion_reasons:
+success_reasons:
+  - config_link_id: performance_met
+    required:
+      display_title: "Medication list, medication allergy list, and current problem list reconciled during encounter"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Transition of Care"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Medication Reconciliation"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Medication Allergy Reconciliation"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Problem List Reconciliation"
+gap_reasons:
+  - config_link_id: performance_not_met
+    required:
+      display_title: "Medication list, medication allergy list, and/or current problem list not reconciled during encounter"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Transition of Care"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Medication Reconciliation"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Medication Allergy Reconciliation"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Problem List Reconciliation"
