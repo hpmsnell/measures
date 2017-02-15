@@ -39,7 +39,7 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   exists(["Intervention, Performed": "Able; Referral"] I
-    where I.authorDateTime during "Measurement Period")
+    where I.relevantPeriod starts during "Measurement Period")
     with  "Summary of Care" P
       such that P.relevantPeriod starts during I.relevantPeriod
 
