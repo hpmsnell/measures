@@ -23,18 +23,19 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Denominator":
+define "Denominator Episode"
   ["Encounter, Performed": "Able; Transition of Care"] E
     where E.relevantPeriod starts during "Measurement Period"
       and E.signingProvider.pqrsProvider = 1
+
+define "Denominator":
+  "Denominator Episode"
 
 define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists(["Encounter, Performed": "Able; Transition of Care"] E
-    where E.relevantPeriod starts during "Measurement Period"
-      and E.signingProvider.pqrsProvider = 1
+  exists("Denominator Episode" E
     with ["Procedure, Performed": "Able; Medication Reconciliation"] P1
       such that P1.relevantPeriod starts during E.relevantPeriod
     and with ["Procedure, Performed": "Able; Medication Allergy Reconciliation"] P2
