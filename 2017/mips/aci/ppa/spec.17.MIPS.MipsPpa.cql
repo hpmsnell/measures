@@ -22,23 +22,18 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Denominator":
-
-  exists(["Intervention, Performed": "Able; Referral"] I
-    where I.relevantPeriod starts during "Measurement Period")
-      and I.signingProvider.pqrsProvider = 1
-
-define "Summary of Care":
-  ["Procedure, Performed": "Able; Summary of Care"]
-  union ["Procedure, Performed": "VSAC; TransferDocumentType"]
+  exists(["Encounter, Performed": "Able; ACI Encounter"] E
+    where E.relevantPeriod starts during "Measurement Period"
+      and E.signingProvider.pqrsProvider = 1)
 
 define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists(["Intervention, Performed": "Able; Referral"] I
-    where I.authorDateTime during "Measurement Period")
-    with  "Summary of Care" P
-      such that P.relevantPeriod starts during I.relevantPeriod
+  exists(["Encounter, Performed": "Able; ACI Encounter"] E
+    where E.relevantPeriod starts during "Measurement Period")
+    with  ["Procedure, Performed": "Able; Patient Portal Notification"] P
+      such that P.relevantPeriod starts 36 hours or less after end E.relevantPeriod
 
 define "Numerator Performance Not Met"
   /*
