@@ -6,7 +6,7 @@ library MIPS_119_2017 version '1'
  * Year: 2017
  * Version: 1
  * Written By: Steve Daniels
- * Reviewed By: Cal Newman
+ * Reviewed By: Rachel Katz
  *
   */
 
@@ -30,6 +30,7 @@ valueset "MIPS; Performance Not Met: 3062F-8P"
 
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 valueset "VSAC; Microalbumin Test": '2.16.840.1.113883.3.464.1003.109.12.1005'
+valueset "VSAC; Urine Protein Tests": '2.16.840.1.113883.3.464.1003.109.12.1024'
 valueset "VSAC; Macroalbumin Test": '2.16.840.1.113883.3.464.1003.109.12.1019'
 valueset "VSAC; ESRD Monthly Outpatient Services": '2.16.840.1.113883.3.464.1003.109.12.1014'
 valueset "VSAC; Dialysis Education": '2.16.840.1.113883.3.464.1003.109.12.1016'
@@ -38,15 +39,11 @@ valueset "VSAC; Dialysis Services": '2.16.840.1.113883.3.464.1003.109.12.1013'
 valueset "VSAC; Kidney Transplant": '2.16.840.1.113883.3.464.1003.109.12.1012'
 valueset "VSAC; Vascular Access for Dialysis": '2.16.840.1.113883.3.464.1003.109.12.1011'
 valueset "VSAC; ACE Inhibitor or ARB": '2.16.840.1.113883.3.526.3.1139'
-
-// Unused from eCQM
-
 valueset "VSAC; Diabetic Nephropathy": '2.16.840.1.113883.3.464.1003.109.12.1004'
 valueset "VSAC; Glomerulonephritis and Nephrotic Syndrome": '2.16.840.1.113883.3.464.1003.109.12.1018'
 valueset "VSAC; Hypertensive Chronic Kidney Disease": '2.16.840.1.113883.3.464.1003.109.12.1017'
 valueset "VSAC; Kidney Failure": '2.16.840.1.113883.3.464.1003.109.12.1028'
 valueset "VSAC; Proteinuria": '2.16.840.1.113883.3.526.3.1003'
-valueset "VSAC; Urine Protein Tests": '2.16.840.1.113883.3.464.1003.109.12.1024'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -74,6 +71,10 @@ define "Denominator Exclusion":
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
     where I.relevantPeriod overlaps "Measurement Period")
 
+define "Microalbumin Tests":
+  ["Laboratory Test, Performed": "VSAC; Microalbumin Test"]
+  union ["Laboratory Test, Performed": "VSAC; Urine Protein Tests"]
+
 define "Eligible Nephropathy Treatments":
   ["Procedure, Performed": "VSAC; Kidney Transplant"]
   union ["Procedure, Performed": "Vascular Access for Dialysis"]
@@ -82,13 +83,20 @@ define "Eligible Nephropathy Treatments":
   union ["Intervention, Performed": "Dialysis Education"]
   union ["Encounter, Performed": "ESRD Monthly Outpatient Services"]
 
+define "Nephropathy Diagnoses":
+  ["Diagnosis": "VSAC; Diabetic Nephropathy"]
+  union ["Diagnosis": "VSAC; Glomerulonephritis and Nephrotic Syndrome"]
+  union ["Diagnosis": "VSAC; Hypertensive Chronic Kidney Disease"]
+  union ["Diagnosis": "VSAC; Kidney Failure"]
+  union ["Diagnosis": "VSAC; Proteinuria"]
+
 define "Numerator Performance Met: 3060F":
   /*
    * config_link_id: 3060F
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 3060F"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists("Laboratory Test, Performed": "VSAC; Microalbumin Test"] L
+  or exists("Microalbumin Tests" L
     where L.resultDateTime during "Measurement Period"
       and L.result = "positive") // Need to confirm result format
 
@@ -98,7 +106,7 @@ define "Numerator Performance Met: 3061F":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 3061F"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists("Laboratory Test, Performed": "VSAC; Microalbumin Test"] L
+  or exists("Microalbumin Tests" L
     where L.resultDateTime during "Measurement Period"
       and L.result = "negative") // Need to confirm result format
 
@@ -120,6 +128,8 @@ define "Numerator Performance Met: 3066F":
     where P.relevantPeriod starts during "Measurement Period")
   or exists("Eligible Nephropathy Treatments" T
     where T.relevantPeriod starts during "Measurement Period")
+  or exists("Nephrology Diagnoses" D
+    where D.prevalencePeriod overlaps "Measurement Period")
 
 define "Numerator Performance Met: G8506":
   /*
