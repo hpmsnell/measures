@@ -1,8 +1,8 @@
-library MIPS_VDT_2017 version '1'
+library MIPS_PSE_2017 version '1'
 
 /*
  * Source: MIPS
- * ID: VDT
+ * ID: PSE
  * Year: 2017
  * Version: 1
  * Written By: Steve Daniels

@@ -42,6 +42,11 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
+      - name: Education Able # Education using Able value set
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
   providers_key:
     - name: Rachel
       patients:
@@ -81,6 +86,11 @@ test_set_keys:
           denominator_exception:
           numerator:
         - name: Education After # Education after measurement period
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Education Able # Education using Able value set
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -127,6 +137,11 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
+        - name: Education Able # Education using Able value set
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met
 providers:
 - given_name: Rachel
   family_name: Kohler
@@ -255,3 +270,19 @@ patients:
       - code_type: SNOMEDCT
         code_value: 171040007
         start_datetime: 2017-01-01
+  - name: Education Able
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Education
+      family_name: Able
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: ABLE
+        code_value: MIPS-ACI-PSE
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 171040007
+        start_datetime: 2016-01-01

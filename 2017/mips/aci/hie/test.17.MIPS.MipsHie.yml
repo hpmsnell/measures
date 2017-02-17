@@ -56,6 +56,12 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: performance_met
+      - name: Summary Able # Summary of care using Able value set
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
   providers_key:
     - name: Rachel
       episodes_of_care:
@@ -113,6 +119,12 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator:
+        - name: Summary Able # Summary of care using Able value set
+          start_datetime: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
     - name: Patty
       episodes_of_care:
         - name: Referral Early # Referral too early
@@ -164,6 +176,12 @@ test_set_keys:
           denominator_exception:
           numerator:
         - name: Summary LOINC # Summary of care using LOINC value set
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met
+        - name: Summary Able # Summary of care using Able value set
           start_datetime: 2016-02-01
           denominator: 1
           denominator_exclusion:
@@ -312,6 +330,23 @@ patients:
       clinical_activities:
       - code_type: SNOMEDCT
         code_value: 306338003
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
+        provider: Patty
+      - code_type: LOINC
+        code_value: 18761-7
+        start_datetime: 2016-02-02
+  - name: Summary Able
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Summary
+      family_name: Able
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: ABLE
+        code_value: MIPS-ACI-HIE
         start_datetime: 2016-02-01
         stop_datetime: 2016-02-02
         provider: Patty

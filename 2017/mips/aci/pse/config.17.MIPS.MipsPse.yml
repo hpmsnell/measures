@@ -21,6 +21,8 @@ success_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "Able; Patient Education"
+            - model: ClinicalActivity
+              value_set: "Able; Performance Met: MIPS ACI PSE"
 gap_reasons:
   - config_link_id: performance_not_met
     required:
@@ -34,3 +36,5 @@ gap_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "Able; Patient Education"
+            - model: ClinicalActivity
+              value_set: "Able; Performance Met: MIPS ACI PSE"

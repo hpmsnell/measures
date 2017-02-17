@@ -21,18 +21,20 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Denominator":
+define "Denominator Encounter":
   exists(["Encounter, Performed": "Able; ACI Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
       and E.signingProvider.pqrsProvider = 1)
+
+define "Denominator":
+  exists("Denominator Encounter")
 
 define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists(["Encounter, Performed": "Able; ACI Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
-    with  ["Procedure, Performed": "Able; Performance Met: MIPS ACI PPA"] P
+  exists("Denominator Encounter" E
+    with ["Procedure, Performed": "Able; Performance Met: MIPS ACI PPA"] P
       such that P.relevantPeriod starts during or 4 business days or less after end E.relevantPeriod)
 
 define "Numerator Performance Not Met"
