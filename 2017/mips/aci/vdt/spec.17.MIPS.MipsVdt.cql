@@ -15,7 +15,7 @@ using QDM
 // Able Value Sets
 
 valueset "Able; ACI Encounter"
-valueset "Able; Patient Review of Medical Records"
+valueset "Able; Performance Met: MIPS ACI REC"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -30,7 +30,7 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists(["Procedure, Performed": "Able; Patient Review of Medical Records"] P
+  exists(["Procedure, Performed": "Able; Performance Met: MIPS ACI REC"] P
     where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met"

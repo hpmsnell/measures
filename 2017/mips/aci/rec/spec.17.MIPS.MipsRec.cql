@@ -18,6 +18,7 @@ valueset "Able; Transition of Care"
 valueset "Able; Medication Reconciliation"
 valueset "Able; Medication Allergy Reconciliation"
 valueset "Able; Problem List Reconciliation"
+valueset "Able; Performance Met: MIPS ACI REC"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -36,6 +37,9 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   exists("Denominator Episode" E
+    with ["Procedure, Performed": "Able; Performance Met: MIPS ACI REC"] P
+      such that P1.relevantPeriod starts during E.relevantPeriod)
+  or exists("Denominator Episode" E
     with ["Procedure, Performed": "Able; Medication Reconciliation"] P1
       such that P1.relevantPeriod starts during E.relevantPeriod
     and with ["Procedure, Performed": "Able; Medication Allergy Reconciliation"] P2
