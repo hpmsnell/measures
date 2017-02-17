@@ -19,11 +19,14 @@ valueset "MIPS; Performance Met: G8482"
 valueset "MIPS; Performance Not Met: G8484"
 valueset "MIPS; Telemedicine Modifier"
 
-// CMS created VSACs
+// VSAC value sets
 valueset "VSAC; Allergy to Eggs" '2.16.840.1.113883.3.526.3.1253'
 valueset "VSAC; Allergy to Influenza Vaccine" '2.16.840.1.113883.3.526.3.1256'
 valueset "VSAC; Intolerance to Influenza Vaccine" '2.16.840.1.113883.3.526.3.1257'
+valueset "VSAC; Influenza Vaccination" '2.16.840.1.113883.3.526.3.402'
 valueset "VSAC; Influenza Vaccine" '2.16.840.1.113883.3.526.2.1351'
+valueset "VSAC; Previous Receipt of Influenza Vaccine" '2.16.840.1.113883.3.526.3.1185'
+valueset "VSAC; Influenza Vaccine Declined" '2.16.840.1.113883.3.526.3.1255'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -110,6 +113,11 @@ define "Patient of Age at Encounter During Interval B":
     AgeInYearsAt("Preventive Encounters During Interval B") >= 6 months
   )
 
+define "Influenza Vaccines":
+  ["Medication, Administered": "Influenza Vaccine"]
+  union ["Procedure, Performed": "Influenza Vaccination"]
+  union ["Communication: From Patient to Provider": "Previous Receipt of Influenza Vaccine"]
+
 define "Denominator":
   "Patient of Age at 2 110 Encounters"
   or "Patient of Age at 1 Preventive Encounter"
@@ -128,7 +136,7 @@ define "Numerator Performance Met 2: G8482":
   * Immunization administered during 2016 flu season
   */
   "Patient of Age at Encounter During Interval A"
-  and exists(["Medication, Administered": "VSAC; Influenza Vaccine"] M
+  and exists("Influenza Vaccines" M
     where M.relevantPeriod starts during "Administration Interval A")
 
 define "Numerator Performance Met 3: G8482":
@@ -137,7 +145,7 @@ define "Numerator Performance Met 3: G8482":
   * Immunization administered during 2017 flu season
   */
   "Patient of Age at Encounter During Interval B"
-  and exists(["Medication, Administered": "VSAC; Influenza Vaccine"] M
+  and exists("Influenza Vaccines" M
     where M.relevantPeriod starts during "Administration Interval B")
 
 define "Denominator Exception 1: G8483":
@@ -159,7 +167,9 @@ define "Denominator Exception 2: G8483":
   * Exception due to a medical, patient or system reason or other non-specified reason
   */
   exists (["Procedure, Performed": "MIPS; Denominator Exception: G8483"] P
-      where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period")
+  or exists (["Procedure, Performed": "VSAC; Influenza Vaccine Declined"] P
+    where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performace Not Met: G8484":
   /*

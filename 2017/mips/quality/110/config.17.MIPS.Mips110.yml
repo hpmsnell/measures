@@ -46,6 +46,8 @@ exclusion_reasons:
         validation_records:
           - model: ClinicalActivity
             value_set_name: "MIPS; Denominator Exception: G8483"
+          - model: ClinicalActivity
+            value_set_name: "VSAC; Influenza Vaccine Declined"
     optional:
       code_value: G8483
 success_reasons:
@@ -64,7 +66,11 @@ success_reasons:
       - count: 1
         validation_records:
           - model: Medication
-            value_set_name: "VSAC; Influenza Immunization"
+            value_set_name: "VSAC; Influenza Vaccine"
+          - model: ClinicalActivity
+            value_set_name: "VSAC; Influenza Vaccination"
+          - model: ClinicalActivity
+            value_set_name: "VSAC; Previous Receipt of Influenza Vaccine"
     optional:
       code_value: G8482
   - config_link_id: G8482_2
@@ -82,7 +88,11 @@ success_reasons:
       - count: 1
         validation_records:
           - model: Medication
-            value_set_name: "VSAC; Influenza Immunization"
+            value_set_name: "VSAC; Influenza Vaccine"
+          - model: ClinicalActivity
+            value_set_name: "VSAC; Influenza Vaccination"
+          - model: ClinicalActivity
+            value_set_name: "VSAC; Previous Receipt of Influenza Vaccine"
       optional:
         code_value: G8482
   - config_link_id: G8482_3
@@ -100,7 +110,11 @@ success_reasons:
       - count: 1
         validation_records:
           - model: Medication
-            value_set_name: "VSAC; Influenza Immunization"
+            value_set_name: "VSAC; Influenza Vaccine"
+          - model: ClinicalActivity
+            value_set_name: "VSAC; Influenza Vaccination"
+          - model: ClinicalActivity
+            value_set_name: "VSAC; Previous Receipt of Influenza Vaccine"
       optional:
         code_value: G8482
 gap_reasons:
@@ -119,7 +133,11 @@ gap_reasons:
       - count: 1
         validation_records:
           - model: Medication
-            value_set_name: "VSAC; Influenza Immunization"
+            value_set_name: "VSAC; Influenza Vaccine"
+          - model: ClinicalActivity
+            value_set_name: "VSAC; Influenza Vaccination"
+          - model: ClinicalActivity
+            value_set_name: "VSAC; Previous Receipt of Influenza Vaccine"
           - model: ClinicalActivity
             value_set_name: "MIPS; Performance Met: G8482"
           - model: ClinicalActivity
