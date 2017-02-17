@@ -1,7 +1,10 @@
 library MIPS_113_2017 version '1'
 
 /*
- * Based on MIPS Registry specification for #113 Colorectal Cancer Screening
+ * Source: MIPS
+ * ID: 113
+ * Year: 2017
+ * Version: 1
  */
 
 using QDM
@@ -13,8 +16,7 @@ valueset "HEDIS; Colorectal Cancer": '2.16.840.1.113883.3.464.1004.1065'
 
 // Encounter, Performed
 
-valueset "MIPS; 113 Encounter"
-valueset "MIPS; Hospice Service"
+valueset "MIPS; MIPS 113 Encounter"
 
 // Laboratory Test, Performed
 
@@ -30,53 +32,72 @@ valueset "HEDIS; Colonoscopy": '2.16.840.1.113883.3.464.1004.1064'
 valueset "HEDIS; Flexible Sigmoidoscopy": '2.16.840.1.113883.3.464.1004.1102'
 valueset "HEDIS; Total Colectomy": '2.16.840.1.113883.3.464.1004.1250'
 valueset "MIPS; Performance Met: 3017F"
-valueset "MIPS; Medical Performance Exclusion: 3017F-1P"
 valueset "MIPS; Performance Not Met: 3017F-8P"
-valueset "MIPS; History of Total Colectomy or Colorectal Cancer"
+valueset "MIPS; History of Total Colectomy or Colorectal Cancer: G9711"
+
+// Intervention, Performed
+
+valueset "VSAC; Palliative Care" '2.16.840.1.113883.3.600.1.1579'
+valueset "MIPS; Hospice Service"
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Valid Procedures":
-  distinct(
-    ["Procedure, Performed": "VSAC; Colonoscopy"]
-    union ["Procedure, Performed": "VSAC; Flexible Sigmoidoscopy"]
-    union ["Procedure, Performed": "HEDIS; Colonoscopy"]
-    union ["Procedure, Performed": "HEDIS; Flexible Sigmoidoscopy"]
-    )
-
-define "Valid Laboratory Tests":
-  distinct{
-    ["Laboratory Test, Performed": "VSAC; Fecal Occult Blood Test (FOBT)"]
-    union ["Laboratory Test, Performed": "HEDIS; FOBT"]
-  }
-
-define "Initial Patient Population":
-AgeInYearsAt(start of "Measurement Period") >= 50
-and AgeInYearsAt(start of "Measurement Period") < 75
-and exists(["Encounter, Performed": "113 Encounter"] E where E.performanceTime during "Measurement Period")
-
 define "Denominator":
-  "Initial Patient Population"
+  AgeInYearsAt(start of "Measurement Period") >= 50
+  and AgeInYearsAt(start of "Measurement Period") < 75
+  and exists(["Encounter, Performed": "MIPS; MIPS 113 Encounter"] E
+    where E.relevantPeriod starts during "Measurement Period")
+    and E.signingProvider.pqrsProvider = true
 
-define "Denominator Exclusions":
-  exists(["Diagnosis": "VSAC; Malignant Neoplasm of Colon"] D where D.prevalencePeriod starts before end "Measurement Period")
-  or exists(["Procedure, Performed": "VSAC; Total Colectomy"] P where P.relevantPeriod starts before end "Measurement Period")
-  or exists(["Diagnosis": "HEDIS; Colorectal Cancer"] D where D.prevalencePeriod starts before end "Measurement Period")
-  or exists(["Procedure, Performed": "HEDIS; Total Colectomy"] P where P.relevantPeriod starts before end "Measurement Period")
-  or exists (["Procedure, Performed": "MIPS; History of Total Colectomy or Colorectal Cancer"] P where P.relevantPeriod starts before end "Measurement Period")
-  or exists(["Encounter, Performed": "Hospice Service"] E where E.performanceTime during "Measurement Period")
+define "Denominator Exclusion 1":
+  /*
+   * config_link_id: exclusion_1
+   */
+  exists(["Diagnosis": "VSAC; Malignant Neoplasm of Colon"] D
+    where D.prevalencePeriod starts before end "Measurement Period")
+  or exists(["Procedure, Performed": "VSAC; Total Colectomy"] P
+    where P.relevantPeriod starts before end "Measurement Period")
+  or exists(["Diagnosis": "HEDIS; Colorectal Cancer"] D
+    where D.prevalencePeriod starts before end "Measurement Period")
+  or exists(["Procedure, Performed": "HEDIS; Total Colectomy"] P
+    where P.relevantPeriod starts before end "Measurement Period")
+  or exists (["Procedure, Performed": "MIPS; History of Total Colectomy or Colorectal Cancer: G9711"] P
+    where P.relevantPeriod starts before end "Measurement Period")
 
-define "Numerator Success 3017F":
+define "Denominator Exclusion 2":
+  /*
+   * config_link_id: exclusion_2
+   */
+  exists(["Intervention, Performed": "MIPS; Hospice Service"] I //Updated to Intervention, Performed
+    where I.relevantPeriod starts during "Measurement Period")
+  or exists(["Intervention, Performed": "VSAC; Palliative Care"] I //New value set added
+    where I.relevantPeriod starts during "Measurement Period")
+
+define "Numerator Performance Met: 3017F":
+  /*
+   * config_link_id: 3017F
+   */
   "Denominator"
-  and not "Denominator Exclusions"
+  and not "Denominator Exclusion"
   and (
-    exists(["Valid Procedures"] P where P.relevantPeriod ends before end "Measurement Period")
-    or exists(["Valid Laboratory Tests"] L where L.resultDateTime during "Measurement Period")
+    exists(["Procedure, Performed": "MIPS; Performance Met: 3017F"] P where P.relevantPeriod starts during "Measurement Period") //New addition
+    or exists(["Procedure, Performed": "VSAC; Colonoscopy"] P where P.relevantPeriod starts 9 years or less before end "Measurement Period")
+    or exists(["Procedure, Performed": "HEDIS; Colonoscopy"] P where P.relevantPeriod starts 9 years or less before end "Measurement Period")
+    or exists(["Procedure, Performed": "VSAC; Flexible Sigmoidoscopy"] P where P.relevantPeriod starts 4 years or less before end "Measurement Period")
+    or exists(["Procedure, Performed": "HEDIS; Flexible Sigmoidoscopy"] P where P.relevantPeriod starts 4 years or less before end "Measurement Period")
+    or exists(["Laboratory Test, Performed": "VSAC; Fecal Occult Blood Test (FOBT)"] L where L.resultDateTime during "Measurement Period")
+    or exists(["Laboratory Test, Performed": "HEDIS; FOBT"] L where L.resultDateTime during "Measurement Period")
+    or exists(["Procedure, Performed": "VSAC; Fecal Occult Blood Test (FOBT)"] L where L.relevantPeriod starts during "Measurement Period")
+    or exists(["Procedure, Performed": "HEDIS; FOBT"] L where L.relevantPeriod starts during "Measurement Period")
     )
 
-define "Numerator Failure 3017F-8P":
+
+define "Numerator Performance Not Met: 3017F-8P":
+  /*
+   * config_link_id: 3017F-8P
+   */
   "Denominator"
-  and not "Denominator Exclusions"
-  and not "Numerator 3017F"
+  and not "Denominator Exclusion"
+  and not "Numerator Performance Met: 3017F"

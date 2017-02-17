@@ -20,7 +20,7 @@ using QDM
 
 valueset "MIPS; MIPS 112 Encounter"
 valueset "MIPS; History of Mastectomy: G9708"
-valueset "MIPS; Hospice Service: G9709"
+valueset "MIPS; Hospice Service"
 valueset "MIPS; Performance Met: 3014F"
 valueset "MIPS; Performance Not Met: 3014F-8P"
 
@@ -76,7 +76,7 @@ define "Denominator Exclusion 2":
    */
   exists(["Intervention, Performed": "VSAC; Palliative Care"] I
     where I.relevantPeriod overlaps "Measurement Period")
-  or exists(["Intervention, Performed": "MIPS; Hospice Service: G9687"] I
+  or exists(["Intervention, Performed": "MIPS; Hospice Service"] I
     where I.relevantPeriod overlaps "Measurement Period")
 
 define "Numerator Performance Met: 3014F":

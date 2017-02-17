@@ -419,7 +419,6 @@ patients:
     - code_type: SNOMEDCT
       code_value: 429242008 # Right mastectomy
       start_datetime: 2015-12-31
-  - name: Patient has an exclusion for hospice service
     diagnoses:
     - code_type: ICD10CM
       code_value: Z90.12 # Left mastectomy
@@ -437,7 +436,7 @@ patients:
       start_datetime: 2016-01-01
       provider: Rachel
     - code_type: CPT
-      code_value: G9687 # G-code for hospice service
+      code_value: G9693 # G-code for hospice service
       start_datetime: 2016-01-01
 - name: Patient has an exclusion for hospice service but it is too early
   attributes:

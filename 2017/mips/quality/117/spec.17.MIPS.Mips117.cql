@@ -16,7 +16,7 @@ using QDM
 
 valueset "MIPS; MIPS 117 Encounter"
 valueset "MIPS; Diabetes"
-valueset "MIPS; Hospice Service: G9714"
+valueset "MIPS; Hospice Service"
 valueset "MIPS; Performance Met: 2022F"
 valueset "MIPS; Performance Met: 2024F"
 valueset "MIPS; Performance Met: 2026F"
