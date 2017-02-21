@@ -159,7 +159,8 @@ define "Denominator Exception 1: G8483":
     where D.prevlancePeriod overlaps "Measurement Period")
   or exists (["Diagnosis": "VSAC; Allergy to Eggs"] D
     where D.prevelancePeriod overlaps "Measurement Period")
-
+  or exists(["Allergy": "VSAC; Influenza Vaccine"] A
+    where A.prevelancePeriod overlaps "Measurement Period")
 
 define "Denominator Exception 2: G8483":
   /*
@@ -169,7 +170,8 @@ define "Denominator Exception 2: G8483":
   exists (["Procedure, Performed": "MIPS; Denominator Exception: G8483"] P
     where P.relevantPeriod starts during "Measurement Period")
   or exists (["Procedure, Performed": "VSAC; Influenza Vaccine Declined"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Administration Interval A"
+      or P.relevantPeriod starts during "Administration Interval B")
 
 define "Numerator Performace Not Met: G8484":
   /*
