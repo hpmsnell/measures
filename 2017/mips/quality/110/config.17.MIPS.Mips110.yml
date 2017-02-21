@@ -12,11 +12,11 @@ exclusion_reasons:
     required:
       display_title: Patient is exclued because of an allergy
       validation_record_groups:
-      - count: 1
+      - count: 2
         validation_records:
         - model: ClinicalActivity
           value_set_name: MIPS; MIPS Encounter 110
-      - count: 2
+      - count: 1
         validation_records:
         - model: ClinicalActivity
           value_set_name: MIPS; MIPS Preventive Encounter 110
@@ -28,17 +28,19 @@ exclusion_reasons:
           value_set_name: "VSAC; Allergy to Influenza Vaccine"
         - model: ClinicalActivity
           value_set_name: "VSAC; Intolerance to Influenza Vaccine"
+        - model: Allergy
+          value_set_name: "VSAC; Influenza Vaccine"
     optional:
       code_value: G8483
   - config_link_id: G8483_2
     required:
       display_title: Patient is excluded because of a medical or other reason
       validation_record_groups:
-      - count: 1
+      - count: 2
         validation_records:
         - model: ClinicalActivity
           value_set_name: MIPS; MIPS Encounter 110
-      - count: 2
+      - count: 1
         validation_records:
         - model: ClinicalActivity
           value_set_name: MIPS; MIPS Preventive Encounter 110
@@ -55,11 +57,11 @@ success_reasons:
     required:
       display_title: Influenza immunization administered or previously received
       validation_record_groups:
-      - count: 1
+      - count: 2
         validation_records:
         - model: ClinicalActivity
           value_set_name: MIPS; MIPS Encounter 110
-      - count: 2
+      - count: 1
         validation_records:
         - model: ClinicalActivity
           value_set_name: MIPS; MIPS Preventive Encounter 110
@@ -77,11 +79,11 @@ success_reasons:
     required:
       display_title: Influenza immunization administered or previously received during the flu season ending March 31 of the measurement year
       validation_record_groups:
-      - count: 1
+      - count: 2
         validation_records:
         - model: ClinicalActivity
           value_set_name: MIPS; MIPS Encounter 110
-      - count: 2
+      - count: 1
         validation_records:
         - model: ClinicalActivity
           value_set_name: MIPS; MIPS Preventive Encounter 110
@@ -99,11 +101,11 @@ success_reasons:
     required:
       display_title: Influenza immunization administered or previously received during the flu season ending March 31 after the measurement year
       validation_record_groups:
-      - count: 1
+      - count: 2
         validation_records:
         - model: ClinicalActivity
           value_set_name: MIPS; MIPS Encounter 110
-      - count: 2
+      - count: 1
         validation_records:
         - model: ClinicalActivity
           value_set_name: MIPS; MIPS Preventive Encounter 110
@@ -122,11 +124,11 @@ gap_reasons:
     required:
       display_title: Influenza vaccination not administered or documented in the medical record (G8484)
       validation_record_groups:
-      - count: 1
+      - count: 2
         validation_records:
         - model: ClinicalActivity
           value_set_name: MIPS; MIPS Encounter 110
-      - count: 2
+      - count: 1
         validation_records:
         - model: ClinicalActivity
           value_set_name: MIPS; MIPS Preventive Encounter 110
