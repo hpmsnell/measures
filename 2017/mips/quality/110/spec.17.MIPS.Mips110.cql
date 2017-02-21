@@ -45,7 +45,6 @@ define "110 Encounters During Influenza Intervals":
       and AgeInYearsAt(start E.relevantPeriod) >= 6 months
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
-    sort by start of E.relevantPeriod DESC
 
 define "110 Encounters During Non-Influenza Interval":
   ["Encounter, Performed": "MIPS; 110 Encounter"] E
@@ -60,7 +59,6 @@ define "110 Encounters During Interval A":
       and AgeInYearsAt(start E.relevantPeriod) >= 6 months
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
-    sort by start of E.relevantPeriod DESC
 
 define "110 Encounters During Interval B":
   ["Encounter, Performed": "MIPS; 110 Encounter"] E
@@ -68,7 +66,6 @@ define "110 Encounters During Interval B":
       and AgeInYearsAt(start E.relevantPeriod) >= 6 months
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
-    sort by start of E.relevantPeriod DESC
 
 define "Preventive Encounters During Influenza Intervals":
   ["Encounter, Performed": "MIPS; 110 Preventive Encounter"] E
