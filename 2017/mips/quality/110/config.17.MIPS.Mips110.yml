@@ -15,21 +15,21 @@ exclusion_reasons:
       - count: 2
         validation_records:
         - model: ClinicalActivity
-          value_set_name: MIPS; MIPS Encounter 110
+          value_set: MIPS; MIPS Encounter 110
       - count: 1
         validation_records:
         - model: ClinicalActivity
-          value_set_name: MIPS; MIPS Preventive Encounter 110
+          value_set: MIPS; MIPS Preventive Encounter 110
       - count: 1
         validation_records:
         - model: ClinicalActivity
-          value_set_name: "VSAC; Allergy to Eggs"
+          value_set: "VSAC; Allergy to Eggs"
         - model: ClinicalActivity
-          value_set_name: "VSAC; Allergy to Influenza Vaccine"
+          value_set: "VSAC; Allergy to Influenza Vaccine"
         - model: ClinicalActivity
-          value_set_name: "VSAC; Intolerance to Influenza Vaccine"
+          value_set: "VSAC; Intolerance to Influenza Vaccine"
         - model: Allergy
-          value_set_name: "VSAC; Influenza Vaccine"
+          value_set: "VSAC; Influenza Vaccine"
     optional:
       code_value: G8483
   - config_link_id: G8483_2
@@ -39,17 +39,17 @@ exclusion_reasons:
       - count: 2
         validation_records:
         - model: ClinicalActivity
-          value_set_name: MIPS; MIPS Encounter 110
+          value_set: MIPS; MIPS Encounter 110
       - count: 1
         validation_records:
         - model: ClinicalActivity
-          value_set_name: MIPS; MIPS Preventive Encounter 110
+          value_set: MIPS; MIPS Preventive Encounter 110
       - count: 1
         validation_records:
           - model: ClinicalActivity
-            value_set_name: "MIPS; Denominator Exception: G8483"
+            value_set: "MIPS; Denominator Exception: G8483"
           - model: ClinicalActivity
-            value_set_name: "VSAC; Influenza Vaccine Declined"
+            value_set: "VSAC; Influenza Vaccine Declined"
     optional:
       code_value: G8483
 success_reasons:
@@ -60,19 +60,19 @@ success_reasons:
       - count: 2
         validation_records:
         - model: ClinicalActivity
-          value_set_name: MIPS; MIPS Encounter 110
+          value_set: MIPS; MIPS Encounter 110
       - count: 1
         validation_records:
         - model: ClinicalActivity
-          value_set_name: MIPS; MIPS Preventive Encounter 110
+          value_set: MIPS; MIPS Preventive Encounter 110
       - count: 1
         validation_records:
           - model: Medication
-            value_set_name: "VSAC; Influenza Vaccine"
+            value_set: "VSAC; Influenza Vaccine"
           - model: ClinicalActivity
-            value_set_name: "VSAC; Influenza Vaccination"
+            value_set: "VSAC; Influenza Vaccination"
           - model: ClinicalActivity
-            value_set_name: "VSAC; Previous Receipt of Influenza Vaccine"
+            value_set: "VSAC; Previous Receipt of Influenza Vaccine"
     optional:
       code_value: G8482
   - config_link_id: G8482_2
@@ -82,19 +82,19 @@ success_reasons:
       - count: 2
         validation_records:
         - model: ClinicalActivity
-          value_set_name: MIPS; MIPS Encounter 110
+          value_set: MIPS; MIPS Encounter 110
       - count: 1
         validation_records:
         - model: ClinicalActivity
-          value_set_name: MIPS; MIPS Preventive Encounter 110
+          value_set: MIPS; MIPS Preventive Encounter 110
       - count: 1
         validation_records:
           - model: Medication
-            value_set_name: "VSAC; Influenza Vaccine"
+            value_set: "VSAC; Influenza Vaccine"
           - model: ClinicalActivity
-            value_set_name: "VSAC; Influenza Vaccination"
+            value_set: "VSAC; Influenza Vaccination"
           - model: ClinicalActivity
-            value_set_name: "VSAC; Previous Receipt of Influenza Vaccine"
+            value_set: "VSAC; Previous Receipt of Influenza Vaccine"
       optional:
         code_value: G8482
   - config_link_id: G8482_3
@@ -104,19 +104,19 @@ success_reasons:
       - count: 2
         validation_records:
         - model: ClinicalActivity
-          value_set_name: MIPS; MIPS Encounter 110
+          value_set: MIPS; MIPS Encounter 110
       - count: 1
         validation_records:
         - model: ClinicalActivity
-          value_set_name: MIPS; MIPS Preventive Encounter 110
+          value_set: MIPS; MIPS Preventive Encounter 110
       - count: 1
         validation_records:
           - model: Medication
-            value_set_name: "VSAC; Influenza Vaccine"
+            value_set: "VSAC; Influenza Vaccine"
           - model: ClinicalActivity
-            value_set_name: "VSAC; Influenza Vaccination"
+            value_set: "VSAC; Influenza Vaccination"
           - model: ClinicalActivity
-            value_set_name: "VSAC; Previous Receipt of Influenza Vaccine"
+            value_set: "VSAC; Previous Receipt of Influenza Vaccine"
       optional:
         code_value: G8482
 gap_reasons:
@@ -127,22 +127,22 @@ gap_reasons:
       - count: 2
         validation_records:
         - model: ClinicalActivity
-          value_set_name: MIPS; MIPS Encounter 110
+          value_set: MIPS; MIPS Encounter 110
       - count: 1
         validation_records:
         - model: ClinicalActivity
-          value_set_name: MIPS; MIPS Preventive Encounter 110
+          value_set: MIPS; MIPS Preventive Encounter 110
       - count: 1
         validation_records:
           - model: Medication
-            value_set_name: "VSAC; Influenza Vaccine"
+            value_set: "VSAC; Influenza Vaccine"
           - model: ClinicalActivity
-            value_set_name: "VSAC; Influenza Vaccination"
+            value_set: "VSAC; Influenza Vaccination"
           - model: ClinicalActivity
-            value_set_name: "VSAC; Previous Receipt of Influenza Vaccine"
+            value_set: "VSAC; Previous Receipt of Influenza Vaccine"
           - model: ClinicalActivity
-            value_set_name: "MIPS; Performance Met: G8482"
+            value_set: "MIPS; Performance Met: G8482"
           - model: ClinicalActivity
-            value_set_name: "MIPS; Performance Not Met: G8484"
+            value_set: "MIPS; Performance Not Met: G8484"
     optional:
       code_value: G8484
