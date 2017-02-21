@@ -42,6 +42,7 @@ define "110 Encounters During Influenza Intervals":
   ["Encounter, Performed": "MIPS; 110 Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval A"
       or E.relevantPeriod starts during "Encounter Interval B"
+      and AgeInYearsAt(start E.relevantPeriod) >= 6 months
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
     sort by start of E.relevantPeriod DESC
@@ -49,12 +50,14 @@ define "110 Encounters During Influenza Intervals":
 define "110 Encounters During Non-Influenza Interval":
   ["Encounter, Performed": "MIPS; 110 Encounter"] E
     where E.relevantPeriod starts during "Encounter Bad Interval"
+      and AgeInYearsAt(start E.relevantPeriod) >= 6 months
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "110 Encounters During Interval A":
   ["Encounter, Performed": "MIPS; 110 Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval A"
+      and AgeInYearsAt(start E.relevantPeriod) >= 6 months
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
     sort by start of E.relevantPeriod DESC
@@ -62,6 +65,7 @@ define "110 Encounters During Interval A":
 define "110 Encounters During Interval B":
   ["Encounter, Performed": "MIPS; 110 Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval B"
+      and AgeInYearsAt(start E.relevantPeriod) >= 6 months
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
     sort by start of E.relevantPeriod DESC
@@ -70,48 +74,47 @@ define "Preventive Encounters During Influenza Intervals":
   ["Encounter, Performed": "MIPS; 110 Preventive Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval A"
       or E.relevantPeriod starts during "Encounter Interval B"
+      and AgeInYearsAt(start E.relevantPeriod) >= 6 months
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "Preventive Encounters During Interval A":
   ["Encounter, Performed": "MIPS; 110 Preventive Encounter"] E
-      or E.relevantPeriod starts during "Encounter Interval A"
+    where E.relevantPeriod starts during "Encounter Interval A"
+      and AgeInYearsAt(start E.relevantPeriod) >= 6 months
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "Preventive Encounters During Interval B":
   ["Encounter, Performed": "MIPS; 110 Preventive Encounter"] E
-      or E.relevantPeriod starts during "Encounter Interval B"
+    where E.relevantPeriod starts during "Encounter Interval B"
+      and AgeInYearsAt(start E.relevantPeriod) >= 6 months
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
-define "Patient of Age at 2 110 Encounters":
-  (
-    AgeInYearsAt("110 Encounters During Influenza Intervals"[0]) >= 6 months
-    and AgeInYearsAt("110 Encounters During Influenza Intervals"[1]) >= 6 months
-  ) or (
-    AgeInYearsAt("110 Encounters During Influenza Intervals"[0]) >= 6 months
-    and AgeInYearsAt("110 Encounters During Non-Influenza Interval") >= 6 months
+define "2 110 Encounters":
+  count("110 Encounters During Influenza Intervals") >= 2
+  or (
+    exists("110 Encounters During Influenza Intervals")
+    and exists("110 Encounters During Non-Influenza Interval")
   )
 
-define "Patient of Age at 1 Preventive Encounter":
-  AgeInYearsAt("Preventive Encounters During Influenza Intervals") >= 6 months
+define "1 Preventive Encounter":
+  exists("Preventive Encounters During Influenza Intervals")
 
-define "Patient of Age at Encounter During Interval A":
+define "Encounter During Interval A":
   (
-    "Patient of Age at 2 110 Encounters"
-    and AgeInYearsAt("110 Encounters During Interval A") >= 6 months
+    "2 110 Encounters"
+    and exists("110 Encounters During Interval A")
   ) or (
-    AgeInYearsAt("Preventive Encounters During Interval A") >= 6 months
+    exists("Preventive Encounters During Interval A")
   )
 
-define "Patient of Age at Encounter During Interval B":
+define "Encounter During Interval B":
   (
-    "Patient of Age at 2 110 Encounters"
-    and AgeInYearsAt("110 Encounters During Interval B") >= 6 months
-  ) or (
-    AgeInYearsAt("Preventive Encounters During Interval B") >= 6 months
-  )
+    "2 110 Encounters"
+    and exists("110 Encounters During Interval B")
+  ) or exists("Preventive Encounters During Interval B")
 
 define "Influenza Vaccines":
   ["Medication, Administered": "Influenza Vaccine"]
@@ -119,8 +122,8 @@ define "Influenza Vaccines":
   union ["Communication: From Patient to Provider": "Previous Receipt of Influenza Vaccine"]
 
 define "Denominator":
-  "Patient of Age at 2 110 Encounters"
-  or "Patient of Age at 1 Preventive Encounter"
+  "2 110 Encounters"
+  or "1 Preventive Encounter"
 
 define "Numerator Performance Met 1: G8482":
   /*
@@ -135,7 +138,7 @@ define "Numerator Performance Met 2: G8482":
   * config_link_id: G8482_2
   * Immunization administered during 2016 flu season
   */
-  "Patient of Age at Encounter During Interval A"
+  "Encounter During Interval A"
   and exists("Influenza Vaccines" M
     where M.relevantPeriod starts during "Administration Interval A")
 
@@ -144,7 +147,7 @@ define "Numerator Performance Met 3: G8482":
   * config_link_id: G8482_3
   * Immunization administered during 2017 flu season
   */
-  "Patient of Age at Encounter During Interval B"
+  "Encounter During Interval B"
   and exists("Influenza Vaccines" M
     where M.relevantPeriod starts during "Administration Interval B")
 
