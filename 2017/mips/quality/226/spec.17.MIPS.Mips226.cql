@@ -62,7 +62,7 @@ define "Numerator Performance Met: 4004F":
   exists(["Procedure, Performed": "MIPS; Performance Met: 4004F"] P
     where P.relevantPeriod starts during "Measurement Period")
   or (
-    and exists(["Diagnosis": "VSAC; Tobacco User"] D
+    exists(["Diagnosis": "VSAC; Tobacco User"] D
       where D.prevalencePeriod starts during "Tobacco Interval")
     and (
       exists(["Intervention, Performed": "VSAC; Tobacco Use Cessation Counseling"] I
@@ -80,7 +80,7 @@ define "Numerator Performance Met: 1036F":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 1036F"] P
     where P.relevantPeriod starts during "Measurement Period")
-  exists(["Diagnosis": "VSAC; Tobacco Non-User"] D
+  and exists(["Diagnosis": "VSAC; Tobacco Non-User"] D
     where D.prevalencePeriod starts during "Tobacco Interval")
 
 define "Denominator Exception: 4004F-1P":
