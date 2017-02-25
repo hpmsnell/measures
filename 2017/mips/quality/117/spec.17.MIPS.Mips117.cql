@@ -50,7 +50,7 @@ define "Denominator Exclusion":
   /*
    * config_link_id: denominator_exclusion
    */
-  exists(["Intervention, Performed": "MIPS; Hospice Service: G9714"] I
+  exists(["Intervention, Performed": "MIPS; Hospice Service"] I
     where I.relevantPeriod starts during "Measurement Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
     where I.relevantPeriod overlaps "Measurement Period")
