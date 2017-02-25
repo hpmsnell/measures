@@ -1,0 +1,487 @@
+measure_id: 17.MIPS.Mips191
+test_set_keys:
+  organization_key:
+    patients:
+      - name: Too Young # Below age range
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower # Lower bound of age range
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4175F-8P
+      - name: Encounter Early # Encounter too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Lower # Encounter at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4175F-8P
+      - name: Encounter Upper # Encounter at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4175F-8P
+      - name: Encounter Late # Encounter too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Excluded Before # Diagnosis exclusion before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4175F-8P
+      - name: Excluded Lower # Diagnosis exclusion at lower bound of interval
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: Excluded Upper # Diagnosis exclusion at upper bound of interval
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: Excluded Late # Diagnosis exclusion after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4175F-8P
+      - name: 4175F Before # Performance met 4175F before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4175F-8P
+      - name: 4175F Lower # Performance met 4175F lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/4175F
+      - name: 4175F Upper # Performance met 4175F upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/4175F
+      - name: 4175F After # Performance met 4175F after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4175F-8P
+      - name: Exam Before # Eye exam before end of procedure
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4175F-8P
+      - name: Exam Lower # Eye exam at end of procedure
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3072F
+      - name: Exam Upper # Eye exam at upper bound of period
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/3072F
+      - name: Exam After # Eye exam after period
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/4175F-8P
+  providers_key:
+    - name: Rachel
+      patients:
+        - name: Too Young # Below age range
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Age Lower # Lower bound of age range
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: F/4175F-8P
+        - name: Encounter Early # Encounter too early
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Lower # Encounter at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: F/4175F-8P
+        - name: Encounter Upper # Encounter at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: F/4175F-8P
+        - name: Encounter Late # Encounter too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Excluded Before # Diagnosis exclusion before interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: F/4175F-8P
+        - name: Excluded Lower # Diagnosis exclusion at lower bound of interval
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: Excluded Upper # Diagnosis exclusion at upper bound of interval
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: Excluded Late # Diagnosis exclusion after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: F/4175F-8P
+        - name: 4175F Before # Performance met 4175F before MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: F/4175F-8P
+        - name: 4175F Lower # Performance met 4175F lower bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: S/4175F
+        - name: 4175F Upper # Performance met 4175F upper bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: S/4175F
+        - name: 4175F After # Performance met 4175F after MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: F/4175F-8P
+        - name: Exam Before # Eye exam before end of procedure
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Exam Lower # Eye exam at end of procedure
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Exam Upper # Eye exam at upper bound of period
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Exam After # Eye exam after period
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  credential: DO
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+- given_name: Patty
+  family_name: PrimaryCare
+  credential: MD
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+- given_name: Derek
+  family_name: NoMIPS
+  credential: MD
+  pqrs_provider: false
+patients:
+  - name: Too Young
+    attributes:
+      date_of_birth: 1998-02-02
+      given_name: Too
+      family_name: Young
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2016-02-01
+        provider: Rachel
+  - name: Age Lower
+    attributes:
+      date_of_birth: 1998-02-01
+      given_name: Age
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2016-02-01
+        provider: Rachel
+  - name: Encounter Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Early
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2015-12-31
+        provider: Rachel
+  - name: Encounter Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2016-01-01
+        provider: Rachel
+  - name: Encounter Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2016-12-31
+        provider: Rachel
+  - name: Encounter Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Late
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2017-01-01
+        provider: Rachel
+  - name: Excluded Before
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Excluded
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: H44.111
+        start_datetime: 2010-01-01
+        stop_datetime: 2016-01-31
+  - name: Excluded Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Excluded
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: H44.111
+        start_datetime: 2010-01-01
+        stop_datetime: 2016-02-02
+  - name: Excluded Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Excluded
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: H44.111
+        start_datetime: 2010-02-01
+  - name: Excluded Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Excluded
+      family_name: Late
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: H44.111
+        start_datetime: 2010-02-02
+  - name: 4175F Before
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 4175F
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4175F
+        start_datetime: 2015-12-31
+  - name: 4175F Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 4175F
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4175F
+        start_datetime: 2016-01-01
+  - name: 4175F Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 4175F
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4175F
+        start_datetime: 2016-12-31
+  - name: 4175F After
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 4175F
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4175F
+        start_datetime: 2017-01-01
+  - name: Exam Before
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Exam
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-01
+        provider: Patty
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 423059004
+        start_datetime: 2016-01-31
+  - name: Exam Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Exam
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-01
+        provider: Patty
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 423059004
+        start_datetime: 2016-02-01
+  - name: Exam Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Exam
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-01
+        provider: Patty
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 423059004
+        start_datetime: 2016-05-01
+  - name: Exam After
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Exam
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-01
+        provider: Patty
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 423059004
+        start_datetime: 2016-05-02
