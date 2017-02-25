@@ -131,8 +131,8 @@ success_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: 4175F"
-            - model: ClinicalActivity
-              value_set: "VSAC; Best Corrected Visual Acuity"
+            - model: Diagnosis
+              value_set: "VSAC; Visual Acuity 20/40 or Better"
     optional:
       code_value: 4175F
 gap_reasons:
@@ -150,7 +150,7 @@ gap_reasons:
               value_set: "MIPS; Performance Met: 4175F"
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: 4175F-8P"
-            - model: ClinicalActivity
-              value_set: "VSAC; Best Corrected Visual Acuity"
+            - model: Diagnosis
+              value_set: "VSAC; Visual Acuity 20/40 or Better"
     optional:
       code_value: 4175F-8P

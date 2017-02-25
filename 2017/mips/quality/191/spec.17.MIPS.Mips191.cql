@@ -71,7 +71,6 @@ valueset "VSAC; Scleritis and Episcleritis": '2.16.840.1.113883.3.526.3.1481'
 valueset "VSAC; Separation of Retinal Layers": '2.16.840.1.113883.3.526.3.1482'
 valueset "VSAC; Uveitis": '2.16.840.1.113883.3.526.3.1444'
 valueset "VSAC; Visual Field Defects": '2.16.840.1.113883.3.526.3.1446'
-valueset "VSAC; Best Corrected Visual Acuity": '2.16.840.1.113883.3.526.3.1488'
 valueset "VSAC; Visual Acuity 20/40 or Better": '2.16.840.1.113883.3.526.3.1483'
 
 parameter "Measurement Period" Interval<DateTime>
@@ -155,10 +154,9 @@ define "Numerator Performance Met: 4175F":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 4175F"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists(["Physical Exam, Performed": "VSAC; Best Corrected Visual Accuity"] P
+  or exists(["Diagnosis": "VSAC; Visual Acuity 20/40 or Better"] D
     with "Cataract Surgery" E
-      where P.relevantPeriod starts 90 days or less after end of E.relevantPeriod)
-      and P.result in "VSAC; Visual Acuity 20/40 or Better"
+      where D.prevalencePeriod starts 90 days or less after end of E.relevantPeriod)
 
 define "Numerator Performance Not Met: 4175F-8P":
   /*
