@@ -33,16 +33,15 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Patient Age at Encounter":
-  AgeInYearsAt(
-    ["Encounter, Performed": "MIPS; MIPS 006 Encounter"] E
-        where E.relevantPeriod starts during "Measurement Period"
-          and not E.code.modifier "MIPS; Telemedicine Modifier"
-          and E.signingProvider.pqrsProvider = true
-  )
+define "Denominator Encounter":
+  ["Encounter, Performed": "MIPS; MIPS 006 Encounter"] E
+      where E.relevantPeriod starts during "Measurement Period"
+        and AgeInYearsAt(start of E.relevantPeriod) >= 18
+        and not E.code.modifier "MIPS; Telemedicine Modifier"
+        and E.signingProvider.pqrsProvider = true
 
 define "Denominator":
-  "Patient Age at Encounter" >= 18
+  exists("Denominator Encounter")
   and exists(["Diagnosis": "MIPS; Coronary Artery Disease (CAD)"] D
     where D.prevalencePeriod overlaps "Measurement Period")
 

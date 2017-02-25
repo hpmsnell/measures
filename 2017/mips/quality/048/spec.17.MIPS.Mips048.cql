@@ -19,7 +19,7 @@ using QDM
 // Able Custom Value Sets
 
 valueset "MIPS; MIPS 049 Encounter"
-valueset "MIPS; Hospice Service
+valueset "MIPS; Hospice Service"
 valueset "MIPS; Performance Met: 1090F"
 valueset "MIPS; Performance Not Met: 1090F-8P"
 
@@ -32,14 +32,13 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Patient Age at Encounter":
-  AgeInYearsAt(
-    ["Encounter, Performed": "MIPS; MIPS 048 Encounter"] E
-      where E.relevantPeriod starts during "Measurement Period"
+  ["Encounter, Performed": "MIPS; MIPS 048 Encounter"] E
+    where E.relevantPeriod starts during "Measurement Period"
+      and AgeInYearsAt(start of E.relevantPeriod) >= 65
       and E.signingProvider.pqrsProvider = true
-  )
 
 define "Denominator":
-  "Patient Age at Encounter" >= 65
+  exists("Denominator Encounter")
 
 define "Denominator Exclusion":
   /*

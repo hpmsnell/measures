@@ -32,38 +32,38 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Population
 
-define "Encounter Interval A": Interval[start "Measurement Period", 3 months after start "Measurement Period")
+define "Encounter Interval A": Interval[start of "Measurement Period", 3 months after start of "Measurement Period")
 define "Encounter Interval B": Interval[3 months before end "Measurement Period", end "Measurement Period")
-define "Encounter Bad Interval": Interval[3 months after start "Measurement Period", 5 months before end "Measurement Period")
-define "Administration Interval A": Interval[5 months before start "Measurement Period", 3 months after start "Measurement Period"]
+define "Encounter Bad Interval": Interval[3 months after start of "Measurement Period", 5 months before end "Measurement Period")
+define "Administration Interval A": Interval[5 months before start of "Measurement Period", 3 months after start of "Measurement Period"]
 define "Administration Interval B": Interval[5 months before end "Measurement Period", end "Measurement Period"]
 
 define "110 Encounters During Influenza Intervals":
   ["Encounter, Performed": "MIPS; 110 Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval A"
       or E.relevantPeriod starts during "Encounter Interval B"
-      and AgeInYearsAt(start E.relevantPeriod) >= 6 months
+      and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "110 Encounters During Non-Influenza Interval":
   ["Encounter, Performed": "MIPS; 110 Encounter"] E
     where E.relevantPeriod starts during "Encounter Bad Interval"
-      and AgeInYearsAt(start E.relevantPeriod) >= 6 months
+      and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "110 Encounters During Interval A":
   ["Encounter, Performed": "MIPS; 110 Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval A"
-      and AgeInYearsAt(start E.relevantPeriod) >= 6 months
+      and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "110 Encounters During Interval B":
   ["Encounter, Performed": "MIPS; 110 Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval B"
-      and AgeInYearsAt(start E.relevantPeriod) >= 6 months
+      and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
@@ -71,21 +71,21 @@ define "Preventive Encounters During Influenza Intervals":
   ["Encounter, Performed": "MIPS; 110 Preventive Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval A"
       or E.relevantPeriod starts during "Encounter Interval B"
-      and AgeInYearsAt(start E.relevantPeriod) >= 6 months
+      and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "Preventive Encounters During Interval A":
   ["Encounter, Performed": "MIPS; 110 Preventive Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval A"
-      and AgeInYearsAt(start E.relevantPeriod) >= 6 months
+      and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "Preventive Encounters During Interval B":
   ["Encounter, Performed": "MIPS; 110 Preventive Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval B"
-      and AgeInYearsAt(start E.relevantPeriod) >= 6 months
+      and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 

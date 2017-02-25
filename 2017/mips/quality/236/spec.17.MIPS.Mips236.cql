@@ -43,12 +43,12 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Patient Age at Encounter":
-  AgeInYearsAt(
-    ["Encounter, Performed": "MIPS; MIPS 236 Encounter"] E
-      where E.relevantPeriod starts during "Measurement Period"
-        and E.signingProvider.pqrsProvider = true
-  )
+define "Denominator Encounter":
+  ["Encounter, Performed": "MIPS; MIPS 236 Encounter"] E
+    where E.relevantPeriod starts during "Measurement Period"
+      and AgeInYearsAt(start of E.relevantPeriod) >= 18
+      and AgeInYearsAt(start of E.relevantPeriod) < 85
+      and E.signingProvider.pqrsProvider = true
 
 define "Excluded Diagnoses":
   ["Diagnosis": "VSAC; End Stage Renal Disease"]
@@ -63,8 +63,7 @@ define "Excluded Procedures":
   union ["Intervention, Performed": "VSAC; Dialysis Education"]
 
 define "Denominator":
-  "Patient Age at Encounter" >= 18
-  and "Patient Age at Encounter" < 85
+  exists("Denominator Encounter")
   and exists(["Diagnosis": "MIPS; Hypertension"] D
     where D.prevalencePeriod overlaps "Measurement Period")
 

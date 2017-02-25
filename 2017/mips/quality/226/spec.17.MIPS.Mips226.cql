@@ -40,14 +40,14 @@ define "Tobacco Interval": Interval[24 months before end "Measurement Period", e
 define "226 Encounter"
   ["Encounter, Performed": "MIPS; MIPS 226 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
-      and AgeInYearsAt(start E.relevantPeriod) >= 18
+      and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "226 Preventive Encounter"
   ["Encounter, Performed": "MIPS; MIPS 226 Preventive Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
-      and AgeInYearsAt(start E.relevantPeriod) >= 18
+      and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
