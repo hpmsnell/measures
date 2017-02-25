@@ -1,0 +1,156 @@
+measure:
+  name: 17.MIPS.Mips191
+  required:
+    display_title: "Cataracts: 20/40 or Better Visual Acuity within 90 Days Following Cataract Surgery"
+  optional:
+    gap_resolution_action: "Patient's visual acuity is not 20/40 or better following cataract surgery"
+    set: MIPS
+    external_id: 191
+    version: 2017
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: "Patient is excluded due to the presence of a significant ocular condition at the time of surgery"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 191 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Acute and Subacute Iridocyclitis"
+            - model: Diagnosis
+              value_set: "VSAC; Amblyopia"
+            - model: Diagnosis
+              value_set: "VSAC; Burn Confined to Eye and Adnexa"
+            - model: Diagnosis
+              value_set: "VSAC; Cataract Secondary to Ocular Disorders"
+            - model: Diagnosis
+              value_set: "VSAC; Central Corneal Ulcer"
+            - model: Diagnosis
+              value_set: "VSAC; Certain Types of Iridocyclitis"
+            - model: Diagnosis
+              value_set: "VSAC; Chorioretinal Scars"
+            - model: Diagnosis
+              value_set: "VSAC; Choroidal Degenerations"
+            - model: Diagnosis
+              value_set: "VSAC; Choroidal Detachment"
+            - model: Diagnosis
+              value_set: "VSAC; Choroidal Hemorrhage and Rupture"
+            - model: Diagnosis
+              value_set: "VSAC; Chronic Iridocyclitis"
+            - model: Diagnosis
+              value_set: "VSAC; Cloudy Cornea"
+            - model: Diagnosis
+              value_set: "VSAC; Corneal Edema"
+            - model: Diagnosis
+              value_set: "VSAC; Corneal Opacity and Other Disorders of Cornea"
+            - model: Diagnosis
+              value_set: "VSAC; Degeneration of Macula and Posterior Pole"
+            - model: Diagnosis
+              value_set: "VSAC; Diabetic Macular Edema"
+            - model: Diagnosis
+              value_set: "VSAC; Diabetic Retinopathy"
+            - model: Diagnosis
+              value_set: "VSAC; Disorders of Optic Chiasm"
+            - model: Diagnosis
+              value_set: "VSAC; Disorders of Visual Cortex"
+            - model: Diagnosis
+              value_set: "VSAC; Disseminated Chorioretinitis and Disseminated Retinochoroiditis"
+            - model: Diagnosis
+              value_set: "VSAC; Focal Chorioretinitis and Focal Retinochoroiditis"
+            - model: Diagnosis
+              value_set: "VSAC; Glaucoma"
+            - model: Diagnosis
+              value_set: "VSAC; Glaucoma Associated with Congenital Anomalies, Dystrophies, and Systemic Syndromes"
+            - model: Diagnosis
+              value_set: "VSAC; Hereditary Choroidal Dystrophies"
+            - model: Diagnosis
+              value_set: "VSAC; Hereditary Corneal Dystrophies"
+            - model: Diagnosis
+              value_set: "VSAC; Hereditary Retinal Dystrophies"
+            - model: Diagnosis
+              value_set: "VSAC; Injury to Optic Nerve and Pathways"
+            - model: Diagnosis
+              value_set: "VSAC; Moderate or Severe Impairment, Better Eye, Profound Impairment Lesser Eye"
+            - model: Diagnosis
+              value_set: "VSAC; Nystagmus and Other Irregular Eye Movements"
+            - model: Diagnosis
+              value_set: "VSAC; Open Wound of Eyeball"
+            - model: Diagnosis
+              value_set: "VSAC; Optic Atrophy"
+            - model: Diagnosis
+              value_set: "VSAC; Optic Neuritis"
+            - model: Diagnosis
+              value_set: "VSAC; Other and Unspecified Forms of Chorioretinitis and Retinochoroiditis"
+            - model: Diagnosis
+              value_set: "VSAC; Other Background Retinopathy and Retinal Vascular Changes"
+            - model: Diagnosis
+              value_set: "VSAC; Other Corneal Deformities"
+            - model: Diagnosis
+              value_set: "VSAC; Other Disorders of Optic Nerve"
+            - model: Diagnosis
+              value_set: "VSAC; Other Disorders of Sclera"
+            - model: Diagnosis
+              value_set: "VSAC; Other Endophthalmitis"
+            - model: Diagnosis
+              value_set: "VSAC; Other Proliferative Retinopathy"
+            - model: Diagnosis
+              value_set: "VSAC; Other Retinal Disorders"
+            - model: Diagnosis
+              value_set: "VSAC; Pathologic Myopia"
+            - model: Diagnosis
+              value_set: "VSAC; Prior Penetrating Keratoplasty"
+            - model: Diagnosis
+              value_set: "VSAC; Profound Impairment, Both Eyes"
+            - model: Diagnosis
+              value_set: "VSAC; Purulent Endophthalmitis"
+            - model: Diagnosis
+              value_set: "VSAC; Retinal Detachment with Retinal Defect"
+            - model: Diagnosis
+              value_set: "VSAC; Retinal Vascular Occlusion"
+            - model: Diagnosis
+              value_set: "VSAC; Scleritis and Episcleritis"
+            - model: Diagnosis
+              value_set: "VSAC; Separation of Retinal Layers"
+            - model: Diagnosis
+              value_set: "VSAC; Uveitis"
+            - model: Diagnosis
+              value_set: "VSAC; Visual Field Defects"
+success_reasons:
+  - config_link_id: 4175F
+    required:
+      display_title: "Best-corrected visual acuity of 20/40 or better (distance or near) achieved within the 90 days following cataract surgery"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 191 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 4175F"
+            - model: ClinicalActivity
+              value_set: "VSAC; Best Corrected Visual Acuity"
+    optional:
+      code_value: 4175F
+gap_reasons:
+  - config_link_id: 4175F-8P
+    required:
+      display_title: "Best-corrected visual acuity of 20/40 or better (distance or near) not achieved within the 90 days following cataract surgery, reason not otherwise specified"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 191 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 4175F"
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 4175F-8P"
+            - model: ClinicalActivity
+              value_set: "VSAC; Best Corrected Visual Acuity"
+    optional:
+      code_value: 4175F-8P
