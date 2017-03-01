@@ -1,0 +1,782 @@
+measure_id: 17.MIPS.Mips238_rate1
+test_set_keys:
+  organization_key:
+    patients:
+      - name: Too Young # Below age range
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower # Lower bound of age range
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/G9366
+      - name: Encounter Early # Encounter too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Lower # Encounter at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/G9366
+      - name: Encounter Upper # Encounter at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/G9366
+      - name: Encounter Late # Encounter too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: G9365 Before # Performance met G9365 before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/G9366
+      - name: G9365 Lower # Performance met G9365 lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G9365
+      - name: G9365 Upper # Performance met G9365 upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G9365
+      - name: G9365 After # Performance met G9365 after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/G9366
+      - name: 1Medication Before # Medication before previous MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/G9366
+      - name: 1Medication Lower # Medication at lower bound of previous MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G9365
+      - name: 1Medication Upper # Medication at upper bound of previous MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G9365
+      - name: 1Medication After # Medication after previous MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/G9366
+      - name: 1Medication NDC # Medication with NDC code instead of RXNORM
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G9365
+      - name: 1Medication 91Days # Medication during previous MP with more than 90 days sypply
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G9365
+      - name: 1Medication 90Days # Medication during previous MP with 90 days sypply
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/G9366
+      - name: G9367 Before # Performance met G9367 before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/G9366
+      - name: G9367 Lower # Performance met G9367 lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/G9366
+      - name: G9367 Upper # Performance met G93657 upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/G9366
+      - name: G9367 After # Performance met G9367 after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: F/G9366
+      - name: 2Medications Unique # 2 unique high-risk medications
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G9365
+      - name: 2Medications Same # 2 high-risk medications with same code value
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G9365
+      - name: 3Medications Unique # 3 unique high-risk medications
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G9365
+      - name: 2Medications Before # 2 unique high-risk medications with one out of date
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G9365
+      - name: 2Medications 91Days # 2 unique high-risk medications with > 90 days supply
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G9365
+      - name: 2Medications 90Days # 2 unique high-risk medications, 1 with only 90 days supply
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: S/G9365
+  providers_key:
+    - name: Rachel
+      patients:
+        - name: Too Young # Below age range
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Age Lower # Lower bound of age range
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: F/G9366
+        - name: Encounter Early # Encounter too early
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Lower # Encounter at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: F/G9366
+        - name: Encounter Upper # Encounter at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: F/G9366
+        - name: Encounter Late # Encounter too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: G9365 Before # Performance met G9365 before MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: F/G9366
+        - name: G9365 Lower # Performance met G9365 lower bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: S/G9365
+        - name: G9365 Upper # Performance met G9365 upper bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: S/G9365
+        - name: G9365 After # Performance met G9365 after MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: F/G9366
+        - name: 1Medication Before # Medication before previous MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: F/G9366
+        - name: 1Medication Lower # Medication at lower bound of previous MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: S/G9365
+        - name: 1Medication Upper # Medication at upper bound of previous MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: S/G9365
+        - name: 1Medication After # Medication after previous MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: S/G9365
+        - name: 1Medication 91Days # Medication during previous MP with more than 90 days sypply
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: S/G9365
+        - name: 1Medication 90Days # Medication during previous MP with 90 days sypply
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: F/G9366
+        - name: G9367 Before # Performance met G9367 before MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: F/G9366
+        - name: G9367 Lower # Performance met G9367 lower bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: F/G9366
+        - name: G9367 Upper # Performance met G93657 upper bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: F/G9366
+        - name: G9367 After # Performance met G9367 after MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: F/G9366
+        - name: 2Medications Unique # 2 unique high-risk medications
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: 2Medications Same # 2 high-risk medications with same code value
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: 3Medications Unique # 3 unique high-risk medications
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: 2Medications Before # 2 unique high-risk medications with one out of date
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: 2Medications 91Days # 2 unique high-risk medications with > 90 days supply
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: 2Medications 90Days # 2 unique high-risk medications, 1 with only 90 days supply
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  credential: DO
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+- given_name: Patty
+  family_name: PrimaryCare
+  credential: MD
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+- given_name: Derek
+  family_name: NoMIPS
+  credential: MD
+  pqrs_provider: false
+patients:
+  - name: Too Young
+    attributes:
+      date_of_birth: 1950-02-02
+      given_name: Too
+      family_name: Young
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+  - name: Age Lower
+    attributes:
+      date_of_birth: 1950-02-01
+      given_name: Age
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+  - name: Encounter Early
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: Encounter
+      family_name: Early
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2015-12-31
+        provider: Rachel
+  - name: Encounter Lower
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: Encounter
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+  - name: Encounter Upper
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: Encounter
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-12-31
+        provider: Rachel
+  - name: Encounter Late
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: Encounter
+      family_name: Late
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2017-01-01
+        provider: Rachel
+  - name: G9365 Before
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: G9365
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9365
+        start_datetime: 2015-12-31
+  - name: G9365 Lower
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: G9365
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9365
+        start_datetime: 2016-01-01
+  - name: G9365 Upper
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: G9365
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9365
+        start_datetime: 2016-12-31
+  - name: G9365 After
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: G9365
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9365
+        start_datetime: 2017-01-01
+  - name: 1Medication Before
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: 1Medication
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      medications:
+      - code_type: RXNORM
+        code_value: 310539
+        quantity: 30
+        start_datetime: 2015-12-31
+  - name: 1Medication Lower
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: 1Medication
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      medications:
+      - code_type: RXNORM
+        code_value: 310539
+        quantity: 30
+        start_datetime: 2016-01-01
+  - name: 1Medication Upper
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: 1Medication
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      medications:
+      - code_type: RXNORM
+        code_value: 310539
+        quantity: 30
+        start_datetime: 2016-12-31
+  - name: 1Medication After
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: 1Medication
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      medications:
+      - code_type: RXNORM
+        code_value: 310539
+        quantity: 30
+        start_datetime: 2017-01-01
+  - name: 1Medication NDC
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: 1Medication
+      family_name: NDC
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      medications:
+      - code_type: NDC
+        code_value: 00603243310
+        quantity: 30
+        start_datetime: 2016-01-01
+  - name: 1Medication 91Days
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: 1Medication
+      family_name: 91Days
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      medications:
+      - code_type: RXNORM
+        code_value: 854894
+        quantity: 30
+        days_supplied: 91
+        start_datetime: 2016-01-01
+      - code_type: RXNORM
+        code_value: 854894
+        quantity: 30
+        days_supplied: 1
+        start_datetime: 2016-02-01
+  - name: 1Medication 90Days
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: 1Medication
+      family_name: 90Days
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      medications:
+      - code_type: RXNORM
+        code_value: 311992
+        quantity: 30
+        days_supplied: 90
+        start_datetime: 2016-01-01
+      - code_type: RXNORM
+        code_value: 1232194
+        quantity: 30
+        days_supplied: 90
+        start_datetime: 2016-02-01
+  - name: G9367 Before
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: G9367
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9367
+        start_datetime: 2015-12-31
+  - name: G9367 Lower
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: G9367
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9367
+        start_datetime: 2016-01-01
+  - name: G9367 Upper
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: G9367
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9367
+        start_datetime: 2016-12-31
+  - name: G9367 After
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: G9367
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9367
+        start_datetime: 2017-01-01
+  - name: 2Medications Unique
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: 2Medications
+      family_name: Unique
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Patty
+      medications:
+      - code_type: RXNORM
+        code_value: 310539
+        quantity: 30
+        start_datetime: 2016-01-01
+      - code_type: RXNORM
+        code_value: 1363309
+        quantity: 30
+        start_datetime: 2016-01-01
+  - name: 2Medications Same
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: 2Medications
+      family_name: Same
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Patty
+      medications:
+      - code_type: RXNORM
+        code_value: 310539
+        quantity: 30
+        start_datetime: 2016-01-01
+      - code_type: RXNORM
+        code_value: 310539
+        quantity: 30
+        start_datetime: 2016-01-01
+  - name: 3Medications Unique
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: 3Medications
+      family_name: Unique
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Patty
+      medications:
+      - code_type: RXNORM
+        code_value: 310539
+        quantity: 30
+        start_datetime: 2016-01-01
+      - code_type: RXNORM
+        code_value: 1363309
+        quantity: 30
+        start_datetime: 2016-01-01
+      - code_type: RXNORM
+        code_value: 1359124
+        quantity: 30
+        start_datetime: 2016-01-01
+  - name: 2Medications Before
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: 2Medications
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Patty
+      medications:
+      - code_type: RXNORM
+        code_value: 310539
+        quantity: 30
+        start_datetime: 2016-01-01
+      - code_type: RXNORM
+        code_value: 1363309
+        quantity: 30
+        start_datetime: 2015-12-31
+  - name: 2Medications 91Days
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: 2Medications
+      family_name: 91Days
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Patty
+      medications:
+      - code_type: RXNORM
+        code_value: 485465
+        quantity: 30
+        days_supplied: 90
+        start_datetime: 2016-01-01
+      - code_type: RXNORM
+        code_value: 485465
+        quantity: 30
+        days_supplied: 1
+        start_datetime: 2016-01-01
+      - code_type: RXNORM
+        code_value: 854894
+        quantity: 30
+        days_supplied: 91
+        start_datetime: 2016-01-01
+  - name: 2Medications 90Days
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: 2Medications
+      family_name: 90Days
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Patty
+      medications:
+      - code_type: RXNORM
+        code_value: 485465
+        quantity: 30
+        days_supplied: 90
+        start_datetime: 2016-01-01
+      - code_type: RXNORM
+        code_value: 485465
+        quantity: 30
+        days_supplied: 1
+        start_datetime: 2016-01-01
+      - code_type: RXNORM
+        code_value: 854894
+        quantity: 30
+        days_supplied: 90
+        start_datetime: 2016-01-01

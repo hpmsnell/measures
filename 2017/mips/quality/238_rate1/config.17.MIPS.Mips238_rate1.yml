@@ -1,0 +1,67 @@
+measure:
+  name: 17.MIPS.Mips238_rate1
+  required:
+    display_title: "Use of High-Risk Medications in the Elderly: 1 or More High-Risk Medications"
+  optional:
+    gap_resolution_action: 
+    set: MIPS
+    external_id: 238
+    version: 2017
+exclusion_reasons:
+success_reasons:
+  - config_link_id: G9365
+    required:
+      display_title: "Patient was ordered at least one high-risk medication"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 238 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9365"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; High Risk Medications for the Elderly"
+            - model: Medication
+              value_set: "NCQA Medication; DAE-A"
+        - count: 3
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; High-Risk Medications With Days Supply Criteria"
+            - model: Medication
+              value_set: "NCQA Medication; DAE-B"
+    optional:
+      code_value: G9365
+exception_reasons:
+gap_reasons:
+  - config_link_id: G9366
+    required:
+      display_title: "Patient was not ordered at least one high-risk medication"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 238 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9365"
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9366"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; High Risk Medications for the Elderly"
+            - model: Medication
+              value_set: "NCQA Medication; DAE-A"
+        - count: 3
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; High-Risk Medications With Days Supply Criteria"
+            - model: Medication
+              value_set: "NCQA Medication; DAE-B"
+    optional:
+      code_value: G9366
