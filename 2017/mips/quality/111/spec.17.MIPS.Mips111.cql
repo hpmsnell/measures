@@ -54,7 +54,7 @@ define "Numerator Performance Met: 4040F":
    * config_link_id: 4040F
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 4040F"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts before end of "Measurement Period")
   or exists(["Immunization, Administered": "VSAC; Pneumococcal Vaccine"] I
     where I.authorDateTime before end of "Measurement Period")
   or exists(["Procedure, Performed": "VSAC; Pneumococcal Vaccine Administered"] P
