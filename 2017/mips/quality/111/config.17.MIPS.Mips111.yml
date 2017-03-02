@@ -1,0 +1,72 @@
+measure:
+  name: 17.MIPS.Mips111
+  required:
+    display_title: "Pneumococcal Vaccination Status for Older Adults"
+  optional:
+    gap_resolution_action: "Patient is due for a pneumococcal vaccination"
+    set: MIPS
+    external_id: 111
+    version: 2017
+exclusion_reasons:
+  - config_link_id: denominator_exclusion
+    required:
+      display_title: "Patient is excluded due to hospice service during the measurement period"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 111 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Hospice Serice"
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+success_reasons:
+  - config_link_id: 4040F
+    required:
+      display_title: "Pneumococcal vaccine administered or previously received"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 111 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 4040F"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; Pneumococcal Vaccine"
+            - model: ClinicalActivity
+              value_set: "VSAC; Pneumococcal Vaccine Administered"
+            - model: ClinicalActivity
+              value_set: "VSAC; History of Pneumococcal Vaccine"
+    optional:
+      code_value: 4040F
+gap_reasons:
+  - config_link_id: 4040F-8P
+    required:
+      display_title: "Pneumococcal vaccine was not administered or previously received, reason not otherwise specified"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 111 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 4040F"
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 4040F-8P"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; Pneumococcal Vaccine"
+            - model: ClinicalActivity
+              value_set: "VSAC; Pneumococcal Vaccine Administered"
+            - model: ClinicalActivity
+              value_set: "VSAC; History of Pneumococcal Vaccine"
+    optional:
+      code_value: 4040F-8P
