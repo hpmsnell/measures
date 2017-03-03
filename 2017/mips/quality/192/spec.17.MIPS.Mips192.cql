@@ -6,7 +6,7 @@ library MIPS_192_2017 version '1'
  * Year: 2017
  * Version: 1
  * Written By: Steve Daniels
- * Reviewed By:
+ * Reviewed By: Rachel Katz
  *
   */
 
@@ -18,6 +18,7 @@ valueset "MIPS; MIPS 192 Encounter"
 valueset "MIPS; MIPS 192 Encounter Modifier"
 valueset "MIPS; Performance Met: G8627"
 valueset "MIPS; Performance Not Met: G8628"
+valueset "VSAC; Use of Systemic Sympathetic alpha-1a Antagonist Medication for Treatment of Prostatic Hypertrophy"
 
 // VSAC Value Sets
 
@@ -130,6 +131,8 @@ define "Denominator Exclusion":
   or exists(["Medication, Active": "VSAC; Use of Systemic Sympathetic alpha-1a Antagonist Medication for Treatment of Prostatic Hypertrophy"] M
     with "Cataract Surgery" E
       where M.relevantPeriod overlaps E.relevantPeriod)
+  or exists(["Procedure, Performed": "MIPS; Use of Systemic Sympathetic alpha-1a Antagonist Medication for Treatment of Prostatic Hypertrophy"] P
+    where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Met: G8627":
   /*

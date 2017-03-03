@@ -6,7 +6,7 @@ library MIPS_226_2017 version '1'
  * Year: 2017
  * Version: 1
  * Written By: Steve Daniels
- * Reviewed By:
+ * Reviewed By: Rachel Katz
  *
   */
 

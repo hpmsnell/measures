@@ -6,7 +6,7 @@ library MIPS_191_2017 version '1'
  * Year: 2017
  * Version: 1
  * Written By: Steve Daniels
- * Reviewed By:
+ * Reviewed By: Rachel Katz
  *
   */
 
@@ -154,7 +154,7 @@ define "Numerator Performance Met: 4175F":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 4175F"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists(["Diagnosis": "VSAC; Visual Acuity 20/40 or Better"] D
+  or exists(["Diagnosis": "VSAC; Visual Acuity 20/40 or Better"] D //Confirm data format
     with "Cataract Surgery" E
       where D.prevalencePeriod starts 90 days or less after end of E.relevantPeriod)
 
