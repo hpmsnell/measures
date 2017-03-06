@@ -1,5 +1,5 @@
 measure:
-  name: 17.MIPS.Mips238_rate1
+  name: 17.MIPS.Mips238Rate1
   required:
     display_title: "Use of High-Risk Medications in the Elderly: 1 or More High-Risk Medications"
   optional:
@@ -16,7 +16,7 @@ success_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "PQRS; PQRS 238 Encounter"
+              value_set: "PQRS; PQRS 238 Encounters"
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -26,13 +26,13 @@ success_reasons:
             - model: Medication
               value_set: "VSAC; High Risk Medications for the Elderly"
             - model: Medication
-              value_set: "NCQA Medication; DAE-A"
+              value_set: "NCQA; DAE-A_2016"
         - count: 3
           validation_records:
             - model: Medication
               value_set: "VSAC; High-Risk Medications With Days Supply Criteria"
             - model: Medication
-              value_set: "NCQA Medication; DAE-B"
+              value_set: "NCQA; DAE-B_2016"
     optional:
       code_value: G9365
 exception_reasons:
@@ -44,7 +44,7 @@ gap_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "PQRS; PQRS 238 Encounter"
+              value_set: "PQRS; PQRS 238 Encounters"
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -56,12 +56,12 @@ gap_reasons:
             - model: Medication
               value_set: "VSAC; High Risk Medications for the Elderly"
             - model: Medication
-              value_set: "NCQA Medication; DAE-A"
+              value_set: "NCQA; DAE-A_2016"
         - count: 3
           validation_records:
             - model: Medication
               value_set: "VSAC; High-Risk Medications With Days Supply Criteria"
             - model: Medication
-              value_set: "NCQA Medication; DAE-B"
+              value_set: "NCQA; DAE-B_2016"
     optional:
       code_value: G9366

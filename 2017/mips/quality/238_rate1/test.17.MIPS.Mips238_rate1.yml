@@ -1,4 +1,4 @@
-measure_id: 17.MIPS.Mips238_rate1
+measure_id: 17.MIPS.Mips238Rate1
 test_set_keys:
   organization_key:
     patients:
@@ -11,7 +11,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G9366
+        numerator: S/G9366
       - name: Encounter Early # Encounter too early
         denominator:
         denominator_exclusion:
@@ -21,12 +21,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G9366
+        numerator: S/G9366
       - name: Encounter Upper # Encounter at upper bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G9366
+        numerator: S/G9366
       - name: Encounter Late # Encounter too late
         denominator:
         denominator_exclusion:
@@ -36,107 +36,107 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G9366
+        numerator: S/G9366
       - name: G9365 Lower # Performance met G9365 lower bound MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G9365
+        numerator: F/G9365
       - name: G9365 Upper # Performance met G9365 upper bound MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G9365
+        numerator: F/G9365
       - name: G9365 After # Performance met G9365 after MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G9366
+        numerator: S/G9366
       - name: 1Medication Before # Medication before previous MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G9366
+        numerator: S/G9366
       - name: 1Medication Lower # Medication at lower bound of previous MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G9365
+        numerator: F/G9365
       - name: 1Medication Upper # Medication at upper bound of previous MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G9365
+        numerator: F/G9365
       - name: 1Medication After # Medication after previous MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G9366
+        numerator: S/G9366
       - name: 1Medication NDC # Medication with NDC code instead of RXNORM
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G9365
+        numerator: F/G9365
       - name: 1Medication 91Days # Medication during previous MP with more than 90 days sypply
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G9365
+        numerator: F/G9365
       - name: 1Medication 90Days # Medication during previous MP with 90 days sypply
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G9366
+        numerator: S/G9366
       - name: G9367 Before # Performance met G9367 before MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G9366
+        numerator: S/G9366
       - name: G9367 Lower # Performance met G9367 lower bound MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G9366
+        numerator: S/G9366
       - name: G9367 Upper # Performance met G93657 upper bound MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G9366
+        numerator: S/G9366
       - name: G9367 After # Performance met G9367 after MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G9366
+        numerator: S/G9366
       - name: 2Medications Unique # 2 unique high-risk medications
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G9365
+        numerator: F/G9365
       - name: 2Medications Same # 2 high-risk medications with same code value
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G9365
+        numerator: F/G9365
       - name: 3Medications Unique # 3 unique high-risk medications
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G9365
+        numerator: F/G9365
       - name: 2Medications Before # 2 unique high-risk medications with one out of date
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G9365
+        numerator: F/G9365
       - name: 2Medications 91Days # 2 unique high-risk medications with > 90 days supply
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G9365
+        numerator: F/G9365
       - name: 2Medications 90Days # 2 unique high-risk medications, 1 with only 90 days supply
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G9365
+        numerator: F/G9365
   providers_key:
     - name: Rachel
       patients:
@@ -149,7 +149,7 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G9366
+          numerator: S/G9366
         - name: Encounter Early # Encounter too early
           denominator:
           denominator_exclusion:
@@ -159,12 +159,12 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G9366
+          numerator: S/G9366
         - name: Encounter Upper # Encounter at upper bound
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G9366
+          numerator: S/G9366
         - name: Encounter Late # Encounter too late
           denominator:
           denominator_exclusion:
@@ -174,72 +174,72 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G9366
+          numerator: S/G9366
         - name: G9365 Lower # Performance met G9365 lower bound MP
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: S/G9365
+          numerator: F/G9365
         - name: G9365 Upper # Performance met G9365 upper bound MP
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: S/G9365
+          numerator: F/G9365
         - name: G9365 After # Performance met G9365 after MP
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G9366
+          numerator: S/G9366
         - name: 1Medication Before # Medication before previous MP
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G9366
+          numerator: S/G9366
         - name: 1Medication Lower # Medication at lower bound of previous MP
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: S/G9365
+          numerator: F/G9365
         - name: 1Medication Upper # Medication at upper bound of previous MP
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: S/G9365
+          numerator: F/G9365
         - name: 1Medication After # Medication after previous MP
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: S/G9365
+          numerator: S/G9366
         - name: 1Medication 91Days # Medication during previous MP with more than 90 days sypply
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: S/G9365
+          numerator: F/G9365
         - name: 1Medication 90Days # Medication during previous MP with 90 days sypply
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G9366
+          numerator: S/G9366
         - name: G9367 Before # Performance met G9367 before MP
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G9366
+          numerator: S/G9366
         - name: G9367 Lower # Performance met G9367 lower bound MP
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G9366
+          numerator: S/G9366
         - name: G9367 Upper # Performance met G93657 upper bound MP
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G9366
+          numerator: S/G9366
         - name: G9367 After # Performance met G9367 after MP
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G9366
+          numerator: S/G9366
         - name: 2Medications Unique # 2 unique high-risk medications
           denominator:
           denominator_exclusion:
@@ -301,7 +301,7 @@ patients:
         provider: Rachel
   - name: Age Lower
     attributes:
-      date_of_birth: 1951-02-01
+      date_of_birth: 1950-02-01
       given_name: Age
       family_name: Lower
       sex: Female
@@ -377,7 +377,7 @@ patients:
         code_value: 99201
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9365
         start_datetime: 2015-12-31
   - name: G9365 Lower
@@ -393,7 +393,7 @@ patients:
         code_value: 99201
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9365
         start_datetime: 2016-01-01
   - name: G9365 Upper
@@ -409,9 +409,9 @@ patients:
         code_value: 99201
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9365
-        start_datetime: 2016-12-31
+        start_datetime: 2016-02-01
   - name: G9365 After
     attributes:
       date_of_birth: 1940-03-22
@@ -425,7 +425,7 @@ patients:
         code_value: 99201
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9365
         start_datetime: 2017-01-01
   - name: 1Medication Before
@@ -481,7 +481,7 @@ patients:
       - code_type: RXNORM
         code_value: 310539
         quantity: 30
-        start_datetime: 2016-12-31
+        start_datetime: 2016-02-01
   - name: 1Medication After
     attributes:
       date_of_birth: 1940-03-22
@@ -515,7 +515,7 @@ patients:
         provider: Rachel
       medications:
       - code_type: NDC
-        code_value: 00603243310
+        code_value: '00603243310'
         quantity: 30
         start_datetime: 2016-01-01
   - name: 1Medication 91Days
