@@ -81,7 +81,7 @@ define "Numerator Performance Met: 1036F":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 1036F"] P
     where P.relevantPeriod starts during "Measurement Period")
-  and exists(["Diagnosis": "VSAC; Tobacco Non-User"] D
+  or exists(["Diagnosis": "VSAC; Tobacco Non-User"] D
     where D.prevalencePeriod starts during "Tobacco Interval")
 
 define "Denominator Exception: 4004F-1P":
