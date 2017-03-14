@@ -24,7 +24,7 @@ exclusion_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "VSAC; Palliative Care"
-success_reasons:
+performance_met_reasons:
   - config_link_id: 1090F
     required:
       display_title: Presence or absence of urinary incontinence assessed
@@ -41,7 +41,7 @@ success_reasons:
               value_set: "Able; Urinary Incontinence Assessment"
     optional:
       code_value: 1090F
-gap_reasons:
+performance_not_met_reasons:
   - config_link_id: 1090F-8P
     required:
       display_title: Presence or absence of urinary incontinence not assessed, reason not otherwise specified

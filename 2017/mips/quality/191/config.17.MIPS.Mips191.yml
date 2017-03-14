@@ -118,7 +118,7 @@ exclusion_reasons:
               value_set: "VSAC; Uveitis"
             - model: Diagnosis
               value_set: "VSAC; Visual Field Defects"
-success_reasons:
+performance_met_reasons:
   - config_link_id: 4175F
     required:
       display_title: "Best-corrected visual acuity of 20/40 or better (distance or near) achieved within the 90 days following cataract surgery"
@@ -135,7 +135,7 @@ success_reasons:
               value_set: "VSAC; Visual Acuity 20/40 or Better"
     optional:
       code_value: 4175F
-gap_reasons:
+performance_not_met_reasons:
   - config_link_id: 4175F-8P
     required:
       display_title: "Best-corrected visual acuity of 20/40 or better (distance or near) not achieved within the 90 days following cataract surgery, reason not otherwise specified"

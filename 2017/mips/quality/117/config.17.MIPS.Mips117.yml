@@ -22,7 +22,7 @@ exclusion_reasons:
               value_set: "MIPS; Hospice Serice"
             - model: ClinicalActivity
               value_set: "VSAC; Palliative Care"
-success_reasons:
+performance_met_reasons:
   - config_link_id: 2022F
     required:
       display_title: "Dilated retinal eye exam with interpretation by an ophthalmologist or optometrist documented and reviewed"
@@ -83,7 +83,7 @@ success_reasons:
               value_set: "VSAC; Retinal or Dilated Eye Exam"
     optional:
       code_value: 3072F
-gap_reasons:
+performance_not_met_reasons:
   - config_link_id: 2022F-8P
     required:
       display_title: "Dilated eye exam was not performed, reason not otherwise specified"

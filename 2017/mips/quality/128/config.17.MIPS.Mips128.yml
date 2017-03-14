@@ -26,7 +26,7 @@ exclusion_reasons:
               value_set: "VSAC; Palliative Care"
             - model: Diagnosis
               value_set: "VSAC; Pregnancy"
-success_reasons:
+performance_met_reasons:
   - config_link_id: G8420
     required:
       display_title: BMI is documented within normal parameters and no follow-up plan is required
@@ -102,7 +102,7 @@ exception_reasons:
               value_set: "MIPS; Denominator Exception: G9716"
     optional:
       code_value: G9716
-gap_reasons:
+performance_not_met_reasons:
   - config_link_id: G8419
     required:
       display_title: BMI documented outside normal parameters, no follow-up plan documented, no reason given

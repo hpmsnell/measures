@@ -8,7 +8,7 @@ measure:
     external_id: 130
     version: 2017
 exclusion_reasons:
-success_reasons:
+performance_met_reasons:
   - config_link_id: G8427
     required:
       display_title: Eligible clinician attests to documenting in the medical record they obtained, updated, or reviewed the patient’s current medications (G8427)
@@ -40,7 +40,7 @@ exception_reasons:
               value_set: 'MIPS; Denominator Exception: G8430'
     optional:
       code_value: G8430
-gap_reasons:
+performance_not_met_reasons:
   - config_link_id: G8428
     required:
       display_title: Current list of medications not documented as obtained, updated, or reviewed by the eligible clinician, reason not given (G8428)
