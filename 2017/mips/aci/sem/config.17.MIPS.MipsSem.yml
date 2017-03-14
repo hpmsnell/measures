@@ -8,7 +8,7 @@ measure:
     external_id: SEM
     version: 2017
 exclusion_reasons:
-success_reasons:
+performance_met_reasons:
   - config_link_id: performance_met
     required:
       display_title: "Patient sent a secure electronic message during the measurement period"
@@ -21,7 +21,7 @@ success_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "Able; Performance Met: MIPS ACI SEM"
-gap_reasons:
+performance_not_met_reasons:
   - config_link_id: performance_not_met
     required:
       display_title: "No secure electronic message found during the measurement period"

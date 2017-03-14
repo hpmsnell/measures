@@ -22,7 +22,7 @@ exclusion_reasons:
               value_set: "MIPS; Hospice Serice"
             - model: ClinicalActivity
               value_set: "VSAC; Palliative Care"
-success_reasons:
+performance_met_reasons:
   - config_link_id: 3060F
     required:
       display_title: "Positive microalbuminuria test result documented and reviewed"
@@ -129,7 +129,7 @@ success_reasons:
               value_set: "VSAC; ACE Inhibitor or ARB"
     optional:
       code_value: G8506
-gap_reasons:
+performance_not_met_reasons:
   - config_link_id: 3060F-8P
     required:
       display_title: "Nephropathy screening was not performed, reason not otherwise specified"

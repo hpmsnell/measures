@@ -121,7 +121,7 @@ exception_reasons:
               value_set: "MIPS; Denominator Exception: 4086F-3P"
     optional:
       code_value: 4086F-3P
-success_reasons:
+performance_met_reasons:
   - config_link_id: 4086F
     required:
       display_title: Patient was prescribed appropriate antiplatlet agent for coronary artery disease
@@ -142,7 +142,7 @@ success_reasons:
               value_set: "MIPS; Performance Met: 4086F"
     optional:
       code_value: 4086F
-gap_reasons:
+performance_not_met_reasons:
   - metadata_identifier_link: 4086F-8P
     required:
       display_title: Patient was not prescribed an appropriate antiplatelet agent for coronary artery disease (CAD)
