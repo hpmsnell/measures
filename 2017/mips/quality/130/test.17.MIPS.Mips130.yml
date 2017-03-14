@@ -31,13 +31,14 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: F/G8428
+      numerator: G8428
     - name: Right Encounter #  Encounter at end of measurement year
       start_datetime: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: F/G8428
+      denominator_exception:
+      numerator: G8428
     - name: Denominator Exclusion #  Exclusion on date of encounter
       start_datetime: 2016-06-01
       denominator: 1
@@ -49,43 +50,43 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: F/G8428
+      numerator: G8428
     - name: Denominator Exclusion #  Exclusion after date of encounter
       start_datetime: 2016-08-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: F/G8428
+      numerator: G8428
     - name: Numerator Success #  Success on date of encounter
       start_datetime: 2016-06-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: S/G8427
+      numerator: G8427
     - name: Numerator Success #  Success prior to encounter
       start_datetime: 2016-07-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: F/G8428
+      numerator: G8428
     - name: Numerator Success #  Success after encounter
       start_datetime: 2016-08-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: F/G8428
+      numerator: G8428
     - name: VSAC Success #  VSAC success on date of encounter
       start_datetime: 2016-06-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: S/G8427
+      numerator: G8427
     - name: VSAC Success #  VSAC success prior to encounter
       start_datetime: 2016-07-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: F/G8428
+      numerator: G8428
   providers_key:
   - name: Rachel
     episodes_of_care:
@@ -118,13 +119,13 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: F/G8428
+      numerator: G8428
     - name: Right Encounter #  Encounter at end of measurement year
       start_datetime: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: F/G8428
+      numerator: G8428
     - name: Denominator Exclusion #  Exclusion on date of encounter
       start_datetime: 2016-06-01
       denominator: 1
@@ -136,31 +137,31 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: F/G8428
+      numerator: G8428
     - name: Denominator Exclusion #  Exclusion after date of encounter
       start_datetime: 2016-08-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: F/G8428
+      numerator: G8428
     - name: Numerator Success #  Success on date of encounter
       start_datetime: 2016-06-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: S/G8427
+      numerator: G8427
     - name: Numerator Success #  Success prior to encounter
       start_datetime: 2016-07-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: F/G8428
+      numerator: G8428
     - name: Numerator Success #  Success after encounter
       start_datetime: 2016-08-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: F/G8428
+      numerator: G8428
     - name: VSAC Success #  VSAC success on date of encounter
       start_datetime: 2016-06-01
       denominator:
@@ -252,13 +253,13 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: S/G8427
+      numerator: G8427
     - name: VSAC Success #  VSAC success prior to encounter
       start_datetime: 2016-07-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: F/G8428
+      numerator: G8428
 providers:
 - given_name: Rachel
   family_name: Kohler
