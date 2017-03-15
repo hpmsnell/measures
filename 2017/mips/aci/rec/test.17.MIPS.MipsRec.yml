@@ -50,24 +50,6 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
-      - name: Reconciliation NoAllergy # No allergy reconciliation
-        start_datetime: 2016-02-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_not_met
-      - name: Reconciliation NoProblem # No problem list reconciliation
-        start_datetime: 2016-02-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_not_met
-      - name: Reconciliation Able # Reconciliation using Able value set
-        start_datetime: 2016-02-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_met
   providers_key:
     - name: Rachel
       episodes_of_care:
@@ -114,24 +96,6 @@ test_set_keys:
           denominator_exception:
           numerator: performance_met
         - name: Reconciliation After # Reconciliation after Encounter
-          start_datetime: 2016-02-01
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: performance_not_met
-        - name: Reconciliation NoAllergy # No allergy reconciliation
-          start_datetime: 2016-02-01
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: performance_not_met
-        - name: Reconciliation NoProblem # No problem list reconciliation
-          start_datetime: 2016-02-01
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: performance_not_met
-        - name: Reconciliation Able # Reconciliation using Able value set
           start_datetime: 2016-02-01
           denominator:
           denominator_exclusion:
@@ -183,28 +147,10 @@ test_set_keys:
           numerator:
         - name: Reconciliation After # Reconciliation after Encounter
           start_datetime: 2016-02-01
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: Reconciliation NoAllergy # No allergy reconciliation
-          start_datetime: 2016-02-01
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: Reconciliation NoProblem # No problem list reconciliation
-          start_datetime: 2016-02-01
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: Reconciliation Able # Reconciliation using Able value set
-          start_datetime: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: performance_met
+          numerator: performance_not_met
 providers:
 - given_name: Rachel
   family_name: Kohler
@@ -283,15 +229,9 @@ patients:
         start_datetime: 2016-02-01
         stop_datetime: 2016-02-02
         provider: Rachel
-      - code_type: SNOMEDCT
-        code_value: 430193006
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC
         start_datetime: 2016-01-31
-      - code_type: SNOMEDCT
-        code_value: 370860007
-        start_datetime: 2016-02-01
-      - code_type: SNOMEDCT
-        code_value: 398214005
-        start_datetime: 2016-02-01
   - name: Reconciliation Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -306,14 +246,8 @@ patients:
         start_datetime: 2016-02-01
         stop_datetime: 2016-02-02
         provider: Rachel
-      - code_type: SNOMEDCT
-        code_value: 430193006
-        start_datetime: 2016-02-01
-      - code_type: SNOMEDCT
-        code_value: 370860007
-        start_datetime: 2016-02-01
-      - code_type: SNOMEDCT
-        code_value: 398214005
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC
         start_datetime: 2016-02-01
   - name: Reconciliation Upper
     attributes:
@@ -329,15 +263,9 @@ patients:
         start_datetime: 2016-02-01
         stop_datetime: 2016-02-02
         provider: Rachel
-      - code_type: SNOMEDCT
-        code_value: 430193006
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC
         start_datetime: 2016-02-02
-      - code_type: SNOMEDCT
-        code_value: 370860007
-        start_datetime: 2016-02-01
-      - code_type: SNOMEDCT
-        code_value: 398214005
-        start_datetime: 2016-02-01
   - name: Reconciliation After
     attributes:
       date_of_birth: 1988-03-22
@@ -352,69 +280,6 @@ patients:
         start_datetime: 2016-02-01
         stop_datetime: 2016-02-02
         provider: Rachel
-      - code_type: SNOMEDCT
-        code_value: 430193006
-        start_datetime: 2016-02-03
-      - code_type: SNOMEDCT
-        code_value: 370860007
-        start_datetime: 2016-02-01
-      - code_type: SNOMEDCT
-        code_value: 398214005
-        start_datetime: 2016-02-01
-  - name: Reconciliation NoAllergy
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: Reconciliation
-      family_name: NoAllergy
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: SNOMEDCT
-        code_value: 1861000124105
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
-        provider: Rachel
-      - code_type: SNOMEDCT
-        code_value: 430193006
-        start_datetime: 2016-02-02
-      - code_type: SNOMEDCT
-        code_value: 398214005
-        start_datetime: 2016-02-01
-  - name: Reconciliation NoProblem
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: Reconciliation
-      family_name: NoProblem
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: SNOMEDCT
-        code_value: 1861000124105
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
-        provider: Rachel
-      - code_type: SNOMEDCT
-        code_value: 430193006
-        start_datetime: 2016-02-02
-      - code_type: SNOMEDCT
-        code_value: 370860007
-        start_datetime: 2016-02-01
-  - name: Reconciliation Lower
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: Reconciliation
-      family_name: Lower
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: SNOMEDCT
-        code_value: 1861000124105
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
-        provider: Patty
       - code_type: ABLE
         code_value: MIPS-ACI-REC
-        start_datetime: 2016-02-01
+        start_datetime: 2016-02-03

@@ -12,9 +12,12 @@ library MIPS_PSE_2017 version '1'
 
 using QDM
 
+// VSAC Value Sets
+
+valueset "VSAC; Office Visit": '2.16.840.1.113883.3.464.1003.101.12.1001'
+
 // Able Value Sets
 
-valueset "Able; ACI Encounter"
 valueset "Able; Patient Education"
 valueset "Able; Performance Met: MIPS ACI PSE"
 
@@ -23,7 +26,7 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Denominator":
-  exists(["Encounter, Performed": "Able; ACI Encounter"] E
+  exists(["Encounter, Performed": "VSAC; Office Visit"] E
     where E.relevantPeriod starts during "Measurement Period"
       and E.signingProvider.pqrsProvider = 1)
 

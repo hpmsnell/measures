@@ -38,14 +38,7 @@ define "Numerator Performance Met":
    */
   exists("Denominator Episode" E
     with ["Procedure, Performed": "Able; Performance Met: MIPS ACI REC"] P
-      such that P1.relevantPeriod starts during E.relevantPeriod)
-  or exists("Denominator Episode" E
-    with ["Procedure, Performed": "Able; Medication Reconciliation"] P1
-      such that P1.relevantPeriod starts during E.relevantPeriod
-    and with ["Procedure, Performed": "Able; Medication Allergy Reconciliation"] P2
-      such that P2.relevantPeriod starts during E.relevantPeriod
-    and with ["Procedure, Performed": "Able; Problem List Reconciliation"] P3
-      such that P3.relevantPeriod starts during E.relevantPeriod)
+      such that P.relevantPeriod starts during E.relevantPeriod)
 
 define "Numerator Performance Not Met"
   /*
