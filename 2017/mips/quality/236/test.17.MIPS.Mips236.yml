@@ -11,12 +11,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8756
+        numerator: G8756
       - name: Age Upper # Patient is at upper age bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8756
+        numerator: G8756
       - name: Too Old # Patient is too old
         denominator:
         denominator_exclusion:
@@ -41,12 +41,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8756
+        numerator: G8756
       - name: Encounter Upper # Encounter at upper age bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8756
+        numerator: G8756
       - name: Encounter Late # Encounter too late
         denominator:
         denominator_exclusion:
@@ -56,7 +56,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8756
+        numerator: G8756
       - name: Hospice Lower # Hospice at lower bound
         denominator: 1
         denominator_exclusion: exclusion_1
@@ -71,12 +71,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8756
+        numerator: G8756
       - name: VSACHospice Early # VSAC hospice ends too early
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8756
+        numerator: G8756
       - name: VSACHospice Lower # VSAC hospice ends at lower bound
         denominator: exclusion_1
         denominator_exclusion: exclusion_1
@@ -91,12 +91,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8756
+        numerator: G8756
       - name: Exclusion Early # Clinical exclusion too early
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8756
+        numerator: G8756
       - name: Exclusion Lower # Clinical exclusion at lower bound
         denominator: 1
         denominator_exclusion: exclusion_2
@@ -111,12 +111,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8756
+        numerator: G8756
       - name: DiagnosisExclusion Early # Diagnosis exclusion ends early
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8756
+        numerator: G8756
       - name: DiagnosisExclusion Overlaps # Diagnosis exclusion overlaps measurement period
         denominator: 1
         denominator_exclusion: exclusion_2
@@ -126,7 +126,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8756
+        numerator: G8756
       - name: Exclusion Procedure # Excluded procedure
         denominator: 1
         denominator_exclusion: exclusion_2
@@ -136,77 +136,77 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8756
+        numerator: G8756
       - name: SystolicGood DiastolicGood # Good blood pressure during last visit
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G8752/G8754
+        numerator: G8752/G8754
       - name: MIPSSystolicEarly MIPSDiastolicGood # Good blood pressure during last visit recorded too early
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G8756
+        numerator: G8756
       - name: MIPSSystolicLower MIPSDiastolicGood # Good blood pressure during last visit recorded at lower bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G8752/G8754
+        numerator: G8752/G8754
       - name: MIPSSystolicUpper MIPSDiastolicGood # Good blood pressure during last visit recorded at upper bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G8752/G8754
+        numerator: G8752/G8754
       - name: MIPSSystolicLate MIPSDiastolicGood # Good blood pressure during last visit recorded too early
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G8756
+        numerator: G8756
       - name: SystolicGood DiastolicBad # Bad blood pressure during last visit
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8752/G8755
+        numerator: G8752/G8755
       - name: MIPSSystolicGood MIPSDiastolicBad # Bad blood pressure during last visit
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8752/G8755
+        numerator: G8752/G8755
       - name: SystolicBad DiastolicGood # Bad blood pressure during last visit
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G8753/G8754
+        numerator: G8753/G8754
       - name: MIPSSystolicBad MIPSDiastolicGood # Bad blood pressure during last visit
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G8753/G8754
+        numerator: G8753/G8754
       - name: SystolicBad DiastolicBad # Bad blood pressure during last visit
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8753/G8755
+        numerator: G8753/G8755
       - name: MIPSSystolicBad MIPSDiastolicBad # Bad blood pressure during last visit
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8753/G8755
+        numerator: G8753/G8755
       - name: Systolic Early # Good blood pressure during wrong visit
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8756
+        numerator: G8756
       - name: Diastolic Early # Good blood pressure during wrong visit
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: F/G8756
+        numerator: G8756
       - name: Multiple Systolic # Multiple systolic readings on the same day, with one controlled
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/G8752/G8754
+        numerator: G8752/G8754
   providers_key:
     - name: Rachel
       patients:
@@ -219,12 +219,12 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G8756
+          numerator: G8756
         - name: Age Upper # Patient is at upper age bound
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G8756
+          numerator: G8756
         - name: Too Old # Patient is too old
           denominator:
           denominator_exclusion:
@@ -249,12 +249,12 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G8756
+          numerator: G8756
         - name: Encounter Upper # Encounter at upper age bound
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G8756
+          numerator: G8756
         - name: Encounter Late # Encounter too late
           denominator:
           denominator_exclusion:
@@ -264,7 +264,7 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G8756
+          numerator: G8756
         - name: Hospice Lower # Hospice at lower bound
           denominator: 1
           denominator_exclusion: exclusion_1
@@ -279,12 +279,12 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G8756
+          numerator: G8756
         - name: VSACHospice Early # VSAC hospice ends too early
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G8756
+          numerator: G8756
         - name: VSACHospice Lower # VSAC hospice ends at lower bound
           denominator: exclusion_1
           denominator_exclusion: exclusion_1
@@ -299,12 +299,12 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G8756
+          numerator: G8756
         - name: Exclusion Early # Clinical exclusion too early
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G8756
+          numerator: G8756
         - name: Exclusion Lower # Clinical exclusion at lower bound
           denominator: 1
           denominator_exclusion: exclusion_2
@@ -319,12 +319,12 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G8756
+          numerator: G8756
         - name: DiagnosisExclusion Early # Diagnosis exclusion ends early
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G8756
+          numerator: G8756
         - name: DiagnosisExclusion Overlaps # Diagnosis exclusion overlaps measurement period
           denominator: 1
           denominator_exclusion: exclusion_2
@@ -334,7 +334,7 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G8756
+          numerator: G8756
         - name: Exclusion Procedure # Excluded procedure
           denominator: 1
           denominator_exclusion: exclusion_2
@@ -344,7 +344,7 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: F/G8756
+          numerator: G8756
         - name: SystolicGood DiastolicGood # Good blood pressure during last visit
           denominator:
           denominator_exclusion:

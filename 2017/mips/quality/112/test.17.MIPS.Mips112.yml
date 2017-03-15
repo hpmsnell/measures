@@ -13,11 +13,11 @@ test_set_keys:
     - name: Age LowerBound # Patient is at lower age bound and otherwise meets the denominator
       denominator: 1
       denominator_exclusion:
-      numerator: F/3014F-8P
+      numerator: 3014F-8P
     - name: Age UpperBound # Patient is upper age bound and otherwise meets the denominator
       denominator: 1
       denominator_exclusion:
-      numerator: F/3014F-8P
+      numerator: 3014F-8P
     - name: Patient Male # Patient is a Male but otherwise meets the denominator
       denominator:
       denominator_exclusion:
@@ -41,7 +41,7 @@ test_set_keys:
     - name: Exclusion BilateralMastectomyLate  # Patient has an exclusion for bilateral mastectomy but it is too late
       denominator: 1
       denominator_exclusion:
-      numerator: F/3014F-8P
+      numerator: 3014F-8P
     - name: Exclusion UnilateralMastectomy  # Patient has an exclusion for unilateral mastectomies
       denominator: 1
       denominator_exclusion: denominator_exclusion_1
@@ -49,7 +49,7 @@ test_set_keys:
     - name: Exclusion UnilateralMastectomyLate  # Patient has an exclusion for unilateral mastectomies but it is too late
       denominator: 1
       denominator_exclusion:
-      numerator: F/3014F-8P
+      numerator: 3014F-8P
     - name: Exclusion HospiceService #Patient has an exclusion for hospice service
       denominator: 1
       denominator_exclusion: deminator_exclusion_2
@@ -57,31 +57,31 @@ test_set_keys:
     - name: Exclusion HospiceServiceEarly # Patient has an exclusion for hospice service but it is too early
       denominator: 1
       denominator_exclusion:
-      numerator: F/3014F-8P
+      numerator: 3014F-8P
     - name: Exclusion HospiceServiceLate # Patient has an exclusion for hospice service but it is too late
       denominator: 1
       denominator_exclusion:
-      numerator:  F/3014F-8P
+      numerator:  3014F-8P
     - name: Screened Start # Patient screened at start of allowable period
       denominator: 1
       denominator_exclusion:
-      numerator: S/3014F
+      numerator: 3014F
     - name: Screened End # Patient screened at end of allowable period
       denominator: 1
       denominator_exclusion:
-      numerator: S/3014F
+      numerator: 3014F
     - name: Screened Early # Patient screened too early
       denominator: 1
       denominator_exclusion:
-      numerator: F/3014F-8P
+      numerator: 3014F-8P
     - name: Screened Late # Patient screened too late
       denominator: 1
       denominator_exclusion:
-      numerator: F/3014F-8P
+      numerator: 3014F-8P
     - name: Screeened MIPS # Patient screened with MIPS value set during the allowable period
       denominator: 1
       denominator_exclusion:
-      numerator: S/3014F
+      numerator: 3014F
   providers_key:
   - name: Rachel
     patients:
@@ -96,11 +96,11 @@ test_set_keys:
     - name: Age LowerBound # Patient is at lower age bound and otherwise meets the denominator
       denominator: 1
       denominator_exclusion:
-      numerator: F/3014F-8P
+      numerator: 3014F-8P
     - name: Age UpperBound # Patient is upper age bound and otherwise meets the denominator
       denominator: 1
       denominator_exclusion:
-      numerator: F/3014F-8P
+      numerator: 3014F-8P
     - name: Patient Male # Patient is a Male but otherwise meets the denominator
       denominator:
       denominator_exclusion:
@@ -124,7 +124,7 @@ test_set_keys:
     - name: Exclusion BilateralMastectomyLate  # Patient has an exclusion for bilateral mastectomies but it is too late
       denominator: 1
       denominator_exclusion:
-      numerator: F/3014F-8P
+      numerator: 3014F-8P
     - name: Exclusion UnilateralMastectomy  # Patient has an exclusion for unilateral mastectomies
       denominator: 1
       denominator_exclusion: denominator_exclusion_1
@@ -132,7 +132,7 @@ test_set_keys:
     - name: Exclusion UnilateralMastectomyLate  # Patient has an exclusion for unilateral mastectomy but it is too late
       denominator: 1
       denominator_exclusion:
-      numerator: F/3014F-8P
+      numerator: 3014F-8P
     - name: Exclusion HospiceService #Patient has an exclusion for hospice service
       denominator: 1
       denominator_exclusion: deminator_exclusion_2
@@ -140,27 +140,27 @@ test_set_keys:
     - name: Exclusion HospiceServiceEarly # Patient has an exclusion for hospice service but it is too early
       denominator: 1
       denominator_exclusion:
-      numerator: F/3014F-8P
+      numerator: 3014F-8P
     - name: Exclusion HospiceServiceLate # Patient has an exclusion for hospice service but it is too late
       denominator: 1
       denominator_exclusion:
-      numerator:  F/3014F-8P
+      numerator:  3014F-8P
     - name: Screened Start # Patient screened at start of allowable period
       denominator: 1
       denominator_exclusion:
-      numerator: S/3014F
+      numerator: 3014F
     - name: Screened End # Patient screened at end of allowable period
       denominator: 1
       denominator_exclusion:
-      numerator: S/3014F
+      numerator: 3014F
     - name: Screened Early # Patient screened too early
       denominator: 1
       denominator_exclusion:
-      numerator: F/3014F-8P
+      numerator: 3014F-8P
     - name: Screened Late # Patient screened too late
       denominator: 1
       denominator_exclusion:
-      numerator: F/3014F-8P
+      numerator: 3014F-8P
     - name: Screeened MIPS # Patient screened with MIPS value set during the allowable period
       denominator:
       denominator_exclusion:
@@ -246,7 +246,7 @@ test_set_keys:
     - name: Screeened MIPS # Patient screened with MIPS value set during the allowable period
       denominator: 1
       denominator_exclusion:
-      numerator: S/3014F
+      numerator: 3014F
 providers:
 - given_name: Rachel
   family_name: Kohler

@@ -8,7 +8,7 @@ measure:
     external_id: PSE
     version: 2017
 exclusion_reasons:
-success_reasons:
+performance_met_reasons:
   - config_link_id: performance_met
     required:
       display_title: "Patient provided access to patient-specific educational resources during the measurement period"
@@ -23,7 +23,7 @@ success_reasons:
               value_set: "Able; Patient Education"
             - model: ClinicalActivity
               value_set: "Able; Performance Met: MIPS ACI PSE"
-gap_reasons:
+performance_not_met_reasons:
   - config_link_id: performance_not_met
     required:
       display_title: "No patient education found during the measurement period"

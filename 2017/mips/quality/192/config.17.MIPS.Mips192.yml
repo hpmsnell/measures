@@ -82,7 +82,7 @@ exclusion_reasons:
               value_set: "VSAC; Vascular Disorders of Iris and Ciliary Body"
             - model: Medication
               value_set: "VSAC; Use of Systemic Sympathetic alpha-1a Antagonist Medication for Treatment of Prostatic Hypertrophy"
-success_reasons:
+performance_met_reasons:
   - config_link_id: G8627
     required:
       display_title: "Surgical procedure performed within 30 days following cataract surgery for major complications (e.g., retained nuclear fragments, endophthalmitis, dislocated or wrong power IOL, retinal detachment or wound dehiscence)"
@@ -115,7 +115,7 @@ success_reasons:
               value_set: "VSAC; Revision Procedures"
     optional:
       code_value: G8627
-gap_reasons:
+performance_not_met_reasons:
   - config_link_id: G8628
     required:
       display_title: "Surgical procedure not performed within 30 days following cataract surgery for major complications (e.g., retained nuclear fragments, endophthalmitis, dislocated or wrong power IOL, retinal detachment or wound dehiscence)"

@@ -8,7 +8,7 @@ measure:
     external_id: 238
     version: 2017
 exclusion_reasons:
-success_reasons:
+performance_met_reasons:
   - config_link_id: G9365
     required:
       display_title: "Patient was ordered at least one high-risk medication"
@@ -36,7 +36,7 @@ success_reasons:
     optional:
       code_value: G9365
 exception_reasons:
-gap_reasons:
+performance_not_met_reasons:
   - config_link_id: G9366
     required:
       display_title: "Patient was not ordered at least one high-risk medication"
