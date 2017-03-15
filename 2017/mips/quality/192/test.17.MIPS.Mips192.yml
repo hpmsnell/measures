@@ -101,12 +101,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/3072F
+        numerator: S/G8627
       - name: Complication Upper # Eye Complication at upper bound of period
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: S/3072F
+        numerator: S/G8627
       - name: Complication After # Eye Complication after period
         denominator: 1
         denominator_exclusion:
@@ -390,7 +390,7 @@ patients:
       diagnoses:
       - code_type: ICD10CM
         code_value: H26.101
-        start_datetime: 2010-02-02
+        start_datetime: 2016-02-02
   - name: ExcludedMedication Before
     attributes:
       date_of_birth: 1988-03-22
@@ -462,7 +462,7 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 1100691
-        start_datetime: 2010-02-02
+        start_datetime: 2016-02-02
   - name: G8627 Before
     attributes:
       date_of_birth: 1988-03-22
@@ -476,7 +476,7 @@ patients:
         code_value: 66840
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G8627
         start_datetime: 2015-12-31
   - name: G8627 Lower
@@ -492,7 +492,7 @@ patients:
         code_value: 66840
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G8627
         start_datetime: 2016-01-01
   - name: G8627 Upper
@@ -508,7 +508,7 @@ patients:
         code_value: 66840
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G8627
         start_datetime: 2016-12-31
   - name: G8627 After
@@ -524,7 +524,7 @@ patients:
         code_value: 66840
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G8627
         start_datetime: 2017-01-01
   - name: Complication Before
@@ -577,7 +577,7 @@ patients:
         provider: Patty
       - code_type: CPT
         code_value: 67105
-        start_datetime: 2016-05-01
+        start_datetime: 2016-03-02
   - name: Complication After
     attributes:
       date_of_birth: 1988-03-22
@@ -594,4 +594,4 @@ patients:
         provider: Patty
       - code_type: CPT
         code_value: 67105
-        start_datetime: 2016-05-02
+        start_datetime: 2016-03-03
