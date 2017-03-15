@@ -1,0 +1,675 @@
+measure_id:
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  credential: MD
+  primary_specialty: Ophthalmology
+  pqrs_provider: true
+- given_name: Angela
+  family_name: Jimenez
+  credential: MD
+  primary_specialty: Ophthalmology
+  pqrs_provider: true
+- given_name: Andrew
+  family_name: Vogel
+  credential: MD
+  primary_specialty: Family Medicine
+  pqrs_provider: false
+patients:
+  - name: Rose Odingo
+    attributes:
+      date_of_birth: 1965-03-22
+      given_name: Rose
+      family_name: Odingo
+      sex: Female
+      provider: Andrew
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-01-24
+        provider: Rachel
+      - code_type: CPT
+        code_value: 66840 # Cataract surgery
+        start_datetime: 2017-03-01
+        stop_datetime: 2017-03-01
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-01-24
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-02-01
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 30
+        start_datetime: 2017-02-01
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 423059004 # 20/40 vision
+        start_datetime: 2017-03-20
+      - code_type: SNOMEDCT
+        code_value: 160603005 # Tobacco user
+        start_datetime: 2017-02-01
+  - name: Simone Bella
+    attributes:
+      date_of_birth: 1960-01-05
+      given_name: Simone
+      family_name: Bella
+      sex: Female
+      provider: Andrew
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-01-24
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 252779009 # Eye exam
+        start_datetime: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-01-24
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-02-01
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_datetime: 2017-02-01
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 423059004 # 20/40 vision
+        start_datetime: 2017-03-20
+      - code_type: SNOMEDCT
+        code_value: 160603005 # Tobacco user
+        start_datetime: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E13.3522 # Diabetes
+        claim_id: 18930400
+        start_datetime: 2016-05-01
+      medications:
+      - code_type: RXNORM
+        code_value: 1232585 # Tobacco pharmacotherapy
+        quantity: 30
+        start_datetime: 2015-02-01
+  - name: Joel Charleston
+    attributes:
+      date_of_birth: 1956-10-18
+      given_name: Joel
+      family_name: Charleston
+      sex: Male
+      provider: Andrew
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-01-24
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-01-24
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-02-01
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 160603005 # Tobacco user
+        start_datetime: 2017-02-01
+      medications:
+      - code_type: RXNORM
+        code_value: 1232585 # Tobacco pharmacotherapy
+        quantity: 30
+        start_datetime: 2017-02-01
+  - name: Bradley Moore
+    attributes:
+      date_of_birth: 1952-06-12
+      given_name: Bradley
+      family_name: Moore
+      sex: Male
+      provider: Andrew
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-01-24
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-01-24
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-02-01
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_datetime: 2016-10-12
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 266924008 # Tobacco non-user
+        start_datetime: 2017-02-01
+  - name: Jose Valdez
+    attributes:
+      date_of_birth: 1983-02-04
+      given_name: Jose
+      family_name: Valdez
+      sex: Male
+      provider: Andrew
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-01-24
+        provider: Rachel
+      - code_type: CPT
+        code_value: 66840 # Cataract surgery
+        start_datetime: 2017-03-01
+        stop_datetime: 2017-03-01
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-01-24
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-02-01
+      - code_type: CPT
+        code_value: 67105 # Cataract complication procedure
+        start_datetime: 2017-03-20
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_datetime: 2017-10-12
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 160603005 # Tobacco user
+        start_datetime: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 423059004 # 20/40 vision
+        start_datetime: 2017-03-20
+      medications:
+      - code_type: RXNORM
+        code_value: 1232585 # Tobacco pharmacotherapy
+        quantity: 30
+        start_datetime: 2017-02-01
+  - name: Manuel Rice
+    attributes:
+      date_of_birth: 1988-10-24
+      given_name: Manuel
+      family_name: Rice
+      sex: Male
+      provider: Andrew
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-02-01
+        provider: Angela
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-01-24
+        provider: Angela
+      - code_type: SNOMEDCT
+        code_value: 252779009 # Eye exam
+        start_datetime: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-01-24
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 304549008 # High BMI follow-up
+        start_datetime: 2017-01-18
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 30
+        start_datetime: 2017-02-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522 # Diabetes
+        claim_id: 18930400
+        start_datetime: 2016-05-01
+      - code_type: SNOMEDCT
+        code_value: 266924008 # Tobacco non-user
+        start_datetime: 2017-02-01
+  - name: Benjamin Jones
+    attributes:
+      date_of_birth: 1976-09-13
+      given_name: Benjamin
+      family_name: Jones
+      sex: Male
+      provider: Andrew
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-02-01
+        provider: Angela
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-01-24
+        provider: Angela
+      - code_type: SNOMEDCT
+        code_value: 252779009 # Eye exam
+        start_datetime: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-01-24
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-02-01
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 30
+        start_datetime: 2017-02-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522 # Diabetes
+        claim_id: 18930400
+        start_datetime: 2016-05-01
+      - code_type: SNOMEDCT
+        code_value: 160603005 # Tobacco non-user
+        start_datetime: 2017-02-01
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 4548-4 # HbA1c
+        result: 7.2
+        start_datetime: 2017-01-18
+      medications:
+      - code_type: RXNORM
+        code_value: 1232585 # Tobacco pharmacotherapy
+        quantity: 30
+        start_datetime: 2017-02-01
+  - name: Erica Ackerman
+    attributes:
+      date_of_birth: 1960-04-30
+      given_name: Erica
+      family_name: Ackerman
+      sex: Female
+      provider: Andrew
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-02-01
+        provider: Angela
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-01-24
+        provider: Angela
+      - code_type: CPT
+        code_value: 66840 # Cataract surgery
+        start_datetime: 2017-03-01
+        stop_datetime: 2017-03-01
+        provider: Angela
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-01-24
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-02-01
+      - code_type: CPT
+        code_value: 67105 # Cataract complication procedure
+        start_datetime: 2017-03-20
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 21
+        start_datetime: 2017-02-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.3522 # Diabetes
+        claim_id: 18930400
+        start_datetime: 2016-05-01
+      - code_type: SNOMEDCT
+        code_value: 423059004 # 20/40 vision
+        start_datetime: 2017-03-20
+      - code_type: SNOMEDCT
+        code_value: 266924008 # Tobacco non-user
+        start_datetime: 2017-02-01
+  - name: Theresa Reiner
+    attributes:
+      date_of_birth: 1956-09-02
+      given_name: Theresa
+      family_name: Reiner
+      sex: Female
+      provider: Andrew
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-02-01
+        provider: Angela
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-01-24
+        provider: Angela
+      - code_type: CPT
+        code_value: 66840 # Cataract surgery
+        start_datetime: 2017-03-01
+        stop_datetime: 2017-03-01
+        provider: Angela
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-01-24
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 304549008 # High BMI follow-up
+        start_datetime: 2016-01-20
+      - code_type: CPT
+        code_value: 67105 # Cataract complication procedure
+        start_datetime: 2017-03-20
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 30
+        start_datetime: 2017-02-01
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 423059004 # 20/40 vision
+        start_datetime: 2017-06-20
+      - code_type: SNOMEDCT
+        code_value: 160603005 # Tobacco user
+        start_datetime: 2017-02-01
+      medications:
+      - code_type: RXNORM
+        code_value: 1232585 # Tobacco pharmacotherapy
+        quantity: 30
+        start_datetime: 2017-02-01
+  - name: Yvette Li
+    attributes:
+      date_of_birth: 1956-09-02
+      given_name: Yvette
+      family_name: Li
+      sex: Female
+      provider: Andrew
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-02-01
+        provider: Angela
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-01-24
+        provider: Angela
+      - code_type: CPT
+        code_value: 66840 # Cataract surgery
+        start_datetime: 2017-03-01
+        stop_datetime: 2017-03-01
+        provider: Angela
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-01-24
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_datetime: 2017-02-01
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 29
+        start_datetime: 2017-02-01
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 423059004 # 20/40 vision
+        start_datetime: 2017-03-20
+      - code_type: SNOMEDCT
+        code_value: 266924008 # Tobacco non-user
+        start_datetime: 2017-02-01
+  - name: Amy Filbert
+    attributes:
+      date_of_birth: 1965-03-22
+      given_name: Amy
+      family_name: Filbert
+      sex: Female
+      provider: Andrew
+    health_plan_id: Commercial Payer
+  - name: Coretta Smith
+    attributes:
+      date_of_birth: 1960-01-05
+      given_name: Coretta
+      family_name: Smith
+      sex: Female
+      provider: Andrew
+    health_plan_id: Commercial Payer
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-02-01
+        claim_id: 174399000
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2016-09-20
+        claim_id: 149583000
+      - code_type: SNOMEDCT
+        code_value: 252779009 # Eye exam
+        start_datetime: 2017-02-01
+      - code_type: SNOMEDCT
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        claim_id: 174399000
+        start_datetime: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        claim_id: 149583000
+        start_datetime: 2016-09-20
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 10524-7 # Cervical cytology
+        result: Negative
+        start_datetime: 2017-02-01
+      - code_type: LOINC
+        code_value: 12503-9 # FOBT
+        result: Negative
+        start_datetime: 2017-02-01
+      - code_type: LOINC
+        code_value: 4548-4 # HbA1c
+        result: 8.1
+        start_datetime: 2017-02-01
+  - name: Richard Brown
+    attributes:
+      date_of_birth: 1956-10-18
+      given_name: Richard
+      family_name: Brown
+      sex: Male
+      provider: Andrew
+    health_plan_id: Commercial Payer
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 12503-9 # FOBT
+        result: Negative
+        start_datetime: 2010-08-22
+  - name: Duke Bradford
+    attributes:
+      date_of_birth: 1952-06-12
+      given_name: Duke
+      family_name: Bradford
+      sex: Male
+      provider: Andrew
+    health_plan_id: Commercial Payer
+  - name: Miguel Alvarez
+    attributes:
+      date_of_birth: 1983-02-04
+      given_name: Miguel
+      family_name: Alvarez
+      sex: Male
+      provider: Andrew
+    health_plan_id: Commercial Payer
+  - name: Lucas Wong
+    attributes:
+      date_of_birth: 1988-10-24
+      given_name: Lucas
+      family_name: Wong
+      sex: Male
+      provider: Andrew
+    health_plan_id: Commercial Payer
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-02-01
+        claim_id: 174399000
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2016-09-20
+        claim_id: 149583000
+      - code_type: SNOMEDCT
+        code_value: 252779009 # Eye exam
+        start_datetime: 2017-02-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        claim_id: 174399000
+        start_datetime: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        claim_id: 149583000
+        start_datetime: 2016-09-20
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 4548-4 # HbA1c
+        result: 7.6
+        start_datetime: 2016-12-18
+  - name: Robert Woo
+    attributes:
+      date_of_birth: 1976-09-13
+      given_name: Robert
+      family_name: Woo
+      sex: Male
+      provider: Andrew
+    health_plan_id: Commercial Payer
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-02-01
+        claim_id: 174399000
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2016-09-20
+        claim_id: 149583000
+      - code_type: SNOMEDCT
+        code_value: 252779009 # Eye exam
+        start_datetime: 2017-02-01
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        claim_id: 174399000
+        start_datetime: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        claim_id: 149583000
+        start_datetime: 2016-09-20
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 4548-4 # HbA1c
+        result: 7.2
+        start_datetime: 2017-01-18
+  - name: Lisa Ellis
+    attributes:
+      date_of_birth: 1960-04-30
+      given_name: Lisa
+      family_name: Ellis
+      sex: Female
+      provider: Andrew
+    health_plan_id: Commercial Payer
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-02-01
+        claim_id: 174399000
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2016-09-20
+        claim_id: 149583000
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 10524-7 # Cervical cytology
+        result: Negative
+        start_datetime: 2017-02-01
+      - code_type: LOINC
+        code_value: 12503-9 # FOBT
+        result: Negative
+        start_datetime: 2017-02-01
+      - code_type: LOINC
+        code_value: 4548-4 # HbA1c
+        result: 8.7
+        start_datetime: 2017-01-18
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        claim_id: 174399000
+        start_datetime: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        claim_id: 149583000
+        start_datetime: 2016-09-20
+  - name: Maureen Sanders
+    attributes:
+      date_of_birth: 1956-09-02
+      given_name: Maureen
+      family_name: Sanders
+      sex: Female
+      provider: Andrew
+    health_plan_id: Commercial Payer
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 10524-7 # Cervical cytology
+        result: Negative
+        start_datetime: 2010-09-28
+      - code_type: LOINC
+        code_value: 12503-9 # FOBT
+        result: Negative
+        start_datetime: 2009-03-17
+  - name: Mika Nichols
+    attributes:
+      date_of_birth: 1956-09-02
+      given_name: Mika
+      family_name: Nichols
+      sex: Female
+      provider: Andrew
+    health_plan_id: Commercial Payer
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 10524-7 # Cervical cytology
+        result: Negative
+        start_datetime: 2017-02-01
+      - code_type: LOINC
+        code_value: 12503-9 # FOBT
+        result: Negative
+        start_datetime: 2017-02-01
