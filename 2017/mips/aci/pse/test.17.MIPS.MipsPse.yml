@@ -164,7 +164,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99397
+        code_value: 99201
         start_datetime: 2015-12-31
         provider: Rachel
   - name: Encounter Lower
@@ -177,7 +177,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99397
+        code_value: 99201
         start_datetime: 2016-01-01
         provider: Rachel
   - name: Encounter Upper
@@ -190,7 +190,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99397
+        code_value: 99201
         start_datetime: 2016-12-31
         provider: Rachel
   - name: Encounter Late
@@ -203,22 +203,22 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99397
+        code_value: 99201
         start_datetime: 2017-01-01
         provider: Rachel
-  - name: Education Early
+  - name: Education Before
     attributes:
       date_of_birth: 1988-03-22
       given_name: Education
-      family_name: Early
+      family_name: Before
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99397
+        code_value: 99201
         start_datetime: 2016-01-01
-        provider: Rachel
+        provider: Patty
       - code_type: SNOMEDCT
         code_value: 171040007
         start_datetime: 2015-12-31
@@ -232,9 +232,9 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99397
+        code_value: 99201
         start_datetime: 2016-01-01
-        provider: Rachel
+        provider: Patty
       - code_type: SNOMEDCT
         code_value: 171040007
         start_datetime: 2016-01-01
@@ -248,25 +248,25 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99397
+        code_value: 99201
         start_datetime: 2016-01-01
-        provider: Rachel
+        provider: Patty
       - code_type: SNOMEDCT
         code_value: 171040007
         start_datetime: 2016-12-31
-  - name: Education Late
+  - name: Education After
     attributes:
       date_of_birth: 1988-03-22
       given_name: Education
-      family_name: Late
+      family_name: After
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99397
+        code_value: 99201
         start_datetime: 2016-01-01
-        provider: Rachel
+        provider: Patty
       - code_type: SNOMEDCT
         code_value: 171040007
         start_datetime: 2017-01-01
@@ -279,10 +279,11 @@ patients:
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Patty
       - code_type: ABLE
         code_value: MIPS-ACI-PSE
         start_datetime: 2016-01-01
-        provider: Rachel
-      - code_type: SNOMEDCT
-        code_value: 171040007
-        start_datetime: 2016-01-01
+        provider: Patty
