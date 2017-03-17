@@ -2,7 +2,7 @@ measure_id: 17.MIPS.MipsHie
 test_set_keys:
   organization_key:
     episodes_of_care:
-      - name: Referral Early # Referral too early
+      - name: Referral Before # Referral too early
         start_datetime: 2015-12-31
         denominator:
         denominator_exclusion:
@@ -20,7 +20,7 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
-      - name: Referral Late # Referral too late
+      - name: Referral After # Referral too late
         start_datetime: 2017-01-01
         denominator:
         denominator_exclusion:
@@ -65,7 +65,7 @@ test_set_keys:
   providers_key:
     - name: Rachel
       episodes_of_care:
-        - name: Referral Early # Referral too early
+        - name: Referral Before # Referral too early
           start_datetime: 2015-12-31
           denominator:
           denominator_exclusion:
@@ -83,7 +83,7 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
-        - name: Referral Late # Referral too late
+        - name: Referral After # Referral too late
           start_datetime: 2017-01-01
           denominator:
           denominator_exclusion:
@@ -127,7 +127,7 @@ test_set_keys:
           numerator:
     - name: Patty
       episodes_of_care:
-        - name: Referral Early # Referral too early
+        - name: Referral Before # Referral too early
           start_datetime: 2015-12-31
           denominator:
           denominator_exclusion:
@@ -145,7 +145,7 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Referral Late # Referral too late
+        - name: Referral After # Referral too late
           start_datetime: 2017-01-01
           denominator:
           denominator_exclusion:
@@ -199,11 +199,11 @@ providers:
   primary_specialty: Family Medicine
   pqrs_provider: true
 patients:
-  - name: Referral Early
+  - name: Referral Before
     attributes:
       date_of_birth: 1988-03-22
       given_name: Referral
-      family_name: Early
+      family_name: Before
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
@@ -238,11 +238,11 @@ patients:
         code_value: 306338003
         start_datetime: 2016-12-31
         provider: Rachel
-  - name: Referral Late
+  - name: Referral After
     attributes:
       date_of_birth: 1988-03-22
       given_name: Referral
-      family_name: Late
+      family_name: After
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:

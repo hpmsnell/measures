@@ -2,7 +2,7 @@ measure_id: 17.MIPS.MipsPpa
 test_set_keys:
   organization_key:
     patients:
-      - name: Encounter Early # Encounter too early
+      - name: Encounter Before # Encounter too early
         denominator:
         denominator_exclusion:
         denominator_exception:
@@ -17,7 +17,7 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
-      - name: Encounter Late # Encounter too late
+      - name: Encounter After # Encounter too late
         denominator:
         denominator_exclusion:
         denominator_exception:
@@ -45,7 +45,7 @@ test_set_keys:
   providers_key:
     - name: Rachel
       patients:
-        - name: Encounter Early # Encounter too early
+        - name: Encounter Before # Encounter too early
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -60,7 +60,7 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
-        - name: Encounter Late # Encounter too late
+        - name: Encounter After # Encounter too late
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -87,7 +87,7 @@ test_set_keys:
           numerator:
     - name: Patty
       patients:
-        - name: Encounter Early # Encounter too early
+        - name: Encounter Before # Encounter too early
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -102,7 +102,7 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Encounter Late # Encounter too late
+        - name: Encounter After # Encounter too late
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -139,17 +139,17 @@ providers:
   primary_specialty: Family Medicine
   pqrs_provider: true
 patients:
-  - name: Encounter Early
+  - name: Encounter Before
     attributes:
       date_of_birth: 1988-03-22
       given_name: Encounter
-      family_name: Early
+      family_name: Before
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99397
+        code_value: 99201
         start_datetime: 2015-12-31
         provider: Rachel
   - name: Encounter Lower
@@ -162,7 +162,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99397
+        code_value: 99201
         start_datetime: 2016-01-01
         provider: Rachel
   - name: Encounter Upper
@@ -175,20 +175,20 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99397
+        code_value: 99201
         start_datetime: 2016-12-31
         provider: Rachel
-  - name: Encounter Late
+  - name: Encounter After
     attributes:
       date_of_birth: 1988-03-22
       given_name: Encounter
-      family_name: Late
+      family_name: After
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99397
+        code_value: 99201
         start_datetime: 2017-01-01
         provider: Rachel
   - name: Notification Before
@@ -201,7 +201,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99397
+        code_value: 99201
         start_datetime: 2016-02-01 09:00:00
         stop_datetime: 2016-02-01 09:30:00
         provider: Patty
@@ -218,7 +218,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99397
+        code_value: 99201
         start_datetime: 2016-02-01 09:00:00
         stop_datetime: 2016-02-01 09:30:00
         provider: Patty
@@ -235,7 +235,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99397
+        code_value: 99201
         start_datetime: 2016-02-01 09:00:00
         stop_datetime: 2016-02-01 09:30:00
         provider: Patty
@@ -252,7 +252,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99397
+        code_value: 99201
         start_datetime: 2016-02-01 09:00:00
         stop_datetime: 2016-02-01 09:30:00
         provider: Patty
