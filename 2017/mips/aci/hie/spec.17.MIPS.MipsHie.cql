@@ -27,7 +27,7 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Denominator Episode":
-  ["Intervention, Performed": "Able; Referral"] I
+  ["Intervention, Performed": "VSAC; Referral"] I
     where I.relevantPeriod starts during "Measurement Period"
       and I.signingProvider.pqrsProvider = 1
 
@@ -36,7 +36,7 @@ define "Denominator"
 
 define "Summary of Care":
   ["Procedure, Performed": "Able; Summary of Care"]
-  union ["Procedure, Performed": "VSAC; TransferDocumentType"]
+  union ["Procedure, Performed": "Able; Transfer Document"]
 
 define "Numerator Performance Met":
   /*
