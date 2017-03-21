@@ -1,0 +1,117 @@
+measure:
+  name: 17.MIPS.Mips154
+  required:
+    display_title: "Falls: Risk Assessment"
+  optional:
+    gap_resolution_action: "Patient is due for a risk assessment for falls"
+    set: MIPS
+    external_id: 154
+    version: 2017
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: "Patient is excluded due to hospice service during the measurement period"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 154 Encounter"
+        - count: 2
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Falls"
+            - model: Diagnosis
+              value_set: "Able; Fall"
+            - model: ClinicalActivity
+              value_set: "MIPS; Falls in Past Year"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Hospice Serice"
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+performance_met_reasons:
+  - config_link_id: 3288F
+    required:
+      display_title: "Falls risk assessment documented"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 154 Encounter"
+        - count: 2
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Falls"
+            - model: Diagnosis
+              value_set: "Able; Fall"
+            - model: ClinicalActivity
+              value_set: "MIPS; Falls in Past Year"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3288F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Falls Screening"
+    optional:
+      code_value: 3288F
+exception_reasons:
+  - config_link_id: 3288F-1P
+    required:
+      display_title: "Documentation of medical reason(s) for not completing a risk assessment for falls (e.g., patient is not ambulatory, bed ridden, immobile, confined to chair, wheelchair bound, dependent on helper pushing wheelchair, independent in wheelchair or minimal help in wheelchair)"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 154 Encounter"
+        - count: 2
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Falls"
+            - model: Diagnosis
+              value_set: "Able; Fall"
+            - model: ClinicalActivity
+              value_set: "MIPS; Falls in Past Year"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 3288F-1P"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Patient not ambulatory"
+    optional:
+      code_value: 3288F-1P
+performance_not_met_reasons:
+  - config_link_id: 3288F-8P
+    required:
+      display_title: "Falls risk assessment not completed, reason not otherwise specified"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 154 Encounter"
+        - count: 2
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Falls"
+            - model: Diagnosis
+              value_set: "Able; Fall"
+            - model: ClinicalActivity
+              value_set: "MIPS; Falls in Past Year"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3288F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 3288F-8P"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Falls Screening"
+    optional:
+      code_value: 3288F-8P
