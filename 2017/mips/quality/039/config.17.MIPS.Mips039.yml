@@ -1,0 +1,79 @@
+measure:
+  name: 17.MIPS.Mips039
+  required:
+    display_title: "Screening for Osteoporosis for Women Aged 65-85"
+  optional:
+    gap_resolution_action: "Patient is due for screening for osteoporosis"
+    set: MIPS
+    external_id: 039
+    version: 2017
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: "Patient is excluded due to hospice service during the measurement period"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 039 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Osteoporosis"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Hospice Serice"
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+performance_met_reasons:
+  - config_link_id: G8399
+    required:
+      display_title: "Patient with documented results of a central Dual-energy X-Ray Absorptiometry (DXA) ever being performed"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 039 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Osteoporosis"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8399"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Axial Dual-Energy X-Ray Absorptiometry (DXA)"
+    optional:
+      code_value: G8399
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: G8400
+    required:
+      display_title: "Patient with central Dual-energy X-Ray Absorptiometry (DXA) results not documented, reason not given"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 039 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Osteoporosis"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8400"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8399"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Axial Dual-Energy X-Ray Absorptiometry (DXA)"
+    optional:
+      code_value: G8400
