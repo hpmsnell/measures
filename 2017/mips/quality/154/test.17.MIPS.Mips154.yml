@@ -52,6 +52,26 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator:
+      - name: Injury Before # Injury too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Injury Lower # Injury at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3288F-8P
+      - name: Injury Upper # Injury at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3288F-8P
+      - name: Injury After # Injury too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
       - name: 2Falls Before # Falls too late
         denominator:
         denominator_exclusion:
@@ -221,6 +241,26 @@ test_set_keys:
           denominator_exception:
           numerator: 3288F-8P
         - name: Falls After # Falls too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Injury Before # Injury too early
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Injury Lower # Injury at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3288F-8P
+        - name: Injury Upper # Injury at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3288F-8P
+        - name: Injury After # Injury too late
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -521,6 +561,74 @@ patients:
       - code_type: CPT
         code_value: 1100F
         start_datetime: 2017-01-01
+  - name: Injury Before
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Injury
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 18890001000004100
+        start_datetime: 2016-01-01
+  - name: Injury Lower
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Injury
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 18890001000004100
+        start_datetime: 2016-01-01
+  - name: Injury Upper
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Injury
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 18890001000004100
+        start_datetime: 2016-01-01
+  - name: Injury After
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Injury
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 18890001000004100
+        start_datetime: 2016-01-01
   - name: 2Falls Before
     attributes:
       date_of_birth: 1940-05-19

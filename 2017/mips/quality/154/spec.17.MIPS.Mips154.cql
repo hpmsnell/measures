@@ -34,6 +34,7 @@ valueset "HEDIS; Falls": '2.16.840.1.113883.3.464.1004.1101'
 // Able Value Sets
 
 valueset "Able; Fall"
+valueset "Able; Fall with Injury"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -54,6 +55,8 @@ define "Denominator":
   and (
     exists(["Procedure, Performed": "MIPS; Falls in Past Year"] P
       where P.relevantPeriod starts during "Measurement Period")
+    or exists(["Diagnosis": "Able; Fall with Injury"] D
+      where D.prevalencePeriod starts 1 year or less before start of E.relevantPeriod)
     or count("Fall" D
       with "Denominator Encounter" E
         such that D.prevalencePeriod starts 1 year or less before start of E.relevantPeriod) >= 2
