@@ -36,9 +36,8 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists("Denominator Encounter" E
-    with ["Procedure, Performed": "Able; Performance Met: MIPS ACI PPA"] P
-      such that P.relevantPeriod starts during or 4 business days or less after end E.relevantPeriod)
+  exists(["Procedure, Performed": "Able; Performance Met: MIPS ACI PPA"] P
+      where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met"
   /*
