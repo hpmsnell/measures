@@ -39,12 +39,11 @@ define "Denominator Encounter":
       and AgeInYearsAt(start of E.relevantPeriod) < 85
       and "Patient Characteristic Sex" = "Female"
       and E.signingProvider.pqrsProvider = true
+    with ["Diagnosis": "MIPS; Osteoporosis"] D
+      such that not D.prevalencePeriod starts during E.relevantPeriod
 
 define "Denominator":
   exists("Denominator Encounter")
-  and not exists(["Diagnosis": "MIPS; Osteoporosis"] D
-    with "Denominator Encounter" E
-      such that D.prevalencePeriod starts during E.relevantPeriod)
 
 define "Denominator Exclusion":
   /*

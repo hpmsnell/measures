@@ -51,16 +51,17 @@ define "Fall":
   union ["Diagnosis": "Able; Fall"]
 
 define "Denominator":
-  exists("Denominator Encounter")
-  and (
-    exists(["Procedure, Performed": "MIPS; Falls in Past Year"] P
+  (
+    exists("Denominator Encounter")
+    and exists(["Procedure, Performed": "MIPS; Falls in Past Year"] P
       where P.relevantPeriod starts during "Measurement Period")
-    or exists(["Diagnosis": "Able; Fall with Injury"] D
-      where D.prevalencePeriod starts 1 year or less before start of E.relevantPeriod)
-    or count("Fall" D
-      with "Denominator Encounter" E
-        such that D.prevalencePeriod starts 1 year or less before start of E.relevantPeriod) >= 2
   )
+  or exists(["Diagnosis": "Able; Fall with Injury"] D
+    with "Denominator Encounter" E
+      such that D.prevalencePeriod starts 1 year or less before start of E.relevantPeriod)
+  or count("Fall" D
+    with "Denominator Encounter" E
+      such that D.prevalencePeriod starts 1 year or less before start of E.relevantPeriod) >= 2
 
 define "Denominator Exclusion":
   /*
