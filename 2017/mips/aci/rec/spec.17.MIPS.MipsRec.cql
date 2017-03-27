@@ -20,12 +20,22 @@ valueset "Able; Medication Allergy Reconciliation"
 valueset "Able; Problem List Reconciliation"
 valueset "Able; Performance Met: MIPS ACI REC"
 
+// VSAC Value Sets
+
+valueset "VSAC; Preventive Care Services-Initial Office Visit, 18 and Up": '2.16.840.1.113883.3.464.1003.101.12.1023'
+valueset "VSAC; Preventive Care- Initial Office Visit, 0 to 17": '2.16.840.1.113883.3.464.1003.101.12.1022'
+
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
+define "Denominator-Eligible Visit"
+  ["Encounter, Performed": "Able; Transition of Care"]
+  union ["Encounter, Performed": "VSAC; Preventive Care Services-Initial Office Visit, 18 and Up"]
+  union ["Encounter, Performed": "VSAC; Preventive Care- Initial Office Visit, 0 to 17"]
+
 define "Denominator Episode"
-  ["Encounter, Performed": "Able; Transition of Care"] E
+  "Denominator-Eligible Visit" E
     where E.relevantPeriod starts during "Measurement Period"
       and E.signingProvider.pqrsProvider = 1
 
