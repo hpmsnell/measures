@@ -2,54 +2,126 @@ measure_id: 17.MIPS.MipsHie
 test_set_keys:
   organization_key:
     episodes_of_care:
-      - name: Encounter Before # Encounter too early
+      - name: Denominator Encounter # Encounter too early
         start_datetime: 2015-12-31
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
-      - name: Encounter Lower # Encounter at lower bound
+      - name: Denominator Encounter # Encounter at lower bound
         start_datetime: 2016-01-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
-      - name: Encounter Upper # Encounter at upper bound
+      - name: Denominator Encounter # Encounter at upper bound
         start_datetime: 2016-12-31
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
-      - name: Encounter After # Encounter too late
+      - name: Denominator Encounter # Encounter too late
         start_datetime: 2017-01-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
-      - name: Reconciliation Before # Reconciliation before Encounter
+      - name: Medication Reconciliation # Reconciliation before Encounter
         start_datetime: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
-      - name: Reconciliation Lower # Reconciliation lower bound Encounter
-        start_datetime: 2016-02-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_met
-      - name: Reconciliation Upper # Reconciliation upper bound Encounter
-        start_datetime: 2016-02-01
+        numerator: no_medication
+      - name: Medication Reconciliation # Reconciliation lower bound Encounter
+        start_datetime: 2016-03-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_met
-      - name: Reconciliation After # Reconciliation after Encounter
+      - name: Medication Reconciliation # Reconciliation upper bound Encounter
+        start_datetime: 2016-04-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
+      - name: Medication Reconciliation # Reconciliation after Encounter
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: no_medication
+      - name: Allergy Reconciliation # Reconciliation before Encounter
         start_datetime: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: no_allergy
+      - name: Allergy Reconciliation # Reconciliation after Encounter
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: no_allergy
+      - name: Problem Reconciliation # Reconciliation before Encounter
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: no_problem
+      - name: Problem Reconciliation # Reconciliation after Encounter
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: no_problem
+      - name: MedicationProblem Reconciliation # Reconciliation before Encounter
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: no_medication_problem
+      - name: MedicationProblem Reconciliation # Reconciliation after Encounter
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: no_medication_problem
+      - name: MedicationAllergy Reconciliation # Reconciliation before Encounter
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: no_medication_allergy
+      - name: MedicationAllergy Reconciliation # Reconciliation after Encounter
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: no_medication_allergy
+      - name: ProblemAllergy Reconciliation # Reconciliation before Encounter
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: no_problem_allergy
+      - name: ProblemAllergy Reconciliation # Reconciliation after Encounter
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: no_problem_allergy
+      - name: No Reconciliations # Reconciliation before Encounter
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: no_reconciliation
+      - name:  Reconciliations # Reconciliation after Encounter
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: no_reconciliation
   providers_key:
     - name: Rachel
       episodes_of_care:
@@ -163,11 +235,11 @@ providers:
   primary_specialty: Family Medicine
   pqrs_provider: true
 patients:
-  - name: Encounter Before
+  - name: Denominator Encounter
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Encounter
-      family_name: Before
+      given_name: Denominator
+      family_name: Encounter
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
@@ -176,50 +248,23 @@ patients:
         code_value: 1861000124105
         start_datetime: 2015-12-31
         provider: Rachel
-  - name: Encounter Lower
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: Encounter
-      family_name: Lower
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
       - code_type: SNOMEDCT
         code_value: 1861000124105
         start_datetime: 2016-01-01
         provider: Rachel
-  - name: Encounter Upper
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: Encounter
-      family_name: Upper
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
       - code_type: SNOMEDCT
         code_value: 1861000124105
         start_datetime: 2016-12-31
         provider: Rachel
-  - name: Encounter After
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: Encounter
-      family_name: After
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
       - code_type: SNOMEDCT
         code_value: 1861000124105
         start_datetime: 2017-01-01
         provider: Rachel
-  - name: Reconciliation Before
+  - name: Medication Reconciliation
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Reconciliation
-      family_name: Before
+      given_name: Medication
+      family_name: Reconciliation
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
@@ -229,14 +274,62 @@ patients:
         start_datetime: 2016-02-01
         stop_datetime: 2016-02-02
         provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-01-31 # Early
       - code_type: ABLE
-        code_value: MIPS-ACI-REC
-        start_datetime: 2016-01-31
-  - name: Reconciliation Lower
+        code_value: MIPS-ACI-REC-ALLERGY
+        start_datetime: 2016-02-01
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-PROBLEM
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-03-01
+        stop_datetime: 2016-03-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-03-01 # Lower
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-ALLERGY
+        start_datetime: 2016-03-01
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-PROBLEM
+        start_datetime: 2016-03-01
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-04-01
+        stop_datetime: 2016-04-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-04-02 # Upper
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-ALLERGY
+        start_datetime: 2016-04-01
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-PROBLEM
+        start_datetime: 2016-04-01
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-05-01
+        stop_datetime: 2016-05-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-05-03 # Late
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-ALLERGY
+        start_datetime: 2016-05-01
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-PROBLEM
+        start_datetime: 2016-05-01
+  - name: Allergy Reconciliation
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Reconciliation
-      family_name: Lower
+      given_name: Allergy
+      family_name: Reconciliation
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
@@ -246,14 +339,39 @@ patients:
         start_datetime: 2016-02-01
         stop_datetime: 2016-02-02
         provider: Rachel
-      - code_type: ABLE
-        code_value: MIPS-ACI-REC
+      - code_type: SNOMEDCT
+        code_value: 430193006
         start_datetime: 2016-02-01
-  - name: Reconciliation Upper
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-ALLERGY
+        start_datetime: 2016-01-31 # Early
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-PROBLEM
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-03-01
+        stop_datetime: 2016-03-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-05-01
+        stop_datetime: 2016-05-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-05-01
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-ALLERGY
+        start_datetime: 2016-05-03 # Late
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-PROBLEM
+        start_datetime: 2016-05-01
+  - name: Problem Reconciliation
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Reconciliation
-      family_name: Upper
+      given_name: Problem
+      family_name: Reconciliation
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
@@ -263,14 +381,39 @@ patients:
         start_datetime: 2016-02-01
         stop_datetime: 2016-02-02
         provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-02-01
       - code_type: ABLE
-        code_value: MIPS-ACI-REC
-        start_datetime: 2016-02-02
-  - name: Reconciliation After
+        code_value: MIPS-ACI-REC-ALLERGY
+        start_datetime: 2016-02-01
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-PROBLEM
+        start_datetime: 2016-01-31 # Early
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-03-01
+        stop_datetime: 2016-03-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-05-01
+        stop_datetime: 2016-05-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-05-01
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-ALLERGY
+        start_datetime: 2016-05-01
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-PROBLEM
+        start_datetime: 2016-05-03 # Late
+  - name: MedicationProblem Reconciliation
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Reconciliation
-      family_name: After
+      given_name: MedicationProblem
+      family_name: Reconciliation
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
@@ -279,7 +422,158 @@ patients:
         code_value: 1861000124105
         start_datetime: 2016-02-01
         stop_datetime: 2016-02-02
-        provider: Patty
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-01-31 # Early
       - code_type: ABLE
-        code_value: MIPS-ACI-REC
-        start_datetime: 2016-02-03
+        code_value: MIPS-ACI-REC-ALLERGY
+        start_datetime: 2016-02-01
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-PROBLEM
+        start_datetime: 2016-01-31 # Early
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-03-01
+        stop_datetime: 2016-03-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-05-01
+        stop_datetime: 2016-05-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-05-03 # Late
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-ALLERGY
+        start_datetime: 2016-05-01
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-PROBLEM
+        start_datetime: 2016-05-03 # Late
+  - name: MedicationAllergy Reconciliation
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: MedicationAllergy
+      family_name: Reconciliation
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-01-31 # Early
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-ALLERGY
+        start_datetime: 2016-01-31 # Early
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-PROBLEM
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-03-01
+        stop_datetime: 2016-03-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-05-01
+        stop_datetime: 2016-05-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-05-03 # Late
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-ALLERGY
+        start_datetime: 2016-05-03 # Late
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-PROBLEM
+        start_datetime: 2016-05-01
+  - name: ProblemAllergy Reconciliation
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: ProblemAllergy
+      family_name: Reconciliation
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-02-01
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-ALLERGY
+        start_datetime: 2016-01-31 # Early
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-PROBLEM
+        start_datetime: 2016-01-31 # Early
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-03-01
+        stop_datetime: 2016-03-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-05-01
+        stop_datetime: 2016-05-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-05-01
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-ALLERGY
+        start_datetime: 2016-05-03 # Late
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-PROBLEM
+        start_datetime: 2016-05-03 # Late
+  - name: No Reconciliation
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: No
+      family_name: Reconciliation
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-01-31 # Early
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-ALLERGY
+        start_datetime: 2016-01-31 # Early
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-PROBLEM
+        start_datetime: 2016-01-31 # Early
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-03-01
+        stop_datetime: 2016-03-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-05-01
+        stop_datetime: 2016-05-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-05-03 # Late
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-ALLERGY
+        start_datetime: 2016-05-03 # Late
+      - code_type: ABLE
+        code_value: MIPS-ACI-REC-PROBLEM
+        start_datetime: 2016-05-03 # Late
