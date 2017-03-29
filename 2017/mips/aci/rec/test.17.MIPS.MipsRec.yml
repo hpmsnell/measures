@@ -2,25 +2,25 @@ measure_id: 17.MIPS.MipsHie
 test_set_keys:
   organization_key:
     episodes_of_care:
-      - name: Encounter Before # Encounter too early
+      - name: Denominator Encounter # Encounter too early
         start_datetime: 2015-12-31
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
-      - name: Encounter Lower # Encounter at lower bound
+      - name: Denominator Encounter # Encounter at lower bound
         start_datetime: 2016-01-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
-      - name: Encounter Upper # Encounter at upper bound
+      - name: Denominator Encounter # Encounter at upper bound
         start_datetime: 2016-12-31
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
-      - name: Encounter After # Encounter too late
+      - name: Denominator Encounter # Encounter too late
         start_datetime: 2017-01-01
         denominator:
         denominator_exclusion:
@@ -50,34 +50,40 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
+      - name: SNOMED Reconciliation # Reconciliation upper bound Encounter
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
   providers_key:
     - name: Rachel
       episodes_of_care:
-        - name: Encounter Before # Encounter too early
+        - name: Denominator Encounter # Encounter too early
           start_datetime: 2015-12-31
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Encounter Lower # Encounter at lower bound
+        - name: Denominator Encounter # Encounter at lower bound
           start_datetime: 2016-01-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
-        - name: Encounter Upper # Encounter at upper bound
+        - name: Denominator Encounter # Encounter at upper bound
           start_datetime: 2016-12-31
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
-        - name: Encounter After # Encounter too late
+        - name: Denominator Encounter # Encounter too late
           start_datetime: 2017-01-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Reconciliation Before # Reconciliation before Encounter
+        - name: Reconciliation Lower # Reconciliation before Encounter
           start_datetime: 2016-02-01
           denominator: 1
           denominator_exclusion:
@@ -96,6 +102,12 @@ test_set_keys:
           denominator_exception:
           numerator: performance_met
         - name: Reconciliation After # Reconciliation after Encounter
+          start_datetime: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: SNOMED Reconciliation # Reconciliation upper bound Encounter
           start_datetime: 2016-02-01
           denominator:
           denominator_exclusion:
@@ -103,25 +115,25 @@ test_set_keys:
           numerator:
     - name: Patty
       episodes_of_care:
-        - name: Encounter Before # Encounter too early
+        - name: Denominator Encounter # Encounter too early
           start_datetime: 2015-12-31
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Encounter Lower # Encounter at lower bound
+        - name: Denominator Encounter # Encounter at lower bound
           start_datetime: 2016-01-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Encounter Upper # Encounter at upper bound
+        - name: Denominator Encounter # Encounter at upper bound
           start_datetime: 2016-12-31
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Encounter After # Encounter too late
+        - name: Denominator Encounter # Encounter too late
           start_datetime: 2017-01-01
           denominator:
           denominator_exclusion:
@@ -151,6 +163,12 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
+        - name: SNOMED Reconciliation # Reconciliation upper bound Encounter
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met
 providers:
 - given_name: Rachel
   family_name: Kohler
@@ -163,11 +181,11 @@ providers:
   primary_specialty: Family Medicine
   pqrs_provider: true
 patients:
-  - name: Encounter Before
+  - name: Denominator Encounter
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Encounter
-      family_name: Before
+      given_name: Denominator
+      family_name: Encounter
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
@@ -176,41 +194,14 @@ patients:
         code_value: 1861000124105
         start_datetime: 2015-12-31
         provider: Rachel
-  - name: Encounter Lower
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: Encounter
-      family_name: Lower
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
       - code_type: SNOMEDCT
         code_value: 1861000124105
         start_datetime: 2016-01-01
         provider: Rachel
-  - name: Encounter Upper
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: Encounter
-      family_name: Upper
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
       - code_type: SNOMEDCT
         code_value: 1861000124105
         start_datetime: 2016-12-31
         provider: Rachel
-  - name: Encounter After
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: Encounter
-      family_name: After
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
       - code_type: SNOMEDCT
         code_value: 1861000124105
         start_datetime: 2017-01-01
@@ -283,3 +274,20 @@ patients:
       - code_type: ABLE
         code_value: MIPS-ACI-REC
         start_datetime: 2016-02-03
+  - name: SNOMED Reconciliation
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: SNOMED
+      family_name: Reconciliation
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: SNOMEDCT
+        code_value: 1861000124105
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
+        provider: Patty
+      - code_type: SNOMEDCT
+        code_value: 430193006
+        start_datetime: 2016-02-01

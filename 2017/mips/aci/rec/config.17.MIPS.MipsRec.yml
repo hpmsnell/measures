@@ -26,6 +26,8 @@ performance_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "Able; Performance Met: MIPS ACI REC"
+            - model: ClinicalActivity
+              value_set: "Able; Medication Reconciliation"
 performance_not_met_reasons:
   - config_link_id: performance_not_met
     required:
@@ -43,3 +45,5 @@ performance_not_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "Able; Performance Met: MIPS ACI REC"
+            - model: ClinicalActivity
+              value_set: "Able; Medication Reconciliation"
