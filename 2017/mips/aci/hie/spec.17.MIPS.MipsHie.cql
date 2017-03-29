@@ -16,7 +16,7 @@ using QDM
 
 valueset "Able; Summary of Care"
 valueset "Able; Transfer Document"
-valueset "Able; Performance Met: MIPS ACI HIE"
+valueset "Able; Performance Met: ACI_TRANS_HIE_1"
 
 // VSAC Value Sets
 
@@ -43,7 +43,7 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   exists("Denominator Episode" I
-    with ["Procedure, Performed": "Able; Performance Met: MIPS ACI HIE"] P
+    with ["Procedure, Performed": "Able; Performance Met: ACI_TRANS_HIE_1"] P
       such that P.relevantPeriod starts during I.relevantPeriod)
   or exists("Denominator Episode" I
     with "Summary of Care" P

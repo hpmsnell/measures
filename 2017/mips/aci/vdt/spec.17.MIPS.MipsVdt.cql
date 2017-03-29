@@ -25,7 +25,7 @@ valueset "VSAC; Annual Wellness Visit": '2.16.840.1.113883.3.526.3.1240'
 
 // Able Value Sets
 
-valueset "Able; Performance Met: MIPS ACI VDT"
+valueset "Able; Performance Met: ACI_TRANS_PEA_2"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -50,7 +50,7 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists(["Procedure, Performed": "Able; Performance Met: MIPS ACI VDT"] P
+  exists(["Procedure, Performed": "Able; Performance Met: ACI_TRANS_PEA_2"] P
     where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met"
