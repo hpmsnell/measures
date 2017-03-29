@@ -46,80 +46,12 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists ("Denominator Episode" E
-    with
-      ["Procedure, Performed": "Able; Medication Reconciliation"] M
-        such that M.relevantPeriod starts during E.relevantPeriod
-      and ["Procedure, Performed": "Able; Problem List Reconciliation"] P
-        such that P.relevantPeriod starts during E.relevantPeriod
-      and ["Procedure, Performed": "Able; Medication Allergy Reconciliation"] A
-        such that A.relevantPeriod starts during E.relevantPeriod)
+  exists("Denominator Episode" E
+    with ["Procedure, Performed": "Able; Performance Met: MIPS ACI REC"] P
+      such that P.relevantPeriod starts during E.relevantPeriod)
 
-define "Numerator Performance Not Met: No Medication Reconciliation"
+define "Numerator Performance Not Met"
   /*
-   * config_link_id: no_medication
-   */
-  exists ("Denominator Episode" E
-    with
-      ["Procedure, Performed": "Able; Problem List Reconciliation"] P
-        such that P.relevantPeriod starts during E.relevantPeriod
-      and ["Procedure, Performed": "Able; Medication Allergy Reconciliation"] A
-        such that A.relevantPeriod starts during E.relevantPeriod)
-
-define "Numerator Performance Not Met: No Allergy Reconciliation"
-  /*
-   * config_link_id: no_allergy
-   */
-  exists ("Denominator Episode" E
-    with
-      ["Procedure, Performed": "Able; Medication Reconciliation"] M
-        such that M.relevantPeriod starts during E.relevantPeriod
-      and ["Procedure, Performed": "Able; Problem List Reconciliation"] P
-        such that P.relevantPeriod starts during E.relevantPeriod
-
-define "Numerator Performance Not Met: No Problem List Reconciliation"
-  /*
-   * config_link_id: no_problem
-   */
-  exists ("Denominator Episode" E
-    with
-      ["Procedure, Performed": "Able; Medication Reconciliation"] M
-        such that M.relevantPeriod starts during E.relevantPeriod
-      and ["Procedure, Performed": "Able; Medication Allergy Reconciliation"] A
-        such that A.relevantPeriod starts during E.relevantPeriod)
-
-define "Numerator Performance Not Met: No Medication and Allergy Reconciliation"
-  /*
-   * config_link_id: no_medication_allergy
-   */
-  exists ("Denominator Episode" E
-    with ["Procedure, Performed": "Able; Problem List Reconciliation"] P
-      such that P.relevantPeriod starts during E.relevantPeriod
-
-define "Numerator Performance Not Met: No Medication and Problem Reconciliation"
-  /*
-   * config_link_id: no_medication_problem
-   */
-  exists ("Denominator Episode" E
-    with ["Procedure, Performed": "Able; Medication Allergy Reconciliation"] A
-      such that A.relevantPeriod starts during E.relevantPeriod)
-
-define "Numerator Performance Not Met: No Problem and Allergy Reconciliation"
-  /*
-   * config_link_id: no_problem_allergy
-   */
-  exists ("Denominator Episode" E
-    with ["Procedure, Performed": "Able; Medication Reconciliation"] M
-      such that M.relevantPeriod starts during E.relevantPeriod
-
-define "Numerator Performance Not Met: No Reconciliations"
-  /*
-   * config_link_id: no_reconciliation
+   * config_link_id: performance_not_met
    */
   not "Numerator Performance Met"
-  and not "Numerator Performance Not Met: No Medication Reconciliation"
-  and not "Numerator Performance Not Met: No Allergy Reconciliation"
-  and not "Numerator Performance Not Met: No Problem List Reconciliation"
-  and not "Numerator Performance Not Met: No Medication and Allergy Reconciliation"
-  and not "Numerator Performance Not Met: No Medication and Problem Reconciliation"
-  and not "Numerator Performance Not Met: No Problem and Allergy Reconciliation"
