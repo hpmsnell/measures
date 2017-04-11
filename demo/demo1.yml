@@ -18,7 +18,7 @@ providers:
 patients:
   - name: Rose Odingo
     attributes:
-      date_of_birth: 1965-03-22
+      date_of_birth: 1950-03-22
       given_name: Rose
       family_name: Odingo
       sex: Female
@@ -48,6 +48,9 @@ patients:
       - code_type: LOINC
         code_value: 39156-5 # BMI
         result: 30
+        start_datetime: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 252908007 # Bladder diary
         start_datetime: 2017-02-01
       - code_type: SNOMEDCT
         code_value: 306338003 # Referral
@@ -81,7 +84,7 @@ patients:
         start_datetime: 2017-02-01
   - name: Simone Bella
     attributes:
-      date_of_birth: 1960-01-05
+      date_of_birth: 1948-01-05
       given_name: Simone
       family_name: Bella
       sex: Female
@@ -399,7 +402,7 @@ patients:
         start_datetime: 2017-02-01
   - name: Erica Ackerman
     attributes:
-      date_of_birth: 1960-04-30
+      date_of_birth: 1944-04-30
       given_name: Erica
       family_name: Ackerman
       sex: Female
@@ -540,12 +543,34 @@ patients:
         start_datetime: 2017-02-01
   - name: Amy Filbert
     attributes:
-      date_of_birth: 1965-03-22
+      date_of_birth: 1963-03-22
       given_name: Amy
       family_name: Filbert
       sex: Female
       provider: Andrew
     health_plan_id: Commercial Payer
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-02-01
+        claim_id: 174399000
+      - code_type: CPT
+        code_value: 77055 # Mammography
+        start_datetime: 2017-02-01
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_datetime: 2017-03-01
+        result: 94
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_datetime: 2017-03-01
+        result: 134
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: I10 # Hypertension
+        start_datetime: 2017-02-01
+        claim_id: 174399000
   - name: Coretta Smith
     attributes:
       date_of_birth: 1960-01-05
@@ -567,7 +592,20 @@ patients:
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
         start_datetime: 2017-02-01
-      - code_type: SNOMEDCT
+      - code_type: CPT
+        code_value: 77055 # Mammography
+        start_datetime: 2017-02-01
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_datetime: 2017-02-01
+        result: 88
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_datetime: 2017-03-01
+        result: 130
+      - code_type: CPT
+        code_value: 80047
+        start_datetime: 2017-03-01 # Medication lab panel
       diagnoses:
       - code_type: ICD10CM
         code_value: E10.21 # Diabetes
@@ -577,6 +615,10 @@ patients:
         code_value: E10.21 # Diabetes
         claim_id: 149583000
         start_datetime: 2016-09-20
+      - code_type: ICD10CM
+        code_value: I10 # Hypertension
+        start_datetime: 2017-02-01
+        claim_id: 174399000
       laboratory_test_performeds:
       - code_type: LOINC
         code_value: 10524-7 # Cervical cytology
@@ -590,6 +632,10 @@ patients:
         code_value: 4548-4 # HbA1c
         result: 8.1
         start_datetime: 2017-02-01
+      medications:
+      - code_type: NDC
+        code_value: 60346059530 # CDC_L
+        start_datetime: 2017-01-15
   - name: Richard Brown
     attributes:
       date_of_birth: 1956-10-18
@@ -599,11 +645,36 @@ patients:
       provider: Andrew
     health_plan_id: Commercial Payer
     clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-02-01
+        claim_id: 174399000
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_datetime: 2017-03-01
+        result: 88
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_datetime: 2017-03-01
+        result: 130
+      - code_type: CPT
+        code_value: 80047
+        start_datetime: 2017-02-01 # Medication lab panel
       laboratory_test_performeds:
       - code_type: LOINC
         code_value: 12503-9 # FOBT
         result: Negative
         start_datetime: 2010-08-22
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: I10 # Hypertension
+        start_datetime: 2017-02-01
+        claim_id: 174399000
+      medications:
+      - code_type: NDC
+        code_value: 60346059530 # CDC_L
+        start_datetime: 2017-01-15
   - name: Duke Bradford
     attributes:
       date_of_birth: 1952-06-12
@@ -612,6 +683,24 @@ patients:
       sex: Male
       provider: Andrew
     health_plan_id: Commercial Payer
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-02-01
+        claim_id: 174399000
+      - code_type: CPT
+        code_value: 80047
+        start_datetime: 2017-02-01 # Medication lab panel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: I10 # Hypertension
+        start_datetime: 2017-02-01
+        claim_id: 174399000
+      medications:
+      - code_type: NDC
+        code_value: 60346059530 # CDC_L
+        start_datetime: 2017-01-15
   - name: Miguel Alvarez
     attributes:
       date_of_birth: 1983-02-04
@@ -620,6 +709,21 @@ patients:
       sex: Male
       provider: Andrew
     health_plan_id: Commercial Payer
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Visit
+        start_datetime: 2017-02-01
+        claim_id: 174399000
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: I10 # Hypertension
+        start_datetime: 2017-02-01
+        claim_id: 174399000
+      medications:
+      - code_type: NDC
+        code_value: 60346059530 # CDC_L
+        start_datetime: 2017-01-15
   - name: Lucas Wong
     attributes:
       date_of_birth: 1988-10-24
@@ -650,6 +754,14 @@ patients:
         code_value: E10.21 # Diabetes
         claim_id: 149583000
         start_datetime: 2016-09-20
+      - code_type: ICD10CM
+        code_value: I10 # Hypertension
+        start_datetime: 2017-02-01
+        claim_id: 174399000
+      medications:
+      - code_type: NDC
+        code_value: 60346059530 # CDC_L
+        start_datetime: 2017-01-15
       laboratory_test_performeds:
       - code_type: LOINC
         code_value: 4548-4 # HbA1c
@@ -766,3 +878,87 @@ patients:
         code_value: 12503-9 # FOBT
         result: Negative
         start_datetime: 2017-02-01
+  - name: Minerva Ewing
+    attributes:
+      date_of_birth: 2004-06-18
+      given_name: Minerva
+      family_name: Ewing
+      sex: Female
+      provider: Andrew
+    health_plan_id: Commercial Payer
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90650 # HPV vaccine
+        start_datetime: 2017-02-01
+        claim_id: 14782000
+      - code_type: CPT
+        code_value: 90650 # HPV vaccine
+        start_datetime: 2017-03-06
+        claim_id: 18394000
+      - code_type: CPT
+        code_value: 90650 # HPV vaccine
+        start_datetime: 2017-04-08
+        claim_id: 10948000
+  - name: Patricia Ender
+    attributes:
+      date_of_birth: 2004-04-12
+      given_name: Patricia
+      family_name: Ender
+      sex: Female
+      provider: Andrew
+    health_plan_id: Commercial Payer
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90650 # HPV vaccine
+        start_datetime: 2017-02-01
+        claim_id: 14782000
+      - code_type: CPT
+        code_value: 90650 # HPV vaccine
+        start_datetime: 2017-03-06
+        claim_id: 18394000
+      - code_type: CPT
+        code_value: 90650 # HPV vaccine
+        start_datetime: 2017-04-08
+        claim_id: 10948000
+  - name: Alexander Pentall
+    attributes:
+      date_of_birth: 2004-09-03
+      given_name: Alexander
+      family_name: Pentall
+      sex: Male
+      provider: Andrew
+    health_plan_id: Commercial Payer
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90650 # HPV vaccine
+        start_datetime: 2017-02-01
+        claim_id: 14782000
+      - code_type: CPT
+        code_value: 90650 # HPV vaccine
+        start_datetime: 2017-03-06
+        claim_id: 18394000
+      - code_type: CPT
+        code_value: 90650 # HPV vaccine
+        start_datetime: 2017-04-08
+        claim_id: 10948000
+  - name: Brent Chang
+    attributes:
+      date_of_birth: 2004-11-28
+      given_name: Brent
+      family_name: Chang
+      sex: Male
+      provider: Andrew
+    health_plan_id: Commercial Payer
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90650 # HPV vaccine
+        start_datetime: 2017-02-01
+        claim_id: 14782000
+      - code_type: CPT
+        code_value: 90650 # HPV vaccine
+        start_datetime: 2017-03-06
+        claim_id: 18394000
