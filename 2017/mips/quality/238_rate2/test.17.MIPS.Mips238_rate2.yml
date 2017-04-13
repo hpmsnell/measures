@@ -404,7 +404,7 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 310539
-        quantity: 30
+        method: E
         start_datetime: 2015-12-31
   - name: 1Medication Lower
     attributes:
@@ -422,7 +422,7 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 310539
-        quantity: 30
+        method: E
         start_datetime: 2016-01-01
   - name: 1Medication Upper
     attributes:
@@ -440,7 +440,7 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 310539
-        quantity: 30
+        method: E
         start_datetime: 2016-12-31
   - name: 1Medication After
     attributes:
@@ -458,7 +458,7 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 310539
-        quantity: 30
+        method: E
         start_datetime: 2017-01-01
   - name: 1Medication NDC
     attributes:
@@ -476,7 +476,7 @@ patients:
       medications:
       - code_type: NDC
         code_value: '00603243310'
-        quantity: 30
+        method: E
         start_datetime: 2016-01-01
   - name: 1Medication 91Days
     attributes:
@@ -494,12 +494,12 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 854894
-        quantity: 30
+        method: E
         days_supplied: 91
         start_datetime: 2016-01-01
       - code_type: RXNORM
         code_value: 854894
-        quantity: 30
+        method: E
         days_supplied: 1
         start_datetime: 2016-02-01
   - name: 1Medication 90Days
@@ -518,12 +518,12 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 311992
-        quantity: 30
+        method: E
         days_supplied: 90
         start_datetime: 2016-01-01
       - code_type: RXNORM
         code_value: 1232194
-        quantity: 30
+        method: E
         days_supplied: 90
         start_datetime: 2016-02-01
   - name: 2Medications Unique
@@ -542,11 +542,11 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 310539
-        quantity: 30
+        method: E
         start_datetime: 2016-01-01
       - code_type: RXNORM
         code_value: 1363309
-        quantity: 30
+        method: E
         start_datetime: 2016-01-01
   - name: 2Medications Same
     attributes:
@@ -564,11 +564,11 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 310539
-        quantity: 30
+        method: E
         start_datetime: 2016-01-01
       - code_type: RXNORM
         code_value: 310539
-        quantity: 30
+        method: E
         start_datetime: 2016-01-01
   - name: 3Medications Unique
     attributes:
@@ -586,15 +586,15 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 310539
-        quantity: 30
+        method: E
         start_datetime: 2016-01-01
       - code_type: RXNORM
         code_value: 1363309
-        quantity: 30
+        method: E
         start_datetime: 2016-01-01
       - code_type: RXNORM
         code_value: 1359124
-        quantity: 30
+        method: E
         start_datetime: 2016-01-01
   - name: 2Medications Before
     attributes:
@@ -612,11 +612,11 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 310539
-        quantity: 30
+        method: E
         start_datetime: 2016-01-01
       - code_type: RXNORM
         code_value: 1363309
-        quantity: 30
+        method: E
         start_datetime: 2015-12-31
   - name: 2Medications 91Days
     attributes:
@@ -634,17 +634,17 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 485465
-        quantity: 30
+        method: E
         days_supplied: 90
         start_datetime: 2016-01-01
       - code_type: RXNORM
         code_value: 485465
-        quantity: 30
+        method: E
         days_supplied: 1
         start_datetime: 2016-01-01
       - code_type: RXNORM
         code_value: 854894
-        quantity: 30
+        method: E
         days_supplied: 91
         start_datetime: 2016-01-01
   - name: 2Medications 90Days
@@ -663,11 +663,11 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 485465
-        quantity: 30
+        method: E
         days_supplied: 90
         start_datetime: 2016-01-01
       - code_type: RXNORM
         code_value: 854894
-        quantity: 30
+        method: E
         days_supplied: 90
         start_datetime: 2016-01-01
