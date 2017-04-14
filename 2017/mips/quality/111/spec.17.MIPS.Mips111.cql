@@ -15,7 +15,6 @@ using QDM
 // MIPS Value Sets
 
 valueset "MIPS; MIPS 111 Encounter"
-valueset "MIPS; Diabetes"
 valueset "MIPS; Hospice Service"
 valueset "MIPS; Performance Met: 4040F"
 valueset "MIPS; Performance Not Met: 4040F-8P"
