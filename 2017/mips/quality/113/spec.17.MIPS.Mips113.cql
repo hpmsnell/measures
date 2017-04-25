@@ -38,7 +38,7 @@ valueset "MIPS; History of Total Colectomy or Colorectal Cancer: G9711"
 // Intervention, Performed
 
 valueset "VSAC; Palliative Care" '2.16.840.1.113883.3.600.1.1579'
-valueset "MIPS; Hospice Service"
+valueset "MIPS; MIPS Hospice Service"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -70,7 +70,7 @@ define "Denominator Exclusion 2":
   /*
    * config_link_id: exclusion_2
    */
-  exists(["Intervention, Performed": "MIPS; Hospice Service"] I //Updated to Intervention, Performed
+  exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I //Updated to Intervention, Performed
     where I.relevantPeriod starts during "Measurement Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I //New value set added
     where I.relevantPeriod starts during "Measurement Period")

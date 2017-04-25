@@ -16,7 +16,7 @@ using QDM
 
 valueset "MIPS; MIPS 117 Encounter"
 valueset "MIPS; Diabetes"
-valueset "MIPS; Hospice Service"
+valueset "MIPS; MIPS Hospice Service"
 valueset "MIPS; Performance Met: 2022F"
 valueset "MIPS; Performance Met: 2024F"
 valueset "MIPS; Performance Met: 2026F"
@@ -50,7 +50,7 @@ define "Denominator Exclusion":
   /*
    * config_link_id: denominator_exclusion
    */
-  exists(["Intervention, Performed": "MIPS; Hospice Service"] I
+  exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
     where I.relevantPeriod starts during "Measurement Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
     where I.relevantPeriod overlaps "Measurement Period")

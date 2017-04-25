@@ -21,7 +21,7 @@ valueset "MIPS; Performance Met: 4004F"
 valueset "MIPS; Performance Met: 1036F"
 valueset "MIPS; Denominator Exception: 4004F-1P"
 valueset "MIPS; Performance Not Met: 4004F-8P"
-valueset "MIPS; Hospice Service"
+valueset "MIPS; MIPS Hospice Service"
 
 // VSAC Value Sets
 
@@ -92,7 +92,7 @@ define "Denominator Exception: 4004F-1P":
     where P.relevantPeriod starts during "Measurement Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
     where I.relevantPeriod overlaps "Measurement Period")
-  or exists(["Procedure, Performed": "MIPS; Hospice Service"] P
+  or exists(["Procedure, Performed": "MIPS; MIPS Hospice Service"] P
     where P.relevantPeriod starts during "Measurement Period")
   or exists(["Diagnosis": "VSAC; Limited Life Expectancy"] D
     where D.prevalencePeriod overlaps "Measurement Period")
