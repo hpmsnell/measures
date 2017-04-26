@@ -316,8 +316,8 @@ patients:
   - name: Sex Male
     attributes:
       date_of_birth: 1940-03-22
-      given_name: Diagnosis
-      family_name: Before
+      given_name: Sex
+      family_name: Male
       sex: Male
     health_plan_id: Medicare Part B
     clinical_models:
@@ -356,6 +356,7 @@ patients:
         code_value: 99201
         start_datetime: 2016-02-01
         provider: Rachel
+      diagnosis:
       - code_type: ICD10CM
         code_value: M80.00XA
         start_datetime: 2016-02-01
