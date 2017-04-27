@@ -125,221 +125,126 @@ test_set_keys:
   providers_key:
     - name: Rachel
       patients:
-        - name: Too Young # Below age range
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: Age Lower # Lower bound of age range
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: Encounter Early # Encounter too early
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: Encounter Lower # Encounter at lower bound
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: Encounter Upper # Encounter at upper bound
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: Encounter Late # Encounter too late
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: Encounter DifferentProviders # 226 encounters with different providers
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: PreventiveEncounter Early # Encounter too early
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: PreventiveEncounter Lower # Encounter at lower bound
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: PreventiveEncounter Upper # Encounter at upper bound
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: PreventiveEncounter Late # Encounter too late
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: G9458 Early # Performance met G9458 before interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: G9458 Lower # Performance met G9458 lower bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9458
-        - name: G9458 Upper # Performance met G9458 upper bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9458
-        - name: G9458 Late # Performance met G9458 after interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: Counseling Early # Tobacco user with counseling before interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: Counseling Lower # Tobacco user with counseling lower bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9458
-        - name: Counseling Upper # Tobacco user with counseling upper bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9458
-        - name: Counseling Late # Tobacco user with counseling after interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: MedicationOrder Early # Tobacco user with Rx before interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: MedicationOrder Lower # Tobacco user with Rx lower bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9458
-        - name: MedicationOrder Upper # Tobacco user with Rx upper bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9458
-        - name: MedicationOrder Late # Tobacco user with Rx after interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: MedicationActive Early # Tobacco user with medication ending before interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: MedicationActive Lower # Tobacco user with medication ending at lower bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9458
-        - name: MedicationActive Upper # Tobacco user with medication starting at upper bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9458
-        - name: MedicationActive Late # Tobacco user with medication starting after interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: G9459 Early # Performance met G9459 before interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: G9459 Lower # Performance met G9459 lower bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9459
-        - name: G9459 Upper # Performance met G9459 upper bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9459
-        - name: G9459 Late # Performance met G9459 after interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: NonUser Early # Tobacco non-user before interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: NonUser Lower # Tobacco non-user lower bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9459
-        - name: NonUser Upper # Tobacco non-user upper bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9459
-        - name: NonUser Late # Tobacco non-user after interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: G9458-1P Early # G9458-1P before interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: G9458-1P Lower # G9458-1P lower bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception: G9458-1P
-          numerator:
-        - name: G9458-1P Upper # G9458-1P upper bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception: G9458-1P
-          numerator:
-        - name: G9458-1P Late # G9458-1P after interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9460
-        - name: LimitedLife Early # Limited life expectancy ends before interval
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: LimitedLife Lower # Limited life expectancy ends lower bound interval
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: LimitedLife Upper # Limited life expectancy starts upper bound interval
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: LimitedLife Late # Limited life expectancy starts after interval
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
+      - name: Too Young # Below age range
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower # Lower bound of age range
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9460
+      - name: Age Upper # Upper bound of range
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9460
+      - name: Too Old # Above age range
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Early # Encounter too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Lower # Encounter at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9460
+      - name: Encounter Upper # Encounter at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9460
+      - name: Encounter Late # Encounter too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: G9458 Early # Performance met G9458 before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9460
+      - name: G9458 Lower # Performance met G9458 lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9458
+      - name: G9458 Upper # Performance met G9458 upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9458
+      - name: G9458 Late # Performance met G9458 after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9460
+      - name: Counseling Early # Tobacco user with counseling before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9460
+      - name: Counseling Lower # Tobacco user with counseling lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9458
+      - name: Counseling Upper # Tobacco user with counseling upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9458
+      - name: Counseling Late # Tobacco user with counseling after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9460
+      - name: G9459 Early # Performance met G9459 before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9460
+      - name: G9459 Lower # Performance met G9459 lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9459
+      - name: G9459 Upper # Performance met G9459 upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9459
+      - name: G9459 Late # Performance met G9459 after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9460
+      - name: NonUser Early # Tobacco non-user before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9460
+      - name: NonUser Lower # Tobacco non-user lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9459
+      - name: NonUser Upper # Tobacco non-user upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9459
+      - name: NonUser Late # Tobacco non-user after interval
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
 providers:
 - given_name: Rachel
   family_name: Kohler
@@ -348,7 +253,7 @@ providers:
   pqrs_provider: true
 - given_name: Patty
   family_name: PrimaryCare
-  credential: MD
+  credential: DO
   primary_specialty: Family Medicine
   pqrs_provider: true
 patients:
@@ -379,8 +284,8 @@ patients:
   - name: Age Upper
     attributes:
       date_of_birth: 1996-02-02
-      given_name: Too
-      family_name: Young
+      given_name: Age
+      family_name: Upper
       sex: Female
     clinical_models:
       clinical_activities:
@@ -391,8 +296,8 @@ patients:
   - name: Too Old
     attributes:
       date_of_birth: 1996-02-01
-      given_name: Age
-      family_name: Lower
+      given_name: Too
+      family_name: Old
       sex: Female
     clinical_models:
       clinical_activities:
@@ -475,7 +380,7 @@ patients:
         code_value: 90791
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9458
         start_datetime: 2016-01-01
   - name: G9458 Upper
@@ -490,7 +395,7 @@ patients:
         code_value: 90791
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9458
         start_datetime: 2016-12-31
   - name: G9458 Late
@@ -505,7 +410,7 @@ patients:
         code_value: 90791
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9458
         start_datetime: 2017-01-01
   - name: Counseling Early
@@ -522,7 +427,7 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 99406
-        start_datetime: 2015-06-31
+        start_datetime: 2015-06-30
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 160603005
@@ -596,7 +501,7 @@ patients:
         code_value: 90791
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9459
         start_datetime: 2015-12-31
   - name: G9459 Lower
@@ -611,7 +516,7 @@ patients:
         code_value: 90791
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9459
         start_datetime: 2016-01-01
   - name: G9459 Upper
@@ -626,7 +531,7 @@ patients:
         code_value: 90791
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9459
         start_datetime: 2016-12-31
   - name: G9459 Late
@@ -641,7 +546,7 @@ patients:
         code_value: 90791
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9459
         start_datetime: 2017-01-01
   - name: NonUser Early
@@ -659,7 +564,7 @@ patients:
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 266924008
-        start_datetime: 2015-06-31
+        start_datetime: 2015-06-30
   - name: NonUser Lower
     attributes:
       date_of_birth: 2000-03-22
@@ -703,7 +608,7 @@ patients:
       - code_type: CPT
         code_value: 90791
         start_datetime: 2016-02-01
-        provider: Rachel
+        provider: Patty
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 266924008
