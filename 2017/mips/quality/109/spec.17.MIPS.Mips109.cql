@@ -22,8 +22,11 @@ valueset "MIPS; Performance Not Met: 1006F-8P"
 
 valueset "VSAC; Functional Status Assessment for Knee Replacement": '2.16.840.1.113883.3.464.1003.118.11.1040'
 valueset "VSAC; Functional Status Assessment for Hip Replacement": '2.16.840.1.113883.3.464.1003.118.11.1039'
-valueset "VSAC; Standardized Pain Assessment Tool": '2.16.840.1.113883.3.526.3.1028'
-valueset "VSAC; Pain Assessments": '2.16.840.1.113762.1.4.1047.152'
+
+// Able Value Sets
+
+valueset "ABLE; Standardized Pain Assessment Tool": '2.16.840.1.113883.3.526.3.1028'
+valueset "ABLE; Pain Assessments": '2.16.840.1.113762.1.4.1047.152'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -40,8 +43,8 @@ define "Functional Status Assessment":
   union ["Assessment, Performed": "VSAC; Functional Status Assessment for Hip Replacement"]
 
 define "Pain Assessment":
-  ["Assessment, Performed": "VSAC; Standardized Pain Assessment Tool"]
-  union ["Assessment, Performed": "VSAC; Pain Assessments"]
+  ["Assessment, Performed": "ABLE; Standardized Pain Assessment Tool"]
+  union ["Assessment, Performed": "ABLE; Pain Assessments"]
 
 define "Denominator":
   exists("Denominator Encounter")
