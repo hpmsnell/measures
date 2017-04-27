@@ -1,0 +1,54 @@
+measure:
+  name: 17.MIPS.Mips412
+  required:
+    display_title: "Documentation of Signed Opioid Treatment Agreement"
+  optional:
+    gap_resolution_action: Patient requires signed opioid treatment agreement due to opioid therapy
+    set: MIPS
+    external_id: 412
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9578
+    required:
+      display_title: Documentation of signed opioid treatment agreement at least once during opioid therapy
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 412 Encounter
+        - count: 10
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; Opioids used for pain control"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9578"
+    optional:
+      code_value: G9578
+performance_not_met_reasons:
+  - config_link_id: G9579
+    required:
+      display_title: No documentation of signed an opioid treatment agreement at least once during opioid therapy
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 412 Encounter
+        - count: 10
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; Opioids used for pain control"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9578"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9579"
+    optional:
+      code_value: G9579
