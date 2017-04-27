@@ -76,7 +76,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: 3072F
+        numerator: 4040F
       - name: 4040F After # Performance met 4040F after MP
         denominator: 1
         denominator_exclusion:
@@ -86,22 +86,22 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: 3072F
+        numerator: 4040F
       - name: Immunization After # Immunization after MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: 4040F
+        numerator: 4040F-8P
       - name: History Before # History of immunization before MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: 3072F
+        numerator: 4040F
       - name: History After # History of immunization after MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: 4040F
+        numerator: 4040F-8P
   providers_key:
     - name: Rachel
       patients:
@@ -179,7 +179,7 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: 3072F
+          numerator: 4040F
         - name: 4040F After # Performance met 4040F after MP
           denominator: 1
           denominator_exclusion:
@@ -189,12 +189,12 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: 3072F
+          numerator: 4040F
         - name: Immunization After # Immunization after MP
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: 4040F
+          numerator: 4040F-8P
         - name: History Before # History of immunization before MP
           denominator:
           denominator_exclusion:
@@ -506,7 +506,7 @@ patients:
       - code_type: CPT
         code_value: 99201
         start_datetime: 2016-02-01
-        provider: Rachel
+        provider: Patty
       - code_type: SNOMEDCT
         code_value: 473165003
         start_datetime: 2015-12-31
@@ -522,7 +522,7 @@ patients:
       - code_type: CPT
         code_value: 99201
         start_datetime: 2016-02-01
-        provider: Rachel
+        provider: Patty
       - code_type: SNOMEDCT
         code_value: 473165003
         start_datetime: 2017-01-01
