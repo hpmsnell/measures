@@ -4,248 +4,248 @@ test_set_keys:
     patients:
     - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Too Old # Patient is too Old for the denominator but otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Age LowerBound # Patient is at lower age bound and otherwise meets the denominator
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F-8P
     - name: Age UpperBound # Patient is upper age bound and otherwise meets the denominator
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F-8P
     - name: Patient Male # Patient is a Male but otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: No Encounter # Patient has no denominator eligible encounters but otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Encounter Early # Patient has an encounter that is early but otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Encounter Late  # Patient has an encounter that is late but otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Exclusion BilateralMastectomy # Patient has an exclusion for bilateral mastectomy
       denominator: 1
-      denominator_exclusion: denominator_exclusion_1
+      exclusion: exclusion_1
       numerator:
     - name: Exclusion BilateralMastectomyLate  # Patient has an exclusion for bilateral mastectomy but it is too late
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F-8P
     - name: Exclusion UnilateralMastectomy  # Patient has an exclusion for unilateral mastectomies
       denominator: 1
-      denominator_exclusion: denominator_exclusion_1
+      exclusion: exclusion_1
       numerator:
     - name: Exclusion UnilateralMastectomyLate  # Patient has an exclusion for unilateral mastectomies but it is too late
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F-8P
     - name: Exclusion HospiceService #Patient has an exclusion for hospice service
       denominator: 1
-      denominator_exclusion: deminator_exclusion_2
+      exclusion: deminator_exclusion_2
       numerator:
     - name: Exclusion HospiceServiceEarly # Patient has an exclusion for hospice service but it is too early
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F-8P
     - name: Exclusion HospiceServiceLate # Patient has an exclusion for hospice service but it is too late
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator:  3014F-8P
     - name: Screened Start # Patient screened at start of allowable period
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F
     - name: Screened End # Patient screened at end of allowable period
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F
     - name: Screened Early # Patient screened too early
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F-8P
     - name: Screened Late # Patient screened too late
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F-8P
     - name: Screeened MIPS # Patient screened with MIPS value set during the allowable period
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F
   providers_key:
   - name: Rachel
     patients:
     - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Too Old # Patient is too Old for the denominator but otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Age LowerBound # Patient is at lower age bound and otherwise meets the denominator
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F-8P
     - name: Age UpperBound # Patient is upper age bound and otherwise meets the denominator
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F-8P
     - name: Patient Male # Patient is a Male but otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: No Encounter # Patient has no denominator eligible encounters but otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Encounter Early # Patient has an encounter that is early but otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Encounter Late  # Patient has an encounter that is late but otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Exclusion BilateralMastectomy # Patient has an exclusion for bilateral mastectomy
       denominator: 1
-      denominator_exclusion: denominator_exclusion_1
+      exclusion: exclusion_1
       numerator:
     - name: Exclusion BilateralMastectomyLate  # Patient has an exclusion for bilateral mastectomies but it is too late
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F-8P
     - name: Exclusion UnilateralMastectomy  # Patient has an exclusion for unilateral mastectomies
       denominator: 1
-      denominator_exclusion: denominator_exclusion_1
+      exclusion: exclusion_1
       numerator:
     - name: Exclusion UnilateralMastectomyLate  # Patient has an exclusion for unilateral mastectomy but it is too late
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F-8P
     - name: Exclusion HospiceService #Patient has an exclusion for hospice service
       denominator: 1
-      denominator_exclusion: deminator_exclusion_2
+      exclusion: deminator_exclusion_2
       numerator:
     - name: Exclusion HospiceServiceEarly # Patient has an exclusion for hospice service but it is too early
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F-8P
     - name: Exclusion HospiceServiceLate # Patient has an exclusion for hospice service but it is too late
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator:  3014F-8P
     - name: Screened Start # Patient screened at start of allowable period
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F
     - name: Screened End # Patient screened at end of allowable period
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F
     - name: Screened Early # Patient screened too early
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F-8P
     - name: Screened Late # Patient screened too late
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F-8P
     - name: Screeened MIPS # Patient screened with MIPS value set during the allowable period
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
   - name: Patty
     patients:
     - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Too Old # Patient is too Old for the denominator but otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Age LowerBound # Patient is at lower age bound and otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Age UpperBound # Patient is upper age bound and otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Patient Male # Patient is a Male but otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: No Encounter # Patient has no denominator eligible encounters but otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Encounter Early # Patient has an encounter that is early but otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Encounter Late  # Patient has an encounter that is late but otherwise meets the denominator
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Exclusion BilateralMastectomy # Patient has an exclusion for bilateral mastectomy
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Exclusion BilateralMastectomyLate  # Patient has an exclusion for bilateral mastectomies but it is too late
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Exclusion UnilateralMastectomy  # Patient has an exclusion for unilateral mastectomies
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Exclusion UnilateralMastectomyLate  # Patient has an exclusion for unilateral mastectomy but it is too late
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Exclusion HospiceService #Patient has an exclusion for hospice service
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Exclusion HospiceServiceEarly # Patient has an exclusion for hospice service but it is too early
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Exclusion HospiceServiceLate # Patient has an exclusion for hospice service but it is too late
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Screened Start # Patient screened at start of allowable period
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Screened End # Patient screened at end of allowable period
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Screened Early # Patient screened too early
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Screened Late # Patient screened too late
       denominator:
-      denominator_exclusion:
+      exclusion:
       numerator:
     - name: Screeened MIPS # Patient screened with MIPS value set during the allowable period
       denominator: 1
-      denominator_exclusion:
+      exclusion:
       numerator: 3014F
 providers:
 - given_name: Rachel

@@ -47,7 +47,7 @@ define "Denominator":
 
 define "Denominator Exclusion 1":
   /*
-   * config_link_id: denominator_exclusion_1
+   * config_link_id: exclusion_1
    */
   exists(["Procedure, Performed": "MIPS; History of Bilateral Mastectomy: G9708"] P
     where P.relevantPeriod starts before end "Measurement Period")
@@ -72,7 +72,7 @@ define "Denominator Exclusion 1":
 
 define "Denominator Exclusion 2":
   /*
-   * config_link_id: denominator_exclusion_2
+   * config_link_id: exclusion_2
    */
   exists(["Intervention, Performed": "VSAC; Palliative Care"] I
     where I.relevantPeriod overlaps "Measurement Period")
