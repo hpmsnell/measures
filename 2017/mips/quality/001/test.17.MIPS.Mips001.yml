@@ -1,4 +1,4 @@
-measure_id: 17.MIPS.Mips117.001
+measure_id: 17.MIPS.Mips001
 test_set_keys:
   organization_key:
     - name:	Too Young
@@ -166,6 +166,174 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: 3046F-8P
+  providers_key:
+    - name: Rachel
+      patients:
+        - name:	Too Young
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name:	Age Lower
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F-8P
+        - name:	Age Upper
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F-8P
+        - name:	Too Old
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Before
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Lower
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F-8P
+        - name: Encounter Upper
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F-8P
+        - name: Encounter After
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Diagnosis Before
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Diagnosis Lower
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F-8P
+        - name: Diagnosis Upper
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F-8P
+        - name: Diagnosis After
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Hospice Before
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F-8P
+        - name: Hospice Lower
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: Hospice Upper
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: Hospice After
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F-8P
+        - name:	A1c Under7
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3044F
+        - name:	A1c 7
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3045F
+        - name:	A1c 9
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3045F
+        - name:	A1c Above9
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F
+        - name:	A1c Before
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F-8P
+        - name:	A1c After
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F-8P
+        - name:	A1c BadResult
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F-8P
+        - name:	3046F Before
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F-8P
+        - name:	3046F Lower
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F
+        - name:	3046F Upper
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F
+        - name:	3046F After
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F-8P
+        - name:	3046F-8P Lower
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F
+        - name:	3046F-8P Upper
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F
+        - name:	3044F Before
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F-8P
+        - name:	3044F Lower
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F
+        - name:	3044F Upper
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3046F
+        - name:	3044F After
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
 providers:
   - given_name:	Rachel
     family_name:	Katz
@@ -750,7 +918,7 @@ patients:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
-      provider: Rachel
+      provider: Patty
     - code_type: CPT
       code_value: 3044F
       start_datetime: 2017-01-01 # Too late
