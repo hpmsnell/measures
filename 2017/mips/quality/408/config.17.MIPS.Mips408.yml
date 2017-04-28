@@ -1,0 +1,58 @@
+measure:
+  name: 17.MIPS.Mips408
+  required:
+    display_title: "Opioid Therapy Follow-up Evaluation"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 408
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9562
+    required:
+      display_title: Patients who had a follow-up evaluation (e.g. functional status and pain assessment) conducted at least every three months during opioid therapy
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 408 Encounter
+        - count: 10
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; Opioids used for pain control"
+            - model: ClinicalActivity
+              value_set: "VSAC; MIPS; Opiates Prescribed for Longer than Six Weeks"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9562"
+    optional:
+      code_value: G9562
+performance_not_met_reasons:
+  - config_link_id: G9563
+    required:
+      display_title: Patients who did not have a follow-up evaluation (e.g. functional status and pain assessment) conducted at least every three months during opioid therapy
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 408 Encounter
+        - count: 10
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; Opioids used for pain control"
+            - model: ClinicalActivity
+              value_set: "VSAC; MIPS; Opiates Prescribed for Longer than Six Weeks"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9562"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9563"
+    optional:
+      code_value: G9563
