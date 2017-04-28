@@ -11,7 +11,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9579
+      numerator: G9563
     - name: Encounter Before # Patient has an encounter that is early but otherwise meets the denominator
       denominator:
       denominator_exclusion:
@@ -21,12 +21,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9579
+      numerator: G9563
     - name: Encounter Upper  # Patient has an encounter that is at the upper bound
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9579
+      numerator: G9563
     - name: Encounter After  # Patient has an encounter that is late but otherwise meets the denominator
       denominator:
       denominator_exclusion:
@@ -41,13 +41,18 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9579
+      numerator: G9563
     - name: Medication Upper # Patient prescribed lower bound of medication
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9579
+      numerator: G9563
     - name: Medication After  # Patient prescribed medication too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Medication AfterPeriod  # Patient prescribed medication past the opioid period
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -56,27 +61,87 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9579
-    - name: Agreement Before # Patient assessed at start of allowable period
+      numerator: G9563
+    - name: FollowUp Before # Patient assessed at start of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9579
-    - name: Agreement Lower # Patient assessed at end of allowable period
+      numerator: G9563
+    - name: FollowUp Lower # Patient assessed at end of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9578
-    - name: Agreement Upper # Patient assessed too early
+      numerator: G9562
+    - name: FollowUp Upper # Patient assessed too early
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9578
-    - name: Agreement After # Patient assessed too late
+      numerator: G9562
+    - name: FollowUp After # Patient assessed too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9579
+      numerator: G9563
+    - name: Pain Before # Patient assessed at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: Pain Lower # Patient assessed at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9562
+    - name: Pain Upper # Patient assessed too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9562
+    - name: Pain After # Patient assessed too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: Function Before # Patient assessed at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: Function Lower # Patient assessed at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9562
+    - name: Function Upper # Patient assessed too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9562
+    - name: Function After # Patient assessed too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: 1FollowUp TooFew # Patient not assessed enough times
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: 2FollowUp TooFew # Patient not assessed enough times
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: 3FollowUp TooFew # Patient not assessed enough times
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: FollowUpInPeriod TooFew # Patient not assessed enough times
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
   providers_key:
   - name: Rachel
     patients:
@@ -89,7 +154,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9579
+      numerator: G9563
     - name: Encounter Before # Patient has an encounter that is early but otherwise meets the denominator
       denominator:
       denominator_exclusion:
@@ -99,12 +164,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9579
+      numerator: G9563
     - name: Encounter Upper  # Patient has an encounter that is at the upper bound
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9579
+      numerator: G9563
     - name: Encounter After  # Patient has an encounter that is late but otherwise meets the denominator
       denominator:
       denominator_exclusion:
@@ -119,12 +184,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9579
+      numerator: G9563
     - name: Medication Upper # Patient prescribed lower bound of medication
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9579
+      numerator: G9563
     - name: Medication After  # Patient prescribed medication too late
       denominator:
       denominator_exclusion:
@@ -134,23 +199,23 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9579
-    - name: Agreement Before # Patient assessed at start of allowable period
+      numerator: G9563
+    - name: FollowUp Before # Patient assessed at start of allowable period
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Agreement Lower # Patient assessed at end of allowable period
+    - name: FollowUp Lower # Patient assessed at end of allowable period
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Agreement Upper # Patient assessed too early
+    - name: FollowUp Upper # Patient assessed too early
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Agreement After # Patient assessed too late
+    - name: FollowUp After # Patient assessed too late
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -180,7 +245,7 @@ patients:
       start_datetime: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
-      code_value: G9577
+      code_value: G9561
       start_datetime: 2016-02-01
 - name: Age Lower
   attributes:
@@ -195,7 +260,7 @@ patients:
       start_datetime: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
-      code_value: G9577
+      code_value: G9561
       start_datetime: 2016-02-01
 - name: Encounter Before
   attributes:
@@ -210,7 +275,7 @@ patients:
       start_datetime: 2015-12-31 # Early
       provider: Rachel
     - code_type: HCPCS
-      code_value: G9577
+      code_value: G9561
       start_datetime: 2016-02-01
 - name: Encounter Lower
   attributes:
@@ -225,7 +290,7 @@ patients:
       start_datetime: 2016-01-01 # Lower
       provider: Rachel
     - code_type: HCPCS
-      code_value: G9577
+      code_value: G9561
       start_datetime: 2016-02-01
 - name: Encounter Upper
   attributes:
@@ -240,7 +305,7 @@ patients:
       start_datetime: 2016-12-31 # Upper
       provider: Rachel
     - code_type: HCPCS
-      code_value: G9577
+      code_value: G9561
       start_datetime: 2016-02-01
 - name: Encounter After
   attributes:
@@ -255,7 +320,7 @@ patients:
       start_datetime: 2017-01-01 # After
       provider: Rachel
     - code_type: HCPCS
-      code_value: G9577
+      code_value: G9561
       start_datetime: 2016-02-01
 - name: Medication Before
   attributes:
@@ -323,7 +388,7 @@ patients:
       days_supplied: 42
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-12-31 # Upper
+      start_datetime: 2016-08-21 # Upper
       method: E
       days_supplied: 1
 - name: Medication After
@@ -346,7 +411,7 @@ patients:
       days_supplied: 42
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2017-01-01 # After
+      start_datetime: 2017-08-22 # After
       method: E
       days_supplied: 1
 - name: Medication Active
@@ -371,10 +436,10 @@ patients:
       code_value: 1010600
       start_datetime: 2016-02-01 # No method
       days_supplied: 1
-- name: Agreement Before
+- name: FollowUp Before
   attributes:
     date_of_birth: 1990-01-01
-    given_name: Agreement
+    given_name: FollowUp
     family_name: Before
     sex: Female
   clinical_models:
@@ -384,15 +449,15 @@ patients:
       start_datetime: 2016-02-01
       provider: Patty
     - code_type: HCPCS
-      code_value: G9577
+      code_value: G9561
       start_datetime: 2016-02-01
     - code_type: HCPCS
-      code_value: G9578
+      code_value: G9562
       start_datetime: 2015-12-31
-- name: Agreement Lower
+- name: FollowUp Lower
   attributes:
     date_of_birth: 1990-01-01
-    given_name: Agreement
+    given_name: FollowUp
     family_name: Lower
     sex: Female
   clinical_models:
@@ -402,15 +467,15 @@ patients:
       start_datetime: 2016-02-01
       provider: Patty
     - code_type: HCPCS
-      code_value: G9577
+      code_value: G9561
       start_datetime: 2016-02-01
     - code_type: HCPCS
-      code_value: G9578
+      code_value: G9562
       start_datetime: 2016-01-01 # Lower
-- name: Agreement Upper
+- name: FollowUp Upper
   attributes:
     date_of_birth: 1990-01-01
-    given_name: Agreement
+    given_name: FollowUp
     family_name: Upper
     sex: Female
   clinical_models:
@@ -420,15 +485,15 @@ patients:
       start_datetime: 2016-02-01
       provider: Patty
     - code_type: HCPCS
-      code_value: G9577
+      code_value: G9561
       start_datetime: 2016-02-01
     - code_type: HCPCS
-      code_value: G9578
+      code_value: G9562
       start_datetime: 2016-12-31 # Upper
-- name: Agreement After
+- name: FollowUp After
   attributes:
     date_of_birth: 1990-01-01
-    given_name: Agreement
+    given_name: FollowUp
     family_name: After
     sex: Female
   clinical_models:
@@ -438,8 +503,8 @@ patients:
       start_datetime: 2016-02-01
       provider: Patty
     - code_type: HCPCS
-      code_value: G9577
+      code_value: G9561
       start_datetime: 2016-02-01
     - code_type: HCPCS
-      code_value: G9578
+      code_value: G9562
       start_datetime: 2017-01-01 # After

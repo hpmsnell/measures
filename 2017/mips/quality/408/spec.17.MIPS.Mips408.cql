@@ -29,6 +29,7 @@ valueset "VSAC; Pain Assessments": '2.16.840.1.113762.1.4.1047.152'
 parameter "Measurement Period" Interval<DateTime>
 parameter "Opioid Period" Interval[start of "Measurement Period", 90 days before end of "Measurement Period"]
 
+
 context Patient
 
 define "Denominator Encounter":
@@ -39,7 +40,7 @@ define "Denominator Encounter":
 
 define "Opioid":
   ["Medication, Order": "Opioids used for pain control"] M
-    where M.relevantPeriod starts during "Measurement Period"
+    where M.relevantPeriod starts during "Opioid Period"
 
 define "Opioid Procedure":
   ["Procedure Performed": "Opiates Prescribed for Longer than Six Weeks"] P
@@ -51,10 +52,20 @@ define "Start of Opioid Prescription":
     return start of M.relevantPeriod
 
 define "Duration of Opioid Prescription":
-  sum("Opioid" M return M.days_supplied)
+  "Opioid" M
+    return M.days_supplied
+
+define "Duration of Valid Opioid Period":
+  end of "Opioid Period" - "Start of Opioid Prescription"
+
+define "Total Duration of Opioid Prescription":
+  if "Duration of Valid Opioid Period" > "Duration of Opioid Prescription"
+    return "Duration of Valid Opioid Period"
+  else
+    return sum("Duration of Opioid Prescription")
 
 define "End of Opioid Prescription":
-  "Duration of Opioid Prescription" after "Start of Opioid Prescription"
+  "Total Duration of Opioid Prescription" after "Start of Opioid Prescription"
 
 parameter "Opioid Precription" Interval["Start of Opioid Prescription", "End of Opioid Prescription"]
 
@@ -79,7 +90,7 @@ define "Expected "
 define "Denominator":
   exists("Denominator Encounter")
   and (
-    "Duration of Opioid Prescription" > 42
+    "Total Duration of Opioid Prescription" > 42
     or exists("Opioid Procedure")
   )
 
@@ -90,8 +101,8 @@ define "Numerator Performance Met: G9562":
   exists(["Procedure, Performed": "MIPS; Performance Met: G9562"] P
     where P.relevantPeriod starts during "Measurement Period")
   or (
-    count("Functional Status Assessment During Opioid Prescription") >= RoundDown("Duration of Opioid Prescription"/90)
-    and count("Pain Assessment During Opioid Prescription") >= RoundDown("Duration of Opioid Prescription"/90)
+    count("Functional Status Assessment During Opioid Prescription") >= Floor("Total Duration of Opioid Prescription"/90)
+    and count("Pain Assessment During Opioid Prescription") >= Floor("Total Duration of Opioid Prescription"/90)
   )
 
 define "Numerator Performance Not Met: G9563":
