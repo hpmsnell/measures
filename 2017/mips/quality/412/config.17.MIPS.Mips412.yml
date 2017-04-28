@@ -23,6 +23,8 @@ performance_met_reasons:
           validation_records:
             - model: Medication
               value_set: "VSAC; Opioids used for pain control"
+            - model: ClinicalActivity
+              value_set: "VSAC; MIPS; Opiates Prescribed for Longer than Six Weeks"
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -42,6 +44,8 @@ performance_not_met_reasons:
           validation_records:
             - model: Medication
               value_set: "VSAC; Opioids used for pain control"
+            - model: ClinicalActivity
+              value_set: "VSAC; MIPS; Opiates Prescribed for Longer than Six Weeks"
         - count: 1
           validation_records:
             - model: ClinicalActivity
