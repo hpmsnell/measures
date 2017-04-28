@@ -10,9 +10,9 @@ measure:
     mips_measure_type: Intermediate Outcome
     mips_high_priority: true
 exclusion_reasons:
-  - metadata_identifier_link: exclusion
+  - metadata_identifier_link: exclusion_1
     required:
-      display_title: Patient excluded due to intervention palliative care services
+      display_title: Patient excluded due to hospice service
       validation_records:
         - count: 1
           validation_records:
@@ -33,12 +33,22 @@ performance_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; MIPS 001 Encounter"
-        - count: 1
+        - count: 10
           validation_records:
             - model: LaboratoryTestPerformed
               value_set: "VSAC; HbA1c Laboratory Test"
+        - count: 1
+          validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: 3046F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 3044F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 3045F"
     optional:
       code_value: 3046F
   - metadata_identifier_link: 3046F-8P
@@ -49,12 +59,18 @@ performance_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; MIPS 001 Encounter"
-        - count: 1
+        - count: 10
           validation_records:
             - model: LaboratoryTestPerformed
               value_set: "VSAC; HbA1c Laboratory Test"
+        - count: 1
+          validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: 3046F-8P"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 3044F"
     optional:
       code_value: 3046F-8P
 performance_not_met_reasons:
@@ -66,12 +82,18 @@ performance_not_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; MIPS 001 Encounter"
-        - count: 1
+        - count: 10
           validation_records:
             - model: LaboratoryTestPerformed
               value_set: "VSAC; HbA1c Laboratory Test"
+        - count: 1
+          validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Not Met: 3044F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 3045F"
       optional:
         code_value: 3044F
   - metadata_identifier_link: 3045F
@@ -82,10 +104,12 @@ performance_not_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; MIPS 001 Encounter"
-        - count: 1
+        - count: 10
           validation_records:
             - model: LaboratoryTestPerformed
               value_set: "VSAC; HbA1c Laboratory Test"
+        - count: 1
+          validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Not Met: 3045F"
       optional:

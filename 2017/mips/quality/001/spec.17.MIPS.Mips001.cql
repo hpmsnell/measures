@@ -1,35 +1,29 @@
 library MIPS_001_2017 version '1'
 
 /*
- * THIS MEASURE IS NOT READY!!!!
  *
  * Source: MIPS
  * ID: 001
  * Year: 2017
  * Version: 1
- * Clinical Lead: Calvin Newman
- * Engineer: TBD
- * Q/A Reviewer: TBD
- * Date of Validation:
- *
- * THIS MEASURE IS NOT READY!!!!
+ * Author: Steve Daniels
  *
   */
 
 using QDM
 
-// Able custom value sets
+// MIPS value sets
 
-valueset "MIPS; MIPS 001 Encounters"
+valueset "MIPS; MIPS 001 Encounter"
 valueset "MIPS; MIPS Hospice Service"
+valueset "MIPS; Diabetes"
 valueset "MIPS; Performance Met: 3046F"
 valueset "MIPS; Performance Met: 3046F-8P"
 valueset "MIPS; Performance Not Met: 3044F"
 valueset "MIPS; Performance Not Met: 3045F"
 
-// CMS created VSACs
+// VSAC value sets
 
-valueset "VSAC; Diabetes": '2.16.840.1.113883.3.464.1003.103.11.1002' //Note this is the value set for the ICD-10-CM extensional value set—only import ICD-10-CM codes
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 valueset "VSAC; HbA1c Laboratory Test": '2.16.840.1.113883.3.464.1003.198.12.1013'
 
@@ -37,53 +31,56 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Denominator":
-  AgeInYearsAt(start of "Measurement Period") >= 18
-  and AgeInYearsAt(start of "Measurement Period") < 75
-  and exists([Diagnosis: "Diagnosis of Diabates"] D
-    where D.prevalencePeriod overlaps "Measurement Period")
-  and exists([Encounter, Performed: "MIPS; 001 Encounter"] E
+define "Denominator Encounter":
+  ["Encounter, Performed": "MIPS; MIPS 001 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
-    and E.signingProvider.pqrsProvider = true)
+      and AgeInYearsAt(start of E.relevantPeriod) >= 18
+      and AgeInYearsAt(start of E.relevantPeriod) < 75
+      and E.signingProvider.pqrsProvider = true
+
+define "Ordered HbA1c Tests":
+  ["Laboratory Test, Performed": "VSAC; HbA1c Laboratory Test"] L
+    where L.resultDateTime during "Measurement Period"
+    sort by L.resultDateTime ASC
+
+define "Denominator":
+  exists("Denominator Encounter")
+  and exists(["Diagnosis": "MIPS; Diabetes"] D
+    where D.prevalencePeriod overlaps "Measurement Period")
 
 define "Denominator Exclusion":
   /*
-   * config_link_id: exclusion
+   * config_link_id: exclusion_1
    */
-  exists([Intervention, Performed: "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Measurement Period")
-  or exists([Intervention, Performed: "MIPS; MIPS Hospice Service"] I
+  exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
+    where I.relevantPeriod starts during "Measurement Period")
+  or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
     where I.relevantPeriod overlaps "Measurement Period")
 
 define "Numerator Performance Met: 3046F":
   /*
    * config_link_id: 3046F
    */
-  Last([Laboratory Test, Performed: "VSAC; HbA1c Laboratory Test"] L
-    where L.resultDateTime during "Measurement Period").result.value > 9 //Note that this is verifying the result of the last test
+  Last("Ordered HbA1c Test").result > 9
   or exists([Procedure, Performed: "MIPS; Performance Met: 3046F"] P
     where P.relevantPeriod starts during "Measurement Period")
-  )
 
-define "Numerator Performance Met: 3046-8P":
+define "Numerator Performance Met: 3046F-8P":
   /*
    * config_link_id: 3046F-8P
    */
-  not exists(Laboratory Test, Performed: "VSAC; HbA1c Laboratory Test"] L
-    where L.resultDateTime during "Measurement Period")
+  not exists("Ordered HbA1c Tests")
+  or Last("Ordered HbA1c Tests").result is not Decimal
   or exists([Procedure, Performed: "MIPS; Performance Met: 3046F-8P"] P
     where P.relevantPeriod starts during "Measurement Period")
-  )
 
 define "Numerator Performance Not Met: 3044F":
   /*
    * config_link_id: 3044F
    */
-  Last([Laboratory Test, Performed: "VSAC; HbA1c Laboratory Test"] L
-    where L.resultDateTime during "Measurement Period").result.value < 7
+  Last("Ordered HbA1c Tests").result < 7
   or exists([Procedure, Performed: "MIPS; Performance Not Met: 3044F"] P
     where P.relevantPeriod starts during "Measurement Period")
-  )
 
 define "Numerator Performance Not Met: 3045F":
   /*
