@@ -1,19 +1,19 @@
 measure:
   name: 17.MIPS.Mips047
   required:
-    display_title: "Care Plan"
+    display_title: "Directive"
   optional:
-    gap_resolution_action: Patient requires documentation of an advance care plan or surrogate decision maker
+    gap_resolution_action: Patient requires documentation of an advance Directive or surrogate decision maker
     set: MIPS
     external_id: 047
     version: 2017
     mips_measure_type: Process
     mips_high_priority: true
 exclusion_reasons:
-  - metadata_identifier_link: exclusion_1
+  - config_link_id: exclusion_1
     required:
       display_title: Patient excluded due to hospice service
-      validation_records:
+      validation_record_groups:
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -27,7 +27,7 @@ exclusion_reasons:
 performance_met_reasons:
   - config_link_id: 1123F
     required:
-      display_title: "Advance Care Planning discussed and documented; advance care plan or surrogate decision maker documented in the medical record"
+      display_title: "Advance care planning discussed and documented; advance Directive or surrogate decision maker documented in the medical record"
       validation_record_groups:
         - count: 1
           validation_records:
@@ -40,12 +40,12 @@ performance_met_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "ABLE; Advance Care Plan"
+              value_set: "ABLE; Advance Directive"
     optional:
       code_value: 1123F
   - config_link_id: 1124F
     required:
-      display_title: "Advance Care Planning discussed and documented in the medical record; patient did not wish or was not able to name a surrogate decision maker or provide an advance care plan"
+      display_title: "Advance care planning discussed and documented in the medical record; patient did not wish or was not able to name a surrogate decision maker or provide an advance Directive"
       validation_record_groups:
         - count: 1
           validation_records:
@@ -58,7 +58,7 @@ performance_met_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "ABLE; Advance Care Plan Discussed"
+              value_set: "ABLE; Advance Directive Discussed"
     optional:
       code_value: 1124F
 performance_not_met_reasons:
@@ -85,10 +85,10 @@ performance_not_met_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "ABLE; Advance Care Plan"
+              value_set: "ABLE; Advance Directive"
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "ABLE; Advance Care Plan Discussed"
+              value_set: "ABLE; Advance Directive Discussed"
     optional:
       code_value: 1123F-8P
