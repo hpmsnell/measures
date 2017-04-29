@@ -20,11 +20,14 @@ valueset "MIPS; Performance Not Met: G9563"
 
 // VSAC Value Sets
 
-valueset "VSAC; Opioids used for pain control": '1.3.6.1.4.1.6997.4.1.2.234.999.3.1'
 valueset "VSAC; Functional Status Assessment for Knee Replacement": '2.16.840.1.113883.3.464.1003.118.11.1040'
 valueset "VSAC; Functional Status Assessment for Hip Replacement": '2.16.840.1.113883.3.464.1003.118.11.1039'
 valueset "VSAC; Standardized Pain Assessment Tool": '2.16.840.1.113883.3.526.3.1028'
 valueset "VSAC; Pain Assessments": '2.16.840.1.113762.1.4.1047.152'
+
+// ABLE Value Sets
+
+valueset "ABLE; Opioids Used for Pain Control": '1.3.6.1.4.1.6997.4.1.2.234.999.3.1'
 
 parameter "Measurement Period" Interval<DateTime>
 parameter "Opioid Period" Interval[start of "Measurement Period", 90 days before end of "Measurement Period"]
@@ -39,7 +42,7 @@ define "Denominator Encounter":
       and E.signingProvider.pqrsProvider = true
 
 define "Opioid":
-  ["Medication, Order": "Opioids used for pain control"] M
+  ["Medication, Order": "ABLE; Opioids Used for Pain Control"] M
     where M.relevantPeriod starts during "Opioid Period"
 
 define "Opioid Procedure":

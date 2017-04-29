@@ -18,9 +18,9 @@ valueset "MIPS; Opiates Prescribed for Longer than Six Weeks"
 valueset "MIPS; Performance Met: G9578"
 valueset "MIPS; Performance Not Met: G9579"
 
-// VSAC Value Sets
+// ABLE Value Sets
 
-valueset "VSAC; Opioids used for pain control": '1.3.6.1.4.1.6997.4.1.2.234.999.3.1'
+valueset "ABLE; Opioids Used for Pain Control": '1.3.6.1.4.1.6997.4.1.2.234.999.3.1'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -33,7 +33,7 @@ define "Denominator Encounter":
       and E.signingProvider.pqrsProvider = true
 
 define "Opioid":
-  ["Medication, Order": "Opioids used for pain control"] M
+  ["Medication, Order": "ABLE; Opioids Used for Pain Control"] M
     where M.relevantPeriod starts during "Measurement Period"
 
 define "Opioid Procedure":
