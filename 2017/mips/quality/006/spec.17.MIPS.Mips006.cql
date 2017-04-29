@@ -9,22 +9,24 @@ library MIPS_006_2017 version '1'
 
 using QDM
 
-// Able custom value sets
+// Able value sets
 
 valueset "Able; Other Thienopyridine Agent"
 valueset "Able; Aspirin and Clopidogrel"
+
+// MIPS value sets
 
 valueset "MIPS; MIPS 006 Encounter"
 valueset "MIPS; Telehealth Modifier"
 valueset "MIPS; Coronary Artery Disease (CAD)"
 valueset "MIPS; Denominator Exception: 4086F-1P"
-valueset "MIPS; Patient Refusal Reason: 4086F-2P"
+valueset "MIPS; Denominator Exception: 4086F-2P"
 valueset "MIPS; Denominator Exception: 4086F-3P"
 valueset "MIPS; Performance Met: 4086F"
 valueset "MIPS; Performance Not Met: 4086F-8P"
 
 
-// Value Sets from VSAC
+// VSAC value sets
 
 valueset "VSAC; Thrombocytopenia": '2.16.840.1.113762.1.4.1045.45'
 valueset "VSAC; Warfarin": '2.16.840.1.113883.3.117.1.7.1.232'
@@ -61,23 +63,11 @@ define "Denominator Exception 1: 4086F-1P":
  * config_link_id: denominator_exception_1
  * Exception 1: patient excepted because of non-specific reason
  */
- exists (["Procedure, Performed": "MIPS; Denominator Exception: 4086-1P"] P
+  exists (["Procedure, Performed": "MIPS; Denominator Exception: 4086-1P"] P
     where M.relevantPeriod starts during of "Measurement Period")
-
-define "Denominator Exception 2: 4086F-1P":
-/*
- * config_link_id: denominator_exception_2
- * Exception 2: patient is excepted from the denominator if the presence of drug allergy or intolerance is documented
- */
-  exists (["Allergy/Intolerance": "Able; Aspirin and Clopidogrel"] A
+  or exists (["Allergy/Intolerance": "Able; Aspirin and Clopidogrel"] A
     where A.prevalencePeriod overlaps "Measurement Period")
-
-define "Denominator Exception 3: 4086F-1P"
- /*
-  * config_link_id: denominator_exception_3
-  * Exception 3: patient is excepted because of the presence of another Thienopyridine agent or Warfarin therapy
-  */
-  exists(["Medication, Order": "Able; Other Thienopyridine Agent"] M
+  or exists(["Medication, Order": "Able; Other Thienopyridine Agent"] M
     where M.authorDateTime during of "Measurement Period")
   or exists(["Medication, Active": "Able; Other Thienopyridine Agent"] M
     where M.relevantPeriod overlaps "Measurement Period")
@@ -85,13 +75,7 @@ define "Denominator Exception 3: 4086F-1P"
     where M.authorDateTime during of "Measurement Period")
   or exists(["Medication, Active": "VSAC; Warfarin"] M
     where M.relevantPeriod overlaps "Measurement Period")
-
-define "Denominator Exception 4: 4086F-1P"
- /*
-  * config_link_id: denominator_exception_4
-  * Exception 4: patient is excepted because of a pre-existing bleeding disorder (thrombocytopenia)
-  */
-  exists(["Diagnosis, Active": "VSAC; Thrombocytopenia"]
+  or exists(["Diagnosis": "VSAC; Thrombocytopenia"]
     where M.prevalencePeriod overlaps "Measurement Period")
 
 define "Denominator Exception 5: 4086F-2P"
@@ -99,7 +83,7 @@ define "Denominator Exception 5: 4086F-2P"
 * config_link_id: denominator_exception_5
 * Exception 5: patient declined treatment with aspirin or clopidogrel
 */
-  exists(["Procedure, Performed": "MIPS; Patient Refusal Reason: 4086F-2P"] P
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: 4086F-2P"] P
     where P.revelvantPeriod starts during "Measurement Period")
 
 define "Denominator Exception 6: 4086F-3P":
