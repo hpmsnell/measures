@@ -180,13 +180,13 @@ test_set_keys:
       - name: Bedridden Lower # Bedridden lower bound MP
         denominator: 1
         denominator_exclusion:
-        denominator_exception:
-        numerator: 3288F
+        denominator_exception: 3288F1P
+        numerator:
       - name: Bedridden Upper # Bedridden upper bound MP
         denominator: 1
         denominator_exclusion:
-        denominator_exception:
-        numerator: 3288F
+        denominator_exception: 3288F1P
+        numerator:
       - name: Bedridden After # Bedridden after MP
         denominator: 1
         denominator_exclusion:
@@ -1127,9 +1127,6 @@ patients:
       - code_type: CPT
         code_value: 1100F # Falls in past year
         start_datetime: 2016-02-01
-      - code_type: CPT
-        code_value: 3288F
-        start_datetime: 2016-02-01
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 160685001
@@ -1150,9 +1147,6 @@ patients:
       - code_type: CPT
         code_value: 1100F
         start_datetime: 2016-02-01
-      - code_type: CPT
-        code_value: 3288F
-        start_datetime: 2016-12-31
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 160685001
