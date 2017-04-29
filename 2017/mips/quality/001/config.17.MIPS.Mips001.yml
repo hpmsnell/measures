@@ -3,17 +3,17 @@ measure:
   required:
     display_title: "Diabetes: Hemoglobin A1c (HbA1c) Poor Control (>9%)"
   optional:
-    gap_resolution_action: Patient is due for an HbA1c test or needs attention for an uncontrolled lab result
+    gap_resolution_action: 'Patient is due for an HbA1c test or needs attention for an uncontrolled lab result'
     set: MIPS
     external_id: 001
     version: 2017
     mips_measure_type: Intermediate Outcome
     mips_high_priority: true
 exclusion_reasons:
-  - metadata_identifier_link: exclusion_1
+  - config_link_id: exclusion_1
     required:
       display_title: Patient excluded due to hospice service
-      validation_records:
+      validation_record_groups:
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -25,10 +25,10 @@ exclusion_reasons:
             - model: ClinicalActivity
               value_set: "MIPS; MIPS Hospice Service"
 performance_met_reasons:
-  - metadata_identifier_link: 3046F
+  - config_link_id: 3046F
     required:
-      display_title: Most recent hemoglobin A1c level > 9.0%
-      validation_records:
+      display_title: 'Most recent hemoglobin A1c level > 9.0%'
+      validation_record_groups:
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -51,10 +51,10 @@ performance_met_reasons:
               value_set: "MIPS; Performance Not Met: 3045F"
     optional:
       code_value: 3046F
-  - metadata_identifier_link: 3046F-8P
+  - config_link_id: 3046F-8P
     required:
-      display_title: Hemoglobin A1c level was not performed during the measurement period (12 months)
-      validation_records:
+      display_title: 'Hemoglobin A1c level was not performed during the measurement period (12 months)'
+      validation_record_groups:
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -74,10 +74,10 @@ performance_met_reasons:
     optional:
       code_value: 3046F-8P
 performance_not_met_reasons:
-  - metadata_identifier_link: 3044F
+  - config_link_id: 3044F
     required:
-      display_title: Most recent hemoglobin A1c (HbA1c) level < 7.0% (3044F)
-      validation_records:
+      display_title: 'Most recent hemoglobin A1c (HbA1c) level < 7.0% (3044F)'
+      validation_record_groups:
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -96,10 +96,10 @@ performance_not_met_reasons:
               value_set: "MIPS; Performance Not Met: 3045F"
       optional:
         code_value: 3044F
-  - metadata_identifier_link: 3045F
+  - config_link_id: 3045F
     required:
-      display_title: Most recent hemoglobin A1c (HbA1c) level 7.0 to 9.0%
-      validation_records:
+      display_title: 'Most recent hemoglobin A1c (HbA1c) level 7.0 to 9.0%'
+      validation_record_groups:
         - count: 1
           validation_records:
             - model: ClinicalActivity

@@ -1,22 +1,23 @@
 measure_id: 17.MIPS.Mips001
 test_set_keys:
   organization_key:
-    - name:	Too Young
+    patients:
+    - name: Too Young
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name:	Age Lower
+    - name: Age Lower
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3046F-8P
-    - name:	Age Upper
+    - name: Age Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3046F-8P
-    - name:	Too Old
+    - name: Too Old
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -81,87 +82,87 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: 3046F-8P
-    - name:	A1c Under7
+    - name: A1c Under7
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3044F
-    - name:	A1c 7
+    - name: A1c 7
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3045F
-    - name:	A1c 9
+    - name: A1c 9
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3045F
-    - name:	A1c Above9
+    - name: A1c Above9
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3046F
-    - name:	A1c Before
+    - name: A1c Before
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3046F-8P
-    - name:	A1c After
+    - name: A1c After
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3046F-8P
-    - name:	A1c BadResult
+    - name: A1c BadResult
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3046F-8P
-    - name:	3046F Before
+    - name: 3046F Before
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3046F-8P
-    - name:	3046F Lower
+    - name: 3046F Lower
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3046F
-    - name:	3046F Upper
+    - name: 3046F Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3046F
-    - name:	3046F After
+    - name: 3046F After
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3046F-8P
-    - name:	3046F-8P Lower
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 3046F
-    - name:	3046F-8P Upper
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 3046F
-    - name:	3044F Before
+    - name: 3046F-8P Lower
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3046F-8P
-    - name:	3044F Lower
+    - name: 3046F-8P Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 3046F
-    - name:	3044F Upper
+      numerator: 3046F-8P
+    - name: 3044F Before
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 3046F
-    - name:	3044F After
+      numerator: 3046F-8P
+    - name: 3044F Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3044F
+    - name: 3044F Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3044F
+    - name: 3044F After
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -169,22 +170,22 @@ test_set_keys:
   providers_key:
     - name: Rachel
       patients:
-        - name:	Too Young
+        - name: Too Young
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name:	Age Lower
+        - name: Age Lower
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: 3046F-8P
-        - name:	Age Upper
+        - name: Age Upper
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: 3046F-8P
-        - name:	Too Old
+        - name: Too Old
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -249,106 +250,106 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator: 3046F-8P
-        - name:	A1c Under7
+        - name: A1c Under7
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: 3044F
-        - name:	A1c 7
+        - name: A1c 7
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: 3045F
-        - name:	A1c 9
+        - name: A1c 9
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: 3045F
-        - name:	A1c Above9
+        - name: A1c Above9
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: 3046F
-        - name:	A1c Before
+        - name: A1c Before
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: 3046F-8P
-        - name:	A1c After
+        - name: A1c After
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: 3046F-8P
-        - name:	A1c BadResult
+        - name: A1c BadResult
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: 3046F-8P
-        - name:	3046F Before
+        - name: 3046F Before
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: 3046F-8P
-        - name:	3046F Lower
+        - name: 3046F Lower
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: 3046F
-        - name:	3046F Upper
+        - name: 3046F Upper
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: 3046F
-        - name:	3046F After
+        - name: 3046F After
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: 3046F-8P
-        - name:	3046F-8P Lower
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: 3046F
-        - name:	3046F-8P Upper
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: 3046F
-        - name:	3044F Before
+        - name: 3046F-8P Lower
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: 3046F-8P
-        - name:	3044F Lower
+        - name: 3046F-8P Upper
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: 3046F
-        - name:	3044F Upper
+          numerator: 3046F-8P
+        - name: 3044F Before
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: 3046F
-        - name:	3044F After
+          numerator: 3046F-8P
+        - name: 3044F Lower
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3044F
+        - name: 3044F Upper
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3044F
+        - name: 3044F After
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
 providers:
-  - given_name:	Rachel
-    family_name:	Katz
-    credential:	DO
-    primary_specialty:	Family Medicine
+  - given_name: Rachel
+    family_name:  Katz
+    credential: DO
+    primary_specialty:  Family Medicine
     pqrs_provider: true
-  - given_name:	Patty
-    family_name:	Smith
-    credential:	MD
-    primary_specialty:	Family Medicine
+  - given_name: Patty
+    family_name:  Smith
+    credential: MD
+    primary_specialty:  Family Medicine
     pqrs_provider: true
 patients:
 - name: Too Young
   attributes:
-    date_of_birth: 1988-02-02 # Too late
+    date_of_birth: 1998-02-02 # Too late
     given_name: Too
     family_name: Young
     sex: Male
@@ -364,7 +365,7 @@ patients:
       start_datetime: 2010-01-01
 - name: Age Lower
   attributes:
-    date_of_birth: 1988-02-01 # Lower bound
+    date_of_birth: 1998-02-01 # Lower bound
     given_name: Age
     family_name: Lower
     sex: Male
@@ -446,7 +447,7 @@ patients:
   attributes:
     date_of_birth: 1970-01-01
     given_name: Encounter
-    family_name: Before
+    family_name: Upper
     sex: Male
   clinical_models:
     clinical_activities:
@@ -462,7 +463,7 @@ patients:
   attributes:
     date_of_birth: 1970-01-01
     given_name: Encounter
-    family_name: Before
+    family_name: After
     sex: Male
   clinical_models:
     clinical_activities:
@@ -495,7 +496,7 @@ patients:
   attributes:
     date_of_birth: 1970-01-01
     given_name: Diagnosis
-    family_name: Before
+    family_name: Lower
     sex: Male
   clinical_models:
     clinical_activities:
@@ -615,10 +616,10 @@ patients:
     - code_type: ICD10CM
       code_value: E13.49
       start_datetime: 2010-01-01
-- name: HbA1c Under7
+- name: A1c Under7
   attributes:
     date_of_birth: 1970-01-01
-    given_name: HbA1c
+    given_name: A1c
     family_name: Under7
     sex: Male
   clinical_models:
@@ -639,12 +640,12 @@ patients:
     - code_type: LOINC
       code_value: 4548-4
       start_datetime: 2016-01-01
-      result: 10
-- name: HbA1c 7
+      result: 10.0
+- name: A1c 7
   attributes:
     date_of_birth: 1970-01-01
-    given_name: HbA1c
-    family_name: 7
+    given_name: A1c
+    family_name: '7'
     sex: Male
   clinical_models:
     clinical_activities:
@@ -660,16 +661,16 @@ patients:
     - code_type: LOINC
       code_value: 4548-4
       start_datetime: 2016-02-01
-      result: 7
+      result: 7.0
     - code_type: LOINC
       code_value: 4548-4
       start_datetime: 2016-01-01
-      result: 10
-- name: HbA1c 9
+      result: 10.0
+- name: A1c 9
   attributes:
     date_of_birth: 1970-01-01
-    given_name: HbA1c
-    family_name: 9
+    given_name: A1c
+    family_name: '9'
     sex: Male
   clinical_models:
     clinical_activities:
@@ -685,15 +686,57 @@ patients:
     - code_type: LOINC
       code_value: 4548-4
       start_datetime: 2016-02-01
-      result: 9
+      result: 9.0
     - code_type: LOINC
       code_value: 4548-4
       start_datetime: 2016-01-01
-      result: 10
-- name: HbA1c Above9
+      result: 10.0
+- name: A1c Before
   attributes:
     date_of_birth: 1970-01-01
-    given_name: HbA1c
+    given_name: A1c
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99219
+      start_datetime: 2016-02-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_datetime: 2010-01-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 4548-4
+      start_datetime: 2015-12-31
+      result: 9.0
+- name: A1c After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: A1c
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99219
+      start_datetime: 2016-02-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_datetime: 2010-01-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 4548-4
+      start_datetime: 2017-01-01
+      result: 9.0
+- name: A1c Above9
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: A1c
     family_name: Above9
     sex: Male
   clinical_models:
@@ -714,11 +757,11 @@ patients:
     - code_type: LOINC
       code_value: 4548-4
       start_datetime: 2016-01-01
-      result: 6
-- name: HbA1c BadResult
+      result: 6.0
+- name: A1c BadResult
   attributes:
     date_of_birth: 1970-01-01
-    given_name: HbA1c
+    given_name: A1c
     family_name: BadResult
     sex: Male
   clinical_models:
