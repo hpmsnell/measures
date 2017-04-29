@@ -1,9 +1,9 @@
 measure:
   name: 17.MIPS.Mips047
   required:
-    display_title: "Directive"
+    display_title: "Care Plan"
   optional:
-    gap_resolution_action: Patient requires documentation of an advance Directive or surrogate decision maker
+    gap_resolution_action: Patient requires documentation of an advance directive or surrogate decision maker
     set: MIPS
     external_id: 047
     version: 2017
@@ -27,7 +27,7 @@ exclusion_reasons:
 performance_met_reasons:
   - config_link_id: 1123F
     required:
-      display_title: "Advance care planning discussed and documented; advance Directive or surrogate decision maker documented in the medical record"
+      display_title: "Advance care planning discussed and documented; Advance directive or surrogate decision maker documented in the medical record"
       validation_record_groups:
         - count: 1
           validation_records:
@@ -45,7 +45,7 @@ performance_met_reasons:
       code_value: 1123F
   - config_link_id: 1124F
     required:
-      display_title: "Advance care planning discussed and documented in the medical record; patient did not wish or was not able to name a surrogate decision maker or provide an advance Directive"
+      display_title: "Advance care planning discussed and documented in the medical record; patient did not wish or was not able to name a surrogate decision maker or provide an advance directive"
       validation_record_groups:
         - count: 1
           validation_records:
