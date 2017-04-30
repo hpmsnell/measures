@@ -35,7 +35,6 @@ valueset "VSAC; Kidney Transplant": '2.16.840.1.113883.3.464.1003.109.12.1012'
 valueset "VSAC; Dialysis Services": '2.16.840.1.113883.3.464.1003.109.12.1013'
 valueset "VSAC; Other Services Related to Dialysis": '2.16.840.1.113883.3.464.1003.109.12.1015'
 valueset "VSAC; Dialysis Education": '2.16.840.1.113883.3.464.1003.109.12.1016'
-valueset "VSAC; Adult Outpatient Encounter": '2.16.840.1.113883.3.464.1003.101.12.1065'
 valueset "VSAC; Diastolic Blood Pressure": '2.16.840.1.113883.3.526.3.1033'
 valueset "VSAC; Systolic Blood Pressure": '2.16.840.1.113883.3.526.3.1032'
 
@@ -65,7 +64,7 @@ define "Excluded Procedures":
 define "Denominator":
   exists("Denominator Encounter")
   and exists(["Diagnosis": "MIPS; Hypertension"] D
-    where D.prevalencePeriod overlaps "Measurement Period")
+    where D.prevalencePeriod starts before end of "Measurement Period" - 6 months)
 
 define "Denominator Exclusion 1":
   /*
