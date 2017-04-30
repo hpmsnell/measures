@@ -72,6 +72,11 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: G8628
+      - name: ExcludedMedication Order # Medication order invalid
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8628
       - name: G8627 Before # Performance met G8627 before MP
         denominator: 1
         denominator_exclusion:
@@ -181,6 +186,11 @@ test_set_keys:
           denominator_exception:
           numerator:
         - name: ExcludedMedication Late # Medication exclusion after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8628
+        - name: ExcludedMedication Order # Medication order invalid
           denominator: 1
           denominator_exclusion:
           denominator_exception:
@@ -425,7 +435,7 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 1100691
-        start_datetime: 2010-01-01
+        start_datetime: 2010-02-01
         stop_datetime: 2016-02-02
   - name: ExcludedMedication Upper
     attributes:
@@ -463,6 +473,25 @@ patients:
       - code_type: RXNORM
         code_value: 1100691
         start_datetime: 2016-02-02
+  - name: ExcludedMedication Order
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: ExcludedMedication
+      family_name: Order
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 66840
+        start_datetime: 2016-02-01
+        provider: Rachel
+      medications:
+      - code_type: RXNORM
+        code_value: 1100691
+        start_datetime: 2010-01-01
+        stop_datetime: 2016-02-02
+        method: E
   - name: G8627 Before
     attributes:
       date_of_birth: 1988-03-22

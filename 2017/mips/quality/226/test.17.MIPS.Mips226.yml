@@ -117,6 +117,11 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: 4004F-8P
+      - name: MedicationOrder Overlapping # Tobacco user with Rx overlapping interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4004F-8P
       - name: MedicationActive Early # Tobacco user with medication ending before interval
         denominator: 1
         denominator_exclusion:
@@ -185,12 +190,12 @@ test_set_keys:
       - name: 4004F-1P Lower # 4004F-1P lower bound interval
         denominator: 1
         denominator_exclusion:
-        denominator_exception: 4004F-1P
+        denominator_exception: 4004F1P
         numerator:
       - name: 4004F-1P Upper # 4004F-1P upper bound interval
         denominator: 1
         denominator_exclusion:
-        denominator_exception: 4004F-1P
+        denominator_exception: 4004F1P
         numerator:
       - name: 4004F-1P Late # 4004F-1P after interval
         denominator: 1
@@ -205,12 +210,12 @@ test_set_keys:
       - name: LimitedLife Lower # Limited life expectancy ends lower bound interval
         denominator: 1
         denominator_exclusion:
-        denominator_exception: 4004F-1P
+        denominator_exception: 4004F1P
         numerator:
       - name: LimitedLife Upper # Limited life expectancy starts upper bound interval
         denominator: 1
         denominator_exclusion:
-        denominator_exception: 4004F-1P
+        denominator_exception: 4004F1P
         numerator:
       - name: LimitedLife Late # Limited life expectancy starts after interval
         denominator: 1
@@ -335,6 +340,11 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator: 4004F-8P
+        - name: MedicationOrder Overlapping # Tobacco user with Rx overlapping interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 4004F-8P
         - name: MedicationActive Early # Tobacco user with medication ending before interval
           denominator: 1
           denominator_exclusion:
@@ -403,12 +413,12 @@ test_set_keys:
         - name: 4004F-1P Lower # 4004F-1P lower bound interval
           denominator: 1
           denominator_exclusion:
-          denominator_exception: 4004F-1P
+          denominator_exception: 4004F1P
           numerator:
         - name: 4004F-1P Upper # 4004F-1P upper bound interval
           denominator: 1
           denominator_exclusion:
-          denominator_exception: 4004F-1P
+          denominator_exception: 4004F1P
           numerator:
         - name: 4004F-1P Late # 4004F-1P after interval
           denominator: 1
@@ -814,6 +824,28 @@ patients:
         code_value: 1232585
         method: E
         start_datetime: 2017-01-01
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 160603005
+        start_datetime: 2016-01-01
+  - name: MedicationOrder Overlapping
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: MedicationOrder
+      family_name: Overlapping
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_datetime: 2016-02-01
+        provider: Rachel
+      medications:
+      - code_type: RXNORM
+        code_value: 1232585
+        method: E
+        start_datetime: 2014-12-31
+        stop_datetime: 2015-12-31
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 160603005

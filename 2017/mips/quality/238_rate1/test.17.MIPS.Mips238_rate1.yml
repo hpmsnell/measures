@@ -137,6 +137,11 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: G9365
+      - name: Medication Active # Medications are not prescriptions
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9366
   providers_key:
     - name: Rachel
       patients:
@@ -266,6 +271,11 @@ test_set_keys:
           denominator_exception:
           numerator:
         - name: 2Medications 90Days # 2 unique high-risk medications, 1 with only 90 days supply
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Medication Active # Medications are not prescriptions
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -778,5 +788,31 @@ patients:
       - code_type: RXNORM
         code_value: 854894
         method: E
+        days_supplied: 90
+        start_datetime: 2016-01-01
+  - name: Medication Active
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: Medication
+      family_name: Active
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-02-01
+        provider: Patty
+      medications:
+      - code_type: RXNORM
+        code_value: 485465
+        days_supplied: 90
+        start_datetime: 2016-01-01
+      - code_type: RXNORM
+        code_value: 485465
+        days_supplied: 1
+        start_datetime: 2016-01-01
+      - code_type: RXNORM
+        code_value: 854894
         days_supplied: 90
         start_datetime: 2016-01-01
