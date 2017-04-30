@@ -160,13 +160,13 @@ test_set_keys:
       - name: 3288F-1P Lower # Exception 3288F-1P lower bound MP
         denominator: 1
         denominator_exclusion:
-        denominator_exception:
-        numerator: 3288F
+        denominator_exception: 3288F1P
+        numerator:
       - name: 3288F-1P Upper # Exception 3288F-1P upper bound MP
         denominator: 1
         denominator_exclusion:
-        denominator_exception:
-        numerator: 3288F
+        denominator_exception: 3288F1P
+        numerator:
       - name: 3288F-1P After # Exception 3288F-1P after MP
         denominator: 1
         denominator_exclusion:
@@ -180,13 +180,13 @@ test_set_keys:
       - name: Bedridden Lower # Bedridden lower bound MP
         denominator: 1
         denominator_exclusion:
-        denominator_exception:
-        numerator: 3288F
+        denominator_exception: 3288F1P
+        numerator:
       - name: Bedridden Upper # Bedridden upper bound MP
         denominator: 1
         denominator_exclusion:
-        denominator_exception:
-        numerator: 3288F
+        denominator_exception: 3288F1P
+        numerator:
       - name: Bedridden After # Bedridden after MP
         denominator: 1
         denominator_exclusion:
@@ -353,13 +353,13 @@ test_set_keys:
         - name: 3288F-1P Lower # Exception 3288F-1P lower bound MP
           denominator: 1
           denominator_exclusion:
-          denominator_exception:
-          numerator: 3288F
+          denominator_exception: 3288F1P
+          numerator:
         - name: 3288F-1P Upper # Exception 3288F-1P upper bound MP
           denominator: 1
           denominator_exclusion:
-          denominator_exception:
-          numerator: 3288F
+          denominator_exception: 3288F1P
+          numerator:
         - name: 3288F-1P After # Exception 3288F-1P after MP
           denominator: 1
           denominator_exclusion:
@@ -528,7 +528,7 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1100F
-        start_datetime: 2015-01-01
+        start_datetime: 2016-01-01 # This record is in the Falls in Past Year VS. That section of the denominator is looking for a record withing the MY.
   - name: Falls Upper
     attributes:
       date_of_birth: 1940-05-19
@@ -577,7 +577,7 @@ patients:
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 18890001000004100
-        start_datetime: 2016-01-01
+        start_datetime: 2015-01-01 # spec says to go back 1 year from the start of the denom encounter. Moved back one year so that it is 1 year and 1 day away.
   - name: Injury Lower
     attributes:
       date_of_birth: 1940-05-19
@@ -594,7 +594,7 @@ patients:
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 18890001000004100
-        start_datetime: 2016-01-01
+        start_datetime: 2015-02-01
   - name: Injury Upper
     attributes:
       date_of_birth: 1940-05-19
@@ -611,7 +611,7 @@ patients:
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 18890001000004100
-        start_datetime: 2016-01-01
+        start_datetime: 2016-02-01
   - name: Injury After
     attributes:
       date_of_birth: 1940-05-19
@@ -628,7 +628,7 @@ patients:
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 18890001000004100
-        start_datetime: 2016-01-01
+        start_datetime: 2016-02-03
   - name: 2Falls Before
     attributes:
       date_of_birth: 1940-05-19
@@ -1121,11 +1121,11 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 92540
+        code_value: 92540 # MIPS 154 Encounter
         start_datetime: 2016-02-01
         provider: Patty
       - code_type: CPT
-        code_value: 1100F
+        code_value: 1100F # Falls in past year
         start_datetime: 2016-02-01
       diagnoses:
       - code_type: SNOMEDCT
