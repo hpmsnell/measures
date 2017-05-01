@@ -23,8 +23,7 @@ valueset "MIPS; Performance Not Met: G8952"
 
 // VSAC Value Sets
 
-valueset "VSAC; Hypertension": '	2.16.840.1.113883.3.464.1003.104.12.1016'
-valueset "VSAC; Emergency Department Visit": '	2.16.840.1.113762.1.4.1111.76'
+valueset "VSAC; Diagnosis of Hypertension": '2.16.840.1.113883.3.600.263'
 valueset "VSAC; Diastolic Blood Pressure": '2.16.840.1.113883.3.526.3.1033'
 valueset "VSAC; Systolic Blood Pressure": '2.16.840.1.113883.3.526.3.1032'
 valueset "VSAC; Lifestyle Recommendation": '2.16.840.1.113883.3.600.1508'
@@ -107,7 +106,7 @@ define "Denominator Exclusion":
    */
  exists(["Procedure, Performed": "MIPS; Hypertension Exclusion"] P
    where P.relevantPeriod starts during "Measurement Period")
- or exists(["Diagnosis": "VSAC; Hypertension"] D
+ or exists(["Diagnosis": "VSAC; Diagnosis of Hypertension"] D
    where D.prevalencePeriod overlaps "Measurement Period")
 
 define "Numerator Performance Met: G8783":
@@ -135,7 +134,7 @@ define "Numerator Performance Met: G8950":
     and exists("Hypertensive Follow-Up" P
       where P.relevantPeriod starts during "Measurement Period")
     and (
-      exists("Hypersentive Laboratory Test" L
+      exists("Hypertentive Laboratory Test" L
         where L.resultDateTime during "Measurement Period")
       or exists("Hypertensive Medication" M
         where M.relevantPeriod starts during "Measurement Period")

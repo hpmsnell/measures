@@ -1,18 +1,18 @@
 measure:
   name: 17.MIPS.Mips317
   required:
-    display_title: "Controlling High Blood Pressure"
+    display_title: "Preventive Care and Screening: Screening for High Blood Pressure and Follow-Up Documented"
   optional:
     gap_resolution_action: "Patient is due for a blood pressure screening or needs attention for uncontrolled blood pressure"
     set: MIPS
     external_id: 317
     version: 2017
-    mips_measure_type:	Intermediate Outcome
-    mips_high_priority: true
+    mips_measure_type:  Process
+    mips_high_priority: no
 exclusion_reasons:
   - config_link_id: exclusion_1
     required:
-      display_title: "Patient is excluded due to hospice service during the measurement period"
+      display_title: "Patient is excluded due to diagnosis of hypertension"
       validation_record_groups:
         - count: 1
           validation_records:
@@ -21,43 +21,13 @@ exclusion_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; MIPS Hospice Service"
+              value_set: "MIPS; Hypertension Exclusion"
             - model: ClinicalActivity
-              value_set: "VSAC; Palliative Care"
-  - config_link_id: exclusion_2
-    required:
-      display_title: "Patient is excluded due end stage renal disease (ESRD), dialysis, renal transplant before or during the measurement period or pregnancy during the measurement period"
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 317 Encounter"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Clinical Exclusion: G9231"
-            - model: ClinicalActivity
-              value_set: "VSAC; Pregnancy"
-            - model: ClinicalActivity
-              value_set: "VSAC; End Stage Renal Disease"
-            - model: ClinicalActivity
-              value_set: "VSAC; Chronic Kidney Disease, Stage 5"
-            - model: ClinicalActivity
-              value_set: "VSAC; Vascular Access for Dialysis"
-            - model: ClinicalActivity
-              value_set: "VSAC; ESRD Monthly Outpatient Services"
-            - model: ClinicalActivity
-              value_set: "VSAC; Kidney Transplant"
-            - model: ClinicalActivity
-              value_set: "VSAC; Dialysis Services"
-            - model: ClinicalActivity
-              value_set: "VSAC; Other Services Related to Dialysis"
-            - model: ClinicalActivity
-              value_set: "VSAC; Dialysis Education"
+              value_set: "VSAC; Diagnosis of Hypertension"
 performance_met_reasons:
-  - config_link_id: G8752/G8754
+  - config_link_id: G8783
     required:
-      display_title: "Most recent systolic blood pressure < 140 mmHg and most recent diastolic blood pressure < 90 mmHg"
+      display_title: "Normal blood pressure reading documented, follow-up not required"
       validation_record_groups:
         - count: 1
           validation_records:
@@ -66,15 +36,7 @@ performance_met_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8752"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8754"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Adult Outpatient Encounter"
+              value_set: "MIPS; Performance Met: G8783"
         - count: 3
           validation_records:
             - model: ClinicalActivity
@@ -84,12 +46,57 @@ performance_met_reasons:
             - model: ClinicalActivity
               value_set: "VSAC; Systolic Blood Pressure"
     optional:
-      code_value: G8752/G8754
+      code_value: G8783
+  - config_link_id: G8950
+    required:
+      display_title: "Pre-hypertensive (120/80 - 139/89) or hypertensive (>= 140/90) blood pressure reading documented, and the indicated follow-up is documented"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 317 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8950"
+        - count: 3
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Diastolic Blood Pressure"
+        - count: 3
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Systolic Blood Pressure"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Lifestyle Recommendation"
+            - model: ClinicalActivity
+              value_set: "VSAC; Weight Reduction Recommended"
+            - model: ClinicalActivity
+              value_set: "VSAC; Dietary Recommendations"
+            - model: ClinicalActivity
+              value_set: "VSAC; Physical Activity Recommendation"
+            - model: ClinicalActivity
+              value_set: "VSAC; Moderation of ETOH Consumption"
+            - model: ClinicalActivity
+              value_set: "VSAC; Referral to Alternative Provider / Primary Care Provider"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Laboratory Tests for Hypertension"
+            - model: LaboratoryTestPerformed
+              value_set: "VSAC; Laboratory Tests for Hypertension"
+            - model: ClinicalActivity
+              value_set: "VSAC; ECG 12 lead or study order"
+            - model: Medication
+              value_set: "VSAC; Anti-Hypertensive Pharmacologic Therapy"
+    optional:
+      code_value: G8950
 exception_reasons:
-failure_reasons:
-  - config_link_id: G8752/G8755
+  - config_link_id: G9745
     required:
-      display_title: "Most recent systolic blood pressure < 140 mmHg and most recent diastolic blood pressure >= 90 mmHg"
+      display_title: "Documented reason for not screening or recommending a follow-up for high blood pressure"
       validation_record_groups:
         - count: 1
           validation_records:
@@ -98,15 +105,116 @@ failure_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8752"
+              value_set: "MIPS; Performance Met: G9745"
+        - count: 3
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Diastolic Blood Pressure"
+        - count: 3
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Systolic Blood Pressure"
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8755"
+              value_set: "VSAC; Lifestyle Recommendation"
+            - model: ClinicalActivity
+              value_set: "VSAC; Weight Reduction Recommended"
+            - model: ClinicalActivity
+              value_set: "VSAC; Dietary Recommendations"
+            - model: ClinicalActivity
+              value_set: "VSAC; Physical Activity Recommendation"
+            - model: ClinicalActivity
+              value_set: "VSAC; Moderation of ETOH Consumption"
+            - model: ClinicalActivity
+              value_set: "VSAC; Referral to Alternative Provider / Primary Care Provider"
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "VSAC; Adult Outpatient Encounter"
+              value_set: "VSAC; Laboratory Tests for Hypertension"
+            - model: LaboratoryTestPerformed
+              value_set: "VSAC; Laboratory Tests for Hypertension"
+            - model: ClinicalActivity
+              value_set: "VSAC; ECG 12 lead or study order"
+            - model: Medication
+              value_set: "VSAC; Anti-Hypertensive Pharmacologic Therapy"
+    optional:
+      code_value: G9745
+performance_not_met_reasons:
+  - config_link_id: G8952
+    required:
+      display_title: "Pre-hypertensive (120/80 - 139/89) or hypertensive (>= 140/90) blood pressure reading documented, indicated follow-up not documented, reason not given"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 317 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8952"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8783"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8950"
+        - count: 3
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Diastolic Blood Pressure"
+        - count: 3
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Systolic Blood Pressure"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Lifestyle Recommendation"
+            - model: ClinicalActivity
+              value_set: "VSAC; Weight Reduction Recommended"
+            - model: ClinicalActivity
+              value_set: "VSAC; Dietary Recommendations"
+            - model: ClinicalActivity
+              value_set: "VSAC; Physical Activity Recommendation"
+            - model: ClinicalActivity
+              value_set: "VSAC; Moderation of ETOH Consumption"
+            - model: ClinicalActivity
+              value_set: "VSAC; Referral to Alternative Provider / Primary Care Provider"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Laboratory Tests for Hypertension"
+            - model: LaboratoryTestPerformed
+              value_set: "VSAC; Laboratory Tests for Hypertension"
+            - model: ClinicalActivity
+              value_set: "VSAC; ECG 12 lead or study order"
+            - model: Medication
+              value_set: "VSAC; Anti-Hypertensive Pharmacologic Therapy"
+    optional:
+      code_value: G8952
+  - config_link_id: G8785
+    required:
+      display_title: "Blood pressure reading not documented, reason not given"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 317 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8785"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8783"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8950"
         - count: 3
           validation_records:
             - model: ClinicalActivity
@@ -116,98 +224,4 @@ failure_reasons:
             - model: ClinicalActivity
               value_set: "VSAC; Systolic Blood Pressure"
     optional:
-      code_value: G8752/G8755
-  - config_link_id: G8753/G8754
-    required:
-      display_title: "Most recent systolic blood pressure >= 140 mmHg and most recent diastolic blood pressure < 90 mmHg"
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 317 Encounter"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8753"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8754"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Adult Outpatient Encounter"
-        - count: 3
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Diastolic Blood Pressure"
-        - count: 3
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Systolic Blood Pressure"
-    optional:
-      code_value: G8753/G8754
-  - config_link_id: G8753/G8755
-    required:
-      display_title: "Most recent systolic blood pressure >= 140 mmHg and most recent diastolic blood pressure >= 90 mmHg"
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 317 Encounter"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8753"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8755"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Adult Outpatient Encounter"
-        - count: 3
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Diastolic Blood Pressure"
-        - count: 3
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Systolic Blood Pressure"
-    optional:
-      code_value: G8753/G8755
-  - config_link_id: G8756
-    required:
-      display_title: "No documentation of blood pressure measurement during the measurement period, reason not given"
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 317 Encounter"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8752"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8754"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8756"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Adult Outpatient Encounter"
-        - count: 3
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Diastolic Blood Pressure"
-        - count: 3
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Systolic Blood Pressure"
-    optional:
-      code_value: G8756
+      code_value: G8785
