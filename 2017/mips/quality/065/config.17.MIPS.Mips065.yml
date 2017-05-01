@@ -1,0 +1,112 @@
+measure:
+  name: 17.MIPS.Mips065
+  required:
+    display_title: "Appropriate Treatment for Children with Upper Respiratory Infection (URI)"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 065
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: Patient excluded due to documented medical reason for antibiotic prescription
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 065 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Upper Respiratory Infection"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Medical Reason for Antibiotic"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Competing Conditions for Respiratory Conditions"
+  - config_link_id: exclusion_2
+    required:
+      display_title: Patient excluded due to existing use of antibiotic
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 065 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Upper Respiratory Infection"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Existing Use of Antibioitic"
+        - count: 10
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; Antibiotic Medications for Pharyngitis"
+  - config_link_id: exclusion_1
+    required:
+      display_title: Patient excluded due to hospice service
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 065 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Upper Respiratory Infection"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS Hospice Service"
+performance_met_reasons:
+  - config_link_id: G8708
+    required:
+      display_title: 'Patient not prescribed or dispensed antibiotic'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 065 Encounter"
+        - count: 10
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; Antibiotic Medications for Pharyngitis"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8708"
+    optional:
+      code_value: G8708
+performance_not_met_reasons:
+  - config_link_id: G8710
+    required:
+      display_title: 'Patient prescribed or dispensed antibiotic'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 065 Encounter"
+        - count: 10
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; Antibiotic Medications for Pharyngitis"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8708"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G8710"
+    optional:
+      code_value: G8710
