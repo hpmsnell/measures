@@ -1,0 +1,443 @@
+measure_id: 17.MIPS.Mips412
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Encounter Before # Patient has an encounter that is early but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Lower # Patient has an encounter that is at the lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8885
+    - name: Encounter Upper  # Patient has an encounter that is at the upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8885
+    - name: Encounter After  # Patient has an encounter that is late but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Biopsy Before # Patient has a biopsy that is early but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Biopsy Lower # Patient has a biopsy that is at the lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8885
+    - name: Biopsy Upper  # Patient has a biopsy that is at the upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8885
+    - name: Biopsy After  # Patient has a biopsy that is late but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: G8883 Before # G8883 before allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8885
+    - name: G8883 Lower # G8883 at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8883
+    - name: G8883 Upper # G8883 at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8883
+    - name: G8883 After # G8883 too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8885
+    - name: G8884 Before # G8883 before allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8885
+    - name: G8884 Lower # G8883 at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G8884
+      numerator:
+    - name: G8884 Upper # G8883 at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G8884
+      numerator:
+    - name: G8884 After # G8883 too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8885
+  providers_key:
+  - name: Rachel
+    patients:
+    - name: Encounter Before # Patient has an encounter that is early but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Lower # Patient has an encounter that is at the lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8885
+    - name: Encounter Upper  # Patient has an encounter that is at the upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8885
+    - name: Encounter After  # Patient has an encounter that is late but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Biopsy Before # Patient has a biopsy that is early but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Biopsy Lower # Patient has a biopsy that is at the lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8885
+    - name: Biopsy Upper  # Patient has a biopsy that is at the upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8885
+    - name: Biopsy After  # Patient has a biopsy that is late but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: G8883 Before # G8883 before allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8885
+    - name: G8883 Lower # G8883 at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8883
+    - name: G8883 Upper # G8883 at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8883
+    - name: G8883 After # G8883 too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8885
+    - name: G8884 Before # G8883 before allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: G8884 Lower # G8883 at start of allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: G8884 Upper # G8883 at end of allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: G8884 After # G8883 too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  credential: DO
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+- given_name: Patty
+  family_name: PrimaryCare
+  credential: MD
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+patients:
+- name: Encounter Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Encounter
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2015-12-31 # Early
+      provider: Rachel
+    - code_type: CPT
+      code_value: 11100
+      start_datetime: 2016-02-01
+- name: Encounter Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Encounter
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01 # Lower
+      provider: Rachel
+    - code_type: CPT
+      code_value: 11100
+      start_datetime: 2016-02-01
+- name: Encounter Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Encounter
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-12-31 # Upper
+      provider: Rachel
+    - code_type: CPT
+      code_value: 11100
+      start_datetime: 2016-02-01
+- name: Encounter After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Encounter
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2017-01-01 # After
+      provider: Rachel
+    - code_type: CPT
+      code_value: 11100
+      start_datetime: 2016-02-01
+- name: Biopsy Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Biopsy
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 11100
+      start_datetime: 2015-12-31 # Early
+- name: Biopsy Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Biopsy
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 11100
+      start_datetime: 2016-01-01 # Lower
+- name: Biopsy Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Biopsy
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 11100
+      start_datetime: 2016-12-31 # Upper
+- name: Biopsy After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Biopsy
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 11100
+      start_datetime: 2017-01-01 # After
+- name: G8883 Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G8883
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Patty
+    - code_type: CPT
+      code_value: 11100
+      start_datetime: 2016-02-01
+    - code_type: HCPCS
+      code_value: G8883
+      start_datetime: 2015-12-31
+- name: G8883 Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G8883
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Patty
+    - code_type: CPT
+      code_value: 11100
+      start_datetime: 2016-02-01
+    - code_type: HCPCS
+      code_value: G8883
+      start_datetime: 2016-01-01 # Lower
+- name: G8883 Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G8883
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Patty
+    - code_type: CPT
+      code_value: 11100
+      start_datetime: 2016-02-01
+    - code_type: HCPCS
+      code_value: G8883
+      start_datetime: 2016-12-31 # Upper
+- name: G8883 After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G8883
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Patty
+    - code_type: CPT
+      code_value: 11100
+      start_datetime: 2016-02-01
+    - code_type: HCPCS
+      code_value: G8883
+      start_datetime: 2017-01-01 # After
+- name: G8884 Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G8884
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Patty
+    - code_type: CPT
+      code_value: 11100
+      start_datetime: 2016-02-01
+    - code_type: HCPCS
+      code_value: G8884
+      start_datetime: 2015-12-31
+- name: G8884 Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G8884
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Patty
+    - code_type: CPT
+      code_value: 11100
+      start_datetime: 2016-02-01
+    - code_type: HCPCS
+      code_value: G8884
+      start_datetime: 2016-01-01 # Lower
+- name: G8884 Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G8884
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Patty
+    - code_type: CPT
+      code_value: 11100
+      start_datetime: 2016-02-01
+    - code_type: HCPCS
+      code_value: G8884
+      start_datetime: 2016-12-31 # Upper
+- name: G8884 After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G8884
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Patty
+    - code_type: CPT
+      code_value: 11100
+      start_datetime: 2016-02-01
+    - code_type: HCPCS
+      code_value: G8884
+      start_datetime: 2017-01-01 # After
