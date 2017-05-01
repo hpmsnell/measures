@@ -1,0 +1,121 @@
+measure:
+  name: 17.MIPS.Mips431
+  required:
+    display_title: "Preventive Care and Screening: Tobacco Use: Screening and Cessation Intervention"
+  optional:
+    gap_resolution_action: "Patient is due for a tobacco screening or cessation intervention"
+    set: MIPS
+    external_id: 431
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: 4004F
+    required:
+      display_title: "Patient identified as a tobacco user and received tobacco cessation intervention"
+      validation_record_groups:
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 431 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 431 Preventive Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 4004F"
+            - model: Diagnosis
+              value_set: "VSAC; Tobacco User"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; Tobacco Use Cessation Pharmacotherapy"
+            - model: ClinicalActivity
+              value_set: "VSAC; Tobacco Use Cessation Counseling"
+    optional:
+      code_value: 4004F
+  - config_link_id: 1036F
+    required:
+      display_title: "Patient identified as a tobacco non-user"
+      validation_record_groups:
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 431 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 431 Preventive Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 1036F"
+            - model: Diagnosis
+              value_set: "VSAC; Tobacco Non-User"
+    optional:
+      code_value: 1036F
+exception_reasons:
+  - config_link_id: 4004F-1P
+    required:
+      display_title: "Documentation of medical reason for not screening for tobacco use (e.g. limited life expectancy, other medical reason)"
+      validation_record_groups:
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 431 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 431 Preventive Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 4004F-1P"
+            - model: Diagnosis
+              value_set: "VSAC; Limited Life Expectancy"
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS Hospice Service"
+    optional:
+      code_value: 4004F-1P
+performance_not_met_reasons:
+  - config_link_id: 4004F-8P
+    required:
+      display_title: "Tobacco screening or tobacco cessation intervention not performed, reason not otherwise specified"
+      validation_record_groups:
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 431 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 431 Preventive Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 4004F-8P"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 4004F"
+            - model: Diagnosis
+              value_set: "VSAC; Tobacco User"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; Tobacco Use Cessation Pharmacotherapy"
+            - model: ClinicalActivity
+              value_set: "VSAC; Tobacco Use Cessation Counseling"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 1036F"
+            - model: Diagnosis
+              value_set: "VSAC; Tobacco Non-User"
+    optional:
+      code_value: 4004F-8P
