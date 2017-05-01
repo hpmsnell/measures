@@ -27,7 +27,7 @@ valueset "MIPS; Performance Not Met: G8599"
 
 // VSAC value sets
 
-valueset "VSAC; Anticoagulant": '2.16.840.1.113883.17.4077.3.1004'
+valueset "VSAC; Anticoagulant Medications": '	2.16.840.1.113883.3.464.1003.196.11.1283'
 
 parameter "Measurement Period" Interval<DateTime>
 
