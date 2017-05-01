@@ -1,9 +1,9 @@
 measure:
   name: 17.MIPS.Mips431
   required:
-    display_title: "Preventive Care and Screening: Tobacco Use: Screening and Cessation Intervention"
+    display_title: " Preventive Care and Screening: Unhealthy Alcohol Use: Screening & Brief Counseling"
   optional:
-    gap_resolution_action: "Patient is due for a tobacco screening or cessation intervention"
+    gap_resolution_action: "Patient is due for a alcohol screening or brief counseling"
     set: MIPS
     external_id: 431
     version: 2017
@@ -11,9 +11,9 @@ measure:
     mips_high_priority: false
 exclusion_reasons:
 performance_met_reasons:
-  - config_link_id: 4004F
+  - config_link_id: G9621
     required:
-      display_title: "Patient identified as a tobacco user and received tobacco cessation intervention"
+      display_title: "Patient identified as an unhealthy alcohol user when screened for unhealthy alcohol use using a systematic screening method and received brief counseling"
       validation_record_groups:
         - count: 2
           validation_records:
@@ -26,20 +26,20 @@ performance_met_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: 4004F"
-            - model: Diagnosis
-              value_set: "VSAC; Tobacco User"
+              value_set: "MIPS; Performance Met: G9621"
         - count: 1
           validation_records:
-            - model: Medication
-              value_set: "VSAC; Tobacco Use Cessation Pharmacotherapy"
+            - model: Diagnosis
+              value_set: "ABLE; Alcohol User"
+        - count: 1
+          validation_records:
             - model: ClinicalActivity
-              value_set: "VSAC; Tobacco Use Cessation Counseling"
+              value_set: "VSAC; Alcohol and Drug Dependence Treatment"
     optional:
-      code_value: 4004F
-  - config_link_id: 1036F
+      code_value: G9621
+  - config_link_id: G9622
     required:
-      display_title: "Patient identified as a tobacco non-user"
+      display_title: "Patient not identified as an unhealthy alcohol user when screened for unhealthy alcohol use using a systematic screening method"
       validation_record_groups:
         - count: 2
           validation_records:
@@ -52,15 +52,17 @@ performance_met_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: 1036F"
+              value_set: "MIPS; Performance Met: G9622"
+        - count: 1
+          validation_records:
             - model: Diagnosis
-              value_set: "VSAC; Tobacco Non-User"
+              value_set: "ABLE; Alcohol Non-User"
     optional:
-      code_value: 1036F
+      code_value: G9622
 exception_reasons:
-  - config_link_id: 4004F-1P
+  - config_link_id: G9623
     required:
-      display_title: "Documentation of medical reason for not screening for tobacco use (e.g. limited life expectancy, other medical reason)"
+      display_title: "Documentation of medical reason(s) for not screening for unhealthy alcohol use (e.g., limited life expectancy, other medical reasons)"
       validation_record_groups:
         - count: 2
           validation_records:
@@ -73,19 +75,29 @@ exception_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Denominator Exception: 4004F-1P"
+              value_set: "MIPS; Denominator Exception: G9623"
+        - count: 1
+          validation_records:
             - model: Diagnosis
               value_set: "VSAC; Limited Life Expectancy"
             - model: ClinicalActivity
               value_set: "VSAC; Palliative Care"
             - model: ClinicalActivity
               value_set: "MIPS; MIPS Hospice Service"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "ABLE; Alcohol Non-User"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "ABLE; Alcohol User"
     optional:
-      code_value: 4004F-1P
+      code_value: G9623
 performance_not_met_reasons:
-  - config_link_id: 4004F-8P
+  - config_link_id: G9624
     required:
-      display_title: "Tobacco screening or tobacco cessation intervention not performed, reason not otherwise specified"
+      display_title: "Patient not screened for unhealthy alcohol screening using a systematic screening method OR patient did not receive brief counseling, reason not given"
       validation_record_groups:
         - count: 2
           validation_records:
@@ -98,24 +110,26 @@ performance_not_met_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Performance Not Met: 4004F-8P"
+              value_set: "MIPS; Performance Not Met: G9624"
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: 4004F"
+              value_set: "MIPS; Performance Met: G9621"
+        - count: 1
+          validation_records:
             - model: Diagnosis
-              value_set: "VSAC; Tobacco User"
-        - count: 1
-          validation_records:
-            - model: Medication
-              value_set: "VSAC; Tobacco Use Cessation Pharmacotherapy"
-            - model: ClinicalActivity
-              value_set: "VSAC; Tobacco Use Cessation Counseling"
+              value_set: "ABLE; Alcohol User"
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: 1036F"
+              value_set: "VSAC; Alcohol and Drug Dependence Treatment"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9622"
+        - count: 1
+          validation_records:
             - model: Diagnosis
-              value_set: "VSAC; Tobacco Non-User"
+              value_set: "ABLE; Alcohol Non-User"
     optional:
-      code_value: 4004F-8P
+      code_value: G9624
