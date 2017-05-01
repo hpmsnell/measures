@@ -145,12 +145,12 @@ test_set_keys:
       - name: G9623 Lower # G9623 lower bound interval
         denominator: 1
         denominator_exclusion:
-        denominator_exception: G96211P
+        denominator_exception: G9623
         numerator:
       - name: G9623 Upper # G9623 upper bound interval
         denominator: 1
         denominator_exclusion:
-        denominator_exception: G96211P
+        denominator_exception: G9623
         numerator:
       - name: G9623 Late # G9623 after interval
         denominator: 1
@@ -165,12 +165,12 @@ test_set_keys:
       - name: LimitedLife Lower # Limited life expectancy ends lower bound interval
         denominator: 1
         denominator_exclusion:
-        denominator_exception: G96211P
+        denominator_exception: G9623
         numerator:
       - name: LimitedLife Upper # Limited life expectancy starts upper bound interval
         denominator: 1
         denominator_exclusion:
-        denominator_exception: G96211P
+        denominator_exception: G9623
         numerator:
       - name: LimitedLife Late # Limited life expectancy starts after interval
         denominator: 1
@@ -323,12 +323,12 @@ test_set_keys:
         - name: G9623 Lower # G9623 lower bound interval
           denominator: 1
           denominator_exclusion:
-          denominator_exception: G96211P
+          denominator_exception: G9623
           numerator:
         - name: G9623 Upper # G9623 upper bound interval
           denominator: 1
           denominator_exclusion:
-          denominator_exception: G96211P
+          denominator_exception: G9623
           numerator:
         - name: G9623 Late # G9623 after interval
           denominator: 1
@@ -376,7 +376,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 92521
+        code_value: 96160
         start_datetime: 2016-02-01
         provider: Rachel
   - name: Age Lower
@@ -388,7 +388,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 92521
+        code_value: 96160
         start_datetime: 2016-02-01
         provider: Rachel
   - name: 431Encounter Early
@@ -530,7 +530,7 @@ patients:
         code_value: 96160
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9621
         start_datetime: 2015-12-31
   - name: G9621 Lower
@@ -545,7 +545,7 @@ patients:
         code_value: 96160
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9621
         start_datetime: 2016-01-01
   - name: G9621 Upper
@@ -560,7 +560,7 @@ patients:
         code_value: 96160
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9621
         start_datetime: 2016-12-31
   - name: G9621 Late
@@ -575,7 +575,7 @@ patients:
         code_value: 96160
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9621
         start_datetime: 2017-01-01
   - name: Counseling Early
@@ -590,8 +590,8 @@ patients:
         code_value: 96160
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
-        code_value: 99406
+      - code_type: SNOMEDCT
+        code_value: 24165007
         start_datetime: 2014-12-31
       diagnoses:
       - code_type: SNOMEDCT
@@ -609,8 +609,8 @@ patients:
         code_value: 96160
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
-        code_value: 99406
+      - code_type: SNOMEDCT
+        code_value: 24165007
         start_datetime: 2015-01-01
       diagnoses:
       - code_type: SNOMEDCT
@@ -628,8 +628,8 @@ patients:
         code_value: 96160
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
-        code_value: 99406
+      - code_type: SNOMEDCT
+        code_value: 24165007
         start_datetime: 2016-12-31
       diagnoses:
       - code_type: SNOMEDCT
@@ -647,8 +647,8 @@ patients:
         code_value: 96160
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
-        code_value: 99406
+      - code_type: SNOMEDCT
+        code_value: 24165007
         start_datetime: 2017-01-01
       diagnoses:
       - code_type: SNOMEDCT
@@ -666,7 +666,7 @@ patients:
         code_value: 96160
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9622
         start_datetime: 2015-12-31
   - name: G9622 Lower
@@ -681,7 +681,7 @@ patients:
         code_value: 96160
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9622
         start_datetime: 2016-01-01
   - name: G9622 Upper
@@ -696,7 +696,7 @@ patients:
         code_value: 96160
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9622
         start_datetime: 2016-12-31
   - name: G9622 Late
@@ -711,7 +711,7 @@ patients:
         code_value: 96160
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9622
         start_datetime: 2017-01-01
   - name: NonUser Early
@@ -790,7 +790,7 @@ patients:
         code_value: 96160
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9623
         start_datetime: 2015-12-31
   - name: G9623 Lower
@@ -805,7 +805,7 @@ patients:
         code_value: 96160
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9623
         start_datetime: 2016-01-01
   - name: G9623 Upper
@@ -820,7 +820,7 @@ patients:
         code_value: 96160
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9623
         start_datetime: 2016-12-31
   - name: G9623 Late
@@ -835,7 +835,7 @@ patients:
         code_value: 96160
         start_datetime: 2016-02-01
         provider: Rachel
-      - code_type: CPT
+      - code_type: HCPCS
         code_value: G9623
         start_datetime: 2017-01-01
   - name: LimitedLife Early

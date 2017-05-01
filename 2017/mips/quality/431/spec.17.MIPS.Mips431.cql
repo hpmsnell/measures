@@ -28,6 +28,7 @@ valueset "MIPS; MIPS Hospice Service"
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 valueset "VSAC; Limited Life Expectancy": '2.16.840.1.113883.3.526.3.1259'
 valueset "VSAC; Alcohol and Drug Dependence Treatment": '2.16.840.1.113883.3.464.1003.106.12.1005'
+valueset "VSAC; Moderation of ETOH Consumption Recommendation": '2.16.840.1.113883.3.600.823'
 
 // Able Value Sets
 
@@ -54,6 +55,10 @@ define "431 Preventive Encounter"
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
+define "Alcohol Treatment":
+  ["Intervention, Performed": "VSAC; Alcohol and Drug Dependence Treatment"]
+  union ["Intervention, Performed": "VSAC; Moderation of ETOH Consumption Recommendation"]
+
 define "Denominator":
   count("431 Encounter") >= 2
   or exists("431 Preventive Encounter")
@@ -67,7 +72,7 @@ define "Numerator Performance Met: G9621":
   or (
     exists(["Diagnosis": "ABLE; Alcohol User"] D
       where D.prevalencePeriod starts during "Alcohol Interval")
-    and exists(["Intervention, Performed": "VSAC; Alcohol and Drug Dependence Treatment"] I
+    and exists("Alcohol Treatment" I
       where I.relevantPeriod starts during "Tobacco Interval")
   )
 
