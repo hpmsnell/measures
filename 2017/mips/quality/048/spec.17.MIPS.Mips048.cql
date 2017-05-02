@@ -26,6 +26,7 @@ valueset "MIPS; Performance Not Met: 1090F-8P"
 // VSAC Value Sets
 
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
+valueset "VSAC; Female": '2.16.840.1.113883.3.560.100.2'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -35,6 +36,7 @@ define "Patient Age at Encounter":
   ["Encounter, Performed": "MIPS; MIPS 048 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 65
+      and "Patient Characteristic Sex" in "VSAC; Female"
       and E.signingProvider.pqrsProvider = true
 
 define "Denominator":

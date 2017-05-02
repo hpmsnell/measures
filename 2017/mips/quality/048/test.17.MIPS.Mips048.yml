@@ -12,6 +12,11 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: 1090F-8P
+    - name: Patient Male # Patient is a male
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
     - name: "No Encounter" # Patient has "No" denominator eligible encounters but otherwise meets the denominator
       denominator:
       denominator_exclusion:
@@ -75,6 +80,11 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: 1090F-8P
+      - name: Patient Male # Patient is a male
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
       - name: "No Encounter" # Patient has "No" denominator eligible encounters but otherwise meets the denominator
         denominator:
         denominator_exclusion:
@@ -217,6 +227,18 @@ patients:
     given_name: Age
     family_name: LowerBound
     sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Rachel
+- name: Patient is a male
+  attributes:
+    date_of_birth: 1940-02-01
+    given_name: Age
+    family_name: LowerBound
+    sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
