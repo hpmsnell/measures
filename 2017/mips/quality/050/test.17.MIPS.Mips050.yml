@@ -87,11 +87,21 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: 0509F-8P
-    - name: Bladder Training # Patient Intervention at start of allowable period
+    - name: Bladder Training # Bladder training value set
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 0509F
+    - name: Medication Order # Prescription medication
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 0509F
+    - name: Medication Active # Active medication
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
   providers_key:
   - name: Rachel
     patients:
@@ -181,6 +191,16 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: Bladder Training # Patient Intervention at start of allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Medication Order # Prescription medication
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Medication Active # Active medication
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -506,3 +526,44 @@ patients:
     - code_type: ICD10CM
       code_value: F98.0
       start_datetime: 2010-01-01
+- name: Medication Order
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Medication
+    family_name: Order
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
+      provider: Patty
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: F98.0
+      start_datetime: 2010-01-01
+    medications:
+    - code_type: RXNORM
+      code_value: 863629
+      method: E
+      start_datetime: 2016-02-02
+- name: Medication Active
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Medication
+    family_name: Active
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
+      provider: Patty
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: F98.0
+      start_datetime: 2010-01-01
+    medications:
+    - code_type: RXNORM
+      code_value: 863629
+      start_datetime: 2016-02-02
