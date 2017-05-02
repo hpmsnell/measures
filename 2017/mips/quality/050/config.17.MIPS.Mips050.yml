@@ -51,6 +51,10 @@ performance_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "Able; Urinary Incontinence Intervention"
+            - model: ClinicalActivity
+              value_set: "Able; Urinary Incontinence Medication"
+            - model: ClinicalActivity
+              value_set: "VSAC; Urological Surgery"
     optional:
       code_value: 0509F
 performance_not_met_reasons:
@@ -73,7 +77,11 @@ performance_not_met_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "Able; Urinary Incontinence Assessment"
+              value_set: "Able; Urinary Incontinence Intervention"
+            - model: ClinicalActivity
+              value_set: "Able; Urinary Incontinence Medication"
+            - model: ClinicalActivity
+              value_set: "VSAC; Urological Surgery"
         - count: 1
           validation_records:
             - model: ClinicalActivity

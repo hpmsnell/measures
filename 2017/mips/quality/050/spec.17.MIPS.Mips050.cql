@@ -23,7 +23,7 @@ valueset "MIPS; Urinary Incontinence"
 
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 valueset "VSAC; Female": '2.16.840.1.113883.3.560.100.2'
-valueset "VSAC; Urology Surgery": '2.16.840.1.113883.17.4077.3.2061'
+valueset "VSAC; Urological Surgery": '2.16.840.1.113883.17.4077.3.2061'
 
 // Able Value Sets
 
@@ -43,7 +43,7 @@ define "Patient Age at Encounter":
 
 define "Urinary Incontinence Intervention":
   ["Intervention, Performed": "Able; Urinary Incontinence Intervention"]
-  union ["Procedure, Performed": "VSAC; Urology Surgery"]
+  union ["Procedure, Performed": "VSAC; Urological Surgery"]
   union ["Medication, Order": "Able; Urinary Incontinence Medication"]
 
 define "Denominator":
