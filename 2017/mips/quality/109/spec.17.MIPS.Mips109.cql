@@ -34,6 +34,8 @@ define "Denominator Encounter":
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 21
       and E.signingProvider.pqrsProvider = true
+    with ["Diagnosis": "MIPS; Osteoarthritis"] D
+      such that D.prevalencePeriod starts during E.relevantPeriod
 
 define "Functional Status Assessment":
   ["Assessment, Performed": "VSAC; Functional Status Assessment for Knee Replacement"]
@@ -44,19 +46,22 @@ define "Pain Assessment":
   union ["Assessment, Performed": "VSAC; Pain Assessments"]
 
 define "Denominator":
-  exists("Denominator Encounter")
-  and exists(["Diagnosis": "MIPS; Osteoarthritis"] D
-    where D.prevalencePeriod overlaps "Measurement Period")
+  "Denominator Encounter"
 
 define "Numerator Performance Met: 1006F":
   /*
    * config_link_id: 1006F
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 1006F"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts during E.relevantPeriod)
   or (
-    exists("Pain Assessment")
-    and exists("Functional Status Assessment")
+    exists("Pain Assessment" A
+      with "Denominator Encounter" E
+        such that A.relevantPeriod starts during E.relevantPeriod)
+    and exists("Functional Status Assessment" A
+      with "Denominator Encounter" E
+        such that A.relevantPeriod starts during E.relevantPeriod)
   )
 
 define "Numerator Performance Not Met: 1006F-8P":
