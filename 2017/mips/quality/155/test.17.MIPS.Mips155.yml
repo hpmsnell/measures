@@ -1,0 +1,1289 @@
+measure_id: 17.MIPS.Mips155
+test_set_keys:
+  organization_key:
+    patients:
+      - name: Too Young # Below age range
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower # Lower bound of age range
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: Encounter Before # Encounter too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Lower # Encounter at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: Encounter Upper # Encounter at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: Encounter After # Encounter too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Falls Before # Falls too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Falls Lower # Falls at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: Falls Upper # Falls at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: Falls After # Falls too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Injury Before # Injury too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Injury Lower # Injury at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: Injury Upper # Injury at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: Injury After # Injury too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: 2Falls Before # Falls too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: 2Falls Lower # Falls at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: 2Falls Upper # Falls at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: 2Falls After # Falls too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Hospice Before # MIPS hospice service before measurement period
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: Hospice Lower # MIPS hospice at lower bound of MP
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: Hospice Upper # MIPS hospice at upper bound of MP
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: Hospice After # MIPS hospice after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: 0518F Before # Performance met 0518F before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: 0518F Lower # Performance met 0518F lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F
+      - name: 0518F Upper # Performance met 0518F upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F
+      - name: 0518F After # Performance met 0518F after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: Diet Before # Diet before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: Diet Lower # Diet lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F
+      - name: Diet Upper # Diet upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F
+      - name: Diet After # Diet after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: Training Before # Training before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: Training Lower # Training lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F
+      - name: Training Upper # Training upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F
+      - name: Training After # Training after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: 0518F-1P Before # Exception 0518F-1P before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: 0518F-1P Lower # Exception 0518F-1P lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: 0518F1P
+        numerator:
+      - name: 0518F-1P Upper # Exception 0518F-1P upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: 0518F1P
+        numerator:
+      - name: 0518F-1P After # Exception 0518F-1P after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: Bedridden Before # Bedridden before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: Bedridden Lower # Bedridden lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: 0518F1P
+        numerator:
+      - name: Bedridden Upper # Bedridden upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: 0518F1P
+        numerator:
+      - name: Bedridden After # Bedridden after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+  providers_key:
+    - name: Rachel
+      patients:
+        - name: Too Young # Below age range
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Age Lower # Lower bound of age range
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: Encounter Before # Encounter too early
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Lower # Encounter at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: Encounter Upper # Encounter at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: Encounter After # Encounter too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Falls Before # Falls too early
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Falls Lower # Falls at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: Falls Upper # Falls at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: Falls After # Falls too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Injury Before # Injury too early
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Injury Lower # Injury at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: Injury Upper # Injury at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: Injury After # Injury too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: 2Falls Before # Falls too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: 2Falls Lower # Falls at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: 2Falls Upper # Falls at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: 2Falls After # Falls too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Hospice Before # MIPS hospice service before measurement period
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: Hospice Lower # MIPS hospice at lower bound of MP
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: Hospice Upper # MIPS hospice at upper bound of MP
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: Hospice After # MIPS hospice after MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: 0518F Before # Performance met 0518F before MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: 0518F Lower # Performance met 0518F lower bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F
+        - name: 0518F Upper # Performance met 0518F upper bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F
+        - name: 0518F After # Performance met 0518F after MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: Diet Before # Diet before MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: Diet Lower # Diet lower bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F
+        - name: Diet Upper # Diet upper bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F
+        - name: Diet After # Diet after MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: Training Before # Training before MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: Training Lower # Training lower bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F
+        - name: Training Upper # Training upper bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F
+        - name: Training After # Training after MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: 0518F-1P Before # Exception 0518F-1P before MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: 0518F-1P Lower # Exception 0518F-1P lower bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: 0518F1P
+          numerator:
+        - name: 0518F-1P Upper # Exception 0518F-1P upper bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: 0518F1P
+          numerator:
+        - name: 0518F-1P After # Exception 0518F-1P after MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: Bedridden Before # Bedridden before MP
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Bedridden Lower # Bedridden lower bound MP
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Bedridden Upper # Bedridden upper bound MP
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Bedridden After # Bedridden after MP
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  credential: DO
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+- given_name: Patty
+  family_name: PrimaryCare
+  credential: MD
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+- given_name: Derek
+  family_name: NoMIPS
+  credential: MD
+  pqrs_provider: false
+patients:
+  - name: Too Young
+    attributes:
+      date_of_birth: 1951-02-02
+      given_name: Too
+      family_name: Young
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+  - name: Age Lower
+    attributes:
+      date_of_birth: 1951-02-01
+      given_name: Age
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+  - name: Encounter Before
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Encounter
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2015-12-31
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+  - name: Encounter Lower
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Encounter
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+  - name: Encounter Upper
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Encounter
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-12-31
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+  - name: Encounter After
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Encounter
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2017-01-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+  - name: Falls Before
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Falls
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2015-12-31
+  - name: Falls Lower
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Falls
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-01-01 # This record is in the Falls in Past Year VS. That section of the denominator is looking for a record withing the MY.
+  - name: Falls Upper
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Falls
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-12-31
+  - name: Falls After
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Falls
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2017-01-01
+  - name: Injury Before
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Injury
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 18890001000004100
+        start_datetime: 2015-01-01 # spec says to go back 1 year from the start of the denom encounter. Moved back one year so that it is 1 year and 1 day away.
+  - name: Injury Lower
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Injury
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 18890001000004100
+        start_datetime: 2015-02-01
+  - name: Injury Upper
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Injury
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 18890001000004100
+        start_datetime: 2016-02-01
+  - name: Injury After
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Injury
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 18890001000004100
+        start_datetime: 2016-02-03
+  - name: 2Falls Before
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: 2Falls
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: W18.41XA
+        start_datetime: 2015-01-31
+      - code_type: SNOMEDCT
+        code_value: 217142006
+        start_datetime: 2016-01-01
+  - name: 2Falls Lower
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: 2Falls
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: W18.41XA
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 217142006
+        start_datetime: 2016-01-01
+  - name: 2Falls Upper
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: 2Falls
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: W18.41XA
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 217142006
+        start_datetime: 2016-01-01
+  - name: 2Falls After
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: 2Falls
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: W18.41XA
+        start_datetime: 2016-02-02
+      - code_type: SNOMEDCT
+        code_value: 217142006
+        start_datetime: 2016-01-01
+  - name: Hospice Before
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Hospice
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: HCPCS
+        code_value: G9718
+        start_datetime: 2015-12-31
+  - name: Hospice Lower
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Hospice
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: HCPCS
+        code_value: G9718
+        start_datetime: 2016-01-01
+  - name: Hospice Upper
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Hospice
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: HCPCS
+        code_value: G9718
+        start_datetime: 2016-12-31
+  - name: Hospice After
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Hospice
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: HCPCS
+        code_value: G9718
+        start_datetime: 2017-01-01
+  - name: VHospice Before
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: VHospice
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 182964004
+        start_datetime: 2015-01-01
+        stop_datetime: 2015-12-31
+  - name: VHospice Lower
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: VHospice
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 182964004
+        start_datetime: 2016-01-01
+  - name: VHospice Upper
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: VHospice
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 182964004
+        start_datetime: 2016-12-31
+  - name: VHospice After
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: VHospice
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 182964004
+        start_datetime: 2017-01-01
+  - name: 0518F Before
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: 0518F
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 0518F
+        start_datetime: 2015-12-31
+  - name: 0518F Lower
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: 0518F
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 0518F
+        start_datetime: 2016-01-01
+  - name: 0518F Upper
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: 0518F
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 0518F
+        start_datetime: 2016-12-31
+  - name: 0518F After
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: 0518F
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 0518F
+        start_datetime: 2017-01-01
+  - name: Diet Before
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Diet
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 438331000124100
+        start_datetime: 2015-12-31
+  - name: Diet Lower
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Diet
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 438331000124100
+        start_datetime: 2016-01-01
+  - name: Diet Upper
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Diet
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 438331000124100
+        start_datetime: 2016-12-31
+  - name: Diet After
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Diet
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 438331000124100
+        start_datetime: 2017-01-01
+  - name: Training Before
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Training
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 266741004
+        start_datetime: 2015-12-31
+  - name: Training Lower
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Training
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 266741004
+        start_datetime: 2016-01-01
+  - name: Training Upper
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Training
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 266741004
+        start_datetime: 2016-12-31
+  - name: Training After
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Training
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 266741004
+        start_datetime: 2017-01-01
+  - name: 0518F-1P Before
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: 0518F-1P
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 0518F-1P
+        start_datetime: 2015-12-31
+  - name: 0518F-1P Lower
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: 0518F-1P
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 0518F-1P
+        start_datetime: 2016-01-01
+  - name: 0518F-1P Upper
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: 0518F-1P
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 0518F-1P
+        start_datetime: 2016-12-31
+  - name: 0518F-1P After
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: 0518F-1P
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 0518F-1P
+        start_datetime: 2017-01-01
+  - name: Bedridden Before
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Bedridden
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Patty
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 160685001
+        start_datetime: 2015-01-01
+        stop_datetime: 2015-12-31
+  - name: Bedridden Lower
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Bedridden
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540 # MIPS 155 Encounter
+        start_datetime: 2016-02-01
+        provider: Patty
+      - code_type: CPT
+        code_value: 1100F # Falls in past year
+        start_datetime: 2016-02-01
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 160685001
+        start_datetime: 2016-01-01
+  - name: Bedridden Upper
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Bedridden
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Patty
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 160685001
+        start_datetime: 2016-12-31
+  - name: Bedridden After
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: Bedridden
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Patty
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 160685001
+        start_datetime: 2017-01-01
