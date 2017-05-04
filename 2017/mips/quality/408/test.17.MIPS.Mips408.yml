@@ -132,11 +132,6 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: G9563
-    - name: 3FollowUp TooFew # Patient not assessed enough times
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: G9563
   providers_key:
   - name: Rachel
     patients:
@@ -190,27 +185,82 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
+    - name: Medication AfterPeriod  # Patient prescribed medication past the opioid period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
     - name: Medication Active # Patient has active medication but not order
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9563
     - name: FollowUp Before # Patient assessed at start of allowable period
-      denominator:
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator:
+      numerator: G9563
     - name: FollowUp Lower # Patient assessed at end of allowable period
-      denominator:
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator:
+      numerator: G9562
     - name: FollowUp Upper # Patient assessed too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9562
+    - name: FollowUp After # Patient assessed too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: Pain Before # Patient assessed at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: Pain Lower # Patient assessed at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9562
+    - name: Pain Upper # Patient assessed too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9562
+    - name: Pain After # Patient assessed too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: Function Before # Patient assessed at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: Function Lower # Patient assessed at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9562
+    - name: Function Upper # Patient assessed too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9562
+    - name: Function After # Patient assessed too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: 1FollowUp TooFew # Patient not assessed enough times
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: FollowUp After # Patient assessed too late
+    - name: 2FollowUp TooFew # Patient not assessed enough times
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -442,7 +492,7 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-02-01
-      provider: Patty
+      provider: Rachel
     - code_type: HCPCS
       code_value: G9561
       start_datetime: 2016-02-01
@@ -460,7 +510,7 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-02-01
-      provider: Patty
+      provider: Rachel
     - code_type: HCPCS
       code_value: G9561
       start_datetime: 2016-02-01
@@ -478,7 +528,7 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-02-01
-      provider: Patty
+      provider: Rachel
     - code_type: HCPCS
       code_value: G9561
       start_datetime: 2016-02-01
@@ -496,10 +546,256 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-02-01
-      provider: Patty
+      provider: Rachel
     - code_type: HCPCS
       code_value: G9561
       start_datetime: 2016-02-01
     - code_type: HCPCS
       code_value: G9562
       start_datetime: 2017-01-01 # After
+- name: Pain Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Pain
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 225399009 # Pain
+      start_datetime: 2016-01-30
+    - code_type: LOINC
+      code_value: 71955-9 # Function
+      start_datetime: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_datetime: 2016-02-01
+      method: E
+      days_supplied: 100
+- name: Pain Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Pain
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 225399009 # Pain
+      start_datetime: 2016-02-01
+    - code_type: LOINC
+      code_value: 71955-9 # Function
+      start_datetime: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_datetime: 2016-02-01
+      method: E
+      days_supplied: 100
+- name: Pain Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Pain
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 225399009 # Pain
+      start_datetime: 2016-03-22
+    - code_type: LOINC
+      code_value: 71955-9 # Function
+      start_datetime: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_datetime: 2016-02-01
+      method: E
+      days_supplied: 100
+- name: Pain After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Pain
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 225399009 # Pain
+      start_datetime: 2016-03-23
+    - code_type: LOINC
+      code_value: 71955-9 # Function
+      start_datetime: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_datetime: 2016-02-01
+      method: E
+      days_supplied: 100
+- name: Function Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Function
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 225399009 # Pain
+      start_datetime: 2016-02-01
+    - code_type: LOINC
+      code_value: 71955-9 # Function
+      start_datetime: 2016-01-30
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_datetime: 2016-02-01
+      method: E
+      days_supplied: 100
+- name: Function Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Function
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 225399009 # Pain
+      start_datetime: 2016-02-01
+    - code_type: LOINC
+      code_value: 71955-9 # Function
+      start_datetime: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_datetime: 2016-02-01
+      method: E
+      days_supplied: 100
+- name: Function Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Function
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 225399009 # Pain
+      start_datetime: 2016-03-22
+    - code_type: LOINC
+      code_value: 71955-9 # Function
+      start_datetime: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_datetime: 2016-02-01
+      method: E
+      days_supplied: 100
+- name: Function After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Function
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 225399009 # Pain
+      start_datetime: 2016-02-01
+    - code_type: LOINC
+      code_value: 71955-9 # Function
+      start_datetime: 2016-03-23
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_datetime: 2016-02-01
+      method: E
+      days_supplied: 100
+- name: 1FollowUp TooFew
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: 1FollowUp
+    family_name: TooFew
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Patty
+    - code_type: SNOMEDCT
+      code_value: 225399009 # Pain
+      start_datetime: 2016-02-01
+    - code_type: LOINC
+      code_value: 71955-9 # Function
+      start_datetime: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_datetime: 2016-02-01
+      method: E
+      days_supplied: 190
+- name: 2FollowUp TooFew
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: 2FollowUp
+    family_name: TooFew
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Patty
+    - code_type: SNOMEDCT
+      code_value: 225399009 # Pain
+      start_datetime: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 225399009 # Pain
+      start_datetime: 2016-05-01
+    - code_type: LOINC
+      code_value: 71955-9 # Function
+      start_datetime: 2016-02-01
+    - code_type: LOINC
+      code_value: 71955-9 # Function
+      start_datetime: 2016-05-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_datetime: 2016-02-01
+      method: E
+      days_supplied: 280
