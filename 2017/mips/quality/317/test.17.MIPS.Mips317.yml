@@ -141,12 +141,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8950
+        numerator: G8952
       - name: BadSystolic Upper # Hypertensive blood pressure at upper bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8950
+        numerator: G8952
       - name: BadSystolic After # Hypertensive blood pressure late
         denominator: 1
         denominator_exclusion:
@@ -161,12 +161,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8950
+        numerator: G8952
       - name: BadDiastolic Upper # Hypertensive blood pressure at upper bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8950
+        numerator: G8952
       - name: BadDiastolic After # Hypertensive blood pressure late
         denominator: 1
         denominator_exclusion:
@@ -201,12 +201,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8785
+        numerator: G8950
       - name: 2FollowUp Upper # Hypertensive blood pressure follow up at upper bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8785
+        numerator: G8950
       - name: 2FollowUp After # Hypertensive blood pressure follow up late
         denominator: 1
         denominator_exclusion:
@@ -216,7 +216,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8785
+        numerator: G8952
       - name: G9745 Before # G9745 starts early
         denominator: 1
         denominator_exclusion:
@@ -399,12 +399,12 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: G8950
+          numerator: G8952
         - name: BadSystolic Upper # Hypertensive blood pressure at upper bound
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: G8950
+          numerator: G8952
         - name: BadSystolic After # Hypertensive blood pressure late
           denominator: 1
           denominator_exclusion:
@@ -419,12 +419,12 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: G8950
+          numerator: G8952
         - name: BadDiastolic Upper # Hypertensive blood pressure at upper bound
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: G8950
+          numerator: G8952
         - name: BadDiastolic After # Hypertensive blood pressure late
           denominator: 1
           denominator_exclusion:
@@ -459,12 +459,12 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: G8785
+          numerator: G8950
         - name: 2FollowUp Upper # Hypertensive blood pressure follow up at upper bound
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: G8785
+          numerator: G8950
         - name: 2FollowUp After # Hypertensive blood pressure follow up late
           denominator: 1
           denominator_exclusion:
@@ -474,7 +474,7 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: G8785
+          numerator: G8952
         - name: G9745 Before # G9745 starts early
           denominator: 1
           denominator_exclusion:
@@ -1195,11 +1195,11 @@ patients:
       - code_type: LOINC
         code_value: 8480-6 # Systolic
         start_datetime: 2016-10-01
-        result: 120
+        result: 140
       - code_type: LOINC
         code_value: 8480-6 # Systolic
         start_datetime: 2016-09-01
-        result: 120
+        result: 140
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
         start_datetime: 2016-10-01
@@ -1207,6 +1207,7 @@ patients:
       - code_type: LOINC
         code_value: 24321-2 # Hypertension lab test
         start_datetime: 2015-12-31
+        result: 5
   - name: 2FollowUp Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -1226,7 +1227,11 @@ patients:
       - code_type: LOINC
         code_value: 8480-6 # Systolic
         start_datetime: 2016-10-01
-        result: 120
+        result: 140
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-09-01
+        result: 140
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
         start_datetime: 2016-10-01
@@ -1234,6 +1239,7 @@ patients:
       - code_type: LOINC
         code_value: 24321-2 # Hypertension lab test
         start_datetime: 2016-01-01
+        result: 5
   - name: 2FollowUp Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -1253,7 +1259,11 @@ patients:
       - code_type: LOINC
         code_value: 8480-6 # Systolic
         start_datetime: 2016-10-01
-        result: 120
+        result: 140
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-09-01
+        result: 140
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
         start_datetime: 2016-10-01
@@ -1261,6 +1271,7 @@ patients:
       - code_type: LOINC
         code_value: 24321-2 # Hypertension lab test
         start_datetime: 2016-12-31
+        result: 5
   - name: 2FollowUp After
     attributes:
       date_of_birth: 1950-01-01
@@ -1280,7 +1291,11 @@ patients:
       - code_type: LOINC
         code_value: 8480-6 # Systolic
         start_datetime: 2016-10-01
-        result: 120
+        result: 140
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-09-01
+        result: 140
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
         start_datetime: 2016-10-01
@@ -1288,6 +1303,7 @@ patients:
       - code_type: LOINC
         code_value: 24321-2 # Hypertension lab test
         start_datetime: 2017-01-01
+        result: 5
   - name: 2FollowUp NoRegularFollowUp
     attributes:
       date_of_birth: 1950-01-01
@@ -1307,11 +1323,16 @@ patients:
       - code_type: LOINC
         code_value: 8480-6 # Systolic
         start_datetime: 2016-10-01
-        result: 120
+        result: 140
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-09-01
+        result: 140
       laboratory_test_performeds:
       - code_type: LOINC
         code_value: 24321-2 # Hypertension lab test
         start_datetime: 2016-01-01
+        result: 5
   - name: G9745 Before
     attributes:
       date_of_birth: 1950-01-01
