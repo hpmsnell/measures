@@ -1,0 +1,373 @@
+measure_id: 17.MIPS.Mips355
+test_set_keys:
+  organization_key:
+    patients:
+      - name: Too Young # Below age range
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower # Lower bound of age range
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9307
+      - name: Procedure Early # Procedure too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Procedure Lower # Procedure at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9307
+      - name: Procedure Upper # Procedure at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9307
+      - name: Procedure Late # Procedure too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: G9308 Before # Performance met G9308 before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9307
+      - name: G9308 Lower # Performance met G9308 lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9308
+      - name: G9308 Upper # Performance met G9308 upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9308
+      - name: G9308 After # Performance met G9308 after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9307
+      - name: Reoperation Before # Eye Reoperation before end of procedure
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9307
+      - name: Reoperation Lower # Eye Reoperation at end of procedure
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9308
+      - name: Reoperation Upper # Eye Reoperation at upper bound of period
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9308
+      - name: Reoperation After # Eye Reoperation after period
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9307
+  providers_key:
+    - name: Rachel
+      patients:
+        - name: Too Young # Below age range
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Age Lower # Lower bound of age range
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9307
+        - name: Procedure Early # Procedure too early
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Procedure Lower # Procedure at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9307
+        - name: Procedure Upper # Procedure at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9307
+        - name: Procedure Late # Procedure too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: G9308 Before # Performance met G9308 before MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9307
+        - name: G9308 Lower # Performance met G9308 lower bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9308
+        - name: G9308 Upper # Performance met G9308 upper bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9308
+        - name: G9308 After # Performance met G9308 after MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9307
+        - name: Reoperation Before # Eye Reoperation before end of procedure
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Reoperation Lower # Eye Reoperation at end of procedure
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Reoperation Upper # Eye Reoperation at upper bound of period
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Reoperation After # Eye Reoperation after period
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  credential: DO
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+- given_name: Patty
+  family_name: PrimaryCare
+  credential: MD
+  primary_specialty: Family Medicine
+  pqrs_provider: true
+- given_name: Derek
+  family_name: NoMIPS
+  credential: MD
+  pqrs_provider: false
+patients:
+  - name: Too Young
+    attributes:
+      date_of_birth: 1998-02-02
+      given_name: Too
+      family_name: Young
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-02-01
+        provider: Rachel
+  - name: Age Lower
+    attributes:
+      date_of_birth: 1998-02-01
+      given_name: Age
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-02-01
+        provider: Rachel
+  - name: Procedure Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Procedure
+      family_name: Early
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2015-12-31
+        provider: Rachel
+  - name: Procedure Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Procedure
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-01-01
+        provider: Rachel
+  - name: Procedure Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Procedure
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-12-31
+        provider: Rachel
+  - name: Procedure Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Procedure
+      family_name: Late
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2017-01-01
+        provider: Rachel
+  - name: G9308 Before
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9308
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9308
+        start_datetime: 2015-12-31
+  - name: G9308 Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9308
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9308
+        start_datetime: 2016-01-01
+  - name: G9308 Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9308
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9308
+        start_datetime: 2016-12-31
+  - name: G9308 After
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9308
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9308
+        start_datetime: 2017-01-01
+  - name: Reoperation Before
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Reoperation
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-01
+        provider: Patty
+      - code_type: CPT
+        code_value: 43870-78
+        start_datetime: 2016-01-31
+  - name: Reoperation Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Reoperation
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-01
+        provider: Patty
+      - code_type: CPT
+        code_value: 43870-78
+        start_datetime: 2016-02-01
+  - name: Reoperation Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Reoperation
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-01
+        provider: Patty
+      - code_type: CPT
+        code_value: 43870-78
+        start_datetime: 2016-03-02
+  - name: Reoperation After
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Reoperation
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-01
+        provider: Patty
+      - code_type: CPT
+        code_value: 43870-78
+        start_datetime: 2016-03-03
