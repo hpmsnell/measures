@@ -438,18 +438,16 @@ test_set_keys:
 providers:
 - given_name: Rachel
   family_name: Kohler
+  external_id: '111-111'
   credential: DO
   primary_specialty: Family Medicine
   pqrs_provider: true
 - given_name: Patty
   family_name: PrimaryCare
+  external_id: '222-222'
   credential: MD
   primary_specialty: Family Medicine
   pqrs_provider: true
-- given_name: Derek
-  family_name: NoMIPS
-  credential: MD
-  pqrs_provider: false
 patients:
   - name: Too Young
     attributes:
@@ -457,7 +455,6 @@ patients:
       given_name: Too
       family_name: Young
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -474,7 +471,6 @@ patients:
       given_name: Age
       family_name: Lower
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -491,7 +487,6 @@ patients:
       given_name: Age
       family_name: Upper
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -508,7 +503,6 @@ patients:
       given_name: Too
       family_name: Old
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -525,7 +519,6 @@ patients:
       given_name: Diagnosis
       family_name: Late
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -542,7 +535,6 @@ patients:
       given_name: Diagnosis
       family_name: Early
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -560,7 +552,6 @@ patients:
       given_name: Diagnosis
       family_name: Upper
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -577,7 +568,6 @@ patients:
       given_name: Encounter
       family_name: Early
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -594,7 +584,6 @@ patients:
       given_name: Encounter
       family_name: Lower
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -611,7 +600,6 @@ patients:
       given_name: Encounter
       family_name: Upper
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -628,7 +616,6 @@ patients:
       given_name: Encounter
       family_name: Late
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -645,7 +632,6 @@ patients:
       given_name: Hospice
       family_name: Before
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -665,7 +651,6 @@ patients:
       given_name: Hospice
       family_name: Lower
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -673,7 +658,7 @@ patients:
         start_datetime: 2016-02-01
         provider: Rachel
       - code_type: HCPCS
-        code_value: G9693
+        code_value: G9714
         start_datetime: 2016-01-01
       diagnoses:
       - code_type: ICD10CM
@@ -685,7 +670,6 @@ patients:
       given_name: Hospice
       family_name: Upper
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -705,7 +689,6 @@ patients:
       given_name: Hospice
       family_name: Late
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -725,7 +708,6 @@ patients:
       given_name: VHospice
       family_name: Before
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -746,7 +728,6 @@ patients:
       given_name: VHospice
       family_name: Lower
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -766,7 +747,6 @@ patients:
       given_name: VHospice
       family_name: Upper
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -786,7 +766,6 @@ patients:
       given_name: VHospice
       family_name: Late
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -806,7 +785,6 @@ patients:
       given_name: 2022F
       family_name: Before
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -826,7 +804,6 @@ patients:
       given_name: 2022F
       family_name: Lower
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -846,7 +823,6 @@ patients:
       given_name: 2022F
       family_name: Upper
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -866,7 +842,6 @@ patients:
       given_name: 2022F
       family_name: After
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -886,7 +861,6 @@ patients:
       given_name: 2024F
       family_name: Before
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -906,7 +880,6 @@ patients:
       given_name: 2024F
       family_name: Lower
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -926,7 +899,6 @@ patients:
       given_name: 2024F
       family_name: Upper
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -946,7 +918,6 @@ patients:
       given_name: 2024F
       family_name: After
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -966,7 +937,6 @@ patients:
       given_name: 2026F
       family_name: Before
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -986,7 +956,6 @@ patients:
       given_name: 2026F
       family_name: Lower
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -1006,7 +975,6 @@ patients:
       given_name: 2026F
       family_name: Upper
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -1026,7 +994,6 @@ patients:
       given_name: 2026F
       family_name: After
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -1046,7 +1013,6 @@ patients:
       given_name: 3072F
       family_name: Before
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -1066,7 +1032,6 @@ patients:
       given_name: 3072F
       family_name: Lower
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -1086,7 +1051,6 @@ patients:
       given_name: 3072F
       family_name: Upper
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -1106,7 +1070,6 @@ patients:
       given_name: 3072F
       family_name: After
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -1126,7 +1089,6 @@ patients:
       given_name: VSAC
       family_name: Before
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -1147,7 +1109,6 @@ patients:
       given_name: VSAC
       family_name: Lower
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -1168,7 +1129,6 @@ patients:
       given_name: VSAC
       family_name: Upper
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -1189,7 +1149,6 @@ patients:
       given_name: VSAC
       family_name: After
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -1210,7 +1169,6 @@ patients:
       given_name: VSAC
       family_name: Positive
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -1231,7 +1189,6 @@ patients:
       given_name: 2022F
       family_name: Failure
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -1251,7 +1208,6 @@ patients:
       given_name: 2024F
       family_name: Failure
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -1271,7 +1227,6 @@ patients:
       given_name: 2026F
       family_name: Failure
       sex: Female
-    health_plan_id: Medicare Part B
     clinical_models:
       clinical_activities:
       - code_type: CPT

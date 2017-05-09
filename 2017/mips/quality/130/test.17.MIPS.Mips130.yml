@@ -37,6 +37,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
+      denominator_exception:
       numerator: G8428
     - name: Denominator Exclusion #  Exclusion on date of encounter
       start_datetime: 2016-06-01
@@ -262,11 +263,13 @@ test_set_keys:
 providers:
 - given_name: Rachel
   family_name: Kohler
+  external_id: '111-111'
   credential: DO
   primary_specialty: Family Medicine
   pqrs_provider: true
 - given_name: Patty
   family_name: PrimaryCare
+  external_id: '222-222'
   credential: MD
   primary_specialty: Family Medicine
   pqrs_provider: true
@@ -277,7 +280,6 @@ patients:
     given_name: Too
     family_name: Young
     sex: Male
-  health_plan_id: Medicare Part B
   clinical_models:
     clinical_activities:
     - code_type: CPT
@@ -290,7 +292,6 @@ patients:
     given_name: Wrong
     family_name: Encounter
     sex: Female
-  health_plan_id: Medicare Part B
   clinical_models:
     clinical_activities:
     - code_type: CPT
@@ -311,7 +312,6 @@ patients:
     given_name: Right
     family_name: Encounter
     sex: Male
-  health_plan_id: Medicare Part B
   clinical_models:
     clinical_activities:
     - code_type: CPT
@@ -328,7 +328,6 @@ patients:
     given_name: Denominator
     family_name: Exclusion
     sex: Male
-  health_plan_id: Medicare Part B
   clinical_models:
     clinical_activities:
     - code_type: CPT
@@ -358,7 +357,6 @@ patients:
     given_name: Numerator
     family_name: Success
     sex: Male
-  health_plan_id: Medicare Part B
   clinical_models:
     clinical_activities:
     - code_type: CPT
@@ -388,7 +386,6 @@ patients:
     given_name: VSAC
     family_name: Success
     sex: Female
-  health_plan_id: Medicare Part B
   clinical_models:
     clinical_activities:
     - code_type: CPT

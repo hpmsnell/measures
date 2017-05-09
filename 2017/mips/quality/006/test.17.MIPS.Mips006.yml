@@ -1,4 +1,4 @@
-measure_id: 17.MIPS_006_2017
+measure_id: 17.Mips.Mips006.yml
 test_set_keys:
   organization_key:
     patients:
@@ -13,10 +13,10 @@ test_set_keys:
       denominator_exception:
       numerator: 4086F-8P
     - name: Diagnosis 10Prior
-      denominator: 1
+      denominator:
       denominator_exclusion:
       denominator_exception:
-      numerator: 4086F-8P
+      numerator:
     - name: Diagnosis 10After
       denominator:
       denominator_exclusion:
@@ -45,12 +45,12 @@ test_set_keys:
     - name: ExceptedDueTo MIPS1PLower
       denominator: 1
       denominator_exclusion:
-      denominator_exception: denominator_exception_1
+      denominator_exception: 4086F1P
       numerator:
     - name: ExceptedDueTo MIPS1PUpper
       denominator: 1
       denominator_exclusion:
-      denominator_exception: denominator_exception_1
+      denominator_exception: 4086F1P
       numerator:
     - name: ExceptedDueTo MIPS1PLate
       denominator: 1
@@ -65,7 +65,7 @@ test_set_keys:
     - name: ExceptedDueTo AllergyOverlapping
       denominator: 1
       denominator_exclusion:
-      denominator_exception: denominator_exception_2
+      denominator_exception: 4086F1P
       numerator:
     - name: ExceptedDueTo AllergyLate
       denominator: 1
@@ -80,7 +80,7 @@ test_set_keys:
     - name: ExceptedDueTo ThienopyridineRxDuring
       denominator: 1
       denominator_exclusion:
-      denominator_exception: denominator_exception_3
+      denominator_exception: 4086F1P
       numerator:
     - name: ExceptedDueTo ThienopyridineRxLate
       denominator: 1
@@ -95,7 +95,7 @@ test_set_keys:
     - name: ExceptedDueTo ThienopyridineActiveOverlapping
       denominator: 1
       denominator_exclusion:
-      denominator_exception: denominator_exception_3
+      denominator_exception: 4086F1P
       numerator:
     - name: ExceptedDueTo ThienopyridineActiveLate
       denominator: 1
@@ -105,12 +105,12 @@ test_set_keys:
     - name: ExceptedDueTo WarfarinRxDuring
       denominator: 1
       denominator_exclusion:
-      denominator_exception: denominator_exception_3
+      denominator_exception: 4086F1P
       numerator:
     - name: ExceptedDueTo WarfarinActiveOverlapping
       denominator: 1
       denominator_exclusion:
-      denominator_exception: denominator_exception_3
+      denominator_exception: 4086F1P
       numerator:
     - name: ExceptedDueTo BleedingEarly
       denominator: 1
@@ -120,7 +120,7 @@ test_set_keys:
     - name: ExceptedDueTo BleedingOverlapping
       denominator: 1
       denominator_exclusion:
-      denominator_exception: denominator_exception_4
+      denominator_exception: 4086F1P
       numerator:
     - name: ExceptedDueTo BleedingLate
       denominator: 1
@@ -135,7 +135,7 @@ test_set_keys:
     - name: ExceptedDueTo RefusalDuring
       denominator: 1
       denominator_exclusion:
-      denominator_exception: denominator_exception_5
+      denominator_exception: 4086F2P
       numerator:
     - name: ExceptedDueTo RefusalLate
       denominator: 1
@@ -150,7 +150,7 @@ test_set_keys:
     - name: ExceptedDueTo NonspecifiedDuring
       denominator: 1
       denominator_exclusion:
-      denominator_exception: denominator_exception_6
+      denominator_exception: 4086F3P
       numerator:
     - name: ExceptedDueTo NonspecifiedLate
       denominator: 1
@@ -231,10 +231,10 @@ test_set_keys:
         denominator_exception:
         numerator: 4086F-8P
       - name: Diagnosis 10Prior
-        denominator: 1
+        denominator:
         denominator_exclusion:
         denominator_exception:
-        numerator: 4086F-8P
+        numerator:
       - name: Diagnosis 10After
         denominator:
         denominator_exclusion:
@@ -263,12 +263,12 @@ test_set_keys:
       - name: ExceptedDueTo MIPS1PLower
         denominator: 1
         denominator_exclusion:
-        denominator_exception: denominator_exception_1
+        denominator_exception: 4086F1P
         numerator:
       - name: ExceptedDueTo MIPS1PUpper
         denominator: 1
         denominator_exclusion:
-        denominator_exception: denominator_exception_1
+        denominator_exception: 4086F1P
         numerator:
       - name: ExceptedDueTo MIPS1PLate
         denominator: 1
@@ -283,7 +283,7 @@ test_set_keys:
       - name: ExceptedDueTo AllergyOverlapping
         denominator: 1
         denominator_exclusion:
-        denominator_exception: denominator_exception_2
+        denominator_exception: 4086F1P
         numerator:
       - name: ExceptedDueTo AllergyLate
         denominator: 1
@@ -298,7 +298,7 @@ test_set_keys:
       - name: ExceptedDueTo ThienopyridineRxDuring
         denominator: 1
         denominator_exclusion:
-        denominator_exception: denominator_exception_3
+        denominator_exception: 4086F1P
         numerator:
       - name: ExceptedDueTo ThienopyridineRxLate
         denominator: 1
@@ -313,7 +313,7 @@ test_set_keys:
       - name: ExceptedDueTo ThienopyridineActiveOverlapping
         denominator: 1
         denominator_exclusion:
-        denominator_exception: denominator_exception_3
+        denominator_exception: 4086F1P
         numerator:
       - name: ExceptedDueTo ThienopyridineActiveLate
         denominator: 1
@@ -323,12 +323,12 @@ test_set_keys:
       - name: ExceptedDueTo WarfarinRxDuring
         denominator: 1
         denominator_exclusion:
-        denominator_exception: denominator_exception_3
+        denominator_exception: 4086F1P
         numerator:
       - name: ExceptedDueTo WarfarinActiveOverlapping
         denominator: 1
         denominator_exclusion:
-        denominator_exception: denominator_exception_3
+        denominator_exception: 4086F1P
         numerator:
       - name: ExceptedDueTo BleedingEarly
         denominator: 1
@@ -338,7 +338,7 @@ test_set_keys:
       - name: ExceptedDueTo BleedingOverlapping
         denominator: 1
         denominator_exclusion:
-        denominator_exception: denominator_exception_4
+        denominator_exception: 4086F1P
         numerator:
       - name: ExceptedDueTo BleedingLate
         denominator: 1
@@ -353,7 +353,7 @@ test_set_keys:
       - name: ExceptedDueTo RefusalDuring
         denominator: 1
         denominator_exclusion:
-        denominator_exception: denominator_exception_5
+        denominator_exception: 4086F2P
         numerator:
       - name: ExceptedDueTo RefusalLate
         denominator: 1
@@ -368,7 +368,7 @@ test_set_keys:
       - name: ExceptedDueTo NonspecifiedDuring
         denominator: 1
         denominator_exclusion:
-        denominator_exception: denominator_exception_6
+        denominator_exception: 4086F3P
         numerator:
       - name: ExceptedDueTo NonspecifiedLate
         denominator: 1
@@ -438,11 +438,13 @@ test_set_keys:
 providers:
 - given_name: Rachel
   family_name: Cats
+  external_id: '111-111'
   credential: DO
   primary_specialty: Family Medicine
   pqrs_provider: true
 - given_name: Steve
   family_name: Dogs
+  external_id: '222-222'
   credential: MD
   primary_specialty: Family Medicine
   pqrs_provider: true
@@ -463,7 +465,7 @@ patients:
       code_value: 99201
       start_datetime: 2016-02-01
       provider: Rachel
-- name: Patient is at lower bound of age range but otherwise meets denominator
+- name: Patient is at lower bound of age range and otherwise meets denominator
   attributes:
     date_of_birth: 1998-02-01
     given_name: Age
@@ -521,7 +523,7 @@ patients:
   clinical_models:
     diagnoses:
     - code_type: ICD9CM
-      code_value: 250.0
+      code_value: I20.8
       start_datetime: 2015-05-01
     clinical_activities:
     - code_type: CPT
@@ -676,7 +678,7 @@ patients:
     allergies:
     - code_type: RXNORM
       code_value: 243670
-      start_datetime: 2017-01-01
+      start_datetime: 2016-01-01
 - name: Patient has an exception too late because of an allergy to aspirin RXNORM
   attributes:
     date_of_birth: 1980-06-01
@@ -717,7 +719,7 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 855812
-      quantity: 30
+      method: E
       start_datetime: 2015-12-31
 - name: Patient excepted because of a prescription for another anticoagulant 4086F-1P
   attributes:
@@ -739,7 +741,7 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 855812
-      quantity: 30
+      method: E
       start_datetime: 2016-01-01
 - name: Patient has an exception too late because of a prescription for another anticoagulant 4086F-1P
   attributes:
@@ -761,7 +763,7 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 855812
-      quantity: 30
+      method: E
       start_datetime: 2017-01-01
 - name: Patient has an exception too early for an active medication for another anticoagulant 4086F-1P
   attributes:
@@ -847,7 +849,7 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 855288
-      quantity: 30
+      method: E
       start_datetime: 2016-01-01
 - name: Patient excepted because of an active medication for warfarin 4086F-1P
   attributes:
@@ -923,8 +925,7 @@ patients:
       start_datetime: 2015-05-01
     - code_type: ICD10CM
       code_value: D69.49
-      start_datetime: 2015-05-01
-      stop_datetime: 2017-01-01
+      start_datetime: 2017-01-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
@@ -1139,7 +1140,7 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 198466
-      quantity: 30
+      method: E
       start_datetime: 2015-12-31
 - name: Patient prescribed aspirin therapy at lower bound of measurement period
   attributes:
@@ -1160,7 +1161,7 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 198466
-      quantity: 30
+      method: E
       start_datetime: 2016-01-01
 - name: Patient prescribed aspirin therapy at upper bound of measurement period
   attributes:
@@ -1182,7 +1183,7 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 198466
-      quantity: 30
+      method: E
       start_datetime: 2016-12-31
 - name: Patient prescribed aspirin therapy too late
   attributes:
@@ -1203,7 +1204,7 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 198466
-      quantity: 30
+      method: E
       start_datetime: 2017-01-01
 - name: Patient has an active medication for aspirin therapy too early
   attributes:

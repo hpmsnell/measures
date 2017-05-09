@@ -117,6 +117,11 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: 3046F-8P
+    - name: Other Lab
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3044F
     - name: 3046F Before
       denominator: 1
       denominator_exclusion:
@@ -285,6 +290,11 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator: 3046F-8P
+        - name: Other Lab
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 3044F
         - name: 3046F Before
           denominator: 1
           denominator_exclusion:
@@ -337,14 +347,16 @@ test_set_keys:
           numerator:
 providers:
   - given_name: Rachel
-    family_name:  Katz
+    family_name: Katz
+    external_id: '111-111'
     credential: DO
-    primary_specialty:  Family Medicine
+    primary_specialty: Family Medicine
     pqrs_provider: true
   - given_name: Patty
-    family_name:  Smith
+    family_name: Smith
+    external_id: '222-222'
     credential: MD
-    primary_specialty:  Family Medicine
+    primary_specialty: Family Medicine
     pqrs_provider: true
 patients:
 - name: Too Young
@@ -779,6 +791,31 @@ patients:
       code_value: 4548-4
       start_datetime: 2016-02-01
       result: mg
+- name: Other Lab
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: Other
+    family_name: Lab
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99219
+      start_datetime: 2016-02-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_datetime: 2010-01-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 0000-0
+      start_datetime: 2016-02-01
+      result: 10.0
+    - code_type: LOINC
+      code_value: 4548-4
+      start_datetime: 2016-02-01
+      result: 6.0
 - name: 3046F Before
   attributes:
     date_of_birth: 1970-01-01
