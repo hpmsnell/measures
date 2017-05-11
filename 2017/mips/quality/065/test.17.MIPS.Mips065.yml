@@ -11,12 +11,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8710
+      numerator: G8708
     - name: Age Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8710
+      numerator: G8708
     - name: Too Old
       denominator:
       denominator_exclusion:
@@ -31,12 +31,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8710
+      numerator: G8708
     - name: Encounter Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8710
+      numerator: G8708
     - name: Encounter After
       denominator:
       denominator_exclusion:
@@ -51,12 +51,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8710
+      numerator: G8708
     - name: Diagnosis Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8710
+      numerator: G8708
     - name: Diagnosis After
       denominator:
       denominator_exclusion:
@@ -66,7 +66,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8710
+      numerator: G8708
     - name: MedicalReason Lower
       denominator: 1
       denominator_exclusion: exclusion_1
@@ -81,7 +81,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8710
+      numerator: G8708
     - name: MedicalReason Diagnosis
       denominator: 1
       denominator_exclusion: exclusion_1
@@ -91,7 +91,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8710
+      numerator: G8708
     - name: ExistingAntibiotic Lower
       denominator: 1
       denominator_exclusion: exclusion_2
@@ -106,7 +106,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8710
+      numerator: G8708
     - name: ExistingAntibiotic Medication
       denominator: 1
       denominator_exclusion: exclusion_2
@@ -116,7 +116,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8710
+      numerator: G8708
     - name: Hospice Lower
       denominator: 1
       denominator_exclusion: exclusion_3
@@ -131,7 +131,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8710
+      numerator: G8708
     - name: G8708 Before
       denominator: 1
       denominator_exclusion:
@@ -154,9 +154,9 @@ test_set_keys:
       numerator: G8710
     - name: Antibiotic Before
       denominator: 1
-      denominator_exclusion:
+      denominator_exclusion: exclusion_2
       denominator_exception:
-      numerator: G8708
+      numerator:
     - name: Antibiotic Lower
       denominator: 1
       denominator_exclusion:
@@ -168,6 +168,11 @@ test_set_keys:
       denominator_exception:
       numerator: G8710
     - name: Antibiotic After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8708
+    - name: Antibiotic Active
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -184,12 +189,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8710
+        numerator: G8708
       - name: Age Upper
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8710
+        numerator: G8708
       - name: Too Old
         denominator:
         denominator_exclusion:
@@ -204,12 +209,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8710
+        numerator: G8708
       - name: Encounter Upper
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8710
+        numerator: G8708
       - name: Encounter After
         denominator:
         denominator_exclusion:
@@ -224,12 +229,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8710
+        numerator: G8708
       - name: Diagnosis Upper
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8710
+        numerator: G8708
       - name: Diagnosis After
         denominator:
         denominator_exclusion:
@@ -239,7 +244,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8710
+        numerator: G8708
       - name: MedicalReason Lower
         denominator: 1
         denominator_exclusion: exclusion_1
@@ -254,7 +259,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8710
+        numerator: G8708
       - name: MedicalReason Diagnosis
         denominator: 1
         denominator_exclusion: exclusion_1
@@ -264,7 +269,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8710
+        numerator: G8708
       - name: ExistingAntibiotic Lower
         denominator: 1
         denominator_exclusion: exclusion_2
@@ -279,7 +284,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8710
+        numerator: G8708
       - name: ExistingAntibiotic Medication
         denominator: 1
         denominator_exclusion: exclusion_2
@@ -289,7 +294,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8710
+        numerator: G8708
       - name: Hospice Lower
         denominator: 1
         denominator_exclusion: exclusion_3
@@ -304,7 +309,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8710
+        numerator: G8708
       - name: G8708 Before
         denominator: 1
         denominator_exclusion:
@@ -327,9 +332,9 @@ test_set_keys:
         numerator: G8710
       - name: Antibiotic Before
         denominator: 1
-        denominator_exclusion:
+        denominator_exclusion: exclusion_2
         denominator_exception:
-        numerator: G8708
+        numerator:
       - name: Antibiotic Lower
         denominator: 1
         denominator_exclusion:
@@ -341,6 +346,11 @@ test_set_keys:
         denominator_exception:
         numerator: G8710
       - name: Antibiotic After
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Antibiotic Active
         denominator:
         denominator_exclusion:
         denominator_exception:
@@ -547,11 +557,12 @@ patients:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-02-02 # Too late
+      start_datetime: 2016-02-03 # Too late
 - name: MedicalReason Before
   attributes:
     date_of_birth: 2000-01-01
@@ -563,6 +574,7 @@ patients:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8709
@@ -582,6 +594,7 @@ patients:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8709
@@ -601,6 +614,7 @@ patients:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8709
@@ -620,6 +634,7 @@ patients:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8709
@@ -632,13 +647,14 @@ patients:
   attributes:
     date_of_birth: 2000-01-01
     given_name: MedicalReason
-    family_name: Lower
+    family_name: Diagnosis
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
@@ -658,10 +674,11 @@ patients:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9701
-      start_datetime: 2015-12-31 # Too early
+      start_datetime: 2016-01-01 # Too early
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
@@ -677,10 +694,11 @@ patients:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9701
-      start_datetime: 2016-01-01 # Lower bound
+      start_datetime: 2016-01-02 # Lower bound
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
@@ -696,10 +714,11 @@ patients:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9701
-      start_datetime: 2016-02-01 # Upper bound
+      start_datetime: 2016-01-31 # Upper bound
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
@@ -715,6 +734,7 @@ patients:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9701
@@ -727,13 +747,14 @@ patients:
   attributes:
     date_of_birth: 2000-01-01
     given_name: ExistingAntibiotic
-    family_name: Lower
+    family_name: Medication
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
@@ -742,7 +763,7 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1013659
-      start_datetime: 2016-01-01
+      start_datetime: 2016-01-02
 - name: Hospice Before
   attributes:
     date_of_birth: 2000-01-01
@@ -830,6 +851,7 @@ patients:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8708
@@ -838,6 +860,11 @@ patients:
     - code_type: ICD10CM
       code_value: J00
       start_datetime: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1013659
+      method: E
+      start_datetime: 2016-02-04
 - name: G8708 Lower
   attributes:
     date_of_birth: 2000-01-01
@@ -849,6 +876,7 @@ patients:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8708
@@ -857,6 +885,11 @@ patients:
     - code_type: ICD10CM
       code_value: J00
       start_datetime: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1013659
+      method: E
+      start_datetime: 2016-02-04
 - name: G8708 Upper
   attributes:
     date_of_birth: 2000-01-01
@@ -868,6 +901,7 @@ patients:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8708
@@ -876,6 +910,11 @@ patients:
     - code_type: ICD10CM
       code_value: J00
       start_datetime: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1013659
+      method: E
+      start_datetime: 2016-02-04
 - name: G8708 After
   attributes:
     date_of_birth: 2000-01-01
@@ -887,6 +926,7 @@ patients:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8708
@@ -894,6 +934,11 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
+      start_datetime: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1013659
+      method: E
       start_datetime: 2016-02-01
 - name: Antibiotic Before
   attributes:
@@ -906,6 +951,7 @@ patients:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
@@ -914,6 +960,7 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1013659
+      method: E
       start_datetime: 2016-01-30
 - name: Antibiotic Lower
   attributes:
@@ -926,6 +973,7 @@ patients:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
@@ -934,6 +982,7 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1013659
+      method: E
       start_datetime: 2016-02-01
 - name: Antibiotic Upper
   attributes:
@@ -946,6 +995,7 @@ patients:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
@@ -954,6 +1004,7 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1013659
+      method: E
       start_datetime: 2016-02-04
 - name: Antibiotic After
   attributes:
@@ -966,6 +1017,7 @@ patients:
     - code_type: CPT
       code_value: 99219
       start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Patty
     diagnoses:
     - code_type: ICD10CM
@@ -974,4 +1026,26 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1013659
+      method: E
       start_datetime: 2016-02-05
+- name: Antibiotic Active
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Antibiotic
+    family_name: Active
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99219
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Patty
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J00
+      start_datetime: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1013659
+      start_datetime: 2016-02-04

@@ -81,7 +81,7 @@ define "Numerator Performance Met: G8708":
    */
   exists(["Procedure, Performed": "Performance Met: G8708"] P
     where P.relevantPeriod starts during "Measurement Period"
-  or not exists(["Medication, Active": "VSAC; Antibiotic Medications for Pharyngitis"] M
+  or not exists(["Medication, Order": "VSAC; Antibiotic Medications for Pharyngitis"] M
     with "Denominator Encounter" E
       such that M.relevantPeriod starts 3 days or less after start of E.relevantPeriod)
 
