@@ -81,9 +81,9 @@ define "Numerator Performance Met: 0518F":
   exists(["Procedure, Performed": "MIPS; Performance Met: 0518F"] P
     where P.relevantPeriod starts during "Measurement Period")
   or (
-    exists(["Intervention, Performed": "ABLE; Osteoporosis Diet Recommendation"] I
+    exists(["Intervention, Performed": "ABLE; Falls Diet Recommendation"] I
       where I.authorDateTime during "Measurement Period")
-    and exists(["Intervention, Performed": "ABLE; Osteoporosis Training Recommendation"] I
+    and exists(["Intervention, Performed": "ABLE; Falls Training Recommendation"] I
       where I.authorDateTime during "Measurement Period")
   )
 

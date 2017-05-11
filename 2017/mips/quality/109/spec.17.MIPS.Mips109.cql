@@ -11,7 +11,7 @@ library MIPS_109_2017 version '1'
 
 using QDM
 
-// Able Custom Value Sets
+// MIPS Value Sets
 
 valueset "MIPS; MIPS 109 Encounter"
 valueset "MIPS; Osteoarthritis"
@@ -24,6 +24,10 @@ valueset "VSAC; Functional Status Assessment for Knee Replacement": '2.16.840.1.
 valueset "VSAC; Functional Status Assessment for Hip Replacement": '2.16.840.1.113883.3.464.1003.118.11.1039'
 valueset "VSAC; Standardized Pain Assessment Tool": '2.16.840.1.113883.3.526.3.1028'
 valueset "VSAC; Pain Assessments": '2.16.840.1.113762.1.4.1047.152'
+
+// Able Value Sets
+
+valueset "Able; Functional Status Assessment"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -40,6 +44,7 @@ define "Denominator Encounter":
 define "Functional Status Assessment":
   ["Assessment, Performed": "VSAC; Functional Status Assessment for Knee Replacement"]
   union ["Assessment, Performed": "VSAC; Functional Status Assessment for Hip Replacement"]
+  union ["Assessment, Performed": "Able; Functional Status Assessment"]
 
 define "Pain Assessment":
   ["Assessment, Performed": "VSAC; Standardized Pain Assessment Tool"]
