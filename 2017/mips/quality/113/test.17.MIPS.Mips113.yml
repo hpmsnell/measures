@@ -216,11 +216,13 @@ test_set_keys:
 providers:
 - given_name: Rachel
   family_name: Kohler
+  external_id: '111-111'
   credential: DO
   primary_specialty: Family Medicine
   pqrs_provider: true
 - given_name: Patty
   family_name: PrimaryCare
+  external_id: '222-222'
   credential: MD
   primary_specialty: Family Medicine
   pqrs_provider: true
@@ -363,7 +365,7 @@ patients:
       start_datetime: 2016-01-01
       provider: Rachel
     - code_type: HCPCS
-      code_value: G9693 # Hospice Service
+      code_value: G9710 # MIPS Hospice Service
       start_datetime: 2016-01-01
 - name: Patient has a MIPS hospice service but it is too late
   attributes:
@@ -378,7 +380,7 @@ patients:
       start_datetime: 2016-01-01
       provider: Rachel
     - code_type: HCPCS
-      code_value: G9710 # Hospice Service
+      code_value: G9710 # MIPS Hospice Service
       start_datetime: 2017-01-01 # Too late
 - name: Patient has a MIPS exclusion but it is too early
   attributes:
@@ -393,7 +395,7 @@ patients:
       start_datetime: 2016-01-01
       provider: Rachel
     - code_type: HCPCS
-      code_value: G9710 # Hospice Service
+      code_value: G9710 # MIPS Hospice Service
       start_datetime: 2015-12-31 # Too early
 - name: Patient was screened at the start of the allowable period
   attributes:

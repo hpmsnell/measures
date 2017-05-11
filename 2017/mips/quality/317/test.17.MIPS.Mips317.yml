@@ -518,11 +518,13 @@ test_set_keys:
 providers:
 - given_name: Rachel
   family_name: Kohler
+  external_id: '111-111'
   credential: DO
   primary_specialty: Family Medicine
   pqrs_provider: true
 - given_name: Patty
   family_name: PrimaryCare
+  external_id: '222-222'
   credential: MD
   primary_specialty: Family Medicine
   pqrs_provider: true
@@ -1145,11 +1147,11 @@ patients:
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_datetime: 2016-10-01
-        result: 79
+        result: 80
       - code_type: LOINC
         code_value: 8480-6 # Systolic
         start_datetime: 2016-10-01
-        result: 120
+        result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
         start_datetime: 2016-12-31
@@ -1255,15 +1257,15 @@ patients:
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_datetime: 2016-10-01
-        result: 79
+        result: 90
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-10-01
+        result: 90
       - code_type: LOINC
         code_value: 8480-6 # Systolic
         start_datetime: 2016-10-01
-        result: 140
-      - code_type: LOINC
-        code_value: 8480-6 # Systolic
-        start_datetime: 2016-09-01
-        result: 140
+        result: 139
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
         start_datetime: 2016-10-01
