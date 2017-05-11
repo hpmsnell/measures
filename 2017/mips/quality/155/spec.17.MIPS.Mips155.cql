@@ -26,6 +26,7 @@ valueset "MIPS; Performance Not Met: 0518F-8P"
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 valueset "VSAC; Falls Screening": '	2.16.840.1.113883.3.464.1003.118.12.1028'
 valueset "VSAC; Patient not ambulatory": '2.16.840.1.113883.3.464.1003.118.12.1009'
+valueset "VSAC; Physical Therapy": '2.16.840.1.113883.3.464.1003.118.12.1039'
 
 // HEDIS Value Sets
 
@@ -51,6 +52,10 @@ define "Denominator Encounter":
 define "Fall":
   ["Diagnosis": "HEDIS; Falls"]
   union ["Diagnosis": "ABLE; Fall"]
+
+define "Training Recommendation":
+  ["Intervention, Performed": "ABLE; Falls Training Recommendation"]
+  union ["Intervention, Performed": "VSAC; Physical Therapy"]
 
 define "Denominator":
   exists("Denominator Encounter")
@@ -83,7 +88,7 @@ define "Numerator Performance Met: 0518F":
   or (
     exists(["Intervention, Performed": "ABLE; Falls Diet Recommendation"] I
       where I.authorDateTime during "Measurement Period")
-    and exists(["Intervention, Performed": "ABLE; Falls Training Recommendation"] I
+    and exists("Training Recommendation" I
       where I.authorDateTime during "Measurement Period")
   )
 
