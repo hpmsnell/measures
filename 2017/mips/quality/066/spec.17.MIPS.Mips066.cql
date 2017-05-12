@@ -32,6 +32,10 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
+define "Antibiotic Prescription":
+  ["Procedure, Performed": "MIPS; Patient Prescribed Antibiotic"]
+  union ["Medication, Active": "Antibiotic Medications for Pharyngitis"]
+
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 066 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
@@ -43,6 +47,9 @@ define "Denominator Encounter":
 
 define "Denominator":
   exists("Denominator Encounter")
+  and exists("Antibiotic Prescription" M
+    with "Denominator Encounter" E
+      such that M.relevantPeriod starts 3 days or less after start of E.relevantPeriod)
 
 define "Denominator Exclusion 1":
   /*

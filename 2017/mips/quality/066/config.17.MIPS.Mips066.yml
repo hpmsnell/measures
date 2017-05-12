@@ -22,14 +22,16 @@ exclusion_reasons:
           validation_records:
             - model: Diagnosis
               value_set: "MIPS; Pharyngitis"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Patient Prescribed Antibiotic"
+            - model: Medication
+              value_set: "VSAC; Antibiotic Medications for Pharyngitis"
         - count: 1
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Existing Use of Antibiotic"
-        - count: 10
-          validation_records:
-            - model: Medication
-              value_set: "VSAC; Antibiotic Medications for Pharyngitis"
   - config_link_id: exclusion_2
     required:
       display_title: Patient excluded due to hospice service
@@ -42,6 +44,12 @@ exclusion_reasons:
           validation_records:
             - model: Diagnosis
               value_set: "MIPS; Pharyngitis"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Patient Prescribed Antibiotic"
+            - model: Medication
+              value_set: "VSAC; Antibiotic Medications for Pharyngitis"
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -57,6 +65,16 @@ performance_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; MIPS 066 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Pharyngitis"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Patient Prescribed Antibiotic"
+            - model: Medication
+              value_set: "VSAC; Antibiotic Medications for Pharyngitis"
         - count: 10
           validation_records:
             - model: LaboratoryTestPerformed
@@ -76,6 +94,16 @@ performance_not_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; MIPS 066 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Pharyngitis"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Patient Prescribed Antibiotic"
+            - model: Medication
+              value_set: "VSAC; Antibiotic Medications for Pharyngitis"
         - count: 10
           validation_records:
             - model: LaboratoryTestPerformed
