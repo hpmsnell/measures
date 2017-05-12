@@ -43,7 +43,7 @@ define "Denominator Encounter":
       and AgeInYearsAt(start of E.relevantPeriod) < 18
       and E.signingProvider.pqrsProvider = true
     with ["Diagnosis": "MIPS; Pharyngitis"] D
-      such that D.prevalencePeriod overlaps E.relevantPeriod
+      such that D.prevalencePeriod starts during E.relevantPeriod
 
 define "Denominator":
   exists("Denominator Encounter")
