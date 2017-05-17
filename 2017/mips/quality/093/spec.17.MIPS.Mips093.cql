@@ -22,9 +22,12 @@ valueset "MIPS; Performance Not Met: 4131F"
 
 // VSAC value sets
 
-valueset "VSAC; Systemic Antibiotics": '2.16.840.1.113762.1.4.1133.6'
 valueset "VSAC; Diabetes": '2.16.840.1.113883.3.464.1003.103.12.1001'
 valueset "VSAC; Immunodeficient Conditions": '2.16.840.1.113883.3.666.5.1726'
+
+// Able value sets
+
+valueset "Able; Systemic Antibiotics": '2.16.840.1.113762.1.4.1133.6'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -54,7 +57,7 @@ define "Numerator Performance Met: 4132F":
    */
   exists(["Procedure, Performed": "Performance Met: 4132F"] P
     where P.relevantPeriod starts during "Measurement Period"
-  or not exists(["Medication, Order": "VSAC; Systemic Antibiotics"] M
+  or not exists(["Medication, Order": "Able; Systemic Antibiotics"] M
     with "AOE" D
       such that M.relevantPeriod starts on or 30 days or less after start of D.relevantPeriod)
 
