@@ -50,10 +50,10 @@ define "Denominator Exclusion 1":
    */
   exists(["Procedure, Performed": "MIPS; Medical Reason for Antibiotic"] P
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts 3 days or less after start of E.relevantPeriod)
+      such that P.relevantPeriod starts on or 3 days or less after start of E.relevantPeriod)
   or exists(["Diagnosis": "VSAC; Competing Conditions for Respiratory Conditions"] D
     with "Denominator Encounter" E
-      such that D.prevalencePeriod starts 3 days or less after start of E.relevantPeriod)
+      such that D.prevalencePeriod starts on or 3 days or less after start of E.relevantPeriod)
 
 define "Denominator Exclusion 2":
   /*
@@ -83,7 +83,7 @@ define "Numerator Performance Met: G8708":
     where P.relevantPeriod starts during "Measurement Period"
   or not exists(["Medication, Order": "VSAC; Antibiotic Medications for Pharyngitis"] M
     with "Denominator Encounter" E
-      such that M.relevantPeriod starts 3 days or less after start of E.relevantPeriod)
+      such that M.relevantPeriod starts on or 3 days or less after start of E.relevantPeriod)
 
 define "Numerator Performance Not Met: G8710":
   /*
