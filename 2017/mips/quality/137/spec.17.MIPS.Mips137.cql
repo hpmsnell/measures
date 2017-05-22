@@ -1,8 +1,8 @@
-library MIPS_138_2017 version '1'
+library MIPS_137_2017 version '1'
 
 /*
  * Source: MIPS
- * ID: 138
+ * ID: 137
  * Year: 2017
  * Version: 1
  * Author: Steve Daniels
@@ -13,7 +13,7 @@ using QDM
 
 // Able Custom Value Sets
 
-valueset "MIPS; MIPS 138 Encounter"
+valueset "MIPS; MIPS 137 Encounter"
 valueset "MIPS; Melanoma"
 valueset "MIPS; Performance Met: 7010F"
 valueset "MIPS; Denominator Exception: 7010F-3P"
@@ -25,7 +25,7 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Patient Age at Encounter":
-  ["Encounter, Performed": "MIPS; MIPS 138 Encounter"] E
+  ["Encounter, Performed": "MIPS; MIPS 137 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
       and E.signingProvider.pqrsProvider = true
     with ["Diagnosis": "MIPS; Melanoma"] D
