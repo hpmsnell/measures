@@ -6,7 +6,8 @@ library MIPS_066_2017 version '1'
  * ID: 066
  * Year: 2017
  * Version: 1
- * Author: Steve Daniels
+ * Written by: Steve Daniels
+ * Reviewed by: Rachel Katz 2017-05-23
  *
   */
 
@@ -34,7 +35,7 @@ context Patient
 
 define "Antibiotic Prescription":
   ["Procedure, Performed": "MIPS; Patient Prescribed Antibiotic"]
-  union ["Medication, Active": "Antibiotic Medications for Pharyngitis"]
+  union ["Medication, Order": "VSAC; Antibiotic Medications for Pharyngitis"]
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 066 Encounter"] E

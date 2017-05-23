@@ -46,12 +46,12 @@ define "Denominator Encounter":
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.pqrsProvider = true
 
-define "Good Diastolic Blood Pressure":
+define "Normal Diastolic Blood Pressure":
   ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] P
     where P.relevantPeriod starts during E.relevantPeriod
     and P.result < 80
 
-define "Good Systolic Blood Pressure":
+define "Normal Systolic Blood Pressure":
   ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] P
     where P.relevantPeriod starts during E.relevantPeriod
     and P.result < 120
@@ -66,9 +66,9 @@ define "Pre-Hypertensive or Hypertensive Systolic Blood Pressure":
     where P.relevantPeriod starts during E.relevantPeriod
     and P.result >= 120
 
-define "Good Blood Pressure Exists"
-  exists("Good Systolic Blood Pressure")
-  and exists ("Good Diastolic Blood Pressure")
+define "Normal Blood Pressure Exists"
+  exists("Normal Systolic Blood Pressure")
+  and exists ("Normal Diastolic Blood Pressure")
 
 define "Pre-Hypertensive or Hypertensive Blood Pressure Exists"
   exists("Pre-Hypertensive or Hypertensive Systolic Blood Pressure")
@@ -115,7 +115,7 @@ define "Numerator Performance Met: G8783":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G8783"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or "Good Blood Pressure Exists"
+  or "Normal Blood Pressure Exists"
 
 define "Numerator Performance Met: G8950":
   /*

@@ -6,7 +6,8 @@ library MIPS_065_2017 version '1'
  * ID: 065
  * Year: 2017
  * Version: 1
- * Author: Steve Daniels
+ * Written by: Steve Daniels
+ * Reviewed by: Rachel Katz 2017-05-23
  *
   */
 
