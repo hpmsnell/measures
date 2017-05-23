@@ -63,7 +63,13 @@ define "Denominator":
     or count("Fall" D
       with "Denominator Encounter" E
         such that D.prevalencePeriod starts 1 year or less before start of E.relevantPeriod) >= 2
-    )
+  )
+  and (
+    exists(["Procedure, Performed": "MIPS; Performance Met: 3288F"] P
+      where P.relevantPeriod starts during "Measurement Period")
+    or exists(["Assessment, Performed": "VSAC; Falls Screening"] A
+      where A.authorDateTime during "Measurement Period")
+  )
 
 define "Denominator Exclusion":
   /*

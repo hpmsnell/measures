@@ -52,6 +52,46 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator:
+      - name: 3288F Before # 3288F too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: 3288F Lower # 3288F at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: 3288F Upper # 3288F at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: 3288F After # 3288F too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: FallsScreening Before # FallsScreening too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: FallsScreening Lower # FallsScreening at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: FallsScreening Upper # FallsScreening at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 0518F-8P
+      - name: FallsScreening After # FallsScreening too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
       - name: Injury Before # Injury too early
         denominator:
         denominator_exclusion:
@@ -265,6 +305,46 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator:
+        - name: 3288F Before # 3288F too early
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: 3288F Lower # 3288F at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: 3288F Upper # 3288F at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: 3288F After # 3288F too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: FallsScreening Before # FallsScreening too early
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: FallsScreening Lower # FallsScreening at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: FallsScreening Upper # FallsScreening at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 0518F-8P
+        - name: FallsScreening After # FallsScreening too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
         - name: Injury Before # Injury too early
           denominator:
           denominator_exclusion:
@@ -460,6 +540,9 @@ patients:
       - code_type: CPT
         code_value: 1100F
         start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
   - name: Age Lower
     attributes:
       date_of_birth: 1951-02-01
@@ -475,6 +558,9 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
         start_datetime: 2016-02-01
   - name: Encounter Before
     attributes:
@@ -492,6 +578,9 @@ patients:
       - code_type: CPT
         code_value: 1100F
         start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
   - name: Encounter Lower
     attributes:
       date_of_birth: 1940-05-19
@@ -507,6 +596,9 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
         start_datetime: 2016-02-01
   - name: Encounter Upper
     attributes:
@@ -524,6 +616,9 @@ patients:
       - code_type: CPT
         code_value: 1100F
         start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
   - name: Encounter After
     attributes:
       date_of_birth: 1940-05-19
@@ -540,6 +635,161 @@ patients:
       - code_type: CPT
         code_value: 1100F
         start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
+  - name: 3288F Before
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: 3288F
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2015-12-31 # Too early
+  - name: 3288F Lower
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: 3288F
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-01-01 # Lower bound
+  - name: 3288F Upper
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: 3288F
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-12-31 # Upper bound
+  - name: 3288F After
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: 3288F
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2017-01-01 # Too late
+  - name: FallsScreening Before
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: FallsScreening
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 401196007
+        start_datetime: 2015-12-31 # Too early
+  - name: FallsScreening Lower
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: FallsScreening
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 401196007
+        start_datetime: 2016-01-01 # Lower bound
+  - name: FallsScreening Upper
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: FallsScreening
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 401196007
+        start_datetime: 2016-12-31 # Upper bound
+  - name: FallsScreening After
+    attributes:
+      date_of_birth: 1940-05-19
+      given_name: FallsScreening
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92540
+        start_datetime: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: SNOMEDCT
+        code_value: 401196007
+        start_datetime: 2017-01-01 # Too late
   - name: Falls Before
     attributes:
       date_of_birth: 1940-05-19
@@ -555,7 +805,10 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1100F
-        start_datetime: 2015-12-31
+        start_datetime: 2015-12-31 # Too early
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
   - name: Falls Lower
     attributes:
       date_of_birth: 1940-05-19
@@ -571,7 +824,10 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1100F
-        start_datetime: 2016-01-01 # This record is in the Falls in Past Year VS. That section of the denominator is looking for a record withing the MY.
+        start_datetime: 2016-01-01 # Lower bound
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
   - name: Falls Upper
     attributes:
       date_of_birth: 1940-05-19
@@ -587,7 +843,10 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1100F
-        start_datetime: 2016-12-31
+        start_datetime: 2016-12-31 # Upper bounc
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
   - name: Falls After
     attributes:
       date_of_birth: 1940-05-19
@@ -603,7 +862,10 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1100F
-        start_datetime: 2017-01-01
+        start_datetime: 2017-01-01 # Too late
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
   - name: Injury Before
     attributes:
       date_of_birth: 1940-05-19
@@ -634,6 +896,9 @@ patients:
         code_value: 92540
         start_datetime: 2016-02-01
         provider: Rachel
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 18890001000004100
@@ -651,6 +916,9 @@ patients:
         code_value: 92540
         start_datetime: 2016-02-01
         provider: Rachel
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 18890001000004100
@@ -668,6 +936,9 @@ patients:
         code_value: 92540
         start_datetime: 2016-02-01
         provider: Rachel
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 18890001000004100
@@ -685,6 +956,9 @@ patients:
         code_value: 92540
         start_datetime: 2016-02-01
         provider: Rachel
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
       diagnoses:
       - code_type: ICD10CM
         code_value: W18.41XA
@@ -705,6 +979,9 @@ patients:
         code_value: 92540
         start_datetime: 2016-02-01
         provider: Rachel
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
       diagnoses:
       - code_type: ICD10CM
         code_value: W18.41XA
@@ -725,6 +1002,9 @@ patients:
         code_value: 92540
         start_datetime: 2016-02-01
         provider: Rachel
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
       diagnoses:
       - code_type: ICD10CM
         code_value: W18.41XA
@@ -745,6 +1025,9 @@ patients:
         code_value: 92540
         start_datetime: 2016-02-01
         provider: Rachel
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
       diagnoses:
       - code_type: ICD10CM
         code_value: W18.41XA
@@ -768,6 +1051,9 @@ patients:
       - code_type: CPT
         code_value: 1100F
         start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
       - code_type: HCPCS
         code_value: G9718
         start_datetime: 2015-12-31
@@ -786,6 +1072,9 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
         start_datetime: 2016-02-01
       - code_type: HCPCS
         code_value: G9718
@@ -806,6 +1095,9 @@ patients:
       - code_type: CPT
         code_value: 1100F
         start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
       - code_type: HCPCS
         code_value: G9718
         start_datetime: 2016-12-31
@@ -825,6 +1117,9 @@ patients:
       - code_type: CPT
         code_value: 1100F
         start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
       - code_type: HCPCS
         code_value: G9718
         start_datetime: 2017-01-01
@@ -843,6 +1138,9 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
         start_datetime: 2016-02-01
       - code_type: SNOMEDCT
         code_value: 182964004
@@ -864,6 +1162,9 @@ patients:
       - code_type: CPT
         code_value: 1100F
         start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
       - code_type: SNOMEDCT
         code_value: 182964004
         start_datetime: 2016-01-01
@@ -883,6 +1184,9 @@ patients:
       - code_type: CPT
         code_value: 1100F
         start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
       - code_type: SNOMEDCT
         code_value: 182964004
         start_datetime: 2016-12-31
@@ -901,6 +1205,9 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
         start_datetime: 2016-02-01
       - code_type: SNOMEDCT
         code_value: 182964004
@@ -922,6 +1229,9 @@ patients:
         code_value: 1100F
         start_datetime: 2016-02-01
       - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
+      - code_type: CPT
         code_value: 0518F
         start_datetime: 2015-12-31
   - name: 0518F Lower
@@ -939,6 +1249,9 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
         start_datetime: 2016-02-01
       - code_type: CPT
         code_value: 0518F
@@ -960,6 +1273,9 @@ patients:
         code_value: 1100F
         start_datetime: 2016-02-01
       - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
+      - code_type: CPT
         code_value: 0518F
         start_datetime: 2016-12-31
   - name: 0518F After
@@ -979,6 +1295,9 @@ patients:
         code_value: 1100F
         start_datetime: 2016-02-01
       - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
+      - code_type: CPT
         code_value: 0518F
         start_datetime: 2017-01-01
   - name: Diet Before
@@ -996,6 +1315,9 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
         start_datetime: 2016-02-01
       - code_type: SNOMEDCT
         code_value: 438331000124100 # Diet
@@ -1019,6 +1341,9 @@ patients:
       - code_type: CPT
         code_value: 1100F
         start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
       - code_type: SNOMEDCT
         code_value: 438331000124100 # Diet
         start_datetime: 2016-01-01
@@ -1040,6 +1365,9 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
         start_datetime: 2016-02-01
       - code_type: SNOMEDCT
         code_value: 438331000124100 # Diet
@@ -1063,6 +1391,9 @@ patients:
       - code_type: CPT
         code_value: 1100F
         start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
       - code_type: SNOMEDCT
         code_value: 438331000124100 # Diet
         start_datetime: 2017-01-01
@@ -1084,6 +1415,9 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
         start_datetime: 2016-02-01
       - code_type: SNOMEDCT
         code_value: 438331000124100 # Diet
@@ -1107,6 +1441,9 @@ patients:
       - code_type: CPT
         code_value: 1100F
         start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
       - code_type: SNOMEDCT
         code_value: 438331000124100 # Diet
         start_datetime: 2016-01-01
@@ -1129,6 +1466,9 @@ patients:
       - code_type: CPT
         code_value: 1100F
         start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
       - code_type: SNOMEDCT
         code_value: 438331000124100 # Diet
         start_datetime: 2016-01-01
@@ -1150,6 +1490,9 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
         start_datetime: 2016-02-01
       - code_type: SNOMEDCT
         code_value: 438331000124100 # Diet
@@ -1174,6 +1517,9 @@ patients:
         code_value: 1100F
         start_datetime: 2016-02-01
       - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
+      - code_type: CPT
         code_value: 0518F-1P
         start_datetime: 2015-12-31
   - name: 0518F-1P Lower
@@ -1191,6 +1537,9 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
         start_datetime: 2016-02-01
       - code_type: CPT
         code_value: 0518F-1P
@@ -1212,6 +1561,9 @@ patients:
         code_value: 1100F
         start_datetime: 2016-02-01
       - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
+      - code_type: CPT
         code_value: 0518F-1P
         start_datetime: 2016-12-31
   - name: 0518F-1P After
@@ -1231,6 +1583,9 @@ patients:
         code_value: 1100F
         start_datetime: 2016-02-01
       - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
+      - code_type: CPT
         code_value: 0518F-1P
         start_datetime: 2017-01-01
   - name: Bedridden Before
@@ -1248,6 +1603,9 @@ patients:
         provider: Patty
       - code_type: CPT
         code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
         start_datetime: 2016-02-01
       diagnoses:
       - code_type: SNOMEDCT
@@ -1270,6 +1628,9 @@ patients:
       - code_type: CPT
         code_value: 1100F # Falls in past year
         start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 160685001
@@ -1290,6 +1651,9 @@ patients:
       - code_type: CPT
         code_value: 1100F
         start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
+        start_datetime: 2016-02-01
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 160685001
@@ -1309,6 +1673,9 @@ patients:
         provider: Patty
       - code_type: CPT
         code_value: 1100F
+        start_datetime: 2016-02-01
+      - code_type: CPT
+        code_value: 3288F
         start_datetime: 2016-02-01
       diagnoses:
       - code_type: SNOMEDCT

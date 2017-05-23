@@ -1,76 +1,76 @@
-measure_id: 17.MIPS.Mips137
+measure_id: 17.MIPS.Mips357
 test_set_keys:
   organization_key:
     patients:
     - name: Too Young
       denominator:
       denominator_exclusion:
-      denominator_Infection:
+      denominator_exception:
       numerator:
     - name: Age Lower
       denominator: 1
       denominator_exclusion:
-      denominator_Infection:
+      denominator_exception:
       numerator: G9311
     - name: Procedure Before
       denominator:
       denominator_exclusion:
-      denominator_Infection:
+      denominator_exception:
       numerator:
     - name: Procedure Lower
       denominator: 1
       denominator_exclusion:
-      denominator_Infection:
+      denominator_exception:
       numerator: G9311
     - name: Procedure Lower
       denominator: 1
       denominator_exclusion:
-      denominator_Infection:
+      denominator_exception:
       numerator: G9311
     - name: Procedure After
       denominator:
       denominator_exclusion:
-      denominator_Infection:
+      denominator_exception:
       numerator:
     - name: PerformanceMet Before
       denominator: 1
       denominator_exclusion:
-      denominator_Infection:
+      denominator_exception:
       numerator: G9311
     - name: PerformanceMet Lower
       denominator: 1
       denominator_exclusion:
-      denominator_Infection:
+      denominator_exception:
       numerator: G9312
     - name: PerformanceMet Upper
       denominator: 1
       denominator_exclusion:
-      denominator_Infection:
+      denominator_exception:
       numerator: G9312
     - name: PerformanceMet After
       denominator: 1
       denominator_exclusion:
-      denominator_Infection:
+      denominator_exception:
       numerator: G9311
     - name: Infection Before
       denominator: 1
       denominator_exclusion:
-      denominator_Infection:
+      denominator_exception:
       numerator: G9311
     - name: Infection Lower
       denominator: 1
       denominator_exclusion:
-      denominator_Infection:
+      denominator_exception:
       numerator: G9312
     - name: Infection Upper
       denominator: 1
       denominator_exclusion:
-      denominator_Infection:
+      denominator_exception:
       numerator: G9312
     - name: Infection After
       denominator: 1
       denominator_exclusion:
-      denominator_Infection:
+      denominator_exception:
       numerator: G9311
   providers_key:
     - name: Rachel
@@ -78,73 +78,73 @@ test_set_keys:
       - name: Too Young
         denominator:
         denominator_exclusion:
-        denominator_Infection:
+        denominator_exception:
         numerator:
       - name: Age Lower
         denominator: 1
         denominator_exclusion:
-        denominator_Infection:
+        denominator_exception:
         numerator: G9311
       - name: Procedure Before
         denominator:
         denominator_exclusion:
-        denominator_Infection:
+        denominator_exception:
         numerator:
       - name: Procedure Lower
         denominator: 1
         denominator_exclusion:
-        denominator_Infection:
+        denominator_exception:
         numerator: G9311
       - name: Procedure Lower
         denominator: 1
         denominator_exclusion:
-        denominator_Infection:
+        denominator_exception:
         numerator: G9311
       - name: Procedure After
         denominator:
         denominator_exclusion:
-        denominator_Infection:
+        denominator_exception:
         numerator:
       - name: PerformanceMet Before
         denominator: 1
         denominator_exclusion:
-        denominator_Infection:
+        denominator_exception:
         numerator: G9311
       - name: PerformanceMet Lower
         denominator: 1
         denominator_exclusion:
-        denominator_Infection:
+        denominator_exception:
         numerator: G9312
       - name: PerformanceMet Upper
         denominator: 1
         denominator_exclusion:
-        denominator_Infection:
+        denominator_exception:
         numerator: G9312
       - name: PerformanceMet After
         denominator: 1
         denominator_exclusion:
-        denominator_Infection:
+        denominator_exception:
         numerator: G9311
       - name: Infection Before
         denominator:
         denominator_exclusion:
-        denominator_Infection:
+        denominator_exception:
         numerator:
       - name: Infection Lower
         denominator:
         denominator_exclusion:
-        denominator_Infection:
+        denominator_exception:
         numerator:
       - name: Infection Upper
         denominator:
         denominator_exclusion:
-        denominator_Infection:
+        denominator_exception:
         numerator:
       - name: Infection After
-      denominator:
-      denominator_exclusion:
-      denominator_Infection:
-      numerator:
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
 providers:
 - given_name: Rachel
   family_name: Kohler
@@ -169,8 +169,8 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 11004
-      start_datetime: 2015-02-01
-      stop_datetime: 2015-02-01
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
 - name: Age Lower
   attributes:
@@ -182,8 +182,8 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 11004
-      start_datetime: 2015-02-01
-      stop_datetime: 2015-02-01
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
       provider: Rachel
 - name: Procedure Before
   attributes:
@@ -348,7 +348,7 @@ patients:
       provider: Patty
     - code_type: SNOMEDCT
       code_value: 433202001
-      start_datetime: 2016-03-02 # Upper bound
+      start_datetime: 2016-03-03 # Upper bound
 - name: Infection After
   attributes:
     date_of_birth: 1951-02-02
@@ -364,4 +364,4 @@ patients:
       provider: Patty
     - code_type: SNOMEDCT
       code_value: 433202001
-      start_datetime: 2016-03-03 # Too late
+      start_datetime: 2016-03-04 # Too late
