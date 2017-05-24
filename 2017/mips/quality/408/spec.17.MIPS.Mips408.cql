@@ -88,8 +88,6 @@ define "Pain Assessment During Opioid Prescription":
   "Pain Assessment" A
     where A.authorDateTime during "Opioid Prescription"
 
-define "Expected "
-
 define "Denominator":
   exists("Denominator Encounter")
   and (
@@ -100,6 +98,8 @@ define "Denominator":
 define "Numerator Performance Met: G9562":
   /*
    * config_link_id: G9562
+   * The intent is to identify patients with an assessment at least every 3 months
+   * during the duration of the opioid prescription within the date bounds of 01-01 and 09-30
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G9562"] P
     where P.relevantPeriod starts during "Measurement Period")
