@@ -89,19 +89,19 @@ define "Preventive Encounters During Interval B":
       and E.signingProvider.pqrsProvider = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
-define "2 110 Encounters":
+define "2 110 Encounters Exist":
   count("110 Encounters During Influenza Intervals") >= 2
   or (
     exists("110 Encounters During Influenza Intervals")
     and exists("110 Encounters During Non-Influenza Interval")
   )
 
-define "1 Preventive Encounter":
+define "1 Preventive Encounter Exists":
   exists("Preventive Encounters During Influenza Intervals")
 
-define "Encounter During Interval A":
+define "Encounter During Interval A Exists":
   (
-    "2 110 Encounters"
+    "2 110 Encounters Exist"
     and exists("110 Encounters During Interval A")
   ) or (
     exists("Preventive Encounters During Interval A")
@@ -109,7 +109,7 @@ define "Encounter During Interval A":
 
 define "Encounter During Interval B":
   (
-    "2 110 Encounters"
+    "2 110 Encounters Exist"
     and exists("110 Encounters During Interval B")
   ) or exists("Preventive Encounters During Interval B")
 
@@ -119,39 +119,29 @@ define "Influenza Vaccines":
   union ["Communication: From Patient to Provider": "Previous Receipt of Influenza Vaccine"]
 
 define "Denominator":
-  "2 110 Encounters"
-  or "1 Preventive Encounter"
+  "2 110 Encounters Exist"
+  or "1 Preventive Encounter Exists"
 
-define "Numerator Performance Met 1: G8482":
+define "Numerator Performance Met: G8482":
   /*
-  * config_link_id: G8482_1
-  * Immunization administered during 2016 or 2017 flu season
+  * config_link_id: G8482
   */
   exists(["Procedure, Performed": "MIPS; Performance Met: G8482"] P
     where P.relevantPeriod during "Measurement Period")
+  or (
+    "Encounter During Interval A Exists"
+    and exists("Influenza Vaccines" M
+      where M.relevantPeriod starts during "Administration Interval A")
+  )
+  or (
+    "Encounter During Interval B"
+    and exists("Influenza Vaccines" M
+      where M.relevantPeriod starts during "Administration Interval B")
+  )
 
-define "Numerator Performance Met 2: G8482":
+define "Denominator Exception: G8483":
   /*
-  * config_link_id: G8482_2
-  * Immunization administered during 2016 flu season
-  */
-  "Encounter During Interval A"
-  and exists("Influenza Vaccines" M
-    where M.relevantPeriod starts during "Administration Interval A")
-
-define "Numerator Performance Met 3: G8482":
-  /*
-  * config_link_id: G8482_3
-  * Immunization administered during 2017 flu season
-  */
-  "Encounter During Interval B"
-  and exists("Influenza Vaccines" M
-    where M.relevantPeriod starts during "Administration Interval B")
-
-define "Denominator Exception 1: G8483":
-  /*
-  * config_link_id: G8483_1
-  * Exception due to an allergy or intolerance
+  * config_link_id: G8483
   */
   exists (["Diagnosis": "VSAC; Allergy to Influenza Vaccine"] D
     where D.prevelancePeriod overlaps "Measurement Period")
@@ -161,13 +151,7 @@ define "Denominator Exception 1: G8483":
     where D.prevelancePeriod overlaps "Measurement Period")
   or exists(["Allergy": "VSAC; Influenza Vaccine"] A
     where A.prevelancePeriod overlaps "Measurement Period")
-
-define "Denominator Exception 2: G8483":
-  /*
-  * config_link_id: G8483_2
-  * Exception due to a medical, patient or system reason or other non-specified reason
-  */
-  exists (["Procedure, Performed": "MIPS; Denominator Exception: G8483"] P
+  or exists (["Procedure, Performed": "MIPS; Denominator Exception: G8483"] P
     where P.relevantPeriod starts during "Measurement Period")
   or exists (["Procedure, Performed": "VSAC; Influenza Vaccine Declined"] P
     where P.relevantPeriod starts during "Administration Interval A"
@@ -176,7 +160,6 @@ define "Denominator Exception 2: G8483":
 define "Numerator Performace Not Met: G8484":
   /*
   * config_link_id: G8484
-  * Immunization not administered for an unspecified reason
   */
   not "Numerator Performance Met: G8482"
   and not "Denominator Exception 1: G8483"

@@ -10,50 +10,6 @@ measure:
     mips_measure_type: Process
     mips_high_priority: false
 exclusion_reasons:
-  - config_link_id: G8483_1
-    required:
-      display_title: Patient is exclued because of an allergy
-      validation_record_groups:
-      - count: 2
-        validation_records:
-        - model: ClinicalActivity
-          value_set: MIPS; MIPS Encounter 110
-      - count: 1
-        validation_records:
-        - model: ClinicalActivity
-          value_set: MIPS; MIPS Preventive Encounter 110
-      - count: 1
-        validation_records:
-        - model: ClinicalActivity
-          value_set: "VSAC; Allergy to Eggs"
-        - model: ClinicalActivity
-          value_set: "VSAC; Allergy to Influenza Vaccine"
-        - model: ClinicalActivity
-          value_set: "VSAC; Intolerance to Influenza Vaccine"
-        - model: Allergy
-          value_set: "VSAC; Influenza Vaccine"
-    optional:
-      code_value: G8483
-  - config_link_id: G8483_2
-    required:
-      display_title: Patient is excluded because of a medical or other reason
-      validation_record_groups:
-      - count: 2
-        validation_records:
-        - model: ClinicalActivity
-          value_set: MIPS; MIPS Encounter 110
-      - count: 1
-        validation_records:
-        - model: ClinicalActivity
-          value_set: MIPS; MIPS Preventive Encounter 110
-      - count: 1
-        validation_records:
-          - model: ClinicalActivity
-            value_set: "MIPS; Denominator Exception: G8483"
-          - model: ClinicalActivity
-            value_set: "VSAC; Influenza Vaccine Declined"
-    optional:
-      code_value: G8483
 performance_met_reasons:
   - config_link_id: G8482_1
     required:
@@ -75,56 +31,41 @@ performance_met_reasons:
             value_set: "VSAC; Influenza Vaccination"
           - model: ClinicalActivity
             value_set: "VSAC; Previous Receipt of Influenza Vaccine"
+exception_reasons:
+  - config_link_id: G8483
+    required:
+      display_title: Influenza immunization was not administered for reasons documented by clinician (e.g., patient allergy or other medical reasons, patient declined or other patient reasons, vaccine not available or other system reasons)
+      validation_record_groups:
+      - count: 2
+        validation_records:
+        - model: ClinicalActivity
+          value_set: MIPS; MIPS Encounter 110
+      - count: 1
+        validation_records:
+        - model: ClinicalActivity
+          value_set: MIPS; MIPS Preventive Encounter 110
+      - count: 1
+        validation_records:
+        - model: ClinicalActivity
+          value_set: "VSAC; Allergy to Eggs"
+        - model: ClinicalActivity
+          value_set: "VSAC; Allergy to Influenza Vaccine"
+        - model: ClinicalActivity
+          value_set: "VSAC; Intolerance to Influenza Vaccine"
+        - model: Allergy
+          value_set: "VSAC; Influenza Vaccine"
+      - count: 1
+        validation_records:
+          - model: ClinicalActivity
+            value_set: "MIPS; Denominator Exception: G8483"
+          - model: ClinicalActivity
+            value_set: "VSAC; Influenza Vaccine Declined"
     optional:
-      code_value: G8482
-  - config_link_id: G8482_2
-    required:
-      display_title: Influenza immunization administered or previously received during the flu season ending March 31 of the measurement year
-      validation_record_groups:
-      - count: 2
-        validation_records:
-        - model: ClinicalActivity
-          value_set: MIPS; MIPS Encounter 110
-      - count: 1
-        validation_records:
-        - model: ClinicalActivity
-          value_set: MIPS; MIPS Preventive Encounter 110
-      - count: 1
-        validation_records:
-          - model: Medication
-            value_set: "VSAC; Influenza Vaccine"
-          - model: ClinicalActivity
-            value_set: "VSAC; Influenza Vaccination"
-          - model: ClinicalActivity
-            value_set: "VSAC; Previous Receipt of Influenza Vaccine"
-      optional:
-        code_value: G8482
-  - config_link_id: G8482_3
-    required:
-      display_title: Influenza immunization administered or previously received during the flu season ending March 31 after the measurement year
-      validation_record_groups:
-      - count: 2
-        validation_records:
-        - model: ClinicalActivity
-          value_set: MIPS; MIPS Encounter 110
-      - count: 1
-        validation_records:
-        - model: ClinicalActivity
-          value_set: MIPS; MIPS Preventive Encounter 110
-      - count: 1
-        validation_records:
-          - model: Medication
-            value_set: "VSAC; Influenza Vaccine"
-          - model: ClinicalActivity
-            value_set: "VSAC; Influenza Vaccination"
-          - model: ClinicalActivity
-            value_set: "VSAC; Previous Receipt of Influenza Vaccine"
-      optional:
-        code_value: G8482
+      code_value: G8483
 performance_not_met_reasons:
   - config_link_id: G8484
     required:
-      display_title: Influenza vaccination not administered or documented in the medical record (G8484)
+      display_title: Influenza immunization was not administered, reason not given
       validation_record_groups:
       - count: 2
         validation_records:
