@@ -1,0 +1,147 @@
+measure:
+  name: 17.MIPS.Mips131
+  required:
+    display_title: "Pain Assessment and Follow-Up"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 131
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G8730
+    required:
+      display_title: "Pain assessment documented as positive using a standardized tool AND a follow-up plan is documented"
+      validation_record_groups:
+        - count: 20
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 131 Encounter"
+        - count: 20
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8730"
+        - count: 20
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Standardized Pain Assessment Tool"
+        - count: 20
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Pain Intervention"
+            - model: Medication
+              value_set: "Able; Opioids Used for Pain Control"
+            - model: Medication
+              value_set: "Able; Selected Non Opioids for Moderate to Severe Pain"
+    optional:
+      code_value: G8730
+  - config_link_id: G8731
+    required:
+      display_title: "Pain assessment using a standardized tool is documented as negative, no follow-up plan required"
+      validation_record_groups:
+        - count: 20
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 131 Encounter"
+        - count: 20
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8731"
+        - count: 20
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Standardized Pain Assessment Tool"
+    optional:
+      code_value: G8731
+exception_reasons:
+  - config_link_id: G8442
+    required:
+      display_title: "Pain assessment NOT documented as being performed, documentation the patient is not eligible for a pain assessment using a standardized tool"
+      validation_record_groups:
+        - count: 20
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 131 Encounter"
+        - count: 20
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8442"
+    optional:
+      code_value: G8442
+  - config_link_id: G8939
+    required:
+      display_title: "Pain assessment documented as positive, follow-up plan not documented, documentation the patient is not eligible "
+      validation_record_groups:
+        - count: 20
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 131 Encounter"
+        - count: 20
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8939"
+    optional:
+      code_value: G8939
+performance_not_met_reasons:
+  - config_link_id: G8509
+    required:
+      display_title: "Pain assessment documented as positive using a standardized tool, follow-up plan not documented, reason not given"
+      validation_record_groups:
+        - count: 20
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 131 Encounter"
+        - count: 20
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G8509"
+        - count: 20
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Standardized Pain Assessment Tool"
+        - count: 20
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Pain Intervention"
+            - model: Medication
+              value_set: "Able; Opioids Used for Pain Control"
+            - model: Medication
+              value_set: "Able; Selected Non Opioids for Moderate to Severe Pain"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8730"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8731"
+    optional:
+      code_value: G8509
+  - config_link_id: G8732
+    required:
+      display_title: "No documentation of pain assessment, reason not given"
+      validation_record_groups:
+        - count: 20
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 131 Encounter"
+        - count: 20
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G8732"
+        - count: 20
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Standardized Pain Assessment Tool"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8730"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8731"
+    optional:
+      code_value: G8732
