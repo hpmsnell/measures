@@ -110,12 +110,6 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: G8509
-      - name: Positive Medication # Pain positive with Active Medication after interval
-        start_datetime: 2016-06-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G8509
       - name: PerformanceMet G8731 # Performance met G8731 before interval
         start_datetime: 2016-02-01
         denominator: 1
@@ -319,12 +313,6 @@ test_set_keys:
           numerator: G8730
         - name: Positive Medication # Pain positive with Medication after interval
           start_datetime: 2016-05-01
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G8509
-        - name: Positive Medication # Pain positive with Active Medication after interval
-          start_datetime: 2016-06-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
@@ -627,35 +615,18 @@ patients:
         code_value: 38208-5
         start_datetime: 2016-05-01
         result: 1
-      - code_type: CPT
-        code_value: 90791
-        start_datetime: 2016-06-01
-        stop_datetime: 2016-06-02
-        provider: Rachel
-      - code_type: LOINC
-        code_value: 38208-5
-        start_datetime: 2016-06-01
-        result: 1
       medications:
       - code_type: RXNORM
         code_value: 1010600
-        method: E
         start_datetime: 2016-01-31 # Too early
       - code_type: RXNORM
         code_value: 1010600
-        method: E
         start_datetime: 2016-03-01 # Lower bound
       - code_type: RXNORM
         code_value: 1010600
-        method: E
         start_datetime: 2016-04-02 # Upper bound
       - code_type: RXNORM
         code_value: 1010600
-        method: E
-        start_datetime: 2016-05-03 # Too late
-      - code_type: RXNORM
-        code_value: 1010600 # No method
-        start_datetime: 2016-06-01
   - name: PerformanceMet G8731
     attributes:
       date_of_birth: 2000-03-22

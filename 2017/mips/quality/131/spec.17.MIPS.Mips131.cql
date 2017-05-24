@@ -43,8 +43,8 @@ define "Denominator Encounter":
 
 define "Pain Intervention":
   ["Procedure, Performed": "Able; Pain Intervention"]
-  union ["Medication, Order": "Able; Opioids Used for Pain Control"]
-  union ["Medication, Order": "Able; Selected Non Opioids for Moderate to Severe Pain"]
+  union ["Medication": "Able; Opioids Used for Pain Control"]
+  union ["Medication": "Able; Selected Non Opioids for Moderate to Severe Pain"]
 
 define "Denominator":
   "Denominator Encounter"
