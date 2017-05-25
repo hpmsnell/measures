@@ -3,13 +3,13 @@ test_set_keys:
   organization_key:
     episodes_of_care:
       - name: Too Young # Below age range
-        start_datetime: 2017-02-01
+        start_datetime: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Age Lower # Lower bound of age range
-        start_datetime: 2017-02-01
+        start_datetime: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -208,15 +208,15 @@ test_set_keys:
         numerator: G8732
   providers_key:
     - name: Rachel
-      patients:
+      episodes_of_care:
         - name: Too Young # Below age range
-          start_datetime: 2017-02-01
+          start_datetime: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Age Lower # Lower bound of age range
-          start_datetime: 2017-02-01
+          start_datetime: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
@@ -453,7 +453,7 @@ patients:
         provider: Rachel
   - name: Denominator Encounter
     attributes:
-      date_of_birth: 2000-03-22
+      date_of_birth: 1990-03-22
       given_name: Denominator
       family_name: Encounter
       sex: Female
@@ -477,7 +477,7 @@ patients:
         provider: Rachel
   - name: PerformanceMet G8730
     attributes:
-      date_of_birth: 2000-03-22
+      date_of_birth: 1990-03-22
       given_name: PerformanceMet
       family_name: G8730
       sex: Female
@@ -517,7 +517,7 @@ patients:
         start_datetime: 2016-05-03 # Too late
   - name: Positive Intervention
     attributes:
-      date_of_birth: 2000-03-22
+      date_of_birth: 1990-03-22
       given_name: Positive
       family_name: Intervention
       sex: Female
@@ -573,7 +573,7 @@ patients:
         start_datetime: 2016-05-31 # Too late
   - name: Positive Medication
     attributes:
-      date_of_birth: 2000-03-22
+      date_of_birth: 1990-03-22
       given_name: Positive
       family_name: Medication
       sex: Female
@@ -629,7 +629,7 @@ patients:
         code_value: 1010600
   - name: PerformanceMet G8731
     attributes:
-      date_of_birth: 2000-03-22
+      date_of_birth: 1990-03-22
       given_name: PerformanceMet
       family_name: G8731
       sex: Female
@@ -669,7 +669,7 @@ patients:
         start_datetime: 2016-05-03 # Too late
   - name: Pain Negative
     attributes:
-      date_of_birth: 2000-03-22
+      date_of_birth: 1990-03-22
       given_name: Pain
       family_name: Negative
       sex: Female
@@ -713,7 +713,7 @@ patients:
         result: 0
   - name: Exception G8442
     attributes:
-      date_of_birth: 2000-03-22
+      date_of_birth: 1990-03-22
       given_name: Exception
       family_name: G8442
       sex: Female
@@ -753,7 +753,7 @@ patients:
         start_datetime: 2016-05-03 # Too late
   - name: Exception G8939
     attributes:
-      date_of_birth: 2000-03-22
+      date_of_birth: 1990-03-22
       given_name: Exception
       family_name: G8939
       sex: Female
@@ -763,7 +763,7 @@ patients:
         code_value: 90791
         start_datetime: 2016-02-01
         stop_datetime: 2016-02-02
-        provider: Rachel
+        provider: Patty
       - code_type: HCPCS
         code_value: G8939
         start_datetime: 2016-01-31 # Too early
@@ -771,7 +771,7 @@ patients:
         code_value: 90791
         start_datetime: 2016-03-01
         stop_datetime: 2016-03-02
-        provider: Rachel
+        provider: Patty
       - code_type: HCPCS
         code_value: G8939
         start_datetime: 2016-03-01 # Lower bound
@@ -779,7 +779,7 @@ patients:
         code_value: 90791
         start_datetime: 2016-04-01
         stop_datetime: 2016-04-02
-        provider: Rachel
+        provider: Patty
       - code_type: HCPCS
         code_value: G8939
         start_datetime: 2016-04-02 # Upper bound
@@ -787,7 +787,7 @@ patients:
         code_value: 90791
         start_datetime: 2016-05-01
         stop_datetime: 2016-05-02
-        provider: Rachel
+        provider: Patty
       - code_type: HCPCS
         code_value: G8939
         start_datetime: 2016-05-03 # Too late

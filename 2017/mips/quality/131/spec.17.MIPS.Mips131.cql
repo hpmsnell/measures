@@ -62,8 +62,8 @@ define "Numerator Performance Met: G8730":
       with "Denominator Encounter" E
         such that P.relevantPeriod starts during E.relevantPeriod)
     and exists("Pain Intervention" I
-    with "Denominator Encounter" E
-      such that I.relevantPeriod starts during E.relevantPeriod)
+      with "Denominator Encounter" E
+        such that I.relevantPeriod starts during E.relevantPeriod)
   )
 
 define "Numerator Performance Met: G8731":
