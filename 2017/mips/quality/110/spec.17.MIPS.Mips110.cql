@@ -17,7 +17,7 @@ valueset "MIPS; MIPS 110 Preventive Encounter"
 valueset "MIPS; Denominator Exception: G8483"
 valueset "MIPS; Performance Met: G8482"
 valueset "MIPS; Performance Not Met: G8484"
-valueset "MIPS; Telemedicine Modifier"
+valueset "MIPS; Telehealth Modifier"
 
 // VSAC value sets
 valueset "VSAC; Allergy to Eggs" '2.16.840.1.113883.3.526.3.1253'
@@ -26,7 +26,7 @@ valueset "VSAC; Intolerance to Influenza Vaccine" '2.16.840.1.113883.3.526.3.125
 valueset "VSAC; Influenza Vaccination" '2.16.840.1.113883.3.526.3.402'
 valueset "VSAC; Influenza Vaccine" '2.16.840.1.113883.3.526.2.1351'
 valueset "VSAC; Previous Receipt of Influenza Vaccine" '2.16.840.1.113883.3.526.3.1185'
-valueset "VSAC; Influenza Vaccine Declined" '2.16.840.1.113883.3.526.3.1255'
+valueset "VSAC; Influenza Vaccination Declined" '2.16.840.1.113883.3.526.3.1255'
 
 parameter "Measurement Period" Interval<DateTime>
 

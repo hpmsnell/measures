@@ -11,18 +11,18 @@ measure:
     mips_high_priority: false
 exclusion_reasons:
 performance_met_reasons:
-  - config_link_id: G8482_1
+  - config_link_id: G8482
     required:
       display_title: Influenza immunization administered or previously received
       validation_record_groups:
       - count: 2
         validation_records:
         - model: ClinicalActivity
-          value_set: MIPS; MIPS Encounter 110
+          value_set: MIPS; MIPS 110 Encounter
       - count: 1
         validation_records:
         - model: ClinicalActivity
-          value_set: MIPS; MIPS Preventive Encounter 110
+          value_set: MIPS; MIPS 110 Preventive Encounter
       - count: 1
         validation_records:
           - model: Medication
@@ -39,11 +39,11 @@ exception_reasons:
       - count: 2
         validation_records:
         - model: ClinicalActivity
-          value_set: MIPS; MIPS Encounter 110
+          value_set: MIPS; MIPS 110 Encounter
       - count: 1
         validation_records:
         - model: ClinicalActivity
-          value_set: MIPS; MIPS Preventive Encounter 110
+          value_set: MIPS; MIPS 110 Preventive Encounter
       - count: 1
         validation_records:
         - model: ClinicalActivity
@@ -59,7 +59,7 @@ exception_reasons:
           - model: ClinicalActivity
             value_set: "MIPS; Denominator Exception: G8483"
           - model: ClinicalActivity
-            value_set: "VSAC; Influenza Vaccine Declined"
+            value_set: "VSAC; Influenza Vaccination Declined"
     optional:
       code_value: G8483
 performance_not_met_reasons:
@@ -70,11 +70,11 @@ performance_not_met_reasons:
       - count: 2
         validation_records:
         - model: ClinicalActivity
-          value_set: MIPS; MIPS Encounter 110
+          value_set: MIPS; MIPS 110 Encounter
       - count: 1
         validation_records:
         - model: ClinicalActivity
-          value_set: MIPS; MIPS Preventive Encounter 110
+          value_set: MIPS; MIPS 110 Preventive Encounter
       - count: 1
         validation_records:
           - model: Medication
