@@ -44,13 +44,12 @@ define "Denominator Encounter":
       and AgeInYearsAt(start of E.relevantPeriod) < 18
       and E.signingProvider.pqrsProvider = true
     with ["Diagnosis": "MIPS; Pharyngitis"] D
-      such that D.prevalencePeriod overlaps E.relevantPeriod
+      such that D.prevalencePeriod starts during E.relevantPeriod
+    and with "Antibiotic Prescription" M
+      such that M.relevantPeriod starts on or 3 days or less after start of E.relevantPeriod
 
 define "Denominator":
-  exists("Denominator Encounter")
-  and exists("Antibiotic Prescription" M
-    with "Denominator Encounter" E
-      such that M.relevantPeriod starts on or 3 days or less after start of E.relevantPeriod)
+  "Denominator Encounter"
 
 define "Denominator Exclusion 1":
   /*
@@ -77,7 +76,11 @@ define "Numerator Performance Met: 3210F":
    * config_link_id: 3210F
    */
   exists(["Procedure, Performed": "Performance Met: 3210F"] P
-    where P.relevantPeriod starts during "Measurement Period"
+      with "Denominator Encounter" E
+        such that P.relevantPeriod starts 3 days or less before start of E.relevantPeriod)
+  or exists(["Procedure, Performed": "Performance Met: 3210F"] P
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts on or 3 days or less after start of E.relevantPeriod)
   or exists(["Laboratory Test, Performed": "VSAC; Group A Streptococcus Test"] L
     with "Denominator Encounter" E
       such that M.relevantPeriod starts on or 3 days or less after start of E.relevantPeriod)
