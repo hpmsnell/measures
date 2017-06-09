@@ -1,0 +1,47 @@
+measure:
+  name: 17.MIPS.Mips360
+  required:
+    display_title: "Optimizing Patient Exposure to Ionizing Radiation: Count of Potential High Dose Radiation Imaging Studies: Computed Tomography (CT) and Cardiac Nuclear Medicine Studies"
+  optional:
+    gap_resolution_action: Patient requires documentation of count of previous CT and cardiac nuclear medicine studies
+    set: MIPS
+    external_id: 360
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9321
+    required:
+      display_title: Count of previous CT (any type of CT) and cardiac nuclear medicine (myocardial perfusion) studies documented in the 12-month period prior to the current study
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 360 Procedure
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9321"
+    optional:
+      code_value: G9321
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: G9322
+    required:
+      display_title: Count of previous CT and cardiac nuclear medicine (myocardial perfusion) studies not documented in the 12-month period prior to the current study, reason not given
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 360 Procedure
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9321"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9322"
+    optional:
+      code_value: G9322

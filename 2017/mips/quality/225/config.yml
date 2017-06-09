@@ -1,0 +1,73 @@
+measure:
+  name: 17.MIPS.Mips225
+  required:
+    display_title: "Radiology: Reminder System for Screening MIPS 225 Mammograms"
+  optional:
+    gap_resolution_action: Patient requires documentation of mammogram reminder
+    set: MIPS
+    external_id: 225
+    version: 2017
+    mips_measure_type: Structure
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: 7025F
+    required:
+      display_title: Biopsy results reviewed, communicated, tracked, and documented
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 225 Procedure
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; MIPS 225 Mammogram
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 7025F"
+    optional:
+      code_value: 7025F
+exception_reasons:
+  - config_link_id: 7025F-1P
+    required:
+      display_title: "Clinician documented reason that patient’s biopsy results were not reviewed (e.g., patient asks that biopsy results not be communicated to the primary care/referring physician, patient does not have a primary care/referring physician or is a self-referred patient)"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 225 Procedure
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; MIPS 225 Mammogram
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 7025F-1P"
+    optional:
+      code_value: 7025F-1P
+performance_not_met_reasons:
+  - config_link_id: 7025F-8P
+    required:
+      display_title: Biopsy results not reviewed, communicated, tracked, or documented
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 225 Procedure
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; MIPS 225 Mammogram
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 7025F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 7025F-8P"
+    optional:
+      code_value: 7025F-8P
