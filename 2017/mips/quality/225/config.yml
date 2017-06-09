@@ -1,7 +1,7 @@
 measure:
   name: 17.MIPS.Mips225
   required:
-    display_title: "Radiology: Reminder System for Screening MIPS 225 Mammograms"
+    display_title: "Radiology: Reminder System for Screening Mammograms"
   optional:
     gap_resolution_action: Patient requires documentation of mammogram reminder
     set: MIPS
@@ -13,7 +13,7 @@ exclusion_reasons:
 performance_met_reasons:
   - config_link_id: 7025F
     required:
-      display_title: Biopsy results reviewed, communicated, tracked, and documented
+      display_title: Patient information entered into a reminder system with a target due date for the next mammogram
       validation_record_groups:
         - count: 1
           validation_records:
@@ -32,7 +32,7 @@ performance_met_reasons:
 exception_reasons:
   - config_link_id: 7025F-1P
     required:
-      display_title: "Clinician documented reason that patient’s biopsy results were not reviewed (e.g., patient asks that biopsy results not be communicated to the primary care/referring physician, patient does not have a primary care/referring physician or is a self-referred patient)"
+      display_title: "Documentation of medical reason(s) for not entering patient information into a reminder system (eg, further screening mammograms are not indicated, such as patients with a limited life expectancy, other medical reason(s))"
       validation_record_groups:
         - count: 1
           validation_records:
@@ -51,7 +51,7 @@ exception_reasons:
 performance_not_met_reasons:
   - config_link_id: 7025F-8P
     required:
-      display_title: Biopsy results not reviewed, communicated, tracked, or documented
+      display_title: Patient information not entered into a reminder system, reason not otherwise specified
       validation_record_groups:
         - count: 1
           validation_records:

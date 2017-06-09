@@ -186,7 +186,7 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: LimitedLife Before # Limited life expectancy before allowable period
-      denominator: 
+      denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
@@ -308,6 +308,7 @@ patients:
     - code_type: CPT
       code_value: 77067
       start_datetime: 2016-02-01
+      provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: Z12.31
@@ -496,11 +497,11 @@ patients:
     - code_type: ICD10CM
       code_value: Z12.31
       start_datetime: 2016-02-01
-- name: LimitedLife Early
+- name: LimitedLife Before
   attributes:
     date_of_birth: 1988-03-22
     given_name: LimitedLife
-    family_name: Early
+    family_name: Before
     sex: Female
   clinical_models:
     clinical_activities:
@@ -554,11 +555,11 @@ patients:
     - code_type: ICD10CM
       code_value: Z12.31
       start_datetime: 2016-02-01
-- name: LimitedLife Late
+- name: LimitedLife After
   attributes:
     date_of_birth: 1988-03-22
     given_name: LimitedLife
-    family_name: Late
+    family_name: After
     sex: Female
   clinical_models:
     clinical_activities:
