@@ -26,7 +26,7 @@ define "Denominator Procedure":
   ["Procedure, Performed": "MIPS; MIPS 355 Procedure"] P
     where P.relevantPeriod starts during "Measurement Period"
       AgeInYearsAt >= 18
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
 
 define "Denominator":
   exists("Denominator Procedure")

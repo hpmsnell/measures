@@ -32,7 +32,7 @@ define "Eligible Encounter":
 define "Denominator Encounter":
   "Eligible Encounter" E
     where E.relevantPeriod starts during "Measurement Period"
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; MIPS 138 Melanoma"] D
       such that D.prevalencePeriod during E.relevantPeriod
 

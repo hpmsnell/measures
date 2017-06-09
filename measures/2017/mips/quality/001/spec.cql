@@ -36,7 +36,7 @@ define "Denominator Encounter":
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and AgeInYearsAt(start of E.relevantPeriod) < 75
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
 
 define "Ordered HbA1c Tests":
   ["Laboratory Test, Performed": "VSAC; HbA1c Laboratory Test"] L

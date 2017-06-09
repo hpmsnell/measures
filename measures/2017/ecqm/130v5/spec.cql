@@ -38,7 +38,7 @@ define "Denominator":
   and AgeInYearsAt(start of "Measurement Period") < 75
   and exists("Denominator Encounter" E
     where E.relevantPeriod starts during "Measurement Period"
-    and E.signingProvider.hasMeasure = true)
+    and E.signingProvider.hasMeasureMembership = true)
 
 define "Denominator Exclusion":
   /*

@@ -47,7 +47,7 @@ define "Denominator Encounter":
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and AgeInYearsAt(start of E.relevantPeriod) < 85
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
 
 define "Excluded Diagnoses":
   ["Diagnosis": "VSAC; End Stage Renal Disease"]

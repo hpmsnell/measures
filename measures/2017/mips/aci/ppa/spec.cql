@@ -44,7 +44,7 @@ define "Denominator-Eligible Encounter":
 define "Denominator Encounter":
   exists("Denominator-Eligible Encounter" E
     where E.relevantPeriod starts during "Measurement Period"
-      and E.signingProvider.pqrsProvider = 1)
+      and E.signingProvider.hasMeasureMembership = 1)
 
 define "Denominator":
   exists("Denominator Encounter")

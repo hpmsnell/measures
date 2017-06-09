@@ -39,7 +39,7 @@ define "Patient Age at Encounter":
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 65
       and "Patient Characteristic Sex" in "VSAC; Female"
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
 
 define "Urinary Incontinence Intervention":
   ["Intervention, Performed": "Able; Urinary Incontinence Intervention"]

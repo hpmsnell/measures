@@ -26,7 +26,7 @@ context Patient
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 265 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
 
 define "Biopsy":
   ["Procedure, Performed": "MIPS; Biopsy"] E

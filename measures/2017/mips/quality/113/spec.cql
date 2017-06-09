@@ -49,7 +49,7 @@ define "Denominator":
   and AgeInYearsAt(start of "Measurement Period") < 75
   and exists(["Encounter, Performed": "MIPS; MIPS 113 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period")
-    and E.signingProvider.pqrsProvider = true
+    and E.signingProvider.hasMeasureMembership = true
 
 define "Denominator Exclusion 1":
   /*

@@ -39,7 +39,7 @@ define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 408 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
 
 define "Opioid":
   ["Medication, Order": "ABLE; Opioids Used for Pain Control"] M

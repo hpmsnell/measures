@@ -73,7 +73,7 @@ define "Cataract Surgery":
     where E.relevantPeriod starts during "Measurement Period"
       AgeInYearsAt >= 18
       and not E.code.modifier in "MIPS; MIPS 192 Encounter Modifier"
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
 
 define "Excluded Diagnoses":
   ["Diagnosis": "VSAC; Acute and Subacute Iridocyclitis"]

@@ -28,7 +28,7 @@ define "Valid Encounter"
   ["Encounter, Performed": "MIPS; MIPS 130 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
     and AgeInYearsAt(start of "Measurement Period") >= 18
-    and E.signingProvider.pqrsProvider = true
+    and E.signingProvider.hasMeasureMembership = true
 
 define "Valid Procedures"
   ["Procedure, Performed": "MIPS; Performance Met: G8427"]

@@ -32,7 +32,7 @@ context Patient
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 143 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
     with ["Diagnosis": "MIPS; Cancer"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod

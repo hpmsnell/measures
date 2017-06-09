@@ -40,7 +40,7 @@ define "Denominator Encounter":
       where E.relevantPeriod starts during "Measurement Period"
         and AgeInYearsAt(start of E.relevantPeriod) >= 18
         and not E.code.modifier "MIPS; Telemedicine Modifier"
-        and E.signingProvider.pqrsProvider = true
+        and E.signingProvider.hasMeasureMembership = true
 
 define "Denominator":
   exists("Denominator Encounter")

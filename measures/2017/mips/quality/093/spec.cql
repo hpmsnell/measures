@@ -40,7 +40,7 @@ define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 093 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInMonthsAt(start of E.relevantPeriod) >= 2
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
     with "AOE" D
       such that D.prevalencePeriod overlaps E.relevantPeriod
 

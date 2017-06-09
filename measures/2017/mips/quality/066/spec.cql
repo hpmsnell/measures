@@ -42,7 +42,7 @@ define "Denominator Encounter":
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 3
       and AgeInYearsAt(start of E.relevantPeriod) < 18
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Pharyngitis"] D
       such that D.prevalencePeriod starts during E.relevantPeriod
     and with "Antibiotic Prescription" M

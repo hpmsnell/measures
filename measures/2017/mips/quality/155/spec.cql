@@ -46,7 +46,7 @@ define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 155 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 65
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
 
 define "Fall":
   ["Diagnosis": "HEDIS; Falls"]

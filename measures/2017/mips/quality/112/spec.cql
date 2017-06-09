@@ -43,7 +43,7 @@ define "Denominator":
   and "Patient Characteristic Sex" in "VSAC; Female"
   and exists(["Encounter, Performed": "MIPS; MIPS 112 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period")
-    and E.signingProvider.pqrsProvider = true
+    and E.signingProvider.hasMeasureMembership = true
 
 define "Denominator Exclusion 1":
   /*

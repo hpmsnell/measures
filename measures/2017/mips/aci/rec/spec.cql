@@ -35,7 +35,7 @@ define "Denominator-Eligible Visit"
 define "Denominator Episode"
   "Denominator-Eligible Visit" E
     where E.relevantPeriod starts during "Measurement Period"
-      and E.signingProvider.pqrsProvider = 1
+      and E.signingProvider.hasMeasureMembership = 1
 
 define "Denominator":
   "Denominator Episode"

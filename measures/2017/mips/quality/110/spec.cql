@@ -43,28 +43,28 @@ define "110 Encounters During Influenza Intervals":
     where E.relevantPeriod starts during "Encounter Interval A"
       or E.relevantPeriod starts during "Encounter Interval B"
       and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "110 Encounters During Non-Influenza Interval":
   ["Encounter, Performed": "MIPS; 110 Encounter"] E
     where E.relevantPeriod starts during "Encounter Bad Interval"
       and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "110 Encounters During Interval A":
   ["Encounter, Performed": "MIPS; 110 Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval A"
       and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "110 Encounters During Interval B":
   ["Encounter, Performed": "MIPS; 110 Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval B"
       and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "Preventive Encounters During Influenza Intervals":
@@ -72,21 +72,21 @@ define "Preventive Encounters During Influenza Intervals":
     where E.relevantPeriod starts during "Encounter Interval A"
       or E.relevantPeriod starts during "Encounter Interval B"
       and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "Preventive Encounters During Interval A":
   ["Encounter, Performed": "MIPS; 110 Preventive Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval A"
       and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "Preventive Encounters During Interval B":
   ["Encounter, Performed": "MIPS; 110 Preventive Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval B"
       and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "2 110 Encounters Exist":

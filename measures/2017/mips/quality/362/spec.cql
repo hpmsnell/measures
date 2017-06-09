@@ -24,7 +24,7 @@ context Patient
 define "Denominator Procedure":
   ["Procedure, Performed": "MIPS; MIPS 362 Procedure"] E
     where E.relevantPeriod starts during "Measurement Period"
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
 
 define "Denominator":
   exists("Denominator Procedure")

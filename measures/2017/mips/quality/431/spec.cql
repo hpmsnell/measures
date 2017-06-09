@@ -45,14 +45,14 @@ define "431 Encounter"
   ["Encounter, Performed": "MIPS; MIPS 431 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "431 Preventive Encounter"
   ["Encounter, Performed": "MIPS; MIPS 431 Preventive Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "Alcohol Treatment":

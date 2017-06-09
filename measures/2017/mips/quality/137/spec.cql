@@ -27,7 +27,7 @@ context Patient
 define "Patient Age at Encounter":
   ["Encounter, Performed": "MIPS; MIPS 137 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
-      and E.signingProvider.pqrsProvider = true
+      and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Melanoma"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod
 
