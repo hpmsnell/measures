@@ -32,27 +32,22 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Medication Before  # Patient prescribed medication too early
+    - name: Medication 42Days  # Patient prescribed for too few days
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Medication Lower # Patient prescribed lower bound of medication
+    - name: Medication 43Days # Patient prescribed for lower bound of days
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9563
-    - name: Medication Upper # Patient prescribed lower bound of medication
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: G9563
-    - name: Medication After  # Patient prescribed medication too late
+    - name: Medication Early # Patient prescribed medication too early
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Medication AfterPeriod  # Patient prescribed medication past the opioid period
+    - name: Medication Late # Patient prescribed medication too late
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -128,6 +123,11 @@ test_set_keys:
       denominator_exception:
       numerator: G9563
     - name: 2FollowUp TooFew # Patient not assessed enough times
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: 2FollowUp TooFarApart # Patient not assessed enough times
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -165,27 +165,22 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Medication Before  # Patient prescribed medication too early
+    - name: Medication 42Days  # Patient prescribed for too few days
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Medication Lower # Patient prescribed lower bound of medication
+    - name: Medication 43Days # Patient prescribed for lower bound of days
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9563
-    - name: Medication Upper # Patient prescribed lower bound of medication
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: G9563
-    - name: Medication After  # Patient prescribed medication too late
+    - name: Medication Early # Patient prescribed medication too early
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Medication AfterPeriod  # Patient prescribed medication past the opioid period
+    - name: Medication Late # Patient prescribed medication too late
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -261,6 +256,11 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: 2FollowUp TooFew # Patient not assessed enough times
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: 2FollowUp TooFarApart # Patient not assessed enough times
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -360,16 +360,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2017-01-01 # After
+      start_datetime: 2016-10-01 # After
       provider: Rachel
     - code_type: HCPCS
       code_value: G9561
       start_datetime: 2016-02-01
-- name: Medication Before
+- name: Medication 42Days
   attributes:
     date_of_birth: 1990-01-01
     given_name: Medication
-    family_name: Before
+    family_name: 42Days
     sex: Female
   clinical_models:
     clinical_activities:
@@ -380,19 +380,19 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-02-01
+      start_datetime: 2015-12-21
       method: E
-      days_supplied: 42
+      days_supplied: 40
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2015-12-31
+      start_datetime: 2015-12-22
       method: E
-      days_supplied: 1
-- name: Medication Lower
+      days_supplied: 2
+- name: Medication 43Days
   attributes:
     date_of_birth: 1990-01-01
     given_name: Medication
-    family_name: Lower
+    family_name: 43Days
     sex: Female
   clinical_models:
     clinical_activities:
@@ -403,19 +403,19 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-02-01
+      start_datetime: 2015-12-21
       method: E
-      days_supplied: 42
+      days_supplied: 40
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-01-01
+      start_datetime: 2015-12-22
       method: E
-      days_supplied: 1
-- name: Medication Upper
+      days_supplied: 3
+- name: Medication Early
   attributes:
     date_of_birth: 1990-01-01
     given_name: Medication
-    family_name: Upper
+    family_name: Early
     sex: Female
   clinical_models:
     clinical_activities:
@@ -426,19 +426,19 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-02-01
+      start_datetime: 2015-12-20
       method: E
-      days_supplied: 42
+      days_supplied: 40
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-08-21 # Upper
+      start_datetime: 2015-12-22
       method: E
-      days_supplied: 1
-- name: Medication After
+      days_supplied: 2
+- name: Medication Late
   attributes:
     date_of_birth: 1990-01-01
     given_name: Medication
-    family_name: After
+    family_name: Late
     sex: Female
   clinical_models:
     clinical_activities:
@@ -449,14 +449,14 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-02-01
+      start_datetime: 2015-12-21
       method: E
-      days_supplied: 42
+      days_supplied: 40
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2017-08-22 # After
+      start_datetime: 2016-01-31
       method: E
-      days_supplied: 1
+      days_supplied: 3
 - name: Medication Active
   attributes:
     date_of_birth: 1990-01-01
@@ -472,13 +472,13 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-02-01
+      start_datetime: 2015-12-21
       method: E
-      days_supplied: 42
+      days_supplied: 40
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-02-01 # No method
-      days_supplied: 1
+      start_datetime: 2015-12-22 # No method
+      days_supplied: 3
 - name: FollowUp Before
   attributes:
     date_of_birth: 1990-01-01
@@ -565,7 +565,7 @@ patients:
       provider: Rachel
     - code_type: SNOMEDCT
       code_value: 225399009 # Pain
-      start_datetime: 2016-01-30
+      start_datetime: 2016-01-30 # Too early
     - code_type: LOINC
       code_value: 71955-9 # Function
       start_datetime: 2016-02-01
@@ -574,7 +574,7 @@ patients:
       code_value: 1010600
       start_datetime: 2016-02-01
       method: E
-      days_supplied: 100
+      days_supplied: 89
 - name: Pain Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -589,7 +589,7 @@ patients:
       provider: Rachel
     - code_type: SNOMEDCT
       code_value: 225399009 # Pain
-      start_datetime: 2016-02-01
+      start_datetime: 2016-02-01 # Lower bound
     - code_type: LOINC
       code_value: 71955-9 # Function
       start_datetime: 2016-02-01
@@ -598,7 +598,7 @@ patients:
       code_value: 1010600
       start_datetime: 2016-02-01
       method: E
-      days_supplied: 100
+      days_supplied: 89
 - name: Pain Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -613,7 +613,7 @@ patients:
       provider: Rachel
     - code_type: SNOMEDCT
       code_value: 225399009 # Pain
-      start_datetime: 2016-03-22
+      start_datetime: 2016-04-30 # Upper bound
     - code_type: LOINC
       code_value: 71955-9 # Function
       start_datetime: 2016-02-01
@@ -622,7 +622,7 @@ patients:
       code_value: 1010600
       start_datetime: 2016-02-01
       method: E
-      days_supplied: 100
+      days_supplied: 89
 - name: Pain After
   attributes:
     date_of_birth: 1990-01-01
@@ -637,7 +637,7 @@ patients:
       provider: Rachel
     - code_type: SNOMEDCT
       code_value: 225399009 # Pain
-      start_datetime: 2016-03-23
+      start_datetime: 2016-05-01 # Too late
     - code_type: LOINC
       code_value: 71955-9 # Function
       start_datetime: 2016-02-01
@@ -646,7 +646,7 @@ patients:
       code_value: 1010600
       start_datetime: 2016-02-01
       method: E
-      days_supplied: 100
+      days_supplied: 89
 - name: Function Before
   attributes:
     date_of_birth: 1990-01-01
@@ -664,13 +664,13 @@ patients:
       start_datetime: 2016-02-01
     - code_type: LOINC
       code_value: 71955-9 # Function
-      start_datetime: 2016-01-30
+      start_datetime: 2016-01-30 # Too early
     medications:
     - code_type: RXNORM
       code_value: 1010600
       start_datetime: 2016-02-01
       method: E
-      days_supplied: 100
+      days_supplied: 89
 - name: Function Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -688,13 +688,13 @@ patients:
       start_datetime: 2016-02-01
     - code_type: LOINC
       code_value: 71955-9 # Function
-      start_datetime: 2016-02-01
+      start_datetime: 2016-02-01 # Lower bound
     medications:
     - code_type: RXNORM
       code_value: 1010600
       start_datetime: 2016-02-01
       method: E
-      days_supplied: 100
+      days_supplied: 89
 - name: Function Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -709,16 +709,16 @@ patients:
       provider: Rachel
     - code_type: SNOMEDCT
       code_value: 225399009 # Pain
-      start_datetime: 2016-03-22
+      start_datetime: 2016-02-01
     - code_type: LOINC
       code_value: 71955-9 # Function
-      start_datetime: 2016-02-01
+      start_datetime: 2016-04-30 # Upper limit
     medications:
     - code_type: RXNORM
       code_value: 1010600
       start_datetime: 2016-02-01
       method: E
-      days_supplied: 100
+      days_supplied: 89
 - name: Function After
   attributes:
     date_of_birth: 1990-01-01
@@ -736,13 +736,13 @@ patients:
       start_datetime: 2016-02-01
     - code_type: LOINC
       code_value: 71955-9 # Function
-      start_datetime: 2016-03-23
+      start_datetime: 2016-05-01 # Too late
     medications:
     - code_type: RXNORM
       code_value: 1010600
       start_datetime: 2016-02-01
       method: E
-      days_supplied: 100
+      days_supplied: 89
 - name: 1FollowUp TooFew
   attributes:
     date_of_birth: 1990-01-01
@@ -766,7 +766,7 @@ patients:
       code_value: 1010600
       start_datetime: 2016-02-01
       method: E
-      days_supplied: 190
+      days_supplied: 90
 - name: 2FollowUp TooFew
   attributes:
     date_of_birth: 1990-01-01
@@ -796,4 +796,34 @@ patients:
       code_value: 1010600
       start_datetime: 2016-02-01
       method: E
-      days_supplied: 280
+      days_supplied: 180
+- name: 2FollowUp TooFarApart
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: 2FollowUp
+    family_name: TooFarApart
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      provider: Patty
+    - code_type: SNOMEDCT
+      code_value: 225399009 # Pain
+      start_datetime: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 225399009 # Pain
+      start_datetime: 2016-06-01
+    - code_type: LOINC
+      code_value: 71955-9 # Function
+      start_datetime: 2016-02-01
+    - code_type: LOINC
+      code_value: 71955-9 # Function
+      start_datetime: 2016-06-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_datetime: 2016-02-01
+      method: E
+      days_supplied: 1983-02
