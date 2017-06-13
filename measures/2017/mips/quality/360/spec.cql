@@ -28,18 +28,17 @@ define "Denominator Procedure":
 
 define "Denominator":
   exists("Denominator Procedure")
-  and exists("Biopsy")
 
 define "Numerator Performance Met: G9321":
   /*
    * config_link_id: G9321
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G9321"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    with "Denominator Procedure" D
+      such that P.relevantPeriod starts during D.relevantPeriod)
 
 define "Numerator Performance Not Met: G9322":
   /*
    * config_link_id: G9322
    */
   not "Numerator Performance Met: G9321"
-  and not "Denominator Exception: G8884"

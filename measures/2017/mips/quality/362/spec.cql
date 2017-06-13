@@ -27,19 +27,18 @@ define "Denominator Procedure":
       and E.signingProvider.hasMeasureMembership = true
 
 define "Denominator":
-  exists("Denominator Procedure")
-  and exists("Biopsy")
+  "Denominator Procedure"
 
 define "Numerator Performance Met: G9340":
   /*
    * config_link_id: G9340
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G9340"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    with "Denominator Procedure" D
+      such that P.relevantPeriod starts during D.relevantPeriod)
 
 define "Numerator Performance Not Met: G9329":
   /*
    * config_link_id: G9329
    */
   not "Numerator Performance Met: G9340"
-  and not "Denominator Exception: G8884"
