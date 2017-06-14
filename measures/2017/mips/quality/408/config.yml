@@ -22,25 +22,13 @@ performance_met_reasons:
         - count: 10
           validation_records:
             - model: Medication
-              value_set: "ABLE; Opioids Used for Pain Control"
+              value_set: "Able; Opioids Used for Pain Control"
             - model: ClinicalActivity
               value_set: "MIPS; Opiates Prescribed for Longer than Six Weeks"
         - count: 1
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: G9562"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Functional Status Assessment for Knee Replacement"
-            - model: ClinicalActivity
-              value_set: "VSAC; Functional Status Assessment for Hip Replacement"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Standardized Pain Assessment Tool"
-            - model: ClinicalActivity
-              value_set: "VSAC; Pain Assessments"
     optional:
       code_value: G9562
 performance_not_met_reasons:
@@ -55,7 +43,7 @@ performance_not_met_reasons:
         - count: 10
           validation_records:
             - model: Medication
-              value_set: "ABLE; Opioids Used for Pain Control"
+              value_set: "Able; Opioids Used for Pain Control"
             - model: ClinicalActivity
               value_set: "MIPS; Opiates Prescribed for Longer than Six Weeks"
         - count: 1
@@ -66,15 +54,5 @@ performance_not_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Not Met: G9563"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Functional Status Assessment for Knee Replacement"
-            - model: ClinicalActivity
-              value_set: "VSAC; Functional Status Assessment for Hip Replacement"
-            - model: ClinicalActivity
-              value_set: "VSAC; Standardized Pain Assessment Tool"
-            - model: ClinicalActivity
-              value_set: "VSAC; Pain Assessments"
     optional:
       code_value: G9563
