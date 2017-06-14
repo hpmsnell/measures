@@ -55,7 +55,7 @@ define "Denominator Encounter with Opioid Medication"
         and start of E.relevantPeriod - 21 days in Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
         and start of E.relevantPeriod - 28 days in Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
         and start of E.relevantPeriod - 35 days in Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
-        and start of E.relevantPeriod - 42 days in Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
+        and start of E.relevantPeriod - 43 days in Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
 
 define "Denominator":
   "Denominator Encounter with Opioid Procedure Exists"
