@@ -3,161 +3,6 @@ measurement_year: 2015
 test_set_keys:
   organization_key:
     patients:
-    - name: April Hicks # 2 N N CA Female
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_not_met
-    - name: April Alvarado # 3 N N BH Peds
-      initial_patient_population:
-      denominator:
-      denominator_exclusion:
-      numerator:
-    - name: Armando Gilbert # Heart_Adult A
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_not_met
-    - name: Billie Sutton # 3 N N GP Adult
-      initial_patient_population:  1
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_not_met
-    - name: Carla Warner # 1 N N CA Female
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_not_met
-    - name: Daryl Mcgee # Heart_Adult B
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_not_met
-    - name: Edgar Eguilar # 2 N N Heart
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_not_met
-    - name: Ernest Foster # 3 N Heart
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_not_met
-    - name: Esther Blake # 4 N ED
-      initial_patient_population:
-      denominator:
-      denominator_exclusion:
-      numerator:
-    - name: Felix Garner # 5 N N CA Male
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion: exlcusion
-      numerator:
-    - name: Henry Erickson # 2 N N CA Male
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion: exlcusion
-      numerator:
-    - name: Herman Rice # Cancer_Adult_Male B
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion: exlcusion
-      numerator:
-    - name: Jeremy Hayes # GP_Geriatric A
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_not_met
-    - name: Jessie Evans # GP_Adult B
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_not_met
-    - name: Joann Pittman # 1 N Adult DM
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_not_met
-    - name: Jorge Haynes # 2 N Geriatric
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion: exclusion
-      numerator:
-    - name: Kelly Hubbard # STROKE_ADULT N C
-      initial_patient_population:
-      denominator:
-      denominator_exclusion:
-      numerator:
-    - name: Lillie Stephens # OB A
-      initial_patient_population:
-      denominator:
-      denominator_exclusion:
-      numerator:
-    - name: Loretta Miles # NERBORN B
-      initial_patient_population:
-      denominator:
-      denominator_exclusion:
-      numerator:
-    - name: Marilyn Simon # 1 N N Geriatric
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_met
-    - name: Melvin Malone # 6 N CA Male
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion: exclusion
-      numerator:
-    - name: Natalie Buchanan # Cancer_Adult_Female A
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_not_met
-    - name: Neil Mcgee # 4 N N Heart
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_not_met
-    - name: Pedro Barton # 3 N N Eye
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_not_met
-    - name: Phillip Craig # Cancer_Adult_Male A
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion: exclusion
-      numerator:
-    - name: Raul Herrera # 4 N N CA Male
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion: exclusion
-      numerator:
-    - name: Ruby Andrews # GP_Adult C
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_not_met
-    - name: Tanya Walsh # GP_Adult A
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_not_met
-    - name: Timothy Fleming # Cancer_Adult_Male B
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion: exclusion
-      numerator:
-    - name: Tracey Roy # Cancer_Adult_Female B
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_not_met
-    - name: Wallace Carr
-      initial_patient_population: 1
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_not_met
     - name: Too Young # Patient is too young for the denominator but has an encounter
       initial_patient_population:
       denominator:
@@ -267,106 +112,107 @@ test_set_keys:
     - name: Rachel
       patients:
       - name: Too Young # Patient is too young for the denominator but has an encounter
+        initial_patient_population:
         denominator:
         denominator_exclusion:
         numerator:
       - name: Too Old # Patient is too old for the denominator but has an encounter
+        initial_patient_population:
         denominator:
         denominator_exclusion:
         numerator:
       - name: Age Lower # Patient is at lower bound of age range but has an encounter
+        initial_patient_population: 1
         denominator: 1
         denominator_exclusion:
         numerator: performance_not_met
       - name: Age Upper # Patient is at upper bound of age range but has an encounter
+        initial_patient_population: 1
         denominator: 1
         denominator_exclusion:
         numerator: performance_not_met
       - name: No Encounter # Patient has no encounter but has appropriate age
+        initial_patient_population:
         denominator:
         denominator_exclusion:
         numerator:
       - name: Encounter Early # Patient has an encounter prior to the measurement period
+        initial_patient_population:
         denominator:
         denominator_exclusion:
         numerator:
       - name: Encounter Late # Patient has an encounter after the measurement period
+        initial_patient_population:
         denominator:
         denominator_exclusion:
         numerator:
       - name: Denominator Exclusion # Patient has an exclusion for colorectal cancer
+        initial_patient_population: 1
         denominator: 1
-        denominator_exclusion: exclusion_1
+        denominator_exclusion: exclusion
         numerator:
       - name: Exclusion Late # Patient has an exclusion that is too late
-        denominator: 1
-        denominator_exclusion:
-        numerator: performance_not_met
-      - name: MIPSExclusion Colectomy # Patient has a MIPS history of colectomy or colorectal cancer screening
-        denominator: 1
-        denominator_exclusion: exclusion_1
-        numerator:
-      - name: MIPSExclusion Hospice # Patient has a MIPS hospice service
-        denominator: 1
-        denominator_exclusion: exclusion_2
-        numerator:
-      - name: MIPSExclusion Late # Patient has a MIPS exclusion but it is too late
-        denominator: 1
-        denominator_exclusion:
-        numerator: performance_not_met
-      - name: MIPSExclusion Early # Patient has a MIPS exclusion but it is too early
+        initial_patient_population: 1
         denominator: 1
         denominator_exclusion:
         numerator: performance_not_met
       - name: Colonoscopy Start # Patient was screened at the start of the allowable period
+        initial_patient_population: 1
         denominator: 1
         denominator_exclusion:
         numerator: performance_met
       - name: Colonoscopy End # Patient was screened at the end of the allowable period
+        initial_patient_population: 1
         denominator: 1
         denominator_exclusion:
         numerator: performance_met
       - name: Colonoscopy Late # Patient was screened too late
+        initial_patient_population: 1
         denominator: 1
         denominator_exclusion:
         numerator: performance_not_met
       - name: Colonoscopy Early # Patient was screened too early
+        initial_patient_population: 1
         denominator: 1
         denominator_exclusion:
         numerator: performance_not_met
       - name: Sigmoidoscopy Start # Patient was screened at the start of the allowable period
+        initial_patient_population: 1
         denominator: 1
         denominator_exclusion:
         numerator: performance_met
       - name: Sigmoidoscopy End # Patient was screened at the end of the allowable period
+        initial_patient_population: 1
         denominator: 1
         denominator_exclusion:
         numerator: performance_met
       - name: Sigmoidoscopy Late # Patient was screened too late
+        initial_patient_population: 1
         denominator: 1
         denominator_exclusion:
         numerator: performance_not_met
       - name: Sigmoidoscopy Early # Patient was screened too early
+        initial_patient_population: 1
         denominator: 1
         denominator_exclusion:
         numerator: performance_not_met
       - name: FOBT Start # Patient had an FOBT at the start of the measurement period
+        initial_patient_population: 1
         denominator:
         denominator_exclusion:
         numerator:
       - name: FOBT End # Patient had an FOBT at the end of the measurement period
+        initial_patient_population: 1
         denominator:
         denominator_exclusion:
         numerator:
       - name: FOBT Late # Patient had an FOBT too late
+        initial_patient_population: 1
         denominator:
         denominator_exclusion:
         numerator:
       - name: FOBT Early # Patient had an FOBT too early
-        denominator:
-        denominator_exclusion:
-        numerator:
-      - name: performance_met Success # performance_met hard-coded
+        initial_patient_population: 1
         denominator:
         denominator_exclusion:
         numerator:
