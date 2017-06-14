@@ -132,62 +132,162 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: G8785
-      - name: BadSystolic Before # Hypertensive blood pressure early
+      - name: PreHypertensiveSystolic Before # Hypertensive blood pressure early
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8785
-      - name: BadSystolic Lower # Hypertensive blood pressure at lower bound
+      - name: PreHypertensiveSystolic Lower # Hypertensive blood pressure at lower bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8952
-      - name: BadSystolic Upper # Hypertensive blood pressure at upper bound
+      - name: PreHypertensiveSystolic Upper # Hypertensive blood pressure at upper bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8952
-      - name: BadSystolic After # Hypertensive blood pressure late
+      - name: PreHypertensiveSystolic After # Hypertensive blood pressure late
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8785
-      - name: BadDiastolic Before # Hypertensive blood pressure early
+      - name: PreHypertensiveDiastolic Before # Hypertensive blood pressure early
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8785
-      - name: BadDiastolic Lower # Hypertensive blood pressure at lower bound
+      - name: PreHypertensiveDiastolic Lower # Hypertensive blood pressure at lower bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8952
-      - name: BadDiastolic Upper # Hypertensive blood pressure at upper bound
+      - name: PreHypertensiveDiastolic Upper # Hypertensive blood pressure at upper bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8952
-      - name: BadDiastolic After # Hypertensive blood pressure late
+      - name: PreHypertensiveDiastolic After # Hypertensive blood pressure late
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8785
-      - name: FollowUp Before # Hypertensive blood pressure follow up early
+      - name: PreHypertensiveSystolic Before # Hypertensive blood pressure early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8785
+      - name: HypertensiveSystolic Lower # Hypertensive blood pressure at lower bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8952
-      - name: FollowUp Lower # Hypertensive blood pressure follow up at lower bound
+      - name: HypertensiveSystolic Upper # Hypertensive blood pressure at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8952
+      - name: HypertensiveSystolic After # Hypertensive blood pressure late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8785
+      - name: HypertensiveDiastolic Before # Hypertensive blood pressure early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8785
+      - name: HypertensiveDiastolic Lower # Hypertensive blood pressure at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8952
+      - name: HypertensiveDiastolic Upper # Hypertensive blood pressure at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8952
+      - name: HypertensiveDiastolic After # Hypertensive blood pressure late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8785
+      - name: PreHypertensiveFollowUp Before # Hypertensive blood pressure follow up early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8952
+      - name: PreHypertensiveFollowUp Lower # Hypertensive blood pressure follow up at lower bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8950
-      - name: FollowUp Upper # Hypertensive blood pressure follow up at upper bound
+      - name: PreHypertensiveFollowUp Upper # Hypertensive blood pressure follow up at upper bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8950
-      - name: FollowUp After # Hypertensive blood pressure follow up late
+      - name: PreHypertensiveFollowUp After # Hypertensive blood pressure follow up late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8952
+      - name: PreHypertensiveRetest Before # Hypertensive blood pressure follow up early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8952
+      - name: PreHypertensiveRetest Lower # Hypertensive blood pressure follow up at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8950
+      - name: PreHypertensiveRetest Upper # Hypertensive blood pressure follow up at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8950
+      - name: PreHypertensiveRetest After # Hypertensive blood pressure follow up late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8952
+      - name: HypertensiveFollowUp Before # Hypertensive blood pressure follow up early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8952
+      - name: HypertensiveFollowUp Lower # Hypertensive blood pressure follow up at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8950
+      - name: HypertensiveFollowUp Upper # Hypertensive blood pressure follow up at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8950
+      - name: HypertensiveFollowUp After # Hypertensive blood pressure follow up late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8952
+      - name: HypertensiveRetest Before # Hypertensive blood pressure follow up early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8952
+      - name: HypertensiveRetest Lower # Hypertensive blood pressure follow up at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8950
+      - name: HypertensiveRetest Upper # Hypertensive blood pressure follow up at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8950
+      - name: HypertensiveRetest After # Hypertensive blood pressure follow up late
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -390,62 +490,162 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator: G8785
-        - name: BadSystolic Before # Hypertensive blood pressure early
+        - name: PreHypertensiveSystolic Before # Hypertensive blood pressure early
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8785
-        - name: BadSystolic Lower # Hypertensive blood pressure at lower bound
+        - name: PreHypertensiveSystolic Lower # Hypertensive blood pressure at lower bound
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8952
-        - name: BadSystolic Upper # Hypertensive blood pressure at upper bound
+        - name: PreHypertensiveSystolic Upper # Hypertensive blood pressure at upper bound
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8952
-        - name: BadSystolic After # Hypertensive blood pressure late
+        - name: PreHypertensiveSystolic After # Hypertensive blood pressure late
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8785
-        - name: BadDiastolic Before # Hypertensive blood pressure early
+        - name: PreHypertensiveDiastolic Before # Hypertensive blood pressure early
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8785
-        - name: BadDiastolic Lower # Hypertensive blood pressure at lower bound
+        - name: PreHypertensiveDiastolic Lower # Hypertensive blood pressure at lower bound
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8952
-        - name: BadDiastolic Upper # Hypertensive blood pressure at upper bound
+        - name: PreHypertensiveDiastolic Upper # Hypertensive blood pressure at upper bound
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8952
-        - name: BadDiastolic After # Hypertensive blood pressure late
+        - name: PreHypertensiveDiastolic After # Hypertensive blood pressure late
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8785
-        - name: FollowUp Before # Hypertensive blood pressure follow up early
+        - name: PreHypertensiveSystolic Before # Hypertensive blood pressure early
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8785
+        - name: HypertensiveSystolic Lower # Hypertensive blood pressure at lower bound
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8952
-        - name: FollowUp Lower # Hypertensive blood pressure follow up at lower bound
+        - name: HypertensiveSystolic Upper # Hypertensive blood pressure at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8952
+        - name: HypertensiveSystolic After # Hypertensive blood pressure late
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8785
+        - name: HypertensiveDiastolic Before # Hypertensive blood pressure early
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8785
+        - name: HypertensiveDiastolic Lower # Hypertensive blood pressure at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8952
+        - name: HypertensiveDiastolic Upper # Hypertensive blood pressure at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8952
+        - name: HypertensiveDiastolic After # Hypertensive blood pressure late
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8785
+        - name: PreHypertensiveFollowUp Before # Hypertensive blood pressure follow up early
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8952
+        - name: PreHypertensiveFollowUp Lower # Hypertensive blood pressure follow up at lower bound
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8950
-        - name: FollowUp Upper # Hypertensive blood pressure follow up at upper bound
+        - name: PreHypertensiveFollowUp Upper # Hypertensive blood pressure follow up at upper bound
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8950
-        - name: FollowUp After # Hypertensive blood pressure follow up late
+        - name: PreHypertensiveFollowUp After # Hypertensive blood pressure follow up late
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8952
+        - name: PreHypertensiveRetest Before # Hypertensive blood pressure follow up early
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8952
+        - name: PreHypertensiveRetest Lower # Hypertensive blood pressure follow up at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8950
+        - name: PreHypertensiveRetest Upper # Hypertensive blood pressure follow up at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8950
+        - name: PreHypertensiveRetest After # Hypertensive blood pressure follow up late
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8952
+        - name: HypertensiveFollowUp Before # Hypertensive blood pressure follow up early
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8952
+        - name: HypertensiveFollowUp Lower # Hypertensive blood pressure follow up at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8950
+        - name: HypertensiveFollowUp Upper # Hypertensive blood pressure follow up at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8950
+        - name: HypertensiveFollowUp After # Hypertensive blood pressure follow up late
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8952
+        - name: HypertensiveRetest Before # Hypertensive blood pressure follow up early
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8952
+        - name: HypertensiveRetest Lower # Hypertensive blood pressure follow up at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8950
+        - name: HypertensiveRetest Upper # Hypertensive blood pressure follow up at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8950
+        - name: HypertensiveRetest After # Hypertensive blood pressure follow up late
           denominator: 1
           denominator_exclusion:
           denominator_exception:
@@ -924,10 +1124,10 @@ patients:
       - code_type: HCPCS
         code_value: G8950
         start_datetime: 2017-01-01
-  - name: BadSystolic Before
+  - name: PreHypertensiveSystolic Before
     attributes:
       date_of_birth: 1950-01-01
-      given_name: BadSystolic
+      given_name: PreHypertensiveSystolic
       family_name: Before
       sex: Male
     clinical_models:
@@ -944,10 +1144,10 @@ patients:
         code_value: 8480-6 # Systolic
         start_datetime: 2015-12-31
         result: 120
-  - name: BadSystolic Lower
+  - name: PreHypertensiveSystolic Lower
     attributes:
       date_of_birth: 1950-01-01
-      given_name: BadSystolic
+      given_name: PreHypertensiveSystolic
       family_name: Lower
       sex: Male
     clinical_models:
@@ -964,10 +1164,10 @@ patients:
         code_value: 8480-6 # Systolic
         start_datetime: 2016-01-01
         result: 120
-  - name: BadSystolic Upper
+  - name: PreHypertensiveSystolic Upper
     attributes:
       date_of_birth: 1950-01-01
-      given_name: BadSystolic
+      given_name: PreHypertensiveSystolic
       family_name: Upper
       sex: Male
     clinical_models:
@@ -984,10 +1184,10 @@ patients:
         code_value: 8480-6 # Systolic
         start_datetime: 2016-12-31
         result: 120
-  - name: BadSystolic After
+  - name: PreHypertensiveSystolic After
     attributes:
       date_of_birth: 1950-01-01
-      given_name: BadSystolic
+      given_name: PreHypertensiveSystolic
       family_name: After
       sex: Male
     clinical_models:
@@ -1004,10 +1204,10 @@ patients:
         code_value: 8480-6 # Systolic
         start_datetime: 2017-01-01
         result: 120
-  - name: BadDiastolic Before
+  - name: PreHypertensiveDiastolic Before
     attributes:
       date_of_birth: 1950-01-01
-      given_name: BadDiastolic
+      given_name: PreHypertensiveDiastolic
       family_name: Before
       sex: Male
     clinical_models:
@@ -1024,10 +1224,10 @@ patients:
         code_value: 8480-6 # Systolic
         start_datetime: 2016-10-01
         result: 119
-  - name: BadDiastolic Lower
+  - name: PreHypertensiveDiastolic Lower
     attributes:
       date_of_birth: 1950-01-01
-      given_name: BadDiastolic
+      given_name: PreHypertensiveDiastolic
       family_name: Lower
       sex: Male
     clinical_models:
@@ -1044,10 +1244,10 @@ patients:
         code_value: 8480-6 # Systolic
         start_datetime: 2016-10-01
         result: 119
-  - name: BadDiastolic Upper
+  - name: PreHypertensiveDiastolic Upper
     attributes:
       date_of_birth: 1950-01-01
-      given_name: BadDiastolic
+      given_name: PreHypertensiveDiastolic
       family_name: Upper
       sex: Male
     clinical_models:
@@ -1064,10 +1264,10 @@ patients:
         code_value: 8480-6 # Systolic
         start_datetime: 2016-10-01
         result: 119
-  - name: BadDiastolic After
+  - name: PreHypertensiveDiastolic After
     attributes:
       date_of_birth: 1950-01-01
-      given_name: BadDiastolic
+      given_name: PreHypertensiveDiastolic
       family_name: After
       sex: Male
     clinical_models:
@@ -1084,10 +1284,170 @@ patients:
         code_value: 8480-6 # Systolic
         start_datetime: 2016-10-01
         result: 119
-  - name: FollowUp Before
+  - name: HypertensiveSystolic Before
     attributes:
       date_of_birth: 1950-01-01
-      given_name: FollowUp
+      given_name: HypertensiveSystolic
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-10-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2015-12-31
+        result: 140
+  - name: HypertensiveSystolic Lower
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: HypertensiveSystolic
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-10-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-01-01
+        result: 140
+  - name: HypertensiveSystolic Upper
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: HypertensiveSystolic
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-10-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-12-31
+        result: 140
+  - name: HypertensiveSystolic After
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: HypertensiveSystolic
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-12-31
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2017-01-01
+        result: 140
+  - name: HypertensiveDiastolic Before
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: HypertensiveDiastolic
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2015-12-31
+        result: 90
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-10-01
+        result: 119
+  - name: HypertensiveDiastolic Lower
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: HypertensiveDiastolic
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-01-01
+        result: 90
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-10-01
+        result: 119
+  - name: HypertensiveDiastolic Upper
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: HypertensiveDiastolic
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-12-31
+        result: 90
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-10-01
+        result: 119
+  - name: HypertensiveDiastolic After
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: HypertensiveDiastolic
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2017-01-01
+        result: 90
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-10-01
+        result: 119
+  - name: PreHypertensiveFollowUp Before
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: PreHypertensiveFollowUp
       family_name: Before
       sex: Male
     clinical_models:
@@ -1104,13 +1464,21 @@ patients:
         code_value: 8480-6 # Systolic
         start_datetime: 2016-10-01
         result: 120
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic Retest
+        start_datetime: 2016-11-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic Retest
+        start_datetime: 2016-11-01
+        result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
         start_datetime: 2015-12-31
-  - name: FollowUp Lower
+  - name: PreHypertensiveFollowUp Lower
     attributes:
       date_of_birth: 1950-01-01
-      given_name: FollowUp
+      given_name: PreHypertensiveFollowUp
       family_name: Lower
       sex: Male
     clinical_models:
@@ -1122,18 +1490,26 @@ patients:
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_datetime: 2016-10-01
-        result: 79
+        result: 89
       - code_type: LOINC
         code_value: 8480-6 # Systolic
         start_datetime: 2016-10-01
         result: 120
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic Retest
+        start_datetime: 2016-11-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic Retest
+        start_datetime: 2016-11-01
+        result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
         start_datetime: 2016-01-01
-  - name: FollowUp Upper
+  - name: PreHypertensiveFollowUp Upper
     attributes:
       date_of_birth: 1950-01-01
-      given_name: FollowUp
+      given_name: PreHypertensiveFollowUp
       family_name: Upper
       sex: Male
     clinical_models:
@@ -1150,13 +1526,21 @@ patients:
         code_value: 8480-6 # Systolic
         start_datetime: 2016-10-01
         result: 119
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic Retest
+        start_datetime: 2016-11-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic Retest
+        start_datetime: 2016-11-01
+        result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
         start_datetime: 2016-12-31
-  - name: FollowUp After
+  - name: PreHypertensiveFollowUp After
     attributes:
       date_of_birth: 1950-01-01
-      given_name: FollowUp
+      given_name: PreHypertensiveFollowUp
       family_name: After
       sex: Male
     clinical_models:
@@ -1173,6 +1557,386 @@ patients:
         code_value: 8480-6 # Systolic
         start_datetime: 2016-10-01
         result: 120
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic Retest
+        start_datetime: 2016-11-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic Retest
+        start_datetime: 2016-11-01
+        result: 119
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle Recommendation
+        start_datetime: 2017-01-01
+  - name: PreHypertensiveRetest Before
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: PreHypertensiveRetest
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-10-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-10-01
+        result: 120
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic Retest
+        start_datetime: 2016-10-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic Retest
+        start_datetime: 2016-10-01
+        result: 119
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle Recommendation
+        start_datetime: 2015-12-31
+  - name: PreHypertensiveRetest Lower
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: PreHypertensiveRetest
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-10-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-10-01
+        result: 120
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic Retest
+        start_datetime: 2016-10-02
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic Retest
+        start_datetime: 2016-10-02
+        result: 119
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle Recommendation
+        start_datetime: 2016-01-01
+  - name: PreHypertensiveRetest Upper
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: PreHypertensiveRetest
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-10-01
+        result: 80
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-10-01
+        result: 119
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic Retest
+        start_datetime: 2017-10-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic Retest
+        start_datetime: 2017-10-01
+        result: 119
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle Recommendation
+        start_datetime: 2016-12-31
+  - name: PreHypertensiveRetest After
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: PreHypertensiveRetest
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-10-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-10-01
+        result: 120
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic Retest
+        start_datetime: 2017-10-02
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic Retest
+        start_datetime: 2017-10-02
+        result: 119
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle Recommendation
+        start_datetime: 2017-01-01
+  - name: HypertensiveFollowUp Before
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: HypertensiveFollowUp
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-10-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-10-01
+        result: 140
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic Retest
+        start_datetime: 2016-10-20
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic Retest
+        start_datetime: 2016-10-20
+        result: 119
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle Recommendation
+        start_datetime: 2015-12-31
+  - name: HypertensiveFollowUp Lower
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: HypertensiveFollowUp
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-10-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-10-01
+        result: 140
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic Retest
+        start_datetime: 2016-10-20
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic Retest
+        start_datetime: 2016-10-20
+        result: 119
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle Recommendation
+        start_datetime: 2016-01-01
+  - name: HypertensiveFollowUp Upper
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: HypertensiveFollowUp
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-10-01
+        result: 90
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-10-01
+        result: 119
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic Retest
+        start_datetime: 2016-10-20
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic Retest
+        start_datetime: 2016-10-20
+        result: 119
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle Recommendation
+        start_datetime: 2016-12-31
+  - name: HypertensiveFollowUp After
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: HypertensiveFollowUp
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-10-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-10-01
+        result: 140
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic Retest
+        start_datetime: 2016-10-20
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic Retest
+        start_datetime: 2016-10-20
+        result: 119
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle Recommendation
+        start_datetime: 2017-01-01
+  - name: HypertensiveRetest Before
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: HypertensiveRetest
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-10-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-10-01
+        result: 120
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic Retest
+        start_datetime: 2016-10-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic Retest
+        start_datetime: 2016-10-01
+        result: 119
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle Recommendation
+        start_datetime: 2015-12-31
+  - name: HypertensiveRetest Lower
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: HypertensiveRetest
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-10-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-10-01
+        result: 120
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic Retest
+        start_datetime: 2016-10-02
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic Retest
+        start_datetime: 2016-10-02
+        result: 119
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle Recommendation
+        start_datetime: 2016-01-01
+  - name: HypertensiveRetest Upper
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: HypertensiveRetest
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-10-01
+        result: 80
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-10-01
+        result: 119
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic Retest
+        start_datetime: 2016-10-29
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic Retest
+        start_datetime: 2016-10-29
+        result: 119
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle Recommendation
+        start_datetime: 2016-12-31
+  - name: HypertensiveRetest After
+    attributes:
+      date_of_birth: 1950-01-01
+      given_name: HypertensiveRetest
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic
+        start_datetime: 2016-10-01
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic
+        start_datetime: 2016-10-01
+        result: 120
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic Retest
+        start_datetime: 2016-10-30
+        result: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic Retest
+        start_datetime: 2016-10-30
+        result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
         start_datetime: 2017-01-01
