@@ -26,9 +26,7 @@ valueset "MIPS; Telehealth Modifier"
 // Able Value Sets
 
 valueset "Able; Standardized Pain Assessment Tool"
-valueset "Able; Pain Intervention"
-valueset "Able; Opioids Used for Pain Control"
-valueset "Able; Selected Non Opioids for Moderate to Severe Pain"
+valueset "Able; Pain Assessments"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -41,10 +39,9 @@ define "Denominator Encounter":
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.value = ["MIPS; Telehealth Modifier"]
 
-define "Pain Intervention":
-  ["Procedure, Performed": "Able; Pain Intervention"]
-  union ["Medication": "Able; Opioids Used for Pain Control"]
-  union ["Medication": "Able; Selected Non Opioids for Moderate to Severe Pain"]
+define "Pain Assessment":
+  ["Assessment, Performed": "Able; Standardized Pain Assessment Tool"]
+  union ["Assessment, Performed": "Able; Pain Assessments"]
 
 define "Denominator":
   "Denominator Encounter"
@@ -56,15 +53,6 @@ define "Numerator Performance Met: G8730":
   exists(["Procedure, Performed": "MIPS; Performance Met: G8730"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts during E.relevantPeriod)
-  or (
-    exists(["Procedure, Performed": "Able; Standardized Pain Assessment Tool"] P
-      where P.result > 0
-      with "Denominator Encounter" E
-        such that P.relevantPeriod starts during E.relevantPeriod)
-    and exists("Pain Intervention" I
-      with "Denominator Encounter" E
-        such that I.relevantPeriod starts during E.relevantPeriod)
-  )
 
 define "Numerator Performance Met: G8731":
   /*
@@ -73,10 +61,10 @@ define "Numerator Performance Met: G8731":
   exists(["Procedure, Performed": "MIPS; Performance Met: G8731"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts during E.relevantPeriod)
-  exists(["Procedure, Performed": "Able; Standardized Pain Assessment Tool"] P
-    where P.result = 0
+  exists("Pain Assessment" A
+    where A.result = 0
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod)
+      such that A.relevantPeriod starts during E.relevantPeriod)
 
 define "Denomiantor Exception: G8442":
   /*

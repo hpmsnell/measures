@@ -27,14 +27,8 @@ performance_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "Able; Standardized Pain Assessment Tool"
-        - count: 20
-          validation_records:
             - model: ClinicalActivity
-              value_set: "Able; Pain Intervention"
-            - model: Medication
-              value_set: "Able; Opioids Used for Pain Control"
-            - model: Medication
-              value_set: "Able; Selected Non Opioids for Moderate to Severe Pain"
+              value_set: "Able; Pain Assessments"
     optional:
       code_value: G8730
   - config_link_id: G8731
@@ -53,6 +47,8 @@ performance_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "Able; Standardized Pain Assessment Tool"
+            - model: ClinicalActivity
+              value_set: "Able; Pain Assessments"
     optional:
       code_value: G8731
 exception_reasons:
@@ -101,14 +97,8 @@ performance_not_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "Able; Standardized Pain Assessment Tool"
-        - count: 20
-          validation_records:
             - model: ClinicalActivity
-              value_set: "Able; Pain Intervention"
-            - model: Medication
-              value_set: "Able; Opioids Used for Pain Control"
-            - model: Medication
-              value_set: "Able; Selected Non Opioids for Moderate to Severe Pain"
+              value_set: "Able; Pain Assessments"
         - count: 10
           validation_records:
             - model: ClinicalActivity
@@ -135,6 +125,8 @@ performance_not_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "Able; Standardized Pain Assessment Tool"
+            - model: ClinicalActivity
+              value_set: "Able; Pain Assessments"
         - count: 10
           validation_records:
             - model: ClinicalActivity
