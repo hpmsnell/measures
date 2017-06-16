@@ -40,12 +40,24 @@ define "Opioid Procedure":
   ["Procedure Performed": "Opiates Prescribed for Longer than Six Weeks"] P
     where P. relevantPeriod starts during "Measurement Year"
 
-define "Denominator":
+define "Denominator Encounter with Opioid Procedure Exists":
   exists("Denominator Encounter")
-  and (
-    sum("Opioid" M return M.days_supplied) > 42
-    or exists("Opioid Procedure")
-  )
+  and exists("Opioid Procedure")
+
+define "Denominator Encounter with Opioid Medication"
+  "Denominator Encounter" E
+    with "Opioid" M
+      such that start of E.relevantPeriod during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
+        and start of E.relevantPeriod - 7 days during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
+        and start of E.relevantPeriod - 14 days during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
+        and start of E.relevantPeriod - 21 days during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
+        and start of E.relevantPeriod - 28 days during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
+        and start of E.relevantPeriod - 35 days during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
+        and start of E.relevantPeriod - 43 days during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
+
+define "Denominator":
+  "Denominator Encounter with Opioid Procedure Exists"
+  or exists("Denominator Encounter with Opioid Medication")
 
 define "Numerator Performance Met: G9578":
   /*
