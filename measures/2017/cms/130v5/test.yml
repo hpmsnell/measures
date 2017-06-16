@@ -1,4 +1,4 @@
-measure_id: 17.Ecqm.Cms130v5
+measure_id: 17.Cms.Cms130v5
 test_set_keys:
   organization_key:
     patients:
@@ -111,107 +111,107 @@ test_set_keys:
     - name: Rachel
       patients:
       - name: Too Young # Patient is too young for the denominator but has an encounter
-          denominator:
+        denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Too Old # Patient is too old for the denominator but has an encounter
-          denominator:
+        denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Age Lower # Patient is at lower bound of age range but has an encounter
-          denominator: 1
+        denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: Age Upper # Patient is at upper bound of age range but has an encounter
-          denominator: 1
+        denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: No Encounter # Patient has no encounter but has appropriate age
-          denominator:
+        denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Encounter Early # Patient has an encounter prior to the measurement period
-          denominator:
+        denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Encounter Late # Patient has an encounter after the measurement period
-          denominator:
+        denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator Exclusion # Patient has an exclusion for colorectal cancer
-          denominator: 1
+        denominator: 1
         denominator_exclusion:
         denominator_exception: exclusion
         numerator:
       - name: Exclusion Late # Patient has an exclusion that is too late
-          denominator: 1
+        denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: Colonoscopy Start # Patient was screened at the start of the allowable period
-          denominator: 1
+        denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_met
       - name: Colonoscopy End # Patient was screened at the end of the allowable period
-          denominator: 1
+        denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_met
       - name: Colonoscopy Late # Patient was screened too late
-          denominator: 1
+        denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: Colonoscopy Early # Patient was screened too early
-          denominator: 1
+        denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: Sigmoidoscopy Start # Patient was screened at the start of the allowable period
-          denominator: 1
+        denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_met
       - name: Sigmoidoscopy End # Patient was screened at the end of the allowable period
-          denominator: 1
+        denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_met
       - name: Sigmoidoscopy Late # Patient was screened too late
-          denominator: 1
+        denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: Sigmoidoscopy Early # Patient was screened too early
-          denominator: 1
+        denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: FOBT Start # Patient had an FOBT at the start of the measurement period
-          denominator:
+        denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: FOBT End # Patient had an FOBT at the end of the measurement period
-          denominator:
+        denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: FOBT Late # Patient had an FOBT too late
-          denominator:
+        denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: FOBT Early # Patient had an FOBT too early
-          denominator:
+        denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:

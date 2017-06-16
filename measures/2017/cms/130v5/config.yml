@@ -1,12 +1,12 @@
 measure:
-  name: 17.Ecqm.Cms130v5
+  name: 17.Cms.Cms130v5
   required:
     display_title: Colorectal Cancer Screening
   optional:
     gap_resolution_action: Patient is due for a colorectal cancer screening
-    set: eCQM
+    set: CMS
     external_id: 130
-    version: 3
+    version: 5
     mips_measure_type:
     mips_high_priority:
 exclusion_reasons:
@@ -17,23 +17,23 @@ exclusion_reasons:
         - count: 1
           validation_records:
           - model: ClinicalActivity
-            value_set_name: VSAC; Annual Wellness Visit
+            value_set: VSAC; Annual Wellness Visit
           - model: ClinicalActivity
-            value_set_name: VSAC; Face-to-Face Interaction
+            value_set: VSAC; Face-to-Face Interaction
           - model: ClinicalActivity
-            value_set_name: VSAC; Home Healthcare Services
+            value_set: VSAC; Home Healthcare Services
           - model: ClinicalActivity
-            value_set_name: VSAC; Office Visit
+            value_set: VSAC; Office Visit
           - model: ClinicalActivity
-            value_set_name: VSAC; Preventive Care Services - Established Office Visit, 18 and Up
+            value_set: VSAC; Preventive Care Services-Established Office Visit, 18 and Up
           - model: ClinicalActivity
-            value_set_name: VSAC; Preventive Care Services-Initial Office Visit, 18 and Up
+            value_set: VSAC; Preventive Care Services-Initial Office Visit, 18 and Up
         - count: 1
           validation_records:
           - model: Diagnosis
-            value_set_name: VSAC; Malignant Neoplasm of Colon
+            value_set: VSAC; Malignant Neoplasm of Colon
           - model: ClinicalActivity
-            value_set_name: VSAC; Total Colectomy
+            value_set: VSAC; Total Colectomy
 performance_met_reasons:
   - config_link_id: performance_met
     required:
@@ -42,25 +42,25 @@ performance_met_reasons:
         - count: 1
           validation_records:
           - model: ClinicalActivity
-            value_set_name: VSAC; Annual Wellness Visit
+            value_set: VSAC; Annual Wellness Visit
           - model: ClinicalActivity
-            value_set_name: VSAC; Face-to-Face Interaction
+            value_set: VSAC; Face-to-Face Interaction
           - model: ClinicalActivity
-            value_set_name: VSAC; Home Healthcare Services
+            value_set: VSAC; Home Healthcare Services
           - model: ClinicalActivity
-            value_set_name: VSAC; Office Visit
+            value_set: VSAC; Office Visit
           - model: ClinicalActivity
-            value_set_name: VSAC; Preventive Care Services - Established Office Visit, 18 and Up
+            value_set: VSAC; Preventive Care Services-Established Office Visit, 18 and Up
           - model: ClinicalActivity
-            value_set_name: VSAC; Preventive Care Services-Initial Office Visit, 18 and Up
+            value_set: VSAC; Preventive Care Services-Initial Office Visit, 18 and Up
         - count: 1
           validation_records:
           - model: ClinicalActivity
-            value_set_name: VSAC; Colonoscopy
+            value_set: VSAC; Colonoscopy
           - model: ClinicalActivity
-            value_set_name: VSAC; Flexible Sigmoidoscopy
+            value_set: VSAC; Flexible Sigmoidoscopy
           - model: LaboratoryTestPerformed
-            value_set_name: VSAC; Fecal Occult Blood Test (FOBT)
+            value_set: VSAC; Fecal Occult Blood Test (FOBT)
 performance_not_met_reasons:
   - config_link_id: performance_not_met
     required:
@@ -69,22 +69,22 @@ performance_not_met_reasons:
         - count: 1
           validation_records:
           - model: ClinicalActivity
-            value_set_name: VSAC; Annual Wellness Visit
+            value_set: VSAC; Annual Wellness Visit
           - model: ClinicalActivity
-            value_set_name: VSAC; Face-to-Face Interaction
+            value_set: VSAC; Face-to-Face Interaction
           - model: ClinicalActivity
-            value_set_name: VSAC; Home Healthcare Services
+            value_set: VSAC; Home Healthcare Services
           - model: ClinicalActivity
-            value_set_name: VSAC; Office Visit
+            value_set: VSAC; Office Visit
           - model: ClinicalActivity
-            value_set_name: VSAC; Preventive Care Services - Established Office Visit, 18 and Up
+            value_set: VSAC; Preventive Care Services-Established Office Visit, 18 and Up
           - model: ClinicalActivity
-            value_set_name: VSAC; Preventive Care Services-Initial Office Visit, 18 and Up
+            value_set: VSAC; Preventive Care Services-Initial Office Visit, 18 and Up
         - count: 1
           validation_records:
           - model: ClinicalActivity
-            value_set_name: VSAC; Colonoscopy
+            value_set: VSAC; Colonoscopy
           - model: ClinicalActivity
-            value_set_name: VSAC; Flexible Sigmoidoscopy
+            value_set: VSAC; Flexible Sigmoidoscopy
           - model: LaboratoryTestPerformed
-            value_set_name: VSAC; Fecal Occult Blood Test (FOBT)
+            value_set: VSAC; Fecal Occult Blood Test (FOBT)
