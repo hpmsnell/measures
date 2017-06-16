@@ -49,13 +49,13 @@ define "Denominator Encounter with Opioid Procedure Exists":
 define "Denominator Encounter with Opioid Medication"
   "Denominator Encounter" E
     with "Opioid" M
-      such that start of E.relevantPeriod in Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
-        and start of E.relevantPeriod - 7 days in Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
-        and start of E.relevantPeriod - 14 days in Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
-        and start of E.relevantPeriod - 21 days in Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
-        and start of E.relevantPeriod - 28 days in Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
-        and start of E.relevantPeriod - 35 days in Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
-        and start of E.relevantPeriod - 43 days in Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
+      such that start of E.relevantPeriod during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
+        and start of E.relevantPeriod - 7 days during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
+        and start of E.relevantPeriod - 14 days during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
+        and start of E.relevantPeriod - 21 days during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
+        and start of E.relevantPeriod - 28 days during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
+        and start of E.relevantPeriod - 35 days during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
+        and start of E.relevantPeriod - 43 days during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
 
 define "Denominator":
   "Denominator Encounter with Opioid Procedure Exists"

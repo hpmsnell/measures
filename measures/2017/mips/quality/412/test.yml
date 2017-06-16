@@ -32,22 +32,27 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Medication Before  # Patient prescribed medication too early
+    - name: Medication 42Days  # Patient prescribed for too few days
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Medication Lower # Patient prescribed lower bound of medication
+    - name: Medication 43Days # Patient prescribed for lower bound of days
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9579
-    - name: Medication Upper # Patient prescribed lower bound of medication
-      denominator: 1
+    - name: Medication Early # Patient prescribed medication too early
+      denominator:
       denominator_exclusion:
       denominator_exception:
-      numerator: G9579
-    - name: Medication After  # Patient prescribed medication too late
+      numerator:
+    - name: Medication Late # Patient prescribed medication too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Medication Active # Patient has active medication but not order
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -110,22 +115,22 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Medication Before  # Patient prescribed medication too early
+    - name: Medication 42Days  # Patient prescribed for too few days
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Medication Lower # Patient prescribed lower bound of medication
+    - name: Medication 43Days # Patient prescribed for lower bound of days
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9579
-    - name: Medication Upper # Patient prescribed lower bound of medication
-      denominator: 1
+    - name: Medication Early # Patient prescribed medication too early
+      denominator:
       denominator_exclusion:
       denominator_exception:
-      numerator: G9579
-    - name: Medication After  # Patient prescribed medication too late
+      numerator:
+    - name: Medication Late # Patient prescribed medication too late
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -257,11 +262,11 @@ patients:
     - code_type: HCPCS
       code_value: G9577
       start_datetime: 2016-02-01
-- name: Medication Before
+- name: Medication 42Days
   attributes:
     date_of_birth: 1990-01-01
     given_name: Medication
-    family_name: Before
+    family_name: 42Days
     sex: Female
   clinical_models:
     clinical_activities:
@@ -272,19 +277,19 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-02-01
+      start_datetime: 2015-12-20
       method: E
-      days_supplied: 42
+      days_supplied: 40
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2015-12-31
+      start_datetime: 2016-01-29
       method: E
-      days_supplied: 1
-- name: Medication Lower
+      days_supplied: 2
+- name: Medication 43Days
   attributes:
     date_of_birth: 1990-01-01
     given_name: Medication
-    family_name: Lower
+    family_name: 43Days
     sex: Female
   clinical_models:
     clinical_activities:
@@ -295,19 +300,19 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-02-01
+      start_datetime: 2015-12-20
       method: E
-      days_supplied: 42
+      days_supplied: 40
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-01-01
+      start_datetime: 2016-01-29
       method: E
-      days_supplied: 1
-- name: Medication Upper
+      days_supplied: 3
+- name: Medication Early
   attributes:
     date_of_birth: 1990-01-01
     given_name: Medication
-    family_name: Upper
+    family_name: Early
     sex: Female
   clinical_models:
     clinical_activities:
@@ -318,19 +323,19 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-02-01
+      start_datetime: 2015-12-20
       method: E
-      days_supplied: 42
+      days_supplied: 40
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-12-31 # Upper
+      start_datetime: 2015-12-22
       method: E
-      days_supplied: 1
-- name: Medication After
+      days_supplied: 3
+- name: Medication Late
   attributes:
     date_of_birth: 1990-01-01
     given_name: Medication
-    family_name: After
+    family_name: Late
     sex: Female
   clinical_models:
     clinical_activities:
@@ -341,14 +346,14 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-02-01
+      start_datetime: 2015-12-21
       method: E
-      days_supplied: 42
+      days_supplied: 36
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2017-01-01 # After
+      start_datetime: 2016-01-31
       method: E
-      days_supplied: 1
+      days_supplied: 6
 - name: Medication Active
   attributes:
     date_of_birth: 1990-01-01
@@ -364,13 +369,13 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-02-01
+      start_datetime: 2015-12-21
       method: E
-      days_supplied: 42
+      days_supplied: 40
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-02-01 # No method
-      days_supplied: 1
+      start_datetime: 2015-12-22 # No method
+      days_supplied: 3
 - name: Agreement Before
   attributes:
     date_of_birth: 1990-01-01

@@ -53,10 +53,10 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: Medication Active # Patient has active medication but not order
-      denominator: 1
+      denominator:
       denominator_exclusion:
       denominator_exception:
-      numerator: G9563
+      numerator:
     - name: FollowUp Before # Patient assessed at start of allowable period
       denominator: 1
       denominator_exclusion:
@@ -131,10 +131,10 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: Medication Active # Patient has active medication but not order
-      denominator: 1
+      denominator:
       denominator_exclusion:
       denominator_exception:
-      numerator: G9563
+      numerator:
     - name: FollowUp Before # Patient assessed at start of allowable period
       denominator: 1
       denominator_exclusion:
@@ -160,10 +160,12 @@ providers:
   family_name: Kohler
   credential: DO
   primary_specialty: Family Medicine
+  external_id: '111-111'
 - given_name: Patty
   family_name: PrimaryCare
   credential: MD
   primary_specialty: Family Medicine
+  external_id: '222-222'
 patients:
 - name: Too Young
   attributes:
@@ -235,7 +237,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-12-31 # Upper
+      start_datetime: 2016-09-30 # Upper
       provider: Rachel
     - code_type: HCPCS
       code_value: G9561
@@ -270,12 +272,12 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2015-12-21
+      start_datetime: 2015-12-20
       method: E
       days_supplied: 40
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2015-12-22
+      start_datetime: 2016-01-29
       method: E
       days_supplied: 2
 - name: Medication 43Days
@@ -293,12 +295,12 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2015-12-21
+      start_datetime: 2015-12-20
       method: E
       days_supplied: 40
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2015-12-22
+      start_datetime: 2016-01-29
       method: E
       days_supplied: 3
 - name: Medication Early
