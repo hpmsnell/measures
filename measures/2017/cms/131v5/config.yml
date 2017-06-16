@@ -1,0 +1,70 @@
+measure:
+  name: 17.MIPS.Mips131v5
+  required:
+    display_title: "Diabetes: Eye Exam"
+  optional:
+    gap_resolution_action: "Patient is due for a diabetic eye exam"
+    set: MIPS
+    external_id: 131
+    version: 5
+    mips_measure_type:
+    mips_high_priority:
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: performance_met
+    required:
+      display_title: Retinal or dilated eye exam performed
+      validation_record_groups:
+        - count: 1
+          validation_records:
+          - model: ClinicalActivity
+            value_set: VSAC; Annual Wellness Visit
+          - model: ClinicalActivity
+            value_set: VSAC; Face-to-Face Interaction
+          - model: ClinicalActivity
+            value_set: VSAC; Home Healthcare Services
+          - model: ClinicalActivity
+            value_set: VSAC; Office Visit
+          - model: ClinicalActivity
+            value_set: VSAC; Preventive Care Services-Established Office Visit, 18 and Up
+          - model: ClinicalActivity
+            value_set: VSAC; Preventive Care Services-Initial Office Visit, 18 and Up
+          - model: ClinicalActivity
+            value_set: VSAC; Ophthalmological Services
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Diabetes"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Retinal or Dilated Eye Exam"
+performance_not_met_reasons:
+  - config_link_id: performance_not_met
+    required:
+      display_title: No retinal or dilated eye exam found within two years of the end of the measurement period, or only an exam with a positive result was found in the year prior to measurement period
+      validation_record_groups:
+        - count: 1
+          validation_records:
+          - model: ClinicalActivity
+            value_set: VSAC; Annual Wellness Visit
+          - model: ClinicalActivity
+            value_set: VSAC; Face-to-Face Interaction
+          - model: ClinicalActivity
+            value_set: VSAC; Home Healthcare Services
+          - model: ClinicalActivity
+            value_set: VSAC; Office Visit
+          - model: ClinicalActivity
+            value_set: VSAC; Preventive Care Services-Established Office Visit, 18 and Up
+          - model: ClinicalActivity
+            value_set: VSAC; Preventive Care Services-Initial Office Visit, 18 and Up
+          - model: ClinicalActivity
+            value_set: VSAC; Ophthalmological Services
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Diabetes"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Retinal or Dilated Eye Exam"
