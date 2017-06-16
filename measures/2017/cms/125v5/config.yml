@@ -1,0 +1,97 @@
+measure:
+  name: 17.MIPS.Mips125v5
+  required:
+    display_title: Breast Cancer Screening
+  optional:
+    gap_resolution_action: Patient is due for breast cancer screening
+    set: MIPS
+    external_id: 125
+    version: 5
+    mips_measure_type:
+    mips_high_priority:
+exclusion_reasons:
+  - config_link_id: exclusion
+    required:
+      display_title: Patient is excluded for this measure due to history of bilateral mastectomy or left and right mastectomy
+      validation_record_groups:
+        - count: 1
+          validation_records:
+          - model: ClinicalActivity
+            value_set: VSAC; Annual Wellness Visit
+          - model: ClinicalActivity
+            value_set: VSAC; Face-to-Face Interaction
+          - model: ClinicalActivity
+            value_set: VSAC; Home Healthcare Services
+          - model: ClinicalActivity
+            value_set: VSAC; Office Visit
+          - model: ClinicalActivity
+            value_set: VSAC; Preventive Care Services-Established Office Visit, 18 and Up
+          - model: ClinicalActivity
+            value_set: VSAC; Preventive Care Services-Initial Office Visit, 18 and Up
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Bilateral Mastectomy"
+            - model: Diagnosis
+              value_set: "VSAC; History of bilateral mastectomy"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Left Mastectomy"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Right Mastectomy"
+        - count: 2
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Unilateral Mastectomy"
+            - model: Diagnosis
+              value_set: "VSAC; Unilateral Mastectomy, Unspecified Laterality"
+exception_reasons:
+performance_met_reasons:
+  - config_link_id: performance_met
+    required:
+      display_title: Patient was screened for breast cancer
+      validation_record_groups:
+        - count: 1
+          validation_records:
+          - model: ClinicalActivity
+            value_set: VSAC; Annual Wellness Visit
+          - model: ClinicalActivity
+            value_set: VSAC; Face-to-Face Interaction
+          - model: ClinicalActivity
+            value_set: VSAC; Home Healthcare Services
+          - model: ClinicalActivity
+            value_set: VSAC; Office Visit
+          - model: ClinicalActivity
+            value_set: VSAC; Preventive Care Services-Established Office Visit, 18 and Up
+          - model: ClinicalActivity
+            value_set: VSAC; Preventive Care Services-Initial Office Visit, 18 and Up
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Mammogram"
+performance_not_met_reasons:
+  - config_link_id: performance_not_met
+    required:
+      display_title: Patient was not screened for breast cancer within 27 months of the end of the mesaurement period
+      validation_record_groups:
+        - count: 1
+          validation_records:
+          - model: ClinicalActivity
+            value_set: VSAC; Annual Wellness Visit
+          - model: ClinicalActivity
+            value_set: VSAC; Face-to-Face Interaction
+          - model: ClinicalActivity
+            value_set: VSAC; Home Healthcare Services
+          - model: ClinicalActivity
+            value_set: VSAC; Office Visit
+          - model: ClinicalActivity
+            value_set: VSAC; Preventive Care Services-Established Office Visit, 18 and Up
+          - model: ClinicalActivity
+            value_set: VSAC; Preventive Care Services-Initial Office Visit, 18 and Up
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Mammogram"
