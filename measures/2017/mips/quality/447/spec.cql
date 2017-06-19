@@ -93,14 +93,14 @@ define "Sexual Activity Procedure":
   ["Procedure, Performed": "MIPS; Sexual Activity"]
   union ["Procedure, Performed": "VSAC; Delivery Live Births"]
   union ["Procedure, Performed": "VSAC; Procedures Involving Contraceptive Devices"]
+  union ["Diagnostic Study, Performed": "VSAC; Diagnostic Studies During Pregnancy"]
+  union ["Laboratory Test, Performed": "VSAC; Procedures During Pregnancy"]
 
 define "Sexual Activity Lab Test":
   ["Laboratory Test, Performed": "VSAC; Pregnancy Test"]
   union ["Laboratory Test, Performed": "VSAC; Pap Test"]
   union ["Laboratory Test, Performed": "VSAC; Lab Tests During Pregnancy"]
   union ["Laboratory Test, Performed": "VSAC; Lab Tests for Sexually Transmitted Infections"]
-  union ["Diagnostic Study, Performed": "VSAC; Diagnostic Studies During Pregnancy"]
-  union ["Laboratory Test, Performed": "VSAC; Procedures During Pregnancy"]\
 
 define "Sexual Activity Medication Order":
   ["Medication, Order": "VSAC; Contraceptive Medications"]
