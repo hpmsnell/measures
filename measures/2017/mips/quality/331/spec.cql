@@ -42,17 +42,12 @@ define "Denominator Encounter":
     with ["Diagnosis": "MIPS; Acute Sinusitis"] D
       such that D.prevalencePeriod starts during E.relevantPeriod
 
-define "Performance Met Without Exception Exists":
+define "Performance Met Exists":
   exists(["Procedure, Performed": "Performance Met: G9286"] P
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts on or 10 days or less after start of E.relevantPeriod)
-  and not "Denominator Exception: G9505"
-
-define "Medication Without Exception Exists":
-  exists(["Medication, Order": "Able; Systemic Antibiotics"] M
+  or exists(["Medication, Order": "Able; Systemic Antibiotics"] M
     with "Denominator Encounter" E
       such that M.relevantPeriod starts on or 10 days or less after start of E.relevantPeriod)
-  and not "Denominator Exception: G9505"
 
 define "Denominator":
   "Denominator Encounter"
@@ -61,8 +56,8 @@ define "Numerator Performance Met: G9286":
   /*
    * config_link_id: G9286
    */
-  "Performance Met Without Exception Exists"
-  or "Medication Without Exception Exists"
+  "Performance Met Exists"
+  and not "Denominator Exception: G9505"
 
 define "Denominator Exception: G9505":
   /*
