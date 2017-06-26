@@ -121,12 +121,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8950
+        numerator: G8950_1
       - name: G8950 Upper # G8950 starts  at upper bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8950
+        numerator: G8950_1
       - name: G8950 After # G8950 starts late
         denominator: 1
         denominator_exclusion:
@@ -221,12 +221,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8950
+        numerator: G8950_4
       - name: PreHypertensiveFollowUp Upper # Hypertensive blood pressure follow up at upper bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8950
+        numerator: G8950_4
       - name: PreHypertensiveFollowUp After # Hypertensive blood pressure follow up late
         denominator: 1
         denominator_exclusion:
@@ -241,12 +241,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8950
+        numerator: G8950_4
       - name: PreHypertensiveRetest Upper # Hypertensive blood pressure follow up at upper bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8950
+        numerator: G8950_4
       - name: PreHypertensiveRetest After # Hypertensive blood pressure follow up late
         denominator: 1
         denominator_exclusion:
@@ -261,12 +261,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8950
+        numerator: G8950_3
       - name: HypertensiveFollowUp Upper # Hypertensive blood pressure follow up at upper bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8950
+        numerator: G8950_3
       - name: HypertensiveFollowUp After # Hypertensive blood pressure follow up late
         denominator: 1
         denominator_exclusion:
@@ -281,12 +281,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8950
+        numerator: G8950_3
       - name: HypertensiveRetest Upper # Hypertensive blood pressure follow up at upper bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8950
+        numerator: G8950_3
       - name: HypertensiveRetest After # Hypertensive blood pressure follow up late
         denominator: 1
         denominator_exclusion:
@@ -301,12 +301,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8950
+        numerator: G8950_2
       - name: 2FollowUp Upper # Hypertensive blood pressure follow up at upper bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G8950
+        numerator: G8950_2
       - name: 2FollowUp After # Hypertensive blood pressure follow up late
         denominator: 1
         denominator_exclusion:
@@ -1474,7 +1474,7 @@ patients:
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2015-12-31
+        start_datetime: 2016-09-30
   - name: PreHypertensiveFollowUp Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -1505,7 +1505,7 @@ patients:
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-01-01
+        start_datetime: 2016-10-01
   - name: PreHypertensiveFollowUp Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -1536,7 +1536,7 @@ patients:
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-12-31
+        start_datetime: 2016-10-02
   - name: PreHypertensiveFollowUp After
     attributes:
       date_of_birth: 1950-01-01
@@ -1567,7 +1567,7 @@ patients:
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2017-01-01
+        start_datetime: 2017-10-03
   - name: PreHypertensiveRetest Before
     attributes:
       date_of_birth: 1950-01-01
@@ -1598,7 +1598,7 @@ patients:
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2015-12-31
+        start_datetime: 2016-10-01
   - name: PreHypertensiveRetest Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -1629,7 +1629,7 @@ patients:
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-01-01
+        start_datetime: 2016-10-01
   - name: PreHypertensiveRetest Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -1660,7 +1660,7 @@ patients:
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-12-31
+        start_datetime: 2016-10-01
   - name: PreHypertensiveRetest After
     attributes:
       date_of_birth: 1950-01-01
@@ -1691,7 +1691,7 @@ patients:
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2017-01-01
+        start_datetime: 2016-10-01
   - name: HypertensiveFollowUp Before
     attributes:
       date_of_birth: 1950-01-01
@@ -1722,7 +1722,7 @@ patients:
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2015-12-31
+        start_datetime: 2016-09-30
   - name: HypertensiveFollowUp Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -1753,7 +1753,7 @@ patients:
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-01-01
+        start_datetime: 2016-10-01
   - name: HypertensiveFollowUp Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -1784,7 +1784,7 @@ patients:
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-12-31
+        start_datetime: 2016-10-02
   - name: HypertensiveFollowUp After
     attributes:
       date_of_birth: 1950-01-01
@@ -1815,7 +1815,7 @@ patients:
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2017-01-01
+        start_datetime: 2016-10-03
   - name: HypertensiveRetest Before
     attributes:
       date_of_birth: 1950-01-01
@@ -1846,7 +1846,7 @@ patients:
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2015-12-31
+        start_datetime: 2016-10-01
   - name: HypertensiveRetest Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -1877,7 +1877,7 @@ patients:
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-01-01
+        start_datetime: 2016-10-01
   - name: HypertensiveRetest Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -1908,7 +1908,7 @@ patients:
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-12-31
+        start_datetime: 2016-10-01
   - name: HypertensiveRetest After
     attributes:
       date_of_birth: 1950-01-01
@@ -1939,7 +1939,7 @@ patients:
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2017-01-01
+        start_datetime: 2016-10-03
   - name: 2FollowUp Before
     attributes:
       date_of_birth: 1950-01-01

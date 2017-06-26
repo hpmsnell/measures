@@ -31,7 +31,6 @@ valueset "VSAC; Weight Reduction Recommended": '2.16.840.1.113883.3.600.1510'
 valueset "VSAC; Dietary Recommendations": '2.16.840.1.113883.3.600.1515'
 valueset "VSAC; Physical Activity Recommendation": '	2.16.840.1.113883.3.600.1518'
 valueset "VSAC; Moderation of ETOH Consumption": '2.16.840.1.113883.3.600.823'
-valueset "VSAC; Referral to Alternative Provider / Primary Care Provider": '2.16.840.1.113883.3.600.1475'
 valueset "VSAC; Anti-Hypertensive Pharmacologic Therapy": '2.16.840.1.113883.3.600.1476'
 valueset "VSAC; Laboratory Tests for Hypertension": '2.16.840.1.113883.3.600.1482'
 valueset "VSAC; ECG 12 lead or study order": '2.16.840.1.113883.3.600.2448'
@@ -57,24 +56,24 @@ define "Blood Pressure Screening":
 define "Normal Diastolic Blood Pressure":
   ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] P
     where P.relevantPeriod starts during E.relevantPeriod
-    and P.result < 80
+      and P.result < 80
 
 define "Normal Systolic Blood Pressure":
   ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] P
     where P.relevantPeriod starts during E.relevantPeriod
-    and P.result < 120
-
-define "Pre-Hypertensive Systolic":
-  ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] P
-    where P.relevantPeriod starts during E.relevantPeriod
-      and P.result >= 120
-      and P.result < 140
+      and P.result < 120
 
 define "Pre-Hypertensive Diastolic":
   ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] P
     where P.relevantPeriod starts during E.relevantPeriod
       and P.result >= 80
       and P.result < 90
+
+define "Pre-Hypertensive Systolic":
+  ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] P
+    where P.relevantPeriod starts during E.relevantPeriod
+      and P.result >= 120
+      and P.result < 140
 
 define "Hypertensive Diastolic Blood Pressure":
   ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] P
@@ -92,11 +91,15 @@ define "Normal Blood Pressure Exists"
 
 define "Pre-Hypertensive Blood Pressure Exists":
   exists("Pre-Hypertensive Systolic")
-  and exists("Pre-Hypertensive Diastolic")
+  or exists("Pre-Hypertensive Diastolic")
 
 define "Hypertensive Blood Pressure Exists":
   exists("Hypertensive Systolic")
-  and exists("Hypertensive Diastolic")
+  or exists("Hypertensive Diastolic")
+
+define "Pre-Hypertensive or Hypertensive Blood Pressure Exists"
+  "Pre-Hypertensive Blood Pressure Exists"
+  or "Hypertensive Blood Pressure Exists"
 
 define "Two Hypertensive Blood Pressures Exist"
   count("Hypertensive Systolic Blood Pressure") >= 2
@@ -110,7 +113,6 @@ define "Recommended Lifestyle Modification":
   union ["Procedure, Performed": "VSAC; Dietary Recommendations"]
   union ["Procedure, Performed": "VSAC; Physical Activity Recommendation"]
   union ["Procedure, Performed": "VSAC; Moderation of ETOH Consumption"]
-  union ["Procedure, Performed": "VSAC; Referral to Alternative Provider / Primary Care Provider"]
 
 define "Hypertensive Lab Test":
   ["Laboratory Test, Performed": "VSAC; Laboratory Tests for Hypertension"]
@@ -125,15 +127,31 @@ define "Hypertensive Medication Order":
 define "Hypertensive Medication Active":
   ["Medication, Active": "Anti-Hypertensive Pharmacologic Therapy"]
 
+define "Pre-Hypertensive Lifestyle Modification Exists":
+  exists("Recommended Lifestyle Modification" P
+    with "Pre-Hypertensive Systolic" E
+      such that P.relevantPeriod starts on or 1 day or less after E.authorDateTime)
+  or exists("Recommended Lifestyle Modification" P
+    with "Pre-Hypertensive Diastolic" E
+      such that P.relevantPeriod starts on or 1 day or less after E.authorDateTime)
+
 define "Pre-Hypertensive Re-Screening Exists":
   exists("Blood Pressure Screening" P1
-    with "Pre-Hypertensive Systolic" P2
+    with "Pre-Hypertensive Systolic" E
       such that P1.authorDateTime 1 year or less after P2.authorDateTime
         and P1.authorDateTime more than 1 day after P2.authorDateTime)
   or exists("Blood Pressure Screening" P1
     with "Pre-Hypertensive Diastolic" P2
       such that P1.authorDateTime 1 year or less after P2.authorDateTime
         and P1.authorDateTime more than 1 day after P2.authorDateTime)
+
+define "Hypertensive Lifestyle Modification Exists":
+exists("Recommended Lifestyle Modification" P
+  with "Hypertensive Systolic" E
+    such that P.relevantPeriod starts on or 1 day or less after E.authorDateTime)
+or exists("Recommended Lifestyle Modification" P
+  with "Hypertensive Diastolic" E
+    such that P.relevantPeriod starts on or 1 day or less after E.authorDateTime)
 
 define "Hypertensive Re-Screening Exists":
   exists("Blood Pressure Screening" P1
@@ -156,18 +174,15 @@ define "Second Hypertensive Intervention Exists":
     where P.relevantPeriod during "Measurement Year")
 
 define "Pre-Hypertensive Follow-Up Exists":
-  exists("Recommended Lifestyle Modification" P
-    where P.relevantPeriod starts during "Measurement Period")
+  "Pre-Hypertensive Lifestyle Modification Exists"
   and "Pre-Hypertensive Re-Screening Exists"
 
 define "Hypertensive Follow-Up Exists":
-  exists("Recommended Lifestyle Modification" P
-    where P.relevantPeriod starts during "Measurement Period")
+  "Hypertensive Lifestyle Modification Exists"
   and "Hypertensive Re-Screening Exists"
 
 define "Two Hypertensive Follow-Up Exists":
-  exists("Recommended Lifestyle Modification" P
-    where P.relevantPeriod starts during "Measurement Period")
+  "Hypertensive Lifestyle Modification Exists"
   and "Second Hypertensive Intervention Exists"
 
 // Screening + Follow-Up
@@ -178,7 +193,6 @@ define "Pre-Hypertensive Blood Pressure with Follow-Up Exists":
 
 define "Hypertensive Blood Pressure with Follow-Up Exists":
   "Hypertensive Blood Pressure Exists"
-  and not "Two Hypertensive Blood Pressures Exist"
   and "Hypertensive Follow-Up Exists"
 
 define "Two Hypertensive Blood Pressures with Follow-Up Exist":
@@ -195,9 +209,10 @@ define "Denominator Exclusion":
    * config_link_id: exclusion_1
    */
  exists(["Procedure, Performed": "MIPS; Hypertension Exclusion"] P
-   where P.relevantPeriod starts during "Measurement Period")
+  where P.relevantPeriod starts during "Measurement Period")
  or exists(["Diagnosis": "VSAC; Diagnosis of Hypertension"] D
-   where D.prevalencePeriod overlaps "Measurement Period")
+  with "Denominator Encounter" E
+   such that D.prevalencePeriod overlaps E.relevantPeriod)
 
 define "Numerator Performance Met: G8783":
   /*
@@ -207,22 +222,36 @@ define "Numerator Performance Met: G8783":
     where P.relevantPeriod starts during "Measurement Period")
   or "Normal Blood Pressure Exists"
 
-define "Numerator Performance Met: G8950":
+define "Numerator Performance Met: G8950_1":
   /*
-   * config_link_id: G8950
+   * config_link_id: G8950_1
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G8950"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or "Pre-Hypertensive Blood Pressure with Follow-Up Exists"
-  or "Hypertensive Blood Pressure with Follow-Up Exists"
-  or "Two Hypertensive Blood Pressures with Follow-Up Exist"
-)
+
+define "Numerator Performance Met: G8950_2":
+  /*
+   * config_link_id: G8950_2
+   */
+  "Two Hypertensive Blood Pressures with Follow-Up Exist"
+
+define "Numerator Performance Met: G8950_3":
+  /*
+   * config_link_id: G8950_3
+   */
+  "Hypertensive Blood Pressure with Follow-Up Exists"
+
+define "Numerator Performance Met: G8950_4":
+  /*
+   * config_link_id: G8950_4
+   */
+  "Pre-Hypertensive Blood Pressure with Follow-Up Exists"
 
 define "Denominator Exception: G9745":
   /*
    * config_link_id: G9745
    */
-   exists(["Procedure, Performed": "MIPS; Performance Met: G9745"] P
+   exists(["Procedure, Performed": "MIPS; Denominator Exception: G9745"] P
      where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met: G8952":
