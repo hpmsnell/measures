@@ -95,7 +95,7 @@ define "Denominator Exception: G9313":
       such that D.prevalencePeriod overlaps E.relevantPeriod)
   or exists(["Able; Sinus Surgery"] P
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts 12 months or less before start of E.relevantPeriod)
+      such that P.relevantPeriod starts on or 12 months or less before start of E.relevantPeriod)
 
 define "Numerator Performance Not Met: G9314":
   /*
