@@ -1,0 +1,127 @@
+measure:
+  name: 17.MIPS.Mips332
+  required:
+    display_title: "Acute Otitis Externa (AOE): Systemic Antimicrobial Therapy – Avoidance of Inappropriate Use"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 332
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9315
+    required:
+      display_title: 'Amoxicillin, with or without clavulanate, prescribed as a first line antibiotic at the time of diagnosis'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 332 Encounter"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Acute Sinusitis"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Bacterial Sinusitis"
+            - model: Diagnosis
+              value_set: "Able; Bacterial Sinusitis"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Antibiotic Prescribed"
+            - model: Medication
+              value_set: "Able; Amoxicillin"
+            - model: Medication
+              value_set: "Able; Systemic Antibiotics"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9315"
+    optional:
+      code_value: G9315
+exception_reasons:
+  - config_link_id: G9313
+    required:
+      display_title: 'Amoxicillin, with or without clavulanate, not prescribed as first line antibiotic at the time of diagnosis for documented reason (e.g., cystic fibrosis, immotile cilia disorders, ciliary dyskinesia, immune deficiency, prior history of sinus surgery within the past 12 months, anatomic abnormalities, such as deviated nasal septum, resistant organisms, allergy to medication, recurrent sinusitis, chronic sinusitis, or other reasons)'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 332 Encounter"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Acute Sinusitis"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Bacterial Sinusitis"
+            - model: Diagnosis
+              value_set: "Able; Bacterial Sinusitis"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Antibiotic Prescribed"
+            - model: Medication
+              value_set: "Able; Amoxicillin"
+            - model: Medication
+              value_set: "Able; Systemic Antibiotics"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Cystic Fibrosis"
+            - model: Diagnosis
+              value_set: "VSAC; Immunodeficient Conditions"
+            - model: Allergy
+              value_set: "Able; Amoxicillin"
+            - model: Diagnosis
+              value_set: "Able; Chronic Sinusitis"
+            - model: ClinicalActivity
+              value_set: "Able; Sinus Surgery"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G9313"
+    optional:
+      code_value: G9313
+performance_not_met_reasons:
+  - config_link_id: G9314
+    required:
+      display_title: 'Amoxicillin, with or without clavulanate, not prescribed as first line antibiotic at the time of diagnosis, reason not given'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 332 Encounter"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Acute Sinusitis"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Bacterial Sinusitis"
+            - model: Diagnosis
+              value_set: "Able; Bacterial Sinusitis"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Antibiotic Prescribed"
+            - model: Medication
+              value_set: "Able; Amoxicillin"
+            - model: Medication
+              value_set: "Able; Systemic Antibiotics"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9315"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9314"
+    optional:
+      code_value: G9314
