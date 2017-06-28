@@ -93,7 +93,7 @@ define "Denominator Exception: G9313":
   or exists(["Diagnosis": "Able; Chronic Sinusitis"] D
     with "Denominator Encounter" E
       such that D.prevalencePeriod overlaps E.relevantPeriod)
-  or exists(["Able; Sinus Surgery"] P
+  or exists(["Procedure, Performed": "Able; Sinus Surgery"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 12 months or less before start of E.relevantPeriod)
 
