@@ -71,7 +71,7 @@ define "Numerator Performance Met: 4164F":
   /*
    * config_link_id: 4164F
    */
-  exists(["Procedure, Performed": "Performance Met: 4164F"] P
+  exists(["Procedure, Performed": "MIPS; Performance Met: 4164F"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
   or exists(["Medication": "Able; GnRH"] M
@@ -82,7 +82,7 @@ define "Denominator Exception: 4164F-1P":
   /*
    * config_link_id: 4164F-1P
    */
-  exists(["Procedure, Performed": "Performance Met: 4164F-1P"] P
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: 4164F-1P"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
   or exists("VSAC; Salvage Therapy" P
@@ -93,7 +93,7 @@ define "Denominator Exception: 4164F-2P":
   /*
    * config_link_id: 4164F-2P
    */
-  exists(["Procedure, Performed": "Performance Met: 4164F-2P"] P
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: 4164F-2P"] P
     with "Denominator Encounter" E
           such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
 
