@@ -76,7 +76,7 @@ define "Numerator Performance Met: 3270F":
   /*
    * config_link_id: 3270F
    */
-  exists(["Procedure, Performed": "Performance Met: 3270F"] P
+  exists(["Procedure, Performed": "MIPS; Performance Met: 3270F"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
   or not exists("Bone Scan" S
@@ -87,7 +87,7 @@ define "Denominator Exception: 3269-1P":
   /*
    * config_link_id: 3269-1P
    */
-  exists(["Procedure, Performed": "Performance Met: 3269-1P"] P
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: 3269-1P"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
   or exists("Pain Assessment" P
@@ -102,7 +102,7 @@ define "Denominator Exception: 3269-3P":
   /*
    * config_link_id: 3269-3P
    */
-  exists(["Procedure, Performed": "Performance Met: 3269-3P"] P
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: 3269-3P"] P
     with "Denominator Encounter" E
           such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
 
