@@ -55,7 +55,7 @@ define "Numerator Performance Met: 4132F":
   /*
    * config_link_id: 4132F
    */
-  exists(["Procedure, Performed": "Performance Met: 4132F"] P
+  exists(["Procedure, Performed": "MIPS; Performance Met: 4132F"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 30 days or less after start of E.relevantPeriod)
   or not exists(["Medication, Order": "Able; Systemic Antibiotics"] M
@@ -66,7 +66,7 @@ define "Denominator Exception: 4131F-1P":
   /*
    * config_link_id: 4131F-1P
    */
-  exists(["Procedure, Performed": "Performance Met: 4131F-1P"] P
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: 4131F-1P"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 30 days or less after start of E.relevantPeriod)
   or exists("Coexisting Conditions" D
