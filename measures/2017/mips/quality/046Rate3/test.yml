@@ -1,0 +1,672 @@
+measure_id: 17.MIPS.Mips046Rate3
+test_set_keys:
+  organization_key:
+    episodes_of_care:
+      - name: Too Young
+        start_datetime: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: Denominator Discharge # Before
+        start_datetime: 2015-12-31
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator Discharge # Lower
+        start_datetime: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: Denominator Discharge # Upper
+        start_datetime: 2016-12-31
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: Denominator Discharge # After
+        start_datetime: 2017-01-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator OfficeVisit # Before
+        start_datetime: 2016-03-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator OfficeVisit # Lower
+        start_datetime: 2016-04-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: Denominator OfficeVisit # Upper
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: Denominator OfficeVisit # After
+        start_datetime: 2016-06-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator ExclusionBefore # Before
+        start_datetime: 2016-03-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: Denominator ExclusionLower # Lower
+        start_datetime: 2016-04-01
+        denominator: 1
+        denominator_exclusion: exclusion
+        denominator_exception:
+        numerator:
+      - name: Denominator ExclusionUpper # Upper
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion: exclusion
+        denominator_exception:
+        numerator:
+      - name: Denominator ExclusionAfter # After
+        start_datetime: 2016-06-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: PerformanceMet 1111F # Before
+        start_datetime: 2016-03-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: PerformanceMet 1111F # Lower
+        start_datetime: 2016-04-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F
+      - name: PerformanceMet 1111F # Upper
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F
+      - name: PerformanceMet 1111F # After
+        start_datetime: 2016-06-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: PerformanceMet Reconciliation # Before
+        start_datetime: 2016-03-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: PerformanceMet Reconciliation # Lower
+        start_datetime: 2016-04-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F
+      - name: PerformanceMet Reconciliation # Upper
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F
+      - name: PerformanceMet Reconciliation # After
+      start_datetime: 2016-06-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 1111F-8P
+  providers_key:
+    episodes_of_care:
+      - name: Too Young
+        start_datetime: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: Denominator Discharge # Before
+        start_datetime: 2015-12-31
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator Discharge # Lower
+        start_datetime: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: Denominator Discharge # Upper
+        start_datetime: 2016-12-31
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: Denominator Discharge # After
+        start_datetime: 2017-01-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator OfficeVisit # Before
+        start_datetime: 2016-03-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator OfficeVisit # Lower
+        start_datetime: 2016-04-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: Denominator OfficeVisit # Upper
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: Denominator OfficeVisit # After
+        start_datetime: 2016-06-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator ExclusionBefore # Before
+        start_datetime: 2016-03-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: Denominator ExclusionLower # Lower
+        start_datetime: 2016-04-01
+        denominator: 1
+        denominator_exclusion: exclusion
+        denominator_exception:
+        numerator:
+      - name: Denominator ExclusionUpper # Upper
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion: exclusion
+        denominator_exception:
+        numerator:
+      - name: Denominator ExclusionAfter # After
+        start_datetime: 2016-06-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: PerformanceMet 1111F # Before
+        start_datetime: 2016-03-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: PerformanceMet 1111F # Lower
+        start_datetime: 2016-04-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F
+      - name: PerformanceMet 1111F # Upper
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F
+      - name: PerformanceMet 1111F # After
+        start_datetime: 2016-06-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 1111F-8P
+      - name: PerformanceMet Reconciliation # Before
+        start_datetime: 2016-03-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: PerformanceMet Reconciliation # Lower
+        start_datetime: 2016-04-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: PerformanceMet Reconciliation # Upper
+        start_datetime: 2016-05-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: PerformanceMet Reconciliation # After
+        start_datetime: 2016-06-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+providers:
+  - given_name: Rachel
+    family_name:  Katz
+    credential: DO
+    primary_specialty:  Family Medicine
+    external_id: 111
+  - given_name: Patty
+    family_name:  Smith
+    credential: MD
+    primary_specialty:  Family Medicine
+    external_id: 222
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1998-02-02 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-01-31
+      stop_datetime: 2016-01-31
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+- name: Age Lower
+  attributes:
+    date_of_birth: 1998-02-01 # Lower bound
+    given_name: Age
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-01-31
+      stop_datetime: 2016-01-31
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+- name: Denominator Discharge
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Denominator
+    family_name: Discharge
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2015-12-31
+      stop_datetime: 2015-12-31  # Too early
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-01-01
+      stop_datetime: 2016-01-01  # Lower bound
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-12-30
+      stop_datetime: 2016-12-30  # Upper bound
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2017-01-01
+      stop_datetime: 2017-01-01  # Too late
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2017-01-02
+      provider: Rachel
+- name: Denominator OfficeVisit
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Denominator
+    family_name: OfficeVisit
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-02-20
+      stop_datetime: 2016-03-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-03-01 # Too early
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-03-20
+      stop_datetime: 2016-04-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-04-02 # Lower bound
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-04-20
+      stop_datetime: 2016-05-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-30 # Upper bound
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2017-05-20
+      stop_datetime: 2017-06-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2017-06-31 # Too late
+      provider: Rachel
+- name: Denominator ExclusionBefore
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Denominator
+    family_name: ExclusionBefore
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-02-20
+      stop_datetime: 2016-03-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-03-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-03-20
+      stop_datetime: 2016-04-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-04-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-04-20
+      stop_datetime: 2016-05-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2017-05-20
+      stop_datetime: 2017-06-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2017-06-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9691 # Hospice service
+      start_datetime: 2015-12-31 # Too early
+- name: Denominator ExclusionLower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Denominator
+    family_name: ExclusionLower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-02-20
+      stop_datetime: 2016-03-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-03-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-03-20
+      stop_datetime: 2016-04-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-04-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-04-20
+      stop_datetime: 2016-05-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2017-05-20
+      stop_datetime: 2017-06-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2017-06-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9691 # Hospice service
+      start_datetime: 2016-01-01 # Lower bound
+- name: Denominator ExclusionUpper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Denominator
+    family_name: ExclusionUpper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-02-20
+      stop_datetime: 2016-03-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-03-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-03-20
+      stop_datetime: 2016-04-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-04-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-04-20
+      stop_datetime: 2016-05-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2017-05-20
+      stop_datetime: 2017-06-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2017-06-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9691 # Hospice service
+      start_datetime: 2016-12-31 # Upper bound
+- name: Denominator ExclusionAfter
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Denominator
+    family_name: ExclusionAfter
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-02-20
+      stop_datetime: 2016-03-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-03-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-03-20
+      stop_datetime: 2016-04-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-04-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-04-20
+      stop_datetime: 2016-05-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2017-05-20
+      stop_datetime: 2017-06-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2017-06-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9691 # Hospice service
+      start_datetime: 2017-01-01 # Too late
+- name: PerformanceMet 1111F
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: PerformanceMet
+    family_name: 1111F
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-02-20
+      stop_datetime: 2016-03-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-03-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 1111F # Performance met
+      start_datetime: 2016-03-01 # Too early
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-03-20
+      stop_datetime: 2016-04-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-04-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 1111F # Performance met
+      start_datetime: 2016-04-02 # Lower bound
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-04-20
+      stop_datetime: 2016-05-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 1111F # Performance met
+      start_datetime: 2016-05-30 # Upper bound
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2017-05-20
+      stop_datetime: 2017-06-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2017-06-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 1111F # Performance met
+      start_datetime: 2016-06-31 # Too late
+- name: PerformanceMet Reconciliation
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: PerformanceMet
+    family_name: Reconciliation
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-02-20
+      stop_datetime: 2016-03-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-03-02
+      provider: Patty
+    - code_type: SNOMEDCT
+      code_value: 1861000124105 # Medication reconciliation
+      start_datetime: 2016-03-01 # Too early
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-03-20
+      stop_datetime: 2016-04-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-04-02
+      provider: Patty
+    - code_type: SNOMEDCT
+      code_value: 1861000124105 # Medication reconciliation
+      start_datetime: 2016-04-02 # Lower bound
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2016-04-20
+      stop_datetime: 2016-05-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-05-02
+      provider: Patty
+    - code_type: SNOMEDCT
+      code_value: 1861000124105 # Medication reconciliation
+      start_datetime: 2016-05-30 # Upper bound
+    - code_type: CPT
+      code_value: 99234 # Discharge
+      start_datetime: 2017-05-20
+      stop_datetime: 2017-06-01
+    - code_type: CPT
+      code_value: 99201
+      start_datetime: 2017-06-02
+      provider: Patty
+    - code_type: SNOMEDCT
+      code_value: 1861000124105 # Medication reconciliation
+      start_datetime: 2016-06-31 # Too late

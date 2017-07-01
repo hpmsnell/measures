@@ -1,0 +1,99 @@
+measure:
+  name: 17.MIPS.Mips046Rate1
+  required:
+    display_title: "Medication Reconciliation Post-Discharge"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 046
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+  - config_link_id: exclusion
+    required:
+      display_title: 'Patient excluded due to hospice service during the measurement period'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 046 Encounter"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Hospital Inpatient Visit - Initial"
+            - model: ClinicalActivity
+              value_set: "VSAC; Hospital Inpatient Visit - Subsequent"
+            - model: ClinicalActivity
+              value_set: "VSAC; Nursing Facility Visit"
+            - model: ClinicalActivity
+              value_set: "VSAC; Discharge Services - Hospital Inpatient Same Day Discharge"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS Hospice Service"
+performance_met_reasons:
+  - config_link_id: 1111F
+    required:
+      display_title: 'Discharge medications reconciled with the current medication list in outpatient medical record'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 046 Encounter"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Hospital Inpatient Visit - Initial"
+            - model: ClinicalActivity
+              value_set: "VSAC; Hospital Inpatient Visit - Subsequent"
+            - model: ClinicalActivity
+              value_set: "VSAC; Nursing Facility Visit"
+            - model: ClinicalActivity
+              value_set: "VSAC; Discharge Services - Hospital Inpatient Same Day Discharge"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 1111F"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Medication Reconciliation"
+    optional:
+      code_value: 1111F
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: 1111F-8P
+    required:
+      display_title: 'Discharge medications not reconciled with the current medication list in outpatient medical record, reason not otherwise specified'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 046 Encounter"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Hospital Inpatient Visit - Initial"
+            - model: ClinicalActivity
+              value_set: "VSAC; Hospital Inpatient Visit - Subsequent"
+            - model: ClinicalActivity
+              value_set: "VSAC; Nursing Facility Visit"
+            - model: ClinicalActivity
+              value_set: "VSAC; Discharge Services - Hospital Inpatient Same Day Discharge"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 1111F"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 1111F-8P"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Medication Reconciliation"
+    optional:
+      code_value: 1111F-8P
