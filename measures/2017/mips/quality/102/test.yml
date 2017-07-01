@@ -1,0 +1,1156 @@
+measure_id: 17.MIPS.Mips102
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Sex Female
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+    - name: Denominator Encounter1 # Before
+      start_datetime: 2015-12-31
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Encounter1 # Upper
+      start_datetime: 2016-12-31
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+    - name: Denominator Encounter2 # Lower
+      start_datetime: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+    - name: Denominator Encounter2 # After
+      start_datetime: 2017-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Diagnosis # Before
+      start_datetime: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Diagnosis # Lower
+      start_datetime: 2016-05-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+    - name: Denominator Diagnosis # Upper
+      start_datetime: 2016-08-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+    - name: Denominator Diagnosis # After
+      start_datetime: 2016-11-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator LowRisk # Before
+      start_datetime: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator LowRisk # Lower
+      start_datetime: 2016-05-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+    - name: Denominator LowRisk # Upper
+      start_datetime: 2016-08-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+    - name: Denominator LowRisk # After
+      start_datetime: 2016-11-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator SecondEncounter # Before
+      start_datetime: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator SecondEncounter # Lower
+      start_datetime: 2016-05-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+    - name: PerformanceMet 3270F # Before
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+    - name: PerformanceMet 3270F # Lower
+      start_datetime: 2016-05-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3270F
+    - name: PerformanceMet 3270F # Upper
+      start_datetime: 2016-08-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3270F
+    - name: PerformanceMet 3270F # After
+      start_datetime: 2016-11-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+    - name: BoneScan Before # Before
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3270F
+    - name: BoneScan Lower # Lower
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+    - name: BoneScan Upper # Upper
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+    - name: BoneScan After # After
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3270F
+    - name: Exception 3269F-1P # Before
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+    - name: Exception 3269F-1P # Lower
+      start_datetime: 2016-05-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 3269F-1P
+      numerator:
+    - name: Exception 3269F-1P # Upper
+      start_datetime: 2016-08-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 3269F-1P
+      numerator:
+    - name: Exception 3269F-1P # After
+      start_datetime: 2016-11-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+    - name: PainAssessment Before # Before
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+    - name: PainAssessment Lower # Lower
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 3269F-1P
+      numerator:
+    - name: PainAssessment Upper # Upper
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 3269F-1P
+      numerator:
+    - name: PainAssessment After # After
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+    - name: PainAssessment Negative # No pain
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+    - name: Exception 3269F-3P # Before
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+    - name: Exception 3269F-3P # Lower
+      start_datetime: 2016-05-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 3269F-3P
+      numerator:
+    - name: Exception 3269F-3P # Upper
+      start_datetime: 2016-08-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 3269F-3P
+      numerator:
+    - name: Exception 3269F-3P # After
+      start_datetime: 2016-11-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3269F
+  providers_key:
+    - name: Rachel
+      patients:
+      - name: Sex Female
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3269F
+      - name: Denominator Encounter1 # Before
+        start_datetime: 2015-12-31
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator Encounter1 # Upper
+        start_datetime: 2016-12-31
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3269F
+      - name: Denominator Encounter2 # Lower
+        start_datetime: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3269F
+      - name: Denominator Encounter2 # After
+        start_datetime: 2017-01-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator Diagnosis # Before
+        start_datetime: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator Diagnosis # Lower
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3269F
+      - name: Denominator Diagnosis # Upper
+        start_datetime: 2016-08-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3269F
+      - name: Denominator Diagnosis # After
+        start_datetime: 2016-11-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator LowRisk # Before
+        start_datetime: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator LowRisk # Lower
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3269F
+      - name: Denominator LowRisk # Upper
+        start_datetime: 2016-08-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3269F
+      - name: Denominator LowRisk # After
+        start_datetime: 2016-11-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator SecondEncounter # Before
+        start_datetime: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator SecondEncounter # Lower
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3269F
+      - name: PerformanceMet 3270F # Before
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3269F
+      - name: PerformanceMet 3270F # Lower
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3270F
+      - name: PerformanceMet 3270F # Upper
+        start_datetime: 2016-08-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3270F
+      - name: PerformanceMet 3270F # After
+        start_datetime: 2016-11-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3269F
+      - name: BoneScan Before # Before
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3270F
+      - name: BoneScan Lower # Lower
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3269F
+      - name: BoneScan Upper # Upper
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3269F
+      - name: BoneScan After # After
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3270F
+      - name: Exception 3269F-1P # Before
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3269F
+      - name: Exception 3269F-1P # Lower
+        start_datetime: 2016-05-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: 3269F-1P
+        numerator:
+      - name: Exception 3269F-1P # Upper
+        start_datetime: 2016-08-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: 3269F-1P
+        numerator:
+      - name: Exception 3269F-1P # After
+        start_datetime: 2016-11-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3269F
+      - name: PainAssessment Before # Before
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3269F
+      - name: PainAssessment Lower # Lower
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: 3269F-1P
+        numerator:
+      - name: PainAssessment Upper # Upper
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: 3269F-1P
+        numerator:
+      - name: PainAssessment After # After
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3269F
+      - name: PainAssessment Negative # No pain
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3269F
+      - name: Exception 3269F-3P # Before
+        start_datetime: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Exception 3269F-3P # Lower
+        start_datetime: 2016-05-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Exception 3269F-3P # Upper
+        start_datetime: 2016-08-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Exception 3269F-3P # After
+        start_datetime: 2016-11-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+providers:
+  - given_name: Rachel
+    family_name:  Katz
+    credential: DO
+    primary_specialty:  Family Medicine
+    external_id: 111
+  - given_name: Patty
+    family_name:  Smith
+    credential: MD
+    primary_specialty:  Family Medicine
+    external_id: 222
+patients:
+- name: Sex Female
+  attributes:
+    date_of_birth: 2014-02-02 # Too late
+    given_name: Sex
+    family_name: Female
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-02-01
+- name: Denominator Encounter1
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Denominator
+    family_name: Encounter1
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2015-12-31 # Too early
+      stop_datetime: 2015-12-31
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2015-12-31
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-12-31 # Upper bound
+      stop_datetime: 2016-12-31
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2015-12-31
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-12-31
+- name: Denominator Encounter2
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Denominator
+    family_name: Encounter2
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-01-01 # Lower bound
+      stop_datetime: 2016-01-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-01-01
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2017-01-01 # Too late
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2017-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-01-01
+    - code_type: ICD10CM
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2017-01-01
+- name: Denominator Diagnosis
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Denominator
+    family_name: Diagnosis
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-05-01
+      stop_datetime: 2016-05-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-05-01
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-08-01
+      stop_datetime: 2016-08-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-08-01
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-11-01
+      stop_datetime: 2016-11-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-11-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-01-30
+      stop_datetime: 2016-01-31 # Too early
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-05-01 # Lower bound
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-08-02 # Upper bound
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-11-03 # Too late
+- name: Denominator LowRisk
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Denominator
+    family_name: LowRisk
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-01-31 # Early
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-05-01
+      stop_datetime: 2016-05-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-05-01 # Lower bound
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-08-01
+      stop_datetime: 2016-08-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-08-02 # Upper bound
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-11-01
+      stop_datetime: 2016-11-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-11-03 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-02-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-05-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-08-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-11-01
+- name: Denominator SecondEncounter
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Denominator
+    family_name: SecondEncounter
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 55810 # Second encounter
+      start_datetime: 2015-12-13
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-05-01
+      stop_datetime: 2016-05-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 55810 # Second encounter
+      start_datetime: 2016-03-13
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-05-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-02-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-05-01
+- name: PerformanceMet 3270F
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: PerformanceMet
+    family_name: 3270F
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: 3270F
+      start_datetime: 2016-01-31 # Too early
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-05-01
+      stop_datetime: 2016-05-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-05-01
+    - code_type: CPT
+      code_value: 3270F
+      start_datetime: 2016-05-01 # Lower bound
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-08-01
+      stop_datetime: 2016-08-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-08-01
+    - code_type: CPT
+      code_value: 3270F
+      start_datetime: 2016-05-18 # Upper bound
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-11-01
+      stop_datetime: 2016-11-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-11-01
+    - code_type: CPT
+      code_value: 3270F
+      start_datetime: 2016-11-20 # Late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2015-12-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-01-02 # Earliest in measurement year
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-02-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-05-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-08-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-11-01
+- name: BoneScan Before
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: BoneScan
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 22059005
+      start_datetime: 2016-01-01 # Too early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2015-12-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-01-02 # Earliest in measurement year
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-02-01
+- name: BoneScan Lower
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: BoneScan
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 22059005
+      start_datetime: 2016-01-02 # Lower
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2015-12-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-01-02 # Earliest in measurement year
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-02-01
+- name: BoneScan Upper
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: BoneScan
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 22059005
+      start_datetime: 2016-03-21 # Upper
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2015-12-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-01-02 # Earliest in measurement year
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-02-01
+- name: BoneScan After
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: BoneScan
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 22059005
+      start_datetime: 2016-03-22 # After
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2015-12-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-01-02 # Earliest in measurement year
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-02-01
+- name: Exception 3269F-1P
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Exception
+    family_name: 3269F-1P
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: 3269F-1P
+      start_datetime: 2016-01-31 # Too early
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-05-01
+      stop_datetime: 2016-05-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-05-01
+    - code_type: CPT
+      code_value: 3269F-1P
+      start_datetime: 2016-05-01 # Lower bound
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-08-01
+      stop_datetime: 2016-08-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-08-01
+    - code_type: CPT
+      code_value: 3269F-1P
+      start_datetime: 2016-05-18 # Upper bound
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-11-01
+      stop_datetime: 2016-11-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-11-01
+    - code_type: CPT
+      code_value: 3269F-1P
+      start_datetime: 2016-11-20 # Late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2015-12-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-01-02 # Earliest in measurement year
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-02-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-05-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-08-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-11-01
+- name: PainAssessment Before
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: PainAssessment
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 225399009
+      result: 1
+      start_datetime: 2016-01-01 # Too early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2015-12-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-01-02 # Earliest in measurement year
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-02-01
+- name: PainAssessment Lower
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: PainAssessment
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 225399009
+      result: 1
+      start_datetime: 2016-01-02 # Lower
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2015-12-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-01-02 # Earliest in measurement year
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-02-01
+- name: PainAssessment Upper
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: PainAssessment
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 225399009
+      result: 1
+      start_datetime: 2016-03-21 # Upper
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2015-12-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-01-02 # Earliest in measurement year
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-02-01
+- name: PainAssessment After
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: PainAssessment
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 225399009
+      result: 1
+      start_datetime: 2016-03-22 # After
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2015-12-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-01-02 # Earliest in measurement year
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-02-01
+- name: PainAssessment Negative
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: PainAssessment
+    family_name: Negative
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 225399009
+      result: 0
+      start_datetime: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2015-12-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-01-02 # Earliest in measurement year
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-02-01
+- name: Exception 3269F-3P
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: Exception
+    family_name: 3269F-3P
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Patty
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: 3269F-3P
+      start_datetime: 2016-01-31 # Too early
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-05-01
+      stop_datetime: 2016-05-01
+      provider: Patty
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-05-01
+    - code_type: CPT
+      code_value: 3269F-3P
+      start_datetime: 2016-05-01 # Lower bound
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-08-01
+      stop_datetime: 2016-08-02
+      provider: Patty
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-08-01
+    - code_type: CPT
+      code_value: 3269F-3P
+      start_datetime: 2016-05-18 # Upper bound
+    - code_type: CPT
+      code_value: 55810
+      start_datetime: 2016-11-01
+      stop_datetime: 2016-11-01
+      provider: Patty
+    - code_type: HCPCS
+      code_value: G9706 # Low risk
+      start_datetime: 2016-11-01
+    - code_type: CPT
+      code_value: 3269F-3P
+      start_datetime: 2016-11-20 # Late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2015-12-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-01-02 # Earliest in measurement year
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-02-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-05-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-08-01
+    - code_type: ICD10CM
+      code_value: C61
+      start_datetime: 2016-11-01

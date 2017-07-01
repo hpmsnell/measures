@@ -1,0 +1,127 @@
+measure:
+  name: 17.MIPS.Mips102
+  required:
+    display_title: "Prostate Cancer: Avoidance of Overuse of Bone Scan for Staging Low Risk Prostate Cancer Patients"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 102
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: 3270F
+    required:
+      display_title: 'Bone scan not performed prior to initiation of treatment nor at any time since diagnosis of prostate cancer'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 102 Encounter"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Prostate Cancer"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Low Risk of Recurrence of Prostate Cancer"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3270F"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Bone Scan"
+            - model: ClinicalActivity
+              value_set: "Able; Bone Health Assessment"
+    optional:
+      code_value: 3270F
+exception_reasons:
+  - config_link_id: 3269F-1P
+    required:
+      display_title: 'Documentation of medical reason(s) for performing a bone scan (including documented pain, salvage therapy, other medical reasons)'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 102 Encounter"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Prostate Cancer"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Low Risk of Recurrence of Prostate Cancer"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 3269F-1P"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Standardized Pain Assessment Tool"
+            - model: ClinicalActivity
+              value_set: "VSAC; Pain Assessments"
+            - model: ClinicalActivity
+              value_set: "VSAC; Salvage Therapy"
+    optional:
+      code_value: 3269F-1P
+  - config_link_id: 3269F-3P
+    required:
+      display_title: 'Documentation of system reason(s) for performing a bone scan (including bone scan ordered by someone other than the reporting physician)'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 102 Encounter"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Prostate Cancer"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Low Risk of Recurrence of Prostate Cancer"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 3269F-3P"
+    optional:
+      code_value: 3269F-3P
+performance_not_met_reasons:
+  - config_link_id: 3269F
+    required:
+      display_title: 'Bone scan performed prior to initiation of treatment or at any time since diagnosis of prostate cancer'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 102 Encounter"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Prostate Cancer"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Low Risk of Recurrence of Prostate Cancer"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3270F"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 3269F"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Bone Scan"
+            - model: ClinicalActivity
+              value_set: "Able; Bone Health Assessment"
+    optional:
+      code_value: 3269F
