@@ -45,8 +45,8 @@ define "Denominator Encounter":
       such that D.prevalencePeriod starts during E.relevantPeriod
 
 define "Coexisting Diagnosis":
-  "Able; Tympanic Membrane Perforation"
-  union "Able; Acute Otitis Media"
+  ["Diagnosis": "Able; Tympanic Membrane Perforation"]
+  union ["Diagnosis": "Able; Acute Otitis Media"]
 
 define "Denominator":
   "Denominator Encounter"
@@ -71,7 +71,7 @@ define "Denominator Exception: 4130F-1P":
       such that P.relevantPeriod starts on or 30 days or less after start of E.relevantPeriod)
   or exists("Coexisting Conditions" D
     with "Denominator Encounter" E
-      such that D.relevantPeriod overlaps Interval[start of E.relevantPeriod, start of E.relevantPeriod + 30 days])
+      such that D.relevantPeriod overlaps E.relevantPeriod)
 
 define "Denominator Exception: 4130F-2P":
   /*

@@ -71,7 +71,7 @@ define "Denominator Exception: 4131F-1P":
       such that P.relevantPeriod starts on or 30 days or less after start of E.relevantPeriod)
   or exists("Coexisting Conditions" D
     with "Denominator Encounter" E
-      such that D.relevantPeriod overlaps Interval[start of E.relevantPeriod, start of E.relevantPeriod + 30 days])
+      such that D.relevantPeriod overlaps E.relevantPeriod)
 
 define "Numerator Performance Not Met: 4131F":
   /*
