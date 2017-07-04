@@ -22,21 +22,25 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
+define "Encounter Interval":
+  Interval[start of "Measurement Period", end of "Measurement Period" - 1 month]
+
 define "Denominator Procedure":
   ["Procedure, Performed": "MIPS; MIPS 355 Procedure"] P
-    where P.relevantPeriod starts during "Measurement Period"
-      AgeInYearsAt >= 18
+    where P.relevantPeriod starts during "Encounter Interval"
+      and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
 
 define "Denominator":
-  exists("Denominator Procedure")
+  "Denominator Procedure"
 
 define "Numerator Performance Met: G9308":
   /*
    * config_link_id: G9308
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G9308"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    with "Denominator Procedure" P
+      where R.relevantPeriod starts 30 days or less after end of P.relevantPeriod)
   or exists(["Procedure, Performed": "MIPS; MIPS 355 Reoperation"] R
     with "Denominator Procedure" P
       where R.relevantPeriod starts 30 days or less after end of P.relevantPeriod)
