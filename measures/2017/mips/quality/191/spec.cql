@@ -138,7 +138,7 @@ define "Excluded Diagnoses":
   union ["Diagnosis": "VSAC; Visual Field Defects"]
 
 define "Denominator":
-  exists("Cataract Surgery")
+  "Cataract Surgery"
 
 define "Denominator Exclusion":
   /*
@@ -153,7 +153,8 @@ define "Numerator Performance Met: 4175F":
    * config_link_id: 4175F
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 4175F"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    with "Cataract Surgery" E
+      where D.prevalencePeriod starts 90 days or less after end of E.relevantPeriod)
   or exists(["Diagnosis": "VSAC; Visual Acuity 20/40 or Better"] D //Confirm data format
     with "Cataract Surgery" E
       where D.prevalencePeriod starts 90 days or less after end of E.relevantPeriod)

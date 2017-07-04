@@ -119,7 +119,7 @@ define "Complications":
   union ["Procedure, Performed": "VSAC; Revision Procedures"]
 
 define "Denominator":
-  exists("Cataract Surgery")
+  "Cataract Surgery"
 
 define "Denominator Exclusion":
   /*
@@ -139,7 +139,8 @@ define "Numerator Performance Met: G8627":
    * config_link_id: G8627
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G8627"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    with "Cataract Surgery" E
+      where P.relevantPeriod starts 30 days or less after end of E.relevantPeriod
   or exists("Complications" P
     with "Cataract Surgery" E
       where P.relevantPeriod starts 30 days or less after end of E.relevantPeriod)
