@@ -88,7 +88,7 @@ test_set_keys:
         numerator: G9311
   providers_key:
     - name: Rachel
-      patients:
+      episodes_of_care:
       - name: Too Young
         start_datetime: 2016-02-01
         denominator:
@@ -151,25 +151,25 @@ test_set_keys:
         numerator: G9311
       - name: PerformanceMet Infection # Early
         start_datetime: 2016-02-01
-        denominator: 1
+        denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: PerformanceMet Infection # Lower bound
         start_datetime: 2016-04-01
-        denominator: 1
+        denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: PerformanceMet Infection # Upper bound
         start_datetime: 2016-06-01
-        denominator: 1
+        denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: PerformanceMet Infection # Late
         start_datetime: 2016-08-01
-        denominator: 1
+        denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
@@ -211,10 +211,10 @@ patients:
         code_value: 11004
         start_datetime: 2016-02-01
         provider: Rachel
-  - name: Denomiantor Procedure
+  - name: Denominator Procedure
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Denomiantor
+      given_name: Denominator
       family_name: Procedure
       sex: Female
     health_plan_id: Medicare Part B
@@ -252,7 +252,7 @@ patients:
         provider: Rachel
       - code_type: HCPCS
         code_value: G9308
-        start_datetime: 2015-01-31 # Early
+        start_datetime: 2016-01-31 # Early
       - code_type: CPT
         code_value: 11004
         start_datetime: 2016-04-01
@@ -260,7 +260,7 @@ patients:
         provider: Rachel
       - code_type: HCPCS
         code_value: G9308
-        start_datetime: 2015-04-01 # Lower
+        start_datetime: 2016-04-01 # Lower
       - code_type: CPT
         code_value: 11004
         start_datetime: 2016-06-01
@@ -268,7 +268,7 @@ patients:
         provider: Rachel
       - code_type: HCPCS
         code_value: G9308
-        start_datetime: 2015-06-31 # Upper
+        start_datetime: 2016-06-31 # Upper
       - code_type: CPT
         code_value: 11004
         start_datetime: 2016-08-01
@@ -276,7 +276,7 @@ patients:
         provider: Rachel
       - code_type: HCPCS
         code_value: G9308
-        start_datetime: 2015-09-01 # Late
+        start_datetime: 2016-09-01 # Late
   - name: PerformanceMet Infection
     attributes:
       date_of_birth: 1988-03-22
@@ -301,7 +301,7 @@ patients:
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 433202001
-        start_datetime: 2015-04-01 # Lower
+        start_datetime: 2016-04-01 # Lower
       - code_type: CPT
         code_value: 11004
         start_datetime: 2016-06-01
@@ -309,7 +309,7 @@ patients:
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 433202001
-        start_datetime: 2015-06-31 # Upper
+        start_datetime: 2016-06-31 # Upper
       - code_type: CPT
         code_value: 11004
         start_datetime: 2016-08-01
@@ -317,4 +317,4 @@ patients:
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 433202001
-        start_datetime: 2015-09-01 # Late
+        start_datetime: 2016-09-01 # Late

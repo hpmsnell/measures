@@ -184,11 +184,6 @@ providers:
   external_id: '222-222'
   credential: MD
   primary_specialty: Family Medicine
-- given_name: Derek
-  family_name: NoMIPS
-  external_id: '333-333'
-  credential: MD
-  pqrs_provider: false
 patients:
   - name: Too Young
     attributes:
@@ -216,10 +211,10 @@ patients:
         code_value: 11004
         start_datetime: 2016-02-01
         provider: Rachel
-  - name: Denomiantor Procedure
+  - name: Denominator Procedure
     attributes:
       date_of_birth: 1988-03-22
-      given_name: Denomiantor
+      given_name: Denominator
       family_name: Procedure
       sex: Female
     health_plan_id: Medicare Part B
@@ -257,7 +252,7 @@ patients:
         provider: Rachel
       - code_type: HCPCS
         code_value: G9308
-        start_datetime: 2015-01-31 # Early
+        start_datetime: 2016-01-31 # Early
       - code_type: CPT
         code_value: 11004
         start_datetime: 2016-04-01
@@ -265,7 +260,7 @@ patients:
         provider: Rachel
       - code_type: HCPCS
         code_value: G9308
-        start_datetime: 2015-04-01 # Lower
+        start_datetime: 2016-04-01 # Lower
       - code_type: CPT
         code_value: 11004
         start_datetime: 2016-06-01
@@ -273,7 +268,7 @@ patients:
         provider: Rachel
       - code_type: HCPCS
         code_value: G9308
-        start_datetime: 2015-06-31 # Upper
+        start_datetime: 2016-06-31 # Upper
       - code_type: CPT
         code_value: 11004
         start_datetime: 2016-08-01
@@ -281,7 +276,7 @@ patients:
         provider: Rachel
       - code_type: HCPCS
         code_value: G9308
-        start_datetime: 2015-09-01 # Late
+        start_datetime: 2016-09-01 # Late
   - name: PerformanceMet Reoperation
     attributes:
       date_of_birth: 1988-03-22
@@ -298,7 +293,7 @@ patients:
         provider: Patty
       - code_type: CPT
         code_value: 43870-78
-        start_datetime: 2015-01-31 # Early
+        start_datetime: 2016-01-31 # Early
       - code_type: CPT
         code_value: 11004
         start_datetime: 2016-04-01
@@ -306,7 +301,7 @@ patients:
         provider: Patty
       - code_type: CPT
         code_value: 43870-78
-        start_datetime: 2015-04-01 # Lower
+        start_datetime: 2016-04-01 # Lower
       - code_type: CPT
         code_value: 11004
         start_datetime: 2016-06-01
@@ -314,7 +309,7 @@ patients:
         provider: Patty
       - code_type: CPT
         code_value: 43870-78
-        start_datetime: 2015-06-31 # Upper
+        start_datetime: 2016-06-31 # Upper
       - code_type: CPT
         code_value: 11004
         start_datetime: 2016-08-01
@@ -322,4 +317,4 @@ patients:
         provider: Patty
       - code_type: CPT
         code_value: 43870-78
-        start_datetime: 2015-09-01 # Late
+        start_datetime: 2016-09-01 # Late
