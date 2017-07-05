@@ -11,7 +11,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9313
+      numerator: G9314
     - name: Encounter Before
       denominator:
       denominator_exclusion:
@@ -21,12 +21,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9313
+      numerator: G9314
     - name: Encounter Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9313
+      numerator: G9314
     - name: Encounter After
       denominator:
       denominator_exclusion:
@@ -41,12 +41,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9313
+      numerator: G9314
     - name: Diagnosis Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9313
+      numerator: G9314
     - name: Diagnosis After
       denominator:
       denominator_exclusion:
@@ -61,12 +61,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9313
+      numerator: G9314
     - name: Bacterial Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9313
+      numerator: G9314
     - name: Bacterial After
       denominator:
       denominator_exclusion:
@@ -81,18 +81,17 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9313
+      numerator: G9314
     - name: Antibiotic Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9313
+      numerator: G9314
     - name: Antibiotic After
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Antibiotic Active
     - name: G9315 Before
       denominator: 1
       denominator_exclusion:
@@ -122,12 +121,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9313
+      numerator: G9315
     - name: Amoxicillin Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9313
+      numerator: G9315
     - name: Amoxicillin After
       denominator: 1
       denominator_exclusion:
@@ -230,7 +229,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G9313
+        numerator: G9314
       - name: Encounter Before
         denominator:
         denominator_exclusion:
@@ -240,12 +239,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G9313
+        numerator: G9314
       - name: Encounter Upper
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G9313
+        numerator: G9314
       - name: Encounter After
         denominator:
         denominator_exclusion:
@@ -260,12 +259,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G9313
+        numerator: G9314
       - name: Diagnosis Upper
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G9313
+        numerator: G9314
       - name: Diagnosis After
         denominator:
         denominator_exclusion:
@@ -280,12 +279,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G9313
+        numerator: G9314
       - name: Bacterial Upper
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G9313
+        numerator: G9314
       - name: Bacterial After
         denominator:
         denominator_exclusion:
@@ -300,18 +299,13 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G9313
+        numerator: G9314
       - name: Antibiotic Upper
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G9313
+        numerator: G9314
       - name: Antibiotic After
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Antibiotic Active
         denominator:
         denominator_exclusion:
         denominator_exception:
@@ -345,12 +339,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G9313
+        numerator: G9315
       - name: Amoxicillin Upper
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G9313
+        numerator: G9315
       - name: Amoxicillin After
         denominator: 1
         denominator_exclusion:
@@ -537,10 +531,10 @@ patients:
       provider: Rachel
     - code_type: HCPCS
       code_value: G9364 # Bacterial sinusitis
-      start_datetime: 2016-02-01
+      start_datetime: 2016-01-01
     - code_type: HCPCS
       code_value: G9498 # Antibiotics prescribed
-      start_datetime: 2016-02-01
+      start_datetime: 2016-01-01
     diagnoses:
     - code_type: ICD10CM
       code_value: J01.00
@@ -560,10 +554,10 @@ patients:
       provider: Rachel
     - code_type: HCPCS
       code_value: G9364 # Bacterial sinusitis
-      start_datetime: 2016-02-01
+      start_datetime: 2016-12-31
     - code_type: HCPCS
       code_value: G9498 # Antibiotics prescribed
-      start_datetime: 2016-02-01
+      start_datetime: 2016-12-31
     diagnoses:
     - code_type: ICD10CM
       code_value: J01.00
@@ -649,7 +643,7 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G9364 # Bacterial sinusitis
@@ -775,7 +769,7 @@ patients:
       start_datetime: 2016-02-01
     - code_type: SNOMEDCT
       code_value: 703470001 # Bacterial sinusitis
-      start_datetime: 2016-01-33 # Late
+      start_datetime: 2016-01-31 # Late
 - name: Antibiotic Before
   attributes:
     date_of_birth: 1990-01-01
@@ -1047,7 +1041,7 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      stop_datetime: 2016-02-11
       provider: Rachel
     - code_type: HCPCS
       code_value: G9364 # Bacterial sinusitis
@@ -1104,7 +1098,13 @@ patients:
       code_value: 99201
       start_datetime: 2016-02-01
       stop_datetime: 2016-02-01
-      provider: Patty
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9364 # Bacterial sinusitis
+      start_datetime: 2016-02-01
+    - code_type: HCPCS
+      code_value: G9498 # Antibiotics prescribed
+      start_datetime: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: J01.00
@@ -1241,7 +1241,7 @@ patients:
       code_value: J01.00
       start_datetime: 2016-02-01
     - code_type: ICD10CM
-      code_value: JE84.9
+      code_value: E84.9
       start_datetime: 2016-01-30
       stop_datetime: 2016-01-31 # Too early
 - name: CysticFibrosis Lower
@@ -1268,7 +1268,7 @@ patients:
       code_value: J01.00
       start_datetime: 2016-02-01
     - code_type: ICD10CM
-      code_value: JE84.9
+      code_value: E84.9
       start_datetime: 2016-02-01 # Lower bound
 - name: CysticFibrosis Upper
   attributes:
@@ -1281,7 +1281,7 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G9364 # Bacterial sinusitis
@@ -1294,7 +1294,7 @@ patients:
       code_value: J01.00
       start_datetime: 2016-02-01
     - code_type: ICD10CM
-      code_value: JE84.9
+      code_value: E84.9
       start_datetime: 2016-02-02 # Upper bound
 - name: CysticFibrosis After
   attributes:
@@ -1320,7 +1320,7 @@ patients:
       code_value: J01.00
       start_datetime: 2016-02-01
     - code_type: ICD10CM
-      code_value: JE84.9
+      code_value: E84.9
       start_datetime: 2016-02-03 # Too late
 - name: Allergy Before
   attributes:
@@ -1376,7 +1376,6 @@ patients:
     allergies:
     - code_type: RXNORM
       code_value: 239191 # Amoixicillin
-      method: E
       start_datetime: 2016-02-01 # Lower bound
 - name: Allergy Upper
   attributes:
@@ -1452,7 +1451,7 @@ patients:
       code_value: G9498 # Antibiotics prescribed
       start_datetime: 2016-02-01
     - code_type: SNOMEDCT
-      code_value: 261534008 # Sinus surgery
+      code_value: 112788002 # Sinus surgery
       start_datetime: 2015-01-31 # Too early
     diagnoses:
     - code_type: ICD10CM
@@ -1478,7 +1477,7 @@ patients:
       code_value: G9498 # Antibiotics prescribed
       start_datetime: 2016-02-01
     - code_type: SNOMEDCT
-      code_value: 261534008 # Sinus surgery
+      code_value: 112788002 # Sinus surgery
       start_datetime: 2015-02-01 # Lower bound
     diagnoses:
     - code_type: ICD10CM
@@ -1504,7 +1503,7 @@ patients:
       code_value: G9498 # Antibiotics prescribed
       start_datetime: 2016-02-01
     - code_type: SNOMEDCT
-      code_value: 261534008 # Sinus surgery
+      code_value: 112788002 # Sinus surgery
       start_datetime: 2016-02-01 # Upper bound
     diagnoses:
     - code_type: ICD10CM
@@ -1530,7 +1529,7 @@ patients:
       code_value: G9498 # Antibiotics prescribed
       start_datetime: 2016-02-01
     - code_type: SNOMEDCT
-      code_value: 261534008 # Sinus surgery
+      code_value: 112788002 # Sinus surgery
       start_datetime: 2016-02-02 # Too late
     diagnoses:
     - code_type: ICD10CM
