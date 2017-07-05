@@ -4,10 +4,10 @@ test_set_keys:
     episodes_of_care:
     - name: Sex Female
       start_datetime: 2016-02-01
-      denominator: 1
+      denominator:
       denominator_exclusion:
       denominator_exception:
-      numerator: 3269F
+      numerator:
     - name: Denominator Encounter1 # Before
       start_datetime: 2015-12-31
       denominator:
@@ -19,13 +19,13 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 3269F
+      numerator: 3270F
     - name: Denominator Encounter2 # Lower
       start_datetime: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 3269F
+      numerator: 3270F
     - name: Denominator Encounter2 # After
       start_datetime: 2017-01-01
       denominator:
@@ -43,13 +43,13 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 3269F
+      numerator: 3270F
     - name: Denominator Diagnosis # Upper
       start_datetime: 2016-08-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 3269F
+      numerator: 3270F
     - name: Denominator Diagnosis # After
       start_datetime: 2016-11-01
       denominator:
@@ -67,13 +67,13 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 3269F
+      numerator: 3270F
     - name: Denominator LowRisk # Upper
       start_datetime: 2016-08-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 3269F
+      numerator: 3270F
     - name: Denominator LowRisk # After
       start_datetime: 2016-11-01
       denominator:
@@ -91,7 +91,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 3269F
+      numerator: 3270F
     - name: PerformanceMet 3270F # Before
       start_datetime: 2016-02-01
       denominator: 1
@@ -224,10 +224,10 @@ test_set_keys:
       patients:
       - name: Sex Female
         start_datetime: 2016-02-01
-        denominator: 1
+        denominator:
         denominator_exclusion:
         denominator_exception:
-        numerator: 3269F
+        numerator:
       - name: Denominator Encounter1 # Before
         start_datetime: 2015-12-31
         denominator:
@@ -239,13 +239,13 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: 3269F
+        numerator: 3270F
       - name: Denominator Encounter2 # Lower
         start_datetime: 2016-01-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: 3269F
+        numerator: 3270F
       - name: Denominator Encounter2 # After
         start_datetime: 2017-01-01
         denominator:
@@ -263,13 +263,13 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: 3269F
+        numerator: 3270F
       - name: Denominator Diagnosis # Upper
         start_datetime: 2016-08-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: 3269F
+        numerator: 3270F
       - name: Denominator Diagnosis # After
         start_datetime: 2016-11-01
         denominator:
@@ -287,13 +287,13 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: 3269F
+        numerator: 3270F
       - name: Denominator LowRisk # Upper
         start_datetime: 2016-08-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: 3269F
+        numerator: 3270F
       - name: Denominator LowRisk # After
         start_datetime: 2016-11-01
         denominator:
@@ -311,7 +311,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: 3269F
+        numerator: 3270F
       - name: PerformanceMet 3270F # Before
         start_datetime: 2016-02-01
         denominator: 1
@@ -695,6 +695,9 @@ patients:
     - code_type: CPT
       code_value: 3270F
       start_datetime: 2016-01-31 # Too early
+    - code_type: SNOMEDCT
+      code_value: 22059005 # Bone scan
+      start_datetime: 2016-02-01
     - code_type: CPT
       code_value: 55810
       start_datetime: 2016-05-01
@@ -706,6 +709,9 @@ patients:
     - code_type: CPT
       code_value: 3270F
       start_datetime: 2016-05-01 # Lower bound
+    - code_type: SNOMEDCT
+      code_value: 22059005 # Bone scan
+      start_datetime: 2016-05-01
     - code_type: CPT
       code_value: 55810
       start_datetime: 2016-08-01
@@ -716,7 +722,10 @@ patients:
       start_datetime: 2016-08-01
     - code_type: CPT
       code_value: 3270F
-      start_datetime: 2016-05-18 # Upper bound
+      start_datetime: 2016-09-19 # Upper bound
+    - code_type: SNOMEDCT
+      code_value: 22059005 # Bone scan
+      start_datetime: 2016-08-01
     - code_type: CPT
       code_value: 55810
       start_datetime: 2016-11-01
@@ -727,7 +736,10 @@ patients:
       start_datetime: 2016-11-01
     - code_type: CPT
       code_value: 3270F
-      start_datetime: 2016-11-20 # Late
+      start_datetime: 2016-12-21 # Late
+    - code_type: SNOMEDCT
+      code_value: 22059005 # Bone scan
+      start_datetime: 2016-11-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
@@ -764,8 +776,8 @@ patients:
       code_value: G9706 # Low risk
       start_datetime: 2016-02-01
     - code_type: SNOMEDCT
-      code_value: 22059005
-      start_datetime: 2016-01-01 # Too early
+      code_value: 22059005 # Bone scan
+      start_datetime: 2016-01-31 # Too early
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
@@ -793,7 +805,7 @@ patients:
       code_value: G9706 # Low risk
       start_datetime: 2016-02-01
     - code_type: SNOMEDCT
-      code_value: 22059005
+      code_value: 22059005 # Bone scan
       start_datetime: 2016-01-02 # Lower
     diagnoses:
     - code_type: ICD10CM
@@ -816,13 +828,13 @@ patients:
     - code_type: CPT
       code_value: 55810
       start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G9706 # Low risk
       start_datetime: 2016-02-01
     - code_type: SNOMEDCT
-      code_value: 22059005
+      code_value: 22059005 # Bone scan
       start_datetime: 2016-03-21 # Upper
     diagnoses:
     - code_type: ICD10CM
@@ -845,13 +857,13 @@ patients:
     - code_type: CPT
       code_value: 55810
       start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G9706 # Low risk
       start_datetime: 2016-02-01
     - code_type: SNOMEDCT
-      code_value: 22059005
+      code_value: 22059005 # Bone scan
       start_datetime: 2016-03-22 # After
     diagnoses:
     - code_type: ICD10CM
@@ -882,6 +894,9 @@ patients:
     - code_type: CPT
       code_value: 3269F-1P
       start_datetime: 2016-01-31 # Too early
+    - code_type: SNOMEDCT
+      code_value: 22059005 # Bone scan
+      start_datetime: 2016-02-01
     - code_type: CPT
       code_value: 55810
       start_datetime: 2016-05-01
@@ -893,6 +908,9 @@ patients:
     - code_type: CPT
       code_value: 3269F-1P
       start_datetime: 2016-05-01 # Lower bound
+    - code_type: SNOMEDCT
+      code_value: 22059005 # Bone scan
+      start_datetime: 2016-05-01
     - code_type: CPT
       code_value: 55810
       start_datetime: 2016-08-01
@@ -903,7 +921,10 @@ patients:
       start_datetime: 2016-08-01
     - code_type: CPT
       code_value: 3269F-1P
-      start_datetime: 2016-05-18 # Upper bound
+      start_datetime: 2016-09-19 # Upper bound
+    - code_type: SNOMEDCT
+      code_value: 22059005 # Bone scan
+      start_datetime: 2016-08-01
     - code_type: CPT
       code_value: 55810
       start_datetime: 2016-11-01
@@ -914,7 +935,10 @@ patients:
       start_datetime: 2016-11-01
     - code_type: CPT
       code_value: 3269F-1P
-      start_datetime: 2016-11-20 # Late
+      start_datetime: 2016-12-21 # Late
+    - code_type: SNOMEDCT
+      code_value: 22059005 # Bone scan
+      start_datetime: 2016-11-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
@@ -954,6 +978,9 @@ patients:
       code_value: 225399009
       result: 1
       start_datetime: 2016-01-01 # Too early
+    - code_type: SNOMEDCT
+      code_value: 22059005 # Bone scan
+      start_datetime: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
@@ -984,6 +1011,9 @@ patients:
       code_value: 225399009
       result: 1
       start_datetime: 2016-01-02 # Lower
+    - code_type: SNOMEDCT
+      code_value: 22059005 # Bone scan
+      start_datetime: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
@@ -1014,6 +1044,9 @@ patients:
       code_value: 225399009
       result: 1
       start_datetime: 2016-03-21 # Upper
+    - code_type: SNOMEDCT
+      code_value: 22059005 # Bone scan
+      start_datetime: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
@@ -1044,6 +1077,9 @@ patients:
       code_value: 225399009
       result: 1
       start_datetime: 2016-03-22 # After
+    - code_type: SNOMEDCT
+      code_value: 22059005 # Bone scan
+      start_datetime: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
@@ -1074,6 +1110,9 @@ patients:
       code_value: 225399009
       result: 0
       start_datetime: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 22059005 # Bone scan
+      start_datetime: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
@@ -1103,6 +1142,9 @@ patients:
     - code_type: CPT
       code_value: 3269F-3P
       start_datetime: 2016-01-31 # Too early
+    - code_type: SNOMEDCT
+      code_value: 22059005 # Bone scan
+      start_datetime: 2016-02-01
     - code_type: CPT
       code_value: 55810
       start_datetime: 2016-05-01
@@ -1114,6 +1156,9 @@ patients:
     - code_type: CPT
       code_value: 3269F-3P
       start_datetime: 2016-05-01 # Lower bound
+    - code_type: SNOMEDCT
+      code_value: 22059005 # Bone scan
+      start_datetime: 2016-05-01
     - code_type: CPT
       code_value: 55810
       start_datetime: 2016-08-01
@@ -1124,7 +1169,10 @@ patients:
       start_datetime: 2016-08-01
     - code_type: CPT
       code_value: 3269F-3P
-      start_datetime: 2016-05-18 # Upper bound
+      start_datetime: 2016-09-19 # Upper bound
+    - code_type: SNOMEDCT
+      code_value: 22059005 # Bone scan
+      start_datetime: 2016-08-01
     - code_type: CPT
       code_value: 55810
       start_datetime: 2016-11-01
@@ -1135,7 +1183,10 @@ patients:
       start_datetime: 2016-11-01
     - code_type: CPT
       code_value: 3269F-3P
-      start_datetime: 2016-11-20 # Late
+      start_datetime: 2016-12-21 # Late
+    - code_type: SNOMEDCT
+      code_value: 22059005 # Bone scan
+      start_datetime: 2016-11-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
