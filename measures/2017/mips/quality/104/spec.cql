@@ -97,9 +97,9 @@ define "Denominator Exception: 4164F-2P":
     with "Denominator Encounter" E
           such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
 
-define "Numerator Performance Not Met: 4164F":
+define "Numerator Performance Not Met: 4164F-8P":
   /*
-   * config_link_id: 4164F
+   * config_link_id: 4164F-8P
    */
   not "Numerator Performance Met: 4164F"
   and not "Denominator Exception: 4164F-1P"

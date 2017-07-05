@@ -10,6 +10,26 @@ measure:
     mips_measure_type: Process
     mips_high_priority: false
 exclusion_reasons:
+  - config_link_id: exclusion
+    required:
+      display_title: 'Patient excluded due to diagnosis of metastatic cancer'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 104 Encounter"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Prostate Cancer"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; High Risk of Recurrence of Prostate Cancer"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Metastatic Cancer"
 performance_met_reasons:
   - config_link_id: 4164F
     required:

@@ -4,10 +4,10 @@ test_set_keys:
     episodes_of_care:
     - name: Sex Female
       start_datetime: 2016-02-01
-      denominator: 1
+      denominator:
       denominator_exclusion:
       denominator_exception:
-      numerator: 4164F-8P
+      numerator:
     - name: Denominator Encounter1 # Before
       start_datetime: 2015-12-31
       denominator:
@@ -242,10 +242,10 @@ test_set_keys:
       patients:
       - name: Sex Female
         start_datetime: 2016-02-01
-        denominator: 1
+        denominator:
         denominator_exclusion:
         denominator_exception:
-        numerator: 4164F-8P
+        numerator:
       - name: Denominator Encounter1 # Before
         start_datetime: 2015-12-31
         denominator:
@@ -771,8 +771,8 @@ patients:
       stop_datetime: 2016-01-31 # Too early
     - code_type: ICD10CM
       code_value: C77.0 # Metastatic cancer
-      start_datetime: 2016-05-01 # Lower bound
-      stop_datetime: 2016-05-01
+      start_datetime: 2016-04-30
+      stop_datetime: 2016-05-01 # Lower bound
     - code_type: ICD10CM
       code_value: C77.0 # Metastatic cancer
       start_datetime: 2016-08-02 # Upper bound
@@ -821,7 +821,7 @@ patients:
       start_datetime: 2016-08-01
     - code_type: CPT
       code_value: 4164F
-      start_datetime: 2016-05-18 # Upper bound
+      start_datetime: 2016-09-19 # Upper bound
     - code_type: CPT
       code_value: 77427
       start_datetime: 2016-11-01
@@ -832,7 +832,7 @@ patients:
       start_datetime: 2016-11-01
     - code_type: CPT
       code_value: 4164F
-      start_datetime: 2016-11-20 # Late
+      start_datetime: 2016-12-21 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
@@ -894,7 +894,8 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1812348
-      start_datetime: 2016-02-01 # Lower bound
+      start_datetime: 2016-01-30
+      stop_datetime: 2016-02-01 # Lower bound
 - name: Hormone Upper
   attributes:
     date_of_birth: 2000-01-01
@@ -983,7 +984,7 @@ patients:
       start_datetime: 2016-08-01
     - code_type: CPT
       code_value: 4164F-1P
-      start_datetime: 2016-05-18 # Upper bound
+      start_datetime: 2016-08-19 # Upper bound
     - code_type: CPT
       code_value: 77427
       start_datetime: 2016-11-01
@@ -994,7 +995,7 @@ patients:
       start_datetime: 2016-11-01
     - code_type: CPT
       code_value: 4164F-1P
-      start_datetime: 2016-11-20 # Late
+      start_datetime: 2016-12-21 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
@@ -1164,7 +1165,7 @@ patients:
       start_datetime: 2016-08-01
     - code_type: CPT
       code_value: 4164F-2P
-      start_datetime: 2016-05-18 # Upper bound
+      start_datetime: 2016-09-19 # Upper bound
     - code_type: CPT
       code_value: 77427
       start_datetime: 2016-11-01
@@ -1175,7 +1176,7 @@ patients:
       start_datetime: 2016-11-01
     - code_type: CPT
       code_value: 4164F-2P
-      start_datetime: 2016-11-20 # Late
+      start_datetime: 2016-12-21 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
