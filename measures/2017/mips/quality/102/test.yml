@@ -82,16 +82,16 @@ test_set_keys:
       numerator:
     - name: Denominator SecondEncounter # Before
       start_datetime: 2016-02-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Denominator SecondEncounter # Lower
-      start_datetime: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3270F
+    - name: Denominator SecondEncounter # Lower
+      start_datetime: 2016-05-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
     - name: PerformanceMet 3270F # Before
       start_datetime: 2016-02-01
       denominator: 1
@@ -221,7 +221,6 @@ test_set_keys:
   providers_key:
   - name: Rachel
     episodes_of_care:
-      patients:
       - name: Sex Female
         start_datetime: 2016-02-01
         denominator:
@@ -302,16 +301,16 @@ test_set_keys:
         numerator:
       - name: Denominator SecondEncounter # Before
         start_datetime: 2016-02-01
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Denominator SecondEncounter # Lower
-        start_datetime: 2016-05-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 3270F
+      - name: Denominator SecondEncounter # Lower
+        start_datetime: 2016-05-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
       - name: PerformanceMet 3270F # Before
         start_datetime: 2016-02-01
         denominator: 1
@@ -528,7 +527,6 @@ patients:
     - code_type: ICD10CM
       code_value: C61
       start_datetime: 2016-01-01
-    - code_type: ICD10CM
     - code_type: ICD10CM
       code_value: C61
       start_datetime: 2017-01-01
@@ -777,7 +775,7 @@ patients:
       start_datetime: 2016-02-01
     - code_type: SNOMEDCT
       code_value: 22059005 # Bone scan
-      start_datetime: 2016-01-31 # Too early
+      start_datetime: 2016-01-01 # Too early
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
@@ -864,7 +862,7 @@ patients:
       start_datetime: 2016-02-01
     - code_type: SNOMEDCT
       code_value: 22059005 # Bone scan
-      start_datetime: 2016-03-22 # After
+      start_datetime: 2016-03-23 # After
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
