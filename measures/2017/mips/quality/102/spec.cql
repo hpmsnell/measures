@@ -26,12 +26,12 @@ valueset "MIPS; Performance Not Met: 3269F"
 
 valueset "VSAC; Bone Scan": '2.16.840.1.113883.3.526.3.320'
 valueset "VSAC; Standardized Pain Assessment Tool": '2.16.840.1.113883.3.526.3.1028'
-valueset "VSAC; Pain Assessments": '2.16.840.1.113762.1.4.1047.152'
 valueset "VSAC; Salvage Therapy": '2.16.840.1.113883.3.526.3.399'
 
 // Able value sets
 
-valueset "VSAC; Bone Health Assessment": '2.16.840.1.113762.1.4.1047.234'
+valueset "Able; Bone Health Assessment": '2.16.840.1.113762.1.4.1047.234'
+valueset "Able; Pain Assessments": '2.16.840.1.113762.1.4.1047.152'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -80,8 +80,7 @@ define "Numerator Performance Met: 3270F":
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
   or not exists("Bone Scan" S
-    with "Denominator Encounter" E
-      such that S.authorDateTime during "Bone Scan Interval")
+    where S.authorDateTime during "Bone Scan Interval")
 
 define "Denominator Exception: 3269-1P":
   /*
@@ -92,11 +91,9 @@ define "Denominator Exception: 3269-1P":
       such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
   or exists("Pain Assessment" P
     where P.result > 0
-    with "Denominator Encounter" E
-      such that P.relevantPeriod starts during "Bone Scan Interval")
+      and P.relevantPeriod starts during "Bone Scan Interval")
   or exists("VSAC; Salvage Therapy" P
-    with "Denominator Encounter" E
-      such that P.relevantPeriod starts during "Bone Scan Interval")
+    where P.relevantPeriod starts during "Bone Scan Interval")
 
 define "Denominator Exception: 3269-3P":
   /*
@@ -104,7 +101,7 @@ define "Denominator Exception: 3269-3P":
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: 3269-3P"] P
     with "Denominator Encounter" E
-          such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
+      such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
 
 define "Numerator Performance Not Met: 3269F":
   /*
