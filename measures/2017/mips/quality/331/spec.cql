@@ -21,13 +21,10 @@ valueset "MIPS; Performance Met: G9286"
 valueset "MIPS; Denominator Exception: G9505"
 valueset "MIPS; Performance Not Met: G9287"
 
-// VSAC value sets
-
-valueset "VSAC; Competing Conditions for Respiratory Conditions": '2.16.840.1.113883.3.464.1003.102.12.1017'
-
 // Able value sets
 
 valueset "Able; Systemic Antibiotics"
+valueset "Able; Competing Conditions for Sinusitis"
 
 parameter "Measurement Period" Interval<DateTime>
 
