@@ -26,7 +26,6 @@ valueset "VSAC; Hospital Inpatient Visit - Subsequent": '2.16.840.1.113883.3.464
 valueset "VSAC; Nursing Facility Visit": '2.16.840.1.113883.3.464.1003.101.12.1012'
 valueset "VSAC; Discharge Services - Hospital Inpatient Same Day Discharge": '2.16.840.1.113883.3.464.1003.101.12.1006'
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
-valueset "VSAC; HbA1c Laboratory Test": '2.16.840.1.113883.3.464.1003.198.12.1013'
 
 // Able value sets
 
