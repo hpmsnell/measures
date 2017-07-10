@@ -1,0 +1,320 @@
+measure_id: 17.MIPS.Mips357
+test_set_keys:
+  organization_key:
+    episodes_of_care:
+      - name: Too Young
+        start_datetime: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9317
+      - name: Denominator Encounter # Early
+        start_datetime: 2015-12-31
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator Encounter # Lower bound
+        start_datetime: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9317
+      - name: Denominator Encounter # Upper bound
+        start_datetime: 2016-11-30
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9317
+      - name: Denominator Encounter # Late
+        start_datetime: 2016-12-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator Exclusion # Early
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9317
+      - name: Denominator Exclusion # Lower bound
+        start_datetime: 2016-04-01
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: Denominator Exclusion # Upper bound
+        start_datetime: 2016-06-01
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: Denominator Exclusion # Late
+        start_datetime: 2016-08-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9317
+      - name: PerformanceMet G9316 # Early
+        start_datetime: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9317
+      - name: PerformanceMet G9316 # Lower bound
+        start_datetime: 2016-04-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9316
+      - name: PerformanceMet G9316 # Upper bound
+        start_datetime: 2016-06-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9316
+      - name: PerformanceMet G9316 # Late
+        start_datetime: 2016-08-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9317
+  providers_key:
+    - name: Rachel
+      episodes_of_care:
+        - name: Too Young
+          start_datetime: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Age Lower
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9317
+        - name: Denominator Encounter # Early
+          start_datetime: 2015-12-31
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Denominator Encounter # Lower bound
+          start_datetime: 2016-01-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9317
+        - name: Denominator Encounter # Upper bound
+          start_datetime: 2016-11-30
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9317
+        - name: Denominator Encounter # Late
+          start_datetime: 2016-12-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Denominator Exclusion # Early
+          start_datetime: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9317
+        - name: Denominator Exclusion # Lower bound
+          start_datetime: 2016-04-01
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: Denominator Exclusion # Upper bound
+          start_datetime: 2016-06-01
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: Denominator Exclusion # Late
+          start_datetime: 2016-08-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9317
+        - name: PerformanceMet G9316 # Early
+          start_datetime: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: PerformanceMet G9316 # Lower bound
+          start_datetime: 2016-04-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: PerformanceMet G9316 # Upper bound
+          start_datetime: 2016-06-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: PerformanceMet G9316 # Late
+          start_datetime: 2016-08-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  external_id: '111-111'
+  credential: DO
+  primary_specialty: Family Medicine
+- given_name: Patty
+  family_name: PrimaryCare
+  external_id: '222-222'
+  credential: MD
+  primary_specialty: Family Medicine
+patients:
+  - name: Too Young
+    attributes:
+      date_of_birth: 1998-02-02
+      given_name: Too
+      family_name: Young
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-02-01
+        provider: Rachel
+  - name: Age Lower
+    attributes:
+      date_of_birth: 1998-02-01
+      given_name: Age
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-02-01
+        provider: Rachel
+  - name: Denominator Encounter
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Denominator
+      family_name: Encounter
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2015-12-31
+        provider: Rachel
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-01-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-11-30
+        provider: Rachel
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-12-01
+        provider: Rachel
+  - name: Denominator Exclusion
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Denominator
+      family_name: Exclusion
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9752
+        start_datetime: 2016-01-31 # Early
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-04-01
+        stop_datetime: 2016-04-02
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9752
+        start_datetime: 2016-04-01 # Lower
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-06-01
+        stop_datetime: 2016-06-02
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9752
+        start_datetime: 2016-06-02 # Upper
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-08-01
+        stop_datetime: 2016-08-02
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9752
+        start_datetime: 2016-08-03 # Late
+  - name: PerformanceMet G9316
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: PerformanceMet
+      family_name: G9316
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-02-01
+        stop_datetime: 2016-02-02
+        provider: Patty
+      - code_type: HCPCS
+        code_value: G9316
+        start_datetime: 2016-01-01 # Early
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-04-01
+        stop_datetime: 2016-04-02
+        provider: Patty
+      - code_type: HCPCS
+        code_value: G9316
+        start_datetime: 2016-03-02 # Lower
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-06-01
+        stop_datetime: 2016-06-02
+        provider: Patty
+      - code_type: HCPCS
+        code_value: G9316
+        start_datetime: 2016-06-01 # Upper
+      - code_type: CPT
+        code_value: 11004
+        start_datetime: 2016-08-01
+        stop_datetime: 2016-08-02
+        provider: Patty
+      - code_type: HCPCS
+        code_value: G9316
+        start_datetime: 2016-08-02 # Late
