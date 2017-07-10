@@ -91,7 +91,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 4044F
+      numerator: 4044F-8P
     - name: MedicalReason Exception # Lower bound
       start_datetime: 2016-03-01
       denominator: 1
@@ -109,7 +109,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 4044F
+      numerator: 4044F-8P
   providers_key:
     - name: Rachel
       episodes_of_care:
@@ -300,7 +300,7 @@ patients:
       start_datetime: 2016-02-01
       stop_datetime: 2016-02-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: 4044F
       start_datetime: 2016-01-30 # Too early
     - code_type: CPT
@@ -308,7 +308,7 @@ patients:
       start_datetime: 2016-03-01
       stop_datetime: 2016-03-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: 4044F
       start_datetime: 2016-02-29 # Lower bound
     - code_type: CPT
@@ -316,17 +316,17 @@ patients:
       start_datetime: 2016-04-01
       stop_datetime: 2016-04-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: 4044F
-      start_datetime: 2016-04-03 # Upper bound
+      start_datetime: 2016-04-02 # Upper bound
     - code_type: CPT
       code_value: 22551
       start_datetime: 2016-05-01
       stop_datetime: 2016-05-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: 4044F
-      start_datetime: 2016-05-04 # Too late
+      start_datetime: 2016-05-03 # Too late
 - name: PerformanceMet Medication
   attributes:
     date_of_birth: 1990-01-01
@@ -364,10 +364,10 @@ patients:
       start_datetime: 2016-02-29 # Lower bound
     - code_type: RXNORM
       code_value: 1361574
-      start_datetime: 2016-04-03 # Upper bound
+      start_datetime: 2016-04-02 # Upper bound
     - code_type: RXNORM
       code_value: 1361574
-      start_datetime: 2016-05-04 # Late
+      start_datetime: 2016-05-03 # Late
 - name: MedicalReason Exception
   attributes:
     date_of_birth: 1990-01-01
@@ -381,7 +381,7 @@ patients:
       start_datetime: 2016-02-01
       stop_datetime: 2016-02-01
       provider: Patty
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: 4044F-1P
       start_datetime: 2016-01-30 # Too early
     - code_type: CPT
@@ -389,7 +389,7 @@ patients:
       start_datetime: 2016-03-01
       stop_datetime: 2016-03-02
       provider: Patty
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: 4044F-1P
       start_datetime: 2016-02-29 # Lower bound
     - code_type: CPT
@@ -397,14 +397,14 @@ patients:
       start_datetime: 2016-04-01
       stop_datetime: 2016-04-02
       provider: Patty
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: 4044F-1P
-      start_datetime: 2016-04-03 # Upper bound
+      start_datetime: 2016-04-02 # Upper bound
     - code_type: CPT
       code_value: 22551
       start_datetime: 2016-05-01
       stop_datetime: 2016-05-02
       provider: Patty
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: 4044F-1P
-      start_datetime: 2017-05-04 # Too late
+      start_datetime: 2017-05-03 # Too late
