@@ -52,6 +52,10 @@ exception_reasons:
               value_set: "Able; Systemic Antibiotics"
         - count: 10
           validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G9505"
+        - count: 10
+          validation_records:
             - model: Diagnosis
               value_set: "Able; Competing Conditions for Sinusitis"
     optional:

@@ -47,6 +47,14 @@ define "Performance Met Exists":
     with "Denominator Encounter" E
       such that M.relevantPeriod starts on or 10 days or less after start of E.relevantPeriod)
 
+define "Denominator Exception Exists":
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: G9505"] P
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts on or 10 days or less after start of E.relevantPeriod)
+  or exists(["Diagnosis": "VSAC; Competing Conditions for Respiratory Conditions"] D
+    with "Denominator Encounter" E
+      such that D.prevalencePeriod overlaps Interval[start of E.relevantPeriod, E.relevantPeriod + 10 days])
+
 define "Denominator":
   "Denominator Encounter"
 
@@ -55,18 +63,14 @@ define "Numerator Performance Met: G9286":
    * config_link_id: G9286
    */
   "Performance Met Exists"
-  and not "Denominator Exception: G9505"
+  and not "Denominator Exception Exists"
 
 define "Denominator Exception: G9505":
   /*
    * config_link_id: G9505
    */
-  exists(["Procedure, Performed": "MIPS; Denominator Exception: G9505"] P
-    with "Denominator Encounter" E
-      such that P.relevantPeriod starts on or 10 days or less after start of E.relevantPeriod)
-  or exists(["Diagnosis": "VSAC; Competing Conditions for Respiratory Conditions"] D
-    with "Denominator Encounter" E
-      such that D.prevalencePeriod overlaps Interval[start of E.relevantPeriod, E.relevantPeriod + 10 days])
+  "Performance Met Exists"
+  and "Denominator Exception Exists"
 
 define "Numerator Performance Not Met: G9287":
   /*
