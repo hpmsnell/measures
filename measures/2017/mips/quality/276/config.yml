@@ -1,0 +1,77 @@
+measure:
+  name: 17.MIPS.Mips276
+  required:
+    display_title: "Sleep Apnea: Assessment of Sleep Symptoms"
+  optional:
+    gap_resolution_action: Patient is due for an assessment of sleep symptoms
+    set: MIPS
+    external_id: 276
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G8839
+    required:
+      display_title: 'Sleep apnea symptoms assessed, including presence or absence of snoring and daytime sleepiness'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 276 Encounter
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8839"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Sleep Apnea Assessment"
+    optional:
+      code_value: G8839
+exception_reasons:
+  - config_link_id: G8840
+    required:
+      display_title: 'Documentation of reason(s) for not documenting an assessment of sleep symptoms (e.g., patient didn’t have initial daytime sleepiness, patient visited between initial testing and initiation of therapy)'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 276 Encounter
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8839"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G8840"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Sleep Apnea Assessment"
+    optional:
+      code_value: G8840
+performance_not_met_reasons:
+  - config_link_id: G8841
+    required:
+      display_title: 'Sleep apnea symptoms not assessed, reason not given'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 276 Encounter
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8840"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Sleep Apnea Assessment"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G8841"
+    optional:
+      code_value: G8841
