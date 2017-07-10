@@ -221,10 +221,10 @@ test_set_keys:
         denominator_exception:
         numerator:
       - name: ExceptionG8840 After
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
 providers:
 - given_name: Rachel
   family_name: Kohler
@@ -378,7 +378,7 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-02-01
-      start_datetime: 2016-02-02
+      stop_datetime: 2016-02-02
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
@@ -395,7 +395,7 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-02-01
-      start_datetime: 2016-02-02
+      stop_datetime: 2016-02-02
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
@@ -564,7 +564,7 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-02-01
-      provider: Rachel
+      provider: Patty
     - code_type: HCPCS
       code_value: G8840
       start_datetime: 2015-12-31 # Too early
@@ -583,7 +583,7 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-02-01
-      provider: Rachel
+      provider: Patty
     - code_type: HCPCS
       code_value: G8840
       start_datetime: 2016-01-01 # Lower bound
@@ -602,7 +602,7 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-02-01
-      provider: Rachel
+      provider: Patty
     - code_type: HCPCS
       code_value: G8840
       start_datetime: 2016-12-31 # Upper bound
@@ -621,7 +621,7 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-02-01
-      provider: Rachel
+      provider: Patty
     - code_type: HCPCS
       code_value: G8840
       start_datetime: 2017-01-01 # Too late
