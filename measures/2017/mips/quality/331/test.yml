@@ -13,7 +13,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9286
+      numerator: G9287
     - name: Denominator Encounter # Early
       start_datetime: 2015-12-31
       denominator:
@@ -160,7 +160,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G9286
+        numerator: G9287
       - name: Denominator Encounter # Early
         start_datetime: 2015-12-31
         denominator:
@@ -294,16 +294,16 @@ test_set_keys:
         denominator_exception:
         numerator:
 providers:
-  - given_name: Rachel
-    family_name:  Katz
-    credential: DO
-    primary_specialty:  Family Medicine
-    external_id: '111-111'
-  - given_name: Patty
-    family_name:  Smith
-    credential: MD
-    primary_specialty:  Family Medicine
-    external_id: '222-222'
+- given_name: Rachel
+  family_name:  Katz
+  credential: DO
+  primary_specialty:  Family Medicine
+  external_id: '111-111'
+- given_name: Patty
+  family_name:  Smith
+  credential: MD
+  primary_specialty:  Family Medicine
+  external_id: '222-222'
 patients:
 - name: Too Young
   attributes:
@@ -341,7 +341,7 @@ patients:
       start_datetime: 2016-02-01
 - name: Denominator Encounter
   attributes:
-    date_of_birth: 2000-01-01
+    date_of_birth: 1990-01-01
     given_name: Denominator
     family_name: Encounter
     sex: Male
@@ -382,7 +382,7 @@ patients:
       start_datetime: 2017-01-01
 - name: Denominator Diagnosis
   attributes:
-    date_of_birth: 2000-01-01
+    date_of_birth: 1990-01-01
     given_name: Denominator
     family_name: Diagnosis
     sex: Male
@@ -423,7 +423,7 @@ patients:
       start_datetime: 2016-05-03 # Too late
 - name: PerformanceMet G9286
   attributes:
-    date_of_birth: 2000-01-01
+    date_of_birth: 1990-01-01
     given_name: PerformanceMet
     family_name: G9286
     sex: Male
@@ -476,7 +476,7 @@ patients:
       start_datetime: 2016-05-01
 - name: PerformanceMet Antibiotic
   attributes:
-    date_of_birth: 2000-01-01
+    date_of_birth: 1990-01-01
     given_name: PerformanceMet
     family_name: Antibiotic
     sex: Male
@@ -486,27 +486,27 @@ patients:
       code_value: 99201
       start_datetime: 2016-02-01
       stop_datetime: 2016-02-01
-      provider: Patty
+      provider: Rachel
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-03-01
       stop_datetime: 2016-03-01
-      provider: Patty
+      provider: Rachel
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-04-01
       stop_datetime: 2016-04-01
-      provider: Patty
+      provider: Rachel
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-05-01
       stop_datetime: 2016-05-01
-      provider: Patty
+      provider: Rachel
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-06-01
       stop_datetime: 2016-06-01
-      provider: Patty
+      provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: J01.00
@@ -545,7 +545,7 @@ patients:
       start_datetime: 2016-02-04 # Active
 - name: MedicalReason Exception
   attributes:
-    date_of_birth: 2000-01-01
+    date_of_birth: 1990-01-01
     given_name: MedicalReason
     family_name: Exception
     sex: Male
@@ -555,7 +555,7 @@ patients:
       code_value: 99201
       start_datetime: 2016-02-01
       stop_datetime: 2016-02-01
-      provider: Rachel
+      provider: Patty
     - code_type: HCPCS
       code_value: G9505
       start_datetime: 2016-01-30 # Too early
@@ -563,7 +563,7 @@ patients:
       code_value: 99201
       start_datetime: 2016-03-01
       stop_datetime: 2016-03-02
-      provider: Rachel
+      provider: Patty
     - code_type: HCPCS
       code_value: G9505
       start_datetime: 2016-03-01 # Lower bound
@@ -571,7 +571,7 @@ patients:
       code_value: 99201
       start_datetime: 2016-04-01
       stop_datetime: 2016-04-02
-      provider: Rachel
+      provider: Patty
     - code_type: HCPCS
       code_value: G9505
       start_datetime: 2016-04-11 # Upper bound
@@ -579,7 +579,7 @@ patients:
       code_value: 99201
       start_datetime: 2016-05-01
       stop_datetime: 2016-05-02
-      provider: Rachel
+      provider: Patty
     - code_type: HCPCS
       code_value: G9505
       start_datetime: 2017-05-12 # Too late
@@ -587,7 +587,7 @@ patients:
       code_value: 99201
       start_datetime: 2016-06-01
       stop_datetime: 2016-06-02
-      provider: Rachel
+      provider: Patty
     diagnoses:
     - code_type: ICD10CM
       code_value: J01.00
@@ -602,26 +602,29 @@ patients:
       code_value: J01.00
       start_datetime: 2016-05-01
     - code_type: ICD10CM
+      code_value: J01.00
+      start_datetime: 2016-06-01
+    - code_type: ICD10CM
       code_value: A00.0
       start_datetime: 2016-06-01
     medications:
     - code_type: RXNORM
       code_value: 1013659
       method: E
-      start_datetime: 2016-01-30 # Early
+      start_datetime: 2016-02-01
     - code_type: RXNORM
       code_value: 1013659
       method: E
-      start_datetime: 2016-03-01 # Lower bound
+      start_datetime: 2016-03-01
     - code_type: RXNORM
       code_value: 1013659
       method: E
-      start_datetime: 2016-04-11 # Upper bound
+      start_datetime: 2016-04-01
     - code_type: RXNORM
       code_value: 1013659
       method: E
-      start_datetime: 2016-05-12 # Late
+      start_datetime: 2016-05-01
     - code_type: RXNORM
       code_value: 1013659
       method: E
-      start_datetime: 2016-05-30 # For dx code
+      start_datetime: 2016-06-01 # For dx code
