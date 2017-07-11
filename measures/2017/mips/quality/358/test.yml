@@ -1,4 +1,4 @@
-measure_id: 17.MIPS.Mips357
+measure_id: 17.MIPS.Mips358
 test_set_keys:
   organization_key:
     episodes_of_care:
@@ -27,13 +27,13 @@ test_set_keys:
         denominator_exception:
         numerator: G9317
       - name: Denominator Encounter # Upper bound
-        start_datetime: 2016-11-30
+        start_datetime: 2016-12-31
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9317
       - name: Denominator Encounter # Late
-        start_datetime: 2016-12-01
+        start_datetime: 2017-01-01
         denominator:
         denominator_exclusion:
         denominator_exception:
@@ -114,13 +114,13 @@ test_set_keys:
           denominator_exception:
           numerator: G9317
         - name: Denominator Encounter # Upper bound
-          start_datetime: 2016-11-30
+          start_datetime: 2016-12-31
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G9317
         - name: Denominator Encounter # Late
-          start_datetime: 2016-12-01
+          start_datetime: 2017-01-01
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -222,19 +222,19 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 11004
-        start_datetime: 2015-12-31
+        start_datetime: 2015-12-31 # Too early
         provider: Rachel
       - code_type: CPT
         code_value: 11004
-        start_datetime: 2016-01-01
+        start_datetime: 2016-01-01 # Lower bound
         provider: Rachel
       - code_type: CPT
         code_value: 11004
-        start_datetime: 2016-11-30
+        start_datetime: 2016-12-31 # Upper bound
         provider: Rachel
       - code_type: CPT
         code_value: 11004
-        start_datetime: 2016-12-01
+        start_datetime: 2017-01-01 # Too late
         provider: Rachel
   - name: Denominator Exclusion
     attributes:

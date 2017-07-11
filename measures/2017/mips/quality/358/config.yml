@@ -10,7 +10,7 @@ measure:
     mips_measure_type: Process
     mips_high_priority: true
 exclusion_reasons:
-  - config_link_id: G9315
+  - config_link_id: exclusion_1
     required:
       display_title: 'Patient excluded due to emergency surgery'
       validation_record_groups:
@@ -22,10 +22,8 @@ exclusion_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Emergency Surgery"
-    optional:
-      code_value: G9316
 performance_met_reasons:
-  - config_link_id: G9315
+  - config_link_id: G9316
     required:
       display_title: 'Documentation of patient-specific risk assessment with a risk calculator based on multi-institutional clinical data, the specific risk calculator used, and communication of risk assessment from risk calculator with the patient or family'
       validation_record_groups:
@@ -36,7 +34,7 @@ performance_met_reasons:
         - count: 10
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G9315"
+              value_set: "MIPS; Performance Met: G9316"
     optional:
       code_value: G9316
 exception_reasons:
@@ -52,7 +50,7 @@ performance_not_met_reasons:
         - count: 10
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G9315"
+              value_set: "MIPS; Performance Met: G9316"
         - count: 10
           validation_records:
             - model: ClinicalActivity
