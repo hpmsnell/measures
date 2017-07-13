@@ -6,7 +6,6 @@ library MIPS_143_2017 version '1'
  * Year: 2017
  * Version: 1
  * Written By: Steve Daniels
- * Reviewed By: Rachel Katz
  */
 
 using QDM
@@ -46,25 +45,25 @@ define "Numerator Performance Met: 1125F":
   /*
    * config_link_id: 1125F
    */
-  "Denominator Encounter" E //This is the encounter from the denominator
+  "Denominator Encounter" E
     with ["Procedure, Performed": "MIPS; Performance Met: 1125F"] P
       such that P.relevantPeriod starts same day as start of E.relevantPeriod
-  or "Denominator Encounter" E //This is the encounter from the denominator
+  or "Denominator Encounter" E
     with ["Procedure, Performed": "VSAC; Standardized Pain Assessment Tool"] P
       such that P.relevantPeriod starts same day as start of E.relevantPeriod
-        and P.result > 0 //Need to validate result format
+        and P.result > 0
 
 define "Numerator Performance Met: 1126F":
   /*
    * config_link_id: 1126F
    */
-   "Denominator Encounter" E //This is the encounter from the denominator
+   "Denominator Encounter" E
      with ["Procedure, Performed": "MIPS; Performance Met: 1126F"] P
-       such that P.relevantPeriod starts same day as start of E.relevantPeriod
-   or "Denominator Encounter" E //This is the encounter from the denominator
+       such that P.relevantPeriod starts during E.relevantPeriod
+   or "Denominator Encounter" E
      with ["Procedure, Performed": "VSAC; Standardized Pain Assessment Tool"] P
-       such that P.relevantPeriod starts same day as start of E.relevantPeriod
-         and P.result = 0 //Need to validate result format
+       such that P.relevantPeriod starts during E.relevantPeriod
+         and P.result = 0
 
 define "Numerator Performance Not Met: 1125F-8P":
   /*

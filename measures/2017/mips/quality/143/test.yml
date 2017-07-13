@@ -74,38 +74,50 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Success 1125F #  Success prior to encounter
+    - name: Success 1125F #  Success before encounter
       start_datetime: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1125F-8P
-    - name: Success 1125F #  Success same day as encounter
+    - name: Success 1125F #  Success at lower bound of encounter
       start_datetime: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1125F
-    - name: Success 1126F #  Success after encounter
+    - name: Success 1125F #  Success at upper bound of encounter
       start_datetime: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 1125F-8P
-    - name: Success 1126F #  Success prior to encounter
+      numerator: 1125F
+    - name: Success 1125F #  Success after encounter
       start_datetime: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1125F-8P
-    - name: Success 1126F #  Success same day as encounter
-      start_datetime: 2016-07-01
+    - name: Success 1126F #  Success prior to encounter
+      start_datetime: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 1125F-8P
+    - name: Success 1126F #  Success at lower bound of encounter
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 1126F
+    - name: Success 1126F #  Success at upper bound of encounter
+      start_datetime: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1126F
     - name: Success 1126F #  Success after encounter
-      start_datetime: 2016-08-01
+      start_datetime: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -122,24 +134,30 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: 1125F
-    - name: Pain Assessment #  Pain Assessment positive after encounter
+    - name: Pain Assessment #  Pain Assessment positive on date of encounter
       start_datetime: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 1125F-8P
-    - name: Pain Assessment #  Pain Assessment negative
+      numerator: 1125F
+    - name: Pain Assessment #  Pain Assessment positive after encounter
       start_datetime: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1125F-8P
-    - name: Pain Assessment #  Pain Assessment without result
+    - name: Pain Assessment #  Pain Assessment negative
       start_datetime: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 1126F
+      numerator: 1125F-8P
+    - name: Pain Assessment #  Pain Assessment without result
+      start_datetime: 2016-06-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 1126F-8P
   providers_key:
   - name: Rachel
     episodes_of_care:
@@ -215,182 +233,54 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Success 1125F #  Success prior to encounter
+    - name: Success 1125F #  Success before encounter
       start_datetime: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1125F-8P
-    - name: Success 1125F #  Success same day as encounter
+    - name: Success 1125F #  Success at lower bound of encounter
       start_datetime: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1125F
-    - name: Success 1126F #  Success after encounter
+    - name: Success 1125F #  Success at upper bound of encounter
       start_datetime: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 1125F-8P
-    - name: Success 1126F #  Success prior to encounter
+      numerator: 1125F
+    - name: Success 1125F #  Success after encounter
       start_datetime: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1125F-8P
-    - name: Success 1126F #  Success same day as encounter
-      start_datetime: 2016-07-01
+    - name: Success 1126F #  Success prior to encounter
+      start_datetime: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 1125F-8P
+    - name: Success 1126F #  Success at lower bound of encounter
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 1126F
+    - name: Success 1126F #  Success at upper bound of encounter
+      start_datetime: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1126F
     - name: Success 1126F #  Success after encounter
-      start_datetime: 2016-08-01
+      start_datetime: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1125F-8P
-    - name: Pain Assessment #  Pain Assessment positive prior to encounter
-      start_datetime: 2016-01-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Pain Assessment #  Pain Assessment positive on date of encounter
-      start_datetime: 2016-02-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Pain Assessment #  Pain Assessment positive after encounter
-      start_datetime: 2016-03-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Pain Assessment #  Pain Assessment negative
-      start_datetime: 2016-04-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Pain Assessment #  Pain Assessment without result
-      start_datetime: 2016-05-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-  - name: Patty
-    episodes_of_care:
-    - name: Denominator Encounter #  Encounter prior to measurement year
-      start_datetime: 2015-12-31
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Denominator Encounter #  Encounter at beginning of measurement year
-      start_datetime: 2016-01-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Denominator Encounter #  Encounter at end of measurement year
-      start_datetime: 2016-12-31
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Denominator Encounter #  Encounter after measurement year
-      start_datetime: 2017-01-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Chemotherapy Procedure #  Chemotherapy before encounter
-      start_datetime: 2016-01-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Chemotherapy Procedure #  Chemotherapy at start of encounter
-      start_datetime: 2016-02-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Chemotherapy Procedure #  Chemotherapy at end of encounter
-      start_datetime: 2016-03-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Chemotherapy Procedure #  Chemotherapy after encounter
-      start_datetime: 2016-04-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Cancer Diagnosis #  Cancer diagnosis before encounter
-      start_datetime: 2016-01-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Cancer Diagnosis #  Cancer diagnosis at lower bound of encounter
-      start_datetime: 2016-02-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Cancer Diagnosis #  Cancer diagnosis at upper bound of encounter
-      start_datetime: 2016-03-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Cancer Diagnosis #  Cancer diagnosis after encounter
-      start_datetime: 2016-04-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Success 1125F #  Success prior to encounter
-      start_datetime: 2016-01-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Success 1125F #  Success same day as encounter
-      start_datetime: 2016-02-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Success 1126F #  Success after encounter
-      start_datetime: 2016-03-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Success 1126F #  Success prior to encounter
-      start_datetime: 2016-04-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Success 1126F #  Success same day as encounter
-      start_datetime: 2016-07-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Success 1126F #  Success after encounter
-      start_datetime: 2016-08-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
     - name: Pain Assessment #  Pain Assessment positive prior to encounter
       start_datetime: 2016-01-01
       denominator: 1
@@ -399,28 +289,34 @@ test_set_keys:
       numerator: 1125F-8P
     - name: Pain Assessment #  Pain Assessment positive on date of encounter
       start_datetime: 2016-02-01
-      denominator: 1
+      denominator:
       denominator_exclusion:
       denominator_exception:
-      numerator: 1125F
-    - name: Pain Assessment #  Pain Assessment positive after encounter
+      numerator:
+    - name: Pain Assessment #  Pain Assessment positive on date of encounter
       start_datetime: 2016-03-01
-      denominator: 1
+      denominator:
       denominator_exclusion:
       denominator_exception:
-      numerator: 1125F-8P
-    - name: Pain Assessment #  Pain Assessment negative
+      numerator:
+    - name: Pain Assessment #  Pain Assessment positive after encounter
       start_datetime: 2016-04-01
-      denominator: 1
+      denominator:
       denominator_exclusion:
       denominator_exception:
-      numerator: 1125F-8P
-    - name: Pain Assessment #  Pain Assessment without result
+      numerator:
+    - name: Pain Assessment #  Pain Assessment negative
       start_datetime: 2016-05-01
-      denominator: 1
+      denominator:
       denominator_exclusion:
       denominator_exception:
-      numerator: 1126F
+      numerator:
+    - name: Pain Assessment #  Pain Assessment without result
+      start_datetime: 2016-06-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
 providers:
 - given_name: Rachel
   family_name: Kohler
@@ -586,6 +482,11 @@ patients:
       stop_datetime: 2016-03-02
       provider: Rachel
     - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-04-01 # Encounter
+      stop_datetime: 2016-04-02
+      provider: Rachel
+    - code_type: CPT
       code_value: 51720 # Chemotherapy
       start_datetime: 2015-01-01 # Overlaps all the things
       stop_datetime: 2018-01-01
@@ -594,10 +495,13 @@ patients:
       start_datetime: 2015-12-31 # Early
     - code_type: CPT
       code_value: 1125F
-      start_datetime: 2016-02-01 # Same day
+      start_datetime: 2016-02-01 # Lower
     - code_type: CPT
       code_value: 1125F
-      start_datetime: 2016-03-03 # Late
+      start_datetime: 2016-03-02 # Upper
+    - code_type: CPT
+      code_value: 1125F
+      start_datetime: 2016-04-03 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: Q85.00 # Cancer
@@ -627,6 +531,11 @@ patients:
       stop_datetime: 2016-03-02
       provider: Rachel
     - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-04-01 # Encounter
+      stop_datetime: 2016-04-02
+      provider: Rachel
+    - code_type: CPT
       code_value: 51720 # Chemotherapy
       start_datetime: 2015-01-01 # Overlaps all the things
       stop_datetime: 2018-01-01
@@ -635,10 +544,13 @@ patients:
       start_datetime: 2015-12-31 # Early
     - code_type: CPT
       code_value: 1126F
-      start_datetime: 2016-02-01 # Same day
+      start_datetime: 2016-02-01 # Lower
     - code_type: CPT
       code_value: 1126F
-      start_datetime: 2016-03-03 # Late
+      start_datetime: 2016-02-03 # Upper
+    - code_type: CPT
+      code_value: 1126F
+      start_datetime: 2016-04-03 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: Q85.00 # Cancer
@@ -678,6 +590,11 @@ patients:
       stop_datetime: 2016-05-02
       provider: Patty
     - code_type: CPT
+      code_value: 99201
+      start_datetime: 2016-06-01 # Encounter
+      stop_datetime: 2016-06-02
+      provider: Patty
+    - code_type: CPT
       code_value: 51720 # Chemotherapy
       start_datetime: 2015-01-01 # Overlaps all the things
       stop_datetime: 2018-01-01
@@ -687,19 +604,23 @@ patients:
       result: 1
     - code_type: LOINC
       code_value: 38208-5
-      start_datetime: 2016-02-01 # Same day
+      start_datetime: 2016-02-01 # Lower
       result: 1
     - code_type: LOINC
       code_value: 38208-5
-      start_datetime: 2016-03-03 # Late
+      start_datetime: 2016-03-01 # Upper
       result: 1
     - code_type: LOINC
       code_value: 38208-5
-      start_datetime: 2016-04-01
-      result: 0
+      start_datetime: 2016-04-03 # Late
+      result: 1
     - code_type: LOINC
       code_value: 38208-5
       start_datetime: 2016-05-01
+      result: 0 # Negative
+    - code_type: LOINC
+      code_value: 38208-5
+      start_datetime: 2016-05-01 # No result
     diagnoses:
     - code_type: ICD10CM
       code_value: Q85.00 # Cancer
