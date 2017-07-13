@@ -151,13 +151,13 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 1125F-8P
+      numerator: 1126F
     - name: Pain Assessment #  Pain Assessment without result
       start_datetime: 2016-06-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 1126F-8P
+      numerator: 1125F-8P
   providers_key:
   - name: Rachel
     episodes_of_care:
@@ -283,10 +283,10 @@ test_set_keys:
       numerator: 1125F-8P
     - name: Pain Assessment #  Pain Assessment positive prior to encounter
       start_datetime: 2016-01-01
-      denominator: 1
+      denominator:
       denominator_exclusion:
       denominator_exception:
-      numerator: 1125F-8P
+      numerator:
     - name: Pain Assessment #  Pain Assessment positive on date of encounter
       start_datetime: 2016-02-01
       denominator:
@@ -322,10 +322,12 @@ providers:
   family_name: Kohler
   credential: DO
   primary_specialty: Family Medicine
+  external_id: '111-111'
 - given_name: Patty
   family_name: PrimaryCare
   credential: MD
   primary_specialty: Family Medicine
+  external_id: '222-222'
 patients:
 - name: Denominator Encounter
   attributes:
@@ -341,7 +343,7 @@ patients:
       provider: Rachel
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2015-01-01 # Lower bound
+      start_datetime: 2016-01-01 # Lower bound
       provider: Rachel
     - code_type: CPT
       code_value: 99201
@@ -430,12 +432,12 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-03-01 # Encounter
-      stop_datetime: 2016-03-01
+      stop_datetime: 2016-03-02
       provider: Rachel
     - code_type: CPT
       code_value: 99201
       start_datetime: 2016-04-01 # Encounter
-      stop_datetime: 2016-04-01
+      stop_datetime: 2016-04-02
       provider: Rachel
     - code_type: CPT
       code_value: 51720 # Chemotherapy
@@ -448,16 +450,16 @@ patients:
       stop_datetime: 2015-12-31
     - code_type: ICD10CM
       code_value: Q85.00
-      start_datetime: 2015-01-31 # Start
-      stop_datetime: 2015-02-01
+      start_datetime: 2016-01-31 # Start
+      stop_datetime: 2016-02-01
     - code_type: ICD10CM
       code_value: Q85.00
-      start_datetime: 2015-03-01 # End
-      stop_datetime: 2015-03-02
+      start_datetime: 2016-03-02 # End
+      stop_datetime: 2016-03-03
     - code_type: ICD10CM
       code_value: Q85.00
-      start_datetime: 2015-04-02 # Late
-      stop_datetime: 2015-04-03
+      start_datetime: 2016-04-03 # Late
+      stop_datetime: 2016-04-03
 - name: Success 1125F
   attributes:
     date_of_birth: 1998-01-02
@@ -608,7 +610,7 @@ patients:
       result: 1
     - code_type: LOINC
       code_value: 38208-5
-      start_datetime: 2016-03-01 # Upper
+      start_datetime: 2016-03-02 # Upper
       result: 1
     - code_type: LOINC
       code_value: 38208-5
