@@ -22,7 +22,7 @@ valueset "MIPS; Performance Not Met: 1125F-8P"
 
 // VSAC value sets
 
-valueset "Standardized Pain Assessment Tool": '2.16.840.1.113883.3.526.3.1028'
+valueset "VSAC; Standardized Pain Assessment Tool": '2.16.840.1.113883.3.526.3.1028'
 
 parameter "Measurement Period" Interval<DateTime>
 
