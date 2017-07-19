@@ -7,7 +7,7 @@ library MIPS_331_2017 version '1'
  * Year: 2017
  * Version: 1
  * Written by: Steve Daniels
- * Reviewed by: Rachel Katz 2017-05-23
+ * Reviewed by: Rachel Katz 2017-07-18
  *
   */
 
@@ -51,7 +51,7 @@ define "Denominator Exception Exists":
   exists(["Procedure, Performed": "MIPS; Denominator Exception: G9505"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 10 days or less after start of E.relevantPeriod)
-  or exists(["Diagnosis": "VSAC; Competing Conditions for Respiratory Conditions"] D
+  or exists(["Diagnosis": "Able; Competing Conditions for Sinusitis"] D
     with "Denominator Encounter" E
       such that D.prevalencePeriod overlaps Interval[start of E.relevantPeriod, E.relevantPeriod + 10 days])
 
