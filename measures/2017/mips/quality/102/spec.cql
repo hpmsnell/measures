@@ -6,7 +6,8 @@ library MIPS_102_2017 version '1'
  * ID: 102
  * Year: 2017
  * Version: 1
- * Author: Steve Daniels
+ * Written by: Steve Daniels
+ * Reviewed by: Rachel Katz 2017-07-18
  *
   */
 
@@ -18,8 +19,8 @@ valueset "MIPS; MIPS 102 Encounter"
 valueset "MIPS; Prostate Cancer"
 valueset "MIPS; Low Risk of Recurrence of Prostate Cancer"
 valueset "MIPS; Performance Met: 3270F"
-valueset "MIPS; Denominator Exception: 3269-1P"
-valueset "MIPS; Denominator Exception: 3269-3P"
+valueset "MIPS; Denominator Exception: 3269F-1P"
+valueset "MIPS; Denominator Exception: 3269F-3P"
 valueset "MIPS; Performance Not Met: 3269F"
 
 // VSAC value sets
@@ -82,11 +83,11 @@ define "Numerator Performance Met: 3270F":
   or not exists("Bone Scan" S
     where S.authorDateTime during "Bone Scan Interval")
 
-define "Denominator Exception: 3269-1P":
+define "Denominator Exception: 3269F-1P":
   /*
-   * config_link_id: 3269-1P
+   * config_link_id: 3269F-1P
    */
-  exists(["Procedure, Performed": "MIPS; Denominator Exception: 3269-1P"] P
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: 3269F-1P"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
   or exists("Pain Assessment" P
@@ -95,9 +96,9 @@ define "Denominator Exception: 3269-1P":
   or exists("VSAC; Salvage Therapy" P
     where P.relevantPeriod starts during "Bone Scan Interval")
 
-define "Denominator Exception: 3269-3P":
+define "Denominator Exception: 3269F-3P":
   /*
-   * config_link_id: 3269-3P
+   * config_link_id: 3269F-3P
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: 3269-3P"] P
     with "Denominator Encounter" E
