@@ -1,0 +1,47 @@
+measure:
+  name: 17.MIPS.Mips145
+  required:
+    display_title: "Radiology: Exposure Dose or Time Reported for Procedures Using Fluoroscopy"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 145
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9500
+    required:
+      display_title: "Radiation exposure indices, OR exposure time and number of fluorographic images in final report for procedures using fluoroscopy, documented"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 145 Encounter
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Met: G9500'
+    optional:
+      code_value: G9500
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: G9501
+    required:
+      display_title: "Radiation exposure indices, OR exposure time and number of fluorographic images not documented in final report for procedure using fluoroscopy, reason not given"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 145 Encounter
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Met: G9500'
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Not Met: G9501'
+    optional:
+      code_value: G9501
