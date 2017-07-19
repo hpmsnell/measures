@@ -1,0 +1,61 @@
+measure:
+  name: 17.MIPS.Mips147
+  required:
+    display_title: "Prevention of Central Venous Catheter (CVC) - Related Bloodstream Infections"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 147
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: 3570F
+    required:
+      display_title: "Final report for bone scintigraphy study includes correlation with existing relevant imaging studies (eg, x-ray, MRI, CT) corresponding to the same anatomical region in question"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 147 Encounter
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Met: 3570F'
+    optional:
+      code_value: 3570F
+exception_reasons:
+  - config_link_id: 3570F-3P
+    required:
+      display_title: "Documentation of system reason(s) for not documenting correlation with existing relevant imaging studies in final report (eg, no existing relevant imaging study available, patient did not have a previous relevant imaging study)"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 147 Encounter
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Denominator Exception: 3570F-3P'
+    optional:
+      code_value: 3570F-3P
+performance_not_met_reasons:
+  - config_link_id: 3570F-8P
+    required:
+      display_title: "Bone scintigraphy report not correlated in the final report with existing relevant imaging studies, reason not otherwise specified"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 147 Encounter
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Met: 3570F'
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Not Met: 3570F-8P'
+    optional:
+      code_value: 3570F-8P
