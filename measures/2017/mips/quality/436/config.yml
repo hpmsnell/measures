@@ -1,0 +1,47 @@
+measure:
+  name: 17.MIPS.Mips436
+  required:
+    display_title: "Radiation Consideration for Adult CT: Utilization of Dose Lowering Techniques"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 436
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9637
+    required:
+      display_title: "Final reports with documentation of one or more dose reduction techniques (e.g., Automated exposure control, adjustment of the mA and/or kV according to patient size, use of iterative reconstruction technique)"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 436 Procedure
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Met: G9637'
+    optional:
+      code_value: G9637
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: G9638
+    required:
+      display_title: "Final reports without documentation of one or more dose reduction techniques (e.g., Automated exposure control, adjustment of the mA and/or kV according to patient size, use of iterative reconstruction technique)"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 436 Procedure
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Met: G9637'
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Not Met: G9638'
+    optional:
+      code_value: G9638
