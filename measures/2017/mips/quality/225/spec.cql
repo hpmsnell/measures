@@ -14,7 +14,7 @@ using QDM
 // MIPS Value Sets
 
 valueset "MIPS; MIPS 225 Procedure"
-valueset "MIPS; MIPS 225 Mammogram"
+valueset "MIPS; Mammogram"
 valueset "MIPS; Performance Met: 7025F"
 valueset "MIPS; Denominator Exception: 7025F-1P"
 valueset "MIPS; Performance Not Met: 7025F-8P"
@@ -27,34 +27,27 @@ define "Denominator Procedure":
   ["Procedure, Performed": "MIPS; MIPS 225 Procedure"] E
     where E.relevantPeriod starts during "Measurement Period"
       and E.signingProvider.hasMeasureMembership = true
-
-define "Mammogram":
-  ["Diagnosis": "MIPS; MIPS 225 Mammogram"] D
-    where D.relevantPeriod starts during "Measurement Period"
+    with ["Diagnosis": "MIPS; Mammogram"] D
+      such that D.prevalencePeriod starts during E.relevantPeriod
 
 define "Denominator":
-  exists("Denominator Procedure")
-  and exists("Mammogram")
+  "Denominator Procedure"
 
 define "Numerator Performance Met: 7025F":
   /*
    * config_link_id: 7025F
    */
-  exists(["Procedure, Performed": "MIPS; Performance Met: 7025F"] P
-    where P.relevantPeriod starts during "Measurement Period")
+  "Denominator Procedure" E
+    with ["Procedure, Performed": "MIPS; Performance Met: 7025F"] P
+      such that P.relevantPeriod starts during E.relevantPeriod
 
 define "Denominator Exception: 7025F-1P":
   /*
    * config_link_id: 7025F-1P
    */
-  exists(["Procedure, Performed": "MIPS; Performance Met: 7025F-1P"] P
-    where P.relevantPeriod starts during "Measurement Period")
-  or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Measurement Period")
-  or exists(["Procedure, Performed": "MIPS; MIPS Hospice Service"] P
-    where P.relevantPeriod starts during "Measurement Period")
-  or exists(["Diagnosis": "VSAC; Limited Life Expectancy"] D
-    where D.prevalencePeriod overlaps "Measurement Period")
+  "Denominator Procedure" E
+    with ["Procedure, Performed": "MIPS; Denomiantor Exception: 7025F-1P"] P
+      such that P.relevantPeriod starts during E.relevantPeriod
 
 define "Numerator Performance Not Met: 7025F-8P":
   /*
