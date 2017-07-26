@@ -1,0 +1,73 @@
+measure:
+  name: 17.MIPS.Mips406
+  required:
+    display_title: "Appropriate Follow-up Imaging for Incidental Thyroid Nodules in Patients"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 406
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9554
+    required:
+      display_title: 'Final reports for CT, CTA, MRI or MRA of the chest or neck or ultrasound of the neck with follow-up imaging recommended'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 406 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; MIPS 406 Incidental Finding
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9554"
+    optional:
+      code_value: G9554
+exception_reasons:
+  - config_link_id: G9555
+    required:
+      display_title: 'Documentation of medical reason(s) for recommending follow-up imaging (e.g., patient has multiple endocrine neoplasia, patient has cervical lymphadenopathy, other medical reason(s))'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 406 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; MIPS 406 Incidental Finding
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G9555"
+    optional:
+      code_value: G9555
+performance_not_met_reasons:
+  - config_link_id: G9556
+    required:
+      display_title: 'Final reports for CT, CTA, MRI or MRA of the chest or neck or ultrasound of the neck with follow-up imaging not recommended'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 406 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; MIPS 406 Incidental Finding
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9554"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9556"
+    optional:
+      code_value: G9556
