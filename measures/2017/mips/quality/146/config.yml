@@ -1,0 +1,141 @@
+measure:
+  name: 17.MIPS.Mips146
+  required:
+    display_title: "Radiology: Inappropriate Use of “Probably Benign” Assessment Category in Screening Mammograms"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 146
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: 3343F
+    required:
+      display_title: 'Mammogram assessment category of "probably benign" documented'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 146 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Mammogram
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Met: 3343F'
+    optional:
+      code_value: 3343F
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: 3340F
+    required:
+      display_title: 'Mammogram assessment category of "incomplete: aneed additional imaging evaluation" documented'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 146 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Mammogram
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Not Met: 3340F'
+    optional:
+      code_value: 3340F
+  - config_link_id: 3341F
+    required:
+      display_title: 'Mammogram assessment category of "negative" documented'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 146 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Mammogram
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Not Met: 3341F'
+    optional:
+      code_value: 3341F
+  - config_link_id: 3342F
+    required:
+      display_title: 'Mammogram assessment category of “benign” documented'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 146 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Mammogram
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Not Met: 3342F'
+    optional:
+      code_value: 3342F
+  - config_link_id: 3344F
+    required:
+      display_title: 'Mammogram assessment category of "suspicious" documented'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 146 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Mammogram
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Not Met: 3344F'
+    optional:
+      code_value: 3344F
+  - config_link_id: 3345F
+    required:
+      display_title: 'Mammogram assessment category of "suspicious" documented'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 146 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Mammogram
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Not Met: 3345F'
+    optional:
+      code_value: 3345F
+  - config_link_id: 3350F
+    required:
+      display_title: 'Mammogram assessment category of "known biopsy proven malignancy" documented'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 146 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Mammogram
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Not Met: 3350F'
+    optional:
+      code_value: 3350F
