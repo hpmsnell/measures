@@ -1,0 +1,411 @@
+measure_id: 17.MIPS.Mips405
+test_set_keys:
+  organization_key:
+    episodes_of_care:
+    - name: Denominator Encounter #  Encounter prior to measurement year
+      start_datetime: 2015-12-31
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Encounter #  Encounter at beginning of measurement year
+      start_datetime: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9550
+    - name: Denominator Encounter #  Encounter at end of measurement year
+      start_datetime: 2016-12-31
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9550
+    - name: Denominator Encounter #  Encounter after measurement year
+      start_datetime: 2017-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Finding #  Finding prior to measurement year
+      start_datetime: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Finding #  Finding at beginning of measurement year
+      start_datetime: 2016-03-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9550
+    - name: Denominator Finding #  Finding at end of measurement year
+      start_datetime: 2016-04-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9550
+    - name: Denominator Finding #  Finding after measurement year
+      start_datetime: 2017-05-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: PerformanceMet G9548 #  PerformanceMet before Encounter
+      start_datetime: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9550
+    - name: PerformanceMet G9548 #  PerformanceMet at lower bound of Encounter
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9548
+    - name: PerformanceMet G9548 #  PerformanceMet at upper bound of Encounter
+      start_datetime: 2016-03-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9548
+    - name: PerformanceMet G9548 #  PerformanceMet after Encounter
+      start_datetime: 2016-04-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9550
+    - name: Exception G9549 #  Exception before Encounter
+      start_datetime: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9550
+    - name: Exception G9549 #  Exception at lower bound of Encounter
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9549
+      numerator:
+    - name: Exception G9549 #  Exception at upper bound of Encounter
+      start_datetime: 2016-03-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9549
+      numerator:
+    - name: Exception G9549 #  Exception after Encounter
+      start_datetime: 2016-04-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9550
+  providers_key:
+  - name: Rachel
+    episodes_of_care:
+    - name: Denominator Encounter #  Encounter prior to measurement year
+      start_datetime: 2015-12-31
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Encounter #  Encounter at beginning of measurement year
+      start_datetime: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9550
+    - name: Denominator Encounter #  Encounter at end of measurement year
+      start_datetime: 2016-12-31
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9550
+    - name: Denominator Encounter #  Encounter after measurement year
+      start_datetime: 2017-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Finding #  Finding prior to measurement year
+      start_datetime: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Finding #  Finding at beginning of measurement year
+      start_datetime: 2016-03-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9550
+    - name: Denominator Finding #  Finding at end of measurement year
+      start_datetime: 2016-04-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9550
+    - name: Denominator Finding #  Finding after measurement year
+      start_datetime: 2017-05-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: PerformanceMet G9548 #  PerformanceMet before Encounter
+      start_datetime: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9550
+    - name: PerformanceMet G9548 #  PerformanceMet at lower bound of Encounter
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9548
+    - name: PerformanceMet G9548 #  PerformanceMet at upper bound of Encounter
+      start_datetime: 2016-03-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9548
+    - name: PerformanceMet G9548 #  PerformanceMet after Encounter
+      start_datetime: 2016-04-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9550
+    - name: Exception G9549 #  Exception before Encounter
+      start_datetime: 2016-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exception G9549 #  Exception at lower bound of Encounter
+      start_datetime: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exception G9549 #  Exception at upper bound of Encounter
+      start_datetime: 2016-03-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exception G9549 #  Exception after Encounter
+      start_datetime: 2016-04-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  credential: DO
+  primary_specialty: Family Medicine
+  external_id: '111-111'
+- given_name: Patty
+  family_name: PrimaryCare
+  credential: MD
+  primary_specialty: Family Medicine
+  external_id: '222-222'
+patients:
+- name: Denominator Encounter
+  attributes:
+    date_of_birth: 1990-01-02
+    given_name: Denominator
+    family_name: Encounter
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 74150
+      start_datetime: 2015-12-31 # Too early
+      stop_datetime: 2015-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: 74150
+      start_datetime: 2016-01-01 # Lower bound
+      stop_datetime: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 74150
+      start_datetime: 2016-12-31 # Upper bound
+      stop_datetime: 2016-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: 74150
+      start_datetime: 2017-01-01 # Too late
+      stop_datetime: 2017-01-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9547
+      start_datetime: 2015-12-31
+      stop_datetime: 2015-12-31
+    - code_type: HCPCS
+      code_value: G9547
+      start_datetime: 2016-01-01
+      stop_datetime: 2016-01-01
+    - code_type: HCPCS
+      code_value: G9547
+      start_datetime: 2016-12-31
+      stop_datetime: 2016-12-31
+    - code_type: HCPCS
+      code_value: G9547
+      start_datetime: 2017-01-01
+      stop_datetime: 2017-01-01
+- name: Denominator Finding
+  attributes:
+    date_of_birth: 1990-01-02
+    given_name: Denominator
+    family_name: Finding
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 74150
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 74150
+      start_datetime: 2016-03-01
+      stop_datetime: 2016-03-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 74150
+      start_datetime: 2016-04-01
+      stop_datetime: 2016-04-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 74150
+      start_datetime: 2016-05-01
+      stop_datetime: 2016-05-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9547
+      start_datetime: 2016-01-01
+      stop_datetime: 2016-01-31 # Too early
+    - code_type: HCPCS
+      code_value: G9547
+      start_datetime: 2016-03-01 # Lower bound
+      stop_datetime: 2016-03-01
+    - code_type: HCPCS
+      code_value: G9547
+      start_datetime: 2016-04-02 # Upper bound
+      stop_datetime: 2016-04-02
+    - code_type: HCPCS
+      code_value: G9547
+      start_datetime: 2016-05-03 # Too late
+      stop_datetime: 2016-05-04
+- name: PerformanceMet G9548
+  attributes:
+    date_of_birth: 1990-01-02
+    given_name: PerformanceMet
+    family_name: G9548
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 74150
+      start_datetime: 2016-01-01 # Encounter
+      stop_datetime: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 74150
+      start_datetime: 2016-02-01 # Encounter
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 74150
+      start_datetime: 2016-03-01 # Encounter
+      stop_datetime: 2016-03-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 74150
+      start_datetime: 2016-04-01 # Encounter
+      stop_datetime: 2016-04-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9547
+      start_datetime: 2016-01-01
+      stop_datetime: 2016-01-01
+    - code_type: HCPCS
+      code_value: G9547
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: HCPCS
+      code_value: G9547
+      start_datetime: 2016-03-01
+      stop_datetime: 2016-03-01
+    - code_type: HCPCS
+      code_value: G9547
+      start_datetime: 2016-04-01
+      stop_datetime: 2016-04-01
+    - code_type: CPT
+      code_value: G9548
+      start_datetime: 2015-12-31 # Early
+    - code_type: CPT
+      code_value: G9548
+      start_datetime: 2016-02-01 # Lower
+    - code_type: CPT
+      code_value: G9548
+      start_datetime: 2016-03-02 # Upper
+    - code_type: CPT
+      code_value: G9548
+      start_datetime: 2016-04-03 # Late
+- name: Exception G9549
+  attributes:
+    date_of_birth: 1990-01-02
+    given_name: Exception
+    family_name: G9549
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 74150
+      start_datetime: 2016-01-01 # Encounter
+      stop_datetime: 2016-01-02
+      provider: Patty
+    - code_type: CPT
+      code_value: 74150
+      start_datetime: 2016-02-01 # Encounter
+      stop_datetime: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: 74150
+      start_datetime: 2016-03-01 # Encounter
+      stop_datetime: 2016-03-02
+      provider: Patty
+    - code_type: CPT
+      code_value: 74150
+      start_datetime: 2016-04-01 # Encounter
+      stop_datetime: 2016-04-02
+      provider: Patty
+    - code_type: HCPCS
+      code_value: G9547
+      start_datetime: 2016-01-01
+      stop_datetime: 2016-01-01
+    - code_type: HCPCS
+      code_value: G9547
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: HCPCS
+      code_value: G9547
+      start_datetime: 2016-03-01
+      stop_datetime: 2016-03-01
+    - code_type: HCPCS
+      code_value: G9547
+      start_datetime: 2016-04-01
+      stop_datetime: 2016-04-01
+    - code_type: CPT
+      code_value: G9549
+      start_datetime: 2015-12-31 # Early
+    - code_type: CPT
+      code_value: G9549
+      start_datetime: 2016-02-01 # Lower
+    - code_type: CPT
+      code_value: G9549
+      start_datetime: 2016-03-02 # Upper
+    - code_type: CPT
+      code_value: G9549
+      start_datetime: 2016-04-03 # Late

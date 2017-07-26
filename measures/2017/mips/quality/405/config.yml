@@ -1,0 +1,73 @@
+measure:
+  name: 17.MIPS.Mips405
+  required:
+    display_title: "Appropriate Follow-up Imaging for Incidental Abdominal Lesions"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 405
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9548
+    required:
+      display_title: Final reports for abdominal imaging studies with follow-up imaging recommended
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 405 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; MIPS 405 Incidental Finding
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9548"
+    optional:
+      code_value: G9548
+exception_reasons:
+  - config_link_id: G9549
+    required:
+      display_title: "Documentation of medical reason(s) that follow-up imaging is indicated (e.g., patient has a known malignancy that can metastasize, other medical reason(s) such as fever in an immunocompromised patient)"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 405 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; MIPS 405 Incidental Finding
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G9549"
+    optional:
+      code_value: G9549
+performance_not_met_reasons:
+  - config_link_id: G9550
+    required:
+      display_title: "Final reports for abdominal imaging studies with follow-up imaging not recommended"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 405 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; MIPS 405 Incidental Finding
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9548"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9550"
+    optional:
+      code_value: G9550
