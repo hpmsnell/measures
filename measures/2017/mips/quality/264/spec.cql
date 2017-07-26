@@ -12,7 +12,7 @@ using QDM
 
 // MIPS value sets
 
-valueset "MIPS; MIPS 264 Procedure"
+valueset "MIPS; MIPS 264 Encounter"
 valueset "MIPS; Female/Male Breast Cancer"
 valueset "MIPS; Clinically Node Negative Invasive Breast Cancer"
 valueset "MIPS; Performance Met: G8878"
