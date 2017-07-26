@@ -39,16 +39,20 @@ define "Numerator Performance Met: G9548":
    * config_link_id: G9548
    */
   "Denominator Procedure" E
-    with ["Procedure, Performed": "MIPS; Performance Met: G9548"] P
-      such that P.relevantPeriod starts during E.relevantPeriod
+    with ["Procedure, Performed": "MIPS; Performance Met: G9548"] P1
+      such that P1.relevantPeriod starts during E.relevantPeriod
+    without ["Procedure, Performed": "MIPS; Denomiantor Exception: G9549"] P2
+      such that P2.relevantPeriod starts during E.relevantPeriod
 
 define "Denominator Exception: G9549":
   /*
    * config_link_id: G9549
    */
   "Denominator Procedure" E
-    with ["Procedure, Performed": "MIPS; Denomiantor Exception: G9549"] P
-      such that P.relevantPeriod starts during E.relevantPeriod
+    with ["Procedure, Performed": "MIPS; Performance Met: G9548"] P1
+      such that P1.relevantPeriod starts during E.relevantPeriod
+    with ["Procedure, Performed": "MIPS; Denomiantor Exception: G9549"] P2
+      such that P2.relevantPeriod starts during E.relevantPeriod
 
 define "Numerator Performance Not Met: G9550":
   /*

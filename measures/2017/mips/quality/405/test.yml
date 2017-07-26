@@ -79,7 +79,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9550
+      numerator: G9548
     - name: Exception G9549 #  Exception at lower bound of Encounter
       start_datetime: 2016-02-01
       denominator: 1
@@ -94,6 +94,12 @@ test_set_keys:
       numerator:
     - name: Exception G9549 #  Exception after Encounter
       start_datetime: 2016-04-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9548
+    - name: Exception G9549 #  Exception without PerformanceMet
+      start_datetime: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -193,6 +199,12 @@ test_set_keys:
       numerator:
     - name: Exception G9549 #  Exception after Encounter
       start_datetime: 2016-04-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exception G9549 #  Exception without PerformanceMet
+      start_datetime: 2016-05-01
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -381,6 +393,11 @@ patients:
       start_datetime: 2016-04-01 # Encounter
       stop_datetime: 2016-04-02
       provider: Patty
+    - code_type: CPT
+      code_value: 74150
+      start_datetime: 2016-05-01 # Encounter
+      stop_datetime: 2016-05-02
+      provider: Patty
     - code_type: HCPCS
       code_value: G9547
       start_datetime: 2016-01-01
@@ -398,6 +415,22 @@ patients:
       start_datetime: 2016-04-01
       stop_datetime: 2016-04-01
     - code_type: HCPCS
+      code_value: G9547
+      start_datetime: 2016-05-01
+      stop_datetime: 2016-05-01
+    - code_type: HCPCS
+      code_value: G9548
+      start_datetime: 2016-01-01
+    - code_type: HCPCS
+      code_value: G9548
+      start_datetime: 2016-02-01
+    - code_type: HCPCS
+      code_value: G9548
+      start_datetime: 2016-03-01
+    - code_type: HCPCS
+      code_value: G9548
+      start_datetime: 2016-04-01
+    - code_type: HCPCS
       code_value: G9549
       start_datetime: 2015-12-31 # Early
     - code_type: HCPCS
@@ -409,3 +442,6 @@ patients:
     - code_type: HCPCS
       code_value: G9549
       start_datetime: 2016-04-03 # Late
+    - code_type: HCPCS
+      code_value: G9549
+      start_datetime: 2016-05-01 # No performance met
