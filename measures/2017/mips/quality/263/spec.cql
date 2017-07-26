@@ -14,7 +14,7 @@ using QDM
 // MIPS Value Sets
 
 valueset "MIPS; MIPS 263 Procedure"
-valueset "MIPS; Female/Male Breast Cancer"
+valueset "MIPS; MIPS 263 Breast Cancer"
 valueset "MIPS; MIPS 263 Exclusion"
 valueset "MIPS; Performance Met: G8875"
 valueset "MIPS; Denominator Exception: G8876"
@@ -29,7 +29,7 @@ define "Denominator Procedure":
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
-    with ["Diagnosis": "MIPS; Female/Male Breast Cancer"] D
+    with ["Diagnosis": "MIPS; MIPS 263 Breast Cancer"] D
       such that D.prevalencePeriod starts during E.relevantPeriod
 
 define "Denominator":

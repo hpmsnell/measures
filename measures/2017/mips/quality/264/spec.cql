@@ -13,7 +13,7 @@ using QDM
 // MIPS value sets
 
 valueset "MIPS; MIPS 264 Encounter"
-valueset "MIPS; Female/Male Breast Cancer"
+valueset "MIPS; MIPS 264 Breast Cancer"
 valueset "MIPS; Clinically Node Negative Invasive Breast Cancer"
 valueset "MIPS; Performance Met: G8878"
 valueset "MIPS; Denominator Exception: G8880"
@@ -32,7 +32,7 @@ define "Denominator Encounter":
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
-    with ["Diagnosis": "MIPS; Female/Male Breast Cancer"] D
+    with ["Diagnosis": "MIPS; MIPS 264 Breast Cancer"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod
     with ["Procedure, Performed": "MIPS; Clinically Node Negative Invasive Breast Cancer"] P
       such that P.relevantPeriod starts during E.relevantPeriod
