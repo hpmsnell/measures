@@ -3,7 +3,7 @@ measure:
   required:
     display_title: "Radiology: Reminder System for Screening Mammograms"
   optional:
-    gap_resolution_action: Patient requires documentation of mammogram reminder
+    gap_resolution_action:
     set: MIPS
     external_id: 225
     version: 2017
@@ -15,15 +15,15 @@ performance_met_reasons:
     required:
       display_title: Patient information entered into a reminder system with a target due date for the next mammogram
       validation_record_groups:
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: MIPS; MIPS 225 Procedure
-        - count: 1
+        - count: 10
           validation_records:
             - model: Diagnosis
               value_set: MIPS; Mammogram
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: 7025F"
@@ -34,15 +34,15 @@ exception_reasons:
     required:
       display_title: "Documentation of medical reason(s) for not entering patient information into a reminder system (eg, further screening mammograms are not indicated, such as patients with a limited life expectancy, other medical reason(s))"
       validation_record_groups:
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: MIPS; MIPS 225 Procedure
-        - count: 1
+        - count: 10
           validation_records:
             - model: Diagnosis
               value_set: MIPS; Mammogram
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Denominator Exception: 7025F-1P"
@@ -53,19 +53,19 @@ performance_not_met_reasons:
     required:
       display_title: Patient information not entered into a reminder system, reason not otherwise specified
       validation_record_groups:
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: MIPS; MIPS 225 Procedure
-        - count: 1
+        - count: 10
           validation_records:
             - model: Diagnosis
               value_set: MIPS; Mammogram
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: 7025F"
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Not Met: 7025F-8P"
