@@ -1,0 +1,51 @@
+measure:
+  name: 17.MIPS.Mips350
+  required:
+    display_title: "Total Knee Replacement: Shared Decision-Making: Trial of Conservative (Nonsurgical) Therapy"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 350
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9296
+    required:
+      display_title: 'Patients with documented shared decision-making including discussion of conservative (non-surgical) therapy (e.g., NSAIDs, analgesics, weight loss, exercise, injections) prior to the procedure'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 350 Procedure
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9296"
+            - model: ClinicalActivity
+              value_set: "Able; Shared Decision-Making"
+    optional:
+      code_value: G9296
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: G9297
+    required:
+      display_title: "Final reports for abdominal imaging studies with follow-up imaging not recommended"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 350 Procedure
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9296"
+            - model: ClinicalActivity
+              value_set: "Able; Shared Decision-Making"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9297"
+    optional:
+      code_value: G9297

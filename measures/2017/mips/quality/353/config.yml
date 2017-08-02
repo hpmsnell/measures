@@ -1,0 +1,47 @@
+measure:
+  name: 17.MIPS.Mips353
+  required:
+    display_title: "Total Knee Replacement: Identification of Implanted Prosthesis in Operative Report"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 353
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9304
+    required:
+      display_title: 'Operative report identifies the prosthetic implant specifications including the prosthetic implant manufacturer, the brand name of the prosthetic implant and the size of each prosthetic implant'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 353 Procedure
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9304"
+    optional:
+      code_value: G9304
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: G9303
+    required:
+      display_title: "Operative report does not identify the prosthetic implant specifications including the prosthetic implant manufacturer, the brand name of the prosthetic implant and the size of each prosthetic implant, reason not given"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 353 Procedure
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9304"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9303"
+    optional:
+      code_value: G9303
