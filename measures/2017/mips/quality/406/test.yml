@@ -2,6 +2,18 @@ measure_id: 17.MIPS.Mips406
 test_set_keys:
   organization_key:
     episodes_of_care:
+    - name: Too Young # Too young
+      start_datetime: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower # Age at lower bound
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9556
     - name: Denominator Encounter #  Encounter prior to measurement year
       start_datetime: 2015-12-31
       denominator:
@@ -107,6 +119,18 @@ test_set_keys:
   providers_key:
   - name: Rachel
     episodes_of_care:
+    - name: Too Young # Too young
+      start_datetime: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower # Age at lower bound
+      start_datetime: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9556
     - name: Denominator Encounter #  Encounter prior to measurement year
       start_datetime: 2015-12-31
       denominator:
@@ -221,6 +245,40 @@ providers:
   primary_specialty: Family Medicine
   external_id: '222-222'
 patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1998-02-02
+    given_name: Too
+    family_name: Young
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70490
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9552
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+- name: Age Lower
+  attributes:
+    date_of_birth: 1998-02-01
+    given_name: Age
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70490
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9552
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
 - name: Denominator Encounter
   attributes:
     date_of_birth: 1990-01-02
