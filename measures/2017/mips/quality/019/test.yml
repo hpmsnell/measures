@@ -1,0 +1,813 @@
+measure_id: 17.MIPS.Mips019
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Too Young # Patient is too young for the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower # Patient is at lower age bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: Encounter Before # Encounter before allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Lower # Encounter is at lower bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: Encounter Upper # Encounter is at upper bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: Encounter After  # Encounter is after allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Diagnosis Before # Patient has a diagnosis that is early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Diagnosis Lower # Patient has a diagnosis at lower bound of period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: Diagnosis Upper # Patient has a diagnosis at upper bound of period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: Diagnosis After  # Patient has a diagnosis that is late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exam Before # Exam too early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exam Lower # Exam at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: Exam Upper # Exam at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: Exam After # Exam too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: 5010F Before # 5010F too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: 5010F Lower # 5010F at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F
+    - name: 5010F Upper # 5010F at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F
+    - name: 5010F After # 5010F too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: 5010F-1P Before # 5010F-1P too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: 5010F-1P Lower # 5010F-1P at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 5010F-1P
+      numerator:
+    - name: 5010F-1P Upper # 5010F-1P at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 5010F-1P
+      numerator:
+    - name: 5010F-1P After # 5010F-1P too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: 5010F-2P Before # 5010F-2P too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: 5010F-2P Lower # 5010F-2P at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 5010F-2P
+      numerator:
+    - name: 5010F-2P Upper # 5010F-2P at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 5010F-2P
+      numerator:
+    - name: 5010F-2P After # 5010F-2P too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+  providers_key:
+  - name: Rachel
+    patients:
+    - name: Too Young # Patient is too young for the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower # Patient is at lower age bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: Encounter Before # Encounter before allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Lower # Encounter is at lower bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: Encounter Upper # Encounter is at upper bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: Encounter After  # Encounter is after allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Diagnosis Before # Patient has a diagnosis that is early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Diagnosis Lower # Patient has a diagnosis at lower bound of period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: Diagnosis Upper # Patient has a diagnosis at upper bound of period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: Diagnosis After  # Patient has a diagnosis that is late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exam Before # Exam too early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exam Lower # Exam at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: Exam Upper # Exam at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: Exam After # Exam too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: 5010F Before # 5010F too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: 5010F Lower # 5010F at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F
+    - name: 5010F Upper # 5010F at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F
+    - name: 5010F After # 5010F too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: 5010F-1P Before # 5010F-1P too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: 5010F-1P Lower # 5010F-1P at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 5010F-1P
+      numerator:
+    - name: 5010F-1P Upper # 5010F-1P at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 5010F-1P
+      numerator:
+    - name: 5010F-1P After # 5010F-1P too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: 5010F-2P Before # 5010F-2P too early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: 5010F-2P Lower # 5010F-2P at start of allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: 5010F-2P Upper # 5010F-2P at end of allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: 5010F-2P After # 5010F-2P too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  external_id: '111-111'
+  credential: DO
+  primary_specialty: Family Medicine
+- given_name: Patty
+  family_name: PrimaryCare
+  external_id: '222-222'
+  credential: MD
+  primary_specialty: Family Medicine
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1998-02-02 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E08.311
+      start_datetime: 2010-01-01
+- name: Age Lower
+  attributes:
+    date_of_birth: 1998-02-01
+    given_name: Age
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: Encounter Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2015-12-31 # Too early
+      stop_datetime: 2015-12-31
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2015-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: Encounter Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-01-01 # Too early
+      stop_datetime: 2016-01-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: Encounter Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-12-31 # Too early
+      stop_datetime: 2016-12-31
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: Encounter After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2017-01-01 # Too early
+      stop_datetime: 2017-01-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2017-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: Diagnosis Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Diagnosis
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+      stop_datetime: 2015-01-31 # Too early
+- name: Diagnosis Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Diagnosis
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2016-01-01
+      stop_datetime: 2016-02-01 # Lower bound
+- name: Diagnosis Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Diagnosis
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2016-02-02 # Upper bound
+- name: Diagnosis After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Diagnosis
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2016-02-03
+- name: Exam Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exam
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-01-31 # Early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: Exam Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exam
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01 # Lower
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: Exam Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exam
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-02 # Upper
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: Exam After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exam
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-03 # Late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: 5010F Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: 5010F
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: 5010F # Performance Met
+      start_datetime: 2015-12-31 # Early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: 5010F Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: 5010F
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: 5010F # Performance Met
+      start_datetime: 2016-01-01 # Lower
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: 5010F Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: 5010F
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: 5010F # Performance Met
+      start_datetime: 2016-12-31 # Upper
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: 5010F After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: 5010F
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: 5010F # Performance Met
+      start_datetime: 2017-01-01 # Late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: 5010F-1P Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: 5010F-1P
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 5010F-1P
+      start_datetime: 2015-12-31 # Early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: 5010F-1P Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: 5010F-1P
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 5010F-1P
+      start_datetime: 2016-01-01 # Lower
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: 5010F-1P Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: 5010F-1P
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 5010F-1P
+      start_datetime: 2016-12-31 # Upper
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: 5010F-1P After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: 5010F-1P
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 5010F-1P
+      start_datetime: 2017-01-01 # Late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: 5010F-2P Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: 5010F-2P
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: 5010F-2P
+      start_datetime: 2015-12-31 # Early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: 5010F-2P Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: 5010F-2P
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: 5010F-2P
+      start_datetime: 2016-01-01 # Lower
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: 5010F-2P Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: 5010F-2P
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: 5010F-2P
+      start_datetime: 2016-12-31 # Upper
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01
+- name: 5010F-2P After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: 5010F-2P
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: 5010F-2P
+      start_datetime: 2017-01-01 # Late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: H40.10X0
+      start_datetime: 2010-01-01

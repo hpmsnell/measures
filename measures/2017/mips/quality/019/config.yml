@@ -1,0 +1,107 @@
+measure:
+  name: 17.MIPS.Mips019
+  required:
+    display_title: "Diabetic Retinopathy: Communication with the Physician Managing Ongoing Diabetes Care"
+  optional:
+    gap_resolution_action: "Patient requires communication of dilated macular or fundus exam findings to clinician managing diabetes care"
+    set: MIPS
+    external_id: '019'
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: 5010F
+    required:
+      display_title: 'Findings of dilated macular or fundus exam communicated to the physician or other qualified health care professional managing the diabetes care'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 019 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Diabetic Retinopathy
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Dilated Macular or Fundus Exam"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 5010F"
+    optional:
+      code_value: 5010F
+exception_reasons:
+  - config_link_id: 5010F-1P
+    required:
+      display_title: 'Documentation of medical reason(s) for not communicating the findings of the dilated macular or fundus exam to the physician or other qualified health care professional managing the ongoing care of the patient with diabetes'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 019 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Diabetic Retinopathy
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Dilated Macular or Fundus Exam"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 5010F-1P"
+    optional:
+      code_value: 5010F-1P
+  - config_link_id: 5010F-2P
+    required:
+      display_title: 'Documentation of patient reason(s) for not communicating the findings of the dilated macular or fundus exam to the physician or other qualified health care professional managing the ongoing care of the patient with diabetes'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 019 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Diabetic Retinopathy
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Dilated Macular or Fundus Exam"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 5010F-2P"
+    optional:
+      code_value: 5010F-2P
+performance_not_met_reasons:
+  - config_link_id: 5010F-8P
+    required:
+      display_title: "Findings of dilated macular or fundus exam were not communicated to the physician managing the diabetes care, reason not otherwise specified"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 019 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Diabetic Retinopathy
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Dilated Macular or Fundus Exam"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 5010F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 5010F-8P"
+    optional:
+      code_value: 5010F-8P
