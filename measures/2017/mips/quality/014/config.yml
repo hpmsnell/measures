@@ -1,0 +1,91 @@
+measure:
+  name: 17.MIPS.Mips014
+  required:
+    display_title: "Age-Related Macular Degeneration (AMD): Dilated Macular Examination"
+  optional:
+    gap_resolution_action: "Patient requires a dilated macular exam and/or documentation of findings"
+    set: MIPS
+    external_id: '014'
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: 2019F
+    required:
+      display_title: 'Dilated macular exam performed, including documentation of the presence or absence of macular thickening or hemorrhage AND the level ofmacular degeneration severity'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 014 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Age-Related Macular Degeneration
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 2019F"
+    optional:
+      code_value: 2019F
+exception_reasons:
+  - config_link_id: 2019F-1P
+    required:
+      display_title: 'Documentation of medical reason(s) for not performing a dilated macular examination'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 014 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Age-Related Macular Degeneration
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 2019F-1P"
+    optional:
+      code_value: 2019F-1P
+  - config_link_id: 2019F-2P
+    required:
+      display_title: 'Documentation of patient reason(s) for not performing a dilated macular examination'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 014 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Age-Related Macular Degeneration
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 2019F-2P"
+    optional:
+      code_value: 2019F-2P
+performance_not_met_reasons:
+  - config_link_id: 2019F-8P
+    required:
+      display_title: "Dilated macular exam was not performed, reason not otherwise specified"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 014 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Age-Related Macular Degeneration
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 2019F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 2019F-8P"
+    optional:
+      code_value: 2019F-8P
