@@ -315,7 +315,7 @@ patients:
       start_datetime: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: Encounter Before
   attributes:
@@ -335,7 +335,7 @@ patients:
       start_datetime: 2015-12-31
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: Encounter Lower
   attributes:
@@ -355,7 +355,7 @@ patients:
       start_datetime: 2016-01-01
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: Encounter Upper
   attributes:
@@ -375,7 +375,7 @@ patients:
       start_datetime: 2016-12-31
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: Encounter After
   attributes:
@@ -395,7 +395,7 @@ patients:
       start_datetime: 2017-01-01
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: Diagnosis Before
   attributes:
@@ -415,7 +415,7 @@ patients:
       start_datetime: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
       stop_datetime: 2015-01-31 # Too early
 - name: Diagnosis Lower
@@ -436,7 +436,7 @@ patients:
       start_datetime: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2016-01-01
       stop_datetime: 2016-02-01 # Lower bound
 - name: Diagnosis Upper
@@ -457,7 +457,7 @@ patients:
       start_datetime: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2016-02-02 # Upper bound
 - name: Diagnosis After
   attributes:
@@ -477,7 +477,7 @@ patients:
       start_datetime: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2016-02-03
 - name: Exam Before
   attributes:
@@ -497,7 +497,7 @@ patients:
       start_datetime: 2016-01-31 # Early
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: Exam Lower
   attributes:
@@ -517,7 +517,7 @@ patients:
       start_datetime: 2016-02-01 # Lower
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: Exam Upper
   attributes:
@@ -537,7 +537,7 @@ patients:
       start_datetime: 2016-02-02 # Upper
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: Exam After
   attributes:
@@ -557,7 +557,7 @@ patients:
       start_datetime: 2016-02-03 # Late
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: 5010F Before
   attributes:
@@ -580,7 +580,7 @@ patients:
       start_datetime: 2015-12-31 # Early
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: 5010F Lower
   attributes:
@@ -603,7 +603,7 @@ patients:
       start_datetime: 2016-01-01 # Lower
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: 5010F Upper
   attributes:
@@ -626,7 +626,7 @@ patients:
       start_datetime: 2016-12-31 # Upper
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: 5010F After
   attributes:
@@ -649,7 +649,7 @@ patients:
       start_datetime: 2017-01-01 # Late
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: 5010F-1P Before
   attributes:
@@ -664,12 +664,15 @@ patients:
       start_datetime: 2016-02-01
       stop_datetime: 2016-02-02
       provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01
     - code_type: CPT
       code_value: 5010F-1P
       start_datetime: 2015-12-31 # Early
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: 5010F-1P Lower
   attributes:
@@ -684,12 +687,15 @@ patients:
       start_datetime: 2016-02-01
       stop_datetime: 2016-02-02
       provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01
     - code_type: CPT
       code_value: 5010F-1P
       start_datetime: 2016-01-01 # Lower
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: 5010F-1P Upper
   attributes:
@@ -704,12 +710,15 @@ patients:
       start_datetime: 2016-02-01
       stop_datetime: 2016-02-02
       provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01
     - code_type: CPT
       code_value: 5010F-1P
       start_datetime: 2016-12-31 # Upper
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: 5010F-1P After
   attributes:
@@ -724,12 +733,15 @@ patients:
       start_datetime: 2016-02-01
       stop_datetime: 2016-02-02
       provider: Rachel
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01
     - code_type: CPT
       code_value: 5010F-1P
       start_datetime: 2017-01-01 # Late
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: 5010F-2P Before
   attributes:
@@ -744,12 +756,15 @@ patients:
       start_datetime: 2016-02-01
       stop_datetime: 2016-02-02
       provider: Patty
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01
     - code_type: CPT
       code_value: 5010F-2P
       start_datetime: 2015-12-31 # Early
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: 5010F-2P Lower
   attributes:
@@ -764,12 +779,15 @@ patients:
       start_datetime: 2016-02-01
       stop_datetime: 2016-02-02
       provider: Patty
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01
     - code_type: CPT
       code_value: 5010F-2P
       start_datetime: 2016-01-01 # Lower
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: 5010F-2P Upper
   attributes:
@@ -784,12 +802,15 @@ patients:
       start_datetime: 2016-02-01
       stop_datetime: 2016-02-02
       provider: Patty
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01
     - code_type: CPT
       code_value: 5010F-2P
       start_datetime: 2016-12-31 # Upper
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01
 - name: 5010F-2P After
   attributes:
@@ -804,10 +825,13 @@ patients:
       start_datetime: 2016-02-01
       stop_datetime: 2016-02-02
       provider: Patty
+    - code_type: HCPCS
+      code_value: G8397
+      start_datetime: 2016-02-01
     - code_type: CPT
       code_value: 5010F-2P
       start_datetime: 2017-01-01 # Late
     diagnoses:
     - code_type: ICD10CM
-      code_value: H40.10X0
+      code_value: E08.311
       start_datetime: 2010-01-01

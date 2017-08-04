@@ -46,8 +46,6 @@ define "Numerator Performance Met: 5010F":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 5010F"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists(["Assessment, Performed": "Able; Optic Nerve Head Evaluation"] P
-    where P.relevantPeriod starts during "Measurement Period")
 
 define "Denominator Exception: 5010F-1P":
   /*
