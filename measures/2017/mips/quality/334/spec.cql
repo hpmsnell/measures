@@ -48,7 +48,7 @@ define "Performance Met Exists":
       such that P.relevantPeriod starts on or 90 days or less after start of E.relevantPeriod)
   or count(["Procedure, Performed": "Able; CT Scan of Paranasal Sinuses"] P
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts on or 28 days or less after start of E.relevantPeriod) > 1
+      such that P.relevantPeriod starts on or 90 days or less after start of E.relevantPeriod) > 1
 
 define "Denominator Exception Exists":
   exists(["Procedure, Performed": "MIPS; Denominator Exception: G9353"] P
