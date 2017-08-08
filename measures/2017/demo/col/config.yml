@@ -1,0 +1,30 @@
+measure:
+  name: 17.Demo.Democol
+  required:
+    display_title: "Colorectal Cancer Screening"
+  optional:
+    gap_resolution_action: 'Patient is due for a colorectal cancer screening'
+    set: Demo
+    external_id: COL
+    version: 2017
+    mips_measure_type:
+    mips_high_priority:
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: performance_met
+    required:
+      display_title: 'Patient received a colorectal cancer screening'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: LaboratoryTestPerformed
+              value_set: "HEDIS; FOBT"
+performance_not_met_reasons:
+  - config_link_id: performance_not_met
+    required:
+      display_title: 'No colorectal cancer screening found within the appropriate timeframe'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: LaboratoryTestPerformed
+              value_set: "HEDIS; FOBT"

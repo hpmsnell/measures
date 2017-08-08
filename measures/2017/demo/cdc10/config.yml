@@ -1,0 +1,50 @@
+measure:
+  name: 17.Demo.Democdc10
+  required:
+    display_title: "Diabetes HbA1c <8% (Good Control)"
+  optional:
+    gap_resolution_action: 'Patient is due for an HbA1c test or needs attention due to uncontrolled result'
+    set: Demo
+    external_id: CDC10
+    version: 2017
+    mips_measure_type:
+    mips_high_priority:
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: performance_met
+    required:
+      display_title: 'Most recent HbA1c result <= 8%'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Diabetes"
+        - count: 1
+          validation_records:
+            - model: LaboratoryTestPerformed
+              value_set: "VSAC; HbA1c Laboratory Test"
+performance_not_met_reasons:
+  - config_link_id: bad_result
+    required:
+      display_title: 'Most recent HbA1c result > 8%'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Diabetes"
+        - count: 1
+          validation_records:
+            - model: LaboratoryTestPerformed
+              value_set: "VSAC; HbA1c Laboratory Test"
+  - config_link_id: no_result
+    required:
+      display_title: 'No HbA1c result found in the appropriate timeframe'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Diabetes"
+        - count: 1
+          validation_records:
+            - model: LaboratoryTestPerformed
+              value_set: "VSAC; HbA1c Laboratory Test"
