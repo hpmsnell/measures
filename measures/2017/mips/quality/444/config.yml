@@ -1,0 +1,113 @@
+measure:
+  name: 17.MIPS.Mips444
+  required:
+    display_title: "Medication Management for People with Asthma"
+  optional:
+    gap_resolution_action: "Patient requires medication management due to a proportion of days covered below 75% for asthma controller medication"
+    set: MIPS
+    external_id: '444'
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: 'Patient is excluded due to a history of COPD, Emphysema, Obstructive Chronic Bronchitis, Chronic Respiratory Conditions Due to Fumes/Vapors, Cystic Fibrosis, or Acute Respiratory Failure'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 444 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Persistent Asthma
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Competing Conditions for Persistent Asthma
+  - config_link_id: exclusion_2
+    required:
+      display_title: 'Patient is excluded due to no asthma controller medications dispensed during the measurement year'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 444 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Persistent Asthma
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "NCQA; MMA-B"
+  - config_link_id: exclusion_3
+    required:
+      display_title: 'Patient is excluded due to hospice service'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 444 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Persistent Asthma
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS Hospice Service"
+performance_met_reasons:
+  - config_link_id: G9810
+    required:
+      display_title: 'Patient achieved a PDC of at least 75% for their asthma controller medication'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 444 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Persistent Asthma
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9810"
+        - count: 10
+          validation_records:
+            - model: Medication
+              value_set: "NCQA; MMA-B"
+    optional:
+      code_value: G9810
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: G9811
+    required:
+      display_title: "Patient did not achieve a PDC of at least 75% for their asthma controller medication"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 444 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Persistent Asthma
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9810"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9811"
+        - count: 10
+          validation_records:
+            - model: Medication
+              value_set: "NCQA; MMA-B"
+    optional:
+      code_value: G9811

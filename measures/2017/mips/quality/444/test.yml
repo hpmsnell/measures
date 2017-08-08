@@ -1,0 +1,1096 @@
+measure_id: 17.MIPS.Mips444
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Too Young # Patient is too young for the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower # Patient is at lower age bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Age Upper # Patient is at upper age bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Too Old # Patient is too old for the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Before # Encounter before allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Lower # Encounter is at lower bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Encounter Upper # Encounter is at upper bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Encounter After  # Encounter is after allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Diagnosis Before # Patient has a diagnosis that is early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Diagnosis Lower # Patient has a diagnosis at lower bound of period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Diagnosis Upper # Patient has a diagnosis at upper bound of period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Diagnosis After  # Patient has a diagnosis that is late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionDiagnosis Before # Exclusion for diagnosis at end of allowable period
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionDiagnosis After # Exclusion for diagnosis too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: ExclusionNoMedication Before # Exclusion for no medication before allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: ExclusionNoMedication Lower # Exclusion for no medication at lower bound
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionNoMedication Upper # Exclusion for no medication at upper bound
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionNoMedication After # Exclusion for no medication after allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: ExclusionNoMedication NoMed # Exclusion for no medication
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Before # Exclusion for hospice too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: ExclusionHospice Lower # Exclusion for hospice at start of allowable period
+      denominator: 1
+      denominator_exclusion: exclusion_3
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Upper # Exclusion for hospice at end of allowable period
+      denominator: 1
+      denominator_exclusion: exclusion_3
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice After # Exclusion for hospice too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: G9810 Before # G9810 too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: G9810 Lower # G9810 at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9810
+    - name: G9810 Upper # G9810 at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9810
+    - name: G9810 After # G9810 too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Medication Before # Medication too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Medication Lower # Medication at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9810
+    - name: Medication Upper # Medication at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9810
+    - name: Medication After # Medication too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Medication Active # Medication not a prescription
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Medication Below75 # Medication below 75% days covered
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+  providers_key:
+  - name: Rachel
+    patients:
+    - name: Too Young # Patient is too young for the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower # Patient is at lower age bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Age Upper # Patient is at upper age bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Too Old # Patient is too old for the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Before # Encounter before allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Lower # Encounter is at lower bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Encounter Upper # Encounter is at upper bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Encounter After  # Encounter is after allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Diagnosis Before # Patient has a diagnosis that is early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Diagnosis Lower # Patient has a diagnosis at lower bound of period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Diagnosis Upper # Patient has a diagnosis at upper bound of period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Diagnosis After  # Patient has a diagnosis that is late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionDiagnosis Before # Exclusion for diagnosis at end of allowable period
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionDiagnosis After # Exclusion for diagnosis too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: ExclusionNoMedication Before # Exclusion for no medication before allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: ExclusionNoMedication Lower # Exclusion for no medication at lower bound
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionNoMedication Upper # Exclusion for no medication at upper bound
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionNoMedication After # Exclusion for no medication after allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: ExclusionNoMedication NoMed # Exclusion for no medication
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Before # Exclusion for hospice too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: ExclusionHospice Lower # Exclusion for hospice at start of allowable period
+      denominator: 1
+      denominator_exclusion: exclusion_3
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Upper # Exclusion for hospice at end of allowable period
+      denominator: 1
+      denominator_exclusion: exclusion_3
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice After # Exclusion for hospice too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: G9810 Before # G9810 too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: G9810 Lower # G9810 at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9810
+    - name: G9810 Upper # G9810 at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9810
+    - name: G9810 After # G9810 too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Medication Before # Medication too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Medication Lower # Medication at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9810
+    - name: Medication Upper # Medication at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9810
+    - name: Medication After # Medication too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Medication Active # Medication not a prescription
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9811
+    - name: Medication Below75 # Medication below 75% days covered
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  external_id: '111-111'
+  credential: DO
+  primary_specialty: Family Medicine
+- given_name: Patty
+  family_name: PrimaryCare
+  external_id: '222-222'
+  credential: MD
+  primary_specialty: Family Medicine
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 2011-02-02 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: Age Lower
+  attributes:
+    date_of_birth: 2011-02-01 # Lower bound
+    given_name: Age
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: Age Upper
+  attributes:
+    date_of_birth: 1952-02-02 # Upper bound
+    given_name: Age
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: Too Old
+  attributes:
+    date_of_birth: 1952-02-02 # Too early
+    given_name: Too
+    family_name: Old
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: Encounter Before
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: Encounter
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2015-12-31 # Too early
+      stop_datetime: 2015-12-31
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: Encounter Lower
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: Encounter
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-01-01 # Lower bound
+      stop_datetime: 2016-01-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9808
+      start_datetime: 2016-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: Encounter Upper
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: Encounter
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-12-31 # Upper bound
+      stop_datetime: 2016-12-31
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9808
+      start_datetime: 2016-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: Encounter After
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: Encounter
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2017-01-01 # Too late
+      stop_datetime: 2017-01-01
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9808
+      start_datetime: 2017-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: Diagnosis Before
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: Diagnosis
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+      stop_datetime: 2015-01-31 # Too early
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: Diagnosis Lower
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: Diagnosis
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2016-01-01
+      stop_datetime: 2016-02-01 # Lower bound
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: Diagnosis Upper
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: Diagnosis
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2016-02-02 # Upper bound
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: Diagnosis After
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: Diagnosis
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2016-02-03
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: ExclusionDiagnosis Before
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: ExclusionDiagnosis
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    - code_type: ICD10CM
+      code_value: E84.0 # Competing condition
+      start_datetime: 2010-01-01 # Before deadline
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: ExclusionDiagnosis After
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: ExclusionDiagnosis
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    - code_type: ICD10CM
+      code_value: E84.0 # Competing condition
+      start_datetime: 2017-01-01 # After deadline
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: ExclusionNoMedication Before
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: ExclusionNoMedication
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9808
+      start_datetime: 2015-12-31 # Early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: ExclusionNoMedication Lower
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: ExclusionNoMedication
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9808
+      start_datetime: 2016-01-01 # Lower
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: ExclusionNoMedication Upper
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: ExclusionNoMedication
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9808
+      start_datetime: 2016-12-31 # Upper
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: ExclusionNoMedication After
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: ExclusionNoMedication
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9808
+      start_datetime: 2017-01-01 # Late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: ExclusionNoMedication NoMed
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: ExclusionNoMedication
+    family_name: NoMed
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+- name: ExclusionHospice Before
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: ExclusionHospice
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9809
+      start_datetime: 2015-12-31 # Early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: ExclusionHospice Lower
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: ExclusionHospice
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9809
+      start_datetime: 2016-01-01 # Lower
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: ExclusionHospice Upper
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: ExclusionHospice
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9809
+      start_datetime: 2016-12-31 # Upper
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: ExclusionHospice After
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: ExclusionHospice
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: HCPCS
+      code_value: G9809
+      start_datetime: 2017-01-01 # Late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: G9810 Before
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: G9810
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9810 # Performance Met
+      start_datetime: 2015-12-31 # Early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: G9810 Lower
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: G9810
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9810 # Performance Met
+      start_datetime: 2016-01-01 # Lower
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: G9810 Upper
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: G9810
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9810 # Performance Met
+      start_datetime: 2016-12-31 # Upper
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: G9810 After
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: G9810
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9810 # Performance Met
+      start_datetime: 2017-01-01 # Late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+- name: Medication Before
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: Medication
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      method: E
+      days_supplied: 365
+      start_datetime: 2015-12-31 # Early
+- name: Medication Lower
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: Medication
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      method: E
+      days_supplied: 270
+      start_datetime: 2016-01-01 # Lower bound, 365 days before end of measurement year
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      method: E
+      days_supplied: 4
+      start_datetime: 2016-02-01
+- name: Medication Upper
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: Medication
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      method: E
+      days_supplied: 1
+      start_datetime: 2016-12-31 # Upper bound, 1 day before end of measurement year
+- name: Medication After
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: Medication
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      start_datetime: 2010-01-01
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      method: E
+      days_supplied: 365
+      start_datetime: 2017-01-01 # Upper bound, 1 day before end of measurement year
+- name: Medication Below75
+  attributes:
+    date_of_birth: 1960-01-01
+    given_name: Medication
+    family_name: Below75
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.30 # Persistent asthma
+      start_datetime: 2010-01-01
+    medication:
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      method: E
+      days_supplied: 70
+      start_datetime: 2016-09-22 # 100 days before end of measurement year
+    - code_type: NDC
+      code_value: 00037054568 # Medication controller
+      method: E
+      days_supplied: 4
+      start_datetime: 2016-10-01
