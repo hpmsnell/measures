@@ -48,16 +48,28 @@ define "Asthma Controller Prescription":
   ["Medication, Order": "NCQA; MMA-B"] M
     where M.relevantPeriod starts during "Measurement Period"
 
+define "Prescription Start Date":
+  "Asthma Controller Prescription" M
+    return start of M.relevantPeriod
+
 define "Prescription Duration":
+  Min(
+    {
+      "Asthma Controller Prescription" M
+        return M.days_supplied,
+      days between "Prescription Start Date" and end of "Measurement Period"
+    }
+  )
+
+define "Sum of Prescription Durations":
   Sum("Asthma Controller Prescription" M
     return M.duration)
 
-define "Prescription Start Date":
-  First("Asthma Controller Prescription" M
-    return start of M.relevantPeriod)
+define "First Prescription Start Date":
+  First("Prescription Start Date")
 
 define "Treatment Period":
-  end of "Measurement Period" - "Prescription Start Date"
+  days between "First Prescription Start Date" and end of "Measurement Period"
 
 define "Denominator":
   exists("Denominator Encounter")
@@ -92,7 +104,7 @@ define "Numerator Performance Met: G9810":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G9810"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or "Prescription Duration" / "Treatment Period" >= 0.75
+  or "Sum of Prescription Durations" / "Treatment Period" >= 0.75
 
 define "Numerator Performance Not Met: G9811":
   /*
