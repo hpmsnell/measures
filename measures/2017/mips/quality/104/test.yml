@@ -597,7 +597,7 @@ patients:
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-08-01
+      start_datetime: 2016-08-02
     - code_type: CPT
       code_value: 77427
       start_datetime: 2016-11-01
@@ -605,7 +605,7 @@ patients:
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-11-01
+      start_datetime: 2016-11-03
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
@@ -666,16 +666,20 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-02-01
+      start_datetime: 2016-01-30
+      stop_datetime: 2016-02-28
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-05-01
+      start_datetime: 2016-04-30
+      stop_datetime: 2016-05-31
     - code_type: ICD10CM
       code_value: C61
       start_datetime: 2016-08-01
+      stop_datetime: 2016-08-31
     - code_type: ICD10CM
       code_value: C61
       start_datetime: 2016-11-01
+      stop_datetime: 2016-11-30
 - name: Denominator SecondEncounter
   attributes:
     date_of_birth: 2000-01-01
