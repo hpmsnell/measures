@@ -457,12 +457,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Age Lower
     attributes:
       date_of_birth: 1998-02-01
@@ -473,12 +473,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Age Upper
     attributes:
       date_of_birth: 1931-02-02
@@ -489,12 +489,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Too Old
     attributes:
       date_of_birth: 1931-02-01
@@ -505,12 +505,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Diagnosis Early
     attributes:
       date_of_birth: 1950-01-01
@@ -521,13 +521,13 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
-        stop_datetime: 2015-12-31
+        start_date: 2010-01-01
+        stop_date: 2015-12-31
   - name: Diagnosis Late
     attributes:
       date_of_birth: 1950-01-01
@@ -538,12 +538,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2016-07-01
+        start_date: 2016-07-01
   - name: Encounter Early
     attributes:
       date_of_birth: 1950-01-01
@@ -554,12 +554,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Encounter Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -570,12 +570,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Encounter Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -586,12 +586,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Encounter Late
     attributes:
       date_of_birth: 1950-01-01
@@ -602,12 +602,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Hospice Early
     attributes:
       date_of_birth: 1950-01-01
@@ -618,15 +618,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9740
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Hospice Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -637,15 +637,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9740
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Hospice Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -656,15 +656,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9740
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Hospice Late
     attributes:
       date_of_birth: 1950-01-01
@@ -675,15 +675,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9740
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: VSACHospice Early
     attributes:
       date_of_birth: 1950-01-01
@@ -694,16 +694,16 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 133918004
-        start_datetime: 2015-12-31
-        stop_datetime: 2015-12-31
+        start_date: 2015-12-31
+        stop_date: 2015-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: VSACHospice Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -714,16 +714,16 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 133918004
-        start_datetime: 2015-01-01
-        stop_datetime: 2016-01-01
+        start_date: 2015-01-01
+        stop_date: 2016-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: VSACHospice Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -734,16 +734,16 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 133918004
-        start_datetime: 2016-12-31
-        stop_datetime: 2017-12-31
+        start_date: 2016-12-31
+        stop_date: 2017-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: VSACHospice Late
     attributes:
       date_of_birth: 1950-01-01
@@ -754,15 +754,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 133918004
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Exclusion Early
     attributes:
       date_of_birth: 1950-01-01
@@ -773,15 +773,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9231
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Exclusion Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -792,15 +792,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9231
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Exclusion Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -811,15 +811,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9231
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Exclusion Late
     attributes:
       date_of_birth: 1950-01-01
@@ -830,15 +830,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9231
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: DiagnosisExclusion Early
     attributes:
       date_of_birth: 1950-01-01
@@ -849,16 +849,16 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
       - code_type: SNOMEDCT
         code_value: 102872000
-        start_datetime: 2010-01-01
-        stop_datetime: 2015-12-31
+        start_date: 2010-01-01
+        stop_date: 2015-12-31
   - name: DiagnosisExclusion Overlaps
     attributes:
       date_of_birth: 1950-01-01
@@ -869,16 +869,16 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
       - code_type: SNOMEDCT
         code_value: 102872000
-        start_datetime: 2010-01-01
-        stop_datetime: 2016-01-02
+        start_date: 2010-01-01
+        stop_date: 2016-01-02
   - name: DiagnosisExclusion Late
     attributes:
       date_of_birth: 1950-01-01
@@ -889,15 +889,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
       - code_type: SNOMEDCT
         code_value: 102872000
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
   - name: Exclusion Procedure
     attributes:
       date_of_birth: 1950-01-01
@@ -908,15 +908,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: CPT
         code_value: 50340
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Exclusion ProcedureLate
     attributes:
       date_of_birth: 1950-01-01
@@ -927,15 +927,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: CPT
         code_value: 50340
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: SystolicGood DiastolicGood
     attributes:
       date_of_birth: 1950-01-01
@@ -946,23 +946,23 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 12843005 # Adult Outpatient Visit
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 89
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 139
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: MIPSSystolicEarly MIPSDiastolicGood
     attributes:
       date_of_birth: 1950-01-01
@@ -973,21 +973,21 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 12843005 # Adult Outpatient Visit
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       - code_type: HCPCS
         code_value: G8752 # Diastolic
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: HCPCS
         code_value: G8754 # Systolic
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: MIPSSystolicLower MIPSDiastolicGood
     attributes:
       date_of_birth: 1950-01-01
@@ -998,21 +998,21 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 12843005 # Adult Outpatient Visit
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       - code_type: HCPCS
         code_value: G8752 # Diastolic
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: HCPCS
         code_value: G8754 # Systolic
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: MIPSSystolicUpper MIPSDiastolicGood
     attributes:
       date_of_birth: 1950-01-01
@@ -1023,21 +1023,21 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 12843005 # Adult Outpatient Visit
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       - code_type: HCPCS
         code_value: G8752 # Diastolic
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: HCPCS
         code_value: G8754 # Systolic
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: MIPSSystolicLate MIPSDiastolicGood
     attributes:
       date_of_birth: 1950-01-01
@@ -1048,21 +1048,21 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 12843005 # Adult Outpatient Visit
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       - code_type: HCPCS
         code_value: G8752 # Diastolic
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: HCPCS
         code_value: G8754 # Systolic
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: SystolicGood DiastolicBad
     attributes:
       date_of_birth: 1950-01-01
@@ -1073,23 +1073,23 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 12843005 # Adult Outpatient Visit
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 90
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 139
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: MIPSSystolicGood MIPSDiastolicBad
     attributes:
       date_of_birth: 1950-01-01
@@ -1100,21 +1100,21 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 12843005 # Adult Outpatient Visit
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       - code_type: HCPCS
         code_value: G8755 # Diastolic
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: HCPCS
         code_value: G8752 # Systolic
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: SystolicBad DiastolicGood
     attributes:
       date_of_birth: 1950-01-01
@@ -1125,23 +1125,23 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 12843005 # Adult Outpatient Visit
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 89
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 140
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: MIPSSystolicBad MIPSDiastolicGood
     attributes:
       date_of_birth: 1950-01-01
@@ -1152,21 +1152,21 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 12843005 # Adult Outpatient Visit
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       - code_type: HCPCS
         code_value: G8754 # Diastolic
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: HCPCS
         code_value: G8753 # Systolic
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: SystolicBad DiastolicBad
     attributes:
       date_of_birth: 1950-01-01
@@ -1177,23 +1177,23 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 12843005 # Adult Outpatient Visit
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 90
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 140
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: MIPSSystolicBad MIPSDiastolicBad
     attributes:
       date_of_birth: 1950-01-01
@@ -1204,21 +1204,21 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 12843005 # Adult Outpatient Visit
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       - code_type: HCPCS
         code_value: G8753 # Diastolic
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: HCPCS
         code_value: G8755 # Systolic
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Systolic Early
     attributes:
       date_of_birth: 1950-01-01
@@ -1229,23 +1229,23 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 12843005 # Adult Outpatient Visit
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 89
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         result: 139
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Diastolic Early
     attributes:
       date_of_birth: 1950-01-01
@@ -1256,23 +1256,23 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 12843005 # Adult Outpatient Visit
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         result: 89
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 139
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Multiple Systolic
     attributes:
       date_of_birth: 1950-01-01
@@ -1283,27 +1283,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 12843005 # Adult Outpatient Visit
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 89
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-09-01
+        start_date: 2016-09-01
         result: 200
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 139
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Invalid Systolic
     attributes:
       date_of_birth: 1950-01-01
@@ -1314,23 +1314,23 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 12843005 # Adult Outpatient Visit
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 89
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: mg
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Invalid Diastolic
     attributes:
       date_of_birth: 1950-01-01
@@ -1341,20 +1341,20 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 12843005 # Adult Outpatient Visit
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: mg
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 139
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01

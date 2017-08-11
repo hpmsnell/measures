@@ -3,211 +3,211 @@ test_set_keys:
   organization_key:
     episodes_of_care:
     - name: Too Young
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Age Lower
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8708
     - name: Age Upper
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8708
     - name: Too Old
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Encounter # Early
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Encounter # Lower bound
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8708
     - name: Denominator Encounter # Upper Bound
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8708
     - name: Denominator Encounter # Late
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Diagnosis # Early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Diagnosis # Lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8708
     - name: Denominator Diagnosis # Upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8708
     - name: Denominator Diagnosis # Late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: MedicalReason Exclusion # Early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8708
     - name: MedicalReason Exclusion # Lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
     - name: MedicalReason Exclusion # Upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
     - name: MedicalReason Exclusion # Late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8708
     - name: MedicalReason Exclusion # Diagnosis code
-      start_datetime: 2016-06-01
+      start_date: 2016-06-01
       denominator: 1
       denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
     - name: ExistingAntibiotic Exclusion # Early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8708
     - name: ExistingAntibiotic Exclusion # Lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion: exclusion_2
       denominator_exception:
       numerator:
     - name: ExistingAntibiotic Exclusion # Upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion: exclusion_2
       denominator_exception:
       numerator:
     - name: ExistingAntibiotic Exclusion # Late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8708
     - name: ExistingAntibiotic Exclusion # Medication code
-      start_datetime: 2016-06-01
+      start_date: 2016-06-01
       denominator: 1
       denominator_exclusion: exclusion_2
       denominator_exception:
       numerator:
     - name: Hospice Before # Early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8708
     - name: Hospice Lower # Lower bound
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion: exclusion_3
       denominator_exception:
       numerator:
     - name: Hospice Upper # Upper bound
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion: exclusion_3
       denominator_exception:
       numerator:
     - name: Hospice After # Late
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8708
     - name: PerformanceMet G8708 # Early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8710
     - name: PerformanceMet G8708 # Lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8708
     - name: PerformanceMet G8708 # Upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8708
     - name: PerformanceMet G8708 # Late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8710
     - name: PerformanceMet Antibiotic # Early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion: exclusion_2
       denominator_exception:
       numerator:
     - name: PerformanceMet Antibiotic # Lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8710
     - name: PerformanceMet Antibiotic # Upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8710
     - name: PerformanceMet Antibiotic # Late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8708
     - name: PerformanceMet Antibiotic # Medication, Active
-      start_datetime: 2016-06-01
+      start_date: 2016-06-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -216,211 +216,211 @@ test_set_keys:
     - name: Rachel
       episodes_of_care:
       - name: Too Young
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Age Lower
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8708
       - name: Age Upper
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8708
       - name: Too Old
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator Encounter # Early
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator Encounter # Lower bound
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8708
       - name: Denominator Encounter # Upper Bound
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8708
       - name: Denominator Encounter # Late
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator Diagnosis # Early
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator Diagnosis # Lower bound
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8708
       - name: Denominator Diagnosis # Upper bound
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8708
       - name: Denominator Diagnosis # Late
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: MedicalReason Exclusion # Early
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8708
       - name: MedicalReason Exclusion # Lower bound
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
         denominator: 1
         denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: MedicalReason Exclusion # Upper bound
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator: 1
         denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: MedicalReason Exclusion # Late
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8708
       - name: MedicalReason Exclusion # Diagnosis code
-        start_datetime: 2016-06-01
+        start_date: 2016-06-01
         denominator: 1
         denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: ExistingAntibiotic Exclusion # Early
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8708
       - name: ExistingAntibiotic Exclusion # Lower bound
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
         denominator: 1
         denominator_exclusion: exclusion_2
         denominator_exception:
         numerator:
       - name: ExistingAntibiotic Exclusion # Upper bound
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator: 1
         denominator_exclusion: exclusion_2
         denominator_exception:
         numerator:
       - name: ExistingAntibiotic Exclusion # Late
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8708
       - name: ExistingAntibiotic Exclusion # Medication code
-        start_datetime: 2016-06-01
+        start_date: 2016-06-01
         denominator: 1
         denominator_exclusion: exclusion_2
         denominator_exception:
         numerator:
       - name: Hospice Before # Early
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8708
       - name: Hospice Lower # Lower bound
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion: exclusion_3
         denominator_exception:
         numerator:
       - name: Hospice Upper # Upper bound
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion: exclusion_3
         denominator_exception:
         numerator:
       - name: Hospice After # Late
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8708
       - name: PerformanceMet G8708 # Early
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8710
       - name: PerformanceMet G8708 # Lower bound
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8708
       - name: PerformanceMet G8708 # Upper bound
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8708
       - name: PerformanceMet G8708 # Late
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8710
       - name: PerformanceMet Antibiotic # Early
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: PerformanceMet Antibiotic # Lower bound
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: PerformanceMet Antibiotic # Upper bound
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: PerformanceMet Antibiotic # Late
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: PerformanceMet Antibiotic # Medication, Active
-        start_datetime: 2016-06-01
+        start_date: 2016-06-01
         denominator:
         denominator_exclusion:
         denominator_exception:
@@ -445,12 +445,12 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Age Lower
   attributes:
     date_of_birth: 2015-11-01 # Lower bound
@@ -461,12 +461,12 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Age Upper
   attributes:
     date_of_birth: 1998-02-02 # Upper bound
@@ -477,12 +477,12 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Too Old
   attributes:
     date_of_birth: 1998-02-01 # Too early
@@ -493,12 +493,12 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Denominator Encounter
   attributes:
     date_of_birth: 2000-01-01
@@ -509,33 +509,33 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2015-12-31 # Too early
+      start_date: 2015-12-31 # Too early
       provider: Rachel
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-01-01 # Lower bound
+      start_date: 2016-01-01 # Lower bound
       provider: Rachel
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-12-31 # Upper bound
+      start_date: 2016-12-31 # Upper bound
       provider: Rachel
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2017-01-01 # Too late
+      start_date: 2017-01-01 # Too late
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
 - name: Denominator Diagnosis
   attributes:
     date_of_birth: 2000-01-01
@@ -546,40 +546,40 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-03-01
-      stop_datetime: 2016-03-02
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
       provider: Rachel
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-01
+      stop_date: 2016-04-02
       provider: Rachel
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-05-01
-      stop_datetime: 2016-05-02
+      start_date: 2016-05-01
+      stop_date: 2016-05-02
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-01-30
-      stop_datetime: 2015-01-30 # Too early
+      start_date: 2016-01-30
+      stop_date: 2015-01-30 # Too early
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-03-01 # Lower bound
-      stop_datetime: 2016-03-01
+      start_date: 2016-03-01 # Lower bound
+      stop_date: 2016-03-01
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-04-02 # Upper bound
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-02 # Upper bound
+      stop_date: 2016-04-02
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-05-03 # Too late
-      stop_datetime: 2016-05-03
+      start_date: 2016-05-03 # Too late
+      stop_date: 2016-05-03
 - name: MedicalReason Exclusion
   attributes:
     date_of_birth: 2000-01-01
@@ -590,57 +590,57 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8709
-      start_datetime: 2016-01-30 # Too early
+      start_date: 2016-01-30 # Too early
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-03-01
-      stop_datetime: 2016-03-02
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8709
-      start_datetime: 2016-03-01 # Lower bound
+      start_date: 2016-03-01 # Lower bound
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-01
+      stop_date: 2016-04-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8709
-      start_datetime: 2016-04-02 # Upper bound
+      start_date: 2016-04-02 # Upper bound
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-05-01
-      stop_datetime: 2016-05-02
+      start_date: 2016-05-01
+      stop_date: 2016-05-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8709
-      start_datetime: 2017-05-03 # Too late
+      start_date: 2017-05-03 # Too late
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-06-01
-      stop_datetime: 2016-06-02
+      start_date: 2016-06-01
+      stop_date: 2016-06-02
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     - code_type: ICD10CM
       code_value: A00.0
-      start_datetime: 2016-06-01
+      start_date: 2016-06-01
 - name: ExistingAntibiotic Exclusion
   attributes:
     date_of_birth: 2000-01-01
@@ -651,61 +651,61 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9701
-      start_datetime: 2016-01-01 # Too early
+      start_date: 2016-01-01 # Too early
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-03-01
-      stop_datetime: 2016-03-02
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G9701
-      start_datetime: 2016-01-31 # Lower bound
+      start_date: 2016-01-31 # Lower bound
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-04-01
+      start_date: 2016-04-01
+      stop_date: 2016-04-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9701
-      start_datetime: 2016-03-31 # Upper bound
+      start_date: 2016-03-31 # Upper bound
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-05-01
-      stop_datetime: 2016-05-01
+      start_date: 2016-05-01
+      stop_date: 2016-05-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9701
-      start_datetime: 2017-05-02 # Too late
+      start_date: 2017-05-02 # Too late
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-06-01
-      stop_datetime: 2016-06-01
+      start_date: 2016-06-01
+      stop_date: 2016-06-01
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-06-01
+      start_date: 2016-06-01
     medications:
     - code_type: RXNORM
       code_value: 1013659 # Medication
-      start_datetime: 2016-05-02
+      start_date: 2016-05-02
 - name: Hospice Early
   attributes:
     date_of_birth: 2000-01-01
@@ -716,15 +716,15 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9700
-      start_datetime: 2015-12-31 # Too early
+      start_date: 2015-12-31 # Too early
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Hospice Lower
   attributes:
     date_of_birth: 2000-01-01
@@ -735,15 +735,15 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9700
-      start_datetime: 2016-01-01 # Lower bound
+      start_date: 2016-01-01 # Lower bound
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Hospice Upper
   attributes:
     date_of_birth: 2000-01-01
@@ -754,15 +754,15 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9700
-      start_datetime: 2016-12-31 # Upper bound
+      start_date: 2016-12-31 # Upper bound
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Hospice After
   attributes:
     date_of_birth: 2000-01-01
@@ -773,15 +773,15 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9700
-      start_datetime: 2017-01-01 # Too late
+      start_date: 2017-01-01 # Too late
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: PerformanceMet G8708
   attributes:
     date_of_birth: 2000-01-01
@@ -792,66 +792,66 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8708
-      start_datetime: 2016-01-31 # Too early
+      start_date: 2016-01-31 # Too early
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-03-01
-      stop_datetime: 2016-03-01
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8708
-      start_datetime: 2016-03-01 # Lower bound
+      start_date: 2016-03-01 # Lower bound
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-04-01
+      start_date: 2016-04-01
+      stop_date: 2016-04-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8708
-      start_datetime: 2016-04-04 # Upper bound
+      start_date: 2016-04-04 # Upper bound
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-05-01
-      stop_datetime: 2016-05-01
+      start_date: 2016-05-01
+      stop_date: 2016-05-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8708
-      start_datetime: 2016-05-05 # Too late
+      start_date: 2016-05-05 # Too late
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     medications:
     - code_type: RXNORM
       code_value: 1013659
       method: E
-      start_datetime: 2016-02-04
+      start_date: 2016-02-04
     - code_type: RXNORM
       code_value: 1013659
       method: E
-      start_datetime: 2016-03-04
+      start_date: 2016-03-04
     - code_type: RXNORM
       code_value: 1013659
       method: E
-      start_datetime: 2016-04-04
+      start_date: 2016-04-04
     - code_type: RXNORM
       code_value: 1013659
       method: E
-      start_datetime: 2016-05-04
+      start_date: 2016-05-04
 - name: PerformanceMet Antibiotic
   attributes:
     date_of_birth: 2000-01-01
@@ -862,62 +862,62 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Patty
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-03-01
-      stop_datetime: 2016-03-01
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
       provider: Patty
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-04-01
+      start_date: 2016-04-01
+      stop_date: 2016-04-01
       provider: Patty
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-05-01
-      stop_datetime: 2016-05-01
+      start_date: 2016-05-01
+      stop_date: 2016-05-01
       provider: Patty
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-06-01
-      stop_datetime: 2016-06-01
+      start_date: 2016-06-01
+      stop_date: 2016-06-01
       provider: Patty
     diagnoses:
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     - code_type: ICD10CM
       code_value: J00
-      start_datetime: 2016-06-01
+      start_date: 2016-06-01
     medications:
     - code_type: RXNORM
       code_value: 1013659
       method: E
-      start_datetime: 2016-01-30 # Early
+      start_date: 2016-01-30 # Early
     - code_type: RXNORM
       code_value: 1013659
       method: E
-      start_datetime: 2016-03-01 # Lower bound
+      start_date: 2016-03-01 # Lower bound
     - code_type: RXNORM
       code_value: 1013659
       method: E
-      start_datetime: 2016-04-04 # Upper bound
+      start_date: 2016-04-04 # Upper bound
     - code_type: RXNORM
       code_value: 1013659
       method: E
-      start_datetime: 2016-05-05 # Late
+      start_date: 2016-05-05 # Late
     - code_type: RXNORM
       code_value: 1013659
-      start_datetime: 2016-02-04 # Active
+      start_date: 2016-02-04 # Active

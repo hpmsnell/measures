@@ -3,55 +3,55 @@ test_set_keys:
   organization_key:
     episodes_of_care:
       - name: Denominator Encounter # Encounter too early
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator Encounter # Encounter at lower bound
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: Denominator Encounter # Encounter at upper bound
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: Denominator Encounter # Encounter too late
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Reconciliation Before # Reconciliation before Encounter
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: Reconciliation Lower # Reconciliation lower bound Encounter
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_met
       - name: Reconciliation Upper # Reconciliation upper bound Encounter
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_met
       - name: Reconciliation After # Reconciliation after Encounter
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: SNOMED Reconciliation # Reconciliation upper bound Encounter
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -60,55 +60,55 @@ test_set_keys:
     - name: Rachel
       episodes_of_care:
         - name: Denominator Encounter # Encounter too early
-          start_datetime: 2015-12-31
+          start_date: 2015-12-31
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Denominator Encounter # Encounter at lower bound
-          start_datetime: 2016-01-01
+          start_date: 2016-01-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
         - name: Denominator Encounter # Encounter at upper bound
-          start_datetime: 2016-12-31
+          start_date: 2016-12-31
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
         - name: Denominator Encounter # Encounter too late
-          start_datetime: 2017-01-01
+          start_date: 2017-01-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Reconciliation Before # Reconciliation before Encounter
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
         - name: Reconciliation Lower # Reconciliation lower bound Encounter
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: performance_met
         - name: Reconciliation Upper # Reconciliation upper bound Encounter
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: performance_met
         - name: Reconciliation After # Reconciliation after Encounter
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: SNOMED Reconciliation # Reconciliation upper bound Encounter
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -116,55 +116,55 @@ test_set_keys:
     - name: Patty
       episodes_of_care:
         - name: Denominator Encounter # Encounter too early
-          start_datetime: 2015-12-31
+          start_date: 2015-12-31
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Denominator Encounter # Encounter at lower bound
-          start_datetime: 2016-01-01
+          start_date: 2016-01-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Denominator Encounter # Encounter at upper bound
-          start_datetime: 2016-12-31
+          start_date: 2016-12-31
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Denominator Encounter # Encounter too late
-          start_datetime: 2017-01-01
+          start_date: 2017-01-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Reconciliation Before # Reconciliation before Encounter
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Reconciliation Lower # Reconciliation lower bound Encounter
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Reconciliation Upper # Reconciliation upper bound Encounter
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Reconciliation After # Reconciliation after Encounter
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
         - name: SNOMED Reconciliation # Reconciliation upper bound Encounter
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
@@ -192,19 +192,19 @@ patients:
       clinical_activities:
       - code_type: SNOMEDCT
         code_value: 1861000124105
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 1861000124105
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 1861000124105
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 1861000124105
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
         provider: Rachel
   - name: Reconciliation Before
     attributes:
@@ -217,12 +217,12 @@ patients:
       clinical_activities:
       - code_type: SNOMEDCT
         code_value: 1861000124105
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_MR_1
-        start_datetime: 2016-01-31
+        start_date: 2016-01-31
   - name: Reconciliation Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -234,12 +234,12 @@ patients:
       clinical_activities:
       - code_type: SNOMEDCT
         code_value: 1861000124105
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_MR_1
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
   - name: Reconciliation Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -251,12 +251,12 @@ patients:
       clinical_activities:
       - code_type: SNOMEDCT
         code_value: 1861000124105
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_MR_1
-        start_datetime: 2016-02-02
+        start_date: 2016-02-02
   - name: Reconciliation After
     attributes:
       date_of_birth: 1988-03-22
@@ -268,12 +268,12 @@ patients:
       clinical_activities:
       - code_type: SNOMEDCT
         code_value: 1861000124105
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Patty
       - code_type: ABLE
         code_value: ACI_TRANS_MR_1
-        start_datetime: 2016-02-03
+        start_date: 2016-02-03
   - name: SNOMED Reconciliation
     attributes:
       date_of_birth: 1988-03-22
@@ -285,9 +285,9 @@ patients:
       clinical_activities:
       - code_type: SNOMEDCT
         code_value: 1861000124105
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 430193006
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01

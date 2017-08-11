@@ -187,11 +187,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2015-12-31 # Early
+      start_date: 2015-12-31 # Early
       provider: Rachel
     - code_type: CPT
       code_value: 11100
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Encounter Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -202,11 +202,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01 # Lower
+      start_date: 2016-01-01 # Lower
       provider: Rachel
     - code_type: CPT
       code_value: 11100
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Encounter Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -217,11 +217,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-12-31 # Upper
+      start_date: 2016-12-31 # Upper
       provider: Rachel
     - code_type: CPT
       code_value: 11100
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Encounter After
   attributes:
     date_of_birth: 1990-01-01
@@ -232,11 +232,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2017-01-01 # After
+      start_date: 2017-01-01 # After
       provider: Rachel
     - code_type: CPT
       code_value: 11100
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Biopsy Before
   attributes:
     date_of_birth: 1990-01-01
@@ -247,11 +247,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 11100
-      start_datetime: 2015-12-31 # Early
+      start_date: 2015-12-31 # Early
 - name: Biopsy Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -262,11 +262,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 11100
-      start_datetime: 2016-01-01 # Lower
+      start_date: 2016-01-01 # Lower
 - name: Biopsy Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -277,11 +277,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 11100
-      start_datetime: 2016-12-31 # Upper
+      start_date: 2016-12-31 # Upper
 - name: Biopsy After
   attributes:
     date_of_birth: 1990-01-01
@@ -292,11 +292,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 11100
-      start_datetime: 2017-01-01 # After
+      start_date: 2017-01-01 # After
 - name: G8883 Before
   attributes:
     date_of_birth: 1990-01-01
@@ -307,14 +307,14 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 11100
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: HCPCS
       code_value: G8883
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
 - name: G8883 Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -325,14 +325,14 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 11100
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: HCPCS
       code_value: G8883
-      start_datetime: 2016-01-01 # Lower
+      start_date: 2016-01-01 # Lower
 - name: G8883 Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -343,14 +343,14 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 11100
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: HCPCS
       code_value: G8883
-      start_datetime: 2016-12-31 # Upper
+      start_date: 2016-12-31 # Upper
 - name: G8883 After
   attributes:
     date_of_birth: 1990-01-01
@@ -361,14 +361,14 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 11100
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: HCPCS
       code_value: G8883
-      start_datetime: 2017-01-01 # After
+      start_date: 2017-01-01 # After
 - name: G8884 Before
   attributes:
     date_of_birth: 1990-01-01
@@ -379,14 +379,14 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Patty
     - code_type: CPT
       code_value: 11100
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: HCPCS
       code_value: G8884
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
 - name: G8884 Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -397,14 +397,14 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Patty
     - code_type: CPT
       code_value: 11100
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: HCPCS
       code_value: G8884
-      start_datetime: 2016-01-01 # Lower
+      start_date: 2016-01-01 # Lower
 - name: G8884 Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -415,14 +415,14 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Patty
     - code_type: CPT
       code_value: 11100
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: HCPCS
       code_value: G8884
-      start_datetime: 2016-12-31 # Upper
+      start_date: 2016-12-31 # Upper
 - name: G8884 After
   attributes:
     date_of_birth: 1990-01-01
@@ -433,11 +433,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Patty
     - code_type: CPT
       code_value: 11100
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: HCPCS
       code_value: G8884
-      start_datetime: 2017-01-01 # After
+      start_date: 2017-01-01 # After

@@ -457,11 +457,11 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.8
-      start_datetime: 2010-01-01
+      start_date: 2010-01-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
 - name: Patient is at lower bound of age range and otherwise meets denominator
   attributes:
@@ -473,11 +473,11 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.8
-      start_datetime: 2010-01-01
+      start_date: 2010-01-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
 - name: Patient has a ICD10 coded diagnosis prior to the measurement period
   attributes:
@@ -489,12 +489,12 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.8
-      start_datetime: 2014-05-01
-      stop_datetime: 2015-12-31
+      start_date: 2014-05-01
+      stop_date: 2015-12-31
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-06-01
+      start_date: 2016-06-01
       provider: Rachel
 - name: Patient has a ICD10 coded diagnosis after the measurement period
   attributes:
@@ -506,11 +506,11 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.8
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
 - name: Patient has a ICD9CM coded diagnosis during the measurement period
   attributes:
@@ -522,11 +522,11 @@ patients:
     diagnoses:
     - code_type: ICD9CM
       code_value: I20.8
-      start_datetime: 2015-05-01
+      start_date: 2015-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
 - name: Patient has an encounter prior to the measurement period
   attributes:
@@ -538,11 +538,11 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       provider: Rachel
 - name: Patient has an encounter after the measurement period
   attributes:
@@ -554,11 +554,11 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       provider: Rachel
 - name: Patient has an exception too early for an allergy to aspirin 4086F-1P
   attributes:
@@ -570,15 +570,15 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     - code_type: CPT
       code_value: 4086F-1P
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
 - name: Patient excepted at lower bound for of an allergy to aspirin 4086F-1P
   attributes:
     date_of_birth: 1980-06-01
@@ -589,15 +589,15 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     - code_type: CPT
       code_value: 4086F-1P
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
 - name: Patient excepted at upper bound for of an allergy to aspirin 4086F-1P
   attributes:
     date_of_birth: 1980-06-01
@@ -608,15 +608,15 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     - code_type: CPT
       code_value: 4086F-1P
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
 - name: Patient has an exception too late for of an allergy to aspirin 4086F-1P
   attributes:
     date_of_birth: 1980-06-01
@@ -627,15 +627,15 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     - code_type: CPT
       code_value: 4086F-1P
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
 - name: Patient has an exception too early because of an allergy to aspirin RXNORM
   attributes:
     date_of_birth: 1980-06-01
@@ -646,17 +646,17 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     allergies:
     - code_type: RXNORM
       code_value: 243670
-      start_datetime: 2015-01-01
-      stop_datetime: 2015-12-31
+      start_date: 2015-01-01
+      stop_date: 2015-12-31
 - name: Patient has an exception because of an allergy to aspirin RXNORM
   attributes:
     date_of_birth: 1980-06-01
@@ -667,16 +667,16 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     allergies:
     - code_type: RXNORM
       code_value: 243670
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
 - name: Patient has an exception too late because of an allergy to aspirin RXNORM
   attributes:
     date_of_birth: 1980-06-01
@@ -687,16 +687,16 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     allergies:
     - code_type: RXNORM
       code_value: 243670
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
 - name: Patient has an exception too early for a prescription for another anticoagulant 4086F-1P
   attributes:
     date_of_birth: 1980-06-01
@@ -707,18 +707,18 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     medications:
     - code_type: RXNORM
       code_value: 855812
       method: E
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
 - name: Patient excepted because of a prescription for another anticoagulant 4086F-1P
   attributes:
     date_of_birth: 1980-06-01
@@ -729,18 +729,18 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     medications:
     - code_type: RXNORM
       code_value: 855812
       method: E
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
 - name: Patient has an exception too late because of a prescription for another anticoagulant 4086F-1P
   attributes:
     date_of_birth: 1980-06-01
@@ -751,18 +751,18 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     medications:
     - code_type: RXNORM
       code_value: 855812
       method: E
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
 - name: Patient has an exception too early for an active medication for another anticoagulant 4086F-1P
   attributes:
     date_of_birth: 1980-06-01
@@ -773,18 +773,18 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     medications:
     - code_type: RXNORM
       code_value: 855812
-      start_datetime: 2015-01-01
-      stop_datetime: 2015-12-31
+      start_date: 2015-01-01
+      stop_date: 2015-12-31
 - name: Patient excepted for an active medication for another anticoagulant 4086F-1P
   attributes:
     date_of_birth: 1980-06-01
@@ -795,18 +795,18 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     medications:
     - code_type: RXNORM
       code_value: 855812
-      start_datetime: 2015-01-01
-      stop_datetime: 2016-01-02
+      start_date: 2015-01-01
+      stop_date: 2016-01-02
 - name: Patient has an exception too late for an active medication for another anticoagulant 4086F-1P
   attributes:
     date_of_birth: 1980-06-01
@@ -817,16 +817,16 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     medications:
     - code_type: RXNORM
       code_value: 855812
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
 - name: Patient excepted because of a prescription for warfarin 4086F-1P
   attributes:
     date_of_birth: 1980-06-01
@@ -837,18 +837,18 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     medications:
     - code_type: RXNORM
       code_value: 855288
       method: E
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
 - name: Patient excepted because of an active medication for warfarin 4086F-1P
   attributes:
     date_of_birth: 1980-06-01
@@ -859,17 +859,17 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     medications:
     - code_type: RXNORM
       code_value: 855288
-      start_datetime: 2015-01-01
+      start_date: 2015-01-01
 - name: Patient has an exception too early due to presence of thrombocytopenia
   attributes:
     date_of_birth: 1980-06-01
@@ -880,15 +880,15 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2015-05-01
+      start_date: 2015-05-01
     - code_type: ICD10CM
       code_value: D69.49
-      start_datetime: 2015-05-01
-      stop_datetime: 2015-12-31
+      start_date: 2015-05-01
+      stop_date: 2015-12-31
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
 - name: Patient excepted due to presence of thrombocytopenia
   attributes:
@@ -900,15 +900,15 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2015-05-01
+      start_date: 2015-05-01
     - code_type: ICD10CM
       code_value: D69.49
-      start_datetime: 2015-05-01
-      stop_datetime: 2016-01-02
+      start_date: 2015-05-01
+      stop_date: 2016-01-02
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
 - name: Patient has an exception too late due to presence of thrombocytopenia
   attributes:
@@ -920,14 +920,14 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2015-05-01
+      start_date: 2015-05-01
     - code_type: ICD10CM
       code_value: D69.49
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
 - name: Patient declined treatment too early
   attributes:
@@ -939,15 +939,15 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     - code_type: CPT
       code_value: 4086F-2P
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
 - name: Patient declined treatment
   attributes:
     date_of_birth: 1980-06-01
@@ -958,15 +958,15 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     - code_type: CPT
       code_value: 4086F-2P
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
 - name: Patient declined treatment too late
   attributes:
     date_of_birth: 1980-06-01
@@ -977,15 +977,15 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     - code_type: CPT
       code_value: 4086F-2P
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
 - name: Patient has an exception too early because of a non-specific medical reason
   attributes:
     date_of_birth: 1980-06-01
@@ -996,15 +996,15 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     - code_type: CPT
       code_value:  4086F-3P
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
 - name: Patient excepted because of a non-specific medical reason
   attributes:
     date_of_birth: 1980-06-01
@@ -1015,15 +1015,15 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     - code_type: CPT
       code_value:  4086F-3P
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
 - name: Patient has an exception too late because of a non-specific medical reason
   attributes:
     date_of_birth: 1980-06-01
@@ -1034,15 +1034,15 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     - code_type: CPT
       code_value:  4086F-3P
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
 - name: Patient has performance met too early
   attributes:
     date_of_birth: 1980-06-01
@@ -1053,15 +1053,15 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     - code_type: CPT
       code_value: 4086F
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
 - name: Patient has performance met at lower bound of measurement period
   attributes:
     date_of_birth: 1980-06-01
@@ -1072,15 +1072,15 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     - code_type: CPT
       code_value: 4086F
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
 - name: Patient has performance met at upper bound of measurement period
   attributes:
     date_of_birth: 1980-06-01
@@ -1091,15 +1091,15 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     - code_type: CPT
       code_value: 4086F
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
 - name: Patient has performance met too late
   attributes:
     date_of_birth: 1980-06-01
@@ -1110,15 +1110,15 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     - code_type: CPT
       code_value: 4086F
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
 - name: Patient prescribed aspirin therapy too early
   attributes:
     date_of_birth: 1980-06-01
@@ -1129,17 +1129,17 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     medications:
     - code_type: RXNORM
       code_value: 198466
       method: E
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
 - name: Patient prescribed aspirin therapy at lower bound of measurement period
   attributes:
     date_of_birth: 1980-06-01
@@ -1150,17 +1150,17 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     medications:
     - code_type: RXNORM
       code_value: 198466
       method: E
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
 - name: Patient prescribed aspirin therapy at upper bound of measurement period
   attributes:
     date_of_birth: 1980-06-01
@@ -1171,18 +1171,18 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     medications:
     - code_type: RXNORM
       code_value: 198466
       method: E
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
 - name: Patient prescribed aspirin therapy too late
   attributes:
     date_of_birth: 1980-06-01
@@ -1193,17 +1193,17 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Rachel
     medications:
     - code_type: RXNORM
       code_value: 198466
       method: E
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
 - name: Patient has an active medication for aspirin therapy too early
   attributes:
     date_of_birth: 1980-06-01
@@ -1214,17 +1214,17 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Steve
     medications:
     - code_type: RXNORM
       code_value: 198466
-      start_datetime: 2015-01-01
-      stop_datetime: 2015-12-31
+      start_date: 2015-01-01
+      stop_date: 2015-12-31
 - name: Patient has an active medication for aspirin therapy ending at lower bound of measurement period
   attributes:
     date_of_birth: 1980-06-01
@@ -1235,17 +1235,17 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Steve
     medications:
     - code_type: RXNORM
       code_value: 198466
-      start_datetime: 2015-01-01
-      stop_datetime: 2016-01-02
+      start_date: 2015-01-01
+      stop_date: 2016-01-02
 - name: Patient has an active medication for aspirin therapy starting at upper bound of measurement period
   attributes:
     date_of_birth: 1980-06-01
@@ -1256,16 +1256,16 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Steve
     medications:
     - code_type: RXNORM
       code_value: 198466
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
 - name: Patient has an active medication for aspirin therapy too late
   attributes:
     date_of_birth: 1980-06-01
@@ -1276,13 +1276,13 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: I25.810
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       provider: Steve
     medications:
     - code_type: RXNORM
       code_value: 198466
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01

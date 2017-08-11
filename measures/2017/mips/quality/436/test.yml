@@ -3,61 +3,61 @@ test_set_keys:
   organization_key:
     episodes_of_care:
     - name: Too Young # Patient too young
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Age Lower # Patient age at bound
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9638
     - name: Denominator Procedure #  Procedure prior to measurement year
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Procedure #  Procedure at beginning of measurement year
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9638
     - name: Denominator Procedure #  Procedure at end of measurement year
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9638
     - name: Denominator Procedure #  Procedure after measurement year
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Success G9637 #  Success before Procedure
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9638
     - name: Success G9637 #  Success at lower bound of Procedure
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9637
     - name: Success G9637 #  Success at upper bound of Procedure
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9637
     - name: Success G9637 #  Success after Procedure
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -66,61 +66,61 @@ test_set_keys:
   - name: Rachel
     episodes_of_care:
     - name: Too Young # Patient too young
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Age Lower # Patient age at bound
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9638
     - name: Denominator Procedure #  Procedure prior to measurement year
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Procedure #  Procedure at beginning of measurement year
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9638
     - name: Denominator Procedure #  Procedure at end of measurement year
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9638
     - name: Denominator Procedure #  Procedure after measurement year
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Success G9637 #  Success before Procedure
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9638
     - name: Success G9637 #  Success at lower bound of Procedure
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9637
     - name: Success G9637 #  Success at upper bound of Procedure
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9637
     - name: Success G9637 #  Success after Procedure
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -147,7 +147,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
 - name: Age Lower
   attributes:
@@ -159,7 +159,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
 - name: Denominator Procedure
   attributes:
@@ -171,19 +171,19 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450
-      start_datetime: 2015-12-31 # Too early
+      start_date: 2015-12-31 # Too early
       provider: Rachel
     - code_type: CPT
       code_value: 70450
-      start_datetime: 2016-01-01 # Lower bound
+      start_date: 2016-01-01 # Lower bound
       provider: Rachel
     - code_type: CPT
       code_value: 70450
-      start_datetime: 2016-12-31 # Upper bound
+      start_date: 2016-12-31 # Upper bound
       provider: Rachel
     - code_type: CPT
       code_value: 70450
-      start_datetime: 2017-01-01 # Too late
+      start_date: 2017-01-01 # Too late
       provider: Rachel
 - name: Success G9637
   attributes:
@@ -195,33 +195,33 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450
-      start_datetime: 2016-01-01 # Procedure
-      stop_datetime: 2016-01-02
+      start_date: 2016-01-01 # Procedure
+      stop_date: 2016-01-02
       provider: Rachel
     - code_type: CPT
       code_value: 70450
-      start_datetime: 2016-02-01 # Procedure
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01 # Procedure
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
       code_value: 70450
-      start_datetime: 2016-03-01 # Procedure
-      stop_datetime: 2016-03-02
+      start_date: 2016-03-01 # Procedure
+      stop_date: 2016-03-02
       provider: Rachel
     - code_type: CPT
       code_value: 70450
-      start_datetime: 2016-04-01 # Procedure
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-01 # Procedure
+      stop_date: 2016-04-02
       provider: Patty
     - code_type: HCPCS
       code_value: G9637
-      start_datetime: 2015-12-31 # Early
+      start_date: 2015-12-31 # Early
     - code_type: HCPCS
       code_value: G9637
-      start_datetime: 2016-02-01 # Lower
+      start_date: 2016-02-01 # Lower
     - code_type: HCPCS
       code_value: G9637
-      start_datetime: 2016-03-02 # Upper
+      start_date: 2016-03-02 # Upper
     - code_type: HCPCS
       code_value: G9637
-      start_datetime: 2016-04-03 # Late
+      start_date: 2016-04-03 # Late

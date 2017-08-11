@@ -3,241 +3,241 @@ test_set_keys:
   organization_key:
     episodes_of_care:
     - name: Rate2DenominatorEncounter # Encounter too early
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate2DenominatorEncounter  # Encounter at lower bound
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate2DenominatorEncounter # Encounter at upper bound
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate2DenominatorEncounter  # Encounter too late
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate2MelanomaDiagnosis # Diagnosis too early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate2MelanomaDiagnosis  # Diagnosis lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate2MelanomaDiagnosis  # Diagnosis upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate2MelanomaDiagnosis  # Diagnosis too late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate2PerformanceMet5050F # 5050F too early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate2PerformanceMet5050F # 5050F at lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F
     - name: Rate2PerformanceMet5050F # 5050F at upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F
     - name: Rate2PerformanceMet5050F # 5050F too late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate2Exception5050F-2P # 5050F-2P too early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate2Exception5050F-2P # 5050F-2P at lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 5050F-2P
       numerator:
     - name: Rate2Exception5050F-2P # 5050F-2P at upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 5050F-2P
       numerator:
     - name: Rate2Exception5050F-2P # 5050F-2P too late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate2Exception5050F-3P # 5050F-3P too early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate2Exception5050F-3P # 5050F-3P at lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 5050F-3P
       numerator:
     - name: Rate2Exception5050F-3P # 5050F-3P at upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 5050F-3P
       numerator:
     - name: Rate2Exception5050F-3P # 5050F-3P too late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate3DenominatorEncounter # Encounter too early
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate3DenominatorEncounter  # Encounter at lower bound
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate3DenominatorEncounter # Encounter at upper bound
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate3DenominatorEncounter  # Encounter too late
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate3MelanomaDiagnosis # Diagnosis too early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate3MelanomaDiagnosis  # Diagnosis lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate3MelanomaDiagnosis  # Diagnosis upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate3MelanomaDiagnosis  # Diagnosis too late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate3PerformanceMet5050F # 5050F too early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate3PerformanceMet5050F # 5050F at lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F
     - name: Rate3PerformanceMet5050F # 5050F at upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F
     - name: Rate3PerformanceMet5050F # 5050F too late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate3Exception5050F-2P # 5050F-2P too early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate3Exception5050F-2P # 5050F-2P at lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 5050F-2P
       numerator:
     - name: Rate3Exception5050F-2P # 5050F-2P at upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 5050F-2P
       numerator:
     - name: Rate3Exception5050F-2P # 5050F-2P too late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate3Exception5050F-3P # 5050F-3P too early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate3Exception5050F-3P # 5050F-3P at lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 5050F-3P
       numerator:
     - name: Rate3Exception5050F-3P # 5050F-3P at upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 5050F-3P
       numerator:
     - name: Rate3Exception5050F-3P # 5050F-3P too late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -246,241 +246,241 @@ test_set_keys:
   - name: Rachel
     episodes_of_care:
     - name: Rate2DenominatorEncounter # Encounter too early
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate2DenominatorEncounter  # Encounter at lower bound
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate2DenominatorEncounter # Encounter at upper bound
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate2DenominatorEncounter  # Encounter too late
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate2MelanomaDiagnosis # Diagnosis too early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate2MelanomaDiagnosis  # Diagnosis lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate2MelanomaDiagnosis  # Diagnosis upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate2MelanomaDiagnosis  # Diagnosis too late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate2PerformanceMet5050F # 5050F too early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate2PerformanceMet5050F # 5050F at lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F
     - name: Rate2PerformanceMet5050F # 5050F at upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F
     - name: Rate2PerformanceMet5050F # 5050F too late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate2Exception5050F-2P # 5050F-2P too early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate2Exception5050F-2P # 5050F-2P at lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 5050F-2P
       numerator:
     - name: Rate2Exception5050F-2P # 5050F-2P at upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 5050F-2P
       numerator:
     - name: Rate2Exception5050F-2P # 5050F-2P too late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate2Exception5050F-3P # 5050F-3P too early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate2Exception5050F-3P # 5050F-3P at lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate2Exception5050F-3P # 5050F-3P at upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate2Exception5050F-3P # 5050F-3P too late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate3DenominatorEncounter # Encounter too early
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate3DenominatorEncounter  # Encounter at lower bound
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate3DenominatorEncounter # Encounter at upper bound
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate3DenominatorEncounter  # Encounter too late
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate3MelanomaDiagnosis # Diagnosis too early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate3MelanomaDiagnosis  # Diagnosis lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate3MelanomaDiagnosis  # Diagnosis upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate3MelanomaDiagnosis  # Diagnosis too late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate3PerformanceMet5050F # 5050F too early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate3PerformanceMet5050F # 5050F at lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F
     - name: Rate3PerformanceMet5050F # 5050F at upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F
     - name: Rate3PerformanceMet5050F # 5050F too late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate3Exception5050F-2P # 5050F-2P too early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate3Exception5050F-2P # 5050F-2P at lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 5050F-2P
       numerator:
     - name: Rate3Exception5050F-2P # 5050F-2P at upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 5050F-2P
       numerator:
     - name: Rate3Exception5050F-2P # 5050F-2P too late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Rate3Exception5050F-3P # 5050F-3P too early
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate3Exception5050F-3P # 5050F-3P at lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate3Exception5050F-3P # 5050F-3P at upper bound
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Rate3Exception5050F-3P # 5050F-3P too late
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -507,37 +507,37 @@ patients:
     clinical_activities:
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2015-12-31 # Too early
-        stop_datetime: 2015-12-31
+        start_date: 2015-12-31 # Too early
+        stop_date: 2015-12-31
         provider: Rachel
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2016-01-01 # Lower bound
-        stop_datetime: 2016-01-01
+        start_date: 2016-01-01 # Lower bound
+        stop_date: 2016-01-01
         provider: Rachel
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2016-12-31 # Upper bound
-        stop_datetime: 2016-12-31
+        start_date: 2016-12-31 # Upper bound
+        stop_date: 2016-12-31
         provider: Rachel
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2017-01-01 # Too late
-        stop_datetime: 2017-01-01
+        start_date: 2017-01-01 # Too late
+        stop_date: 2017-01-01
         provider: Rachel
     diagnoses:
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
 - name: Rate2MelanomaDiagnosis
   attributes:
     date_of_birth: 1950-01-01
@@ -548,37 +548,37 @@ patients:
     clinical_activities:
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2016-03-01
-        stop_datetime: 2016-03-02
+        start_date: 2016-03-01
+        stop_date: 2016-03-02
         provider: Rachel
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2016-04-01
-        stop_datetime: 2016-04-02
+        start_date: 2016-04-01
+        stop_date: 2016-04-02
         provider: Rachel
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2016-05-01
-        stop_datetime: 2016-05-02
+        start_date: 2016-05-01
+        stop_date: 2016-05-02
         provider: Rachel
     diagnoses:
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-01-01 # Too early
+        start_date: 2016-01-01 # Too early
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-03-01 # Lower bound
+        start_date: 2016-03-01 # Lower bound
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-04-02 # Upper bound
+        start_date: 2016-04-02 # Upper bound
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-05-03 # Too late
+        start_date: 2016-05-03 # Too late
 - name: Rate2PerformanceMet5050F
   attributes:
     date_of_birth: 1950-01-01
@@ -589,49 +589,49 @@ patients:
     clinical_activities:
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: CPT
         code_value: 5050F
-        start_datetime: 2016-01-30  # Too early
+        start_date: 2016-01-30  # Too early
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2016-03-01
-        stop_datetime: 2016-03-02
+        start_date: 2016-03-01
+        stop_date: 2016-03-02
         provider: Rachel
       - code_type: CPT
         code_value: 5050F
-        start_datetime: 2016-03-01 # Lower bound
+        start_date: 2016-03-01 # Lower bound
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2016-04-01
-        stop_datetime: 2016-04-02
+        start_date: 2016-04-01
+        stop_date: 2016-04-02
         provider: Rachel
       - code_type: CPT
         code_value: 5050F
-        start_datetime: 2016-04-02 # Upper bound
+        start_date: 2016-04-02 # Upper bound
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2016-05-01
-        stop_datetime: 2016-05-02
+        start_date: 2016-05-01
+        stop_date: 2016-05-02
         provider: Rachel
       - code_type: CPT
         code_value: 5050F
-        start_datetime: 2016-05-03 # Late
+        start_date: 2016-05-03 # Late
     diagnoses:
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
 - name: Rate2Exception5050F-2P
   attributes:
     date_of_birth: 1950-01-01
@@ -642,49 +642,49 @@ patients:
     clinical_activities:
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: CPT
         code_value: 5050F-2P
-        start_datetime: 2016-01-30  # Too early
+        start_date: 2016-01-30  # Too early
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2016-03-01
-        stop_datetime: 2016-03-02
+        start_date: 2016-03-01
+        stop_date: 2016-03-02
         provider: Rachel
       - code_type: CPT
         code_value: 5050F-2P
-        start_datetime: 2016-03-01 # Lower bound
+        start_date: 2016-03-01 # Lower bound
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2016-04-01
-        stop_datetime: 2016-04-02
+        start_date: 2016-04-01
+        stop_date: 2016-04-02
         provider: Rachel
       - code_type: CPT
         code_value: 5050F-2P
-        start_datetime: 2016-04-02 # Upper bound
+        start_date: 2016-04-02 # Upper bound
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2016-05-01
-        stop_datetime: 2016-05-02
+        start_date: 2016-05-01
+        stop_date: 2016-05-02
         provider: Rachel
       - code_type: CPT
         code_value: 5050F-2P
-        start_datetime: 2016-05-03 # Late
+        start_date: 2016-05-03 # Late
     diagnoses:
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
 - name: Rate2Exception5050F-3P
   attributes:
     date_of_birth: 1950-01-01
@@ -695,49 +695,49 @@ patients:
     clinical_activities:
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Patty
       - code_type: CPT
         code_value: 5050F-3P
-        start_datetime: 2016-01-30  # Too early
+        start_date: 2016-01-30  # Too early
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2016-03-01
-        stop_datetime: 2016-03-02
+        start_date: 2016-03-01
+        stop_date: 2016-03-02
         provider: Patty
       - code_type: CPT
         code_value: 5050F-3P
-        start_datetime: 2016-03-01 # Lower bound
+        start_date: 2016-03-01 # Lower bound
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2016-04-01
-        stop_datetime: 2016-04-02
+        start_date: 2016-04-01
+        stop_date: 2016-04-02
         provider: Patty
       - code_type: CPT
         code_value: 5050F-3P
-        start_datetime: 2016-04-02 # Upper bound
+        start_date: 2016-04-02 # Upper bound
       - code_type: CPT
         code_value: 11600
-        start_datetime: 2016-05-01
-        stop_datetime: 2016-05-02
+        start_date: 2016-05-01
+        stop_date: 2016-05-02
         provider: Patty
       - code_type: CPT
         code_value: 5050F-3P
-        start_datetime: 2016-05-03 # Late
+        start_date: 2016-05-03 # Late
     diagnoses:
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
 - name: Rate3Denominator Encounter
   attributes:
     date_of_birth: 1950-01-01
@@ -748,37 +748,37 @@ patients:
     clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2015-12-31 # Too early
-        stop_datetime: 2015-12-31
+        start_date: 2015-12-31 # Too early
+        stop_date: 2015-12-31
         provider: Rachel
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01 # Lower bound
-        stop_datetime: 2016-01-01
+        start_date: 2016-01-01 # Lower bound
+        stop_date: 2016-01-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-12-31 # Upper bound
-        stop_datetime: 2016-12-31
+        start_date: 2016-12-31 # Upper bound
+        stop_date: 2016-12-31
         provider: Rachel
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2017-01-01 # Too late
-        stop_datetime: 2017-01-01
+        start_date: 2017-01-01 # Too late
+        stop_date: 2017-01-01
         provider: Rachel
     diagnoses:
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
 - name: Rate3Melanoma Diagnosis
   attributes:
     date_of_birth: 1950-01-01
@@ -789,37 +789,37 @@ patients:
     clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-03-01
-        stop_datetime: 2016-03-02
+        start_date: 2016-03-01
+        stop_date: 2016-03-02
         provider: Rachel
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-04-01
-        stop_datetime: 2016-04-02
+        start_date: 2016-04-01
+        stop_date: 2016-04-02
         provider: Rachel
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-05-01
-        stop_datetime: 2016-05-02
+        start_date: 2016-05-01
+        stop_date: 2016-05-02
         provider: Rachel
     diagnoses:
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-01-01 # Too early
+        start_date: 2016-01-01 # Too early
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-03-01 # Lower bound
+        start_date: 2016-03-01 # Lower bound
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-04-02 # Upper bound
+        start_date: 2016-04-02 # Upper bound
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-05-03 # Too late
+        start_date: 2016-05-03 # Too late
 - name: Rate3PerformanceMet 5050F
   attributes:
     date_of_birth: 1950-01-01
@@ -830,49 +830,49 @@ patients:
     clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: CPT
         code_value: 5050F
-        start_datetime: 2016-01-30  # Too early
+        start_date: 2016-01-30  # Too early
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-03-01
-        stop_datetime: 2016-03-02
+        start_date: 2016-03-01
+        stop_date: 2016-03-02
         provider: Rachel
       - code_type: CPT
         code_value: 5050F
-        start_datetime: 2016-03-01 # Lower bound
+        start_date: 2016-03-01 # Lower bound
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-04-01
-        stop_datetime: 2016-04-02
+        start_date: 2016-04-01
+        stop_date: 2016-04-02
         provider: Rachel
       - code_type: CPT
         code_value: 5050F
-        start_datetime: 2016-04-02 # Upper bound
+        start_date: 2016-04-02 # Upper bound
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-05-01
-        stop_datetime: 2016-05-02
+        start_date: 2016-05-01
+        stop_date: 2016-05-02
         provider: Rachel
       - code_type: CPT
         code_value: 5050F
-        start_datetime: 2016-05-03 # Late
+        start_date: 2016-05-03 # Late
     diagnoses:
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
 - name: Rate3Exception 5050F-2P
   attributes:
     date_of_birth: 1950-01-01
@@ -883,49 +883,49 @@ patients:
     clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: CPT
         code_value: 5050F-2P
-        start_datetime: 2016-01-30  # Too early
+        start_date: 2016-01-30  # Too early
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-03-01
-        stop_datetime: 2016-03-02
+        start_date: 2016-03-01
+        stop_date: 2016-03-02
         provider: Rachel
       - code_type: CPT
         code_value: 5050F-2P
-        start_datetime: 2016-03-01 # Lower bound
+        start_date: 2016-03-01 # Lower bound
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-04-01
-        stop_datetime: 2016-04-02
+        start_date: 2016-04-01
+        stop_date: 2016-04-02
         provider: Rachel
       - code_type: CPT
         code_value: 5050F-2P
-        start_datetime: 2016-04-02 # Upper bound
+        start_date: 2016-04-02 # Upper bound
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-05-01
-        stop_datetime: 2016-05-02
+        start_date: 2016-05-01
+        stop_date: 2016-05-02
         provider: Rachel
       - code_type: CPT
         code_value: 5050F-2P
-        start_datetime: 2016-05-03 # Late
+        start_date: 2016-05-03 # Late
     diagnoses:
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
 - name: Rate3Exception 5050F-3P
   attributes:
     date_of_birth: 1950-01-01
@@ -936,46 +936,46 @@ patients:
     clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Patty
       - code_type: CPT
         code_value: 5050F-3P
-        start_datetime: 2016-01-30  # Too early
+        start_date: 2016-01-30  # Too early
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-03-01
-        stop_datetime: 2016-03-02
+        start_date: 2016-03-01
+        stop_date: 2016-03-02
         provider: Patty
       - code_type: CPT
         code_value: 5050F-3P
-        start_datetime: 2016-03-01 # Lower bound
+        start_date: 2016-03-01 # Lower bound
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-04-01
-        stop_datetime: 2016-04-02
+        start_date: 2016-04-01
+        stop_date: 2016-04-02
         provider: Patty
       - code_type: CPT
         code_value: 5050F-3P
-        start_datetime: 2016-04-02 # Upper bound
+        start_date: 2016-04-02 # Upper bound
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-05-01
-        stop_datetime: 2016-05-02
+        start_date: 2016-05-01
+        stop_date: 2016-05-02
         provider: Patty
       - code_type: CPT
         code_value: 5050F-3P
-        start_datetime: 2016-05-03 # Late
+        start_date: 2016-05-03 # Late
     diagnoses:
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01

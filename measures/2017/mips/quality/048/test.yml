@@ -157,7 +157,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
 - name: Patient is at lower age bound and otherwise meets the denominator
   attributes:
@@ -169,7 +169,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
 - name: Patient is a male
   attributes:
@@ -181,7 +181,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
 - name: Patient has no denominator eligible encounters but otherwise meets the denominator
   attributes:
@@ -193,7 +193,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 11111 # Fake encounter code
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
 - name: Patient has an encounter that is early but otherwise meets the denominator
   attributes:
@@ -205,7 +205,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2015-12-31 # Too early
+      start_date: 2015-12-31 # Too early
       provider: Rachel
 - name: Patient has an encounter that is late but otherwise meets the denominator
   attributes:
@@ -217,7 +217,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2017-01-01 # Too late
+      start_date: 2017-01-01 # Too late
       provider: Rachel
 - name: Patient has an exclusion for hospice service
   attributes:
@@ -229,11 +229,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9714 # G-code for hospice service
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
 - name: Patient has an exclusion for hospice service but it is too early
   attributes:
     date_of_birth: 1950-01-01
@@ -244,11 +244,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9693 # G-code for hospice service
-      start_datetime: 2015-12-31 # Too early
+      start_date: 2015-12-31 # Too early
 - name: Patient has an exclusion for hospice service but it is too late
   attributes:
     date_of_birth: 1950-01-01
@@ -259,11 +259,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9693 # G-code for hospice service
-      start_datetime: 2017-01-01 # Too late
+      start_date: 2017-01-01 # Too late
 - name: Patient assessed at start of allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -274,11 +274,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Patty
     - code_type: CPT
       code_value: 1090F # Performance Met
-      start_datetime: 2016-10-01
+      start_date: 2016-10-01
 - name: Patient assessed at end of allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -289,11 +289,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Patty
     - code_type: SNOMEDCT
       code_value: 252908007 # Bladder diary
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
 - name: Patient screened too early
   attributes:
     date_of_birth: 1950-01-01
@@ -304,11 +304,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Patty
     - code_type: CPT
       code_value: 1090F # Performance Met
-      start_datetime: 2014-09-30 # Too early
+      start_date: 2014-09-30 # Too early
 - name: Patient screened too late
   attributes:
     date_of_birth: 1950-01-01
@@ -319,8 +319,8 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Patty
     - code_type: CPT
       code_value: 1090F # Performance Met
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01

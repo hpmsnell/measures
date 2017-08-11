@@ -3,85 +3,85 @@ test_set_keys:
   organization_key:
     episodes_of_care:
       - name: Too Young
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Age Lower
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9311
       - name: Denominator Procedure # Early
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator Procedure # Lower bound
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9311
       - name: Denominator Procedure # Upper bound
-        start_datetime: 2016-11-30
+        start_date: 2016-11-30
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9311
       - name: Denominator Procedure # Late
-        start_datetime: 2016-12-01
+        start_date: 2016-12-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: PerformanceMet G9308 # Early
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9311
       - name: PerformanceMet G9308 # Lower bound
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9312
       - name: PerformanceMet G9308 # Upper bound
-        start_datetime: 2016-06-01
+        start_date: 2016-06-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9312
       - name: PerformanceMet G9308 # Late
-        start_datetime: 2016-08-01
+        start_date: 2016-08-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9311
       - name: PerformanceMet Infection # Early
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9311
       - name: PerformanceMet Infection # Lower bound
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9312
       - name: PerformanceMet Infection # Upper bound
-        start_datetime: 2016-06-01
+        start_date: 2016-06-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9312
       - name: PerformanceMet Infection # Late
-        start_datetime: 2016-08-01
+        start_date: 2016-08-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -90,85 +90,85 @@ test_set_keys:
     - name: Rachel
       episodes_of_care:
       - name: Too Young
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Age Lower
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9311
       - name: Denominator Procedure # Early
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator Procedure # Lower bound
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9311
       - name: Denominator Procedure # Upper bound
-        start_datetime: 2016-11-30
+        start_date: 2016-11-30
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9311
       - name: Denominator Procedure # Late
-        start_datetime: 2015-12-01
+        start_date: 2015-12-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: PerformanceMet G9308 # Early
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9311
       - name: PerformanceMet G9308 # Lower bound
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9312
       - name: PerformanceMet G9308 # Upper bound
-        start_datetime: 2016-06-01
+        start_date: 2016-06-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9312
       - name: PerformanceMet G9308 # Late
-        start_datetime: 2016-08-01
+        start_date: 2016-08-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9311
       - name: PerformanceMet Infection # Early
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: PerformanceMet Infection # Lower bound
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: PerformanceMet Infection # Upper bound
-        start_datetime: 2016-06-01
+        start_date: 2016-06-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: PerformanceMet Infection # Late
-        start_datetime: 2016-08-01
+        start_date: 2016-08-01
         denominator:
         denominator_exclusion:
         denominator_exception:
@@ -196,7 +196,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 11004
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
   - name: Age Lower
     attributes:
@@ -209,7 +209,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 11004
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
   - name: Denominator Procedure
     attributes:
@@ -222,19 +222,19 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 11004
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         provider: Rachel
       - code_type: CPT
         code_value: 11004
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: CPT
         code_value: 11004
-        start_datetime: 2016-11-30
+        start_date: 2016-11-30
         provider: Rachel
       - code_type: CPT
         code_value: 11004
-        start_datetime: 2016-12-01
+        start_date: 2016-12-01
         provider: Rachel
   - name: PerformanceMet G9308
     attributes:
@@ -247,36 +247,36 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 11004
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: HCPCS
         code_value: G9308
-        start_datetime: 2016-01-31 # Early
+        start_date: 2016-01-31 # Early
       - code_type: CPT
         code_value: 11004
-        start_datetime: 2016-04-01
-        stop_datetime: 2016-04-02
+        start_date: 2016-04-01
+        stop_date: 2016-04-02
         provider: Rachel
       - code_type: HCPCS
         code_value: G9308
-        start_datetime: 2016-04-01 # Lower
+        start_date: 2016-04-01 # Lower
       - code_type: CPT
         code_value: 11004
-        start_datetime: 2016-06-01
-        stop_datetime: 2016-06-02
+        start_date: 2016-06-01
+        stop_date: 2016-06-02
         provider: Rachel
       - code_type: HCPCS
         code_value: G9308
-        start_datetime: 2016-06-31 # Upper
+        start_date: 2016-06-31 # Upper
       - code_type: CPT
         code_value: 11004
-        start_datetime: 2016-08-01
-        stop_datetime: 2016-08-02
+        start_date: 2016-08-01
+        stop_date: 2016-08-02
         provider: Rachel
       - code_type: HCPCS
         code_value: G9308
-        start_datetime: 2016-09-01 # Late
+        start_date: 2016-09-01 # Late
   - name: PerformanceMet Infection
     attributes:
       date_of_birth: 1988-03-22
@@ -288,33 +288,33 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 11004
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 433202001
-        start_datetime: 2015-01-31 # Early
+        start_date: 2015-01-31 # Early
       - code_type: CPT
         code_value: 11004
-        start_datetime: 2016-04-01
-        stop_datetime: 2016-04-02
+        start_date: 2016-04-01
+        stop_date: 2016-04-02
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 433202001
-        start_datetime: 2016-04-01 # Lower
+        start_date: 2016-04-01 # Lower
       - code_type: CPT
         code_value: 11004
-        start_datetime: 2016-06-01
-        stop_datetime: 2016-06-02
+        start_date: 2016-06-01
+        stop_date: 2016-06-02
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 433202001
-        start_datetime: 2016-06-31 # Upper
+        start_date: 2016-06-31 # Upper
       - code_type: CPT
         code_value: 11004
-        start_datetime: 2016-08-01
-        stop_datetime: 2016-08-02
+        start_date: 2016-08-01
+        stop_date: 2016-08-02
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 433202001
-        start_datetime: 2016-09-01 # Late
+        start_date: 2016-09-01 # Late
