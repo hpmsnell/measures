@@ -1,0 +1,93 @@
+measure:
+  name: 17.MIPS.Mips439
+  required:
+    display_title: "Age Appropriate Screening Colonoscopy"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 439
+    version: 2017
+    mips_measure_type: Efficiency
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9659
+    required:
+      display_title: 'Patients greater than 85 years of age who did not have a history of colorectal cancer or valid medical reason for the colonoscopy, including: iron deficiency anemia, lower gastrointestinal bleeding, Crohn’s Disease (i.e., regional enteritis), familial adenomatous polyposis, Lynch Syndrome (i.e., hereditary non-polyposis colorectal cancer), inflammatory bowel disease, ulcerative colitis, abnormal finding of gastrointestinal tract, or changes in bowel habits'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 439 Encounter"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9659"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "Able; Iron Deficiency Anemia"
+            - model: Diagnosis
+              value_set: "Able; Lower Gastrointestinal Bleeding"
+            - model: Diagnosis
+              value_set: "Able; Chron's Disease"
+            - model: Diagnosis
+              value_set: "Able; Familial Adenomatous Polyposis"
+            - model: Diagnosis
+              value_set: "Able; Lynch Syndrome"
+            - model: Diagnosis
+              value_set: "Able; Inflammatory Bowel Disease"
+            - model: Diagnosis
+              value_set: "Able; Ulcerative Colitis"
+    optional:
+      code_value: G9659
+exception_reasons:
+  - config_link_id: G9660
+    required:
+      display_title: 'Documentation of medical reason(s) for a colonoscopy performed on a patient greater than 85 years of age (e.g., last colonoscopy incomplete, last colonoscopy had inadequate prep, iron deficiency anemia, lower gastrointestinal bleeding, Crohn’s Disease (i.e., regional enteritis), familial history of adenomatous polyposis, Lynch Syndrome (i.e., hereditary non-polyposis colorectal cancer), inflammatory bowel disease, ulcerative colitis, abnormal finding of gastrointestinal tract, or changes in bowel habits)'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 439 Encounter"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G9660"
+    optional:
+      code_value: G9660
+performance_not_met_reasons:
+  - config_link_id: G9661
+    required:
+      display_title: 'Patients greater than 85 years of age who received a routine colonoscopy for a reason other than the following: an assessment of signs/symptoms of GI tract illness, and/or the patient is considered high risk, and/or to followup on previously diagnoses advance lesions'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 439 Encounter"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "Able; Iron Deficiency Anemia"
+            - model: Diagnosis
+              value_set: "Able; Lower Gastrointestinal Bleeding"
+            - model: Diagnosis
+              value_set: "Able; Chron's Disease"
+            - model: Diagnosis
+              value_set: "Able; Familial Adenomatous Polyposis"
+            - model: Diagnosis
+              value_set: "Able; Lynch Syndrome"
+            - model: Diagnosis
+              value_set: "Able; Inflammatory Bowel Disease"
+            - model: Diagnosis
+              value_set: "Able; Ulcerative Colitis"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9659"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9661"
+    optional:
+      code_value: G9661
