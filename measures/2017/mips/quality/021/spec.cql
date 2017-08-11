@@ -7,7 +7,6 @@ library MIPS_021_2017 version '1'
  * Year: 2017
  * Version: 1
  * Written by: Steve Daniels
- * Reviewed by: Rachel Katz 2017-05-23
  *
   */
 
