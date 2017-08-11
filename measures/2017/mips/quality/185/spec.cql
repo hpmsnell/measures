@@ -48,7 +48,7 @@ define "Competing Condition for Colonoscopy":
   ["Diagnosis": "Able; Chron's Disease"]
   union ["Diagnosis": "VSAC; Colon Cancer"]
   union ["Diagnosis": "Able; Ulcerative Colitis"]
-  union ["Diagnosis": "VSAC; Able; Lower Gastrointestinal Bleeding"]
+  union ["Diagnosis": "Able; Lower Gastrointestinal Bleeding"]
 
 define "Denominator":
   "Denominator Encounter"
@@ -88,5 +88,5 @@ define "Numerator Performance Not Met: 0529F-8P":
    * config_link_id: 0529F-8P
    */
   not "Numerator Performance Met: 0529F"
-  anf not "Denominator Exception: 0529F-1P"
-  anf not "Denominator Exception: 0529F-3P"
+  and not "Denominator Exception: 0529F-1P"
+  and not "Denominator Exception: 0529F-3P"
