@@ -208,7 +208,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
 - name: Too Old
   attributes:
@@ -221,7 +221,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
 - name: Age LowerBound
   attributes:
@@ -234,7 +234,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
 - name: Age UpperBound
   attributes:
@@ -247,7 +247,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
 - name: Patient Male
   attributes:
@@ -260,7 +260,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
 - name: Encounter None
   attributes:
@@ -273,7 +273,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 11111 # Fake encounter code
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
 - name: Encounter Early
   attributes:
@@ -286,7 +286,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2015-12-31 # Too early
+      start_date: 2015-12-31 # Too early
       provider: Rachel
 - name: Encounter Late
   attributes:
@@ -299,7 +299,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2017-01-01 # Too late
+      start_date: 2017-01-01 # Too late
       provider: Rachel
 - name: Exclusion BilateralMastectomy
   attributes:
@@ -312,12 +312,12 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: Z90.13 # Bilateral mastectomy
-      start_datetime: 2010-01-01
+      start_date: 2010-01-01
 - name: Exclusion BilateralMastectomyLate
   attributes:
     date_of_birth: 1950-01-01
@@ -329,12 +329,12 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: Z90.13 # Bilateral mastectomy
-      start_datetime: 2017-01-01 # Too late
+      start_date: 2017-01-01 # Too late
 - name: Exclusion UnilateralMastectomy
   attributes:
     date_of_birth: 1950-01-01
@@ -346,15 +346,15 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     diagnoses:
     - code_type: SNOMEDCT
       code_value: 429242008 # Right mastectomy
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
     - code_type: ICD10CM
       code_value: Z90.12 # Left mastectomy
-      start_datetime: 2010-01-01
+      start_date: 2010-01-01
 - name: Exclusion UnilateralMastectomyLate
   attributes:
     date_of_birth: 1950-01-01
@@ -366,15 +366,15 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     diagnoses:
     - code_type: SNOMEDCT
       code_value: 429242008 # Right mastectomy
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
     - code_type: ICD10CM
       code_value: Z90.12 # Left mastectomy
-      start_datetime: 2017-01-01 # Too late
+      start_date: 2017-01-01 # Too late
 - name: Exclusion UnilateralMastectomyUnspecified
   attributes:
     date_of_birth: 1950-01-01
@@ -386,16 +386,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: Z90.10 # Unilateral mastectomy unspecified
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       anatomical_location_site: Left
     - code_type: ICD10CM
       code_value: V45.71 # Unilateral mastectomy unspecified
-      start_datetime: 2010-01-01
+      start_date: 2010-01-01
       anatomical_location_site: Right
 - name: Exclusion UnilateralMastectomyUnspecifiedLate
   attributes:
@@ -408,19 +408,19 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: SNOMEDCT
       code_value: 429242008 # Right mastectomy
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
     diagnoses:
     - code_type: ICD10CM
       code_value: Z90.10 # Unilateral mastectomy unspecified
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       anatomical_location_site: Left
     - code_type: ICD10CM
       code_value: V45.71 # Unilateral mastectomy unspecified
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       anatomical_location_site: Right
 - name: Exclusion UnilateralMastectomyUnspecifiedNoSite
   attributes:
@@ -433,16 +433,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: Z90.10 # Unilateral mastectomy unspecified
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       anatomical_location_site: Left
     - code_type: ICD10CM
       code_value: V45.71 # Unilateral mastectomy unspecified
-      start_datetime: 2010-01-01
+      start_date: 2010-01-01
 - name: Screened Start
   attributes:
     date_of_birth: 1950-01-01
@@ -454,11 +454,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: LOINC
       code_value: 24604-1 # Mammogram
-      start_datetime: 2014-10-01
+      start_date: 2014-10-01
 - name: Screened End
   attributes:
     date_of_birth: 1950-01-01
@@ -470,11 +470,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: LOINC
       code_value: 24604-1 # Mammogram
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
 - name: Screened Early
   attributes:
     date_of_birth: 1950-01-01
@@ -486,11 +486,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: LOINC
       code_value: 24604-1 # Mammogram
-      start_datetime: 2014-09-30 # Too early
+      start_date: 2014-09-30 # Too early
 - name: Screened Late
   attributes:
     date_of_birth: 1950-01-01
@@ -502,8 +502,8 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Patty
     - code_type: LOINC
       code_value: 24604-1 # Mammogram
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01

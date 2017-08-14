@@ -3,109 +3,109 @@ test_set_keys:
   organization_key:
     episodes_of_care:
     - name: Too Young # Too young
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Age Lower # Age at lower bound
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8874
     - name: Denominator Encounter #  Encounter prior to measurement year
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Encounter #  Encounter at beginning of measurement year
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8874
     - name: Denominator Encounter #  Encounter at end of measurement year
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8874
     - name: Denominator Encounter #  Encounter after measurement year
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Diagnosis #  Diagnosis prior to measurement year
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Diagnosis #  Diagnosis at beginning of measurement year
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8874
     - name: Denominator Diagnosis #  Diagnosis at end of measurement year
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8874
     - name: Denominator Diagnosis #  Diagnosis after measurement year
-      start_datetime: 2017-05-01
+      start_date: 2017-05-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Exclusion #  Exclusion before Encounter
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8874
     - name: Denominator Exclusion #  Exclusion at lower bound of Encounter
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion: exclusion1
       denominator_exception:
       numerator:
     - name: Denominator Exclusion #  Exclusion at upper bound of Encounter
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion: exclusion1
       denominator_exception:
       numerator:
     - name: Denominator Exclusion #  Exclusion after Encounter
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8874
     - name: PerformanceMet G8872 #  PerformanceMet before Encounter
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8874
     - name: PerformanceMet G8872 #  PerformanceMet at lower bound of Encounter
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8872
     - name: PerformanceMet G8872 #  PerformanceMet at upper bound of Encounter
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8872
     - name: PerformanceMet G8872 #  PerformanceMet after Encounter
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -114,109 +114,109 @@ test_set_keys:
   - name: Rachel
     episodes_of_care:
     - name: Too Young # Too young
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Age Lower # Age at lower bound
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8874
     - name: Denominator Encounter #  Encounter prior to measurement year
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Encounter #  Encounter at beginning of measurement year
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8874
     - name: Denominator Encounter #  Encounter at end of measurement year
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8874
     - name: Denominator Encounter #  Encounter after measurement year
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Diagnosis #  Diagnosis prior to measurement year
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Diagnosis #  Diagnosis at beginning of measurement year
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8874
     - name: Denominator Diagnosis #  Diagnosis at end of measurement year
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8874
     - name: Denominator Diagnosis #  Diagnosis after measurement year
-      start_datetime: 2017-05-01
+      start_date: 2017-05-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Exclusion #  Exclusion before Encounter
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8874
     - name: Denominator Exclusion #  Exclusion at lower bound of Encounter
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion: exclusion1
       denominator_exception:
       numerator:
     - name: Denominator Exclusion #  Exclusion at upper bound of Encounter
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion: exclusion1
       denominator_exception:
       numerator:
     - name: Denominator Exclusion #  Exclusion after Encounter
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8874
     - name: PerformanceMet G8872 #  PerformanceMet before Encounter
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: PerformanceMet G8872 #  PerformanceMet at lower bound of Encounter
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: PerformanceMet G8872 #  PerformanceMet at upper bound of Encounter
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: PerformanceMet G8872 #  PerformanceMet after Encounter
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -243,14 +243,14 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 19125
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
 - name: Age Lower
   attributes:
     date_of_birth: 1998-02-01
@@ -261,14 +261,14 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 19125
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
 - name: Denominator Encounter
   attributes:
     date_of_birth: 1990-01-02
@@ -279,41 +279,41 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 19125
-      start_datetime: 2015-12-31 # Too early
-      stop_datetime: 2015-12-31
+      start_date: 2015-12-31 # Too early
+      stop_date: 2015-12-31
       provider: Rachel
     - code_type: CPT
       code_value: 19125
-      start_datetime: 2016-01-01 # Lower bound
-      stop_datetime: 2016-01-01
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
       provider: Rachel
     - code_type: CPT
       code_value: 19125
-      start_datetime: 2016-12-31 # Upper bound
-      stop_datetime: 2016-12-31
+      start_date: 2016-12-31 # Upper bound
+      stop_date: 2016-12-31
       provider: Rachel
     - code_type: CPT
       code_value: 19125
-      start_datetime: 2017-01-01 # Too late
-      stop_datetime: 2017-01-01
+      start_date: 2017-01-01 # Too late
+      stop_date: 2017-01-01
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2015-12-31
-      stop_datetime: 2015-12-31
+      start_date: 2015-12-31
+      stop_date: 2015-12-31
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-01-01
-      stop_datetime: 2016-01-01
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-12-31
-      stop_datetime: 2016-12-31
+      start_date: 2016-12-31
+      stop_date: 2016-12-31
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2017-01-01
-      stop_datetime: 2017-01-01
+      start_date: 2017-01-01
+      stop_date: 2017-01-01
 - name: Denominator Diagnosis
   attributes:
     date_of_birth: 1990-01-02
@@ -324,41 +324,41 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 19125
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
       code_value: 19125
-      start_datetime: 2016-03-01
-      stop_datetime: 2016-03-02
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
       provider: Rachel
     - code_type: CPT
       code_value: 19125
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-01
+      stop_date: 2016-04-02
       provider: Rachel
     - code_type: CPT
       code_value: 19125
-      start_datetime: 2016-05-01
-      stop_datetime: 2016-05-02
+      start_date: 2016-05-01
+      stop_date: 2016-05-02
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-01-01
-      stop_datetime: 2016-01-31 # Too early
+      start_date: 2016-01-01
+      stop_date: 2016-01-31 # Too early
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-03-01 # Lower bound
-      stop_datetime: 2016-03-01
+      start_date: 2016-03-01 # Lower bound
+      stop_date: 2016-03-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-04-02 # Upper bound
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-02 # Upper bound
+      stop_date: 2016-04-02
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-05-03 # Too late
-      stop_datetime: 2016-05-04
+      start_date: 2016-05-03 # Too late
+      stop_date: 2016-05-04
 - name: Denominator Exclusion
   attributes:
     date_of_birth: 1990-01-02
@@ -369,53 +369,53 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 19125
-      start_datetime: 2016-01-01 # Encounter
-      stop_datetime: 2016-01-02
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
       provider: Rachel
     - code_type: CPT
       code_value: 19125
-      start_datetime: 2016-02-01 # Encounter
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01 # Encounter
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
       code_value: 19125
-      start_datetime: 2016-03-01 # Encounter
-      stop_datetime: 2016-03-02
+      start_date: 2016-03-01 # Encounter
+      stop_date: 2016-03-02
       provider: Rachel
     - code_type: CPT
       code_value: 19125
-      start_datetime: 2016-04-01 # Encounter
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-01 # Encounter
+      stop_date: 2016-04-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8873
-      start_datetime: 2015-12-31 # Early
+      start_date: 2015-12-31 # Early
     - code_type: HCPCS
       code_value: G8873
-      start_datetime: 2016-02-01 # Lower
+      start_date: 2016-02-01 # Lower
     - code_type: HCPCS
       code_value: G8873
-      start_datetime: 2016-03-02 # Upper
+      start_date: 2016-03-02 # Upper
     - code_type: HCPCS
       code_value: G8873
-      start_datetime: 2016-04-03 # Late
+      start_date: 2016-04-03 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-01-01
-      stop_datetime: 2016-01-01
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-03-01
-      stop_datetime: 2016-03-01
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-04-01
+      start_date: 2016-04-01
+      stop_date: 2016-04-01
 - name: PerformanceMet G8872
   attributes:
     date_of_birth: 1990-01-02
@@ -426,50 +426,50 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 19125
-      start_datetime: 2016-01-01 # Encounter
-      stop_datetime: 2016-01-02
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
       provider: Patty
     - code_type: CPT
       code_value: 19125
-      start_datetime: 2016-02-01 # Encounter
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01 # Encounter
+      stop_date: 2016-02-02
       provider: Patty
     - code_type: CPT
       code_value: 19125
-      start_datetime: 2016-03-01 # Encounter
-      stop_datetime: 2016-03-02
+      start_date: 2016-03-01 # Encounter
+      stop_date: 2016-03-02
       provider: Patty
     - code_type: CPT
       code_value: 19125
-      start_datetime: 2016-04-01 # Encounter
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-01 # Encounter
+      stop_date: 2016-04-02
       provider: Patty
     - code_type: HCPCS
       code_value: G8872
-      start_datetime: 2015-12-31 # Early
+      start_date: 2015-12-31 # Early
     - code_type: HCPCS
       code_value: G8872
-      start_datetime: 2016-02-01 # Lower
+      start_date: 2016-02-01 # Lower
     - code_type: HCPCS
       code_value: G8872
-      start_datetime: 2016-03-02 # Upper
+      start_date: 2016-03-02 # Upper
     - code_type: HCPCS
       code_value: G8872
-      start_datetime: 2016-04-03 # Late
+      start_date: 2016-04-03 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-01-01
-      stop_datetime: 2016-01-01
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-03-01
-      stop_datetime: 2016-03-01
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-04-01
+      start_date: 2016-04-01
+      stop_date: 2016-04-01

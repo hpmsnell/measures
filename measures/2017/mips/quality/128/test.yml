@@ -449,7 +449,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
 - name: Patient is at lower age bound and otherwise meets the denominator
   attributes:
@@ -461,7 +461,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
 - name: Patient has no denominator eligible encounters but otherwise meets the denominator
   attributes:
@@ -473,7 +473,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 11111 # Fake encounter code
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
 - name: Patient has an encounter with a telehealth modifier but otherwise meets the denominator
   attributes:
@@ -485,7 +485,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201-GQ # Telehealth modifier
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
 - name: Patient has an encounter that is early but otherwise meets the denominator
   attributes:
@@ -497,7 +497,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2015-12-31 # Too early
+      start_date: 2015-12-31 # Too early
       provider: Rachel
 - name: Patient has an encounter that is late but otherwise meets the denominator
   attributes:
@@ -509,7 +509,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2017-01-01 # Too late
+      start_date: 2017-01-01 # Too late
       provider: Rachel
 - name: Patient has an exclusion at the start of the allowable period
   attributes:
@@ -521,11 +521,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8422 # G-code for not eligible
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
 - name: Patient has an exclusion at the end of the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -536,11 +536,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8422 # G-code for not eligible
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
 - name: Patient has an exclusion but it is too late
   attributes:
     date_of_birth: 1950-01-01
@@ -551,11 +551,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8422 # G-code for not eligible
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
 - name: Patient has an exclusion but it is too early
   attributes:
     date_of_birth: 1950-01-01
@@ -566,12 +566,12 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8422 # G-code for not eligible
-      start_datetime: 2015-03-01
-      stop_datetime: 2015-12-31
+      start_date: 2015-03-01
+      stop_date: 2015-12-31
 - name: Patient has an exclusion for pregnancy
   attributes:
     date_of_birth: 1950-01-01
@@ -582,12 +582,12 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     diagnoses:
     - code_type: SNOMEDCT
       code_value: 102872000 # Pregnant
-      start_datetime: 2010-01-01
+      start_date: 2010-01-01
 - name: Patient has an exclusion for pregnancy but it is too late
   attributes:
     date_of_birth: 1950-01-01
@@ -598,12 +598,12 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     diagnoses:
     - code_type: SNOMEDCT
       code_value: 102872000 # Pregnant
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
 - name: Patient has a normal BMI at the start of the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -614,11 +614,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       result: 20
 - name: Patient has a normal BMI at the end of the allowable period
   attributes:
@@ -630,11 +630,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       result: 20
 - name: Patient has a normal BMI before the allowable period
   attributes:
@@ -646,11 +646,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       result: 20
 - name: Patient has a normal BMI after the allowable period
   attributes:
@@ -662,11 +662,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       result: 20
 - name: Patient has a high BMI and follow-up at the start of the allowable period
   attributes:
@@ -678,15 +678,15 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       result: 25
     - code_type: SNOMEDCT
       code_value: 304549008 # Encouragement to exercise
-      start_datetime: 2015-07-01
+      start_date: 2015-07-01
 - name: Patient has a high BMI and follow-up at the end of the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -697,15 +697,15 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       result: 25
     - code_type: SNOMEDCT
       code_value: 304549008 # Encouragement to exercise
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
 - name: Patient has a high BMI and follow-up before the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -716,15 +716,15 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       result: 25
     - code_type: SNOMEDCT
       code_value: 304549008 # Encouragement to exercise
-      start_datetime: 2015-06-30
+      start_date: 2015-06-30
 - name: Patient has a high BMI and follow-up after the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -735,15 +735,15 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       result: 25
     - code_type: SNOMEDCT
       code_value: 304549008 # Encouragement to exercise
-      start_datetime: 2016-01-02
+      start_date: 2016-01-02
 - name: Patient has a low BMI and follow-up at the start of the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -754,15 +754,15 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       result: 18.4
     - code_type: SNOMEDCT
       code_value: 386464006 # Diet education
-      start_datetime: 2015-07-01
+      start_date: 2015-07-01
 - name: Patient has a low BMI and follow-up at the end of the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -773,15 +773,15 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       result: 18.4
     - code_type: SNOMEDCT
       code_value: 386464006 # Diet education
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
 - name: Patient has a low BMI and follow-up before the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -792,15 +792,15 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       result: 18.4
     - code_type: SNOMEDCT
       code_value: 386464006 # Diet education
-      start_datetime: 2015-06-30
+      start_date: 2015-06-30
 - name: Patient has a low BMI and follow-up after the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -811,15 +811,15 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       result: 18.4
     - code_type: SNOMEDCT
       code_value: 386464006 # Diet education
-      start_datetime: 2016-01-02
+      start_date: 2016-01-02
 - name: Patient has a denominator exception at the start of the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -830,11 +830,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Patty
     - code_type: HCPCS
       code_value: G9716 # G-code for exception
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
 - name: Patient has a denominator exception at the end of the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -845,11 +845,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Patty
     - code_type: HCPCS
       code_value: G9716 # G-code for exception
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
 - name: Patient has a denominator exception but it is too late
   attributes:
     date_of_birth: 1950-01-01
@@ -860,11 +860,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Patty
     - code_type: CPT
       code_value: G9716 # G-code for exception
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
 - name: Patient has a denominator exception but it is too early
   attributes:
     date_of_birth: 1950-01-01
@@ -875,8 +875,8 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Patty
     - code_type: CPT
       code_value: G9716 # G-code for exception
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31

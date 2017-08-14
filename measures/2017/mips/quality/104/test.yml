@@ -3,235 +3,235 @@ test_set_keys:
   organization_key:
     episodes_of_care:
     - name: Sex Female
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Encounter1 # Before
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Encounter1 # Upper
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
     - name: Denominator Encounter2 # Lower
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
     - name: Denominator Encounter2 # After
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Diagnosis # Before
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Diagnosis # Lower
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
     - name: Denominator Diagnosis # Upper
-      start_datetime: 2016-08-01
+      start_date: 2016-08-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
     - name: Denominator Diagnosis # After
-      start_datetime: 2016-11-01
+      start_date: 2016-11-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator HighRisk # Before
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator HighRisk # Lower
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
     - name: Denominator HighRisk # Upper
-      start_datetime: 2016-08-01
+      start_date: 2016-08-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
     - name: Denominator HighRisk # After
-      start_datetime: 2016-11-01
+      start_date: 2016-11-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator SecondEncounter # Before
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
     - name: Denominator SecondEncounter # Lower
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Exclusion MetastaticCancer # Before
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
     - name: Exclusion MetastaticCancer # Lower
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
     - name: Exclusion MetastaticCancer # Upper
-      start_datetime: 2016-08-01
+      start_date: 2016-08-01
       denominator: 1
       denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
     - name: Exclusion MetastaticCancer # After
-      start_datetime: 2016-11-01
+      start_date: 2016-11-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
     - name: PerformanceMet 4164F # Before
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
     - name: PerformanceMet 4164F # Lower
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F
     - name: PerformanceMet 4164F # Upper
-      start_datetime: 2016-08-01
+      start_date: 2016-08-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F
     - name: PerformanceMet 4164F # After
-      start_datetime: 2016-11-01
+      start_date: 2016-11-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
     - name: Hormone Before # Before
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
     - name: Hormone Lower # Lower
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F
     - name: Hormone Upper # Upper
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F
     - name: Hormone After # After
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
     - name: Exception 4164F-1P # Before
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
     - name: Exception 4164F-1P # Lower
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 4164F-1P
       numerator:
     - name: Exception 4164F-1P # Upper
-      start_datetime: 2016-08-01
+      start_date: 2016-08-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 4164F-1P
       numerator:
     - name: Exception 4164F-1P # After
-      start_datetime: 2016-11-01
+      start_date: 2016-11-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
     - name: SalvageTherapy Before # Before
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
     - name: SalvageTherapy Lower # Lower
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 4164F-1P
       numerator:
     - name: SalvageTherapy Upper # Upper
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 4164F-1P
       numerator:
     - name: SalvageTherapy After # After
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
     - name: Exception 4164F-2P # Before
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
     - name: Exception 4164F-2P # Lower
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 4164F-2P
       numerator:
     - name: Exception 4164F-2P # Upper
-      start_datetime: 2016-08-01
+      start_date: 2016-08-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 4164F-2P
       numerator:
     - name: Exception 4164F-2P # After
-      start_datetime: 2016-11-01
+      start_date: 2016-11-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -240,235 +240,235 @@ test_set_keys:
   - name: Rachel
     episodes_of_care:
       - name: Sex Female
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator Encounter1 # Before
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator Encounter1 # Upper
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
       - name: Denominator Encounter2 # Lower
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
       - name: Denominator Encounter2 # After
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator Diagnosis # Before
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator Diagnosis # Lower
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
       - name: Denominator Diagnosis # Upper
-        start_datetime: 2016-08-01
+        start_date: 2016-08-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
       - name: Denominator Diagnosis # After
-        start_datetime: 2016-11-01
+        start_date: 2016-11-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator HighRisk # Before
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator HighRisk # Lower
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
       - name: Denominator HighRisk # Upper
-        start_datetime: 2016-08-01
+        start_date: 2016-08-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
       - name: Denominator HighRisk # After
-        start_datetime: 2016-11-01
+        start_date: 2016-11-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator SecondEncounter # Before
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
       - name: Denominator SecondEncounter # Lower
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Exclusion MetastaticCancer # Before
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
       - name: Exclusion MetastaticCancer # Lower
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator: 1
         denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: Exclusion MetastaticCancer # Upper
-        start_datetime: 2016-08-01
+        start_date: 2016-08-01
         denominator: 1
         denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: Exclusion MetastaticCancer # After
-        start_datetime: 2016-11-01
+        start_date: 2016-11-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
       - name: PerformanceMet 4164F # Before
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
       - name: PerformanceMet 4164F # Lower
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F
       - name: PerformanceMet 4164F # Upper
-        start_datetime: 2016-08-01
+        start_date: 2016-08-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F
       - name: PerformanceMet 4164F # After
-        start_datetime: 2016-11-01
+        start_date: 2016-11-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
       - name: Hormone Before # Before
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
       - name: Hormone Lower # Lower
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F
       - name: Hormone Upper # Upper
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F
       - name: Hormone After # After
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
       - name: Exception 4164F-1P # Before
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
       - name: Exception 4164F-1P # Lower
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator: 1
         denominator_exclusion:
         denominator_exception: 4164F-1P
         numerator:
       - name: Exception 4164F-1P # Upper
-        start_datetime: 2016-08-01
+        start_date: 2016-08-01
         denominator: 1
         denominator_exclusion:
         denominator_exception: 4164F-1P
         numerator:
       - name: Exception 4164F-1P # After
-        start_datetime: 2016-11-01
+        start_date: 2016-11-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
       - name: SalvageTherapy Before # Before
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
       - name: SalvageTherapy Lower # Lower
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception: 4164F-1P
         numerator:
       - name: SalvageTherapy Upper # Upper
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception: 4164F-1P
         numerator:
       - name: SalvageTherapy After # After
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
       - name: Exception 4164F-2P # Before
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Exception 4164F-2P # Lower
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Exception 4164F-2P # Upper
-        start_datetime: 2016-08-01
+        start_date: 2016-08-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Exception 4164F-2P # After
-        start_datetime: 2016-11-01
+        start_date: 2016-11-01
         denominator:
         denominator_exclusion:
         denominator_exception:
@@ -495,16 +495,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Denominator Encounter1
   attributes:
     date_of_birth: 2000-01-01
@@ -515,27 +515,27 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2015-12-31 # Too early
-      stop_datetime: 2015-12-31
+      start_date: 2015-12-31 # Too early
+      stop_date: 2015-12-31
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-12-31 # Upper bound
-      stop_datetime: 2016-12-31
+      start_date: 2016-12-31 # Upper bound
+      stop_date: 2016-12-31
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
 - name: Denominator Encounter2
   attributes:
     date_of_birth: 2000-01-01
@@ -546,26 +546,26 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-01-01 # Lower bound
-      stop_datetime: 2016-01-01
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2017-01-01 # Too late
+      start_date: 2017-01-01 # Too late
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
 - name: Denominator Diagnosis
   attributes:
     date_of_birth: 2000-01-01
@@ -576,53 +576,53 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-05-01
-      stop_datetime: 2016-05-02
+      start_date: 2016-05-01
+      stop_date: 2016-05-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-08-01
-      stop_datetime: 2016-08-02
+      start_date: 2016-08-01
+      stop_date: 2016-08-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-08-02
+      start_date: 2016-08-02
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-11-01
-      stop_datetime: 2016-11-02
+      start_date: 2016-11-01
+      stop_date: 2016-11-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-11-03
+      start_date: 2016-11-03
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-01-30
-      stop_datetime: 2016-01-31 # Too early
+      start_date: 2016-01-30
+      stop_date: 2016-01-31 # Too early
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-05-01 # Lower bound
+      start_date: 2016-04-01
+      stop_date: 2016-05-01 # Lower bound
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-08-02 # Upper bound
-      stop_datetime: 2016-08-03
+      start_date: 2016-08-02 # Upper bound
+      stop_date: 2016-08-03
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-11-03 # Too late
-      stop_datetime: 2016-11-04
+      start_date: 2016-11-03 # Too late
+      stop_date: 2016-11-04
 - name: Denominator HighRisk
   attributes:
     date_of_birth: 2000-01-01
@@ -633,53 +633,53 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 55810
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # Low risk
-      start_datetime: 2016-01-29 # Early
+      start_date: 2016-01-29 # Early
     - code_type: CPT
       code_value: 55810
-      start_datetime: 2016-05-01
-      stop_datetime: 2016-05-02
+      start_date: 2016-05-01
+      stop_date: 2016-05-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # Low risk
-      start_datetime: 2016-04-30 # Lower bound
+      start_date: 2016-04-30 # Lower bound
     - code_type: CPT
       code_value: 55810
-      start_datetime: 2016-08-01
-      stop_datetime: 2016-08-02
+      start_date: 2016-08-01
+      stop_date: 2016-08-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # Low risk
-      start_datetime: 2016-08-31 # Upper bound
+      start_date: 2016-08-31 # Upper bound
     - code_type: CPT
       code_value: 55810
-      start_datetime: 2016-11-01
-      stop_datetime: 2016-11-02
+      start_date: 2016-11-01
+      stop_date: 2016-11-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # Low risk
-      start_datetime: 2016-12-01 # Too late
+      start_date: 2016-12-01 # Too late
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-01-30
-      stop_datetime: 2016-02-28
+      start_date: 2016-01-30
+      stop_date: 2016-02-28
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-04-30
-      stop_datetime: 2016-05-31
+      start_date: 2016-04-30
+      stop_date: 2016-05-31
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-08-01
-      stop_datetime: 2016-08-31
+      start_date: 2016-08-01
+      stop_date: 2016-08-31
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-11-01
-      stop_datetime: 2016-11-30
+      start_date: 2016-11-01
+      stop_date: 2016-11-30
 - name: Denominator SecondEncounter
   attributes:
     date_of_birth: 2000-01-01
@@ -690,33 +690,33 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
       code_value: 77427 # Second encounter
-      start_datetime: 2015-12-13
+      start_date: 2015-12-13
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-05-01
-      stop_datetime: 2016-05-02
+      start_date: 2016-05-01
+      stop_date: 2016-05-02
       provider: Rachel
     - code_type: CPT
       code_value: 77427 # Second encounter
-      start_datetime: 2016-03-13
+      start_date: 2016-03-13
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
 - name: Exclusion MetastaticCancer
   attributes:
     date_of_birth: 2000-01-01
@@ -727,65 +727,65 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-05-01
-      stop_datetime: 2016-05-02
+      start_date: 2016-05-01
+      stop_date: 2016-05-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-08-01
-      stop_datetime: 2016-08-02
+      start_date: 2016-08-01
+      stop_date: 2016-08-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-08-01
+      start_date: 2016-08-01
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-11-01
-      stop_datetime: 2016-11-02
+      start_date: 2016-11-01
+      stop_date: 2016-11-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-11-01
+      start_date: 2016-11-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-08-01
+      start_date: 2016-08-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-11-01
+      start_date: 2016-11-01
     - code_type: ICD10CM
       code_value: C77.0 # Metastatic cancer
-      start_datetime: 2016-01-30
-      stop_datetime: 2016-01-31 # Too early
+      start_date: 2016-01-30
+      stop_date: 2016-01-31 # Too early
     - code_type: ICD10CM
       code_value: C77.0 # Metastatic cancer
-      start_datetime: 2016-04-30
-      stop_datetime: 2016-05-01 # Lower bound
+      start_date: 2016-04-30
+      stop_date: 2016-05-01 # Lower bound
     - code_type: ICD10CM
       code_value: C77.0 # Metastatic cancer
-      start_datetime: 2016-08-02 # Upper bound
-      stop_datetime: 2016-08-02
+      start_date: 2016-08-02 # Upper bound
+      stop_date: 2016-08-02
     - code_type: ICD10CM
       code_value: C77.0 # Metastatic cancer
-      start_datetime: 2016-11-03 # Too late
-      stop_datetime: 2016-11-03
+      start_date: 2016-11-03 # Too late
+      stop_date: 2016-11-03
 - name: PerformanceMet 4164F
   attributes:
     date_of_birth: 2000-01-01
@@ -796,61 +796,61 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: CPT
       code_value: 4164F
-      start_datetime: 2016-01-31 # Too early
+      start_date: 2016-01-31 # Too early
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-05-01
-      stop_datetime: 2016-05-01
+      start_date: 2016-05-01
+      stop_date: 2016-05-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     - code_type: CPT
       code_value: 4164F
-      start_datetime: 2016-05-01 # Lower bound
+      start_date: 2016-05-01 # Lower bound
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-08-01
-      stop_datetime: 2016-08-02
+      start_date: 2016-08-01
+      stop_date: 2016-08-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-08-01
+      start_date: 2016-08-01
     - code_type: CPT
       code_value: 4164F
-      start_datetime: 2016-09-19 # Upper bound
+      start_date: 2016-09-19 # Upper bound
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-11-01
-      stop_datetime: 2016-11-01
+      start_date: 2016-11-01
+      stop_date: 2016-11-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-11-01
+      start_date: 2016-11-01
     - code_type: CPT
       code_value: 4164F
-      start_datetime: 2016-12-21 # Late
+      start_date: 2016-12-21 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-08-01
+      start_date: 2016-08-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-11-01
+      start_date: 2016-11-01
 - name: Hormone Before
   attributes:
     date_of_birth: 2000-01-01
@@ -861,21 +861,21 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     medications:
     - code_type: RXNORM
       code_value: 1812348
-      start_datetime: 2016-01-01
-      stop_datetime: 2016-01-31 # Too early
+      start_date: 2016-01-01
+      stop_date: 2016-01-31 # Too early
 - name: Hormone Lower
   attributes:
     date_of_birth: 2000-01-01
@@ -886,21 +886,21 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     medications:
     - code_type: RXNORM
       code_value: 1812348
-      start_datetime: 2016-01-30
-      stop_datetime: 2016-02-01 # Lower bound
+      start_date: 2016-01-30
+      stop_date: 2016-02-01 # Lower bound
 - name: Hormone Upper
   attributes:
     date_of_birth: 2000-01-01
@@ -911,20 +911,20 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     medications:
     - code_type: RXNORM
       code_value: 1812348
-      start_datetime: 2016-03-21 # Upper
+      start_date: 2016-03-21 # Upper
 - name: Hormone After
   attributes:
     date_of_birth: 2000-01-01
@@ -935,20 +935,20 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     medications:
     - code_type: RXNORM
       code_value: 1812348
-      start_datetime: 2016-03-22 # Upper
+      start_date: 2016-03-22 # Upper
 - name: Exception 4164F-1P
   attributes:
     date_of_birth: 2000-01-01
@@ -959,61 +959,61 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: CPT
       code_value: 4164F-1P
-      start_datetime: 2016-01-31 # Too early
+      start_date: 2016-01-31 # Too early
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-05-01
-      stop_datetime: 2016-05-01
+      start_date: 2016-05-01
+      stop_date: 2016-05-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     - code_type: CPT
       code_value: 4164F-1P
-      start_datetime: 2016-05-01 # Lower bound
+      start_date: 2016-05-01 # Lower bound
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-08-01
-      stop_datetime: 2016-08-02
+      start_date: 2016-08-01
+      stop_date: 2016-08-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-08-01
+      start_date: 2016-08-01
     - code_type: CPT
       code_value: 4164F-1P
-      start_datetime: 2016-08-19 # Upper bound
+      start_date: 2016-08-19 # Upper bound
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-11-01
-      stop_datetime: 2016-11-01
+      start_date: 2016-11-01
+      stop_date: 2016-11-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-11-01
+      start_date: 2016-11-01
     - code_type: CPT
       code_value: 4164F-1P
-      start_datetime: 2016-12-21 # Late
+      start_date: 2016-12-21 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-08-01
+      start_date: 2016-08-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-11-01
+      start_date: 2016-11-01
 - name: SalvageTherapy Before
   attributes:
     date_of_birth: 2000-01-01
@@ -1024,25 +1024,25 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: SNOMEDCT
       code_value: 236209003
-      start_datetime: 2016-01-31 # Too early
+      start_date: 2016-01-31 # Too early
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2015-12-01
+      start_date: 2015-12-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-01-02 # Earliest in measurement year
+      start_date: 2016-01-02 # Earliest in measurement year
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: SalvageTherapy Lower
   attributes:
     date_of_birth: 2000-01-01
@@ -1053,25 +1053,25 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: SNOMEDCT
       code_value: 236209003
-      start_datetime: 2016-02-01 # Lower
+      start_date: 2016-02-01 # Lower
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2015-12-01
+      start_date: 2015-12-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-01-02 # Earliest in measurement year
+      start_date: 2016-01-02 # Earliest in measurement year
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: SalvageTherapy Upper
   attributes:
     date_of_birth: 2000-01-01
@@ -1082,25 +1082,25 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: SNOMEDCT
       code_value: 236209003
-      start_datetime: 2016-03-21 # Upper
+      start_date: 2016-03-21 # Upper
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2015-12-01
+      start_date: 2015-12-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-01-02 # Earliest in measurement year
+      start_date: 2016-01-02 # Earliest in measurement year
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: SalvageTherapy After
   attributes:
     date_of_birth: 2000-01-01
@@ -1111,25 +1111,25 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: SNOMEDCT
       code_value: 236209003
-      start_datetime: 2016-03-22 # After
+      start_date: 2016-03-22 # After
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2015-12-01
+      start_date: 2015-12-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-01-02 # Earliest in measurement year
+      start_date: 2016-01-02 # Earliest in measurement year
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Exception 4164F-2P
   attributes:
     date_of_birth: 2000-01-01
@@ -1140,64 +1140,64 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Patty
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: CPT
       code_value: 4164F-2P
-      start_datetime: 2016-01-31 # Too early
+      start_date: 2016-01-31 # Too early
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-05-01
-      stop_datetime: 2016-05-01
+      start_date: 2016-05-01
+      stop_date: 2016-05-01
       provider: Patty
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     - code_type: CPT
       code_value: 4164F-2P
-      start_datetime: 2016-05-01 # Lower bound
+      start_date: 2016-05-01 # Lower bound
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-08-01
-      stop_datetime: 2016-08-02
+      start_date: 2016-08-01
+      stop_date: 2016-08-02
       provider: Patty
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-08-01
+      start_date: 2016-08-01
     - code_type: CPT
       code_value: 4164F-2P
-      start_datetime: 2016-09-19 # Upper bound
+      start_date: 2016-09-19 # Upper bound
     - code_type: CPT
       code_value: 77427
-      start_datetime: 2016-11-01
-      stop_datetime: 2016-11-01
+      start_date: 2016-11-01
+      stop_date: 2016-11-01
       provider: Patty
     - code_type: HCPCS
       code_value: G8465 # High risk
-      start_datetime: 2016-11-01
+      start_date: 2016-11-01
     - code_type: CPT
       code_value: 4164F-2P
-      start_datetime: 2016-12-21 # Late
+      start_date: 2016-12-21 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2015-12-01
+      start_date: 2015-12-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-01-02 # Earliest in measurement year
+      start_date: 2016-01-02 # Earliest in measurement year
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-08-01
+      start_date: 2016-08-01
     - code_type: ICD10CM
       code_value: C61
-      start_datetime: 2016-11-01
+      start_date: 2016-11-01

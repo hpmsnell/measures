@@ -207,7 +207,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
 - name: Age Lower
   attributes:
@@ -219,7 +219,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
 - name: Encounter Before
   attributes:
@@ -231,7 +231,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2015-12-31 # Too early
+      start_date: 2015-12-31 # Too early
       provider: Rachel
 - name: Encounter Lower
   attributes:
@@ -243,7 +243,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-01-01 # Lower bound
+      start_date: 2016-01-01 # Lower bound
       provider: Rachel
 - name: Encounter Upper
   attributes:
@@ -255,7 +255,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-12-31 # Upper bound
+      start_date: 2016-12-31 # Upper bound
       provider: Rachel
 - name: Encounter After
   attributes:
@@ -267,7 +267,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2017-01-01 # Too late
+      start_date: 2017-01-01 # Too late
       provider: Rachel
 - name: Hospice Before
   attributes:
@@ -279,11 +279,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9692
-      start_datetime: 2015-12-31 # Too early
+      start_date: 2015-12-31 # Too early
 - name: Hospice Lower
   attributes:
     date_of_birth: 1940-01-01
@@ -294,11 +294,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9692
-      start_datetime: 2016-01-01 # Lower bound
+      start_date: 2016-01-01 # Lower bound
 - name: Hospice Upper
   attributes:
     date_of_birth: 1940-01-01
@@ -309,11 +309,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9692
-      start_datetime: 2016-12-31 # Upper bound
+      start_date: 2016-12-31 # Upper bound
 - name: Hospice After
   attributes:
     date_of_birth: 1940-01-01
@@ -324,11 +324,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9692
-      start_datetime: 2017-01-01 # Too late
+      start_date: 2017-01-01 # Too late
 - name: 1123F Before
   attributes:
     date_of_birth: 1940-01-01
@@ -339,11 +339,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 1123F
-      start_datetime: 2010-01-01 # Before measurement period but okay!
+      start_date: 2010-01-01 # Before measurement period but okay!
 - name: 1123F After
   attributes:
     date_of_birth: 1940-01-01
@@ -354,11 +354,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 1123F
-      start_datetime: 2017-01-01 # Too late
+      start_date: 2017-01-01 # Too late
 - name: Directive Before
   attributes:
     date_of_birth: 1940-01-01
@@ -369,11 +369,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: SNOMEDCT
       code_value: 310305009
-      start_datetime: 2010-01-01 # Before measurement period but okay!
+      start_date: 2010-01-01 # Before measurement period but okay!
 - name: Directive After
   attributes:
     date_of_birth: 1940-01-01
@@ -384,11 +384,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: SNOMEDCT
       code_value: 310305009
-      start_datetime: 2017-01-01 # Too late
+      start_date: 2017-01-01 # Too late
 - name: 1124F Before
   attributes:
     date_of_birth: 1940-01-01
@@ -399,11 +399,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 1124F
-      start_datetime: 2010-01-01 # Before measurement period but okay!
+      start_date: 2010-01-01 # Before measurement period but okay!
 - name: 1124F After
   attributes:
     date_of_birth: 1940-01-01
@@ -414,11 +414,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 1124F
-      start_datetime: 2017-01-01 # Too late
+      start_date: 2017-01-01 # Too late
 - name: Discussion Before
   attributes:
     date_of_birth: 1940-01-01
@@ -429,11 +429,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Patty
     - code_type: SNOMEDCT
       code_value: 310302007
-      start_datetime: 2010-01-01 # Before measurement period but okay!
+      start_date: 2010-01-01 # Before measurement period but okay!
 - name: Discussion After
   attributes:
     date_of_birth: 1940-01-01
@@ -444,8 +444,8 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Patty
     - code_type: SNOMEDCT
       code_value: 310302007
-      start_datetime: 2017-01-01 # Too late
+      start_date: 2017-01-01 # Too late

@@ -3,157 +3,157 @@ test_set_keys:
   organization_key:
     episodes_of_care:
       - name: Too Young # Below age range
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Age Lower # Lower bound of age range
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8732
       - name: Denominator Encounter # Encounter too early
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator Encounter # Encounter at lower bound
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8732
       - name: Denominator Encounter # Encounter at upper bound
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8732
       - name: Denominator Encounter # Encounter too late
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: PerformanceMet G8730 # Performance met G8730 before interval
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8732
       - name: PerformanceMet G8730 # Performance met G8730 lower bound interval
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8730
       - name: PerformanceMet G8730 # Performance met G8730 upper bound interval
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8730
       - name: PerformanceMet G8730 # Performance met G8730 after interval
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8732
       - name: PerformanceMet G8731 # Performance met G8731 before interval
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8732
       - name: PerformanceMet G8731 # Performance met G8731 lower bound interval
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8731
       - name: PerformanceMet G8731 # Performance met G8731 upper bound interval
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8731
       - name: PerformanceMet G8731 # Performance met G8731 after interval
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8732
       - name: Pain Negative # Pain negative before interval
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8732
       - name: Pain Negative # Pain negative lower bound interval
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8731
       - name: Pain Negative # Pain negative upper bound interval
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8731
       - name: Pain Negative # Pain negative after interval
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8732
       - name: Exception G8442 # Denominator Exception G8442 before interval
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8732
       - name: Exception G8442 # Denominator Exception G8442 lower bound interval
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
         denominator: 1
         denominator_exclusion:
         denominator_exception: G8442
         numerator:
       - name: Exception G8442 # Denominator Exception G8442 upper bound interval
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator: 1
         denominator_exclusion:
         denominator_exception: G8442
         numerator:
       - name: Exception G8442 # Denominator Exception G8442 after interval
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8732
       - name: Exception G8939 # Denominator Exception G8939 before interval
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8732
       - name: Exception G8939 # Denominator Exception G8939 lower bound interval
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
         denominator: 1
         denominator_exclusion:
         denominator_exception: G8939
         numerator:
       - name: Exception G8939 # Denominator Exception G8939 upper bound interval
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator: 1
         denominator_exclusion:
         denominator_exception: G8939
         numerator:
       - name: Exception G8939 # Denominator Exception G8939 after interval
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -162,157 +162,157 @@ test_set_keys:
     - name: Rachel
       episodes_of_care:
         - name: Too Young # Below age range
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Age Lower # Lower bound of age range
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8732
         - name: Denominator Encounter # Encounter too early
-          start_datetime: 2015-12-31
+          start_date: 2015-12-31
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Denominator Encounter # Encounter at lower bound
-          start_datetime: 2016-01-01
+          start_date: 2016-01-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8732
         - name: Denominator Encounter # Encounter at upper bound
-          start_datetime: 2016-12-31
+          start_date: 2016-12-31
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8732
         - name: Denominator Encounter # Encounter too late
-          start_datetime: 2017-01-01
+          start_date: 2017-01-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: PerformanceMet G8730 # Performance met G8730 before interval
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8732
         - name: PerformanceMet G8730 # Performance met G8730 lower bound interval
-          start_datetime: 2016-03-01
+          start_date: 2016-03-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8730
         - name: PerformanceMet G8730 # Performance met G8730 upper bound interval
-          start_datetime: 2016-04-01
+          start_date: 2016-04-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8730
         - name: PerformanceMet G8730 # Performance met G8730 after interval
-          start_datetime: 2016-05-01
+          start_date: 2016-05-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8732
         - name: PerformanceMet G8731 # Performance met G8731 before interval
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8732
         - name: PerformanceMet G8731 # Performance met G8731 lower bound interval
-          start_datetime: 2016-03-01
+          start_date: 2016-03-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8731
         - name: PerformanceMet G8731 # Performance met G8731 upper bound interval
-          start_datetime: 2016-04-01
+          start_date: 2016-04-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8731
         - name: PerformanceMet G8731 # Performance met G8731 after interval
-          start_datetime: 2016-05-01
+          start_date: 2016-05-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8732
         - name: Pain Negative # Pain negative before interval
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8732
         - name: Pain Negative # Pain negative lower bound interval
-          start_datetime: 2016-03-01
+          start_date: 2016-03-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8731
         - name: Pain Negative # Pain negative upper bound interval
-          start_datetime: 2016-04-01
+          start_date: 2016-04-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8731
         - name: Pain Negative # Pain negative after interval
-          start_datetime: 2016-05-01
+          start_date: 2016-05-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8732
         - name: Exception G8442 # Denominator Exception G8442 before interval
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8732
         - name: Exception G8442 # Denominator Exception G8442 lower bound interval
-          start_datetime: 2016-03-01
+          start_date: 2016-03-01
           denominator: 1
           denominator_exclusion:
           denominator_exception: G8442
           numerator:
         - name: Exception G8442 # Denominator Exception G8442 upper bound interval
-          start_datetime: 2016-04-01
+          start_date: 2016-04-01
           denominator: 1
           denominator_exclusion:
           denominator_exception: G8442
           numerator:
         - name: Exception G8442 # Denominator Exception G8442 after interval
-          start_datetime: 2016-05-01
+          start_date: 2016-05-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8732
         - name: Exception G8939 # Denominator Exception G8939 before interval
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Exception G8939 # Denominator Exception G8939 lower bound interval
-          start_datetime: 2016-03-01
+          start_date: 2016-03-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Exception G8939 # Denominator Exception G8939 upper bound interval
-          start_datetime: 2016-04-01
+          start_date: 2016-04-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Exception G8939 # Denominator Exception G8939 after interval
-          start_datetime: 2016-05-01
+          start_date: 2016-05-01
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -339,7 +339,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
   - name: Age Lower
     attributes:
@@ -351,7 +351,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
   - name: Denominator Encounter
     attributes:
@@ -363,19 +363,19 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2015-12-31 # Too early
+        start_date: 2015-12-31 # Too early
         provider: Rachel
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-01-01 # Lower bound
+        start_date: 2016-01-01 # Lower bound
         provider: Rachel
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-12-31 # Upper bound
+        start_date: 2016-12-31 # Upper bound
         provider: Rachel
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2017-01-01 # Too late
+        start_date: 2017-01-01 # Too late
         provider: Rachel
   - name: PerformanceMet G8730
     attributes:
@@ -387,36 +387,36 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: HCPCS
         code_value: G8730
-        start_datetime: 2016-01-31 # Too early
+        start_date: 2016-01-31 # Too early
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-03-01
-        stop_datetime: 2016-03-02
+        start_date: 2016-03-01
+        stop_date: 2016-03-02
         provider: Rachel
       - code_type: HCPCS
         code_value: G8730
-        start_datetime: 2016-03-01 # Lower bound
+        start_date: 2016-03-01 # Lower bound
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-04-01
-        stop_datetime: 2016-04-02
+        start_date: 2016-04-01
+        stop_date: 2016-04-02
         provider: Rachel
       - code_type: HCPCS
         code_value: G8730
-        start_datetime: 2016-04-02 # Upper bound
+        start_date: 2016-04-02 # Upper bound
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-05-01
-        stop_datetime: 2016-05-02
+        start_date: 2016-05-01
+        stop_date: 2016-05-02
         provider: Rachel
       - code_type: HCPCS
         code_value: G8730
-        start_datetime: 2016-05-03 # Too late
+        start_date: 2016-05-03 # Too late
   - name: PerformanceMet G8731
     attributes:
       date_of_birth: 1990-03-22
@@ -427,36 +427,36 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: HCPCS
         code_value: G8731
-        start_datetime: 2016-01-31 # Too early
+        start_date: 2016-01-31 # Too early
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-03-01
-        stop_datetime: 2016-03-02
+        start_date: 2016-03-01
+        stop_date: 2016-03-02
         provider: Rachel
       - code_type: HCPCS
         code_value: G8731
-        start_datetime: 2016-03-01 # Lower bound
+        start_date: 2016-03-01 # Lower bound
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-04-01
-        stop_datetime: 2016-04-02
+        start_date: 2016-04-01
+        stop_date: 2016-04-02
         provider: Rachel
       - code_type: HCPCS
         code_value: G8731
-        start_datetime: 2016-04-02 # Upper bound
+        start_date: 2016-04-02 # Upper bound
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-05-01
-        stop_datetime: 2016-05-02
+        start_date: 2016-05-01
+        stop_date: 2016-05-02
         provider: Rachel
       - code_type: HCPCS
         code_value: G8731
-        start_datetime: 2016-05-03 # Too late
+        start_date: 2016-05-03 # Too late
   - name: Pain Negative
     attributes:
       date_of_birth: 1990-03-22
@@ -467,39 +467,39 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: LOINC
         code_value: 38208-5
-        start_datetime: 2016-01-31 # Too early
+        start_date: 2016-01-31 # Too early
         result: 0
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-03-01
-        stop_datetime: 2016-03-02
+        start_date: 2016-03-01
+        stop_date: 2016-03-02
         provider: Rachel
       - code_type: LOINC
         code_value: 38208-5
-        start_datetime: 2016-03-01 # Lower bound
+        start_date: 2016-03-01 # Lower bound
         result: 0
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-04-01
-        stop_datetime: 2016-04-02
+        start_date: 2016-04-01
+        stop_date: 2016-04-02
         provider: Rachel
       - code_type: LOINC
         code_value: 38208-5
-        start_datetime: 2016-04-02 # Upper bound
+        start_date: 2016-04-02 # Upper bound
         result: 0
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-05-01
-        stop_datetime: 2016-05-02
+        start_date: 2016-05-01
+        stop_date: 2016-05-02
         provider: Rachel
       - code_type: LOINC
         code_value: 38208-5
-        start_datetime: 2016-05-03 # Too late
+        start_date: 2016-05-03 # Too late
         result: 0
   - name: Exception G8442
     attributes:
@@ -511,36 +511,36 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: HCPCS
         code_value: G8442
-        start_datetime: 2016-01-31 # Too early
+        start_date: 2016-01-31 # Too early
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-03-01
-        stop_datetime: 2016-03-02
+        start_date: 2016-03-01
+        stop_date: 2016-03-02
         provider: Rachel
       - code_type: HCPCS
         code_value: G8442
-        start_datetime: 2016-03-01 # Lower bound
+        start_date: 2016-03-01 # Lower bound
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-04-01
-        stop_datetime: 2016-04-02
+        start_date: 2016-04-01
+        stop_date: 2016-04-02
         provider: Rachel
       - code_type: HCPCS
         code_value: G8442
-        start_datetime: 2016-04-02 # Upper bound
+        start_date: 2016-04-02 # Upper bound
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-05-01
-        stop_datetime: 2016-05-02
+        start_date: 2016-05-01
+        stop_date: 2016-05-02
         provider: Rachel
       - code_type: HCPCS
         code_value: G8442
-        start_datetime: 2016-05-03 # Too late
+        start_date: 2016-05-03 # Too late
   - name: Exception G8939
     attributes:
       date_of_birth: 1990-03-22
@@ -551,33 +551,33 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Patty
       - code_type: HCPCS
         code_value: G8939
-        start_datetime: 2016-01-31 # Too early
+        start_date: 2016-01-31 # Too early
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-03-01
-        stop_datetime: 2016-03-02
+        start_date: 2016-03-01
+        stop_date: 2016-03-02
         provider: Patty
       - code_type: HCPCS
         code_value: G8939
-        start_datetime: 2016-03-01 # Lower bound
+        start_date: 2016-03-01 # Lower bound
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-04-01
-        stop_datetime: 2016-04-02
+        start_date: 2016-04-01
+        stop_date: 2016-04-02
         provider: Patty
       - code_type: HCPCS
         code_value: G8939
-        start_datetime: 2016-04-02 # Upper bound
+        start_date: 2016-04-02 # Upper bound
       - code_type: CPT
         code_value: 90791
-        start_datetime: 2016-05-01
-        stop_datetime: 2016-05-02
+        start_date: 2016-05-01
+        stop_date: 2016-05-02
         provider: Patty
       - code_type: HCPCS
         code_value: G8939
-        start_datetime: 2016-05-03 # Too late
+        start_date: 2016-05-03 # Too late

@@ -3,73 +3,73 @@ test_set_keys:
   organization_key:
     episodes_of_care:
     - name: Denominator Encounter #  Encounter prior to measurement year
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Encounter #  Encounter at beginning of measurement year
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9297
     - name: Denominator Encounter #  Encounter at end of measurement year
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9297
     - name: Denominator Encounter #  Encounter after measurement year
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: PerformanceMet G9296 #  PerformanceMet before
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9297
     - name: PerformanceMet G9296 #  PerformanceMet at lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9296
     - name: PerformanceMet G9296 #  PerformanceMet at upper bound
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9296
     - name: PerformanceMet G9296 #  PerformanceMet after
-      start_datetime: 2016-07-01
+      start_date: 2016-07-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9297
     - name: PerformanceMet SharedDecision #  PerformanceMet before
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9297
     - name: PerformanceMet SharedDecision #  PerformanceMet at lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9296
     - name: PerformanceMet SharedDecision #  PerformanceMet at upper bound
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9296
     - name: PerformanceMet SharedDecision #  PerformanceMet after
-      start_datetime: 2016-07-01
+      start_date: 2016-07-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -78,73 +78,73 @@ test_set_keys:
   - name: Rachel
     episodes_of_care:
     - name: Denominator Encounter #  Encounter prior to measurement year
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Encounter #  Encounter at beginning of measurement year
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9297
     - name: Denominator Encounter #  Encounter at end of measurement year
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9297
     - name: Denominator Encounter #  Encounter after measurement year
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: PerformanceMet G9296 #  PerformanceMet before
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9297
     - name: PerformanceMet G9296 #  PerformanceMet at lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9296
     - name: PerformanceMet G9296 #  PerformanceMet at upper bound
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9296
     - name: PerformanceMet G9296 #  PerformanceMet after
-      start_datetime: 2016-07-01
+      start_date: 2016-07-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9297
     - name: PerformanceMet SharedDecision #  PerformanceMet before
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: PerformanceMet SharedDecision #  PerformanceMet at lower bound
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: PerformanceMet SharedDecision #  PerformanceMet at upper bound
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: PerformanceMet SharedDecision #  PerformanceMet after
-      start_datetime: 2016-07-01
+      start_date: 2016-07-01
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -171,23 +171,23 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 27438
-      start_datetime: 2015-12-31 # Too early
-      stop_datetime: 2015-12-31
+      start_date: 2015-12-31 # Too early
+      stop_date: 2015-12-31
       provider: Rachel
     - code_type: CPT
       code_value: 27438
-      start_datetime: 2016-01-01 # Lower bound
-      stop_datetime: 2016-01-01
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
       provider: Rachel
     - code_type: CPT
       code_value: 27438
-      start_datetime: 2016-12-31 # Upper bound
-      stop_datetime: 2016-12-31
+      start_date: 2016-12-31 # Upper bound
+      stop_date: 2016-12-31
       provider: Rachel
     - code_type: CPT
       code_value: 27438
-      start_datetime: 2017-01-01 # Too late
-      stop_datetime: 2017-01-01
+      start_date: 2017-01-01 # Too late
+      stop_date: 2017-01-01
       provider: Rachel
 - name: PerformanceMet G9296
   attributes:
@@ -199,36 +199,36 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 27438
-      start_datetime: 2016-01-01 # Encounter
-      stop_datetime: 2016-01-02
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
       provider: Rachel
     - code_type: CPT
       code_value: 27438
-      start_datetime: 2016-03-01 # Encounter
-      stop_datetime: 2016-03-02
+      start_date: 2016-03-01 # Encounter
+      stop_date: 2016-03-02
       provider: Rachel
     - code_type: CPT
       code_value: 27438
-      start_datetime: 2016-05-01 # Encounter
-      stop_datetime: 2016-05-02
+      start_date: 2016-05-01 # Encounter
+      stop_date: 2016-05-02
       provider: Rachel
     - code_type: CPT
       code_value: 27438
-      start_datetime: 2016-07-01 # Encounter
-      stop_datetime: 2016-07-02
+      start_date: 2016-07-01 # Encounter
+      stop_date: 2016-07-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G9296
-      start_datetime: 2015-12-01 # Early
+      start_date: 2015-12-01 # Early
     - code_type: HCPCS
       code_value: G9296
-      start_datetime: 2016-01-31 # Lower
+      start_date: 2016-01-31 # Lower
     - code_type: HCPCS
       code_value: G9296
-      start_datetime: 2016-04-30 # Upper
+      start_date: 2016-04-30 # Upper
     - code_type: HCPCS
       code_value: G9296
-      start_datetime: 2016-07-01 # Late
+      start_date: 2016-07-01 # Late
 - name: PerformanceMet SharedDecision
   attributes:
     date_of_birth: 1990-01-02
@@ -239,33 +239,33 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 27438
-      start_datetime: 2016-01-01 # Encounter
-      stop_datetime: 2016-01-02
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
       provider: Patty
     - code_type: CPT
       code_value: 27438
-      start_datetime: 2016-03-01 # Encounter
-      stop_datetime: 2016-03-02
+      start_date: 2016-03-01 # Encounter
+      stop_date: 2016-03-02
       provider: Patty
     - code_type: CPT
       code_value: 27438
-      start_datetime: 2016-05-01 # Encounter
-      stop_datetime: 2016-05-02
+      start_date: 2016-05-01 # Encounter
+      stop_date: 2016-05-02
       provider: Patty
     - code_type: CPT
       code_value: 27438
-      start_datetime: 2016-07-01 # Encounter
-      stop_datetime: 2016-07-02
+      start_date: 2016-07-01 # Encounter
+      stop_date: 2016-07-02
       provider: Patty
     - code_type: SNOMEDCT
       code_value: 710873001
-      start_datetime: 2015-12-01 # Early
+      start_date: 2015-12-01 # Early
     - code_type: SNOMEDCT
       code_value: 710873001
-      start_datetime: 2016-01-31 # Lower
+      start_date: 2016-01-31 # Lower
     - code_type: SNOMEDCT
       code_value: 710873001
-      start_datetime: 2016-04-30 # Upper
+      start_date: 2016-04-30 # Upper
     - code_type: SNOMEDCT
       code_value: 710873001
-      start_datetime: 2016-07-01 # Late
+      start_date: 2016-07-01 # Late

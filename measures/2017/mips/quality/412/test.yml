@@ -182,11 +182,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9577
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Age Lower
   attributes:
     date_of_birth: 1998-02-01 # Lower bound
@@ -197,11 +197,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G9577
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Encounter Before
   attributes:
     date_of_birth: 1990-01-01
@@ -212,11 +212,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2015-12-31 # Early
+      start_date: 2015-12-31 # Early
       provider: Rachel
     - code_type: HCPCS
       code_value: G9577
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Encounter Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -227,11 +227,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-01-01 # Lower
+      start_date: 2016-01-01 # Lower
       provider: Rachel
     - code_type: HCPCS
       code_value: G9577
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Encounter Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -242,11 +242,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-12-31 # Upper
+      start_date: 2016-12-31 # Upper
       provider: Rachel
     - code_type: HCPCS
       code_value: G9577
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Encounter After
   attributes:
     date_of_birth: 1990-01-01
@@ -257,11 +257,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2017-01-01 # After
+      start_date: 2017-01-01 # After
       provider: Rachel
     - code_type: HCPCS
       code_value: G9577
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Medication 42Days
   attributes:
     date_of_birth: 1990-01-01
@@ -272,17 +272,17 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2015-12-20
+      start_date: 2015-12-20
       method: E
       days_supplied: 40
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-01-29
+      start_date: 2016-01-29
       method: E
       days_supplied: 2
 - name: Medication 43Days
@@ -295,17 +295,17 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2015-12-20
+      start_date: 2015-12-20
       method: E
       days_supplied: 40
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-01-29
+      start_date: 2016-01-29
       method: E
       days_supplied: 3
 - name: Medication Early
@@ -318,17 +318,17 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2015-12-20
+      start_date: 2015-12-20
       method: E
       days_supplied: 40
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2015-12-22
+      start_date: 2015-12-22
       method: E
       days_supplied: 3
 - name: Medication Late
@@ -341,17 +341,17 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2015-12-21
+      start_date: 2015-12-21
       method: E
       days_supplied: 36
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2016-01-31
+      start_date: 2016-01-31
       method: E
       days_supplied: 6
 - name: Medication Active
@@ -364,17 +364,17 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2015-12-21
+      start_date: 2015-12-21
       method: E
       days_supplied: 40
     - code_type: RXNORM
       code_value: 1010600
-      start_datetime: 2015-12-22 # No method
+      start_date: 2015-12-22 # No method
       days_supplied: 3
 - name: Agreement Before
   attributes:
@@ -386,14 +386,14 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Patty
     - code_type: HCPCS
       code_value: G9577
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: HCPCS
       code_value: G9578
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
 - name: Agreement Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -404,14 +404,14 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Patty
     - code_type: HCPCS
       code_value: G9577
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: HCPCS
       code_value: G9578
-      start_datetime: 2016-01-01 # Lower
+      start_date: 2016-01-01 # Lower
 - name: Agreement Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -422,14 +422,14 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Patty
     - code_type: HCPCS
       code_value: G9577
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: HCPCS
       code_value: G9578
-      start_datetime: 2016-12-31 # Upper
+      start_date: 2016-12-31 # Upper
 - name: Agreement After
   attributes:
     date_of_birth: 1990-01-01
@@ -440,11 +440,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Patty
     - code_type: HCPCS
       code_value: G9577
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: HCPCS
       code_value: G9578
-      start_datetime: 2017-01-01 # After
+      start_date: 2017-01-01 # After

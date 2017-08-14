@@ -737,7 +737,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
   - name: Age Lower
     attributes:
@@ -749,7 +749,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
   - name: Encounter Before
     attributes:
@@ -761,7 +761,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         provider: Rachel
   - name: Encounter Lower
     attributes:
@@ -773,7 +773,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
   - name: Encounter Upper
     attributes:
@@ -785,7 +785,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         provider: Rachel
   - name: Encounter After
     attributes:
@@ -797,7 +797,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
         provider: Rachel
   - name: Exclusion Before
     attributes:
@@ -809,11 +809,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9744
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
   - name: Exclusion Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -824,11 +824,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9744
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
   - name: Exclusion Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -839,11 +839,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9744
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
   - name: Exclusion After
     attributes:
       date_of_birth: 1950-01-01
@@ -854,11 +854,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9744
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
   - name: DiagnosisExclusion Before
     attributes:
       date_of_birth: 1950-01-01
@@ -869,13 +869,13 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2010-01-01
-        stop_datetime: 2015-12-31
+        start_date: 2010-01-01
+        stop_date: 2015-12-31
   - name: DiagnosisExclusion Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -886,12 +886,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
   - name: DiagnosisExclusion Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -902,12 +902,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
   - name: DiagnosisExclusion After
     attributes:
       date_of_birth: 1950-01-01
@@ -918,12 +918,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: I10
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
   - name: G8783 Before
     attributes:
       date_of_birth: 1950-01-01
@@ -934,11 +934,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G8783
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
   - name: G8783 Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -949,11 +949,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G8783
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
   - name: G8783 Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -964,11 +964,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G8783
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
   - name: G8783 After
     attributes:
       date_of_birth: 1950-01-01
@@ -979,11 +979,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G8783
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
   - name: GoodBP Before
     attributes:
       date_of_birth: 1950-01-01
@@ -994,15 +994,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 119
   - name: GoodBP Lower
     attributes:
@@ -1014,15 +1014,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 119
   - name: GoodBP Upper
     attributes:
@@ -1034,15 +1034,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 119
   - name: GoodBP After
     attributes:
@@ -1054,15 +1054,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 119
   - name: G8950 Before
     attributes:
@@ -1074,11 +1074,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G8950
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
   - name: G8950 Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -1089,11 +1089,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G8950
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
   - name: G8950 Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -1104,11 +1104,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G8950
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
   - name: G8950 After
     attributes:
       date_of_birth: 1950-01-01
@@ -1119,11 +1119,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G8950
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
   - name: PreHypertensiveSystolic Before
     attributes:
       date_of_birth: 1950-01-01
@@ -1134,15 +1134,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         result: 120
   - name: PreHypertensiveSystolic Lower
     attributes:
@@ -1154,15 +1154,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         result: 120
   - name: PreHypertensiveSystolic Upper
     attributes:
@@ -1174,15 +1174,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         result: 120
   - name: PreHypertensiveSystolic After
     attributes:
@@ -1194,15 +1194,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
         result: 120
   - name: PreHypertensiveDiastolic Before
     attributes:
@@ -1214,15 +1214,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         result: 80
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 119
   - name: PreHypertensiveDiastolic Lower
     attributes:
@@ -1234,15 +1234,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         result: 80
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 119
   - name: PreHypertensiveDiastolic Upper
     attributes:
@@ -1254,15 +1254,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         result: 80
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 119
   - name: PreHypertensiveDiastolic After
     attributes:
@@ -1274,15 +1274,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
         result: 80
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 119
   - name: HypertensiveSystolic Before
     attributes:
@@ -1294,15 +1294,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         result: 140
   - name: HypertensiveSystolic Lower
     attributes:
@@ -1314,15 +1314,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         result: 140
   - name: HypertensiveSystolic Upper
     attributes:
@@ -1334,15 +1334,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         result: 140
   - name: HypertensiveSystolic After
     attributes:
@@ -1354,15 +1354,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
         result: 140
   - name: HypertensiveDiastolic Before
     attributes:
@@ -1374,15 +1374,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         result: 90
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 119
   - name: HypertensiveDiastolic Lower
     attributes:
@@ -1394,15 +1394,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         result: 90
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 119
   - name: HypertensiveDiastolic Upper
     attributes:
@@ -1414,15 +1414,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         result: 90
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 119
   - name: HypertensiveDiastolic After
     attributes:
@@ -1434,15 +1434,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
         result: 90
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 119
   - name: PreHypertensiveFollowUp Before
     attributes:
@@ -1454,27 +1454,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 120
       - code_type: LOINC
         code_value: 8462-4 # Diastolic Retest
-        start_datetime: 2016-11-01
+        start_date: 2016-11-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic Retest
-        start_datetime: 2016-11-01
+        start_date: 2016-11-01
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-09-30
+        start_date: 2016-09-30
   - name: PreHypertensiveFollowUp Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -1485,27 +1485,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 89
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 120
       - code_type: LOINC
         code_value: 8462-4 # Diastolic Retest
-        start_datetime: 2016-11-01
+        start_date: 2016-11-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic Retest
-        start_datetime: 2016-11-01
+        start_date: 2016-11-01
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
   - name: PreHypertensiveFollowUp Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -1516,27 +1516,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 80
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 119
       - code_type: LOINC
         code_value: 8462-4 # Diastolic Retest
-        start_datetime: 2016-11-01
+        start_date: 2016-11-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic Retest
-        start_datetime: 2016-11-01
+        start_date: 2016-11-01
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-10-02
+        start_date: 2016-10-02
   - name: PreHypertensiveFollowUp After
     attributes:
       date_of_birth: 1950-01-01
@@ -1547,27 +1547,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 120
       - code_type: LOINC
         code_value: 8462-4 # Diastolic Retest
-        start_datetime: 2016-11-01
+        start_date: 2016-11-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic Retest
-        start_datetime: 2016-11-01
+        start_date: 2016-11-01
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2017-10-03
+        start_date: 2017-10-03
   - name: PreHypertensiveRetest Before
     attributes:
       date_of_birth: 1950-01-01
@@ -1578,27 +1578,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 120
       - code_type: LOINC
         code_value: 8462-4 # Diastolic Retest
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic Retest
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
   - name: PreHypertensiveRetest Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -1609,27 +1609,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 120
       - code_type: LOINC
         code_value: 8462-4 # Diastolic Retest
-        start_datetime: 2016-10-02
+        start_date: 2016-10-02
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic Retest
-        start_datetime: 2016-10-02
+        start_date: 2016-10-02
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
   - name: PreHypertensiveRetest Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -1640,27 +1640,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 80
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 119
       - code_type: LOINC
         code_value: 8462-4 # Diastolic Retest
-        start_datetime: 2017-10-01
+        start_date: 2017-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic Retest
-        start_datetime: 2017-10-01
+        start_date: 2017-10-01
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
   - name: PreHypertensiveRetest After
     attributes:
       date_of_birth: 1950-01-01
@@ -1671,27 +1671,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 120
       - code_type: LOINC
         code_value: 8462-4 # Diastolic Retest
-        start_datetime: 2017-10-02
+        start_date: 2017-10-02
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic Retest
-        start_datetime: 2017-10-02
+        start_date: 2017-10-02
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
   - name: HypertensiveFollowUp Before
     attributes:
       date_of_birth: 1950-01-01
@@ -1702,27 +1702,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 140
       - code_type: LOINC
         code_value: 8462-4 # Diastolic Retest
-        start_datetime: 2016-10-20
+        start_date: 2016-10-20
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic Retest
-        start_datetime: 2016-10-20
+        start_date: 2016-10-20
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-09-30
+        start_date: 2016-09-30
   - name: HypertensiveFollowUp Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -1733,27 +1733,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 140
       - code_type: LOINC
         code_value: 8462-4 # Diastolic Retest
-        start_datetime: 2016-10-20
+        start_date: 2016-10-20
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic Retest
-        start_datetime: 2016-10-20
+        start_date: 2016-10-20
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
   - name: HypertensiveFollowUp Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -1764,27 +1764,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 90
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 119
       - code_type: LOINC
         code_value: 8462-4 # Diastolic Retest
-        start_datetime: 2016-10-20
+        start_date: 2016-10-20
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic Retest
-        start_datetime: 2016-10-20
+        start_date: 2016-10-20
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-10-02
+        start_date: 2016-10-02
   - name: HypertensiveFollowUp After
     attributes:
       date_of_birth: 1950-01-01
@@ -1795,27 +1795,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 140
       - code_type: LOINC
         code_value: 8462-4 # Diastolic Retest
-        start_datetime: 2016-10-20
+        start_date: 2016-10-20
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic Retest
-        start_datetime: 2016-10-20
+        start_date: 2016-10-20
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-10-03
+        start_date: 2016-10-03
   - name: HypertensiveRetest Before
     attributes:
       date_of_birth: 1950-01-01
@@ -1826,27 +1826,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 120
       - code_type: LOINC
         code_value: 8462-4 # Diastolic Retest
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic Retest
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
   - name: HypertensiveRetest Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -1857,27 +1857,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 120
       - code_type: LOINC
         code_value: 8462-4 # Diastolic Retest
-        start_datetime: 2016-10-02
+        start_date: 2016-10-02
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic Retest
-        start_datetime: 2016-10-02
+        start_date: 2016-10-02
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
   - name: HypertensiveRetest Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -1888,27 +1888,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 80
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 119
       - code_type: LOINC
         code_value: 8462-4 # Diastolic Retest
-        start_datetime: 2016-10-29
+        start_date: 2016-10-29
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic Retest
-        start_datetime: 2016-10-29
+        start_date: 2016-10-29
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
   - name: HypertensiveRetest After
     attributes:
       date_of_birth: 1950-01-01
@@ -1919,27 +1919,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 120
       - code_type: LOINC
         code_value: 8462-4 # Diastolic Retest
-        start_datetime: 2016-10-30
+        start_date: 2016-10-30
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic Retest
-        start_datetime: 2016-10-30
+        start_date: 2016-10-30
         result: 119
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-10-03
+        start_date: 2016-10-03
   - name: 2FollowUp Before
     attributes:
       date_of_birth: 1950-01-01
@@ -1950,27 +1950,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 140
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-09-01
+        start_date: 2016-09-01
         result: 140
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       laboratory_test_performeds:
       - code_type: LOINC
         code_value: 24321-2 # Hypertension lab test
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         result: 5
   - name: 2FollowUp Lower
     attributes:
@@ -1982,27 +1982,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 140
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-09-01
+        start_date: 2016-09-01
         result: 140
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       laboratory_test_performeds:
       - code_type: LOINC
         code_value: 24321-2 # Hypertension lab test
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         result: 5
   - name: 2FollowUp Upper
     attributes:
@@ -2014,27 +2014,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 90
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 90
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 139
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       laboratory_test_performeds:
       - code_type: LOINC
         code_value: 24321-2 # Hypertension lab test
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         result: 5
   - name: 2FollowUp After
     attributes:
@@ -2046,27 +2046,27 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 140
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-09-01
+        start_date: 2016-09-01
         result: 140
       - code_type: SNOMEDCT
         code_value: 313204009 # Lifestyle Recommendation
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
       laboratory_test_performeds:
       - code_type: LOINC
         code_value: 24321-2 # Hypertension lab test
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
         result: 5
   - name: 2FollowUp NoRegularFollowUp
     attributes:
@@ -2078,24 +2078,24 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 79
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-10-01
+        start_date: 2016-10-01
         result: 140
       - code_type: LOINC
         code_value: 8480-6 # Systolic
-        start_datetime: 2016-09-01
+        start_date: 2016-09-01
         result: 140
       laboratory_test_performeds:
       - code_type: LOINC
         code_value: 24321-2 # Hypertension lab test
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         result: 5
   - name: G9745 Before
     attributes:
@@ -2107,11 +2107,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9745
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
   - name: G9745 Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -2122,11 +2122,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9745
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
   - name: G9745 Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -2137,11 +2137,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9745
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
   - name: G9745 After
     attributes:
       date_of_birth: 1950-01-01
@@ -2152,11 +2152,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9745
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
   - name: G8952 Before
     attributes:
       date_of_birth: 1950-01-01
@@ -2167,11 +2167,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: HCPCS
         code_value: G8952
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
   - name: G8952 Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -2182,11 +2182,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: HCPCS
         code_value: G8952
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
   - name: G8952 Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -2197,11 +2197,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: HCPCS
         code_value: G8952
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
   - name: G8952 After
     attributes:
       date_of_birth: 1950-01-01
@@ -2212,8 +2212,8 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Patty
       - code_type: HCPCS
         code_value: G8952
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01

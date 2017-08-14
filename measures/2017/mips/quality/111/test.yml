@@ -233,7 +233,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
   - name: Age Lower
     attributes:
@@ -246,7 +246,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
   - name: Encounter Early
     attributes:
@@ -259,7 +259,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         provider: Rachel
   - name: Encounter Lower
     attributes:
@@ -272,7 +272,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
   - name: Encounter Upper
     attributes:
@@ -285,7 +285,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         provider: Rachel
   - name: Encounter Late
     attributes:
@@ -298,7 +298,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
         provider: Rachel
   - name: Hospice Before
     attributes:
@@ -311,11 +311,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9714
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
   - name: Hospice Lower
     attributes:
       date_of_birth: 1940-03-22
@@ -327,11 +327,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9693
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
   - name: Hospice Upper
     attributes:
       date_of_birth: 1940-03-22
@@ -343,11 +343,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9714
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
   - name: Hospice Late
     attributes:
       date_of_birth: 1940-03-22
@@ -359,11 +359,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9714
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
   - name: VHospice Before
     attributes:
       date_of_birth: 1940-03-22
@@ -375,12 +375,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 182964004
-        start_datetime: 2015-01-01
-        stop_datetime: 2015-12-31
+        start_date: 2015-01-01
+        stop_date: 2015-12-31
   - name: VHospice Lower
     attributes:
       date_of_birth: 1940-03-22
@@ -392,11 +392,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 182964004
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
   - name: VHospice Upper
     attributes:
       date_of_birth: 1940-03-22
@@ -408,11 +408,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 182964004
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
   - name: VHospice Late
     attributes:
       date_of_birth: 1940-03-22
@@ -424,11 +424,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 182964004
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
   - name: 4040F Before
     attributes:
       date_of_birth: 1940-03-22
@@ -440,11 +440,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: CPT
         code_value: 4040F
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
   - name: 4040F After
     attributes:
       date_of_birth: 1940-03-22
@@ -456,11 +456,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: CPT
         code_value: 4040F
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
   - name: Immunization Before
     attributes:
       date_of_birth: 1940-03-22
@@ -472,12 +472,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       medications:
       - code_type: CVX
         code_value: 133
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
   - name: Immunization After
     attributes:
       date_of_birth: 1940-03-22
@@ -489,12 +489,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       medications:
       - code_type: CVX
         code_value: 133
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
   - name: History Before
     attributes:
       date_of_birth: 1940-03-22
@@ -506,11 +506,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 473165003
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
   - name: History After
     attributes:
       date_of_birth: 1940-03-22
@@ -522,8 +522,8 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Patty
       - code_type: SNOMEDCT
         code_value: 473165003
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01

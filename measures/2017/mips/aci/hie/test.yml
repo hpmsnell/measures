@@ -3,61 +3,61 @@ test_set_keys:
   organization_key:
     episodes_of_care:
       - name: Referral Before # Referral too early
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Referral Lower # Referral at lower bound
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: Referral Upper # Referral at upper bound
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: Referral After # Referral too late
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Summary Before # Summary of care before referral
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: Summary Lower # Summary of care lower bound referral
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_met
       - name: Summary Upper # Summary of care upper bound referral
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_met
       - name: Summary After # Summary of care after referral
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: Summary LOINC # Summary of care using LOINC value set
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_met
       - name: Summary Able # Summary of care using Able value set
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -66,61 +66,61 @@ test_set_keys:
     - name: Rachel
       episodes_of_care:
         - name: Referral Before # Referral too early
-          start_datetime: 2015-12-31
+          start_date: 2015-12-31
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Referral Lower # Referral at lower bound
-          start_datetime: 2016-01-01
+          start_date: 2016-01-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
         - name: Referral Upper # Referral at upper bound
-          start_datetime: 2016-12-31
+          start_date: 2016-12-31
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
         - name: Referral After # Referral too late
-          start_datetime: 2017-01-01
+          start_date: 2017-01-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Summary Before # Summary of care before referral
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
         - name: Summary Lower # Summary of care lower bound referral
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: performance_met
         - name: Summary Upper # Summary of care upper bound referral
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: performance_met
         - name: Summary After # Summary of care after referral
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
         - name: Summary LOINC # Summary of care using LOINC value set
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Summary Able # Summary of care using Able value set
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -128,61 +128,61 @@ test_set_keys:
     - name: Patty
       episodes_of_care:
         - name: Referral Before # Referral too early
-          start_datetime: 2015-12-31
+          start_date: 2015-12-31
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Referral Lower # Referral at lower bound
-          start_datetime: 2016-01-01
+          start_date: 2016-01-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Referral Upper # Referral at upper bound
-          start_datetime: 2016-12-31
+          start_date: 2016-12-31
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Referral After # Referral too late
-          start_datetime: 2017-01-01
+          start_date: 2017-01-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Summary Before # Summary of care before referral
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Summary Lower # Summary of care lower bound referral
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Summary Upper # Summary of care upper bound referral
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Summary After # Summary of care after referral
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Summary LOINC # Summary of care using LOINC value set
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: performance_met
         - name: Summary Able # Summary of care using Able value set
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
@@ -210,7 +210,7 @@ patients:
       clinical_activities:
       - code_type: SNOMEDCT
         code_value: 306338003
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         provider: Rachel
   - name: Referral Lower
     attributes:
@@ -223,7 +223,7 @@ patients:
       clinical_activities:
       - code_type: SNOMEDCT
         code_value: 306338003
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
   - name: Referral Upper
     attributes:
@@ -236,7 +236,7 @@ patients:
       clinical_activities:
       - code_type: SNOMEDCT
         code_value: 306338003
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         provider: Rachel
   - name: Referral After
     attributes:
@@ -249,7 +249,7 @@ patients:
       clinical_activities:
       - code_type: SNOMEDCT
         code_value: 306338003
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
         provider: Rachel
   - name: Summary Before
     attributes:
@@ -262,12 +262,12 @@ patients:
       clinical_activities:
       - code_type: SNOMEDCT
         code_value: 306338003
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 429111000124101
-        start_datetime: 2016-01-31
+        start_date: 2016-01-31
   - name: Summary Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -279,12 +279,12 @@ patients:
       clinical_activities:
       - code_type: SNOMEDCT
         code_value: 306338003
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 429111000124101
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
   - name: Summary Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -296,12 +296,12 @@ patients:
       clinical_activities:
       - code_type: SNOMEDCT
         code_value: 306338003
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 429111000124101
-        start_datetime: 2016-02-02
+        start_date: 2016-02-02
   - name: Summary After
     attributes:
       date_of_birth: 1988-03-22
@@ -313,12 +313,12 @@ patients:
       clinical_activities:
       - code_type: SNOMEDCT
         code_value: 306338003
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 429111000124101
-        start_datetime: 2016-02-03
+        start_date: 2016-02-03
   - name: Summary LOINC
     attributes:
       date_of_birth: 1988-03-22
@@ -330,12 +330,12 @@ patients:
       clinical_activities:
       - code_type: SNOMEDCT
         code_value: 306338003
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Patty
       - code_type: LOINC
         code_value: 18761-7
-        start_datetime: 2016-02-02
+        start_date: 2016-02-02
   - name: Summary Able
     attributes:
       date_of_birth: 1988-03-22
@@ -347,14 +347,14 @@ patients:
       clinical_activities:
       - code_type: SNOMEDCT
         code_value: 306338003
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Patty
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1
-        start_datetime: 2016-02-01
-        stop_datetime: 2016-02-02
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Patty
       - code_type: LOINC
         code_value: 18761-7
-        start_datetime: 2016-02-02
+        start_date: 2016-02-02

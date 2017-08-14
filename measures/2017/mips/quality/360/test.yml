@@ -3,49 +3,49 @@ test_set_keys:
   organization_key:
     episodes_of_care:
     - name: Procedure Before # Patient has an encounter that is early but otherwise meets the denominator
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Procedure Lower # Patient has an encounter that is at the lower bound
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9322
     - name: Procedure Upper  # Patient has an encounter that is at the upper bound
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9322
     - name: Procedure After  # Patient has an encounter that is late but otherwise meets the denominator
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: G9321 Before # G9321 before allowable period
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9322
     - name: G9321 Lower # G9321 at start of allowable period
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9321
     - name: G9321 Upper # G9321 at end of allowable period
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9321
     - name: G9321 After # G9321 too late
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -54,49 +54,49 @@ test_set_keys:
   - name: Rachel
     episodes_of_care:
     - name: Procedure Before # Patient has an encounter that is early but otherwise meets the denominator
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Procedure Lower # Patient has an encounter that is at the lower bound
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9322
     - name: Procedure Upper  # Patient has an encounter that is at the upper bound
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9322
     - name: Procedure After  # Patient has an encounter that is late but otherwise meets the denominator
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: G9321 Before # G9321 before allowable period
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9322
     - name: G9321 Lower # G9321 at start of allowable period
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9321
     - name: G9321 Upper # G9321 at end of allowable period
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9321
     - name: G9321 After # G9321 too late
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -123,7 +123,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450
-      start_datetime: 2015-12-31 # Early
+      start_date: 2015-12-31 # Early
       provider: Rachel
 - name: Procedure Lower
   attributes:
@@ -135,7 +135,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450
-      start_datetime: 2016-01-01 # Lower
+      start_date: 2016-01-01 # Lower
       provider: Rachel
 - name: Procedure Upper
   attributes:
@@ -147,7 +147,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450
-      start_datetime: 2016-12-31 # Upper
+      start_date: 2016-12-31 # Upper
       provider: Rachel
 - name: Procedure After
   attributes:
@@ -159,7 +159,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450
-      start_datetime: 2017-01-01 # After
+      start_date: 2017-01-01 # After
       provider: Rachel
 - name: G9321 Before
   attributes:
@@ -171,12 +171,12 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G9321
-      start_datetime: 2016-01-31 # Early
+      start_date: 2016-01-31 # Early
 - name: G9321 Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -187,12 +187,12 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G9321
-      start_datetime: 2016-02-01 # Lower
+      start_date: 2016-02-01 # Lower
 - name: G9321 Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -203,12 +203,12 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G9321
-      start_datetime: 2016-02-02 # Upper
+      start_date: 2016-02-02 # Upper
 - name: G9321 After
   attributes:
     date_of_birth: 1990-01-01
@@ -219,9 +219,9 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
       provider: Patty
     - code_type: HCPCS
       code_value: G9321
-      start_datetime: 2016-02-03 # After
+      start_date: 2016-02-03 # After

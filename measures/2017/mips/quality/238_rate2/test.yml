@@ -268,7 +268,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
   - name: Age Lower
     attributes:
@@ -281,7 +281,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
   - name: Encounter Early
     attributes:
@@ -294,7 +294,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         provider: Rachel
   - name: Encounter Lower
     attributes:
@@ -307,7 +307,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
   - name: Encounter Upper
     attributes:
@@ -320,7 +320,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         provider: Rachel
   - name: Encounter Late
     attributes:
@@ -333,7 +333,7 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
         provider: Rachel
   - name: G9367 Before
     attributes:
@@ -346,11 +346,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9367
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
   - name: G9367 Lower
     attributes:
       date_of_birth: 1940-03-22
@@ -362,11 +362,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9367
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
   - name: G9367 Upper
     attributes:
       date_of_birth: 1940-03-22
@@ -378,11 +378,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9367
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
   - name: G9367 After
     attributes:
       date_of_birth: 1940-03-22
@@ -394,11 +394,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9367
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
   - name: 1Medication Before
     attributes:
       date_of_birth: 1940-03-22
@@ -410,13 +410,13 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       medications:
       - code_type: RXNORM
         code_value: 310539
         method: E
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
   - name: 1Medication Lower
     attributes:
       date_of_birth: 1940-03-22
@@ -428,13 +428,13 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       medications:
       - code_type: RXNORM
         code_value: 310539
         method: E
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
   - name: 1Medication Upper
     attributes:
       date_of_birth: 1940-03-22
@@ -446,13 +446,13 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       medications:
       - code_type: RXNORM
         code_value: 310539
         method: E
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
   - name: 1Medication After
     attributes:
       date_of_birth: 1940-03-22
@@ -464,13 +464,13 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       medications:
       - code_type: RXNORM
         code_value: 310539
         method: E
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
   - name: 1Medication NDC
     attributes:
       date_of_birth: 1940-03-22
@@ -482,13 +482,13 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       medications:
       - code_type: NDC
         code_value: '00603243310'
         method: E
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
   - name: 1Medication 91Days
     attributes:
       date_of_birth: 1940-03-22
@@ -500,19 +500,19 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       medications:
       - code_type: RXNORM
         code_value: 854894
         method: E
         days_supplied: 91
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: RXNORM
         code_value: 854894
         method: E
         days_supplied: 1
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
   - name: 1Medication 90Days
     attributes:
       date_of_birth: 1940-03-22
@@ -524,19 +524,19 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       medications:
       - code_type: RXNORM
         code_value: 311992
         method: E
         days_supplied: 90
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: RXNORM
         code_value: 1232194
         method: E
         days_supplied: 90
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
   - name: 2Medications Unique
     attributes:
       date_of_birth: 1940-03-22
@@ -548,17 +548,17 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Patty
       medications:
       - code_type: RXNORM
         code_value: 310539
         method: E
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: RXNORM
         code_value: 1363309
         method: E
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
   - name: 2Medications Same
     attributes:
       date_of_birth: 1940-03-22
@@ -570,17 +570,17 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Patty
       medications:
       - code_type: RXNORM
         code_value: 310539
         method: E
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: RXNORM
         code_value: 310539
         method: E
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
   - name: 3Medications Unique
     attributes:
       date_of_birth: 1940-03-22
@@ -592,21 +592,21 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Patty
       medications:
       - code_type: RXNORM
         code_value: 310539
         method: E
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: RXNORM
         code_value: 1363309
         method: E
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: RXNORM
         code_value: 1359124
         method: E
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
   - name: 2Medications Before
     attributes:
       date_of_birth: 1940-03-22
@@ -618,17 +618,17 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Patty
       medications:
       - code_type: RXNORM
         code_value: 310539
         method: E
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: RXNORM
         code_value: 1363309
         method: E
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
   - name: 2Medications 91Days
     attributes:
       date_of_birth: 1940-03-22
@@ -640,24 +640,24 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Patty
       medications:
       - code_type: RXNORM
         code_value: 485465
         method: E
         days_supplied: 90
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: RXNORM
         code_value: 485465
         method: E
         days_supplied: 1
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: RXNORM
         code_value: 854894
         method: E
         days_supplied: 91
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
   - name: 2Medications 90Days
     attributes:
       date_of_birth: 1940-03-22
@@ -669,19 +669,19 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Patty
       medications:
       - code_type: RXNORM
         code_value: 485465
         method: E
         days_supplied: 90
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: RXNORM
         code_value: 854894
         method: E
         days_supplied: 90
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
   - name: Medication Active
     attributes:
       date_of_birth: 1940-03-22
@@ -693,18 +693,18 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Patty
       medications:
       - code_type: RXNORM
         code_value: 485465
         days_supplied: 90
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: RXNORM
         code_value: 485465
         days_supplied: 1
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       - code_type: RXNORM
         code_value: 854894
         days_supplied: 91
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01

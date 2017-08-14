@@ -3,139 +3,139 @@ test_set_keys:
   organization_key:
     episodes_of_care:
       - name: Too Young # Below age range
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Age Lower # Lower bound of age range
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8628
       - name: Denominator Encounter # Encounter too early
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator Encounter # Encounter at lower bound
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8628
       - name: Denominator Encounter # Encounter at upper bound
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8628
       - name: Denominator Encounter # Encounter too late
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Excluded Diagnosis # Diagnosis exclusion before interval
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8628
       - name: Excluded Diagnosis # Diagnosis exclusion at lower bound of interval
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
         denominator: 1
         denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: Excluded Diagnosis # Diagnosis exclusion at upper bound of interval
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator: 1
         denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: Excluded Diagnosis # Diagnosis exclusion after interval
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8628
       - name: Excluded Medication # Medication exclusion before interval
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8628
       - name: Excluded Medication # Medication exclusion at lower bound of interval
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
         denominator: 1
         denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: Excluded Medication # Medication exclusion at upper bound of interval
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator: 1
         denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: Excluded Medication # Medication exclusion after interval
-        start_datetime: 2016-05-01
+        start_date: 2016-05-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8628
       - name: Excluded Medication # Medication order invalid
-        start_datetime: 2016-06-01
+        start_date: 2016-06-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8628
       - name: PerformanceMet G8627 # Performance met G8627 before MP
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8628
       - name: PerformanceMet G8627 # Performance met G8627 lower bound MP
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8627
       - name: PerformanceMet G8627 # Performance met G8627 upper bound MP
-        start_datetime: 2016-06-01
+        start_date: 2016-06-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8627
       - name: PerformanceMet G8627 # Performance met G8627 after MP
-        start_datetime: 2016-08-01
+        start_date: 2016-08-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8628
       - name: PerformanceMet Complication # Eye Complication before end of procedure
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8628
       - name: PerformanceMet Complication # Eye Complication at end of procedure
-        start_datetime: 2016-04-01
+        start_date: 2016-04-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8627
       - name: PerformanceMet Complication # Eye Complication at upper bound of period
-        start_datetime: 2016-06-01
+        start_date: 2016-06-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8627
       - name: PerformanceMet Complication # Eye Complication after period
-        start_datetime: 2016-08-01
+        start_date: 2016-08-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -144,139 +144,139 @@ test_set_keys:
     - name: Rachel
       episodes_of_care:
         - name: Too Young # Below age range
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Age Lower # Lower bound of age range
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8628
         - name: Denominator Encounter # Encounter too early
-          start_datetime: 2015-12-31
+          start_date: 2015-12-31
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Denominator Encounter # Encounter at lower bound
-          start_datetime: 2016-01-01
+          start_date: 2016-01-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8628
         - name: Denominator Encounter # Encounter at upper bound
-          start_datetime: 2016-12-31
+          start_date: 2016-12-31
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8628
         - name: Denominator Encounter # Encounter too late
-          start_datetime: 2017-01-01
+          start_date: 2017-01-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Excluded Diagnosis # Diagnosis exclusion before interval
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8628
         - name: Excluded Diagnosis # Diagnosis exclusion at lower bound of interval
-          start_datetime: 2016-03-01
+          start_date: 2016-03-01
           denominator: 1
           denominator_exclusion: exclusion_1
           denominator_exception:
           numerator:
         - name: Excluded Diagnosis # Diagnosis exclusion at upper bound of interval
-          start_datetime: 2016-04-01
+          start_date: 2016-04-01
           denominator: 1
           denominator_exclusion: exclusion_1
           denominator_exception:
           numerator:
         - name: Excluded Diagnosis # Diagnosis exclusion after interval
-          start_datetime: 2016-05-01
+          start_date: 2016-05-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8628
         - name: Excluded Medication # Medication exclusion before interval
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8628
         - name: Excluded Medication # Medication exclusion at lower bound of interval
-          start_datetime: 2016-03-01
+          start_date: 2016-03-01
           denominator: 1
           denominator_exclusion: exclusion_1
           denominator_exception:
           numerator:
         - name: Excluded Medication # Medication exclusion at upper bound of interval
-          start_datetime: 2016-04-01
+          start_date: 2016-04-01
           denominator: 1
           denominator_exclusion: exclusion_1
           denominator_exception:
           numerator:
         - name: Excluded Medication # Medication exclusion after interval
-          start_datetime: 2016-05-01
+          start_date: 2016-05-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8628
         - name: Excluded Medication # Medication order invalid
-          start_datetime: 2016-06-01
+          start_date: 2016-06-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8628
         - name: PerformanceMet G8627 # Performance met G8627 before MP
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8628
         - name: PerformanceMet G8627 # Performance met G8627 lower bound MP
-          start_datetime: 2016-04-01
+          start_date: 2016-04-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8627
         - name: PerformanceMet G8627 # Performance met G8627 upper bound MP
-          start_datetime: 2016-06-01
+          start_date: 2016-06-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8627
         - name: PerformanceMet G8627 # Performance met G8627 after MP
-          start_datetime: 2016-08-01
+          start_date: 2016-08-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8628
         - name: PerformanceMet Complication # Eye Complication before end of procedure
-          start_datetime: 2016-02-01
+          start_date: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: PerformanceMet Complication # Eye Complication at end of procedure
-          start_datetime: 2016-04-01
+          start_date: 2016-04-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: PerformanceMet Complication # Eye Complication at upper bound of period
-          start_datetime: 2016-06-01
+          start_date: 2016-06-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: PerformanceMet Complication # Eye Complication after period
-          start_datetime: 2016-08-01
+          start_date: 2016-08-01
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -304,7 +304,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
 - name: Age Lower
   attributes:
@@ -317,7 +317,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       provider: Rachel
 - name: Denominator Encounter
   attributes:
@@ -330,19 +330,19 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       provider: Rachel
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       provider: Rachel
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       provider: Rachel
 - name: Excluded Diagnosis
   attributes:
@@ -355,41 +355,41 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-03-01
-      stop_datetime: 2016-03-02
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
       provider: Rachel
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-01
+      stop_date: 2016-04-02
       provider: Rachel
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-05-01
-      stop_datetime: 2016-05-02
+      start_date: 2016-05-01
+      stop_date: 2016-05-02
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: H26.101
-      start_datetime: 2010-01-01
-      stop_datetime: 2016-01-31 # Early
+      start_date: 2010-01-01
+      stop_date: 2016-01-31 # Early
     - code_type: ICD10CM
       code_value: H26.101
-      start_datetime: 2016-02-21
-      stop_datetime: 2016-03-01 # Lower
+      start_date: 2016-02-21
+      stop_date: 2016-03-01 # Lower
     - code_type: ICD10CM
       code_value: H26.101
-      start_datetime: 2016-04-02 # Upper
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-02 # Upper
+      stop_date: 2016-04-02
     - code_type: ICD10CM
       code_value: H26.101
-      start_datetime: 2016-05-03 # Late
-      stop_datetime: 2016-05-04
+      start_date: 2016-05-03 # Late
+      stop_date: 2016-05-04
 - name: Excluded Medication
   attributes:
     date_of_birth: 1988-03-22
@@ -401,51 +401,51 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-03-01
-      stop_datetime: 2016-03-02
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
       provider: Rachel
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-01
+      stop_date: 2016-04-02
       provider: Rachel
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-05-01
-      stop_datetime: 2016-05-02
+      start_date: 2016-05-01
+      stop_date: 2016-05-02
       provider: Rachel
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-06-01
-      stop_datetime: 2016-06-02
+      start_date: 2016-06-01
+      stop_date: 2016-06-02
       provider: Rachel
     medications:
     - code_type: RXNORM
       code_value: 1100691
-      start_datetime: 2010-01-01
-      stop_datetime: 2016-01-31 # Early
+      start_date: 2010-01-01
+      stop_date: 2016-01-31 # Early
     - code_type: RXNORM
       code_value: 1100691
-      start_datetime: 2016-02-21
-      stop_datetime: 2016-03-01 # Lower
+      start_date: 2016-02-21
+      stop_date: 2016-03-01 # Lower
     - code_type: RXNORM
       code_value: 1100691
-      start_datetime: 2016-04-02 # UPPER
-      stop_datetime: 2016-04-03
+      start_date: 2016-04-02 # UPPER
+      stop_date: 2016-04-03
     - code_type: RXNORM
       code_value: 1100691
-      start_datetime: 2016-05-03 # Layr
-      stop_datetime: 2016-05-03
+      start_date: 2016-05-03 # Layr
+      stop_date: 2016-05-03
     - code_type: RXNORM
       code_value: 1100691
       method: E # Order
-      start_datetime: 2016-06-01
-      stop_datetime: 2016-04-03
+      start_date: 2016-06-01
+      stop_date: 2016-04-03
 - name: PerformanceMet G8627
   attributes:
     date_of_birth: 1988-03-22
@@ -457,36 +457,36 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-01
+      stop_date: 2016-04-02
       provider: Rachel
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-06-01
-      stop_datetime: 2016-06-02
+      start_date: 2016-06-01
+      stop_date: 2016-06-02
       provider: Rachel
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-08-01
-      stop_datetime: 2016-08-02
+      start_date: 2016-08-01
+      stop_date: 2016-08-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8627
-      start_datetime: 2016-01-31 # Early
+      start_date: 2016-01-31 # Early
     - code_type: HCPCS
       code_value: G8627
-      start_datetime: 2016-04-01 # Lower
+      start_date: 2016-04-01 # Lower
     - code_type: HCPCS
       code_value: G8627
-      start_datetime: 2016-07-01 # Upper
+      start_date: 2016-07-01 # Upper
     - code_type: HCPCS
       code_value: G8627
-      start_datetime: 2016-09-01 # Late
+      start_date: 2016-09-01 # Late
 - name: PerformanceMet Complication
   attributes:
     date_of_birth: 1988-03-22
@@ -498,33 +498,33 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
       provider: Patty
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-01
+      stop_date: 2016-04-02
       provider: Patty
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-06-01
-      stop_datetime: 2016-06-02
+      start_date: 2016-06-01
+      stop_date: 2016-06-02
       provider: Patty
     - code_type: CPT
       code_value: 66840
-      start_datetime: 2016-08-01
-      stop_datetime: 2016-08-02
+      start_date: 2016-08-01
+      stop_date: 2016-08-02
       provider: Patty
     - code_type: CPT
       code_value: 67105
-      start_datetime: 2016-01-31 # Early
+      start_date: 2016-01-31 # Early
     - code_type: CPT
       code_value: 67105
-      start_datetime: 2016-04-01 # Lower
+      start_date: 2016-04-01 # Lower
     - code_type: CPT
       code_value: 67105
-      start_datetime: 2016-07-01 # Upper
+      start_date: 2016-07-01 # Upper
     - code_type: CPT
       code_value: 67105
-      start_datetime: 2016-09-01 # Late
+      start_date: 2016-09-01 # Late

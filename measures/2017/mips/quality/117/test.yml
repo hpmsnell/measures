@@ -457,12 +457,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Age Lower
     attributes:
       date_of_birth: 1998-02-01
@@ -473,12 +473,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Age Upper
     attributes:
       date_of_birth: 1941-02-02
@@ -489,12 +489,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Too Old
     attributes:
       date_of_birth: 1941-02-01
@@ -505,12 +505,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Diagnosis Late
     attributes:
       date_of_birth: 1988-03-22
@@ -521,12 +521,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
   - name: Diagnosis Early
     attributes:
       date_of_birth: 1988-03-22
@@ -537,13 +537,13 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
-        stop_datetime: 2015-12-31
+        start_date: 2010-01-01
+        stop_date: 2015-12-31
   - name: Diagnosis Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -554,12 +554,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
   - name: Encounter Early
     attributes:
       date_of_birth: 1988-03-22
@@ -570,12 +570,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Encounter Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -586,12 +586,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Encounter Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -602,12 +602,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Encounter Late
     attributes:
       date_of_birth: 1988-03-22
@@ -618,12 +618,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
         provider: Rachel
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Hospice Before
     attributes:
       date_of_birth: 1988-03-22
@@ -634,15 +634,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9714
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Hospice Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -653,15 +653,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9714
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Hospice Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -672,15 +672,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9714
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: Hospice Late
     attributes:
       date_of_birth: 1988-03-22
@@ -691,15 +691,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: HCPCS
         code_value: G9714
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: VHospice Before
     attributes:
       date_of_birth: 1988-03-22
@@ -710,16 +710,16 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 182964004
-        start_datetime: 2015-01-01
-        stop_datetime: 2015-12-31
+        start_date: 2015-01-01
+        stop_date: 2015-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: VHospice Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -730,15 +730,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 182964004
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: VHospice Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -749,15 +749,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 182964004
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: VHospice Late
     attributes:
       date_of_birth: 1988-03-22
@@ -768,15 +768,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 182964004
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 2022F Before
     attributes:
       date_of_birth: 1988-03-22
@@ -787,15 +787,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: CPT
         code_value: 2022F
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 2022F Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -806,15 +806,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: CPT
         code_value: 2022F
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 2022F Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -825,15 +825,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: CPT
         code_value: 2022F
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 2022F After
     attributes:
       date_of_birth: 1988-03-22
@@ -844,15 +844,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: CPT
         code_value: 2022F
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 2024F Before
     attributes:
       date_of_birth: 1988-03-22
@@ -863,15 +863,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: CPT
         code_value: 2024F
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 2024F Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -882,15 +882,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: CPT
         code_value: 2024F
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 2024F Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -901,15 +901,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: CPT
         code_value: 2024F
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 2024F After
     attributes:
       date_of_birth: 1988-03-22
@@ -920,15 +920,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: CPT
         code_value: 2024F
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 2026F Before
     attributes:
       date_of_birth: 1988-03-22
@@ -939,15 +939,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: CPT
         code_value: 2026F
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 2026F Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -958,15 +958,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: CPT
         code_value: 2026F
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 2026F Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -977,15 +977,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: CPT
         code_value: 2026F
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 2026F After
     attributes:
       date_of_birth: 1988-03-22
@@ -996,15 +996,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: CPT
         code_value: 2026F
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 3072F Before
     attributes:
       date_of_birth: 1988-03-22
@@ -1015,15 +1015,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: CPT
         code_value: 3072F
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 3072F Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -1034,15 +1034,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: CPT
         code_value: 3072F
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 3072F Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -1053,15 +1053,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: CPT
         code_value: 3072F
-        start_datetime: 2016-12-31
+        start_date: 2016-12-31
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 3072F After
     attributes:
       date_of_birth: 1988-03-22
@@ -1072,15 +1072,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: CPT
         code_value: 3072F
-        start_datetime: 2017-01-01
+        start_date: 2017-01-01
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: VSAC Before
     attributes:
       date_of_birth: 1988-03-22
@@ -1091,16 +1091,16 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 252779009
-        start_datetime: 2014-12-31
+        start_date: 2014-12-31
         result: negative
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: VSAC Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -1111,16 +1111,16 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 252779009
-        start_datetime: 2015-01-01
+        start_date: 2015-01-01
         result: negative
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: VSAC Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -1131,16 +1131,16 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 252779009
-        start_datetime: 2015-12-31
+        start_date: 2015-12-31
         result: negative
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: VSAC After
     attributes:
       date_of_birth: 1988-03-22
@@ -1151,16 +1151,16 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 252779009
-        start_datetime: 2016-01-01
+        start_date: 2016-01-01
         result: negative
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: VSAC Positive
     attributes:
       date_of_birth: 1988-03-22
@@ -1171,16 +1171,16 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 252779009
-        start_datetime: 2015-03-01
+        start_date: 2015-03-01
         result: positive
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 2022F Failure
     attributes:
       date_of_birth: 1988-03-22
@@ -1191,15 +1191,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Patty
       - code_type: CPT
         code_value: 2022F-8P
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 2024F Failure
     attributes:
       date_of_birth: 1988-03-22
@@ -1210,15 +1210,15 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Patty
       - code_type: CPT
         code_value: 2024F-8P
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01
   - name: 2026F Failure
     attributes:
       date_of_birth: 1988-03-22
@@ -1229,12 +1229,12 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_datetime: 2016-02-01
+        start_date: 2016-02-01
         provider: Patty
       - code_type: CPT
         code_value: 2026F-8P
-        start_datetime: 2016-03-01
+        start_date: 2016-03-01
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
-        start_datetime: 2010-01-01
+        start_date: 2010-01-01

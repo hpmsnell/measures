@@ -3,49 +3,49 @@ test_set_keys:
   organization_key:
     episodes_of_care:
     - name: Denominator Procedure #  Procedure prior to measurement year
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Procedure #  Procedure at beginning of measurement year
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3100F-8P
     - name: Denominator Procedure #  Procedure at end of measurement year
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3100F-8P
     - name: Denominator Procedure #  Procedure after measurement year
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Success 3100F #  Success before Procedure
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3100F-8P
     - name: Success 3100F #  Success at lower bound of Procedure
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3100F
     - name: Success 3100F #  Success at upper bound of Procedure
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3100F
     - name: Success 3100F #  Success after Procedure
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -54,49 +54,49 @@ test_set_keys:
   - name: Rachel
     episodes_of_care:
     - name: Denominator Procedure #  Procedure prior to measurement year
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Procedure #  Procedure at beginning of measurement year
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3100F-8P
     - name: Denominator Procedure #  Procedure at end of measurement year
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3100F-8P
     - name: Denominator Procedure #  Procedure after measurement year
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Success 3100F #  Success before Procedure
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3100F-8P
     - name: Success 3100F #  Success at lower bound of Procedure
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3100F
     - name: Success 3100F #  Success at upper bound of Procedure
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3100F
     - name: Success 3100F #  Success after Procedure
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -123,19 +123,19 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 36221
-      start_datetime: 2015-12-31 # Too early
+      start_date: 2015-12-31 # Too early
       provider: Rachel
     - code_type: CPT
       code_value: 36221
-      start_datetime: 2016-01-01 # Lower bound
+      start_date: 2016-01-01 # Lower bound
       provider: Rachel
     - code_type: CPT
       code_value: 36221
-      start_datetime: 2016-12-31 # Upper bound
+      start_date: 2016-12-31 # Upper bound
       provider: Rachel
     - code_type: CPT
       code_value: 36221
-      start_datetime: 2017-01-01 # Too late
+      start_date: 2017-01-01 # Too late
       provider: Rachel
 - name: Success 3100F
   attributes:
@@ -147,33 +147,33 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 36221
-      start_datetime: 2016-01-01 # Procedure
-      stop_datetime: 2016-01-02
+      start_date: 2016-01-01 # Procedure
+      stop_date: 2016-01-02
       provider: Rachel
     - code_type: CPT
       code_value: 36221
-      start_datetime: 2016-02-01 # Procedure
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01 # Procedure
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
       code_value: 36221
-      start_datetime: 2016-03-01 # Procedure
-      stop_datetime: 2016-03-02
+      start_date: 2016-03-01 # Procedure
+      stop_date: 2016-03-02
       provider: Rachel
     - code_type: CPT
       code_value: 36221
-      start_datetime: 2016-04-01 # Procedure
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-01 # Procedure
+      stop_date: 2016-04-02
       provider: Patty
     - code_type: CPT
       code_value: 3100F
-      start_datetime: 2015-12-31 # Early
+      start_date: 2015-12-31 # Early
     - code_type: CPT
       code_value: 3100F
-      start_datetime: 2016-02-01 # Lower
+      start_date: 2016-02-01 # Lower
     - code_type: CPT
       code_value: 3100F
-      start_datetime: 2016-03-02 # Upper
+      start_date: 2016-03-02 # Upper
     - code_type: CPT
       code_value: 3100F
-      start_datetime: 2016-04-03 # Late
+      start_date: 2016-04-03 # Late

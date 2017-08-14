@@ -3,157 +3,157 @@ test_set_keys:
   organization_key:
     episodes_of_care:
     - name: Too Young # Patient too young
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Age Lower # Patient age at bound
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Denominator Encounter #  Encounter prior to measurement year
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Encounter #  Encounter at beginning of measurement year
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Denominator Encounter #  Encounter at end of measurement year
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Denominator Encounter #  Encounter after measurement year
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Diagnosis #  Diagnosis prior to measurement year
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Diagnosis #  Diagnosis at beginning of measurement year
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Denominator Diagnosis #  Diagnosis at end of measurement year
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Denominator Diagnosis #  Diagnosis after measurement year
-      start_datetime: 2017-05-01
+      start_date: 2017-05-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator InvasiveCancer # Invasive cancer prior to measurement year
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator InvasiveCancer # Invasive cancer at beginning of measurement year
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Denominator InvasiveCancer # Invasive cancer at end of measurement year
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Denominator InvasiveCancer # Invasive cancer after measurement year
-      start_datetime: 2017-05-01
+      start_date: 2017-05-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Success G8878 #  Success before Encounter
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Success G8878 #  Success at lower bound of Encounter
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8878
     - name: Success G8878 #  Success at upper bound of Encounter
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8878
     - name: Success G8878 #  Success after Encounter
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Success Biopsy #  Success before Encounter
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Success Biopsy #  Success at lower bound of Encounter
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8878
     - name: Success Biopsy #  Success at upper bound of Encounter
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8878
     - name: Success Biopsy #  Success after Encounter
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Exception G8880 #  Exception before Encounter
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Exception G8880 #  Exception at lower bound of Encounter
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: G8880
       numerator:
     - name: Exception G8880 #  Exception at upper bound of Encounter
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: G8880
       numerator:
     - name: Exception G8880 #  Exception after Encounter
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -162,157 +162,157 @@ test_set_keys:
   - name: Rachel
     episodes_of_care:
     - name: Too Young # Patient too young
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Age Lower # Patient age at bound
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Denominator Encounter #  Encounter prior to measurement year
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Encounter #  Encounter at beginning of measurement year
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Denominator Encounter #  Encounter at end of measurement year
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Denominator Encounter #  Encounter after measurement year
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Diagnosis #  Diagnosis prior to measurement year
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator Diagnosis #  Diagnosis at beginning of measurement year
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Denominator Diagnosis #  Diagnosis at end of measurement year
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Denominator Diagnosis #  Diagnosis after measurement year
-      start_datetime: 2017-05-01
+      start_date: 2017-05-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator InvasiveCancer # Invasive cancer prior to measurement year
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Denominator InvasiveCancer # Invasive cancer at beginning of measurement year
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Denominator InvasiveCancer # Invasive cancer at end of measurement year
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Denominator InvasiveCancer # Invasive cancer after measurement year
-      start_datetime: 2017-05-01
+      start_date: 2017-05-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Success G8878 #  Success before Encounter
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Success G8878 #  Success at lower bound of Encounter
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8878
     - name: Success G8878 #  Success at upper bound of Encounter
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8878
     - name: Success G8878 #  Success after Encounter
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Success Biopsy #  Success before Encounter
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Success Biopsy #  Success at lower bound of Encounter
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8878
     - name: Success Biopsy #  Success at upper bound of Encounter
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8878
     - name: Success Biopsy #  Success after Encounter
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G8882
     - name: Exception G8880 #  Exception before Encounter
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Exception G8880 #  Exception at lower bound of Encounter
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Exception G8880 #  Exception at upper bound of Encounter
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Exception G8880 #  Exception after Encounter
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -339,16 +339,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Age Lower
   attributes:
     date_of_birth: 1998-02-01 # Lower bound
@@ -359,16 +359,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
 - name: Denominator Encounter
   attributes:
     date_of_birth: 1990-01-02
@@ -379,53 +379,53 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2015-12-31 # Too early
-      stop_datetime: 2015-12-31
+      start_date: 2015-12-31 # Too early
+      stop_date: 2015-12-31
       provider: Rachel
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-01-01 # Lower bound
-      stop_datetime: 2016-01-01
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
       provider: Rachel
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-12-31 # Upper bound
-      stop_datetime: 2016-12-31
+      start_date: 2016-12-31 # Upper bound
+      stop_date: 2016-12-31
       provider: Rachel
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2017-01-01 # Too late
-      stop_datetime: 2017-01-01
+      start_date: 2017-01-01 # Too late
+      stop_date: 2017-01-01
       provider: Rachel
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2015-12-31
+      start_date: 2015-12-31
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-12-31
+      start_date: 2016-12-31
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2017-01-01
+      start_date: 2017-01-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2015-12-31
-      stop_datetime: 2015-12-31
+      start_date: 2015-12-31
+      stop_date: 2015-12-31
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-01-01
-      stop_datetime: 2016-01-01
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-12-31
-      stop_datetime: 2016-12-31
+      start_date: 2016-12-31
+      stop_date: 2016-12-31
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2017-01-01
-      stop_datetime: 2017-01-01
+      start_date: 2017-01-01
+      stop_date: 2017-01-01
 - name: Denominator Diagnosis
   attributes:
     date_of_birth: 1990-01-02
@@ -436,53 +436,53 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-03-01
-      stop_datetime: 2016-03-02
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
       provider: Rachel
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-01
+      stop_date: 2016-04-02
       provider: Rachel
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-05-01
-      stop_datetime: 2016-05-02
+      start_date: 2016-05-01
+      stop_date: 2016-05-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-05-01
+      start_date: 2016-05-01
     diagnoses:
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-01-01
-      stop_datetime: 2016-01-31 # Too early
+      start_date: 2016-01-01
+      stop_date: 2016-01-31 # Too early
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-03-01 # Lower bound
-      stop_datetime: 2016-03-01
+      start_date: 2016-03-01 # Lower bound
+      stop_date: 2016-03-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-04-02 # Upper bound
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-02 # Upper bound
+      stop_date: 2016-04-02
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-05-03 # Too late
-      stop_datetime: 2016-05-04
+      start_date: 2016-05-03 # Too late
+      stop_date: 2016-05-04
 - name: Denominator InvasiveCancer
   attributes:
     date_of_birth: 1990-01-02
@@ -493,53 +493,53 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-03-01
-      stop_datetime: 2016-03-02
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
       provider: Rachel
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-01
+      stop_date: 2016-04-02
       provider: Rachel
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-05-01
-      stop_datetime: 2016-05-02
+      start_date: 2016-05-01
+      stop_date: 2016-05-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-01-31 # Too early
+      start_date: 2016-01-31 # Too early
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-03-01 # Lower bound
+      start_date: 2016-03-01 # Lower bound
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-04-02 # Upper bound
+      start_date: 2016-04-02 # Upper bound
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-05-03 # Too late
+      start_date: 2016-05-03 # Too late
     diagnoses:
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-03-01
-      stop_datetime: 2016-03-01
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-04-01
+      start_date: 2016-04-01
+      stop_date: 2016-04-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-05-01
-      stop_datetime: 2016-05-01
+      start_date: 2016-05-01
+      stop_date: 2016-05-01
 - name: Success G8878
   attributes:
     date_of_birth: 1990-01-02
@@ -550,65 +550,65 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-01-01 # Encounter
-      stop_datetime: 2016-01-02
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
       provider: Rachel
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-02-01 # Encounter
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01 # Encounter
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-03-01 # Encounter
-      stop_datetime: 2016-03-02
+      start_date: 2016-03-01 # Encounter
+      stop_date: 2016-03-02
       provider: Rachel
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-04-01 # Encounter
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-01 # Encounter
+      stop_date: 2016-04-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
     - code_type: HCPCS
       code_value: G8878
-      start_datetime: 2015-12-31 # Early
+      start_date: 2015-12-31 # Early
     - code_type: HCPCS
       code_value: G8878
-      start_datetime: 2016-02-01 # Lower
+      start_date: 2016-02-01 # Lower
     - code_type: HCPCS
       code_value: G8878
-      start_datetime: 2016-03-02 # Upper
+      start_date: 2016-03-02 # Upper
     - code_type: HCPCS
       code_value: G8878
-      start_datetime: 2016-04-03 # Late
+      start_date: 2016-04-03 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-01-01
-      stop_datetime: 2016-01-01
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-03-01
-      stop_datetime: 2016-03-01
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-04-01
+      start_date: 2016-04-01
+      stop_date: 2016-04-01
 - name: Success Biopsy
   attributes:
     date_of_birth: 1990-01-02
@@ -619,65 +619,65 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-01-01 # Encounter
-      stop_datetime: 2016-01-02
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
       provider: Rachel
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-02-01 # Encounter
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01 # Encounter
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-03-01 # Encounter
-      stop_datetime: 2016-03-02
+      start_date: 2016-03-01 # Encounter
+      stop_date: 2016-03-02
       provider: Rachel
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-04-01 # Encounter
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-01 # Encounter
+      stop_date: 2016-04-02
       provider: Rachel
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
     - code_type: SNOMEDCT
       code_value: 396487001
-      start_datetime: 2015-12-31 # Early
+      start_date: 2015-12-31 # Early
     - code_type: SNOMEDCT
       code_value: 396487001
-      start_datetime: 2016-02-01 # Lower
+      start_date: 2016-02-01 # Lower
     - code_type: SNOMEDCT
       code_value: 396487001
-      start_datetime: 2016-03-02 # Upper
+      start_date: 2016-03-02 # Upper
     - code_type: SNOMEDCT
       code_value: 396487001
-      start_datetime: 2016-04-03 # Late
+      start_date: 2016-04-03 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-01-01
-      stop_datetime: 2016-01-01
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-03-01
-      stop_datetime: 2016-03-01
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-04-01
+      start_date: 2016-04-01
+      stop_date: 2016-04-01
 - name: Exception G8880
   attributes:
     date_of_birth: 1990-01-02
@@ -688,62 +688,62 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-01-01 # Encounter
-      stop_datetime: 2016-01-02
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
       provider: Patty
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-02-01 # Encounter
-      stop_datetime: 2016-02-02
+      start_date: 2016-02-01 # Encounter
+      stop_date: 2016-02-02
       provider: Patty
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-03-01 # Encounter
-      stop_datetime: 2016-03-02
+      start_date: 2016-03-01 # Encounter
+      stop_date: 2016-03-02
       provider: Patty
     - code_type: CPT
       code_value: 19301
-      start_datetime: 2016-04-01 # Encounter
-      stop_datetime: 2016-04-02
+      start_date: 2016-04-01 # Encounter
+      stop_date: 2016-04-02
       provider: Patty
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-01-01
+      start_date: 2016-01-01
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-02-01
+      start_date: 2016-02-01
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-03-01
+      start_date: 2016-03-01
     - code_type: HCPCS
       code_value: G8879
-      start_datetime: 2016-04-01
+      start_date: 2016-04-01
     - code_type: HCPCS
       code_value: G8880
-      start_datetime: 2015-12-31 # Early
+      start_date: 2015-12-31 # Early
     - code_type: HCPCS
       code_value: G8880
-      start_datetime: 2016-02-01 # Lower
+      start_date: 2016-02-01 # Lower
     - code_type: HCPCS
       code_value: G8880
-      start_datetime: 2016-03-02 # Upper
+      start_date: 2016-03-02 # Upper
     - code_type: HCPCS
       code_value: G8880
-      start_datetime: 2016-04-03 # Late
+      start_date: 2016-04-03 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-01-01
-      stop_datetime: 2016-01-01
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-03-01
-      stop_datetime: 2016-03-01
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
     - code_type: ICD10CM
       code_value: C50.011
-      start_datetime: 2016-04-01
-      stop_datetime: 2016-04-01
+      start_date: 2016-04-01
+      stop_date: 2016-04-01
