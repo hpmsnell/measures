@@ -104,6 +104,12 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: G9659
+    - name: Exception G9660 # No performance met
+      start_date: 2016-06-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9659
   providers_key:
     - name: Rachel
       episodes_of_care:
@@ -205,6 +211,12 @@ test_set_keys:
           numerator:
         - name: Exception G9660 # Late
           start_date: 2016-05-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Exception G9660 # No performance met
+          start_date: 2016-06-01
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -384,6 +396,9 @@ patients:
       stop_date: 2016-02-02
       provider: Patty
     - code_type: HCPCS
+      code_value: G9659
+      start_date: 2016-02-01
+    - code_type: HCPCS
       code_value: G9660
       start_date: 2016-01-31 # Too early
     - code_type: CPT
@@ -391,6 +406,9 @@ patients:
       start_date: 2016-03-01
       stop_date: 2016-03-02
       provider: Patty
+    - code_type: HCPCS
+      code_value: G9659
+      start_date: 2016-03-01
     - code_type: HCPCS
       code_value: G9660
       start_date: 2016-03-01 # Lower bound
@@ -400,6 +418,9 @@ patients:
       stop_date: 2016-04-02
       provider: Patty
     - code_type: HCPCS
+      code_value: G9659
+      start_date: 2016-04-01
+    - code_type: HCPCS
       code_value: G9660
       start_date: 2016-04-02 # Upper bound
     - code_type: CPT
@@ -408,5 +429,16 @@ patients:
       stop_date: 2016-05-02
       provider: Patty
     - code_type: HCPCS
+      code_value: G9659
+      start_date: 2016-05-01
+    - code_type: HCPCS
       code_value: G9660
       start_date: 2016-05-03 # Too late
+    - code_type: CPT
+      code_value: 45378
+      start_date: 2016-06-01
+      stop_date: 2016-06-02
+      provider: Patty
+    - code_type: HCPCS
+      code_value: G9660 # No performance met
+      start_date: 2016-06-01

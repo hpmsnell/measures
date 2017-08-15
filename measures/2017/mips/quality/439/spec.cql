@@ -62,6 +62,11 @@ define "Performance Met":
     with "Denominator Encounter" E
       such that D.prevalencePeriod starts during or before start of E.relevantPeriod)
 
+define "Exception":
+  exists(["Encounter, Performed": "MIPS; Denominator Exception: G9660"] P
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts during E.relevantPeriod)
+
 define "Denominator":
   "Denominator Encounter"
 
@@ -70,15 +75,14 @@ define "Numerator Performance Met: G9659":
    * config_link_id: G9659
    */
   "Performance Met"
-  and not "Denominator Exception: G9660"
+  and not "Exception"
 
 define "Denominator Exception: G9660":
   /*
    * config_link_id: G9660
    */
-  exists(["Encounter, Performed": "MIPS; Denominator Exception: G9660"] P
-    with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod)
+  "Performance Met"
+  and "Exception"
 
 define "Numerator Performance Not Met: G9661":
   /*
