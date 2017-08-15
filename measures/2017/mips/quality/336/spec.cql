@@ -25,8 +25,6 @@ valueset "VSAC; Adult Depression Screening": '2.16.840.1.113883.3.600.431'
 valueset "VSAC; Adolescent Depression Screening": '2.16.840.1.113883.3.600.426'
 valueset "VSAC; Maternal Post Partum Depression Screening": '2.16.840.1.113883.3.464.1003.111.12.1014'
 valueset "VSAC; PHQ-9 Tool": '2.16.840.1.113883.3.67.1.101.11.723'
-valueset "VSAC; Gestational Diabetes": '2.16.840.1.113883.3.464.1003.103.12.1010'
-valueset "VSAC; Glucose Lab Test": '2.16.840.1.113762.1.4.1045.134'
 valueset "VSAC; Procedures Involving Contraceptive Devices": '2.16.840.1.113883.3.464.1003.111.12.1010'
 valueset "VSAC; Contraceptive Medications": '2.16.840.1.113883.3.464.1003.196.12.1080'
 
@@ -34,6 +32,8 @@ valueset "VSAC; Contraceptive Medications": '2.16.840.1.113883.3.464.1003.196.12
 
 valueset "Able; Breast Feeding Finding"
 valueset "Able; Family Planning"
+valueset "Able; Gestational Diabetes": '2.16.840.1.113883.3.464.1003.103.12.1010'
+valueset "Able; Glucose Lab Test": '2.16.840.1.113762.1.4.1045.134'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -68,10 +68,10 @@ define "Depression Screening Exists":
       such that P1.relevantPeriod starts 56 days or less after start of P2.relevantPeriod)
 
 define "Glucose Screening Exists if Diabetic":
-  exists(["Laboratory Test, Performed": "VSAC; Adult Depression Screening"] L
+  exists(["Laboratory Test, Performed": "Able; Glucose Lab Test"] L
     with "Birth" P
       such that L.resultDateTime 56 days or less after start of P.relevantPeriod)
-  or not exists(["Diagnosis": "VSAC; Gestational Diabetes"] D
+  or not exists(["Diagnosis": "Able; Gestational Diabetes"] D
     with "Birth" P
       such that D.prevalencePeriod starts during or 9 months or less before start of P.relevantPeriod)
 
