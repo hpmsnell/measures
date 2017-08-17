@@ -1,0 +1,89 @@
+measure:
+  name: 17.MIPS.Mips343
+  required:
+    display_title: "Screening Colonoscopy Adenoma Detection Rate"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 343
+    version: 2017
+    mips_measure_type: Outcome
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: 3775F
+    required:
+      display_title: 'Adenoma(s) or other neoplasm detected during screening colonoscopy'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 343 Procedure"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Risk Factors for Colorectal Cancer"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3775F"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Colon Cancer"
+            - model: Diagnosis
+              value_set: "Able; Adenoma of Colon"
+    optional:
+      code_value: 3775F
+exception_reasons:
+  - config_link_id: G9496
+    required:
+      display_title: 'Documentation of reason for not detecting adenoma(s) or other neoplasm (e.g., Neoplasm detected is only diagnosed as traditional serrated adenoma, sessile serrated polyp, or sessile serrated adenoma)'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 343 Procedure"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Risk Factors for Colorectal Cancer"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Colon Cancer"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G9496"
+    optional:
+      code_value: G9496
+performance_not_met_reasons:
+  - config_link_id: 3776F
+    required:
+      display_title: 'Adenoma(s) or other neoplasm not detected during screening colonoscopy'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 343 Procedure"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Risk Factors for Colorectal Cancer"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3775F"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Colon Cancer"
+            - model: Diagnosis
+              value_set: "Able; Adenoma of Colon"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 3776F"
+    optional:
+      code_value: 3776F
