@@ -55,7 +55,7 @@ define "Valid Condition for Colonoscopy":
   union ["Diagnosis": "Able; Inflammatory Bowel Disease"]
 
 define "Performance Met":
-  exists(["Encounter, Performed": "MIPS; Performance Met: G9659"] P
+  exists(["Procedure, Performed": "MIPS; Performance Met: G9659"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts during E.relevantPeriod)
   or not exists("Valid Condition for Colonoscopy" D
@@ -63,7 +63,7 @@ define "Performance Met":
       such that D.prevalencePeriod starts during or before start of E.relevantPeriod)
 
 define "Exception":
-  exists(["Encounter, Performed": "MIPS; Denominator Exception: G9660"] P
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: G9660"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts during E.relevantPeriod)
 

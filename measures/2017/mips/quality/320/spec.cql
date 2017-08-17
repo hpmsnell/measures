@@ -45,16 +45,17 @@ define "Numerator Performance Met: 0528F":
   /*
    * config_link_id: 0528F
    */
-  exists(["Encounter, Performed": "MIPS; Performance Met: 0528F"] P
-    where D.prevalencePeriod starts before end of "Measurement Year")
+  exists(["Procedure, Performed": "MIPS; Performance Met: 0528F"] P
+    where P.relevantPeriod starts during "Measurement Period")
 
 define "Denominator Exception: 0528F-1P":
   /*
    * config_link_id: 0528F-1P
    */
-  exists(["Encounter, Performed": "MIPS; Denominator Exception: 0528F-1P"] P
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: 0528F-1P"] P
+    where P.relevantPeriod starts during "Measurement Year")
   or exists(["Diagnosis": "VSAC; Colon Cancer"] D
-    where D.prevalencePeriod starts before end of "Measurement Year")
+    where D.prevalencePeriod starts before end of "Measurement Period")
 
 define "Numerator Performance Not Met: 0528F-8P":
   /*
