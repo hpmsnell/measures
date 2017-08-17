@@ -32,6 +32,10 @@ valueset "VSAC; Tobacco User": '2.16.840.1.113883.3.526.3.1170'
 valueset "VSAC; Tobacco Use Cessation Counseling": '2.16.840.1.113883.3.526.3.509'
 valueset "VSAC; Tobacco Use Cessation Pharmacotherapy": '2.16.840.1.113883.3.526.3.1190'
 
+// Able value Sets
+
+valueset "Able; Never Tobacco User"
+
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
@@ -52,6 +56,16 @@ define "226 Preventive Encounter"
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
+define "Tobacco User":
+  ["Diagnosis": "VSAC; Tobacco User"]
+  union ["Assessment, Performed": "VSAC; Tobacco User"]
+
+define "Tobacco Non-User":
+  ["Diagnosis": "VSAC; Tobacco Non-User"]
+  union ["Assessment, Performed": "VSAC; Tobacco Non-User"]
+  union ["Diagnosis": "Able; Never Tobacco User"]
+  union ["Assessment, Performed": "Able; Never Tobacco User"]
+
 define "Denominator":
   count("226 Encounter") >= 2
   or exists("226 Preventive Encounter")
@@ -63,7 +77,7 @@ define "Numerator Performance Met: 4004F":
   exists(["Procedure, Performed": "MIPS; Performance Met: 4004F"] P
     where P.relevantPeriod starts during "Measurement Period")
   or (
-    exists(["Diagnosis": "VSAC; Tobacco User"] D
+    exists("Tobacco User" D
       where D.prevalencePeriod starts during "Tobacco Interval")
     and (
       exists(["Intervention, Performed": "VSAC; Tobacco Use Cessation Counseling"] I
@@ -81,7 +95,7 @@ define "Numerator Performance Met: 1036F":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 1036F"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists(["Diagnosis": "VSAC; Tobacco Non-User"] D
+  or exists("Tobacco Non-User" D
     where D.prevalencePeriod starts during "Tobacco Interval")
 
 define "Denominator Exception: 4004F-1P":

@@ -32,8 +32,8 @@ valueset "VSAC; Moderation of ETOH Consumption Recommendation": '2.16.840.1.1138
 
 // Able Value Sets
 
-valueset "ABLE; Alcohol User"
-valueset "ABLE; Alcohol Non-User"
+valueset "Able; Alcohol User"
+valueset "Able; Alcohol Non-User"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -55,6 +55,14 @@ define "431 Preventive Encounter"
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
+define "Alcohol User":
+  ["Diagnosis": "Able; Alcohol User"]
+  union ["Assessment, Performed": "Able; Alcohol User"]
+
+define "Alcohol Non-User":
+  ["Diagnosis": "Able; Alcohol Non-User"]
+  union ["Assessment, Performed": "Able; Alcohol Non-User"]
+
 define "Alcohol Treatment":
   ["Intervention, Performed": "VSAC; Alcohol and Drug Dependence Treatment"]
   union ["Intervention, Performed": "VSAC; Moderation of ETOH Consumption Recommendation"]
@@ -70,7 +78,7 @@ define "Numerator Performance Met: G9621":
   exists(["Procedure, Performed": "MIPS; Performance Met: G9621"] P
     where P.relevantPeriod starts during "Measurement Period")
   or (
-    exists(["Diagnosis": "ABLE; Alcohol User"] D
+    exists("Alcohol User" D
       where D.prevalencePeriod starts during "Alcohol Interval")
     and exists("Alcohol Treatment" I
       where I.relevantPeriod starts during "Tobacco Interval")
@@ -82,7 +90,7 @@ define "Numerator Performance Met: G9622":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G9622"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists(["Diagnosis": "ABLE; Alcohol Non-User"] D
+  or exists("Alcohol Non-User" D
     where D.prevalencePeriod starts during "Alcohol Interval")
 
 define "Denominator Exception: G9623":

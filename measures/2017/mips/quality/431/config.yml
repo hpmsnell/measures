@@ -29,8 +29,10 @@ performance_met_reasons:
               value_set: "MIPS; Performance Met: G9621"
         - count: 1
           validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Alcohol User"
             - model: Diagnosis
-              value_set: "ABLE; Alcohol User"
+              value_set: "Able; Alcohol User"
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -57,8 +59,10 @@ performance_met_reasons:
               value_set: "MIPS; Performance Met: G9622"
         - count: 1
           validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Alcohol Non-User"
             - model: Diagnosis
-              value_set: "ABLE; Alcohol Non-User"
+              value_set: "Able; Alcohol Non-User"
     optional:
       code_value: G9622
 exception_reasons:
@@ -88,12 +92,16 @@ exception_reasons:
               value_set: "MIPS; MIPS Hospice Service"
         - count: 1
           validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Alcohol Non-User"
             - model: Diagnosis
-              value_set: "ABLE; Alcohol Non-User"
+              value_set: "Able; Alcohol Non-User"
         - count: 1
           validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Alcohol User"
             - model: Diagnosis
-              value_set: "ABLE; Alcohol User"
+              value_set: "Able; Alcohol User"
     optional:
       code_value: G9623
 performance_not_met_reasons:
@@ -119,8 +127,10 @@ performance_not_met_reasons:
               value_set: "MIPS; Performance Met: G9621"
         - count: 1
           validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Alcohol User"
             - model: Diagnosis
-              value_set: "ABLE; Alcohol User"
+              value_set: "Able; Alcohol User"
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -133,7 +143,9 @@ performance_not_met_reasons:
               value_set: "MIPS; Performance Met: G9622"
         - count: 1
           validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Alcohol Non-User"
             - model: Diagnosis
-              value_set: "ABLE; Alcohol Non-User"
+              value_set: "Able; Alcohol Non-User"
     optional:
       code_value: G9624
