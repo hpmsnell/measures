@@ -26,13 +26,19 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: 4130F-8P
+    - name: Denominator Encounter # Within 30 days of previous encounter
+      start_date: 2016-01-30
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
     - name: Denominator Encounter # Upper
       start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4130F-8P
-    - name: Denominator Encounter
+    - name: Denominator Encounter # Too late
       start_date: 2017-01-01
       denominator:
       denominator_exclusion:
@@ -45,25 +51,25 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: Denominator Diagnosis # Lower
-      start_date: 2016-03-01
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 4130F-8P
-    - name: Denominator Diagnosis # Upper
       start_date: 2016-04-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4130F-8P
+    - name: Denominator Diagnosis # Upper
+      start_date: 2016-06-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4130F-8P
     - name: Denominator Diagnosis # After
-      start_date: 2016-05-01
+      start_date: 2016-08-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: PerformanceMet 4130F # Before
-      start_date: 2016-03-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -75,19 +81,19 @@ test_set_keys:
       denominator_exception:
       numerator: 4130F
     - name: PerformanceMet 4130F # Upper
-      start_date: 2016-05-01
+      start_date: 2016-06-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4130F
     - name: PerformanceMet 4130F # After
-      start_date: 2016-06-01
+      start_date: 2016-08-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4130F-8P
     - name: PerformanceMet Antibiotic # Before
-      start_date: 2016-03-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -99,25 +105,25 @@ test_set_keys:
       denominator_exception:
       numerator: 4130F
     - name: PerformanceMet Antibiotic # Upper
-      start_date: 2016-05-01
+      start_date: 2016-06-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4130F
     - name: PerformanceMet Antibiotic # After
-      start_date: 2016-06-01
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 4130F-8P
-    - name: PerformanceMet Antibiotic # Medication, Active
       start_date: 2016-08-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4130F-8P
+    - name: PerformanceMet Antibiotic # Medication, Active
+      start_date: 2016-010-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4130F-8P
     - name: Exception 4130F-1P # Before
-      start_date: 2016-03-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -129,19 +135,19 @@ test_set_keys:
       denominator_exception: 4130F1P
       numerator:
     - name: Exception 4130F-1P # Upper
-      start_date: 2016-05-01
+      start_date: 2016-06-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 4130F1P
       numerator:
     - name: Exception 4130F-1P # After
-      start_date: 2016-06-01
+      start_date: 2016-08-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4130F-8P
     - name: Exception Perforation # Before
-      start_date: 2016-03-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -153,13 +159,13 @@ test_set_keys:
       denominator_exception: 4130F1P
       numerator:
     - name: Exception Perforation # Upper
-      start_date: 2016-05-01
+      start_date: 2016-06-01
       denominator: 1
       denominator_exclusion:
       denominator_exception: 4130F1P
       numerator:
     - name: Exception Perforation # After
-      start_date: 2016-06-01
+      start_date: 2016-08-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -215,13 +221,19 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: 4130F-8P
+      - name: Denominator Encounter # Within 30 days of previous encounter
+        start_date: 2016-01-30
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
       - name: Denominator Encounter # Upper
         start_date: 2016-12-31
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4130F-8P
-      - name: Denominator Encounter
+      - name: Denominator Encounter # Too late
         start_date: 2017-01-01
         denominator:
         denominator_exclusion:
@@ -234,25 +246,25 @@ test_set_keys:
         denominator_exception:
         numerator:
       - name: Denominator Diagnosis # Lower
-        start_date: 2016-03-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4130F-8P
-      - name: Denominator Diagnosis # Upper
         start_date: 2016-04-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4130F-8P
+      - name: Denominator Diagnosis # Upper
+        start_date: 2016-06-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4130F-8P
       - name: Denominator Diagnosis # After
-        start_date: 2016-05-01
+        start_date: 2016-08-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: PerformanceMet 4130F # Before
-        start_date: 2016-03-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -264,19 +276,19 @@ test_set_keys:
         denominator_exception:
         numerator: 4130F
       - name: PerformanceMet 4130F # Upper
-        start_date: 2016-05-01
+        start_date: 2016-06-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4130F
       - name: PerformanceMet 4130F # After
-        start_date: 2016-06-01
+        start_date: 2016-08-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4130F-8P
       - name: PerformanceMet Antibiotic # Before
-        start_date: 2016-03-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -288,25 +300,25 @@ test_set_keys:
         denominator_exception:
         numerator: 4130F
       - name: PerformanceMet Antibiotic # Upper
-        start_date: 2016-05-01
+        start_date: 2016-06-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4130F
       - name: PerformanceMet Antibiotic # After
-        start_date: 2016-06-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4130F-8P
-      - name: PerformanceMet Antibiotic # Medication, Active
         start_date: 2016-08-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4130F-8P
+      - name: PerformanceMet Antibiotic # Medication, Active
+        start_date: 2016-010-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4130F-8P
       - name: Exception 4130F-1P # Before
-        start_date: 2016-03-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -318,19 +330,19 @@ test_set_keys:
         denominator_exception: 4130F1P
         numerator:
       - name: Exception 4130F-1P # Upper
-        start_date: 2016-05-01
+        start_date: 2016-06-01
         denominator: 1
         denominator_exclusion:
         denominator_exception: 4130F1P
         numerator:
       - name: Exception 4130F-1P # After
-        start_date: 2016-06-01
+        start_date: 2016-08-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4130F-8P
       - name: Exception Perforation # Before
-        start_date: 2016-03-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -342,13 +354,13 @@ test_set_keys:
         denominator_exception: 4130F1P
         numerator:
       - name: Exception Perforation # Upper
-        start_date: 2016-05-01
+        start_date: 2016-06-01
         denominator: 1
         denominator_exclusion:
         denominator_exception: 4130F1P
         numerator:
       - name: Exception Perforation # After
-        start_date: 2016-06-01
+        start_date: 2016-08-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -443,6 +455,11 @@ patients:
       provider: Rachel
     - code_type: CPT
       code_value: 99201
+      start_date: 2016-01-30 # Within 30 days
+      stop_date: 2016-01-30
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201
       start_date: 2016-12-31 # Upper bound
       stop_date: 2016-12-31
       provider: Rachel
@@ -457,6 +474,9 @@ patients:
     - code_type: ICD10CM
       code_value: H60.00
       start_date: 2016-01-01
+    - code_type: ICD10CM
+      code_value: H60.00
+      start_date: 2016-01-30
     - code_type: ICD10CM
       code_value: H60.00
       start_date: 2016-12-31
@@ -478,18 +498,18 @@ patients:
       provider: Rachel
     - code_type: CPT
       code_value: 99201
-      start_date: 2016-03-01
-      stop_date: 2016-03-02
-      provider: Rachel
-    - code_type: CPT
-      code_value: 99201
       start_date: 2016-04-01
       stop_date: 2016-04-02
       provider: Rachel
     - code_type: CPT
       code_value: 99201
-      start_date: 2016-05-01
-      stop_date: 2016-05-02
+      start_date: 2016-06-01
+      stop_date: 2016-06-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-08-01
+      stop_date: 2016-08-02
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
@@ -497,13 +517,13 @@ patients:
       start_date: 2016-01-31 # Too early
     - code_type: ICD10CM
       code_value: H60.00
-      start_date: 2016-03-01 # Lower bound
+      start_date: 2016-04-01 # Lower bound
     - code_type: ICD10CM
       code_value: H60.00
-      start_date: 2016-04-02 # Upper bound
+      start_date: 2016-06-02 # Upper bound
     - code_type: ICD10CM
       code_value: H60.00
-      start_date: 2016-05-03 # Too late
+      start_date: 2016-08-03 # Too late
 - name: PerformanceMet 4130F
   attributes:
     date_of_birth: 2000-01-01
@@ -514,8 +534,8 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_date: 2016-03-01
-      stop_date: 2016-03-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 4130F
@@ -530,33 +550,33 @@ patients:
       start_date: 2016-04-01 # Lower bound
     - code_type: CPT
       code_value: 99201
-      start_date: 2016-05-01
-      stop_date: 2016-05-01
-      provider: Rachel
-    - code_type: CPT
-      code_value: 4130F
-      start_date: 2016-05-30 # Upper bound
-    - code_type: CPT
-      code_value: 99201
       start_date: 2016-06-01
       stop_date: 2016-06-01
       provider: Rachel
     - code_type: CPT
       code_value: 4130F
-      start_date: 2016-07-02 # Late
+      start_date: 2016-06-30 # Upper bound
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-08-01
+      stop_date: 2016-08-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 4130F
+      start_date: 2016-09-02 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: H60.00
-      start_date: 2016-03-01
+      start_date: 2016-02-01
     - code_type: ICD10CM
       code_value: H60.00
       start_date: 2016-04-01
     - code_type: ICD10CM
       code_value: H60.00
-      start_date: 2016-05-01
+      start_date: 2016-06-01
     - code_type: ICD10CM
       code_value: H60.00
-      start_date: 2016-06-01
+      start_date: 2016-08-01
 - name: PerformanceMet Antibiotic
   attributes:
     date_of_birth: 2000-01-01
@@ -567,18 +587,13 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_date: 2016-03-01
-      stop_date: 2016-03-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 99201
       start_date: 2016-04-01
       stop_date: 2016-04-01
-      provider: Rachel
-    - code_type: CPT
-      code_value: 99201
-      start_date: 2016-05-01
-      stop_date: 2016-05-01
       provider: Rachel
     - code_type: CPT
       code_value: 99201
@@ -590,27 +605,32 @@ patients:
       start_date: 2016-08-01
       stop_date: 2016-08-01
       provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-10-01
+      stop_date: 2016-10-01
+      provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: H60.00
-      start_date: 2016-03-01
+      start_date: 2016-02-01
     - code_type: ICD10CM
       code_value: H60.00
       start_date: 2016-04-01
-    - code_type: ICD10CM
-      code_value: H60.00
-      start_date: 2016-05-01
     - code_type: ICD10CM
       code_value: H60.00
       start_date: 2016-06-01
     - code_type: ICD10CM
       code_value: H60.00
       start_date: 2016-08-01
+    - code_type: ICD10CM
+      code_value: H60.00
+      start_date: 2016-10-01
     medications:
     - code_type: RXNORM
       code_value: 854992
       method: E
-      start_date: 2016-02-28 # Early
+      start_date: 2016-01-31 # Early
     - code_type: RXNORM
       code_value: 854992
       method: E
@@ -618,14 +638,14 @@ patients:
     - code_type: RXNORM
       code_value: 854992
       method: E
-      start_date: 2016-05-30 # Upper bound
+      start_date: 2016-06-30 # Upper bound
     - code_type: RXNORM
       code_value: 854992
       method: E
-      start_date: 2016-07-02 # Late
+      start_date: 2016-09-01 # Late
     - code_type: RXNORM
       code_value: 854992 # Active
-      start_date: 2016-08-01
+      start_date: 2016-10-01
 - name: Exception 4130F-1P
   attributes:
     date_of_birth: 2000-01-01
@@ -636,8 +656,8 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_date: 2016-03-01
-      stop_date: 2016-03-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 4130F-1P
@@ -652,33 +672,33 @@ patients:
       start_date: 2016-04-01 # Lower bound
     - code_type: CPT
       code_value: 99201
-      start_date: 2016-05-01
-      stop_date: 2016-05-01
-      provider: Rachel
-    - code_type: CPT
-      code_value: 4130F-1P
-      start_date: 2016-05-30 # Upper bound
-    - code_type: CPT
-      code_value: 99201
       start_date: 2016-06-01
       stop_date: 2016-06-01
       provider: Rachel
     - code_type: CPT
       code_value: 4130F-1P
-      start_date: 2016-07-02 # Late
+      start_date: 2016-06-30 # Upper bound
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-08-01
+      stop_date: 2016-08-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 4130F-1P
+      start_date: 2016-09-02 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: H60.00
-      start_date: 2016-03-01
+      start_date: 2016-02-01
     - code_type: ICD10CM
       code_value: H60.00
       start_date: 2016-04-01
     - code_type: ICD10CM
       code_value: H60.00
-      start_date: 2016-05-01
+      start_date: 2016-06-01
     - code_type: ICD10CM
       code_value: H60.00
-      start_date: 2016-06-01
+      start_date: 2016-08-01
 - name: Exception Perforation
   attributes:
     date_of_birth: 2000-01-01
@@ -689,8 +709,8 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_date: 2016-03-01
-      stop_date: 2016-03-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 99201
@@ -699,22 +719,22 @@ patients:
       provider: Rachel
     - code_type: CPT
       code_value: 99201
-      start_date: 2016-05-01
-      stop_date: 2016-05-02
+      start_date: 2016-06-01
+      stop_date: 2016-06-02
       provider: Rachel
     - code_type: CPT
       code_value: 99201
-      start_date: 2016-06-01
-      stop_date: 2016-06-02
+      start_date: 2016-08-01
+      stop_date: 2016-08-02
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: H60.00
-      start_date: 2016-03-01
+      start_date: 2016-02-01
     - code_type: ICD10CM
       code_value: H72.00
-      start_date: 2016-02-01
-      stop_date: 2016-02-28 # Early
+      start_date: 2016-01-01
+      stop_date: 2016-01-31 # Early
     - code_type: ICD10CM
       code_value: H60.00
       start_date: 2016-04-01
@@ -724,18 +744,18 @@ patients:
       stop_date: 2016-04-01 # Lower bound
     - code_type: ICD10CM
       code_value: H60.00
-      start_date: 2016-05-01
-    - code_type: ICD10CM
-      code_value: H72.00
-      start_date: 2016-05-02 # Upper bound
-      stop_date: 2016-05-03
-    - code_type: ICD10CM
-      code_value: H60.00
       start_date: 2016-06-01
     - code_type: ICD10CM
       code_value: H72.00
-      start_date: 2016-07-03 # Late
-      stop_date: 2016-07-03
+      start_date: 2016-06-02 # Upper bound
+      stop_date: 2016-06-03
+    - code_type: ICD10CM
+      code_value: H60.00
+      start_date: 2016-08-01
+    - code_type: ICD10CM
+      code_value: H72.00
+      start_date: 2016-09-02 # Late
+      stop_date: 2016-09-02
 - name: Exception 4130F-2P
   attributes:
     date_of_birth: 2000-01-01

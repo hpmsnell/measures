@@ -49,7 +49,9 @@ define "Coexisting Diagnosis":
   union ["Diagnosis": "Able; Acute Otitis Media"]
 
 define "Denominator":
-  "Denominator Encounter"
+  "Denominator Encounter" E1
+    without "Denominator Encounter" E2
+      such that E1.relevantPeriod starts 30 days or less after E2.relevantPeriod
 
 define "Numerator Performance Met: 4130F":
   /*
