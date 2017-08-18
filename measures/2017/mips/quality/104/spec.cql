@@ -46,7 +46,7 @@ define "Denominator Encounter":
     with ["Procedure, Performed": "MIPS; High Risk of Recurrence of Prostate Cancer"] P
       such that P.relevantPeriod starts during D.relevantPeriod
     without ["Encounter, Performed": "MIPS; MIPS 104 Encounter"] E2 // Without an additional occurrence of the same encounter
-      such that E2.relevantPeriod starts 49 days or less before start of E1.relevantPeriod
+      such that E2.relevantPeriod starts 56 days or less before start of E1.relevantPeriod
 
 define "Start of Denominator Encounter":
   "Denominator Encounter" E
@@ -74,10 +74,10 @@ define "Numerator Performance Met: 4164F":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 4164F"] P
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
+      such that P.relevantPeriod starts on or 56 days or less after start of E.relevantPeriod)
   or exists(["Medication": "Able; GnRH"] M
     with "Denominator Encounter" E
-      such that M.relevantPeriod overlaps [start of E.relevantPeriod, start of E.relevantPeriod + 49 days)
+      such that M.relevantPeriod overlaps [start of E.relevantPeriod, start of E.relevantPeriod + 56 days)
 
 define "Denominator Exception: 4164F-1P":
   /*
@@ -85,10 +85,10 @@ define "Denominator Exception: 4164F-1P":
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: 4164F-1P"] P
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
+      such that P.relevantPeriod starts on or 56 days or less after start of E.relevantPeriod)
   or exists("VSAC; Salvage Therapy" P
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
+      such that P.relevantPeriod starts on or 56 days or less after start of E.relevantPeriod)
 
 define "Denominator Exception: 4164F-2P":
   /*
@@ -96,7 +96,7 @@ define "Denominator Exception: 4164F-2P":
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: 4164F-2P"] P
     with "Denominator Encounter" E
-          such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
+          such that P.relevantPeriod starts on or 56 days or less after start of E.relevantPeriod)
 
 define "Numerator Performance Not Met: 4164F-8P":
   /*

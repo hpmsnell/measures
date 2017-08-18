@@ -48,7 +48,7 @@ define "Denominator Encounter":
     with ["Procedure, Performed": "MIPS; Low Risk of Recurrence of Prostate Cancer"] P
       such that P.relevantPeriod starts during D.relevantPeriod
     without ["Encounter, Performed": "MIPS; MIPS 102 Encounter"] E2 // Without an additional occurrence of the same encounter
-      such that E2.relevantPeriod starts 49 days or less before start of E1.relevantPeriod
+      such that E2.relevantPeriod starts 56 days or less before start of E1.relevantPeriod
 
 define "Start of Denominator Encounter":
   "Denominator Encounter" E
@@ -60,7 +60,7 @@ define "Date of Earliest Diagnosis in Measurement Year":
     return start of D.prevalencePeriod)
 
 define "Bone Scan Interval":
-  Interval ["Date of Earliest Diagnosis in Measurement Year", "Start of Denominator Encounter" + 49 days]
+  Interval ["Date of Earliest Diagnosis in Measurement Year", "Start of Denominator Encounter" + 56 days]
 
 define "Pain Assessment":
   ["Assessment, Performed": "VSAC; Standardized Pain Assessment Tool"]
@@ -79,7 +79,7 @@ define "Numerator Performance Met: 3270F":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 3270F"] P
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
+      such that P.relevantPeriod starts on or 56 days or less after start of E.relevantPeriod)
   or not exists("Bone Scan" S
     where S.authorDateTime during "Bone Scan Interval")
 
@@ -89,7 +89,7 @@ define "Denominator Exception: 3269F-1P":
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: 3269F-1P"] P
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
+      such that P.relevantPeriod starts on or 56 days or less after start of E.relevantPeriod)
   or exists("Pain Assessment" P
     where P.result > 0
       and P.relevantPeriod starts during "Bone Scan Interval")
@@ -102,7 +102,7 @@ define "Denominator Exception: 3269F-3P":
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: 3269-3P"] P
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts on or 49 days or less after start of E.relevantPeriod)
+      such that P.relevantPeriod starts on or 56 days or less after start of E.relevantPeriod)
 
 define "Numerator Performance Not Met: 3269F":
   /*
