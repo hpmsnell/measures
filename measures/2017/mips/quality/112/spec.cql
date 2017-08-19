@@ -33,9 +33,17 @@ valueset "VSAC; Mammogram":'2.16.840.1.113883.3.464.1003.108.12.1018'
 valueset "VSAC; Female": '2.16.840.1.113883.3.560.100.2'
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 
+// Able value Sets
+
+valueset "Able; Mammogram"
+
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
+
+define "Mammogram":
+  ["Diagnostic Study, Performed": "VSAC; Mammogram"]
+  union ["Diagnostic Study, Performed": "Able; Mammogram"]
 
 define "Denominator":
   AgeInYearsAt(start of "Measurement Period") >= 51
@@ -83,7 +91,7 @@ define "Numerator Performance Met: 3014F":
   /*
    * config_link_id: 3014F
    */
-  exists(["Diagnostic Study, Performed": "VSAC; Mammogram"] D where D.relevantPeriod starts 27 months or less before end "Measurement Period")
+  exists("Mammogram" D where D.relevantPeriod starts 27 months or less before end "Measurement Period")
   or exists(["Procedure, Performed": "MIPS; Performance Met: 3014F"] P where P.relevantPeriod starts 27 months or less before end "Measurement Period")
 
 define "Numerator Performance Not Met: 3014F-8P":

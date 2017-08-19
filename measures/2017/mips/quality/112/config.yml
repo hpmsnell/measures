@@ -65,6 +65,10 @@ performance_met_reasons:
             - model: ClinicalActivity
               value_set: "VSAC; Mammogram"
             - model: ClinicalActivity
+              value_set: "Able; Mammogram"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
               value_set: "MIPS; Performance Met: 3014F"
     optional:
       code_value: 3014F
@@ -82,7 +86,13 @@ performance_not_met_reasons:
             - model: ClinicalActivity
               value_set: "VSAC; Mammogram"
             - model: ClinicalActivity
+              value_set: "Able; Mammogram"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
               value_set: "MIPS; Performance Met: 3014F"
+        - count: 1
+          validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Not Met: 3014F-8P"
     optional:
