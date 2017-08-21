@@ -1,0 +1,47 @@
+measure:
+  name: 17.MIPS.Mips361
+  required:
+    display_title: "Optimizing Patient Exposure to Ionizing Radiation: Reporting to a Radiation Dose Index Registry"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 361
+    version: 2017
+    mips_measure_type: Structure
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9327
+    required:
+      display_title: "CT studies performed reported to a radiation dose index registry that is capable of collecting at a minimum all necessary data elements"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 361 Procedure
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Met: G9327'
+    optional:
+      code_value: G9327
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: G9326
+    required:
+      display_title: "CT studies performed not reported to a radiation dose index registry that is capable of collecting at a minimum all necessary data elements, reason not given"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 361 Procedure
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Met: G9327'
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Not Met: G9326'
+    optional:
+      code_value: G9326
