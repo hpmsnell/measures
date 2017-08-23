@@ -1,0 +1,77 @@
+measure:
+  name: 17.MIPS.Mips179
+  required:
+    display_title: "Rheumatoid Arthritis (RA): Assessment and Classification of Disease Prognosis"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 179
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: 3475F
+    required:
+      display_title: 'Disease prognosis for rheumatoid arthritis assessed, poor prognosis documented'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 179 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Rheumatoid Arthritis"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3475F"
+    optional:
+      code_value: 3475F
+  - config_link_id: 3476F
+    required:
+      display_title: 'Disease prognosis for rheumatoid arthritis assessed, good prognosis documented'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 179 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Rheumatoid Arthritis"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3476F"
+    optional:
+      code_value: 3476F
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: 3475F-8P
+    required:
+      display_title: 'Disease prognosis for rheumatoid arthritis not assessed and classified, reason not otherwise specified'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 179 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Rheumatoid Arthritis"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3475F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3476F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 3475F-8P"
+    optional:
+      code_value: 3475F-8P
