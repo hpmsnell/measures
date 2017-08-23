@@ -1,0 +1,99 @@
+measure:
+  name: 17.MIPS.Mips177
+  required:
+    display_title: "Rheumatoid Arthritis (RA): Periodic Assessment of Disease Activity"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 177
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: 3470F
+    required:
+      display_title: 'FRheumatoid arthritis (RA) disease activity, low'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 177 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Rheumatoid Arthritis"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3470F"
+    optional:
+      code_value: 3470F
+  - config_link_id: 3471F
+    required:
+      display_title: 'FRheumatoid arthritis (RA) disease activity, moderate'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 177 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Rheumatoid Arthritis"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3471F"
+    optional:
+      code_value: 3471F
+  - config_link_id: 3472F
+    required:
+      display_title: 'FRheumatoid arthritis (RA) disease activity, high'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 177 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Rheumatoid Arthritis"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3472F"
+    optional:
+      code_value: 3472F
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: 3470F-8P
+    required:
+      display_title: 'Disease activity not assessed and classified, reason not otherwise specified'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 177 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Rheumatoid Arthritis"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3470F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3471F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3472F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 3470F-8P"
+    optional:
+      code_value: 3470F-8P
