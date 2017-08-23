@@ -25,6 +25,10 @@ valueset "VSAC; Tobacco Non-User": '2.16.840.1.113883.3.526.3.1189'
 valueset "VSAC; Tobacco User": '2.16.840.1.113883.3.526.3.1170'
 valueset "VSAC; Tobacco Use Cessation Counseling": '2.16.840.1.113883.3.526.3.509'
 
+// Able Value Sets
+
+valueset "Able; Never Tobacco User"
+
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
@@ -38,6 +42,16 @@ define "Denominator Encounter"
         and AgeInYearsAt(start of E.relevantPeriod) < 20
       and E.signingProvider.hasMeasureMembership = true
 
+define "Tobacco User":
+  ["Diagnosis": "VSAC; Tobacco User"]
+  union ["Assessment, Performed": "VSAC; Tobacco User"]
+
+define "Tobacco Non-User":
+  ["Diagnosis": "VSAC; Tobacco Non-User"]
+  union ["Assessment, Performed": "VSAC; Tobacco Non-User"]
+  union ["Diagnosis": "Able; Never Tobacco User"]
+  union ["Assessment, Performed": "Able; Never Tobacco User"]
+
 define "Denominator":
   exists("Denominator Encounter")
 
@@ -48,7 +62,7 @@ define "Numerator Performance Met: G9458":
   exists(["Procedure, Performed": "MIPS; Performance Met: G9458"] P
     where P.relevantPeriod starts during "Measurement Period")
   or (
-    exists(["Diagnosis": "VSAC; Tobacco User"] D
+    exists("Tobacco User" D
       where D.prevalencePeriod starts during "Tobacco Interval")
     and exists(["Intervention, Performed": "VSAC; Tobacco Use Cessation Counseling"] I
       where I.relevantPeriod starts during "Tobacco Interval")

@@ -25,6 +25,8 @@ performance_met_reasons:
               value_set: "MIPS; Performance Met: G9458"
         - count: 1
           validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Tobacco User"
             - model: Diagnosis
               value_set: "VSAC; Tobacco User"
         - count: 1
@@ -47,8 +49,14 @@ performance_met_reasons:
               value_set: "MIPS; Performance Met: G9459"
         - count: 1
           validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Tobacco Non-User"
             - model: Diagnosis
               value_set: "VSAC; Tobacco Non-User"
+            - model: ClinicalActivity
+              value_set: "Able; Never Tobacco User"
+            - model: Diagnosis
+              value_set: "Able; Never Tobacco User"
     optional:
       code_value: G9459
 exception_reasons:
@@ -69,6 +77,10 @@ performance_not_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: G9458"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Tobacco User"
             - model: Diagnosis
               value_set: "VSAC; Tobacco User"
         - count: 1
@@ -79,7 +91,15 @@ performance_not_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: G9459"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Tobacco Non-User"
             - model: Diagnosis
               value_set: "VSAC; Tobacco Non-User"
+            - model: ClinicalActivity
+              value_set: "Able; Never Tobacco User"
+            - model: Diagnosis
+              value_set: "Able; Never Tobacco User"
     optional:
       code_value: G9460
