@@ -43,16 +43,10 @@ define "Numerator Performance Met: 4044F":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 4044F"] P
     with "Denominator Procedure" E
-      such that P.relevantPeriod starts during or 1 days or less before start of E.relevantPeriod)
-  or exists(["Procedure, Performed": "MIPS; Performance Met: 4044F"] P
-    with "Denominator Procedure" E
-      such that P.relevantPeriod starts 1 days or less after end of E.relevantPeriod)
+      such that P.relevantPeriod starts 14 days or less before start of E.relevantPeriod)
   or exists(["Medication, Order": "Able; VTE Prophylaxis"] M
     with "Denominator Procedure" E
-      such that M.relevantPeriod starts during or 1 days or less before start of E.relevantPeriod)
-  or exists(["Medication, Order": "Able; VTE Prophylaxis"] M
-    with "Denominator Procedure" E
-      such that M.relevantPeriod starts 1 days or less after end of E.relevantPeriod)
+      such that M.relevantPeriod starts 14 days or less before start of E.relevantPeriod)
 
 define "Denominator Exception: 4044F-1P":
   /*
@@ -60,10 +54,7 @@ define "Denominator Exception: 4044F-1P":
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: 4044F-1P"] P
     with "Denominator Procedure" E
-      such that P.relevantPeriod starts during or 1 days or less before start of E.relevantPeriod)
-  or exists(["Procedure, Performed": "MIPS; Denominator Exception: 4044F-1P"] P
-    with "Denominator Procedure" E
-      such that P.relevantPeriod starts 1 days or less after end of E.relevantPeriod)
+      such that P.relevantPeriod starts 14 days or less before start of E.relevantPeriod)
 
 define "Numerator Performance Not Met: 4044F-8P":
   /*
