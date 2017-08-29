@@ -307,7 +307,7 @@ providers:
 patients:
 - name: Too Young
   attributes:
-    date_of_birth: 1998-02-01 # Too late
+    date_of_birth: 1998-02-02 # Too late
     given_name: Too
     family_name: Young
     sex: Male
@@ -324,7 +324,7 @@ patients:
       provider: Rachel
 - name: Age Lower
   attributes:
-    date_of_birth: 1998-01-31 # Lower bound
+    date_of_birth: 1998-02-01 # Lower bound
     given_name: Age
     family_name: Lower
     sex: Male
@@ -341,7 +341,7 @@ patients:
       provider: Rachel
 - name: Age Upper
   attributes:
-    date_of_birth: 1951-02-01 # Too late
+    date_of_birth: 1951-02-02 # Upper
     given_name: Age
     family_name: Upper
     sex: Male
@@ -358,7 +358,7 @@ patients:
       provider: Rachel
 - name: Too Old
   attributes:
-    date_of_birth: 1951-01-31 # Too early
+    date_of_birth: 1951-02-01 # Too early
     given_name: Too
     family_name: Old
     sex: Male
