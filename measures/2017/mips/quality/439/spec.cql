@@ -40,7 +40,7 @@ context Patient
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 439 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
-      and AgeInYearsAt(start of E.relevantPeriod) >= 18
+      and AgeInYearsAt(start of E.relevantPeriod) >= 86
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {52, 53, 73, 74}
 
