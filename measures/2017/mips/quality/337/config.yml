@@ -1,0 +1,71 @@
+measure:
+  name: 17.MIPS.Mips337
+  required:
+    display_title: "Tuberculosis (TB) Prevention for Psoriasis, Psoriatic Arthritis and Rheumatoid Arthritis Patients on a Biological Immune Response Modifier"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 337
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9359
+    required:
+      display_title: 'Documentation of negative or managed positive TB screen with further evidence that TB is not active within one year of patient visit'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 337 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; MIPS 337 Rheumatoid Arthritis"
+            - model: Diagnosis
+              value_set: "MIPS; Psoriasis"
+            - model: Diagnosis
+              value_set: "MIPS; Psoriatic Arthritis"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Biologic Immune Response Modifier"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9359"
+    optional:
+      code_value: G9359
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: G9360
+    required:
+      display_title: 'No documentation of negative or managed positive TB screen'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 337 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; MIPS 337 Rheumatoid Arthritis"
+            - model: Diagnosis
+              value_set: "MIPS; Psoriasis"
+            - model: Diagnosis
+              value_set: "MIPS; Psoriatic Arthritis"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Biologic Immune Response Modifier"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9359"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9360"
+    optional:
+      code_value: G9360
