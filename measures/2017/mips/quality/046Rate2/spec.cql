@@ -44,15 +44,22 @@ define "Inpatient Visit":
 
 define "MIPS 046 Encounter":
   ["Encounter, Performed": "MIPS; MIPS 046 Encounter"] E
-    where E1.signingProvider.hasMeasureMembership = true
-      and E1.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Measurement Period"
+      and AgeInYearsAt(start of E.relevantPeriod) >= 65
+      and E.signingProvider.hasMeasureMembership = true
 
-define "Denominator Encounter":
+define "Inpatient Visit within 30 days of MIPS 046 Encounter"
   "Inpatient Visit" E1
-    where E1.relevantPeriod ends during "Measurement Period"
-      and AgeInYearsAt(end of E1.relevantPeriod) >= 65
     with "MIPS 046 Encounter" E2
       such that E1.relevantPeriod ends 30 days or less before start of E2.relevantPeriod
+
+define "Denominator Encounter":
+  "MIPS 046 Encounter" E1
+    with "Inpatient Visit" E2
+      such that E1.relevantPeriod ends 30 days or less after start of E2.relevantPeriod
+    without "MIPS 046 Encounter" E3
+      such that E3.relevantPeriod starts after start of "Inpatient Visit within 30 days of MIPS 046 Encounter"
+        and E.relevantPeriod starts before E1.relevantPeriod
 
 define "Medication Reconciliation":
   ["Procedure, Performed": "MIPS; Performance Met: 1111F"]
