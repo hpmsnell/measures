@@ -1,0 +1,89 @@
+measure:
+  name: 17.MIPS.Mips397
+  required:
+    display_title: "Melanoma Reporting"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 397
+    version: 2017
+    mips_measure_type: Outcome
+    mips_high_priority: true
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: "Report excluded due to specimen site other than anatomic cutaneous location"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 397 Encounter
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Malignant Cutaneous Melanoma
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; Other Specimen Site
+performance_met_reasons:
+  - config_link_id: G9428
+    required:
+      display_title: "Pathology report includes the pT Category and a statement on thickness and ulceration and for pT1, mitotic rate"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 397 Encounter
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Malignant Cutaneous Melanoma
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Met: G9428'
+    optional:
+      code_value: G9428
+exception_reasons:
+  - config_link_id: G9429
+    required:
+      display_title: "Documentation of medical reason(s) for not including pT Category and a statement on thickness and ulceration and for pT1, mitotic rate (e.g., negative skin biopsies in a patient with a history of melanoma or other documented medical reasons)"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 397 Encounter
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Malignant Cutaneous Melanoma
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Denominator Exception: G9429'
+    optional:
+      code_value: G9429
+performance_not_met_reasons:
+  - config_link_id: G9431
+    required:
+      display_title: "Pathology report does not include the pT Category and a statement on thickness and ulceration and for pT1, mitotic rate"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 397 Encounter
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Malignant Cutaneous Melanoma
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Met: G9428'
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: 'MIPS; Performance Not Met: G9431'
+    optional:
+      code_value: G9431
