@@ -48,7 +48,7 @@ define "MIPS 046 Encounter":
       and AgeInYearsAt(start of E.relevantPeriod) >= 65
       and E.signingProvider.hasMeasureMembership = true
 
-define "Inpatient Visit within 30 days of MIPS 046 Encounter"
+define "Inpatient Visit within 30 days of MIPS 046 Encounter":
   "Inpatient Visit" E1
     with "MIPS 046 Encounter" E2
       such that E1.relevantPeriod ends 30 days or less before start of E2.relevantPeriod
@@ -82,7 +82,7 @@ define "Numerator Performance Met: 1111F":
    * config_link_id: 1111F
    */
   exists("Medication Reconciliation" P
-    with "Denominator Encounter" E
+    with "Inpatient Visit within 30 days of MIPS 046 Encounter" E
       such that P.relevantPeriod starts on or 30 days or less after end of E.relevantPeriod)
 
 define "Numerator Performance Not Met: 1111F-8P":
