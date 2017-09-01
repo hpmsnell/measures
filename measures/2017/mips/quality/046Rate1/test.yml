@@ -3,145 +3,145 @@ test_set_keys:
   organization_key:
     episodes_of_care:
       - name: Too Young
-        start_date: 2016-01-31
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Age Lower
-        start_date: 2016-01-31
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 1111F-8P
       - name: Age Upper
-        start_date: 2016-01-31
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 1111F-8P
       - name: Too Old
-        start_date: 2016-01-31
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator Discharge # Before
-        start_date: 2015-12-31
+        start_date: 2016-01-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator Discharge # Lower
-        start_date: 2016-01-01
+        start_date: 2016-01-02
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 1111F-8P
       - name: Denominator Discharge # Upper
-        start_date: 2016-12-30
+        start_date: 2016-12-31
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 1111F-8P
       - name: Denominator Discharge # After
-        start_date: 2017-01-01
+        start_date: 2017-01-02
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator OfficeVisit # Before
-        start_date: 2016-02-20
+        start_date: 2016-03-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator OfficeVisit # Lower
-        start_date: 2016-03-20
+        start_date: 2016-04-02
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 1111F-8P
       - name: Denominator OfficeVisit # Upper
-        start_date: 2016-04-20
+        start_date: 2016-05-30
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 1111F-8P
       - name: Denominator OfficeVisit # After
-        start_date: 2016-05-20
+        start_date: 2017-06-31
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator ExclusionBefore # Before
-        start_date: 2016-02-20
+        start_date: 2016-03-02
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 1111F-8P
       - name: Denominator ExclusionLower # Lower
-        start_date: 2016-02-20
+        start_date: 2016-03-02
         denominator: 1
         denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: Denominator ExclusionUpper # Upper
-        start_date: 2016-02-20
+        start_date: 2016-03-02
         denominator: 1
         denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: Denominator ExclusionAfter # After
-        start_date: 2016-02-20
+        start_date: 2016-03-02
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 1111F-8P
       - name: PerformanceMet 1111F # Before
-        start_date: 2016-02-20
+        start_date: 2016-03-02
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 1111F-8P
       - name: PerformanceMet 1111F # Lower
-        start_date: 2016-04-20
+        start_date: 2016-05-02
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 1111F
       - name: PerformanceMet 1111F # Upper
-        start_date: 2016-06-20
+        start_date: 2016-07-02
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 1111F
       - name: PerformanceMet 1111F # After
-        start_date: 2016-08-20
+        start_date: 2016-09-02
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 1111F-8P
       - name: PerformanceMet Reconciliation # Before
-        start_date: 2016-02-20
+        start_date: 2016-03-02
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 1111F-8P
       - name: PerformanceMet Reconciliation # Lower
-        start_date: 2016-04-20
+        start_date: 2016-05-02
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 1111F
       - name: PerformanceMet Reconciliation # Upper
-        start_date: 2016-06-20
+        start_date: 2016-07-02
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 1111F
       - name: PerformanceMet Reconciliation # After
-        start_date: 2016-08-20
+        start_date: 2016-09-02
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -150,149 +150,149 @@ test_set_keys:
     - name: Rachel
       episodes_of_care:
         - name: Too Young
-          start_date: 2016-01-31
+          start_date: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        # - name: Age Lower
-        #   start_date: 2016-01-31
-        #   denominator: 1
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator: 1111F-8P
-        # - name: Age Upper
-        #   start_date: 2016-01-31
-        #   denominator: 1
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator: 1111F-8P
-        # - name: Too Old
-        #   start_date: 2016-01-31
-        #   denominator:
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator:
-        # - name: Denominator Discharge # Before
-        #   start_date: 2015-12-31
-        #   denominator:
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator:
-        # - name: Denominator Discharge # Lower
-        #   start_date: 2016-01-01
-        #   denominator: 1
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator: 1111F-8P
-        # - name: Denominator Discharge # Upper
-        #   start_date: 2016-12-30
-        #   denominator: 1
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator: 1111F-8P
-        # - name: Denominator Discharge # After
-        #   start_date: 2017-01-01
-        #   denominator:
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator:
-        # - name: Denominator OfficeVisit # Before
-        #   start_date: 2016-02-20
-        #   denominator:
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator:
-        # - name: Denominator OfficeVisit # Lower
-        #   start_date: 2016-03-20
-        #   denominator: 1
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator: 1111F-8P
-        # - name: Denominator OfficeVisit # Upper
-        #   start_date: 2016-04-20
-        #   denominator: 1
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator: 1111F-8P
-        # - name: Denominator OfficeVisit # After
-        #   start_date: 2016-05-20
-        #   denominator:
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator:
-        # - name: Denominator ExclusionBefore # Before
-        #   start_date: 2016-02-20
-        #   denominator: 1
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator: 1111F-8P
-        # - name: Denominator ExclusionLower # Lower
-        #   start_date: 2016-02-20
-        #   denominator: 1
-        #   denominator_exclusion: exclusion_1
-        #   denominator_exception:
-        #   numerator:
-        # - name: Denominator ExclusionUpper # Upper
-        #   start_date: 2016-02-20
-        #   denominator: 1
-        #   denominator_exclusion: exclusion_1
-        #   denominator_exception:
-        #   numerator:
-        # - name: Denominator ExclusionAfter # After
-        #   start_date: 2016-02-20
-        #   denominator: 1
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator: 1111F-8P
-        # - name: PerformanceMet 1111F # Before
-        #   start_date: 2016-02-20
-        #   denominator: 1
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator: 1111F-8P
-        # - name: PerformanceMet 1111F # Lower
-        #   start_date: 2016-04-20
-        #   denominator: 1
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator: 1111F
-        # - name: PerformanceMet 1111F # Upper
-        #   start_date: 2016-06-20
-        #   denominator: 1
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator: 1111F
-        # - name: PerformanceMet 1111F # After
-        #   start_date: 2016-08-20
-        #   denominator: 1
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator: 1111F-8P
-        # - name: PerformanceMet Reconciliation # Before
-        #   start_date: 2016-02-20
-        #   denominator:
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator:
-        # - name: PerformanceMet Reconciliation # Lower
-        #   start_date: 2016-04-20
-        #   denominator: 1
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator:
-        # - name: PerformanceMet Reconciliation # Upper
-        #   start_date: 2016-06-20
-        #   denominator:
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator:
-        # - name: PerformanceMet Reconciliation # After
-        #   start_date: 2016-08-20
-        #   denominator:
-        #   denominator_exclusion:
-        #   denominator_exception:
-        #   numerator:
+        - name: Age Lower
+          start_date: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 1111F-8P
+        - name: Age Upper
+          start_date: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 1111F-8P
+        - name: Too Old
+          start_date: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Denominator Discharge # Before
+          start_date: 2016-01-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Denominator Discharge # Lower
+          start_date: 2016-01-02
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 1111F-8P
+        - name: Denominator Discharge # Upper
+          start_date: 2016-12-31
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 1111F-8P
+        - name: Denominator Discharge # After
+          start_date: 2017-01-02
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Denominator OfficeVisit # Before
+          start_date: 2016-03-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Denominator OfficeVisit # Lower
+          start_date: 2016-04-02
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 1111F-8P
+        - name: Denominator OfficeVisit # Upper
+          start_date: 2016-05-30
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 1111F-8P
+        - name: Denominator OfficeVisit # After
+          start_date: 2016-06-31
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Denominator ExclusionBefore # Before
+          start_date: 2016-03-02
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 1111F-8P
+        - name: Denominator ExclusionLower # Lower
+          start_date: 2016-03-02
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: Denominator ExclusionUpper # Upper
+          start_date: 2016-03-02
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: Denominator ExclusionAfter # After
+          start_date: 2016-03-02
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 1111F-8P
+        - name: PerformanceMet 1111F # Before
+          start_date: 2016-03-02
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 1111F-8P
+        - name: PerformanceMet 1111F # Lower
+          start_date: 2016-05-02
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 1111F
+        - name: PerformanceMet 1111F # Upper
+          start_date: 2016-07-02
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 1111F
+        - name: PerformanceMet 1111F # After
+          start_date: 2016-09-02
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: 1111F-8P
+        - name: PerformanceMet Reconciliation # Before
+          start_date: 2016-03-02
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: PerformanceMet Reconciliation # Lower
+          start_date: 2016-05-02
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: PerformanceMet Reconciliation # Upper
+          start_date: 2016-07-02
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: PerformanceMet Reconciliation # After
+          start_date: 2016-09-02
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
 providers:
   - given_name: Rachel
     family_name:  Katz
