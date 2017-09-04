@@ -114,12 +114,12 @@ test_set_keys:
         numerator: G9821
       - name: Hospice Lower # Hospice exclusion at lower bound
         denominator: 1
-        denominator_exclusion: exclusion
+        denominator_exclusion: exclusion1
         denominator_exception:
         numerator:
       - name: Hospice Upper # Hospice exclusion at upper bound
         denominator: 1
-        denominator_exclusion: exclusion
+        denominator_exclusion: exclusion1
         denominator_exception:
         numerator:
       - name: Hospice After # Hospice exclusion too late
@@ -192,16 +192,6 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: G9821
-      - name: Retest Before # Positive screening with retest before interval
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9821
-      - name: Retest Lower # Positive screening with retest lower bound interval
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9820
       - name: Retest Upper # Positive screening with retest upper bound interval
         denominator: 1
         denominator_exclusion:
@@ -215,181 +205,206 @@ test_set_keys:
   providers_key:
     - name: Rachel
       patients:
-        - name: Too Young # Below age range
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: Age Lower # Lower bound of age range
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9821
-        - name: MeasurementYearEncounter Before # Encounter too early
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: MeasurementYearEncounter Lower # Encounter at lower bound
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9821
-        - name: MeasurementYearEncounter Upper # Encounter at upper bound
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9821
-        - name: MeasurementYearEncounter After # Encounter too late
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: MeasurementYearEncounter DifferentProviders # 431 encounters with different providers
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: PriorYearEncounter Before # Encounter too early
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: PriorYearEncounter Lower # Encounter at lower bound
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9821
-        - name: PriorYearEncounter Upper # Encounter at upper bound
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9821
-        - name: PriorYearEncounter After # Encounter too late
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: G9820 Before # Performance met G9820 before interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9821
-        - name: G9820 Lower # Performance met G9820 lower bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9820
-        - name: G9820 Upper # Performance met G9820 upper bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9820
-        - name: G9820 After # Performance met G9820 after interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9821
-        - name: Prescription Before # Positive screening with prescription before interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9821
-        - name: Prescription Lower # Positive screening with prescription lower bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9820
-        - name: Prescription Upper # Positive screening with prescription upper bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9820
-        - name: Prescription After # Positive screening with prescription after interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9821
-        - name: G9820 Before # Performance met G9820 before interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9821
-        - name: G9820 Lower # Performance met G9820 lower bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9820
-        - name: G9820 Upper # Performance met G9820 upper bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9820
-        - name: G9820 After # Performance met G9820 after interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9821
-        - name: ScreeningNegative Before # Negative screening before interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9821
-        - name: ScreeningNegative Lower # Negative screening lower bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9820
-        - name: ScreeningNegative Upper # Negative screening upper bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9820
-        - name: ScreeningNegative After # Negative screening after interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9821
-        - name: G9623 Before # G9623 before interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9821
-        - name: G9623 Lower # G9623 lower bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception: G9623
-          numerator:
-        - name: G9623 Upper # G9623 upper bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception: G9623
-          numerator:
-        - name: G9623 After # G9623 after interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G9821
-        - name: LimitedLife Before # Limited life expectancy ends before interval
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: LimitedLife Lower # Limited life expectancy ends lower bound interval
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: LimitedLife Upper # Limited life expectancy starts upper bound interval
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: LimitedLife After # Limited life expectancy starts after interval
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
+      - name: Too Young # Below age range
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower # Lower bound of age range
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: Age Upper # Upper bound of age range
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: Too Old # Above age range
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Sex Male # Patient is male
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: MeasurementYearEncounter Before # Encounter too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: MeasurementYearEncounter Lower # Encounter at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: MeasurementYearEncounter Upper # Encounter at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: MeasurementYearEncounter After # Encounter too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: PriorYearEncounter Before # Encounter too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: PriorYearEncounter Lower # Encounter at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: PriorYearEncounter Upper # Encounter at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: PriorYearEncounter After # Encounter too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: SexualDiagnosis Before # Diagnosis indicating sexual activity too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: SexualDiagnosis Lower # Diagnosis indicating sexual activity at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: SexualDiagnosis Upper # Diagnosis indicating sexual activity at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: SexualDiagnosis After # Diagnosis indicating sexual activity too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: SexualProcedure Before # Procedure indicating sexual activity too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: SexualProcedure Lower # Procedure indicating sexual activity at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: SexualProcedure Upper # Procedure indicating sexual activity at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: SexualProcedure After # Procedure indicating sexual activity too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Hospice Before # Hospice exclusion too early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: Hospice Lower # Hospice exclusion at lower bound
+        denominator: 1
+        denominator_exclusion: exclusion1
+        denominator_exception:
+        numerator:
+      - name: Hospice Upper # Hospice exclusion at upper bound
+        denominator: 1
+        denominator_exclusion: exclusion1
+        denominator_exception:
+        numerator:
+      - name: Hospice After # Hospice exclusion too late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: G9820 Before # Performance met G9820 before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: G9820 Lower # Performance met G9820 lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9820
+      - name: G9820 Upper # Performance met G9820 upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9820
+      - name: G9820 After # Performance met G9820 after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: ScreeningNegative Before # Negative screening before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: ScreeningNegative Lower # Negative screening lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9820
+      - name: ScreeningNegative Upper # Negative screening upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9820
+      - name: ScreeningNegative After # Negative screening after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: Medication Before # Positive screening with prescription before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: Medication Lower # Positive screening with prescription lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9820
+      - name: Medication Upper # Positive screening with prescription upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9820
+      - name: Medication After # Positive screening with prescription after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: Medication Active # Positive screening with prescription active interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9821
+      - name: Retest Upper # Positive screening with retest upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9820
+      - name: Retest After # Positive screening with retest after interval
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
 providers:
 - given_name: Rachel
   family_name: Kohler
@@ -667,7 +682,7 @@ patients:
         provider: Rachel
       diagnoses:
       - code_type: ICD9CM
-        code_value: 078.88
+        code_value: '078.88'
         start_date: 2015-01-01
         stop_date: 2015-12-31 # Too early
   - name: SexualDiagnosis Lower
@@ -688,7 +703,7 @@ patients:
         provider: Rachel
       diagnoses:
       - code_type: ICD9CM
-        code_value: 078.88
+        code_value: '078.88'
         start_date: 2015-01-01
         stop_date: 2016-01-01 # Lower bound
   - name: SexualDiagnosis Upper
@@ -709,7 +724,7 @@ patients:
         provider: Rachel
       diagnoses:
       - code_type: ICD9CM
-        code_value: 078.88
+        code_value: '078.88'
         start_date: 2016-12-31 # Upper bound
   - name: SexualDiagnosis After
     attributes:
@@ -729,7 +744,7 @@ patients:
         provider: Rachel
       diagnoses:
       - code_type: ICD9CM
-        code_value: 078.88
+        code_value: '078.88'
         start_date: 2017-01-01 # Too late
   - name: SexualProcedure Before
     attributes:
@@ -1165,7 +1180,7 @@ patients:
       - code_type: RXNORM
         code_value: 212446
         method: E
-        start_date: 2016-03-02 # Upper bound
+        start_date: 2016-03-01 # Upper bound
   - name: Medication After
     attributes:
       date_of_birth: 2000-03-22
@@ -1223,62 +1238,6 @@ patients:
       - code_type: RXNORM
         code_value: 212446 # No method
         start_date: 2016-02-01
-  - name: Retest Before
-    attributes:
-      date_of_birth: 2000-03-22
-      given_name: Retest
-      family_name: Before
-      sex: Female
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_date: 2016-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: 99201
-        start_date: 2015-02-01
-        provider: Rachel
-      - code_type: HCPCS
-        code_value: G9818
-        start_date: 2016-02-01
-      laboratory_test_performeds:
-      - code_type: LOINC
-        code_value: 14463-4
-        result: positive
-        start_date: 2016-02-01
-      - code_type: LOINC
-        code_value: 14463-4
-        result: negative
-        start_date: 2016-01-31 # Too early
-  - name: Retest Lower
-    attributes:
-      date_of_birth: 2000-03-22
-      given_name: Retest
-      family_name: Lower
-      sex: Female
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_date: 2016-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: 99201
-        start_date: 2015-02-01
-        provider: Rachel
-      - code_type: HCPCS
-        code_value: G9818
-        start_date: 2016-02-01
-      laboratory_test_performeds:
-      - code_type: LOINC
-        code_value: 14463-4
-        result: positive
-        start_date: 2016-02-01
-      - code_type: LOINC
-        code_value: 14463-4
-        result: negative
-        start_date: 2016-02-01 # Lower bound
   - name: Retest Upper
     attributes:
       date_of_birth: 2000-03-22
@@ -1305,8 +1264,8 @@ patients:
         start_date: 2016-02-01
       - code_type: LOINC
         code_value: 14463-4
-        result: negative
-        start_date: 2016-03-02 # Upper bound
+        result: positive
+        start_date: 2016-03-01 # Upper bound
   - name: Retest After
     attributes:
       date_of_birth: 2000-03-22
@@ -1318,7 +1277,7 @@ patients:
       - code_type: CPT
         code_value: 99201
         start_date: 2016-02-01
-        provider: Rachel
+        provider: Patty
       - code_type: CPT
         code_value: 99201
         start_date: 2015-02-01
@@ -1333,5 +1292,5 @@ patients:
         start_date: 2016-02-01
       - code_type: LOINC
         code_value: 14463-4
-        result: negative
+        result: positive
         start_date: 2016-03-03 # Too late
