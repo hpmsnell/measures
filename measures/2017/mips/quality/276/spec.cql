@@ -13,7 +13,7 @@ using QDM
 
 // MIPS value sets
 
-valueset "MIPS; MIPS 049 Encounter"
+valueset "MIPS; MIPS 276 Encounter"
 valueset "MIPS; Sleep Apnea"
 valueset "MIPS; Telehealth Modifier"
 valueset "MIPS; Performance Met: G8839"
