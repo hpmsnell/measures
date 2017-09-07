@@ -18,7 +18,7 @@ performance_met_reasons:
         - count: 10
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; MIPS 336 Procedure"
+              value_set: "MIPS; MIPS 336 Encounter"
         - count: 2
           validation_records:
             - model: ClinicalActivity
@@ -31,6 +31,8 @@ performance_met_reasons:
           validation_records:
             - model: Diagnosis
               value_set: "Able; Breast Feeding Finding"
+            - model: ClinicalActivity
+              value_set: "Able; Breast Feeding Finding"
         - count: 10
           validation_records:
             - model: ClinicalActivity
@@ -38,7 +40,7 @@ performance_met_reasons:
             - model: ClinicalActivity
               value_set: "VSAC; Adolescent Depression Screening"
             - model: ClinicalActivity
-              value_set: "VSAC; Maternal Post Partum Depression Screening"
+              value_set: "Able; Maternal Post Partum Depression Screening"
             - model: ClinicalActivity
               value_set: "VSAC; PHQ-9 Tool"
         - count: 10
@@ -68,7 +70,7 @@ performance_not_met_reasons:
         - count: 10
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; MIPS 336 Procedure"
+              value_set: "MIPS; MIPS 336 Encounter"
         - count: 2
           validation_records:
             - model: ClinicalActivity
@@ -81,6 +83,8 @@ performance_not_met_reasons:
           validation_records:
             - model: Diagnosis
               value_set: "Able; Breast Feeding Finding"
+            - model: ClinicalActivity
+              value_set: "Able; Breast Feeding Finding"
         - count: 10
           validation_records:
             - model: ClinicalActivity
@@ -88,7 +92,7 @@ performance_not_met_reasons:
             - model: ClinicalActivity
               value_set: "VSAC; Adolescent Depression Screening"
             - model: ClinicalActivity
-              value_set: "VSAC; Maternal Post Partum Depression Screening"
+              value_set: "Able; Maternal Post Partum Depression Screening"
             - model: ClinicalActivity
               value_set: "VSAC; PHQ-9 Tool"
         - count: 10
