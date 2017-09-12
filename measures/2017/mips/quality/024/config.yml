@@ -1,0 +1,59 @@
+measure:
+  name: 17.MIPS.Mips024
+  required:
+    display_title: "Communication with the Physician or Other Clinician Managing On-going Care Post-Fracture for Men and Women Aged 50 Years and Older"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 024
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: 5015F
+    required:
+      display_title: Documentation of communication that a fracture occurred and that the patient was or should be tested or treated for osteoporosis
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 024 Encounter
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 024 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Fracture
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 5015F"
+    optional:
+      code_value: 5015F
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: 5015F-8P
+    required:
+      display_title: No documentation of communication that a fracture occurred and that the patient was or should be tested or treated for osteoporosis, reason not otherwise specified
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 024 Encounter
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 024 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Fracture
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 5015F"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 5015F-8P"
+    optional:
+      code_value: 5015F-8P
