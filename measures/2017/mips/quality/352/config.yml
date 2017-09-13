@@ -1,0 +1,61 @@
+measure:
+  name: 17.MIPS.Mips352
+  required:
+    display_title: "Total Knee Replacement: Preoperative Antibiotic Infusion with Proximal Tourniquet"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 352
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9301
+    required:
+      display_title: 'Patients who had the prophylactic antibiotic completely infused prior to the inflation of the proximal tourniquet'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 352 Procedure"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9301"
+    optional:
+      code_value: G9301
+exception_reasons:
+  - config_link_id: G9300
+    required:
+      display_title: 'Documentation of medical reason(s) for not completely infusing the prophylactic antibiotic prior to the inflation of the proximal tourniquet (e.g., a tourniquet was not used)'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 352 Procedure"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G9300"
+    optional:
+      code_value: G9300
+performance_not_met_reasons:
+  - config_link_id: G9302
+    required:
+      display_title: 'Prophylactic antibiotic not completely infused prior to the inflation of the proximal tourniquet, reason not given'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 352 Procedure"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9301"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9302"
+    optional:
+      code_value: G9302
