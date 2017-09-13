@@ -40,9 +40,9 @@ define "Post-Surgical Anatomy":
 define "Denominator":
   "Denominator Procedure"
 
-define "Denominator Exception":
+define "Denominator Exclusion":
   /*
-   * config_link_id: exception_1
+   * config_link_id: exclusion_1
    */
   exists("Post-Surgical Anatomy" P
     with "Denominator Procedure" E
@@ -60,5 +60,5 @@ define "Numerator Performance Not Met: G9614":
   /*
    * config_link_id: G9614
    */
-  not "Denomiantor Exception"
+  not "Denomiantor Exclusion"
   and not "Numerator Performance Met: G9612"
