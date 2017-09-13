@@ -69,10 +69,10 @@ define "Numerator Performance Met: G9257":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G9257"] P
     with "Denominator Procedure" E
-      such that P.relevantPeriod starts during E.relevantPeriod)
+      such that P.relevantPeriod starts 3 days or less after start of E.relevantPeriod)
   or exists("Stroke" D
     with "Denominator Procedure" D
-      such that D.prevalencePeriod starts during E.relevantPeriod)
+      such that D.prevalencePeriod starts 3 days or less after start of E.relevantPeriod)
 
 define "Numerator Performance Met: G9256":
   /*
@@ -80,10 +80,10 @@ define "Numerator Performance Met: G9256":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G9256"] P
     with "Denominator Procedure" E
-      such that P.relevantPeriod starts during E.relevantPeriod)
+      such that P.relevantPeriod starts 3 days or less after start of E.relevantPeriod)
   or exists(["Diagnosis": "VSAC; Death in Hospital"] D
     with "Denominator Procedure" D
-      such that D.prevalencePeriod starts during E.relevantPeriod)
+      such that D.prevalencePeriod starts 3 days or less after start of E.relevantPeriod)
 
 define "Numerator Performance Not Met: G9259":
   /*
