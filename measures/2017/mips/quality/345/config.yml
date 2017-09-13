@@ -1,0 +1,103 @@
+measure:
+  name: 17.MIPS.Mips345
+  required:
+    display_title: "Rate of Postoperative Stroke or Death in Asymptomatic Patients Undergoing Carotid Artery Stenting (CAS)"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 345
+    version: 2017
+    mips_measure_type: Outcome
+    mips_high_priority: true
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: 'Symptomatic carotid stenosis: Ipsilateral carotid territory TIA or stroke less than 120 days prior to procedure'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 345 Procedure"
+        - count: 10
+          validation_records:
+          - model: ClinicalActivity
+            value_set: "MIPS; Denominator Exclusion: 9006F"
+  - config_link_id: exclusion_2
+    required:
+      display_title: 'Other carotid stenosis: Ipsilateral TIA or stroke 120 days or greater prior to procedure or any prior contralateral carotid territory or vertebrobasilar TIA or stroke'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 345 Procedure"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exclusion: 9007F"
+performance_met_reasons:
+  - config_link_id: G9257
+    required:
+      display_title: 'Documentation of patient stroke following CAS'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 345 Procedure"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9257"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Ischemic Stroke"
+            - model: Diagnosis
+              value_set: "VSAC; Hemorrhagic Stroke"
+    optional:
+      code_value: G9257
+  - config_link_id: G9256
+    required:
+      display_title: 'Documentation of patient death following CAS'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 345 Procedure"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9256"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "Able; Death in Hospital"
+    optional:
+      code_value: G9256
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: G9259
+    required:
+      display_title: 'Documentation of patient survival and absence of stroke following CAS'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 345 Procedure"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9257"
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9256"
+            - model: Diagnosis
+              value_set: "Able; Death in Hospital"
+            - model: Diagnosis
+              value_set: "VSAC; Ischemic Stroke"
+            - model: Diagnosis
+              value_set: "VSAC; Hemorrhagic Stroke"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9259"
+    optional:
+      code_value: G9259
