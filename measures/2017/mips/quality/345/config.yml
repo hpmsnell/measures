@@ -12,7 +12,7 @@ measure:
 exclusion_reasons:
   - config_link_id: exclusion_1
     required:
-      display_title: 'Symptomatic carotid stenosis: Ipsilateral carotid territory TIA or stroke less than 120 days prior to procedure'
+      display_title: 'Patient excluded due to symptomatic carotid stenosis: Ipsilateral carotid territory TIA or stroke less than 120 days prior to procedure'
       validation_record_groups:
         - count: 10
           validation_records:
@@ -24,7 +24,7 @@ exclusion_reasons:
             value_set: "MIPS; Denominator Exclusion: 9006F"
   - config_link_id: exclusion_2
     required:
-      display_title: 'Other carotid stenosis: Ipsilateral TIA or stroke 120 days or greater prior to procedure or any prior contralateral carotid territory or vertebrobasilar TIA or stroke'
+      display_title: 'Patient excluded due to other carotid stenosis: Ipsilateral TIA or stroke 120 days or greater prior to procedure or any prior contralateral carotid territory or vertebrobasilar TIA or stroke'
       validation_record_groups:
         - count: 10
           validation_records:
