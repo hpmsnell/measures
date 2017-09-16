@@ -14,11 +14,11 @@ exclusion_reasons:
     required:
       display_title: "Patient is excluded due to the presence of a significant ocular condition at the time of surgery"
       validation_record_groups:
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; MIPS 192 Encounter"
-        - count: 1
+        - count: 10
           validation_records:
             - model: Diagnosis
               value_set: "VSAC; Acute and Subacute Iridocyclitis"
@@ -89,15 +89,15 @@ performance_met_reasons:
     required:
       display_title: "Surgical procedure performed within 30 days following cataract surgery for major complications (e.g., retained nuclear fragments, endophthalmitis, dislocated or wrong power IOL, retinal detachment or wound dehiscence)"
       validation_record_groups:
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; MIPS 192 Encounter"
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: G8627"
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "VSAC; Removal Procedures"
@@ -122,17 +122,17 @@ performance_not_met_reasons:
     required:
       display_title: "Surgical procedure not performed within 30 days following cataract surgery for major complications (e.g., retained nuclear fragments, endophthalmitis, dislocated or wrong power IOL, retinal detachment or wound dehiscence)"
       validation_record_groups:
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; MIPS 192 Encounter"
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: G8627"
             - model: ClinicalActivity
               value_set: "MIPS; Performance Not Met: G8628"
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "VSAC; Removal Procedures"
