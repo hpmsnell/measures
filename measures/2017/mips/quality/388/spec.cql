@@ -28,7 +28,7 @@ context Patient
 
 define "Denominator Procedure":
   ["Procedure, Performed": "MIPS; MIPS 388 Procedure"] P
-    where P.relevantPeriod starts during Interval[start of "Measurement Period", 3 months before end "Measurement Period"]
+    where P.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of P.relevantPeriod) >= 18
       and not P.code.modifier in {55, 56}
       and P.signingProvider.hasMeasureMembership = true
