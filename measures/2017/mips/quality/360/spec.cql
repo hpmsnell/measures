@@ -27,7 +27,7 @@ define "Denominator Procedure":
       and E.signingProvider.hasMeasureMembership = true
 
 define "Denominator":
-  exists("Denominator Procedure")
+  "Denominator Procedure"
 
 define "Numerator Performance Met: G9321":
   /*
