@@ -41,11 +41,11 @@ define "Numerator Performance Met: G0913":
     with "Denominator Procedure" E
       such that P.relevantPeriod starts 90 days or less after start of E.relevantPeriod)
 
-define "Numerator Performance Met: G0914":
+define "Denominator Exception: G0914":
   /*
    * config_link_id: G0914
    */
-  exists(["Procedure, Performed": "MIPS; Performance Met: G0914"] P
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: G0914"] P
     with "Denominator Procedure" E
       such that P.relevantPeriod starts 90 days or less after start of E.relevantPeriod)
 
