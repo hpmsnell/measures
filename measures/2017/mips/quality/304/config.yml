@@ -1,0 +1,61 @@
+measure:
+  name: 17.MIPS.Mips304
+  required:
+    display_title: "Cataracts: Patient Satisfaction within 90 Days Following Cataract Surgery"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 304
+    version: 2017
+    mips_measure_type: Outcome
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G0916
+    required:
+      display_title: "Satisfaction with care achieved within 90 days following cataract surgery"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 304 Procedure"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G0916"
+    optional:
+      code_value: G0916
+exception_reasons:
+  - config_link_id: G0917
+    required:
+      display_title: "Patient care survey was not completed by patient"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 304 Procedure"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G0917"
+    optional:
+      code_value: G0917
+performance_not_met_reasons:
+  - config_link_id: G0918
+    required:
+      display_title: "Satisfaction with care not achieved within 90 days following cataract surgery"
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 304 Procedure"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G0916"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G0918"
+    optional:
+      code_value: G0918
