@@ -13,7 +13,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G0915
+        numerator: G9390
       - name: Denominator Encounter # Encounter too early
         start_date: 2015-12-31
         denominator:
@@ -25,15 +25,15 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G0915
+        numerator: G9390
       - name: Denominator Encounter # Encounter at upper bound
-        start_date: 2016-09-30
+        start_date: 2016-12-31
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G0915
+        numerator: G9390
       - name: Denominator Encounter # Encounter too late
-        start_date: 2016-10-01
+        start_date: 2017-01-01
         denominator:
         denominator_exclusion:
         denominator_exception:
@@ -43,7 +43,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G0915
+        numerator: G9390
       - name: PerformanceMet G9389 # Performance met G9389 lower bound
         start_date: 2016-03-01
         denominator: 1
@@ -61,13 +61,13 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G0915
+        numerator: G9390
       - name: PerformanceMet Diagnosis # Performance met Diagnosis before
         start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G0915
+        numerator: G9390
       - name: PerformanceMet Diagnosis # Performance met Diagnosis lower bound
         start_date: 2016-03-01
         denominator: 1
@@ -85,7 +85,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G0915
+        numerator: G9390
   providers_key:
     - name: Rachel
       episodes_of_care:
@@ -100,7 +100,7 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: G0915
+          numerator: G9390
         - name: Denominator Encounter # Encounter too early
           start_date: 2015-12-31
           denominator:
@@ -112,15 +112,15 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: G0915
+          numerator: G9390
         - name: Denominator Encounter # Encounter at upper bound
-          start_date: 2016-09-30
+          start_date: 2016-12-31
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: G0915
+          numerator: G9390
         - name: Denominator Encounter # Encounter too late
-          start_date: 2016-10-01
+          start_date: 2017-01-01
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -130,7 +130,7 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: G0915
+          numerator: G9390
         - name: PerformanceMet G9389 # Performance met G9389 lower bound
           start_date: 2016-03-01
           denominator: 1
@@ -148,7 +148,7 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: G0915
+          numerator: G9390
         - name: PerformanceMet Diagnosis # Performance met Diagnosis before
           start_date: 2016-02-01
           denominator:
@@ -250,7 +250,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
-    - code_type: CPT
+    - code_type: HCPCS
       code_value: G9389
       start_date: 2016-01-31 # Early
     - code_type: CPT
@@ -258,7 +258,7 @@ patients:
       start_date: 2016-03-01
       stop_date: 2016-03-02
       provider: Rachel
-    - code_type: CPT
+    - code_type: HCPCS
       code_value: G9389
       start_date: 2016-03-01 # Lower
     - code_type: CPT
@@ -266,7 +266,7 @@ patients:
       start_date: 2016-04-01
       stop_date: 2016-04-02
       provider: Rachel
-    - code_type: CPT
+    - code_type: HCPCS
       code_value: G9389
       start_date: 2016-04-02 # Upper
     - code_type: CPT
@@ -274,7 +274,7 @@ patients:
       start_date: 2016-05-01
       stop_date: 2016-05-02
       provider: Rachel
-    - code_type: CPT
+    - code_type: HCPCS
       code_value: G9389
       start_date: 2016-05-03 # After
 - name: PerformanceMet Diagnosis
@@ -308,14 +308,14 @@ patients:
       provider: Patty
     diagnoses:
     - code_type: SNOMEDCT
-      code_value: G9389
+      code_value: 36561000119109
       start_date: 2016-01-31 # Early
     - code_type: SNOMEDCT
-      code_value: G9389
+      code_value: 36561000119109
       start_date: 2016-03-01 # Lower
     - code_type: SNOMEDCT
-      code_value: G9389
+      code_value: 36561000119109
       start_date: 2016-04-02 # Upper
     - code_type: SNOMEDCT
-      code_value: G9389
+      code_value: 36561000119109
       start_date: 2016-05-03 # After

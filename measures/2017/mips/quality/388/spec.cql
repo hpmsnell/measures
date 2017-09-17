@@ -16,7 +16,7 @@ using QDM
 
 valueset "MIPS; MIPS 388 Procedure"
 valueset "MIPS; Performance Met: G9389"
-valueset "MIPS; Performance Not Met: G0915"
+valueset "MIPS; Performance Not Met: G9390"
 
 // Able value sets
 
@@ -50,8 +50,8 @@ define "Numerator Performance Met: G9389":
     with "Denominator Procedure" E
       such that P.relevantPeriod starts during E.relevantPeriod)
 
-define "Numerator Performance Not Met: G0915":
+define "Numerator Performance Not Met: G9390":
   /*
-   * config_link_id: G0915
+   * config_link_id: G9390
    */
   not "Numerator Performance Met: G9389"
