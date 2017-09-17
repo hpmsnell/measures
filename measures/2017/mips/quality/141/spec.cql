@@ -14,7 +14,6 @@ using QDM
 // MIPS Custom Value Sets
 
 valueset "MIPS; MIPS 141 Encounter"
-valueset "MIPS; Telehealth Modifier"
 valueset "MIPS; MIPS 141 Primary Open-Angle Glaucoma (POAG)"
 valueset "MIPS; Performance Met: 3284F"
 valueset "MIPS; Performance Met: 3285F"
