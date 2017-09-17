@@ -72,14 +72,14 @@ test_set_keys:
         start_date: 2016-06-01
         denominator: 1
         denominator_exclusion:
-        denominator_exception:
-        numerator: G0913
+        denominator_exception: G0914
+        numerator:
       - name: Exception G0914-2 # Performance met G0913 upper bound
         start_date: 2016-01-01
         denominator: 1
         denominator_exclusion:
-        denominator_exception:
-        numerator: G0913
+        denominator_exception: G0914
+        numerator:
       - name: Exception G0914-2 #  Performance met G0913 after
         start_date: 2016-06-01
         denominator: 1
@@ -159,8 +159,8 @@ test_set_keys:
           start_date: 2016-06-01
           denominator: 1
           denominator_exclusion:
-          denominator_exception:
-          numerator: G0913
+          denominator_exception: G0914
+          numerator:
         - name: Exception G0914-2 # Performance met G0913 upper bound
           start_date: 2016-01-01
           denominator:
@@ -249,16 +249,16 @@ patients:
       code_value: 66840
       start_date: 2016-01-01
       provider: Rachel
-    - code_type: CPT
+    - code_type: HCPCS
       code_value: G0913
       start_date: 2015-12-31 # Early
     - code_type: CPT
       code_value: 66840
       start_date: 2016-06-01
       provider: Rachel
-    - code_type: CPT
+    - code_type: HCPCS
       code_value: G0913
-      start_date: 2016-06-01 # Lower
+      start_date: 2016-06-02 # Lower
 - name: PerformanceMet G0913-2
   attributes:
     date_of_birth: 1988-03-22
@@ -272,14 +272,14 @@ patients:
       code_value: 66840
       start_date: 2016-01-01
       provider: Rachel
-    - code_type: CPT
+    - code_type: HCPCS
       code_value: G0913
       start_date: 2016-03-31 # Upper
     - code_type: CPT
       code_value: 66840
       start_date: 2016-06-01
       provider: Rachel
-    - code_type: CPT
+    - code_type: HCPCS
       code_value: G0913
       start_date: 2016-08-31 # After
 - name: Exception G0914-1
@@ -295,14 +295,14 @@ patients:
       code_value: 66840
       start_date: 2016-01-01
       provider: Rachel
-    - code_type: CPT
+    - code_type: HCPCS
       code_value: G0914
       start_date: 2015-12-31 # Early
     - code_type: CPT
       code_value: 66840
       start_date: 2016-06-01
       provider: Rachel
-    - code_type: CPT
+    - code_type: HCPCS
       code_value: G0914
       start_date: 2016-06-01 # Lower
 - name: Exception G0914-2
@@ -318,13 +318,13 @@ patients:
       code_value: 66840
       start_date: 2016-01-01
       provider: Patty
-    - code_type: CPT
+    - code_type: HCPCS
       code_value: G0914
       start_date: 2016-03-31 # Upper
     - code_type: CPT
       code_value: 66840
       start_date: 2016-06-01
       provider: Patty
-    - code_type: CPT
+    - code_type: HCPCS
       code_value: G0914
       start_date: 2016-08-31 # After
