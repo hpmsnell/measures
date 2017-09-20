@@ -142,6 +142,11 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: G9358
+      - name: FamilyPlanning Medication # Medication
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9357
   providers_key:
     - name: Rachel
       patients:
@@ -281,6 +286,11 @@ test_set_keys:
         denominator_exception:
         numerator:
       - name: FamilyPlanning After # Late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: FamilyPlanning Medication # Medication
         denominator:
         denominator_exclusion:
         denominator_exception:
@@ -675,7 +685,7 @@ patients:
     - code_type: SNOMEDCT
       code_value: 11687002 # Gestational diabetes
       start_date: 2016-01-05 # Upper bound
-- name: Diabetes Before
+- name: Diabetes After
   attributes:
     date_of_birth: 1950-01-01
     given_name: Diabetes
@@ -757,12 +767,12 @@ patients:
       start_date: 2016-01-06
     - code_type: SNOMEDCT
       code_value: 11687002 # Gestational diabetes
-      start_date: 2015-01-05
+      start_date: 2016-01-05
     laboratory_test_performeds:
     - code_type: LOINC
       code_value: 1557-8 # Glucose
       result: 90
-      start_date: 2015-01-06 # Lower bound
+      start_date: 2016-01-06 # Lower bound
 - name: GlucoseScreening Upper
   attributes:
     date_of_birth: 1950-01-01
@@ -788,13 +798,13 @@ patients:
       start_date: 2016-01-06
     - code_type: SNOMEDCT
       code_value: 11687002 # Gestational diabetes
-      start_date: 2015-01-05
+      start_date: 2016-01-05
     laboratory_test_performeds:
     - code_type: LOINC
       code_value: 1557-8 # Glucose
       result: 90
-      start_date: 2015-03-01 # Upper bound
-- name: GlucoseScreening Before
+      start_date: 2016-03-01 # Upper bound
+- name: GlucoseScreening After
   attributes:
     date_of_birth: 1950-01-01
     given_name: GlucoseScreening
@@ -819,12 +829,12 @@ patients:
       start_date: 2016-01-06
     - code_type: SNOMEDCT
       code_value: 11687002 # Gestational diabetes
-      start_date: 2015-01-05
+      start_date: 2016-01-05
     laboratory_test_performeds:
     - code_type: LOINC
       code_value: 1557-8 # Glucose
       result: 90
-      start_date: 2015-01-06 # Too late
+      start_date: 2016-03-02 # Too late
 - name: FamilyPlanning Before
   attributes:
     date_of_birth: 1950-01-01
@@ -916,4 +926,29 @@ patients:
     diagnoses:
     - code_type: SNOMEDCT
       code_value: 169749002 # Breast feeding finding
+      start_date: 2016-01-06
+
+- name: FamilyPlanning Medication
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: FamilyPlanning
+    family_name: Medication
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400
+      start_date: 2016-01-05
+      stop_date: 2016-01-05
+      provider: Patty
+    - code_type: SNOMEDCT
+      code_value: 428221000124108 # Depression screening
+      start_date: 2016-01-06
+    diagnoses:
+    - code_type: SNOMEDCT
+      code_value: 169749002 # Breast feeding finding
+      start_date: 2016-01-06
+    medications:
+    - code_type: RXNORM
+      code_value: 1000126 # Contraceptive medication
       start_date: 2016-01-06
