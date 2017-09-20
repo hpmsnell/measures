@@ -117,11 +117,11 @@ test_set_keys:
       denominator_exception:
       numerator: 4130F-8P
     - name: PerformanceMet Antibiotic # Medication, Active
-      start_date: 2016-010-01
+      start_date: 2016-10-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: 4130F-8P
+      numerator: 4130F
     - name: Exception 4130F-1P # Before
       start_date: 2016-02-01
       denominator: 1
@@ -312,11 +312,11 @@ test_set_keys:
         denominator_exception:
         numerator: 4130F-8P
       - name: PerformanceMet Antibiotic # Medication, Active
-        start_date: 2016-010-01
+        start_date: 2016-10-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: 4130F-8P
+        numerator: 4130F
       - name: Exception 4130F-1P # Before
         start_date: 2016-02-01
         denominator: 1
@@ -631,21 +631,26 @@ patients:
       code_value: 854992
       method: E
       start_date: 2016-01-31 # Early
+      stop_date: 2016-01-31
     - code_type: RXNORM
       code_value: 854992
       method: E
       start_date: 2016-04-01 # Lower bound
+      stop_date: 2016-04-01
     - code_type: RXNORM
       code_value: 854992
       method: E
       start_date: 2016-06-30 # Upper bound
+      stop_date: 2016-06-30
     - code_type: RXNORM
       code_value: 854992
       method: E
       start_date: 2016-09-01 # Late
+      stop_date: 2016-09-01
     - code_type: RXNORM
       code_value: 854992 # Active
-      start_date: 2016-10-01
+      start_date: 2016-09-30
+      stop_date: 2016-10-01
 - name: Exception 4130F-1P
   attributes:
     date_of_birth: 2000-01-01

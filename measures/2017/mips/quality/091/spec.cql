@@ -60,9 +60,9 @@ define "Numerator Performance Met: 4130F":
   exists(["Procedure, Performed": "MIPS; Performance Met: 4130F"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 30 days or less after start of E.relevantPeriod)
-  or exists(["Medication, Order": "Able; Topical Antibiotic for AOEs"] M
+  or exists(["Medication": "Able; Topical Antibiotic for AOEs"] M
     with "Denominator Encounter" E
-      such that M.relevantPeriod starts on or 30 days or less after start of E.relevantPeriod)
+      such that M.relevantPeriod overlaps Interval[start of E.relevantPeriod, 30 days after start of E.relevantPeriod])
 
 define "Denominator Exception: 4130F-1P":
   /*
