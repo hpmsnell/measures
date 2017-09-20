@@ -296,10 +296,10 @@ test_set_keys:
         denominator_exception:
         numerator:
       - name: DenominatorEncounter DifferentProviders # Different providers
-        denominator: 
+        denominator:
         denominator_exclusion:
         denominator_exception:
-        numerator: 
+        numerator:
       - name: DenominatorDiagnosis Before # Before
         denominator:
         denominator_exclusion:
@@ -933,7 +933,7 @@ patients:
     - code_type: CPT
       code_value: 99201 # Denominator encounter
       start_date: 2016-02-01
-      stop_date: 2016-02-01
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
       code_value: 99201
@@ -1033,7 +1033,7 @@ patients:
     - code_type: CPT
       code_value: 99201 # Denominator encounter
       start_date: 2016-02-01
-      stop_date: 2016-02-01
+      stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
       code_value: 99201
@@ -1215,7 +1215,8 @@ patients:
     - code_type: RXNORM
       code_value: 1191185 # Beta-blocker
       method: E
-      start_date: 2015-12-31 # Too early
+      start_date: 2015-12-31
+      stop_date: 2015-12-31 # Too early
 - name: PerformanceMetMedication Lower
   attributes:
     date_of_birth: 1990-02-01
@@ -1476,8 +1477,8 @@ patients:
     allergies:
     - code_type: RXNORM
       code_value: 1191185 # Beta-blocker
-      start_date: 2016-01-01
-      stop_date: 2016-01-31 # Too early
+      start_date: 2015-01-01
+      stop_date: 2015-12-31 # Too early
 - name: ExceptionAllergy Lower
   attributes:
     date_of_birth: 1990-02-01
@@ -1506,8 +1507,8 @@ patients:
     allergies:
     - code_type: RXNORM
       code_value: 1191185 # Beta-blocker
-      start_date: 2016-01-01
-      stop_date: 2016-02-01 # Lower bound
+      start_date: 2015-01-01
+      stop_date: 2016-01-01 # Lower bound
 - name: ExceptionAllergy Upper
   attributes:
     date_of_birth: 1990-02-01
@@ -1536,7 +1537,7 @@ patients:
     allergies:
     - code_type: RXNORM
       code_value: 1191185 # Beta-blocker
-      start_date: 2016-02-02 # Upper bound
+      start_date: 2016-12-31 # Upper bound
 - name: ExceptionAllergy After
   attributes:
     date_of_birth: 1990-02-01
@@ -1565,7 +1566,7 @@ patients:
     allergies:
     - code_type: RXNORM
       code_value: 1191185 # Beta-blocker
-      start_date: 2016-02-03 # Too late
+      start_date: 2017-01-01 # Too late
 - name: ExceptionG9191 Before
   attributes:
     date_of_birth: 1990-02-01
