@@ -1,0 +1,38 @@
+measure:
+  name: 17.Demoencounter.Demo5a
+  required:
+    display_title: "Care Coordination: RN Care Coordination Reduction of Readmissions"
+  optional:
+    gap_resolution_action:
+    set: Demo
+    external_id: 5A
+    version: 2017
+    mips_measure_type:
+    mips_high_priority:
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: performance_met
+    required:
+      display_title: 'Patient was readmitted within 30 days of discharge'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Discharge"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Hospital Inpatient Visit-Subsequent"
+performance_not_met_reasons:
+  - config_link_id: performance_not_met
+    required:
+      display_title: 'Patient was not readmitted within 30 days of discharge'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Discharge"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Hospital Inpatient Visit-Subsequent"
