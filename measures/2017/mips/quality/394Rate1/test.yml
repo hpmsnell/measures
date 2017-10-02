@@ -1,0 +1,665 @@
+measure_id: 17.MIPS.Mips394Rate1
+test_set_keys:
+  organization_key:
+    patients:
+      - name: Too Young # Below age range
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower # Lower bound of age range
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9415
+      - name: Age Upper # Upper bound of age range
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9415
+      - name: Too Old # Above age range
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Before # Encounter too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Lower # Encounter at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9415
+      - name: Encounter Upper # Encounter at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9415
+      - name: Encounter After # Encounter too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Allergy Before # Allergy exclusion too early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9415
+      - name: Allergy Lower # Allergy exclusion at lower bound
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: Allergy Upper # Allergy exclusion at upper bound
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: Allergy After # Allergy exclusion too late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9415
+      - name: Hospice Before # Hospice exclusion too early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9415
+      - name: Hospice Lower # Hospice exclusion at lower bound
+        denominator: 1
+        denominator_exclusion: exclusion_2
+        denominator_exception:
+        numerator:
+      - name: Hospice Upper # Hospice exclusion at upper bound
+        denominator: 1
+        denominator_exclusion: exclusion_2
+        denominator_exception:
+        numerator:
+      - name: Hospice After # Hospice exclusion too late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9415
+      - name: G9414 Before # Performance met G9414 before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9415
+      - name: G9414 Lower # Performance met G9414 lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9414
+      - name: G9414 Upper # Performance met G9414 upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9414
+      - name: G9414 After # Performance met G9414 after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9415
+      - name: VaccineMeningococcal Before # Vacine before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9415
+      - name: VaccineMeningococcal Lower # Vacine lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9414
+      - name: VaccineMeningococcal Upper # Vacine upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9414
+      - name: VaccineMeningococcal After # Vacine after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9415
+  providers_key:
+    - name: Rachel
+      patients:
+        - name: Too Young # Below age range
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Age Lower # Lower bound of age range
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9415
+        - name: Age Upper # Upper bound of age range
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9415
+        - name: Too Old # Above age range
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Before # Encounter too early
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Lower # Encounter at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9415
+        - name: Encounter Upper # Encounter at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9415
+        - name: Encounter After # Encounter too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Allergy Before # Allergy exclusion too early
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9415
+        - name: Allergy Lower # Allergy exclusion at lower bound
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: Allergy Upper # Allergy exclusion at upper bound
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: Allergy After # Allergy exclusion too late
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9415
+        - name: Hospice Before # Hospice exclusion too early
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9415
+        - name: Hospice Lower # Hospice exclusion at lower bound
+          denominator: 1
+          denominator_exclusion: exclusion_2
+          denominator_exception:
+          numerator:
+        - name: Hospice Upper # Hospice exclusion at upper bound
+          denominator: 1
+          denominator_exclusion: exclusion_2
+          denominator_exception:
+          numerator:
+        - name: Hospice After # Hospice exclusion too late
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9415
+        - name: G9414 Before # Performance met G9414 before interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9415
+        - name: G9414 Lower # Performance met G9414 lower bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9414
+        - name: G9414 Upper # Performance met G9414 upper bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9414
+        - name: G9414 After # Performance met G9414 after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9415
+        - name: VaccineMeningococcal Before # Vacine before interval
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: VaccineMeningococcal Lower # Vacine lower bound interval
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: VaccineMeningococcal Upper # Vacine upper bound interval
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: VaccineMeningococcal After # Vacine after interval
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  external_id: '111-111'
+  credential: DO
+  primary_specialty: Family Medicine
+- given_name: Patty
+  family_name: PrimaryCare
+  external_id: '222-222'
+  credential: MD
+  primary_specialty: Family Medicine
+patients:
+  - name: Too Young
+    attributes:
+      date_of_birth: 2004-01-01
+      given_name: Too
+      family_name: Young
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+  - name: Age Lower
+    attributes:
+      date_of_birth: 2003-12-31
+      given_name: Age
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+  - name: Age Upper
+    attributes:
+      date_of_birth: 2003-01-01
+      given_name: Age
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+  - name: Too Old
+    attributes:
+      date_of_birth: 2002-12-31
+      given_name: Too
+      family_name: Old
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+  - name: Encounter Before
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: Encounter
+      family_name: Before
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2015-12-31 # Too early
+        provider: Rachel
+  - name: Encounter Lower
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: Encounter
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-01-01 # Lower bound
+        provider: Rachel
+  - name: Encounter Upper
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: Encounter
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-12-31 # Upper bound
+        provider: Rachel
+  - name: Encounter After
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: Encounter
+      family_name: After
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2017-01-01 # Too late
+        provider: Rachel
+  - name: Allergy Before
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: Allergy
+      family_name: Before
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      allergies:
+      - code_type: CVX
+        code_value: 35 # Tetanus
+        start_date: 2015-02-01
+        stop_date: 2015-12-31 # Too early
+  - name: Allergy Lower
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: Allergy
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      allergies:
+      - code_type: CVX
+        code_value: 35 # Tetanus
+        start_date: 2015-02-01
+        stop_date: 2016-01-01 # Lower bound
+  - name: Allergy Upper
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: Allergy
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      allergies:
+      - code_type: CVX
+        code_value: 35 # Tetanus
+        start_date: 2016-12-31 # Upper bound
+  - name: Allergy After
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: Allergy
+      family_name: After
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      allergies:
+      - code_type: CVX
+        code_value: 35 # Tetanus
+        start_date: 2017-01-01 # Too late
+  - name: Hospice Before
+    attributes:
+      date_of_birth: 2003-02-01
+      given_name: Hospice
+      family_name: Before
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9761
+        start_date: 2015-12-31 # Too early
+  - name: Hospice Lower
+    attributes:
+      date_of_birth: 2003-02-01
+      given_name: Hospice
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9761
+        start_date: 2016-01-01 # Lowe bound
+  - name: Hospice Upper
+    attributes:
+      date_of_birth: 2003-02-01
+      given_name: Hospice
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9761
+        start_date: 2016-12-31 # Upper bound
+  - name: Hospice After
+    attributes:
+      date_of_birth: 2003-02-01
+      given_name: Hospice
+      family_name: After
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9761
+        start_date: 2017-01-01 # Too late
+  - name: G9414 Before
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: G9414
+      family_name: Before
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9414
+        start_date: 2014-03-21 # Too early
+  - name: G9414 Lower
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: G9414
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9414
+        start_date: 2014-03-22 # Lower bound
+  - name: G9414 Upper
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: G9414
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9414
+        start_date: 2016-03-21 # Upper bound
+  - name: G9414 After
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: G9414
+      family_name: After
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9414
+        start_date: 2016-03-22 # Too late
+  - name: G9762 Before
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: G9762
+      family_name: Before
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9762
+        start_date: 2012-03-21 # Too early
+  - name: G9762 Lower
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: G9762
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9762
+        start_date: 2012-03-22 # Lower bound
+  - name: G9762 Upper
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: G9762
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9762
+        start_date: 2016-03-21 # Upper bound
+  - name: G9762 After
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: G9762
+      family_name: After
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: HCPCS
+        code_value: G9762
+        start_date: 2016-03-22 # Too late
+  - name: VaccineMeningococcal Before
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: VaccineMeningococcal
+      family_name: Before
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Patty
+      medications:
+      - code_type: CVX
+        code_value: 103
+        start_date: 2014-03-21 # Too early
+  - name: VaccineMeningococcal Lower
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: VaccineMeningococcal
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Patty
+      medications:
+      - code_type: CVX
+        code_value: 103
+        start_date: 2014-03-22 # Lower bound
+  - name: VaccineMeningococcal Upper
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: VaccineMeningococcal
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Patty
+      medications:
+      - code_type: CVX
+        code_value: 103
+        start_date: 2016-03-21 # Upper bound
+  - name: VaccineMeningococcal After
+    attributes:
+      date_of_birth: 2003-03-22
+      given_name: VaccineMeningococcal
+      family_name: After
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Patty
+      medications:
+      - code_type: CVX
+        code_value: 103
+        start_date: 2016-03-22 # Too late

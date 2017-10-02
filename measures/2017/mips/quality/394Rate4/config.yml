@@ -1,0 +1,182 @@
+measure:
+  name: 17.MIPS.Mips394Rate4
+  required:
+    display_title: "Immunizations for Adolescents: All Immunizations"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 394
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_stratum: 'overall'
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: Patient excluded due to allergy to meningococcal, Tdap, and/or HPV vaccine
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 394 Encounter"
+        - count: 1
+          validation_records:
+            - model: Allergy
+              value_set: "Able; DTaP Vaccine"
+            - model: Diagnosis
+              value_set: "VSAC; Anaphylactic Reaction to DTaP Vaccine"
+            - model: Allergy
+              value_set: "Able; Tetanus Vaccine"
+            - model: Allergy
+              value_set: "Able; Diphtheria Vaccine"
+            - model: Allergy
+              value_set: "Able; Pertussis Vaccine"
+            - model: Allergy
+              value_set: "Able; HPV Vaccine"
+            - model: Allergy
+              value_set: "Able; Meningococcal Vaccine"
+            - model: Diagnosis
+              value_set: "Able; Allergy to Meningococcal Vaccine"
+  - config_link_id: exclusion_2
+    required:
+      display_title: Patient excluded due to hospice service
+      validation_record_groups:
+      - count: 1
+        validation_records:
+          - model: ClinicalActivity
+            value_set: "MIPS; MIPS 394 Encounter"
+      - count: 1
+        validation_records:
+          - model: ClinicalActivity
+            value_set: "VSAC; Palliative Care"
+          - model: ClinicalActivity
+            value_set: "MIPS; MIPS Hospice Service"
+performance_met_reasons:
+  - config_link_id: G9414_G9416_G9762
+    required:
+      display_title: "Patient had one dose of meningococcal vaccine on or between the patient's 11th and 13th birthdays, one tetanus, diphtheria toxoids and acellular pertussis vaccine (Tdap) on or between the patient's 10th and 13th birthdays, AND at least three HPV vaccines on or between the patient's 9th and 13th birthdays"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 394 Encounter"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "Able; Meningococcal Vaccine"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Meningococcal Vaccine Administered"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "Able; DTaP Vaccine"
+            - model: ClinicalActivity
+              value_set: "VSAC; DTaP Vaccine Administered"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "Able; Tetanus Vaccine"
+            - model: ClinicalActivity
+              value_set: "Able; Tetanus Vaccine Administered"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "Able; Diphtheria Vaccine"
+            - model: ClinicalActivity
+              value_set: "Able; Diphtheria Vaccine Administered"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "Able; Pertussis Vaccine"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "Able; HPV Vaccine"
+            - model: ClinicalActivity
+              value_set: "HEDIS; HPV Vaccine Administered"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9414"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9416"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9762"
+    optional:
+      code_value: 'G9414/G9416/G9762'
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: G9415_G9417_G9763
+    required:
+      display_title: "Patient did not have one or more of the following vaccinations: one dose of meningococcal vaccine on or between the patient's 11th and 13th birthdays, one tetanus, diphtheria toxoids and acellular pertussis vaccine (Tdap) on or between the patient's 10th and 13th birthdays, AND/OR at least three HPV vaccines on or between the patient's 9th and 13th birthdays"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 394 Encounter"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "Able; DTaP Vaccine"
+            - model: ClinicalActivity
+              value_set: "VSAC; DTaP Vaccine Administered"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "Able; Tetanus Vaccine"
+            - model: ClinicalActivity
+              value_set: "Able; Tetanus Vaccine Administered"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "Able; Diphtheria Vaccine"
+            - model: ClinicalActivity
+              value_set: "Able; Diphtheria Vaccine Administered"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "Able; Pertussis Vaccine"
+            - model: ClinicalActivity
+              value_set: "Able; Pertussis Vaccine Administered"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "Able; HPV Vaccine"
+            - model: ClinicalActivity
+              value_set: "HEDIS; HPV Vaccine Administered"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "Able; Meningococcal Vaccine"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Meningococcal Vaccine Administered"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9414"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9416"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9762"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9415"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9417"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9763"
+    optional:
+      code_value: 'G9415/G9417/G9763'
