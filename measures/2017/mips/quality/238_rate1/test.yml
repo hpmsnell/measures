@@ -87,6 +87,11 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: G9366
+      - name: 1Medication DifferentProvider # Medication with a different provider from encounter
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9365
       - name: G9367 Before # Performance met G9367 before MP
         denominator: 1
         denominator_exclusion:
@@ -225,6 +230,11 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator: G9366
+        - name: 1Medication DifferentProvider # Medication with a different provider from encounter
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9366
         - name: G9367 Before # Performance met G9367 before MP
           denominator: 1
           denominator_exclusion:
@@ -295,7 +305,6 @@ providers:
   family_name: NoMIPS
   external_id: '333-333'
   credential: MD
-  pqrs_provider: false
 patients:
   - name: Too Young
     attributes:
@@ -457,6 +466,7 @@ patients:
         code_value: 310539
         method: E
         start_date: 2015-12-31
+        provider: Rachel
   - name: 1Medication Lower
     attributes:
       date_of_birth: 1940-03-22
@@ -475,6 +485,7 @@ patients:
         code_value: 310539
         method: E
         start_date: 2016-01-01
+        provider: Rachel
   - name: 1Medication Upper
     attributes:
       date_of_birth: 1940-03-22
@@ -493,6 +504,7 @@ patients:
         code_value: 310539
         method: E
         start_date: 2016-02-01
+        provider: Rachel
   - name: 1Medication After
     attributes:
       date_of_birth: 1940-03-22
@@ -511,6 +523,7 @@ patients:
         code_value: 310539
         method: E
         start_date: 2017-01-01
+        provider: Rachel
   - name: 1Medication NDC
     attributes:
       date_of_birth: 1940-03-22
@@ -529,6 +542,7 @@ patients:
         code_value: '00603243310'
         method: E
         start_date: 2016-01-01
+        provider: Rachel
   - name: 1Medication 91Days
     attributes:
       date_of_birth: 1940-03-22
@@ -548,11 +562,13 @@ patients:
         method: E
         days_supplied: 91
         start_date: 2016-01-01
+        provider: Rachel
       - code_type: RXNORM
         code_value: 854894
         method: E
         days_supplied: 1
         start_date: 2016-02-01
+        provider: Rachel
   - name: 1Medication 90Days
     attributes:
       date_of_birth: 1940-03-22
@@ -572,11 +588,32 @@ patients:
         method: E
         days_supplied: 90
         start_date: 2016-01-01
+        provider: Rachel
       - code_type: RXNORM
         code_value: 1232194
         method: E
         days_supplied: 90
         start_date: 2016-02-01
+        provider: Rachel
+  - name: 1Medication DifferentProvider
+    attributes:
+      date_of_birth: 1940-03-22
+      given_name: 1Medication
+      family_name: DifferentProvider
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      medications:
+      - code_type: RXNORM
+        code_value: 310539
+        method: E
+        start_date: 2016-01-01
+        provider: Patty
   - name: G9367 Before
     attributes:
       date_of_birth: 1940-03-22
@@ -659,10 +696,12 @@ patients:
         code_value: 310539
         method: E
         start_date: 2016-01-01
+        provider: Patty
       - code_type: RXNORM
         code_value: 1363309
         method: E
         start_date: 2016-01-01
+        provider: Patty
   - name: 2Medications Same
     attributes:
       date_of_birth: 1940-03-22
@@ -681,10 +720,12 @@ patients:
         code_value: 310539
         method: E
         start_date: 2016-01-01
+        provider: Patty
       - code_type: RXNORM
         code_value: 310539
         method: E
         start_date: 2016-01-01
+        provider: Patty
   - name: 3Medications Unique
     attributes:
       date_of_birth: 1940-03-22
@@ -703,14 +744,17 @@ patients:
         code_value: 310539
         method: E
         start_date: 2016-01-01
+        provider: Rachel
       - code_type: RXNORM
         code_value: 1363309
         method: E
         start_date: 2016-01-01
+        provider: Patty
       - code_type: RXNORM
         code_value: 1359124
         method: E
         start_date: 2016-01-01
+        provider: Patty
   - name: 2Medications Before
     attributes:
       date_of_birth: 1940-03-22
@@ -729,10 +773,12 @@ patients:
         code_value: 310539
         method: E
         start_date: 2016-01-01
+        provider: Patty
       - code_type: RXNORM
         code_value: 1363309
         method: E
         start_date: 2015-12-31
+        provider: Patty
   - name: 2Medications 91Days
     attributes:
       date_of_birth: 1940-03-22
@@ -752,16 +798,19 @@ patients:
         method: E
         days_supplied: 90
         start_date: 2016-01-01
+        provider: Patty
       - code_type: RXNORM
         code_value: 485465
         method: E
         days_supplied: 1
         start_date: 2016-01-01
+        provider: Patty
       - code_type: RXNORM
         code_value: 854894
         method: E
         days_supplied: 91
         start_date: 2016-01-01
+        provider: Patty
   - name: 2Medications 90Days
     attributes:
       date_of_birth: 1940-03-22
@@ -781,16 +830,21 @@ patients:
         method: E
         days_supplied: 90
         start_date: 2016-01-01
+        provider: Patty
       - code_type: RXNORM
         code_value: 485465
         method: E
         days_supplied: 1
         start_date: 2016-01-01
+        provider: Patty
+        provider: Rachel
       - code_type: RXNORM
         code_value: 854894
         method: E
         days_supplied: 90
         start_date: 2016-01-01
+        provider: Patty
+        provider: Rachel
   - name: Medication Active
     attributes:
       date_of_birth: 1940-03-22
@@ -809,11 +863,14 @@ patients:
         code_value: 485465
         days_supplied: 90
         start_date: 2016-01-01
+        provider: Patty
       - code_type: RXNORM
         code_value: 485465
         days_supplied: 1
         start_date: 2016-01-01
+        provider: Patty
       - code_type: RXNORM
         code_value: 854894
         days_supplied: 90
         start_date: 2016-01-01
+        provider: Patty
