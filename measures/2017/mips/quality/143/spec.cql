@@ -36,7 +36,7 @@ define "Denominator Encounter":
     with ["Diagnosis": "MIPS; Cancer"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod
     with ["Procedure, Performed": "MIPS; Chemotherapy"] P
-      such that P.relevantPeriod overlaps E.relevantPeriod
+      such that P.relevantPeriod starts on or between 30 days before and 30 days after start of E.relevantPeriod
 
 define "Denominator":
   "Denominator Encounter"

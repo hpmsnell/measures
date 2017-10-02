@@ -26,26 +26,26 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Chemotherapy Procedure #  Chemotherapy before encounter
+    - name: Chemotherapy Procedure #  Chemotherapy before period
       start_date: 2016-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Chemotherapy Procedure #  Chemotherapy at start of encounter
-      start_date: 2016-02-01
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 1125F-8P
-    - name: Chemotherapy Procedure #  Chemotherapy at end of encounter
-      start_date: 2016-03-01
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 1125F-8P
-    - name: Chemotherapy Procedure #  Chemotherapy after encounter
+    - name: Chemotherapy Procedure #  Chemotherapy at start of period
       start_date: 2016-04-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 1125F-8P
+    - name: Chemotherapy Procedure #  Chemotherapy at end of period
+      start_date: 2016-07-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 1125F-8P
+    - name: Chemotherapy Procedure #  Chemotherapy after period
+      start_date: 2016-10-01
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -185,26 +185,26 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Chemotherapy Procedure #  Chemotherapy before encounter
+    - name: Chemotherapy Procedure #  Chemotherapy before period
       start_date: 2016-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Chemotherapy Procedure #  Chemotherapy at start of encounter
-      start_date: 2016-02-01
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 1125F-8P
-    - name: Chemotherapy Procedure #  Chemotherapy at end of encounter
-      start_date: 2016-03-01
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 1125F-8P
-    - name: Chemotherapy Procedure #  Chemotherapy after encounter
+    - name: Chemotherapy Procedure #  Chemotherapy at start of period
       start_date: 2016-04-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 1125F-8P
+    - name: Chemotherapy Procedure #  Chemotherapy at end of period
+      start_date: 2016-07-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 1125F-8P
+    - name: Chemotherapy Procedure #  Chemotherapy after period
+      start_date: 2016-10-01
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -355,8 +355,19 @@ patients:
       provider: Rachel
     - code_type: CPT
       code_value: 51720 # Chemotherapy
-      start_date: 2015-01-01 # Overlaps all the things
-      stop_date: 2018-01-01
+      start_date: 2015-12-31
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2015-12-31
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2016-12-31
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2017-01-01
     diagnoses:
     - code_type: ICD10CM
       code_value: Q85.00
@@ -377,26 +388,8 @@ patients:
       provider: Rachel
     - code_type: CPT
       code_value: 51720 # Chemotherapy
-      start_date: 2015-12-31
-      stop_date: 2015-12-31
-    - code_type: CPT
-      code_value: 99201
-      start_date: 2016-02-01 # Encounter
-      stop_date: 2016-02-01
-      provider: Rachel
-    - code_type: CPT
-      code_value: 51720 # Chemotherapy
-      start_date: 2016-01-31
-      stop_date: 2016-02-01
-    - code_type: CPT
-      code_value: 99201
-      start_date: 2016-03-01 # Encounter
-      stop_date: 2016-03-01
-      provider: Rachel
-    - code_type: CPT
-      code_value: 51720 # Chemotherapy
-      start_date: 2016-03-01
-      stop_date: 2016-03-02
+      start_date: 2015-12-01 # Early
+      stop_date: 2015-12-01
     - code_type: CPT
       code_value: 99201
       start_date: 2016-04-01 # Encounter
@@ -404,8 +397,26 @@ patients:
       provider: Rachel
     - code_type: CPT
       code_value: 51720 # Chemotherapy
-      start_date: 2016-04-02
-      stop_date: 2016-04-03
+      start_date: 2016-03-02 # Lower bound
+      stop_date: 2016-03-02
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-07-01 # Encounter
+      stop_date: 2016-07-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2016-07-31 # Upper bound
+      stop_date: 2016-07-31
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-10-01 # Encounter
+      stop_date: 2016-10-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2016-11-01 # Late
+      stop_date: 2016-11-01
     diagnoses:
     - code_type: ICD10CM
       code_value: Q85.00
@@ -441,8 +452,16 @@ patients:
       provider: Rachel
     - code_type: CPT
       code_value: 51720 # Chemotherapy
-      start_date: 2015-01-01 # Overlaps all the things
-      stop_date: 2018-01-01
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2016-03-01
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2016-04-01
     diagnoses:
     - code_type: ICD10CM
       code_value: Q85.00
@@ -490,8 +509,16 @@ patients:
       provider: Rachel
     - code_type: CPT
       code_value: 51720 # Chemotherapy
-      start_date: 2015-01-01 # Overlaps all the things
-      stop_date: 2018-01-01
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2016-03-01
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2016-04-01
     - code_type: CPT
       code_value: 1125F
       start_date: 2015-12-31 # Early
@@ -539,8 +566,16 @@ patients:
       provider: Rachel
     - code_type: CPT
       code_value: 51720 # Chemotherapy
-      start_date: 2015-01-01 # Overlaps all the things
-      stop_date: 2018-01-01
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2016-03-01
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2016-04-01
     - code_type: CPT
       code_value: 1126F
       start_date: 2015-12-31 # Early
@@ -598,8 +633,22 @@ patients:
       provider: Patty
     - code_type: CPT
       code_value: 51720 # Chemotherapy
-      start_date: 2015-01-01 # Overlaps all the things
-      stop_date: 2018-01-01
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2016-03-01
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2016-04-01
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2016-05-01
+    - code_type: CPT
+      code_value: 51720 # Chemotherapy
+      start_date: 2016-06-01
     - code_type: LOINC
       code_value: 38208-5
       start_date: 2015-12-31 # Early
