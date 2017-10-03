@@ -41,6 +41,8 @@ performance_met_reasons:
               value_set: "Able; MRI"
             - model: ClinicalActivity
               value_set: "Able; PET Scan"
+            - model: ClinicalActivity
+              value_set: "Able; Nuclear Medicine Scan"
     optional:
       code_value: 3320F
 exception_reasons:
@@ -89,7 +91,7 @@ exception_reasons:
     optional:
       code_value: 3319F-3P
 performance_not_met_reasons:
-  - config_link_id: 3319F-8P
+  - config_link_id: 3319F
     required:
       display_title: 'One of the following diagnostic imaging studies ordered; chest x-ray, CT, Ultrasound, MRI, PET, or nuclear medicine scans'
       validation_record_groups:
@@ -112,7 +114,7 @@ performance_not_met_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Performance Not Met: 3319F-8P"
+              value_set: "MIPS; Performance Not Met: 3319F"
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -123,5 +125,7 @@ performance_not_met_reasons:
               value_set: "Able; MRI"
             - model: ClinicalActivity
               value_set: "Able; PET Scan"
+            - model: ClinicalActivity
+              value_set: "Able; Nuclear Medicine Scan"
     optional:
-      code_value: 3319F-8P
+      code_value: 3319F

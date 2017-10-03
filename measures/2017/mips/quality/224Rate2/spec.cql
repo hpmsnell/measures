@@ -31,6 +31,7 @@ valueset "VSAC; Chest XRay Diagnostic Test"
 valueset "Able; CT Scan"
 valueset "Able; MRI"
 valueset "Able; PET Scan"
+valueset "Able; Nuclear Medicine Scan"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -51,6 +52,7 @@ define "Scan":
   union ["Diagnostic Study, Performed": "Able; CT Scan"]
   union ["Diagnostic Study, Performed": "Able; MRI"]
   union ["Diagnostic Study, Performed": "Able; PET Scan"]
+  union ["Diagnostic Study, Performed": "Able; Nuclear Medicine Scan"]
 
 define "Denominator":
   exists("Denominator Encounter")
