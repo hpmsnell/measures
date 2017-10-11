@@ -60,10 +60,7 @@ define "Numerator Performance Met: 4010F":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 4010F"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists(["Medication, Order": "VSAC; Ace Inhibitor or ARB"] M
-    with "Denominator Encounter with Diagnosis" E
-      such that M.relevantPeriod starts during E.relevantPeriod)
-  or exists(["Medication, Active": "VSAC; Ace Inhibitor or ARB"] M
+  or exists(["Medication": "VSAC; Ace Inhibitor or ARB"] M
     with "Denominator Encounter with Diagnosis" E
       such that M.relevantPeriod overlaps E.relevantPeriod)
 

@@ -247,26 +247,26 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: 3062F-8P
-      - name: ACE RxBefore # ACE inhibitor prescribed before MP
+      - name: ACE Before # ACE inhibitor prescribed before MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 3062F-8P
-      - name: ACE RxDuring # ACE inhibitor prescribed during MP
+      - name: ACE Lower # ACE inhibitor prescribed overlapping MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8506
-      - name: ACE ActiveBefore # ACE inhibitor active before MP
+      - name: ACE Upper # ACE inhibitor prescribed overlapping MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8506
+      - name: ACE After # ACE inhibitor prescribed after MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 3062F-8P
-      - name: ACE ActiveDuring # ACE inhibitor active during MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G8506
       - name: 3060F Failure # Performance not met 3060F-8P during MP
         denominator: 1
         denominator_exclusion:
@@ -530,26 +530,26 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: 3062F-8P
-      - name: ACE RxBefore # ACE inhibitor prescribed before MP
+      - name: ACE Before # ACE inhibitor prescribed before MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 3062F-8P
-      - name: ACE RxDuring # ACE inhibitor prescribed during MP
+      - name: ACE Lower # ACE inhibitor prescribed overlapping MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8506
-      - name: ACE ActiveBefore # ACE inhibitor active before MP
+      - name: ACE Upper # ACE inhibitor prescribed overlapping MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8506
+      - name: ACE After # ACE inhibitor prescribed after MP
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 3062F-8P
-      - name: ACE ActiveDuring # ACE inhibitor active during MP
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G8506
       - name: 3060F Failure # Performance not met 3060F-8P during MP
         denominator:
         denominator_exclusion:
@@ -1487,11 +1487,11 @@ patients:
       - code_type: ICD10CM
         code_value: E13.3522
         start_date: 2010-01-01
-  - name: ACE RxBefore
+  - name: ACE Before
     attributes:
       date_of_birth: 1988-03-22
       given_name: ACE
-      family_name: RxBefore
+      family_name: Before
       sex: Female
     clinical_models:
       clinical_activities:
@@ -1502,17 +1502,17 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 1000001
-        method: E
-        start_date: 2015-12-31
+        start_date: 2015-12-01
+        stop_date: 2015-12-31 # Early
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
         start_date: 2010-01-01
-  - name: ACE RxDuring
+  - name: ACE Lower
     attributes:
       date_of_birth: 1988-03-22
       given_name: ACE
-      family_name: RxDuring
+      family_name: Lower
       sex: Female
     clinical_models:
       clinical_activities:
@@ -1523,17 +1523,17 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 1000001
-        method: E
-        start_date: 2016-01-01
+        start_date: 2015-12-01
+        stop_date: 2016-01-01 # Early
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
         start_date: 2010-01-01
-  - name: ACE ActiveBefore
+  - name: ACE Upper
     attributes:
       date_of_birth: 1988-03-22
       given_name: ACE
-      family_name: ActiveBefore
+      family_name: Upper
       sex: Female
     clinical_models:
       clinical_activities:
@@ -1544,17 +1544,16 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 1000001
-        start_date: 2015-01-01
-        stop_date: 2015-12-31
+        start_date: 2016-12-31 # Early
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
         start_date: 2010-01-01
-  - name: ACE ActiveDuring
+  - name: ACE After
     attributes:
       date_of_birth: 1988-03-22
       given_name: ACE
-      family_name: ActiveDuring
+      family_name: After
       sex: Female
     clinical_models:
       clinical_activities:
@@ -1565,7 +1564,7 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 1000001
-        start_date: 2015-01-01
+        start_date: 2017-01-01 # Late
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522

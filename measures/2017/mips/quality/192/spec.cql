@@ -128,7 +128,7 @@ define "Denominator Exclusion":
   exists("Excluded Diagnoses" D
     with "Cataract Surgery" E
       where D.prevalencePeriod overlaps E.relevantPeriod)
-  or exists(["Medication, Active": "VSAC; Use of Systemic Sympathetic alpha-1a Antagonist Medication for Treatment of Prostatic Hypertrophy"] M
+  or exists(["Medication": "VSAC; Use of Systemic Sympathetic alpha-1a Antagonist Medication for Treatment of Prostatic Hypertrophy"] M
     with "Cataract Surgery" E
       where M.relevantPeriod overlaps E.relevantPeriod)
   or exists(["Procedure, Performed": "MIPS; Use of Systemic Sympathetic alpha-1a Antagonist Medication for Treatment of Prostatic Hypertrophy"] P

@@ -101,28 +101,47 @@ define "Negative Adult Screening Exists":
       such that P.relevantPeriod starts during E.relevantPeriod
         and AgeInYearsAt(start of E.relevantPeriod >= 18))
 
-define "Adolescent Follow-Up":
+define "Adolescent Follow-Up Procedure":
   ["Procedure, Performed": "VSAC; Follow-up for depression - adolescent"]
   union ["Procedure, Performed": "VSAC; Additional evaluation for depression - adolescent"]
   union ["Procedure, Performed": "VSAC; Referral for Depression Adolescent"]
   union ["Procedure, Performed": "VSAC; Suicide Risk Assessment"]
-  union ["Medication": "VSAC; Depression medications - adolescent"]
 
-define "Adult Follow-Up":
+define "Adolescent Follow-Up Medication"
+  ["Medication": "VSAC; Depression medications - adolescent"]
+
+define "Adult Follow-Up Procedure":
   ["Procedure, Performed": "VSAC; Follow-up for depression - adult"]
   union ["Procedure, Performed": "VSAC; Additional evaluation for depression - adult"]
   union ["Procedure, Performed": "VSAC; Referral for Depression Adult"]
   union ["Procedure, Performed": "VSAC; Suicide Risk Assessment"]
-  union ["Medication": "VSAC; Depression medications - adult"]
+
+define "Adult Follow-Up Medication"
+  ["Medication": "VSAC; Depression medications - adult"]
+
+define "Adolescent Follow-Up Exists":
+  exists("Adolescent Follow-Up Procedure" P
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts during E.relevantPeriod)
+  or exists("Adolescent Follow-Up Medication" M
+    with "Denominator Encounter" E
+      such that M.relevantPeriod overlaps E.relevantPeriod)
+
+define "Adult Follow-Up Exists":
+  exists("Adult Follow-Up Procedure" P
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts during E.relevantPeriod)
+  or exists("Adult Follow-Up Medication" M
+    with "Denominator Encounter" E
+      such that M.relevantPeriod overlaps E.relevantPeriod)
 
 define "Positive Adolescent Screening and Follow-Up Exist":
   "Positive Adolescent Screening Exists"
-  and exists("Adolescent Follow-Up" P
-    with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod)
+  and "Adolescent Follow-Up Exists"
 
 define "Positive Adult Screening and Follow-Up Exist":
   "Positive Adult Screening Exists"
+  and "Adult Follow-Up Exists"
   and exists("Adult Follow-Up" P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts during E.relevantPeriod)

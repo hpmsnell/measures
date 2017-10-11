@@ -39,20 +39,14 @@ define "Denominator Encounter":
     with ["Diagnosis": "MIPS; MIPS 410 Psoriasis"] D
       such that D.prevalencePeriod starts during E.relevantPeriod
 
-define "Psoriasis Medication Order":
-  ["Medication, Order": "Able; Biologic Medication for Psoriasis"]
-  union ["Medication, Order": "Able; Oral Systemic Medication for Psoriasis"]
-
-define "Psoriasis Medication Active":
-  ["Medication, Active": "Able; Biologic Medication for Psoriasis"]
-  union ["Medication, Active": "Able; Oral Systemic Medication for Psoriasis"]
+define "Psoriasis Medication":
+  ["Medication": "Able; Biologic Medication for Psoriasis"]
+  union ["Medication": "Able; Oral Systemic Medication for Psoriasis"]
 
 define "Psoriasis Medication Exists":
   exists(["Procedure, Performed": "MIPS; Medication for Psoriasis"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists("Psoriasis Medication Order" M
-    where M.relevantPeriod starts during "Measurement Period")
-  or exists("Psoriasis Medication Active" M
+  or exists("Psoriasis Medication" M
     where M.relevantPeriod overlaps "Measurement Period")
 
 define "Denominator":

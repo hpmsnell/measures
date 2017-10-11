@@ -136,10 +136,8 @@ define "Numerator Performance Met: G8506":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G8506"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists (["Medication, Order": "VSAC; ACE Inhibitor or ARB"] M
-      where M.startDateTime during "Measurement Period")
-  or exists (["Medication, Active": "VSAC; ACE Inhibitor or ARB"] M
-     where M.relevantPeriod overlaps "Measurement Period")
+  or exists (["Medication": "VSAC; ACE Inhibitor or ARB"] M
+      where M.relevantPeriod overlaps "Measurement Period")
 
 define "Numerator Performance Not Met: 3060F-8P":
   /*

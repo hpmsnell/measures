@@ -121,11 +121,8 @@ define "Hypertensive Procedure":
   ["Procedure, Performed": "VSAC; Laboratory Tests for Hypertension"]
   ["Procedure, Performed": "VSAC; ECG 12 lead or study order"]
 
-define "Hypertensive Medication Order":
-  ["Medication, Order": "Anti-Hypertensive Pharmacologic Therapy"]
-
-define "Hypertensive Medication Active":
-  ["Medication, Active": "Anti-Hypertensive Pharmacologic Therapy"]
+define "Hypertensive Medication":
+  ["Medication": "Anti-Hypertensive Pharmacologic Therapy"]
 
 define "Pre-Hypertensive Lifestyle Modification Exists":
   exists("Recommended Lifestyle Modification" P
@@ -164,9 +161,7 @@ define "Hypertensive Re-Screening Exists":
         and P1.authorDateTime more than 1 day after P2.authorDateTime)
 
 define "Second Hypertensive Intervention Exists":
-  exists("Hypertensive Medication Order" M
-    where M.relevantPeriod starts during "Measurement Year")
-  or exists("Hypertensive Medication Active" M
+  or exists("Hypertensive Medication" M
     where M.relevantPeriod overlaps "Measurement Year")
   or exists("Hypertensive Lab Test" L
     where L.resultDateTime during "Measurement Year")

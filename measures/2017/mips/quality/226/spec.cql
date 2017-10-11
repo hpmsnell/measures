@@ -82,9 +82,7 @@ define "Numerator Performance Met: 4004F":
     and (
       exists(["Intervention, Performed": "VSAC; Tobacco Use Cessation Counseling"] I
         where I.relevantPeriod starts during "Tobacco Interval")
-      or exists(["Medication, Order": "VSAC; Tobacco Use Cessation Pharmacotherapy"] M
-        where M.authorDateTime during "Tobacco Interval")
-      or exists(["Medication, Active": "VSAC; Tobacco Use Cessation Pharmacotherapy"] M
+      or exists(["Medication": "VSAC; Tobacco Use Cessation Pharmacotherapy"] M
         where M.relevantPeriod overlaps "Tobacco Interval")
     )
   )

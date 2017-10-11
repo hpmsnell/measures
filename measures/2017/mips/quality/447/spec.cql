@@ -65,18 +65,14 @@ define "Denominator Encounter in Prior Year":
       and E.signingProvider.hasMeasureMembership = true
 
 define "Sexual Activity Exists":
-  exists("Sexual Activity Medication Active" P
+  exists("Sexual Activity Medication" P
     where P.relevantPeriod overlaps "Measurement Period")
-  or exists("Sexual Activity Diagnosis" P
-    where P.prevalencePeriod overlaps "Measurement Period")
   or exists("Sexual Activity Procedure" E
     where E.relevantPeriod starts during "Measurement Period")
   or exists("Sexual Activity Lab Test" E
     where E.resultDateTime during "Measurement Period")
-  or exists("Sexual Activity Medication Order" E
-    where E.relevantPeriod starts during "Measurement Period")
 
-define "Sexual Activity Medication Active":
+define "Sexual Activity Medication":
   ["Medication, Active": "VSAC; Contraceptive Medications"]
 
 define "Sexual Activity Diagnosis":
@@ -102,9 +98,6 @@ define "Sexual Activity Lab Test":
   union ["Laboratory Test, Performed": "VSAC; Lab Tests During Pregnancy"]
   union ["Laboratory Test, Performed": "VSAC; Lab Tests for Sexually Transmitted Infections"]
 
-define "Sexual Activity Medication Order":
-  ["Medication, Order": "VSAC; Contraceptive Medications"]
-
 define "Positive Chlamydia Screening with Follow-Up Exists":
   exists("Positive Chlamydia Screening":)
   and "Chlamydia Follow-Up Exists"
@@ -122,7 +115,7 @@ define "Chlamydia Follow-Up Exists":
   exists("Chlamydia Screening" L2
     with "Positive Chlamydia Screening" L1
       such that L2.resultDateTime 30 days or less after L1.resultDateTime)
-  or exists(["Medication, Order": "Able; Chlamydia Medication"] M
+  or exists(["Medication": "Able; Chlamydia Medication"] M
     with "Positive Chlamydia Screening" L
       such that M.relevantPeriod starts 30 days or less after L.resultDateTime)
   or exists(["Procedure, Performed": "Able; STI Referral"] P

@@ -68,9 +68,7 @@ define "Denominator Exclusion 2":
   /*
    * config_link_id: exclusion_2
    */
-  exists(["Medication, Active": "VSAC; Anticoagulant"] M
-    where M.relevantPeriod overlaps "Measurement Period")
-  or exists(["Medication, Order": "VSAC; Anticoagulant"] M
+  exists(["Medication": "VSAC; Anticoagulant"] M
     where M.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Met: G8598":
@@ -79,9 +77,7 @@ define "Numerator Performance Met: G8598":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G8598"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists (["Medication, Order": "Able; Aspirin and Clopidogrel"] M
-    where M.authorDateTime during "Measurement Period")
-  or exists (["Medication, Active": "Able; Aspirin and Clopidogrel"] M
+  or exists (["Medication": "Able; Aspirin and Clopidogrel"] M
     where M.relevantPeriod overlaps "Measurement Period")
 
 define "Numerator Performance Not Met: G8599":

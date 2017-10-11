@@ -51,9 +51,7 @@ define "Numerator Performance Met: 4086F":
   /*
    * config_link_id: 4086F
    */
-  exists (["Medication, Order": "Able; Aspirin and Clopidogrel"] M
-    where M.authorDateTime during "Measurement Period")
-  or exists (["Medication, Active": "Able; Aspirin and Clopidogrel"] M
+  exists (["Medication": "Able; Aspirin and Clopidogrel"] M
     where M.relevantPeriod overlaps "Measurement Period")
   or exists(["Procedure, Performed": "MIPS; Performance Met: 4086F"] P
     where P.relevantPeriod starts during "Measurement Period")
@@ -67,13 +65,9 @@ define "Denominator Exception 1: 4086F-1P":
     where M.relevantPeriod starts during of "Measurement Period")
   or exists (["Allergy/Intolerance": "Able; Aspirin and Clopidogrel"] A
     where A.prevalencePeriod overlaps "Measurement Period")
-  or exists(["Medication, Order": "Able; Other Thienopyridine Agent"] M
-    where M.authorDateTime during of "Measurement Period")
-  or exists(["Medication, Active": "Able; Other Thienopyridine Agent"] M
+  or exists(["Medication": "Able; Other Thienopyridine Agent"] M
     where M.relevantPeriod overlaps "Measurement Period")
-  or exists(["Medication, Order": "VSAC; Warfarin"] M
-    where M.authorDateTime during of "Measurement Period")
-  or exists(["Medication, Active": "VSAC; Warfarin"] M
+  or exists(["Medication": "VSAC; Warfarin"] M
     where M.relevantPeriod overlaps "Measurement Period")
   or exists(["Diagnosis": "VSAC; Thrombocytopenia"]
     where M.prevalencePeriod overlaps "Measurement Period")

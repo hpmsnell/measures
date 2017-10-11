@@ -97,47 +97,22 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: 4004F-8P
-      - name: MedicationOrder Early # Tobacco user with Rx before interval
+      - name: Medication Early # Tobacco user with medication ending before interval
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4004F-8P
-      - name: MedicationOrder Lower # Tobacco user with Rx lower bound interval
+      - name: Medication Lower # Tobacco user with medication ending at lower bound interval
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4004F
-      - name: MedicationOrder Upper # Tobacco user with Rx upper bound interval
+      - name: Medication Upper # Tobacco user with medication starting at upper bound interval
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4004F
-      - name: MedicationOrder Late # Tobacco user with Rx after interval
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4004F-8P
-      - name: MedicationOrder Overlapping # Tobacco user with Rx overlapping interval
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4004F-8P
-      - name: MedicationActive Early # Tobacco user with medication ending before interval
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4004F-8P
-      - name: MedicationActive Lower # Tobacco user with medication ending at lower bound interval
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4004F
-      - name: MedicationActive Upper # Tobacco user with medication starting at upper bound interval
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4004F
-      - name: MedicationActive Late # Tobacco user with medication starting after interval
+      - name: Medication Late # Tobacco user with medication starting after interval
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -320,47 +295,22 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator: 4004F-8P
-        - name: MedicationOrder Early # Tobacco user with Rx before interval
+        - name: Medication Early # Tobacco user with medication ending before interval
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: 4004F-8P
-        - name: MedicationOrder Lower # Tobacco user with Rx lower bound interval
+        - name: Medication Lower # Tobacco user with medication ending at lower bound interval
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: 4004F
-        - name: MedicationOrder Upper # Tobacco user with Rx upper bound interval
+        - name: Medication Upper # Tobacco user with medication starting at upper bound interval
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: 4004F
-        - name: MedicationOrder Late # Tobacco user with Rx after interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: 4004F-8P
-        - name: MedicationOrder Overlapping # Tobacco user with Rx overlapping interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: 4004F-8P
-        - name: MedicationActive Early # Tobacco user with medication ending before interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: 4004F-8P
-        - name: MedicationActive Lower # Tobacco user with medication ending at lower bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: 4004F
-        - name: MedicationActive Upper # Tobacco user with medication starting at upper bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: 4004F
-        - name: MedicationActive Late # Tobacco user with medication starting after interval
+        - name: Medication Late # Tobacco user with medication starting after interval
           denominator: 1
           denominator_exclusion:
           denominator_exception:
@@ -744,116 +694,10 @@ patients:
       - code_type: SNOMEDCT
         code_value: 160603005
         start_date: 2016-01-01
-  - name: MedicationOrder Early
+  - name: Medication Early
     attributes:
       date_of_birth: 1988-03-22
-      given_name: MedicationOrder
-      family_name: Early
-      sex: Female
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 92522
-        start_date: 2016-02-01
-        provider: Rachel
-      medications:
-      - code_type: RXNORM
-        code_value: 1232585
-        method: E
-        start_date: 2014-12-31
-      diagnoses:
-      - code_type: SNOMEDCT
-        code_value: 160603005
-        start_date: 2016-01-01
-  - name: MedicationOrder Lower
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: MedicationOrder
-      family_name: Lower
-      sex: Female
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 92522
-        start_date: 2016-02-01
-        provider: Rachel
-      medications:
-      - code_type: RXNORM
-        code_value: 1232585
-        method: E
-        start_date: 2015-01-01
-      diagnoses:
-      - code_type: SNOMEDCT
-        code_value: 160603005
-        start_date: 2016-01-01
-  - name: MedicationOrder Upper
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: MedicationOrder
-      family_name: Upper
-      sex: Female
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 92522
-        start_date: 2016-02-01
-        provider: Rachel
-      medications:
-      - code_type: RXNORM
-        code_value: 1232585
-        method: E
-        start_date: 2016-12-31
-      diagnoses:
-      - code_type: SNOMEDCT
-        code_value: 160603005
-        start_date: 2016-01-01
-  - name: MedicationOrder Late
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: MedicationOrder
-      family_name: Late
-      sex: Female
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 92522
-        start_date: 2016-02-01
-        provider: Rachel
-      medications:
-      - code_type: RXNORM
-        code_value: 1232585
-        method: E
-        start_date: 2017-01-01
-      diagnoses:
-      - code_type: SNOMEDCT
-        code_value: 160603005
-        start_date: 2016-01-01
-  - name: MedicationOrder Overlapping
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: MedicationOrder
-      family_name: Overlapping
-      sex: Female
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 92522
-        start_date: 2016-02-01
-        provider: Rachel
-      medications:
-      - code_type: RXNORM
-        code_value: 1232585
-        method: E
-        start_date: 2014-12-31
-        stop_date: 2015-12-31
-      diagnoses:
-      - code_type: SNOMEDCT
-        code_value: 160603005
-        start_date: 2016-01-01
-  - name: MedicationActive Early
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: MedicationActive
+      given_name: Medication
       family_name: Early
       sex: Female
     clinical_models:
@@ -871,10 +715,10 @@ patients:
       - code_type: SNOMEDCT
         code_value: 160603005
         start_date: 2016-01-01
-  - name: MedicationActive Lower
+  - name: Medication Lower
     attributes:
       date_of_birth: 1988-03-22
-      given_name: MedicationActive
+      given_name: Medication
       family_name: Lower
       sex: Female
     clinical_models:
@@ -892,10 +736,10 @@ patients:
       - code_type: SNOMEDCT
         code_value: 160603005
         start_date: 2016-01-01
-  - name: MedicationActive Upper
+  - name: Medication Upper
     attributes:
       date_of_birth: 1988-03-22
-      given_name: MedicationActive
+      given_name: Medication
       family_name: Upper
       sex: Female
     clinical_models:
@@ -912,10 +756,10 @@ patients:
       - code_type: SNOMEDCT
         code_value: 160603005
         start_date: 2016-01-01
-  - name: MedicationActive Late
+  - name: Medication Late
     attributes:
       date_of_birth: 1988-03-22
-      given_name: MedicationActive
+      given_name: Medication
       family_name: Late
       sex: Female
     clinical_models:

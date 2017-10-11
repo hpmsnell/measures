@@ -29,9 +29,8 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Pain Intervention":
-  ["Procedure, Performed": "Able; Pain Intervention"]
-  union ["Medication": "Able; Opioids Used for Pain Control"]
+define "Pain Medication":
+  ["Medication": "Able; Opioids Used for Pain Control"]
   union ["Medication": "Able; Selected Non Opioids for Moderate to Severe Pain"]
 
 define "Denominator":
@@ -45,8 +44,11 @@ define "Numerator Performance Met: 0521F":
     with ["Procedure, Performed": "MIPS; Performance Met: 0521F"] P
       such that P.relevantPeriod starts during E.relevantPeriod
   or "Denominator Encounter" E
-    with "Pain Intervention" P
+    with ["Procedure, Performed": "Able; Pain Intervention"] P
       such that P.relevantPeriod starts during E.relevantPeriod
+  or "Denominator Encounter" E
+    with "Pain Medication" M
+      such that M.relevantPeriod overlaps E.relevantPeriod
 
 define "Numerator Performance Not Met: 0521F-8P":
   /*

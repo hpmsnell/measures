@@ -86,12 +86,6 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: G8628
-      - name: Excluded Medication # Medication order invalid
-        start_date: 2016-06-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G8628
       - name: PerformanceMet G8627 # Performance met G8627 before MP
         start_date: 2016-02-01
         denominator: 1
@@ -223,12 +217,6 @@ test_set_keys:
           numerator:
         - name: Excluded Medication # Medication exclusion after interval
           start_date: 2016-05-01
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G8628
-        - name: Excluded Medication # Medication order invalid
-          start_date: 2016-06-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
@@ -441,11 +429,6 @@ patients:
       code_value: 1100691
       start_date: 2016-05-03 # Layr
       stop_date: 2016-05-03
-    - code_type: RXNORM
-      code_value: 1100691
-      method: E # Order
-      start_date: 2016-06-01
-      stop_date: 2016-04-03
 - name: PerformanceMet G8627
   attributes:
     date_of_birth: 1988-03-22

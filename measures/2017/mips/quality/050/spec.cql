@@ -44,7 +44,6 @@ define "Patient Age at Encounter":
 define "Urinary Incontinence Intervention":
   ["Intervention, Performed": "Able; Urinary Incontinence Intervention"]
   union ["Procedure, Performed": "VSAC; Urological Surgery"]
-  union ["Medication, Order": "Able; Urinary Incontinence Medication"]
 
 define "Denominator":
   exists("Denominator Encounter")
@@ -68,6 +67,8 @@ define "Numerator Performance Met: 0509F":
     where P.relevantPeriod starts during "Measurement Period")
   or exists(["Assessment, Performed": "Able; Urinary Incontinence Intervention"] P
     where P.relevantPeriod starts during "Measurement Period")
+  or exists(["Medication, Order": "Able; Urinary Incontinence Medication"] M
+    where M.relevantPeriod overlaps "Measurement Period")
 
 define "Numerator Performance Not Met: 0509F-8P":
   /*
