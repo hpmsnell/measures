@@ -22,6 +22,11 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
+    - name: Encounter DifferentProviders # Encounters have different signing providers
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9636
     - name: Diagnosis Before # Patient has a diagnosis that is early
       denominator:
       denominator_exclusion:
@@ -101,6 +106,11 @@ test_set_keys:
       denominator_exception:
       numerator: G9636
     - name: Encounter After  # Encounter is after allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter DifferentProviders # Encounters have different signing providers
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -190,6 +200,11 @@ patients:
       start_date: 2015-12-31 # Too early
       stop_date: 2015-12-31
       provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+      provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: G43.001
@@ -206,6 +221,11 @@ patients:
       code_value: 99201
       start_date: 2016-01-01 # Too early
       stop_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
@@ -224,6 +244,11 @@ patients:
       start_date: 2016-12-31 # Too early
       stop_date: 2016-12-31
       provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+      provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: G43.001
@@ -241,6 +266,33 @@ patients:
       start_date: 2017-01-01 # Too early
       stop_date: 2017-01-01
       provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G43.001
+      start_date: 2010-01-01
+- name: Encounter DifferentProviders
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: DifferentProviders
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+      provider: Patty # Different provider
     diagnoses:
     - code_type: ICD10CM
       code_value: G43.001
@@ -257,6 +309,11 @@ patients:
       code_value: 99201
       start_date: 2016-02-01
       stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      stop_date: 2016-01-02
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
@@ -276,6 +333,11 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      stop_date: 2016-01-02
+      provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: G43.001
@@ -294,6 +356,11 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      stop_date: 2016-01-02
+      provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: G43.001
@@ -311,6 +378,11 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      stop_date: 2016-01-02
+      provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: G43.001
@@ -327,6 +399,11 @@ patients:
       code_value: 99201
       start_date: 2016-02-01
       stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
       provider: Rachel
     - code_type: CPT
       code_value: G9634 # Performance Met
@@ -349,6 +426,11 @@ patients:
       stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+      provider: Rachel
+    - code_type: CPT
       code_value: G9634 # Performance Met
       start_date: 2016-01-01 # Lower
     diagnoses:
@@ -367,6 +449,11 @@ patients:
       code_value: 99201
       start_date: 2016-02-01
       stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
       provider: Rachel
     - code_type: CPT
       code_value: G9634 # Performance Met
@@ -389,6 +476,11 @@ patients:
       stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+      provider: Rachel
+    - code_type: CPT
       code_value: G9634 # Performance Met
       start_date: 2017-01-01 # Late
     diagnoses:
@@ -407,6 +499,11 @@ patients:
       code_value: 99201
       start_date: 2016-02-01
       stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
       provider: Patty
     - code_type: CPT
       code_value: G9635
@@ -429,6 +526,11 @@ patients:
       stop_date: 2016-02-02
       provider: Patty
     - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+      provider: Patty
+    - code_type: CPT
       code_value: G9635
       start_date: 2016-01-01 # Lower
     diagnoses:
@@ -449,6 +551,11 @@ patients:
       stop_date: 2016-02-02
       provider: Patty
     - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+      provider: Patty
+    - code_type: CPT
       code_value: G9635
       start_date: 2016-12-31 # Upper
     diagnoses:
@@ -467,6 +574,11 @@ patients:
       code_value: 99201
       start_date: 2016-02-01
       stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
       provider: Patty
     - code_type: CPT
       code_value: G9635

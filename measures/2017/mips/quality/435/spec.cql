@@ -23,16 +23,20 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Patient Age at Encounter":
+define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 435 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
       and not E.code.modifier in {'GQ', 'GT'}
       and E.signingProvider.hasMeasureMembership = true
+
+define "Denominator Encounter with Diagnosis":
+  "Denominator Encounter" E
     with ["Diagnosis": "MIPS; Primary Headache"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod
 
 define "Denominator":
-  exists("Denominator Encounter")
+  exists("Denominator Encounter with Diagnosis")
+  and count("Denominator Encounter") >= 2
 
 define "Numerator Performance Met: G9634":
   /*
