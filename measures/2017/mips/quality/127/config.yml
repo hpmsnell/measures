@@ -29,7 +29,7 @@ performance_met_reasons:
               value_set: "MIPS; Performance Met: G8410"
         - count: 1
           validation_records:
-            - model: Able
+            - model: ClinicalActivity
               value_set: "Able; Footwear Assessment"
     optional:
       code_value: G8410
@@ -73,5 +73,9 @@ performance_not_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Not Met: G8415"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Footwear Assessment"
     optional:
       code_value: G8415
