@@ -1,0 +1,119 @@
+measure:
+  name: 17.MIPS.Mips126
+  required:
+    display_title: "Diabetes Mellitus: Diabetic Foot and Ankle Care, Peripheral Neuropathy – Neurological Evaluation"
+  optional:
+    gap_resolution_action: "Patient requires a neurological examination of lower extremities"
+    set: MIPS
+    external_id: '126'
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: 'Patient excluded due to bilateral amputation'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 126 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; MIPS 126 Diabetes
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "Able; Bilateral Amputee"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "Able; Left Foot Amputee"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "Able; Right Foot Amputee"
+  - config_link_id: exclusion_2
+    required:
+      display_title: 'Patient excluded due to condition inhibiting ability to respond to exam'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 126 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; MIPS 126 Diabetes
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "Able; Cognitive and Psychiatric Disorders Indicative of Impaired Cognition"
+performance_met_reasons:
+  - config_link_id: G8404
+    required:
+      display_title: 'Lower extremity neurological exam performed and documented'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 126 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; MIPS 126 Diabetes
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8404"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Monofilament Exam"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Foot Vibration Exam"
+            - model: ClinicalActivity
+              value_set: "Able; Ankle Reflex Exam"
+            - model: ClinicalActivity
+              value_set: "Able; Foot Pin Prick Exam"
+    optional:
+      code_value: G8404
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: G8405
+    required:
+      display_title: "Lower extremity neurological exam not performed"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 126 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; MIPS 126 Diabetes
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8404"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G8405"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Monofilament Exam"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Foot Vibration Exam"
+            - model: ClinicalActivity
+              value_set: "Able; Ankle Reflex Exam"
+            - model: ClinicalActivity
+              value_set: "Able; Foot Pin Prick Exam"
+    optional:
+      code_value: G8405
