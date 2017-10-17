@@ -1,0 +1,225 @@
+measure:
+  name: 17.MIPS.Mips438Rate1
+  required:
+    display_title: "Statin Therapy for the Prevention and Treatment of Cardiovascular Disease: Patients with ASCVD"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: '438'
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: 'Patient excluded due to pregnancy or breastfeeding'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 438 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Clinical Atherosclerotic Cardiovascular Disease (ASCVD)"
+            - model: ClinicalActivity
+              value_set: "VSAC; PCI"
+            - model: ClinicalActivity
+              value_set: "VSAC; Carotid Intervention"
+            - model: ClinicalActivity
+              value_set: "VSAC; CABG Surgeries"
+            - model: Diagnosis
+              value_set: "VSAC; Myocardial Infarction"
+            - model: Diagnosis
+              value_set: "VSAC; Ischemic heart disease or coronary occlusion, rupture, or thrombosis"
+            - model: Diagnosis
+              value_set: "VSAC; Stable and Unstable Angina"
+            - model: Diagnosis
+              value_set: "VSAC; Cerebrovascular disease, Stroke, TIA"
+            - model: Diagnosis
+              value_set: "VSAC; Atherosclerosis and Peripheral Arterial Disease"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Pregnancy Exclusion"
+            - model: Diagnosis
+              value_set: "VSAC; Pregnancy Dx"
+            - model: ClinicalActivity
+              value_set: "MIPS; Breastfeeding Exclusion"
+            - model: Diagnosis
+              value_set: "VSAC; Breastfeeding"
+  - config_link_id: exclusion_2
+    required:
+      display_title: 'Patient excluded due to a diagnosis of rhabdomyolysis'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 438 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Clinical Atherosclerotic Cardiovascular Disease (ASCVD)"
+            - model: ClinicalActivity
+              value_set: "VSAC; PCI"
+            - model: ClinicalActivity
+              value_set: "VSAC; Carotid Intervention"
+            - model: ClinicalActivity
+              value_set: "VSAC; CABG Surgeries"
+            - model: Diagnosis
+              value_set: "VSAC; Myocardial Infarction"
+            - model: Diagnosis
+              value_set: "VSAC; Ischemic heart disease or coronary occlusion, rupture, or thrombosis"
+            - model: Diagnosis
+              value_set: "VSAC; Stable and Unstable Angina"
+            - model: Diagnosis
+              value_set: "VSAC; Cerebrovascular disease, Stroke, TIA"
+            - model: Diagnosis
+              value_set: "VSAC; Atherosclerosis and Peripheral Arterial Disease"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Rhabdomyolysis"
+            - model: ClinicalActivity
+              value_set: "MIPS; Rhabdomyolysis Exclusion"
+performance_met_reasons:
+  - config_link_id: G9664
+    required:
+      display_title: 'Patients who are currently statin therapy users or received an order (prescription) for statin therapy'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 438 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Clinical Atherosclerotic Cardiovascular Disease (ASCVD)"
+            - model: ClinicalActivity
+              value_set: "VSAC; PCI"
+            - model: ClinicalActivity
+              value_set: "VSAC; Carotid Intervention"
+            - model: ClinicalActivity
+              value_set: "VSAC; CABG Surgeries"
+            - model: Diagnosis
+              value_set: "VSAC; Myocardial Infarction"
+            - model: Diagnosis
+              value_set: "VSAC; Ischemic heart disease or coronary occlusion, rupture, or thrombosis"
+            - model: Diagnosis
+              value_set: "VSAC; Stable and Unstable Angina"
+            - model: Diagnosis
+              value_set: "VSAC; Cerebrovascular disease, Stroke, TIA"
+            - model: Diagnosis
+              value_set: "VSAC; Atherosclerosis and Peripheral Arterial Disease"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; Low intensity statin therapy"
+            - model: Medication
+              value_set: "VSAC; Moderate intensity statin therapy"
+            - model: Medication
+              value_set: "VSAC; High intensity statin therapy"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9664"
+    optional:
+      code_value: G9664
+exception_reasons:
+  - config_link_id: G9781
+    required:
+      display_title: 'Documentation of medical reason(s) for not currently being a statin therapy user or receive an order (prescription) for statin therapy (e.g., patient with adverse effect, allergy or intolerance to statin medication therapy, patients who are receiving palliative care, patients with active liver disease or hepatic disease or insufficiency, and patients with end stage renal disease (ESRD)'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 438 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Clinical Atherosclerotic Cardiovascular Disease (ASCVD)"
+            - model: ClinicalActivity
+              value_set: "VSAC; PCI"
+            - model: ClinicalActivity
+              value_set: "VSAC; Carotid Intervention"
+            - model: ClinicalActivity
+              value_set: "VSAC; CABG Surgeries"
+            - model: Diagnosis
+              value_set: "VSAC; Myocardial Infarction"
+            - model: Diagnosis
+              value_set: "VSAC; Ischemic heart disease or coronary occlusion, rupture, or thrombosis"
+            - model: Diagnosis
+              value_set: "VSAC; Stable and Unstable Angina"
+            - model: Diagnosis
+              value_set: "VSAC; Cerebrovascular disease, Stroke, TIA"
+            - model: Diagnosis
+              value_set: "VSAC; Atherosclerosis and Peripheral Arterial Disease"
+        - count: 1
+          validation_records:
+            - model: Allergy
+              value_set: "VSAC; Statin Allergen"
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS Hospice Service"
+            - model: Diagnosis
+              value_set: "VSAC; End Stage Renal Disease"
+            - model: Diagnosis
+              value_set: "VSAC; Liver Disease"
+            - model: Diagnosis
+              value_set: "VSAC; Hepatitis A"
+            - model: Diagnosis
+              value_set: "VSAC; Hepatitis B"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G9781"
+    optional:
+      code_value: G9781
+performance_not_met_reasons:
+  - config_link_id: G9665
+    required:
+      display_title: 'Patients who are not currently statin therapy users or did not receive an order (prescription) for statin therapy'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 438 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Clinical Atherosclerotic Cardiovascular Disease (ASCVD)"
+            - model: ClinicalActivity
+              value_set: "VSAC; PCI"
+            - model: ClinicalActivity
+              value_set: "VSAC; Carotid Intervention"
+            - model: ClinicalActivity
+              value_set: "VSAC; CABG Surgeries"
+            - model: Diagnosis
+              value_set: "VSAC; Myocardial Infarction"
+            - model: Diagnosis
+              value_set: "VSAC; Ischemic heart disease or coronary occlusion, rupture, or thrombosis"
+            - model: Diagnosis
+              value_set: "VSAC; Stable and Unstable Angina"
+            - model: Diagnosis
+              value_set: "VSAC; Cerebrovascular disease, Stroke, TIA"
+            - model: Diagnosis
+              value_set: "VSAC; Atherosclerosis and Peripheral Arterial Disease"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; Low intensity statin therapy"
+            - model: Medication
+              value_set: "VSAC; Moderate intensity statin therapy"
+            - model: Medication
+              value_set: "VSAC; High intensity statin therapy"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9664"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9665"
+    optional:
+      code_value: G9665
