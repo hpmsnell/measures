@@ -46,6 +46,7 @@ define "Denominator Encounter":
     with ["Diagnosis": "MIPS; Pharyngitis"] D
       such that D.prevalencePeriod starts during E.relevantPeriod
     and with "Antibiotic Prescription" M
+      where M.signingProvider.hasMeasureMembership = true
       such that M.relevantPeriod starts on or 3 days or less after start of E.relevantPeriod
 
 define "Denominator":

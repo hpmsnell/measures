@@ -44,6 +44,7 @@ define "Performance Met Exists":
     with "Denominator Encounter" E
       such that M.relevantPeriod starts on or 10 days or less after start of E.relevantPeriod)
   or exists(["Medication, Order": "Able; Systemic Antibiotics"] M
+    where E.signingProvider.hasMeasureMembership = true
     with "Denominator Encounter" E
       such that M.relevantPeriod starts on or 10 days or less after start of E.relevantPeriod)
 

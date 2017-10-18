@@ -84,6 +84,7 @@ define "Numerator Performance Met: G8708":
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 3 days or less after start of E.relevantPeriod)
   or not exists(["Medication, Order": "VSAC; Antibiotic Medications for Pharyngitis"] M
+    where E.signingProvider.hasMeasureMembership = true
     with "Denominator Encounter" E
       such that M.relevantPeriod starts on or 3 days or less after start of E.relevantPeriod)
 

@@ -52,18 +52,20 @@ define "Prescription Start Date":
   "Asthma Controller Prescription" M
     return start of M.relevantPeriod
 
+define "Prescription Stop Date":
+  "Asthma Controller Prescription" M
+    return end of M.relevantPeriod
+
 define "Prescription Duration":
   Min(
     {
-      "Asthma Controller Prescription" M
-        return M.days_supplied,
+      days between "Prescription Start Date" and "Prescription stop Date",
       days between "Prescription Start Date" and end of "Measurement Period"
     }
   )
 
 define "Sum of Prescription Durations":
-  Sum("Asthma Controller Prescription" M
-    return M.duration)
+  Sum(days between "Prescription Start Date" and "Prescription Stop Date")
 
 define "First Prescription Start Date":
   First("Prescription Start Date")

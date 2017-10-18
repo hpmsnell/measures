@@ -59,6 +59,7 @@ define "Denominator Encounter":
     with "Bacterial Sinusitis" D2
       such that D2.prevalencePeriod starts during E.relevantPeriod
     with "Antibiotic" M
+      where E.signingProvider.hasMeasureMembership = true
       such that M.relevantPeriod starts 10 days or less after start of E.relevantPeriod
 
 define "Coexisting Diagnosis":
@@ -75,6 +76,7 @@ define "Numerator Performance Met: G9315":
   exists(["Procedure, Performed": "Performance Met: G9315"] P
     where P.relevantPeriod starts during "Measurement Period"
   or exists(["Medication, Order": "Able; Amoxicillin"] M
+    where E.signingProvider.hasMeasureMembership = true
     with "Denominator Encounter" E
       such that M.relevantPeriod starts during E.relevantPeriod)
 

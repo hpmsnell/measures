@@ -520,14 +520,14 @@ patients:
       - code_type: RXNORM
         code_value: 854894
         method: E
-        days_supplied: 91
         start_date: 2016-01-01
+        stop_date: 2016-04-01 # 91 days
         provider: Rachel
       - code_type: RXNORM
         code_value: 854894
         method: E
-        days_supplied: 1
         start_date: 2016-02-01
+        stop_date: 2016-02-02 # 1 day
         provider: Rachel
   - name: 1Medication 90Days
     attributes:
@@ -546,14 +546,15 @@ patients:
       - code_type: RXNORM
         code_value: 311992
         method: E
-        days_supplied: 90
         start_date: 2016-01-01
+        stop_date: 2016-03-31 # 90 days
         provider: Rachel
       - code_type: RXNORM
         code_value: 1232194
         method: E
         days_supplied: 90
-        start_date: 2016-02-01
+        start_date: 2016-01-01
+        stop_date: 2016-03-31 # 90 days
         provider: Rachel
   - name: 2Medications DifferentProvider
     attributes:
@@ -697,20 +698,20 @@ patients:
       - code_type: RXNORM
         code_value: 485465
         method: E
-        days_supplied: 90
         start_date: 2016-01-01
+        stop_date: 2016-03-31 # 90 days
         provider: Patty
       - code_type: RXNORM
         code_value: 485465
         method: E
-        days_supplied: 1
         start_date: 2016-01-01
+        stop_date: 2016-01-02 # 1 day
         provider: Patty
       - code_type: RXNORM
         code_value: 854894
         method: E
-        days_supplied: 91
         start_date: 2016-01-01
+        stop_date: 2016-04-01 # 91 days
         provider: Patty
   - name: 2Medications 90Days
     attributes:
@@ -729,15 +730,23 @@ patients:
       - code_type: RXNORM
         code_value: 485465
         method: E
-        days_supplied: 90
         start_date: 2016-01-01
+        stop_date: 2016-03-31 # 90 days
         provider: Patty
+      - code_type: RXNORM
+        code_value: 485465
+        method: E
+        start_date: 2016-01-01
+        stop_date: 2016-01-02 # 1 day
+        provider: Patty
+        provider: Rachel
       - code_type: RXNORM
         code_value: 854894
         method: E
-        days_supplied: 90
         start_date: 2016-01-01
+        stop_date: 2016-03-31 # 90 days
         provider: Patty
+        provider: Rachel
   - name: Medication Active
     attributes:
       date_of_birth: 1940-03-22
@@ -754,16 +763,16 @@ patients:
       medications:
       - code_type: RXNORM
         code_value: 485465
-        days_supplied: 90
         start_date: 2016-01-01
+        stop_date: 2016-03-31 # 90 days
         provider: Patty
       - code_type: RXNORM
         code_value: 485465
-        days_supplied: 1
         start_date: 2016-01-01
+        stop_date: 2016-01-02 # 1 day
         provider: Patty
       - code_type: RXNORM
         code_value: 854894
-        days_supplied: 91
         start_date: 2016-01-01
+        stop_date: 2016-03-31 # 90 days
         provider: Patty

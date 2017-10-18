@@ -27,7 +27,7 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: Denominator Encounter # Early
-      start_date: 2015-12-01
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -39,7 +39,7 @@ test_set_keys:
       denominator_exception:
       numerator: 3210F-8P
     - name: Denominator Encounter # Upper bound
-      start_date: 2016-12-01
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -75,7 +75,7 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: Denominator Antibiotic # Early
-      start_date: 2016-02-01
+      start_date: 2016-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -111,25 +111,25 @@ test_set_keys:
       denominator_exception:
       numerator: 3210F-8P
     - name: ExistingAntibiotic Exclusion # Lower bound
-      start_date: 2016-03-01
-      denominator: 1
-      denominator_exclusion: exclusion_1
-      denominator_exception:
-      numerator:
-    - name: ExistingAntibiotic Exclusion # Upper bound
       start_date: 2016-04-01
       denominator: 1
       denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
+    - name: ExistingAntibiotic Exclusion # Upper bound
+      start_date: 2016-06-01
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
     - name: ExistingAntibiotic Exclusion # Late
-      start_date: 2016-05-01
+      start_date: 2016-08-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3210F-8P
     - name: ExistingAntibiotic Exclusion # Medication code
-      start_date: 2016-06-01
+      start_date: 2016-10-01
       denominator: 1
       denominator_exclusion: exclusion_1
       denominator_exception:
@@ -234,7 +234,7 @@ test_set_keys:
         denominator_exception:
         numerator:
       - name: Denominator Encounter # Early
-        start_date: 2015-12-01
+        start_date: 2015-12-31
         denominator:
         denominator_exclusion:
         denominator_exception:
@@ -246,7 +246,7 @@ test_set_keys:
         denominator_exception:
         numerator: 3210F-8P
       - name: Denominator Encounter # Upper bound
-        start_date: 2016-12-01
+        start_date: 2016-12-31
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -282,7 +282,7 @@ test_set_keys:
         denominator_exception:
         numerator:
       - name: Denominator Antibiotic # Early
-        start_date: 2016-02-01
+        start_date: 2016-01-01
         denominator:
         denominator_exclusion:
         denominator_exception:
@@ -318,19 +318,19 @@ test_set_keys:
         denominator_exception:
         numerator: 3210F-8P
       - name: ExistingAntibiotic Exclusion # Lower bound
-        start_date: 2016-03-01
-        denominator: 1
-        denominator_exclusion: exclusion_1
-        denominator_exception:
-        numerator:
-      - name: ExistingAntibiotic Exclusion # Upper bound
         start_date: 2016-04-01
         denominator: 1
         denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
+      - name: ExistingAntibiotic Exclusion # Upper bound
+        start_date: 2016-06-01
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
       - name: ExistingAntibiotic Exclusion # Late
-        start_date: 2016-05-01
+        start_date: 2016-08-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -391,28 +391,28 @@ test_set_keys:
         numerator: 3210F-8P
       - name: PerformanceMet StrepTest # Early
         start_date: 2016-02-01
-        denominator:
+        denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator:
+        numerator: 3210F-8P
       - name: PerformanceMet StrepTest # Lower bound
         start_date: 2016-03-01
-        denominator:
+        denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator:
+        numerator: 3210F
       - name: PerformanceMet StrepTest # Upper bound
         start_date: 2016-04-01
-        denominator:
+        denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator:
+        numerator: 3210F
       - name: PerformanceMet StrepTest # Late
         start_date: 2016-05-01
-        denominator:
+        denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator:
+        numerator: 3210F-8P
 providers:
   - given_name: Rachel
     family_name:  Katz
@@ -438,7 +438,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-02-01
     diagnoses:
@@ -458,7 +458,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-02-01
     diagnoses:
@@ -478,7 +478,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-02-01
     diagnoses:
@@ -498,7 +498,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-02-01
     diagnoses:
@@ -518,7 +518,7 @@ patients:
       start_date: 2015-12-31 # Too early
       stop_date: 2015-12-31
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2015-12-31
     - code_type: CPT
@@ -526,7 +526,7 @@ patients:
       start_date: 2016-01-01 # Lower bound
       stop_date: 2016-01-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-01-01
     - code_type: CPT
@@ -534,7 +534,7 @@ patients:
       start_date: 2016-12-31 # Upper bound
       stop_date: 2016-12-31
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-12-31
     - code_type: CPT
@@ -542,7 +542,7 @@ patients:
       start_date: 2017-01-01 # Too late
       stop_date: 2017-01-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2017-01-01
     diagnoses:
@@ -571,7 +571,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-02-01
     - code_type: CPT
@@ -579,7 +579,7 @@ patients:
       start_date: 2016-03-01
       stop_date: 2016-03-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-03-01
     - code_type: CPT
@@ -587,7 +587,7 @@ patients:
       start_date: 2016-04-01
       stop_date: 2016-04-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-04-01
     - code_type: CPT
@@ -595,7 +595,7 @@ patients:
       start_date: 2016-05-01
       stop_date: 2016-05-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-05-01
     diagnoses:
@@ -621,8 +621,8 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99219
-      start_date: 2016-02-01
-      stop_date: 2016-02-02
+      start_date: 2016-01-01
+      stop_date: 2016-01-02
       provider: Rachel
     - code_type: CPT
       code_value: 99219
@@ -647,7 +647,7 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: J02.0
-      start_date: 2016-02-01
+      start_date: 2016-01-01
     - code_type: ICD10CM
       code_value: J02.0
       start_date: 2016-03-01
@@ -664,22 +664,27 @@ patients:
     - code_type: RXNORM
       code_value: 1013659
       method: E
-      start_date: 2016-01-31 # Too early
+      start_date: 2015-12-31 # Too early
+      provider: Rachel
     - code_type: RXNORM
       code_value: 1013659
       method: E
       start_date: 2016-03-01 # Lower bound
+      provider: Rachel
     - code_type: RXNORM
       code_value: 1013659
       method: E
       start_date: 2016-04-04 # Upper bound
+      provider: Rachel
     - code_type: RXNORM
       code_value: 1013659
       method: E
       start_date: 2016-05-05 # Too late
+      provider: Rachel
     - code_type: RXNORM
       code_value: 1013659 # Active
       start_date: 2016-06-01
+      provider: Rachel
 - name: ExistingAntibiotic Exclusion
   attributes:
     date_of_birth: 2000-01-01
@@ -693,73 +698,73 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-02-01
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G9701
       start_date: 2016-01-01 # Too early
-    - code_type: CPT
-      code_value: 99219
-      start_date: 2016-03-01
-      stop_date: 2016-03-01
-      provider: Rachel
-    - code_type: HCPCS
-      code_value: G8711
-      start_date: 2016-03-01
-    - code_type: HCPCS
-      code_value: G9701
-      start_date: 2016-01-31 # Lower bound
     - code_type: CPT
       code_value: 99219
       start_date: 2016-04-01
       stop_date: 2016-04-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-04-01
-    - code_type: HCPCS
-      code_value: G9701
-      start_date: 2016-03-31 # Upper bound
     - code_type: CPT
-      code_value: 99219
-      start_date: 2016-05-01
-      stop_date: 2016-05-01
-      provider: Rachel
-    - code_type: HCPCS
-      code_value: G8711
-      start_date: 2016-05-01
-    - code_type: HCPCS
       code_value: G9701
-      start_date: 2016-05-01 # Too late
+      start_date: 2016-03-02 # Lower bound
     - code_type: CPT
       code_value: 99219
       start_date: 2016-06-01
       stop_date: 2016-06-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-06-01
+    - code_type: CPT
+      code_value: G9701
+      start_date: 2016-05-31 # Upper bound
+    - code_type: CPT
+      code_value: 99219
+      start_date: 2016-08-01
+      stop_date: 2016-08-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8711 # Patient prescribed antibiotic
+      start_date: 2016-08-01
+    - code_type: CPT
+      code_value: G9701 # Existing use of antibiotic
+      start_date: 2016-08-01 # Too late
+    - code_type: CPT
+      code_value: 99219
+      start_date: 2016-10-01
+      stop_date: 2016-10-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8711 # Patient prescribed antibiotic
+      start_date: 2016-10-01
     diagnoses:
     - code_type: ICD10CM
       code_value: J02.0
       start_date: 2016-02-01
     - code_type: ICD10CM
       code_value: J02.0
-      start_date: 2016-03-01
-    - code_type: ICD10CM
-      code_value: J02.0
       start_date: 2016-04-01
     - code_type: ICD10CM
       code_value: J02.0
-      start_date: 2016-05-01
+      start_date: 2016-06-01
     - code_type: ICD10CM
       code_value: J02.0
-      start_date: 2016-06-01
+      start_date: 2016-08-01
+    - code_type: ICD10CM
+      code_value: J02.0
+      start_date: 2016-10-01
     medications:
     - code_type: RXNORM
       code_value: 1013659 # Medication
-      start_date: 2016-05-31
+      start_date: 2016-09-01
 - name: Hospice Before
   attributes:
     date_of_birth: 2000-01-01
@@ -773,10 +778,10 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-02-01
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G9700
       start_date: 2015-12-31 # Too early
     diagnoses:
@@ -796,12 +801,13 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-02-01
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G9700
       start_date: 2016-01-01 # Lower bound
+      provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: J02.0
@@ -819,12 +825,13 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-02-01
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G9700
       start_date: 2016-12-31 # Upper bound
+      provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: J02.0
@@ -842,10 +849,10 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-02-01
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G9700
       start_date: 2017-01-01 # Too late
     diagnoses:
@@ -865,7 +872,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-02-01
     - code_type: CPT
@@ -876,18 +883,18 @@ patients:
       start_date: 2016-03-01
       stop_date: 2016-03-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-03-01
     - code_type: CPT
       code_value: 3210F
-      start_date: 2016-02-26 # Lower bound
+      start_date: 2016-02-29 # Lower bound
     - code_type: CPT
       code_value: 99219
       start_date: 2016-04-01
       stop_date: 2016-04-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-04-01
     - code_type: CPT
@@ -898,12 +905,12 @@ patients:
       start_date: 2016-05-01
       stop_date: 2016-05-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-05-01
     - code_type: CPT
       code_value: 3210F
-      start_date: 2017-05-05 # Too late
+      start_date: 2016-05-05 # Too late
     diagnoses:
     - code_type: ICD10CM
       code_value: J02.0
@@ -930,7 +937,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-02-01
     - code_type: CPT
@@ -938,7 +945,7 @@ patients:
       start_date: 2016-03-01
       stop_date: 2016-03-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-03-01
     - code_type: CPT
@@ -946,7 +953,7 @@ patients:
       start_date: 2016-04-01
       stop_date: 2016-04-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-04-01
     - code_type: CPT
@@ -954,7 +961,7 @@ patients:
       start_date: 2016-05-01
       stop_date: 2016-05-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8711
       start_date: 2016-05-01
     diagnoses:
@@ -978,7 +985,7 @@ patients:
     - code_type: LOINC
       code_value: 11268-0
       result: positive
-      start_date: 2016-02-26 # Lower bound
+      start_date: 2016-02-27 # Lower bound
     - code_type: LOINC
       code_value: 11268-0
       result: positive

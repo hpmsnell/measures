@@ -61,6 +61,7 @@ define "Numerator Performance Met: 4132F":
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 30 days or less after start of E.relevantPeriod)
   or not exists(["Medication, Order": "Able; Systemic Antibiotics"] M
+    where E.signingProvider.hasMeasureMembership = true
     with "Denominator Encounter" E
       such that M.relevantPeriod starts on or 30 days or less after start of E.relevantPeriod)
 
