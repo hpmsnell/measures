@@ -136,6 +136,30 @@ exception_reasons:
               value_set: "MIPS; Denominator Exception: G9781"
     optional:
       code_value: G9781
+  - config_link_id: G9783
+    required:
+      display_title: 'Documentation of medical reason(s) for not currently being a statin therapy user or receive an order (prescription) for statin therapy (e.g., patient with adverse effect, allergy or intolerance to statin medication therapy, patients who are receiving palliative care, patients with active liver disease or hepatic disease or insufficiency, and patients with end stage renal disease (ESRD)'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 438 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; MIPS 438 Diabetes"
+        - count: 5
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; LDL 70-189 mg/dL"
+            - model: LaboratoryTestPerformed
+              value_set: "VSAC; LDL Test"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G9783"
+    optional:
+      code_value: G9783
 performance_not_met_reasons:
   - config_link_id: G9665
     required:

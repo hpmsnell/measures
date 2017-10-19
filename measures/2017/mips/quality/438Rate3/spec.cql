@@ -135,6 +135,14 @@ define "Denominator Exception: G9781":
   or exists("Exception Diganosis" D
     where D.prevalencePeriod overlaps "Measurement Period")
 
+define "Denominator Exception: G9783":
+  /*
+   * config_link_id: G9783
+   */
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: G9783"] P
+    where P.relevantPeriod starts during "Measurement Period")
+  or Last(["Laboratory Test, Performed": "VSAC; LDL Test"]).result < 70
+
 define "Numerator Performance Not Met: G9665":
   /*
    * config_link_id: G9665
@@ -143,3 +151,4 @@ define "Numerator Performance Not Met: G9665":
   and not "Denominator Exclusion: Rhabdomyolysis"
   and not "Numerator Performance Met: G9664"
   and not "Denominator Exception: G9781"
+  and not "Denominator Exception: G9783"
