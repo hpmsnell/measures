@@ -58,3 +58,4 @@ define "Numerator Performance Not Met: 4322F-8P":
    * config_link_id: 4322F-8P
    */
   not "Numerator Performance Met: 4322F"
+  and not "Denominator Exception: 4322F-1P"

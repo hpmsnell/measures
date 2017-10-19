@@ -41,7 +41,7 @@ define "Denominator Encounter":
 define "Denominator":
   exists("Denominator Encounter")
   and exists(["Procedure, Performed": "MIPS; First-Time Anti-Rheumatic Drug Therapy"] P
-    such that P.relevantPeriod starts during "Measurement Period"])
+    where P.relevantPeriod starts during "Measurement Period"])
 
 define "Numerator Performance Met: 3455F":
   /*
@@ -62,3 +62,4 @@ define "Numerator Performance Not Met: 3455F-8P":
    * config_link_id: 3455F-8P
    */
   not "Numerator Performance Met: 3455F"
+  and not "Denominator Exception: 3455F-1P"
