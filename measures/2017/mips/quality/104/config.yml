@@ -55,6 +55,8 @@ performance_met_reasons:
           validation_records:
             - model: Medication
               value_set: "Able; GnRH"
+            - model: ClinicalActivity
+              value_set: "Able; GnRH Administered"
     optional:
       code_value: 4164F
 exception_reasons:
@@ -135,5 +137,7 @@ performance_not_met_reasons:
           validation_records:
             - model: Medication
               value_set: "Able; GnRH"
+            - model: ClinicalActivity
+              value_set: "Able; GnRH Administered"
     optional:
       code_value: 4164F-8P

@@ -31,6 +31,7 @@ valueset "VSAC; Salvage Therapy": '2.16.840.1.113883.3.526.3.399'
 // Able value sets
 
 valueset "Able; GnRH"
+valueset "Able; GnRH Administered"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -75,6 +76,9 @@ define "Numerator Performance Met: 4164F":
   exists(["Procedure, Performed": "MIPS; Performance Met: 4164F"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 56 days or less after start of E.relevantPeriod)
+ or exists(["Procedure, Performed": "Able; GnRH Administered"] P
+   with "Denominator Encounter" E
+     such that P.relevantPeriod starts on or 56 days or less after start of E.relevantPeriod)
   or exists(["Medication": "Able; GnRH"] M
     with "Denominator Encounter" E
       such that M.relevantPeriod overlaps [start of E.relevantPeriod, start of E.relevantPeriod + 56 days)
