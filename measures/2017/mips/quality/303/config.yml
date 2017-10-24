@@ -23,6 +23,10 @@ performance_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: G0913"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Visual Acuity"
     optional:
       code_value: G0913
 exception_reasons:
@@ -57,5 +61,9 @@ performance_not_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Not Met: G0915"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Visual Acuity"
     optional:
       code_value: G0915

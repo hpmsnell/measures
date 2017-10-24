@@ -19,6 +19,10 @@ valueset "MIPS; Performance Met: G0913"
 valueset "MIPS; Denominator Exception: G0914"
 valueset "MIPS; Performance Not Met: G0915"
 
+// Able value Sets
+
+valueset "Able; Visual Acuity"
+
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
@@ -29,6 +33,18 @@ define "Denominator Procedure":
       and AgeInYearsAt(start of P.relevantPeriod) >= 18
       and not P.code.modifier in {55, 56}
       and P.signingProvider.hasMeasureMembership = true
+
+define "Preoperative Visual Acuity Result":
+  ["Assessment, Performed": "Able; Visual Acuity"] A
+    with ["Procedure, Performed": "MIPS; MIPS 303 Procedure"] P
+      such that A.authorDateTime on or 30 days or less before start of P.relevantPeriod
+    return A.result
+
+define "Postoperative Visual Acuity Result":
+  ["Assessment, Performed": "Able; Visual Acuity"] A
+    with ["Procedure, Performed": "MIPS; MIPS 303 Procedure"] P
+      such that A.authorDateTime 90 days or less after start of P.relevantPeriod
+    return A.result
 
 define "Denominator":
   "Denominator Procedure"
@@ -48,6 +64,7 @@ define "Denominator Exception: G0914":
   exists(["Procedure, Performed": "MIPS; Denominator Exception: G0914"] P
     with "Denominator Procedure" E
       such that P.relevantPeriod starts 90 days or less after start of E.relevantPeriod)
+  or "Postoperative Visual Acuity Result" > "Preoperative Visual Acuity Result"
 
 define "Numerator Performance Not Met: G0915":
   /*
