@@ -11,7 +11,7 @@ library MIPS_019_2017 version '1'
 
 using QDM
 
-// MIPS Custom Value Sets
+// MIPS Value Sets
 
 valueset "MIPS; MIPS 019 Encounter"
 valueset "MIPS; Telehealth Modifier"
@@ -22,11 +22,16 @@ valueset "MIPS; Denominator Exception: 5010F-1P"
 valueset "MIPS; Denominator Exception: 5010F-2P"
 valueset "MIPS; Performance Not Met: 5010F-8P"
 
+// Able value sets
+
+valueset "Able; Macular Edema Finding"
+valueset "Able; Retinopathy Finding"
+
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Patient Age at Encounter":
+define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 019 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
       and not E.code.modifier in "MIPS; Telehealth Modifier"
@@ -34,11 +39,22 @@ define "Patient Age at Encounter":
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Diabetic Retinopathy"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod
-    with ["Procedure, Performed": "MIPS; Dilated Macular or Fundus Exam"] P
+
+define "Denominator Encounter with Exam":
+  "Denominator Encounter"
+    with ["Procedure, Performed": "VSAC; Macular Exam"] P
+      such that P.relevantPeriod starts during E.relevantPeriod
+
+define "Denominator Encounter with Findings":
+  "Denominator Encounter"
+    with ["Procedure, Performed": "Able; Macular Edema Finding"] P
+      such that P.relevantPeriod starts during E.relevantPeriod
+    with ["Procedure, Performed": "Able; Retinopathy Finding"]
       such that P.relevantPeriod starts during E.relevantPeriod
 
 define "Denominator":
-  exists("Denominator Encounter")
+  exists("Denominator Encounter with Exam")
+  or exists("Denominator Encounter with Findings")
 
 define "Numerator Performance Met: 5010F":
   /*

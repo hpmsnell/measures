@@ -72,6 +72,46 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
+    - name: FindingEdema Before # Exam too early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: FindingEdema Lower # Exam at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: FindingEdema Upper # Exam at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: FindingEdema After # Exam too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: FindingRetinopathy Before # Exam too early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: FindingRetinopathy Lower # Exam at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: FindingRetinopathy Upper # Exam at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: FindingRetinopathy After # Exam too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
     - name: 5010F Before # 5010F too early
       denominator: 1
       denominator_exclusion:
@@ -205,6 +245,46 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
+    - name: FindingEdema Before # Exam too early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: FindingEdema Lower # Exam at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: FindingEdema Upper # Exam at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: FindingEdema After # Exam too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: FindingRetinopathy Before # Exam too early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: FindingRetinopathy Lower # Exam at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: FindingRetinopathy Upper # Exam at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 5010F-8P
+    - name: FindingRetinopathy After # Exam too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
     - name: 5010F Before # 5010F too early
       denominator: 1
       denominator_exclusion:
@@ -290,7 +370,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01
     diagnoses:
@@ -310,7 +390,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01
     diagnoses:
@@ -330,7 +410,7 @@ patients:
       start_date: 2015-12-31 # Too early
       stop_date: 2015-12-31
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2015-12-31
     diagnoses:
@@ -350,7 +430,7 @@ patients:
       start_date: 2016-01-01 # Too early
       stop_date: 2016-01-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-01-01
     diagnoses:
@@ -370,7 +450,7 @@ patients:
       start_date: 2016-12-31 # Too early
       stop_date: 2016-12-31
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-12-31
     diagnoses:
@@ -390,7 +470,7 @@ patients:
       start_date: 2017-01-01 # Too early
       stop_date: 2017-01-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2017-01-01
     diagnoses:
@@ -410,7 +490,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01
     diagnoses:
@@ -431,7 +511,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01
     diagnoses:
@@ -452,7 +532,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01
     diagnoses:
@@ -472,7 +552,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01
     diagnoses:
@@ -492,7 +572,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-01-31 # Early
     diagnoses:
@@ -512,7 +592,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01 # Lower
     diagnoses:
@@ -532,7 +612,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-02 # Upper
     diagnoses:
@@ -552,8 +632,192 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
+      start_date: 2016-02-03 # Late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E08.311
+      start_date: 2010-01-01
+- name: FindingEdema Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: FindingEdema
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 32451-7 # Macular edema
+      start_date: 2016-01-31 # Early
+    - code_type: SNOMEDCT
+      code_value: 312903003 # Retinopathy
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E08.311
+      start_date: 2010-01-01
+- name: FindingEdema Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: FindingEdema
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 32451-7 # Macular edema
+      start_date: 2016-02-01 # Lower bound
+    - code_type: SNOMEDCT
+      code_value: 312903003 # Retinopathy
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E08.311
+      start_date: 2010-01-01
+- name: FindingEdema Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: FindingEdema
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 32451-7 # Macular edema
+      start_date: 2016-02-02 # Upper
+    - code_type: SNOMEDCT
+      code_value: 312903003 # Retinopathy
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E08.311
+      start_date: 2010-01-01
+- name: FindingEdema After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: FindingEdema
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 32451-7 # Macular edema
+      start_date: 2016-02-03 # Late
+    - code_type: SNOMEDCT
+      code_value: 312903003 # Retinopathy
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E08.311
+      start_date: 2010-01-01
+- name: FindingRetinopathy Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: FindingRetinopathy
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 32451-7 # Macular edema
+      start_date: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 312903003 # Retinopathy
+      start_date: 2016-01-31 # Early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E08.311
+      start_date: 2010-01-01
+- name: FindingRetinopathy Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: FindingRetinopathy
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 32451-7 # Macular edema
+      start_date: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 312903003 # Retinopathy
+      start_date: 2016-02-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E08.311
+      start_date: 2010-01-01
+- name: FindingRetinopathy Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: FindingRetinopathy
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 32451-7 # Macular edema
+      start_date: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 312903003 # Retinopathy
+      start_date: 2016-02-02 # Upper
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E08.311
+      start_date: 2010-01-01
+- name: FindingRetinopathy After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: FindingRetinopathy
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 92002
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 32451-7 # Macular edema
+      start_date: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 312903003 # Retinopathy
       start_date: 2016-02-03 # Late
     diagnoses:
     - code_type: ICD10CM
@@ -572,7 +836,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
@@ -595,7 +859,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
@@ -618,7 +882,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
@@ -641,7 +905,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
@@ -664,7 +928,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
@@ -687,7 +951,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
@@ -710,7 +974,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
@@ -733,7 +997,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
@@ -756,7 +1020,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Patty
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
@@ -779,7 +1043,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Patty
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
@@ -802,7 +1066,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Patty
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
@@ -825,7 +1089,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-02
       provider: Patty
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
