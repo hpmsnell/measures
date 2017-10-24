@@ -523,7 +523,7 @@ patients:
       code_value: 99201
       start_date: 2016-01-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8422 # G-code for not eligible
       start_date: 2016-01-01
 - name: Patient has an exclusion at the end of the allowable period
@@ -538,7 +538,7 @@ patients:
       code_value: 99201
       start_date: 2016-01-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8422 # G-code for not eligible
       start_date: 2016-12-31
 - name: Patient has an exclusion but it is too late
@@ -553,7 +553,7 @@ patients:
       code_value: 99201
       start_date: 2016-01-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8422 # G-code for not eligible
       start_date: 2017-01-01
 - name: Patient has an exclusion but it is too early
@@ -568,7 +568,7 @@ patients:
       code_value: 99201
       start_date: 2016-01-01
       provider: Rachel
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G8422 # G-code for not eligible
       start_date: 2015-03-01
       stop_date: 2015-12-31
@@ -832,7 +832,7 @@ patients:
       code_value: 99201
       start_date: 2016-01-01
       provider: Patty
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G9716 # G-code for exception
       start_date: 2016-01-01
 - name: Patient has a denominator exception at the end of the allowable period
@@ -847,7 +847,7 @@ patients:
       code_value: 99201
       start_date: 2016-01-01
       provider: Patty
-    - code_type: HCPCS
+    - code_type: CPT
       code_value: G9716 # G-code for exception
       start_date: 2016-12-31
 - name: Patient has a denominator exception but it is too late
