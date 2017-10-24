@@ -3,7 +3,7 @@ measure:
   required:
     display_title: "Cataracts: 20/40 or Better Visual Acuity within 90 Days Following Cataract Surgery"
   optional:
-    gap_resolution_action:
+    gap_resolution_action: "Patient's visual acuity is not 20/40 or better following cataract surgery"
     set: MIPS
     external_id: 191
     version: 2017
@@ -20,105 +20,105 @@ exclusion_reasons:
               value_set: "MIPS; MIPS 191 Encounter"
         - count: 10
           validation_records:
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Acute and Subacute Iridocyclitis"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Amblyopia"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Burn Confined to Eye and Adnexa"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Cataract Secondary to Ocular Disorders"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Central Corneal Ulcer"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Certain Types of Iridocyclitis"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Chorioretinal Scars"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Choroidal Degenerations"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Choroidal Detachment"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Choroidal Hemorrhage and Rupture"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Chronic Iridocyclitis"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Cloudy Cornea"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Corneal Edema"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Corneal Opacity and Other Disorders of Cornea"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Degeneration of Macula and Posterior Pole"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Diabetic Macular Edema"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Diabetic Retinopathy"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Disorders of Optic Chiasm"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Disorders of Visual Cortex"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Disseminated Chorioretinitis and Disseminated Retinochoroiditis"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Focal Chorioretinitis and Focal Retinochoroiditis"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Glaucoma"
-            - model: Diagnosis
-              value_set: "VSAC; Glaucoma Associated with Congenital Anomalies, Dystrophies, and Systemic Syndromes"
-            - model: Diagnosis
+            - model: ClinicalActivity
+              value_set: "VSAC; Glaucoma Assoc Congenital Anomalies, Dystro, Systemic Syndromes"
+            - model: ClinicalActivity
               value_set: "VSAC; Hereditary Choroidal Dystrophies"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Hereditary Corneal Dystrophies"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Hereditary Retinal Dystrophies"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Injury to Optic Nerve and Pathways"
-            - model: Diagnosis
-              value_set: "VSAC; Moderate or Severe Impairment, Better Eye, Profound Impairment Lesser Eye"
-            - model: Diagnosis
+            - model: ClinicalActivity
+              value_set: "VSAC; Moderate Severe Impairment, Better Eye, Prof Impair Lesser Eye"
+            - model: ClinicalActivity
               value_set: "VSAC; Nystagmus and Other Irregular Eye Movements"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Open Wound of Eyeball"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Optic Atrophy"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Optic Neuritis"
-            - model: Diagnosis
-              value_set: "VSAC; Other and Unspecified Forms of Chorioretinitis and Retinochoroiditis"
-            - model: Diagnosis
+            - model: ClinicalActivity
+              value_set: "VSAC; Other Unspecified Forms Chorioretinitis and Retinochoroiditis"
+            - model: ClinicalActivity
               value_set: "VSAC; Other Background Retinopathy and Retinal Vascular Changes"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Other Corneal Deformities"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Other Disorders of Optic Nerve"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Other Disorders of Sclera"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Other Endophthalmitis"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Other Proliferative Retinopathy"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Other Retinal Disorders"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Pathologic Myopia"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Prior Penetrating Keratoplasty"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Profound Impairment, Both Eyes"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Purulent Endophthalmitis"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Retinal Detachment with Retinal Defect"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Retinal Vascular Occlusion"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Scleritis and Episcleritis"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Separation of Retinal Layers"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Uveitis"
-            - model: Diagnosis
+            - model: ClinicalActivity
               value_set: "VSAC; Visual Field Defects"
 performance_met_reasons:
   - config_link_id: 4175F
@@ -133,8 +133,14 @@ performance_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: 4175F"
-            - model: Diagnosis
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
               value_set: "VSAC; Visual Acuity 20/40 or Better"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Visual Acuity"
     optional:
       code_value: 4175F
 performance_not_met_reasons:
@@ -150,9 +156,17 @@ performance_not_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: 4175F"
+        - count: 10
+          validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Not Met: 4175F-8P"
-            - model: Diagnosis
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
               value_set: "VSAC; Visual Acuity 20/40 or Better"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Visual Acuity"
     optional:
       code_value: 4175F-8P

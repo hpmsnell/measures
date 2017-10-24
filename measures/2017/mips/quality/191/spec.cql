@@ -73,6 +73,10 @@ valueset "VSAC; Uveitis": '2.16.840.1.113883.3.526.3.1444'
 valueset "VSAC; Visual Field Defects": '2.16.840.1.113883.3.526.3.1446'
 valueset "VSAC; Visual Acuity 20/40 or Better": '2.16.840.1.113883.3.526.3.1483'
 
+// Able value Sets
+
+valueset "Able; Visual Acuity"
+
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
@@ -155,9 +159,13 @@ define "Numerator Performance Met: 4175F":
   exists(["Procedure, Performed": "MIPS; Performance Met: 4175F"] P
     with "Cataract Surgery" E
       where D.prevalencePeriod starts 90 days or less after end of E.relevantPeriod)
-  or exists(["Diagnosis": "VSAC; Visual Acuity 20/40 or Better"] D //Confirm data format
+  or exists(["Assessment, Performed": "VSAC; Visual Acuity 20/40 or Better"] A
     with "Cataract Surgery" E
-      where D.prevalencePeriod starts 90 days or less after end of E.relevantPeriod)
+      where A.authorDateTime 90 days or less after end of E.relevantPeriod)
+  or exists(["Assessment, Performed": "Able; Visual Acuity"] A
+    where A.result >= 0.5
+    with "Cataract Surgery" E
+      where A.authorDateTime 90 days or less after end of E.relevantPeriod)
 
 define "Numerator Performance Not Met: 4175F-8P":
   /*

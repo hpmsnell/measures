@@ -110,6 +110,36 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: 4175F-8P
+      - name: PerformanceMet Finding1 # Eye exam before end of procedure
+        start_date: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4175F-8P
+      - name: PerformanceMet Finding1 # Eye exam at end of procedure
+        start_date: 2016-06-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4175F
+      - name: PerformanceMet Finding2 # Eye exam at upper bound of period
+        start_date: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4175F
+      - name: PerformanceMet Finding2 # Eye exam after period
+        start_date: 2016-06-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4175F-8P
+      - name: PerformanceMet FindingTooLow # Visual acuity too low
+        start_date: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4175F-8P
   providers_key:
     - name: Rachel
       episodes_of_care:
@@ -217,6 +247,36 @@ test_set_keys:
           numerator:
         - name: PerformanceMet Exam2 # Eye exam after period
           start_date: 2016-06-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: PerformanceMet Finding1 # Eye exam before end of procedure
+          start_date: 2016-01-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: PerformanceMet Finding1 # Eye exam at end of procedure
+          start_date: 2016-06-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: PerformanceMet Finding2 # Eye exam at upper bound of period
+          start_date: 2016-01-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: PerformanceMet Finding2 # Eye exam after period
+          start_date: 2016-06-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: PerformanceMet FindingTooLow # Visual acuity too low
+          start_date: 2016-01-01
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -393,7 +453,6 @@ patients:
       code_value: 66840
       start_date: 2016-06-01
       provider: Patty
-    diagnoses:
     - code_type: SNOMEDCT
       code_value: 423059004
       start_date: 2015-12-31 # Early
@@ -417,10 +476,77 @@ patients:
       code_value: 66840
       start_date: 2016-06-01
       provider: Patty
-    diagnoses:
     - code_type: SNOMEDCT
       code_value: 423059004
       start_date: 2016-03-31 # Upper
     - code_type: SNOMEDCT
       code_value: 423059004
       start_date: 2016-08-31 # After
+
+- name: PerformanceMet Finding1
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: PerformanceMet
+    family_name: Finding1
+    sex: Female
+  health_plan_id: Medicare Part B
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 66840
+      start_date: 2016-01-01
+      provider: Patty
+    - code_type: CPT
+      code_value: 66840
+      start_date: 2016-06-01
+      provider: Patty
+    - code_type: SNOMEDCT
+      code_value: 363983007
+      start_date: 2015-12-31 # Early
+      result: .5
+    - code_type: SNOMEDCT
+      code_value: 363983007
+      start_date: 2016-06-01 # Lower
+      result: .5
+- name: PerformanceMet Finding2
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: PerformanceMet
+    family_name: Finding2
+    sex: Female
+  health_plan_id: Medicare Part B
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 66840
+      start_date: 2016-01-01
+      provider: Patty
+    - code_type: CPT
+      code_value: 66840
+      start_date: 2016-06-01
+      provider: Patty
+    - code_type: SNOMEDCT
+      code_value: 363983007
+      start_date: 2016-03-31 # Upper
+      result: .5
+    - code_type: SNOMEDCT
+      code_value: 363983007
+      start_date: 2016-08-31 # After
+      result: .5
+- name: PerformanceMet FindingTooLow
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: PerformanceMet
+    family_name: FindingTooLow
+    sex: Female
+  health_plan_id: Medicare Part B
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 66840
+      start_date: 2016-01-01
+      provider: Patty
+    - code_type: SNOMEDCT
+      code_value: 363983007
+      start_date: 2016-01-02
+      result: .4 # Too low
