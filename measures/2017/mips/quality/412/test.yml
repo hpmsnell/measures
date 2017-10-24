@@ -52,16 +52,6 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Medication Active # Patient has active medication but not order
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Medication Active # Patient has active medication but not order
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
     - name: Agreement Before # Patient assessed at start of allowable period
       denominator: 1
       denominator_exclusion:
@@ -131,11 +121,6 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: Medication Late # Patient prescribed medication too late
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Medication Active # Patient has active medication but not order
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -278,13 +263,7 @@ patients:
     - code_type: RXNORM
       code_value: 1010600
       start_date: 2015-12-20
-      method: E
-      days_supplied: 40
-    - code_type: RXNORM
-      code_value: 1010600
-      start_date: 2016-01-29
-      method: E
-      days_supplied: 2
+      stop_date: 2016-01-31 # 42 days
 - name: Medication 43Days
   attributes:
     date_of_birth: 1990-01-01
@@ -301,13 +280,7 @@ patients:
     - code_type: RXNORM
       code_value: 1010600
       start_date: 2015-12-20
-      method: E
-      days_supplied: 40
-    - code_type: RXNORM
-      code_value: 1010600
-      start_date: 2016-01-29
-      method: E
-      days_supplied: 3
+      stop_date: 2016-02-01 # 43 days
 - name: Medication Early
   attributes:
     date_of_birth: 1990-01-01
@@ -324,13 +297,6 @@ patients:
     - code_type: RXNORM
       code_value: 1010600
       start_date: 2015-12-20
-      method: E
-      days_supplied: 40
-    - code_type: RXNORM
-      code_value: 1010600
-      start_date: 2015-12-22
-      method: E
-      days_supplied: 3
 - name: Medication Late
   attributes:
     date_of_birth: 1990-01-01
@@ -347,35 +313,6 @@ patients:
     - code_type: RXNORM
       code_value: 1010600
       start_date: 2015-12-21
-      method: E
-      days_supplied: 36
-    - code_type: RXNORM
-      code_value: 1010600
-      start_date: 2016-01-31
-      method: E
-      days_supplied: 6
-- name: Medication Active
-  attributes:
-    date_of_birth: 1990-01-01
-    given_name: Medication
-    family_name: Active
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99201
-      start_date: 2016-02-01
-      provider: Rachel
-    medications:
-    - code_type: RXNORM
-      code_value: 1010600
-      start_date: 2015-12-21
-      method: E
-      days_supplied: 40
-    - code_type: RXNORM
-      code_value: 1010600
-      start_date: 2015-12-22 # No method
-      days_supplied: 3
 - name: Agreement Before
   attributes:
     date_of_birth: 1990-01-01

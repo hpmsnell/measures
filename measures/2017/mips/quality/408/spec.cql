@@ -21,6 +21,7 @@ valueset "MIPS; Performance Not Met: G9563"
 // Able Value Sets
 
 valueset "Able; Opioids Used for Pain Control": '1.3.6.1.4.1.6997.4.1.2.234.999.3.1'
+valueset "Able; Opioid Evaluation"
 
 parameter "Measurement Period" Interval<DateTime>
 parameter "Reduced Measurement Period" Interval[start of "Measurement Period", 90 days before end of "Measurement Period"]
@@ -33,42 +34,51 @@ define "Denominator Encounter":
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
 
-define "Opioid Procedure":
-  ["Procedure Performed": "Opiates Prescribed for Longer than Six Weeks"] P
-    where P. relevantPeriod starts during "Opioid Period"
+define "Opioid Exists":
+  exists(["Procedure Performed": "Opiates Prescribed for Longer than Six Weeks"] P
+    where P. relevantPeriod starts during "Opioid Period")
+  or exists(["Medication": "Able; Opioids Used for Pain Control"] M
+    where M.relevantPeriod overlaps "Measurement Period"
+      and days between start of M.relevantPeriod and end of M.relevantPeriod > 42)
 
-define "Opioid":
-  ["Medication, Order": "Able; Opioids Used for Pain Control"] M
-    with "Denominator Encounter" E
-      where M.relevantPeriod starts 1 year or less before start of E.relevantPeriod
+define "Follow-Up":
+  "Able; Opioid Evaluation" P
+      where P.relevantPeriod starts during "Measurement Period"
 
-define "Denominator Encounter with Opioid Procedure Exists":
-  exists("Denominator Encounter")
-  and exists("Opioid Procedure")
-
-define "Denominator Encounter with Opioid Medication"
-  "Denominator Encounter" E
-    with "Opioid" M
-      such that start of E.relevantPeriod during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
-        and start of E.relevantPeriod - 7 days during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
-        and start of E.relevantPeriod - 14 days during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
-        and start of E.relevantPeriod - 21 days during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
-        and start of E.relevantPeriod - 28 days during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
-        and start of E.relevantPeriod - 35 days during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
-        and start of E.relevantPeriod - 43 days during Interval[start of M.relevantPeriod, start of M.relevantPeriod + M.duration]
+define "Follow-Up Every 3 Months Exists"
+  exists("Follow-Up" P
+    with ["Medication": "Able; Opioids Used for Pain Control"] M
+      such that P.relevantPeriod starts during Interval[1 day after start of M.relevantPeriod, 90 days after start of M.relevantPeriod])
+  and exists("Follow-Up" P
+    with ["Medication": "Able; Opioids Used for Pain Control"] M
+      such that P.relevantPeriod starts during Interval[91 days after start of M.relevantPeriod, 180 days after start of M.relevantPeriod]
+        or days between start of M.relevantPeriod and end of M.relevantPeriod < 180
+        or M.relevantPeriod ends during Interval[1 day after start of M.relevantPeriod, end of "Measurement Period"]
+        or 180 days after start of M.relevantPeriod before end of "Measurement Period")
+  and exists("Follow-Up" P
+    with ["Medication": "Able; Opioids Used for Pain Control"] M
+      such that P.relevantPeriod starts during Interval[181 days after start of M.relevantPeriod, 270 days after start of M.relevantPeriod]
+        or days between start of M.relevantPeriod and end of M.relevantPeriod < 270
+        or M.relevantPeriod ends during Interval[181 day after start of M.relevantPeriod, end of "Measurement Period"]
+        or 270 days after start of M.relevantPeriod before end of "Measurement Period")
+  and exists("Follow-Up" P
+    with ["Medication": "Able; Opioids Used for Pain Control"] M
+      such that P.relevantPeriod starts during Interval[271 days after start of M.relevantPeriod, 360 days after start of M.relevantPeriod]
+        or days between start of M.relevantPeriod and end of M.relevantPeriod < 360
+        or M.relevantPeriod ends during Interval[271 day after start of M.relevantPeriod, end of "Measurement Period"]
+        or 360 days after start of M.relevantPeriod before end of "Measurement Period")
 
 define "Denominator":
-  "Denominator Encounter with Opioid Procedure Exists"
-  or exists("Denominator Encounter with Opioid Medication")
+  exists("Denominator Encounter")
+  and "Opioid Exists"
 
 define "Numerator Performance Met: G9562":
   /*
    * config_link_id: G9562
-   * The intent is to identify patients with an assessment at least every 3 months
-   * during the duration of the opioid prescription within the date bounds of 01-01 and 09-30
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G9562"] P
     where P.relevantPeriod starts during "Measurement Period")
+  or "Follow-Up Every 3 Months Exists" // Not yet tested - need to verify implementation and need
 
 define "Numerator Performance Not Met: G9563":
   /*
