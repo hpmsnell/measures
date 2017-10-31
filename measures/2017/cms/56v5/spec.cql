@@ -37,6 +37,7 @@ define "Denominator Encounter":
 define "THA Procedure":
   ["Procedure, Performed": "VSAC; THA Procedure"] P
     where P.relevantPeriod ends during Interval[180 days before start of "Measurement Period", 185 days after start of "Measurement Period"]
+      and E.signingProvider.hasMeasureMembership = true
 
 define "THA Procedure with Encounters":
   "THA Procedure" P
