@@ -26,12 +26,13 @@ valueset "MIPS; Performance Not Met: G9811"
 valueset "NCQA; MMA-B"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Patient Age at Encounter":
   ["Encounter, Performed": "MIPS; MIPS 444 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 5
       and AgeInYearsAt(start of E.relevantPeriod) < 65
       and E.signingProvider.hasMeasureMembership = true
@@ -39,10 +40,8 @@ define "Patient Age at Encounter":
       such that D.prevalencePeriod overlaps E.relevantPeriod
 
 define "No Medication Exists":
-  not exists(["Medication, Active": "NCQA; MMA-B"] M
-    where M.relevantPeriod overlaps "Measurement Period")
-  and not exists(["Medication, Order": "NCQA; MMA-B"] M
-    where M.relevantPeriod starts during "Measurement Period")
+  not exists(["Medication": "NCQA; MMA-B"] M
+    where M.relevantPeriod overlaps "Denominator Period")
 
 define "Asthma Controller Prescription":
   ["Medication, Order": "NCQA; MMA-B"] M
@@ -81,14 +80,14 @@ define "Denominator Exclusion: Competing Diagnoses"
   * config_link_id: exclusion_1
   */
   exists(["Diagnosis": "MIPS; Competing Conditions for Persistent Asthma"] D
-    where D.prevalencePeriod starts before end of "Measurement Period")
+    where D.prevalencePeriod starts before end of "Denominator Period")
 
 define "Denominator Exclusion: No Medication Dispensed"
   /*
    * config_link_id: exclusion_2
    */
   exists(["Procedure, Performed": "MIPS; No Asthma Controller Medication Dispensed"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Denominator Period")
   or "No Medication Exists"
 
 define "Denominator Exclusion: Hospice Service":
@@ -96,9 +95,9 @@ define "Denominator Exclusion: Hospice Service":
    * config_link_id: exclusion_3
    */
   exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
-    where I.relevantPeriod starts during "Measurement Period")
+    where I.relevantPeriod starts during "Denominator Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Measurement Period")
+    where I.relevantPeriod overlaps "Denominator Period")
 
 define "Numerator Performance Met: G9810":
   /*

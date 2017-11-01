@@ -25,12 +25,13 @@ valueset "MIPS; Performance Not Met: 4044F-8P"
 valueset "Able; VTE Prophylaxis"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Procedure":
   ["Procedure, Performed": "MIPS; MIPS 023 Procedure"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
 

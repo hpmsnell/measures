@@ -43,12 +43,13 @@ valueset "VSAC; Hepatitis A": '2.16.840.1.113883.3.464.1003.110.12.1024'
 valueset "VSAC; Hepatitis B": '2.16.840.1.113883.3.67.1.101.1.269'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 438 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {'GQ', 'GT'}
     with ["Diagnosis": "MIPS 428 Diabetes"] D
@@ -65,7 +66,7 @@ define "LDL Lab Exists":
 
 define "LDL 70-189 Exists":
   exists(["Procedure, Performed": "MIPS: LDL 70-189 mg/dL"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Denominator Period")
   or "LDL Lab Exists"
 
 define "Pregnancy":

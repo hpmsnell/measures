@@ -21,12 +21,13 @@ valueset "MIPS; Denominator Exception: 5050F-3P"
 valueset "MIPS; Performance Not Met: 5050F-8P"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Procedure, Performed": "MIPS; MIPS 138 Excision of Malignant Melanoma"] P
-    where P.relevantPeriod starts during "Measurement Period"
+    where P.relevantPeriod starts during "Denominator Period"
       and P.signingProvider.pqrsProvider = true
     with ["Diagnosis": "MIPS; MIPS 138 Melanoma"] D
       such that D.prevalencePeriod during P.relevantPeriod

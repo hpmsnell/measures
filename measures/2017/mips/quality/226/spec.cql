@@ -37,6 +37,7 @@ valueset "VSAC; Tobacco Use Cessation Pharmacotherapy": '2.16.840.1.113883.3.526
 valueset "Able; Never Tobacco User"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
@@ -44,14 +45,14 @@ define "Tobacco Interval": Interval[24 months before end "Measurement Period", e
 
 define "226 Encounter"
   ["Encounter, Performed": "MIPS; MIPS 226 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "226 Preventive Encounter"
   ["Encounter, Performed": "MIPS; MIPS 226 Preventive Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"

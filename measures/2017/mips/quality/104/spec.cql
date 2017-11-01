@@ -34,12 +34,13 @@ valueset "Able; GnRH"
 valueset "Able; GnRH Administered"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 104 Encounter"] E1
-    where E1.relevantPeriod starts during "Measurement Period"
+    where E1.relevantPeriod starts during "Denominator Period"
       and "Patient Characteristic Sex" = "Male"
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Prostate Cancer"] D

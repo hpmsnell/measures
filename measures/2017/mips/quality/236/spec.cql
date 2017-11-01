@@ -39,12 +39,13 @@ valueset "VSAC; Diastolic Blood Pressure": '2.16.840.1.113883.3.526.3.1033'
 valueset "VSAC; Systolic Blood Pressure": '2.16.840.1.113883.3.526.3.1032'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 236 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and AgeInYearsAt(start of E.relevantPeriod) < 85
       and E.signingProvider.hasMeasureMembership = true
@@ -71,22 +72,22 @@ define "Denominator Exclusion 1":
    * config_link_id: exclusion_1
    */
  exists(["Procedure, Performed": "MIPS; MIPS Hospice Service: G9740"] I
-   where I.relevantPeriod starts during "Measurement Period")
+   where I.relevantPeriod starts during "Denominator Period")
  or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-   where I.relevantPeriod overlaps "Measurement Period")
+   where I.relevantPeriod overlaps "Denominator Period")
 
  define "Denominator Exclusion 2":
    /*
     * config_link_id: exclusion_2
     */
   exists(["Procedure, Performed": "Clinical Exclusion: G9231"] I
-    where I.relevantPeriod starts during "Measurement Period")
+    where I.relevantPeriod starts during "Denominator Period")
   or exists("Excluded Diagnoses" D
-    where D.prevalencePeriod starts before end "Measurement Period")
+    where D.prevalencePeriod starts before end "Denominator Period")
   or exists("Excluded Procedures" P
-    where P.relevantPeriod starts before end "Measurement Period")
+    where P.relevantPeriod starts before end "Denominator Period")
   or exists(["Diagnosis": "VSAC; Pregnancy"] D
-    where D.prevalencePeriod overlaps "Measurement Period")
+    where D.prevalencePeriod overlaps "Denominator Period")
 
 define "Good Most Recent Diastolic Blood Pressure":
   Last("Encounter, Performed": "VSAC; Adult Outpatient Visit") E

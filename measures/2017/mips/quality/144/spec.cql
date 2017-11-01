@@ -26,6 +26,7 @@ valueset "Able; Opioids Used for Pain Control"
 valueset "Able; Selected Non Opioids for Moderate to Severe Pain"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 

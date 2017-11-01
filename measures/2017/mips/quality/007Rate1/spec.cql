@@ -37,6 +37,7 @@ valueset "VSAC; Asthma": '2.16.840.1.113883.3.526.3.362'
 valueset "VSAC; Bradycardia": '2.16.840.1.113883.3.526.3.412'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
@@ -46,7 +47,7 @@ define "LVEF <40%":
 
 define "Denominator Encounter with Diagnosis":
   ["Encounter, Performed": "MIPS; MIPS 007 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {'GQ', 'GT'}
@@ -57,7 +58,7 @@ define "Denominator Encounter with Diagnosis":
 
 define "Denominator Encounter with Surgery":
   ["Encounter, Performed": "MIPS; MIPS 007 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {'GQ', 'GT'}
@@ -82,7 +83,7 @@ define "Medical Exception":
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 007 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {'GQ', 'GT'}

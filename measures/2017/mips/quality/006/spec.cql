@@ -32,12 +32,13 @@ valueset "VSAC; Thrombocytopenia": '2.16.840.1.113762.1.4.1045.45'
 valueset "VSAC; Warfarin": '2.16.840.1.113883.3.117.1.7.1.232'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 006 Encounter"] E
-      where E.relevantPeriod starts during "Measurement Period"
+      where E.relevantPeriod starts during "Denominator Period"
         and AgeInYearsAt(start of E.relevantPeriod) >= 18
         and not E.code.modifier "MIPS; Telemedicine Modifier"
         and E.signingProvider.hasMeasureMembership = true
@@ -45,7 +46,7 @@ define "Denominator Encounter":
 define "Denominator":
   exists("Denominator Encounter")
   and exists(["Diagnosis": "MIPS; Coronary Artery Disease (CAD)"] D
-    where D.prevalencePeriod overlaps "Measurement Period")
+    where D.prevalencePeriod overlaps "Denominator Period")
 
 define "Numerator Performance Met: 4086F":
   /*

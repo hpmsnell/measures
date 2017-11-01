@@ -36,6 +36,7 @@ valueset "VSAC; Laboratory Tests for Hypertension": '2.16.840.1.113883.3.600.148
 valueset "VSAC; ECG 12 lead or study order": '2.16.840.1.113883.3.600.2448'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
@@ -43,7 +44,7 @@ context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 317 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
 
@@ -204,7 +205,7 @@ define "Denominator Exclusion":
    * config_link_id: exclusion_1
    */
  exists(["Procedure, Performed": "MIPS; Hypertension Exclusion"] P
-  where P.relevantPeriod starts during "Measurement Period")
+  where P.relevantPeriod starts during "Denominator Period")
  or exists(["Diagnosis": "VSAC; Diagnosis of Hypertension"] D
   with "Denominator Encounter" E
    such that D.prevalencePeriod overlaps E.relevantPeriod)

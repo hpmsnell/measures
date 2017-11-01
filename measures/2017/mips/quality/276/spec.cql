@@ -25,12 +25,13 @@ valueset "MIPS; Performance Not Met: G8841"
 valueset "Able; Sleep Apnea Assessment"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 276 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.code.modifier not in "MIPS; Telehealth Modifier"
       and E.signingProvider.hasMeasureMembership = true

@@ -26,12 +26,13 @@ valueset "MIPS; Performance Not Met: 3455F-8P"
 valueset "Able; Functional Status Assessment"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 176 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {'GQ', 'GT'}
@@ -41,7 +42,7 @@ define "Denominator Encounter":
 define "Denominator":
   exists("Denominator Encounter")
   and exists(["Procedure, Performed": "MIPS; First-Time Anti-Rheumatic Drug Therapy"] P
-    where P.relevantPeriod starts during "Measurement Period"])
+    where P.relevantPeriod starts during "Denominator Period"])
 
 define "Numerator Performance Met: 3455F":
   /*

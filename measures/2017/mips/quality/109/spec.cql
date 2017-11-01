@@ -30,12 +30,13 @@ valueset "VSAC; Pain Assessments": '2.16.840.1.113762.1.4.1047.152'
 valueset "Able; Functional Status Assessment"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 109 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 21
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Osteoarthritis"] D

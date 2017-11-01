@@ -20,12 +20,13 @@ valueset "MIPS; Denominator Exception: G9300"
 valueset "MIPS; Performance Not Met: G9302"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Procedure":
   ["Procedure, Performed": "MIPS; MIPS 352 Procedure"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and E.signingProvider.hasMeasureMembership = true
 
 define "Denominator":

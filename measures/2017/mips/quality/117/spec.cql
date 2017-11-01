@@ -31,29 +31,30 @@ valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 valueset "VSAC; Retinal or Dilated Eye Exam": '2.16.840.1.113883.3.464.1003.115.12.1088'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 117 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and AgeInYearsAt(start of E.relevantPeriod) < 65
       and E.signingProvider.hasMeasureMembership = true
+    with ["Diagnosis": "MIPS; Diabetes"] D
+      where D.prevalencePeriod overlaps E.relevantPeriod)
 
 define "Denominator":
   exists("Denominator Encounter")
-  and exists(["Diagnosis": "MIPS; Diabetes"] D
-    where D.prevalencePeriod overlaps "Measurement Period")
 
 define "Denominator Exclusion":
   /*
    * config_link_id: denominator_exclusion
    */
   exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
-    where I.relevantPeriod starts during "Measurement Period")
+    where I.relevantPeriod starts during "Denominator Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Measurement Period")
+    where I.relevantPeriod overlaps "Denominator Period")
 
 define "Numerator Performance Met: 2022F":
   /*

@@ -29,6 +29,7 @@ valueset "VSAC; Previous Receipt of Influenza Vaccine" '2.16.840.1.113883.3.526.
 valueset "VSAC; Influenza Vaccination Declined" '2.16.840.1.113883.3.526.3.1255'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Population
 
@@ -42,6 +43,7 @@ define "110 Encounters During Influenza Intervals":
   ["Encounter, Performed": "MIPS; 110 Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval A"
       or E.relevantPeriod starts during "Encounter Interval B"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
@@ -49,6 +51,7 @@ define "110 Encounters During Influenza Intervals":
 define "110 Encounters During Non-Influenza Interval":
   ["Encounter, Performed": "MIPS; 110 Encounter"] E
     where E.relevantPeriod starts during "Encounter Bad Interval"
+      and E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
@@ -56,6 +59,7 @@ define "110 Encounters During Non-Influenza Interval":
 define "110 Encounters During Interval A":
   ["Encounter, Performed": "MIPS; 110 Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval A"
+      and E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
@@ -63,6 +67,7 @@ define "110 Encounters During Interval A":
 define "110 Encounters During Interval B":
   ["Encounter, Performed": "MIPS; 110 Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval B"
+      and E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
@@ -71,6 +76,7 @@ define "Preventive Encounters During Influenza Intervals":
   ["Encounter, Performed": "MIPS; 110 Preventive Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval A"
       or E.relevantPeriod starts during "Encounter Interval B"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
@@ -78,6 +84,7 @@ define "Preventive Encounters During Influenza Intervals":
 define "Preventive Encounters During Interval A":
   ["Encounter, Performed": "MIPS; 110 Preventive Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval A"
+      and E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
@@ -85,6 +92,7 @@ define "Preventive Encounters During Interval A":
 define "Preventive Encounters During Interval B":
   ["Encounter, Performed": "MIPS; 110 Preventive Encounter"] E
     where E.relevantPeriod starts during "Encounter Interval B"
+      and E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"

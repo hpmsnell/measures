@@ -39,12 +39,13 @@ valueset "VSAC; Depression medications - adolescent": '2.16.840.1.113883.3.600.4
 valueset "VSAC; Depression medications - adult": '2.16.840.1.113883.3.600.470'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 134 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 12
       and not E.code.modifier = "MIPS; Telehealth Modifier"
       and E.signingProvider.hasMeasureMembership = true

@@ -26,21 +26,18 @@ valueset "MIPS; Performance Not Met: G9354"
 valueset "Able; CT Scan of Paranasal Sinuses"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 334 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
     with ["Diagnosis": "MIPS; Chronic Sinusitis"] D
       such that D.prevalencePeriod starts during E.relevantPeriod
-
-define "Performance Met":
-
-  union ["Procedure, Performed": "Able; CT Scan of Paranasal Sinuses"]
 
 define "Performance Met Exists":
   exists(["Procedure, Performed": "MIPS; Performance Met: G9352"] P

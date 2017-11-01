@@ -29,14 +29,15 @@ valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 valueset "VSAC; Female": '2.16.840.1.113883.3.560.100.2'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Patient Age at Encounter":
   ["Encounter, Performed": "MIPS; MIPS 048 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 65
-      and "Patient Characteristic Sex" in "VSAC; Female"
+      and "Patient Characteristic Sex" = 'Female'
       and E.signingProvider.hasMeasureMembership = true
 
 define "Denominator":
@@ -47,9 +48,9 @@ define "Denominator Exclusion":
    * config_link_id: denominator_exclusion
    */
   exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Measurement Period")
+    where I.relevantPeriod overlaps "Denominator Period")
   or exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
-    where I.relevantPeriod starts during "Measurement Period")
+    where I.relevantPeriod starts during "Denominator Period")
 
 define "Numerator Performance Met: 1090F":
   /*

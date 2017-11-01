@@ -35,6 +35,7 @@ valueset "Able; Gestational Diabetes": '2.16.840.1.113883.3.464.1003.103.12.1010
 valueset "Able; Glucose Lab Test": '2.16.840.1.113762.1.4.1045.134'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
@@ -75,10 +76,10 @@ define "Family Planning Exists":
     with "Denominator Procedure" P2
       such that P1.relevantPeriod starts 56 days or less after start of P2.relevantPeriod)
   or exists(["Medication": "VSAC; Contraceptive Medications"] M
-    with "Denominator Procedure P
+    with "Denominator Procedure" P
       such that M.relevantPeriod starts 56 days or less after start of P.relevantPeriod)
 
-define "Post-Partum Care Exists"
+define "Post-Partum Care Exists":
   "Breast Feeding Evaluation Exists"
   and "Depression Screening Exists"
   and "Glucose Screening Exists if Diabetic"
@@ -86,7 +87,7 @@ define "Post-Partum Care Exists"
 
 define "Denominator Procedure":
   ["Procedure, Performed": "MIPS; MIPS 336 Procedure"] P
-    where P.relevantPeriod starts during "Measurement Period"
+    where P.relevantPeriod starts during "Denominator Period"
       and P.signingProvider.hasMeasureMembership = true
 
 define "Denominator":

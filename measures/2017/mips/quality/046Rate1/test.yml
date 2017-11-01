@@ -27,13 +27,13 @@ test_set_keys:
         denominator_exception:
         numerator:
       - name: Denominator Discharge # Before
-        start_date: 2016-01-01
+        start_date: 2015-12-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator Discharge # Lower
-        start_date: 2016-01-02
+        start_date: 2016-01-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -174,13 +174,13 @@ test_set_keys:
           denominator_exception:
           numerator:
         - name: Denominator Discharge # Before
-          start_date: 2016-01-01
+          start_date: 2015-12-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
         - name: Denominator Discharge # Lower
-          start_date: 2016-01-02
+          start_date: 2016-01-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
@@ -383,19 +383,19 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99234 # Discharge
-      start_date: 2015-12-31
-      stop_date: 2015-12-31  # Too early
+      start_date: 2015-11-30
+      stop_date: 2015-11-30  # Too early
     - code_type: CPT
       code_value: 99201
-      start_date: 2016-01-01
+      start_date: 2015-12-01
       provider: Rachel
     - code_type: CPT
       code_value: 99234 # Discharge
-      start_date: 2016-01-01
-      stop_date: 2016-01-01  # Lower bound
+      start_date: 2015-12-02
+      stop_date: 2015-12-02  # Lower bound
     - code_type: CPT
       code_value: 99201
-      start_date: 2016-01-02
+      start_date: 2016-01-01
       provider: Rachel
     - code_type: CPT
       code_value: 99234 # Discharge

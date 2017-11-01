@@ -32,6 +32,7 @@ valueset "VSAC; Moderation of ETOH Consumption": '2.16.840.1.113883.3.600.823'
 valueset "VSAC; Anti-Hypertensive Pharmacologic Therapy": '2.16.840.1.113883.3.600.1476'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
@@ -39,7 +40,7 @@ context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 122 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {'GQ', 'GT'}

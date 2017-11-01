@@ -21,12 +21,13 @@ valueset "MIPS; Denominator Exception: G8843"
 valueset "MIPS; Performance Not Met: G8844"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 277 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.code.modifier not in {'GQ', 'GT'}
       and E.signingProvider.hasMeasureMembership = true

@@ -37,12 +37,13 @@ valueset "Able; Fall"
 valueset "Able; Fall with Injury"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 154 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 65
       and E.signingProvider.hasMeasureMembership = true
 
@@ -50,27 +51,28 @@ define "Fall":
   ["Diagnosis": "HEDIS; Falls"]
   union ["Diagnosis": "Able; Fall"]
 
+define "Fall Exists":
+  exists(["Procedure, Performed": "MIPS; Falls in Past Year"] P
+    where P.relevantPeriod starts during "Denominator Period")
+  or exists(["Diagnosis": "Able; Fall with Injury"] D
+    with "Denominator Encounter" E
+      such that D.prevalencePeriod starts 1 year or less before start of E.relevantPeriod)
+  or count("Fall" D
+    with "Denominator Encounter" E
+      such that D.prevalencePeriod starts 1 year or less before start of E.relevantPeriod) >= 2
+
 define "Denominator":
   exists("Denominator Encounter")
-  and (
-    exists(["Procedure, Performed": "MIPS; Falls in Past Year"] P
-      where P.relevantPeriod starts during "Measurement Period")
-    or exists(["Diagnosis": "Able; Fall with Injury"] D
-      with "Denominator Encounter" E
-        such that D.prevalencePeriod starts 1 year or less before start of E.relevantPeriod)
-    or count("Fall" D
-      with "Denominator Encounter" E
-        such that D.prevalencePeriod starts 1 year or less before start of E.relevantPeriod) >= 2
-    )
+  and "Fall Exists"
 
 define "Denominator Exclusion":
   /*
    * config_link_id: exclusion_1
    */
   exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
-    where I.relevantPeriod starts during "Measurement Period")
+    where I.relevantPeriod starts during "Denominator Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Measurement Period")
+    where I.relevantPeriod overlaps "Denominator Period")
 
 define "Numerator Performance Met: 3288F":
   /*

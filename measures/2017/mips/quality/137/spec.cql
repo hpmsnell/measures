@@ -21,12 +21,13 @@ valueset "MIPS; Performance Not Met: 7010F-8P"
 
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
-define "Patient Age at Encounter":
+define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 137 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Melanoma"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod

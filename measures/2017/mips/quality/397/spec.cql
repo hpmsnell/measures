@@ -20,12 +20,13 @@ valueset "MIPS; Denominator Exception: G9429"
 valueset "MIPS; Performance Not Met: G9431"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 397 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Malignant Cutaneous Melanoma"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod

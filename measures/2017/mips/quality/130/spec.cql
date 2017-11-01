@@ -21,12 +21,13 @@ valueset "MIPS; Denominator Exception: G8430"
 valueset "MIPS; Performance Not Met; G8428"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
-define "Valid Encounter"
+define "Denominator Encounter"
   ["Encounter, Performed": "MIPS; MIPS 130 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
     and AgeInYearsAt(start of "Measurement Period") >= 18
     and E.signingProvider.hasMeasureMembership = true
 
@@ -35,7 +36,7 @@ define "Valid Procedures"
   union ["Procedure, Performed": "VSAC; Current Medications Documented SNMD"]
 
 define "Denominator":
-  "Valid Encounter"
+  "Denominator Encounter"
 
 define "Numerator Success: G8427":
   /*

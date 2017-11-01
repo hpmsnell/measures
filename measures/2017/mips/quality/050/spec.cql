@@ -31,12 +31,13 @@ valueset "Able; Urinary Incontinence Intervention"
 valueset "Able; Urinary Incontinence Medication"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Patient Age at Encounter":
   ["Encounter, Performed": "MIPS; MIPS 050 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 65
       and "Patient Characteristic Sex" in "VSAC; Female"
       and E.signingProvider.hasMeasureMembership = true
@@ -48,16 +49,16 @@ define "Urinary Incontinence Intervention":
 define "Denominator":
   exists("Denominator Encounter")
   and exists(["Diagnosis": "MIPS; Urinary Incontinence" D
-    where D.prevalencePeriod overlaps "Measurement Period")
+    where D.prevalencePeriod overlaps "Denominator Period")
 
 define "Denominator Exclusion":
   /*
    * config_link_id: denominator_exclusion
    */
   exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Measurement Period")
+    where I.relevantPeriod overlaps "Denominator Period")
   or exists("Urinary Incontinence Intervention" I
-    where I.relevantPeriod starts during "Measurement Period")
+    where I.relevantPeriod starts during "Denominator Period")
 
 define "Numerator Performance Met: 0509F":
   /*

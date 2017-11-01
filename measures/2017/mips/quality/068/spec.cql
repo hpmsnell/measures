@@ -27,12 +27,13 @@ valueset "Able; Erythropoietin Therapy"
 valueset "Able; Documentation of Iron Stores"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 068 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {'GQ', 'GT'}
@@ -41,9 +42,9 @@ define "Denominator Encounter":
 
 define "Erythropoietin Therapy Exists":
   exists(["Procedure, Performed": "MIPS; Erythropoietin Therapy"] P
-    where P.relevantPeriod starts during "Measurement Period"])
+    where P.relevantPeriod starts during "Denominator Period"])
   or exists(["Medication": "Able; Erythropoietin Therapy"] M
-    where M.relevantPeriod starts during "Measurement Period"])
+    where M.relevantPeriod starts during "Denominator Period"])
 
 define "First Erythropoietin Therapy":
   First(["Medication": "Able; Erythropoietin Therapy"] M

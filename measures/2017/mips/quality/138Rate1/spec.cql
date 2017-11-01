@@ -22,6 +22,7 @@ valueset "MIPS; Denominator Exception: 5050F-3P"
 valueset "MIPS; Performance Not Met: 5050F-8P"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
@@ -31,7 +32,7 @@ define "Eligible Encounter":
 
 define "Denominator Encounter":
   "Eligible Encounter" E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; MIPS 138 Melanoma"] D
       such that D.prevalencePeriod during E.relevantPeriod

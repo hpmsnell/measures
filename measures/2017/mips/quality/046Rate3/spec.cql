@@ -33,6 +33,7 @@ valueset "VSAC; HbA1c Laboratory Test": '2.16.840.1.113883.3.464.1003.198.12.101
 valueset "Able; Medication Reconiliation"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
@@ -44,7 +45,7 @@ define "Inpatient Visit":
 
 define "MIPS 046 Encounter":
   ["Encounter, Performed": "MIPS; MIPS 046 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
 
@@ -73,9 +74,9 @@ define "Denominator Exclusion":
    * config_link_id: exclusion
    */
   exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
-    where I.relevantPeriod starts during "Measurement Period")
+    where I.relevantPeriod starts during "Denominator Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Measurement Period")
+    where I.relevantPeriod overlaps "Denominator Period")
 
 define "Numerator Performance Met: 1111F":
   /*

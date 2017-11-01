@@ -78,13 +78,15 @@ valueset "VSAC; Visual Acuity 20/40 or Better": '2.16.840.1.113883.3.526.3.1483'
 valueset "Able; Visual Acuity"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Cataract Surgery":
   ["Encounter, Performed": "MIPS; MIPS 191 Encounter"] E
     where E.relevantPeriod starts during Interval[start of "Measurement Period", 3 months before end "Measurement Period"]
-      AgeInYearsAt >= 18
+      and E.relevantPeriod starts during "Denominator Period"
+      and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and not E.code.modifier in "MIPS; MIPS 191 Encounter Modifier"
       and E.signingProvider.hasMeasureMembership = true
 

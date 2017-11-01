@@ -46,12 +46,13 @@ valueset "VSAC; Kidney Failure": '2.16.840.1.113883.3.464.1003.109.12.1028'
 valueset "VSAC; Proteinuria": '2.16.840.1.113883.3.526.3.1003'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 119 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and AgeInYearsAt(start of E.relevantPeriod) < 75
       and E.signingProvider.hasMeasureMembership = true
@@ -59,16 +60,16 @@ define "Denominator Encounter":
 define "Denominator":
   exists("Denominator Encounter")
   and exists(["Diagnosis": "MIPS; Diabetes"] D
-    where D.prevalencePeriod overlaps "Measurement Period")
+    where D.prevalencePeriod overlaps "Denominator Period")
 
 define "Denominator Exclusion":
   /*
    * config_link_id: exclusion_1
    */
   exists(["Procedure, Performed": "MIPS; MIPS Hospice Service"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Denominator Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Measurement Period")
+    where I.relevantPeriod overlaps "Denominator Period")
 
 define "Microalbumin Tests":
   ["Laboratory Test, Performed": "VSAC; Microalbumin Test"]

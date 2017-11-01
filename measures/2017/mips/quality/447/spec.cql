@@ -49,6 +49,7 @@ valueset "Able; Chlamydia Medication"
 valueset "Able; STI Referral"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
@@ -56,7 +57,7 @@ define "Prior Year": Interval[12 months before start of "Measurement Period", 12
 
 define "Denominator Encounter in Measurement Year":
   ["Encounter, Performed": "MIPS; MIPS 447 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and E.signingProvider.hasMeasureMembership = true
 
 define "Denominator Encounter in Prior Year":
@@ -66,11 +67,11 @@ define "Denominator Encounter in Prior Year":
 
 define "Sexual Activity Exists":
   exists("Sexual Activity Medication" P
-    where P.relevantPeriod overlaps "Measurement Period")
+    where P.relevantPeriod overlaps "Denominator Period")
   or exists("Sexual Activity Procedure" E
-    where E.relevantPeriod starts during "Measurement Period")
+    where E.relevantPeriod starts during "Denominator Period")
   or exists("Sexual Activity Lab Test" E
-    where E.resultDateTime during "Measurement Period")
+    where E.resultDateTime during "Denominator Period")
 
 define "Sexual Activity Medication":
   ["Medication, Active": "VSAC; Contraceptive Medications"]
@@ -125,7 +126,7 @@ define "Chlamydia Follow-Up Exists":
 define "Denominator":
   exists("Denominator Encounter in Measurement Year")
   and exists("Denominator Encounter in Prior Year")
-  and AgeInYearsAt(end of "Measurement Period") = 16
+  and AgeInYearsAt(end of "Denominator Period") = 16
   and "Patient Characteristic Sex" in "VSAC; Female"
   and "Sexual Activity Exists"
 

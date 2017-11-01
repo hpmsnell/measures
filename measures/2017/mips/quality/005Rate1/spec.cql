@@ -29,12 +29,13 @@ valueset "VSAC; ACE Inhibitor or ARB": '2.16.840.1.113883.3.526.3.1139'
 valueset "VSAC; Hypotension": '2.16.840.1.113883.3.526.3.370'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter with Diagnosis":
   ["Encounter, Performed": "MIPS; MIPS 005 Outpatient Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {'GQ', 'GT'}
@@ -45,7 +46,7 @@ define "Denominator Encounter with Diagnosis":
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 005 Outpatient Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {'GQ', 'GT'}

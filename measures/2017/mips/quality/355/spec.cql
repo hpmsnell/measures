@@ -19,6 +19,7 @@ valueset "MIPS; Performance Met: G9308"
 valueset "MIPS; Performance Not Met: G9307"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
@@ -28,6 +29,7 @@ define "Encounter Interval":
 define "Denominator Procedure":
   ["Procedure, Performed": "MIPS; MIPS 355 Procedure"] P
     where P.relevantPeriod starts during "Encounter Interval"
+      and P.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
 

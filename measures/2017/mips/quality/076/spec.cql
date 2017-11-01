@@ -18,12 +18,13 @@ valueset "MIPS; Performance Met: 6030F-1P"
 valueset "MIPS; Performance Not Met: 6030F-8P"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Procedure":
   ["Procedure, Performed": "MIPS; MIPS 076 Procedure"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and E.signingProvider.hasMeasureMembership = true
 
 define "Denominator":

@@ -35,13 +35,14 @@ valueset "Able; Bone Health Assessment": '2.16.840.1.113762.1.4.1047.234'
 valueset "Able; Pain Assessments": '2.16.840.1.113762.1.4.1047.152'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 102 Encounter"] E1
-    where E1.relevantPeriod starts during "Measurement Period"
-      and "Patient Characteristic Sex" = "Male"
+    where E1.relevantPeriod starts during "Denominator Period"
+      and "Patient Characteristic Sex" = 'Male'
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Prostate Cancer"] D
       such that D.prevalencePeriod overlaps E1.relevantPeriod

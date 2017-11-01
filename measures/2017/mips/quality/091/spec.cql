@@ -29,6 +29,7 @@ valueset "Able; Acute Otitis Media"
 valueset "Able; Tympanic Membrane Perforation"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
@@ -37,7 +38,7 @@ define "AOE":
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 091 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 2
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"

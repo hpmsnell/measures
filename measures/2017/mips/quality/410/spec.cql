@@ -28,12 +28,13 @@ valueset "Able; Oral Systemic Medication for Psoriasis"
 valueset "Able; Dermatology Life Quality Index"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 410 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {'GQ', 'GT'}
     with ["Diagnosis": "MIPS; MIPS 410 Psoriasis"] D
@@ -45,9 +46,9 @@ define "Psoriasis Medication":
 
 define "Psoriasis Medication Exists":
   exists(["Procedure, Performed": "MIPS; Medication for Psoriasis"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Denominator Period")
   or exists("Psoriasis Medication" M
-    where M.relevantPeriod overlaps "Measurement Period")
+    where M.relevantPeriod overlaps "Denominator Period")
 
 define "Denominator":
   exists("Denominator Encounter")

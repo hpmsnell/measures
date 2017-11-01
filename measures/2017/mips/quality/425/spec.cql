@@ -24,12 +24,13 @@ valueset "MIPS; Performance Not Met: G9614"
 valueset "VSAC; Colon Surgery": '2.16.840.1.113883.3.666.5.705'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Procedure":
   ["Procedure, Performed": "MIPS; MIPS 425 Procedure"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {73, 74}
 

@@ -20,12 +20,14 @@ valueset "MIPS; Denominator Exception: G0914"
 valueset "MIPS; Performance Not Met: G9520"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Procedure":
   ["Procedure, Performed": "MIPS; MIPS 389 Procedure"] P
     where P.relevantPeriod starts during Interval[start of "Measurement Period", 3 months before end "Measurement Period"]
+      and P.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of P.relevantPeriod) >= 18
       and not P.code.modifier in {55, 56}
       and P.signingProvider.hasMeasureMembership = true

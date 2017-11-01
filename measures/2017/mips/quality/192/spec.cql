@@ -65,13 +65,14 @@ valueset "VSAC; Scleral Procedures": '2.16.840.1.113883.3.526.3.1440'
 valueset "VSAC; Vitreous Procedures": '2.16.840.1.113883.3.526.3.1447'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Cataract Surgery":
   ["Encounter, Performed": "MIPS; MIPS 192 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
-      AgeInYearsAt >= 18
+    where E.relevantPeriod starts during "Denominator Period"
+      and AgeInYearsAt >= 18
       and not E.code.modifier in "MIPS; MIPS 192 Encounter Modifier"
       and E.signingProvider.hasMeasureMembership = true
 
@@ -132,7 +133,7 @@ define "Denominator Exclusion":
     with "Cataract Surgery" E
       where M.relevantPeriod overlaps E.relevantPeriod)
   or exists(["Procedure, Performed": "MIPS; Use of Systemic Sympathetic alpha-1a Antagonist Medication for Treatment of Prostatic Hypertrophy"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Denominator Period")
 
 define "Numerator Performance Met: G8627":
   /*

@@ -30,6 +30,7 @@ valueset "VSAC; Immunodeficient Conditions": '2.16.840.1.113883.3.666.5.1726'
 valueset "Able; Systemic Antibiotics": '2.16.840.1.113762.1.4.1133.6'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
@@ -38,7 +39,7 @@ define "AOE":
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 093 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 2
       and E.signingProvider.hasMeasureMembership = true
     with "AOE" D

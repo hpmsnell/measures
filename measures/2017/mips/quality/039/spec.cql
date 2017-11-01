@@ -29,12 +29,13 @@ valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 valueset "Able; Axial Dual-Energy X-Ray Absorptiometry (DXA)"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 039 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 65
       and AgeInYearsAt(start of E.relevantPeriod) < 85
       and "Patient Characteristic Sex" = "Female"
@@ -50,9 +51,9 @@ define "Denominator Exclusion":
    * config_link_id: exclusion_1
    */
   exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
-    where I.relevantPeriod starts during "Measurement Period")
+    where I.relevantPeriod starts during "Denominator Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Measurement Period")
+    where I.relevantPeriod overlaps "Denominator Period")
 
 define "Numerator Performance Met: G8399":
   /*

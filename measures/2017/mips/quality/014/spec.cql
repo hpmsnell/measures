@@ -22,12 +22,13 @@ valueset "MIPS; Denominator Exception: 2019F-2P"
 valueset "MIPS; Performance Not Met: 2019F-8P"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Patient Age at Encounter":
   ["Encounter, Performed": "MIPS; MIPS 014 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and not E.code.modifier in "MIPS; Telehealth Modifier"
       and AgeInYearsAt(start of E.relevantPeriod) >= 50
       and E.signingProvider.hasMeasureMembership = true

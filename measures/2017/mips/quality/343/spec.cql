@@ -29,12 +29,13 @@ valueset "VSAC; Colon Cancer": 2.16.840.1.113883.3.526.3.391
 valueset "Able; Adenoma of Colon"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Procedure":
   ["Procedure, Performed": "MIPS; MIPS 343 Procedure"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 50
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {52, 53, 73, 74}

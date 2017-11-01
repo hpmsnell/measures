@@ -23,21 +23,23 @@ valueset "MIPS; Performance Not Met: G9579"
 valueset "ABLE; Opioids Used for Pain Control": '1.3.6.1.4.1.6997.4.1.2.234.999.3.1'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 408 Encounter"] E
-    where E.relevantPeriod starts during "Reduced Measurement Period"
+      where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
 
 define "Opioid Exists":
   exists(["Procedure Performed": "Opiates Prescribed for Longer than Six Weeks"] P
-    where P. relevantPeriod starts during "Opioid Period")
+    where P.relevantPeriod starts during "Denominator Period")
   or exists(["Medication": "Able; Opioids Used for Pain Control"] M
-    where M.relevantPeriod overlaps "Measurement Period"
-      and days between start of M.relevantPeriod and end of M.relevantPeriod > 42)
+    where M.relevantPeriod overlaps "Denominator Period"
+      and days between start of M.relevantPeriod and end of M.relevantPeriod > 42
+      and days between start of M.relevantPeriod and end of "Denominator Period" > 42)
 
 define "Denominator":
   exists("Denominator Encounter")

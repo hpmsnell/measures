@@ -48,6 +48,7 @@ valueset "VSAC; Hepatitis A": '2.16.840.1.113883.3.464.1003.110.12.1024'
 valueset "VSAC; Hepatitis B": '2.16.840.1.113883.3.67.1.101.1.269'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
@@ -64,7 +65,7 @@ define "ASCVD":
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 438 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {'GQ', 'GT'}
     with "ASCVD" D
@@ -90,7 +91,7 @@ define "Exception Diagnosis":
   union ["Diagnosis": "VSAC; Hepatitis B"]
 
 define "Denominator":
-  AgeInYearsAt(start of "Measurement Period") >= 21
+  AgeInYearsAt(start of "Measurment Period") >= 21
   exists("Denominator Encounter")
 
 define "Denominator Exclusion: Pregnancy"
@@ -98,18 +99,18 @@ define "Denominator Exclusion: Pregnancy"
    * config_link_id: exclusion_1
    */
   exists("Pregnancy" D
-    where D.prevalencePeriod overlaps "Measurement Period")
+    where D.prevalencePeriod overlaps "Denominator Period")
   or exists("Pregnancy Exclusion" P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Denominator Period")
 
 define "Denominator Exclusion: Rhabdomyolysis"
   /*
    * config_link_id: exclusion_2
    */
   exists(["Diagnosis": "VSAC; Rhabdomyolysis"] D
-    where D.prevalencePeriod overlaps "Measurement Period")
+    where D.prevalencePeriod overlaps "Denominator Period")
   or exists(["Procedure, Performed": "MIPS; Rhabdomyolysis Exclusion"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Denominator Period")
 
 define "Numerator Performance Met: G9664":
   /*

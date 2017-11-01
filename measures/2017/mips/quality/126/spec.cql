@@ -30,12 +30,13 @@ valueset "Able; Ankle Reflex Exam"
 valueset "Able; Foot Pin Prick Exam"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Patient Age at Encounter":
   ["Encounter, Performed": "MIPS; MIPS 126 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and not E.code.modifier in {'GQ', 'GT'}
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
@@ -44,21 +45,21 @@ define "Patient Age at Encounter":
 
 define "Bilateral Amputation Exists":
   exists(["Diagnosis": "Able; Bilateral Amputee"] D
-    where D.prevalencePeriod starts before end of "Measurement Period")
+    where D.prevalencePeriod starts before end of "Denominator Period")
   or exists(["Procedure, Performed": "Able; Bilateral Amputee"] P
-    where P.relevantPeriod starts before end of "Measurement Period")
+    where P.relevantPeriod starts before end of "Denominator Period")
 
 define "Left Foot Amputation Exist":
   exists(["Diagnosis": "Able; Left Foot Amputee"] D
-    where D.prevalencePeriod starts before end of "Measurement Period")
+    where D.prevalencePeriod starts before end of "Denominator Period")
   and exists(["Procedure, Performed": "Able; Left Foot Amputee"] P
-    where P.relevantPeriod starts before end of "Measurement Period")
+    where P.relevantPeriod starts before end of "Denominator Period")
 
 define "Right Foot Amputation Exist":
   exists(["Diagnosis": "Able; Right Foot Amputee"] D
-    where D.prevalencePeriod starts before end of "Measurement Period")
+    where D.prevalencePeriod starts before end of "Denominator Period")
   and exists(["Procedure, Performed": "Able; Right Foot Amputee"] P
-    where P.relevantPeriod starts before end of "Measurement Period")
+    where P.relevantPeriod starts before end of "Denominator Period")
 
 define "Two Unilateral Amputations Exist":
   "Left Foot Amputation Exists"
@@ -90,7 +91,7 @@ define "Denominator Exclusion: Cognitive Impairment":
    * config_link_id: exclusion_2
    */
   exists(["Diagnosis": "Able; Cognitive and Psychiatric Disorders Indicative of Impaired Cognition"] D
-    where D.prevalencePeriod overlaps "Measurement Period")
+    where D.prevalencePeriod overlaps "Denominator Period")
 
 define "Numerator Performance Met: G8404":
   /*

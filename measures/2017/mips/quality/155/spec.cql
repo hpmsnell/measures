@@ -39,12 +39,13 @@ valueset "ABLE; Osteoporosis Diet Recommendation"
 valueset "ABLE; Osteoporosis Training Recommendation"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 155 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 65
       and E.signingProvider.hasMeasureMembership = true
 
@@ -53,32 +54,16 @@ define "Fall":
   union ["Diagnosis": "ABLE; Fall"]
 
 define "Denominator":
-  exists("Denominator Encounter")
-  and (
-    exists(["Procedure, Performed": "MIPS; Falls in Past Year"] P
-      where P.relevantPeriod starts during "Measurement Period")
-    or exists(["Diagnosis": "ABLE; Fall with Injury"] D
-      with "Denominator Encounter" E
-        such that D.prevalencePeriod starts 1 year or less before start of E.relevantPeriod)
-    or count("Fall" D
-      with "Denominator Encounter" E
-        such that D.prevalencePeriod starts 1 year or less before start of E.relevantPeriod) >= 2
-  )
-  and (
-    exists(["Procedure, Performed": "MIPS; Performance Met: 3288F"] P
-      where P.relevantPeriod starts during "Measurement Period")
-    or exists(["Assessment, Performed": "VSAC; Falls Screening"] A
-      where A.authorDateTime during "Measurement Period")
-  )
+  "MIPS 154 Performance Met: 3288F"
 
 define "Denominator Exclusion":
   /*
    * config_link_id: exclusion_1
    */
   exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
-    where I.relevantPeriod starts during "Measurement Period")
+    where I.relevantPeriod starts during "Denominator Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Measurement Period")
+    where I.relevantPeriod overlaps "Denominator Period")
 
 define "Numerator Performance Met: 0518F":
   /*

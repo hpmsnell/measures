@@ -35,12 +35,13 @@ valueset "Able; Pertussis Vaccine"
 valueset "Able; DTaP Vaccine"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 394 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and E.signingProvider.hasMeasureMembership = true
 
 define "Vaccination Allergy":
@@ -71,16 +72,16 @@ define "Denominator Exclusion 1":
    * config_link_id: exclusion_1
    */
   exists("Vaccination Allergy" A
-    where A.prevalencePeriod overlaps "Measurement Period")
+    where A.prevalencePeriod overlaps "Denominator Period")
 
 define "Denominator Exclusion 2":
   /*
    * config_link_id: exclusion_2
    */
   exists(["Procedure, Performed": "MIPS; MIPS Hospice Service"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Denominator Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Measurement Period")
+    where I.relevantPeriod overlaps "Denominator Period")
 
 define "Numerator Performance Met: G9414":
   /*

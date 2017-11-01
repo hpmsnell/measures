@@ -24,12 +24,13 @@ valueset "MIPS; Performance Not Met: G8882"
 valueset "Able; Sentinel Lymph Node Biopsy"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 264 Procedure"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; MIPS 264 Breast Cancer"] D

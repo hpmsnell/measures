@@ -30,12 +30,13 @@ valueset "VSAC; Competing Conditions for Respiratory Conditions": '2.16.840.1.11
 valueset "VSAC; Antibiotic Medications for Pharyngitis": '2.16.840.1.113883.3.464.1003.196.12.1001'
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 065 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInMonthsAt(start of E.relevantPeriod) >= 3
       and AgeInYearsAt(start of E.relevantPeriod) < 18
       and E.signingProvider.hasMeasureMembership = true
@@ -72,9 +73,9 @@ define "Denominator Exclusion 3":
    * config_link_id: exclusion_3
    */
   exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
-    where I.relevantPeriod starts during "Measurement Period")
+    where I.relevantPeriod starts during "Denominator Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Measurement Period")
+    where I.relevantPeriod overlaps "Denominator Period")
 
 define "Numerator Performance Met: G8708":
   /*

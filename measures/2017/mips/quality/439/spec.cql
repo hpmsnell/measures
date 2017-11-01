@@ -34,12 +34,13 @@ valueset "Able; Lynch Syndrome"
 valueset "Able; Inflammatory Bowel Disease"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 439 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 86
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {52, 53, 73, 74}

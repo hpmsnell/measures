@@ -38,6 +38,7 @@ valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 valueset "Able; Mammogram"
 
 parameter "Measurement Period" Interval<DateTime>
+parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
@@ -46,11 +47,11 @@ define "Mammogram":
   union ["Diagnostic Study, Performed": "Able; Mammogram"]
 
 define "Denominator":
-  AgeInYearsAt(start of "Measurement Period") >= 51
-  and AgeInYearsAt(start of "Measurement Period") < 74
-  and "Patient Characteristic Sex" in "VSAC; Female"
+  AgeInYearsAt(start of "Denominator Period") >= 51
+  and AgeInYearsAt(start of "Denominator Period") < 74
+  and "Patient Characteristic Sex" = 'Female'
   and exists(["Encounter, Performed": "MIPS; MIPS 112 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period")
+    where E.relevantPeriod starts during "Denominator Period")
     and E.signingProvider.hasMeasureMembership = true
 
 define "Denominator Exclusion 1":
@@ -58,24 +59,24 @@ define "Denominator Exclusion 1":
    * config_link_id: exclusion_1
    */
   exists(["Procedure, Performed": "MIPS; History of Bilateral Mastectomy: G9708"] P
-    where P.relevantPeriod starts before end "Measurement Period")
+    where P.relevantPeriod starts before end "Denominator Period")
   or exists(["Procedure, Performed": "VSAC; Bilateral Mastectomy"] P
-    where P.relevantPeriod starts before end "Measurement Period")
+    where P.relevantPeriod starts before end "Denominator Period")
   or exists(["Procedure, Performed": "VSAC; History of bilateral mastectomy"] P
-    where P.relevantPeriod starts before end "Measurement Period")
+    where P.relevantPeriod starts before end "Denominator Period")
   or exists(["Diagnosis": "VSAC; History of bilateral mastectomy"] D
-    where D.prevalencePeriod starts before end "Measurement Period")
+    where D.prevalencePeriod starts before end "Denominator Period")
   or (
      exists(["Procedure, Performed": "VSAC; Left Mastectomy"] P
-      where P.relevantPeriod starts before end "Measurement Period")
+      where P.relevantPeriod starts before end "Denominator Period")
      and exists(["Procedure, Performed": "VSAC; Right Mastectomy"] P
-      where P.relevantPeriod starts before end "Measurement Period")
+      where P.relevantPeriod starts before end "Denominator Period")
   )
    or (
      exists(["Diagnosis": "VSAC; Left Mastectomy"] D
-      where D.prevalencePeriod starts before end "Measurement Period")
+      where D.prevalencePeriod starts before end "Denominator Period")
      and exists(["Diagnosis": "VSAC; Right Mastectomy"] D
-      where D.prevalencePeriod starts before end "Measurement Period")
+      where D.prevalencePeriod starts before end "Denominator Period")
    )
 
 define "Denominator Exclusion 2":
@@ -83,9 +84,9 @@ define "Denominator Exclusion 2":
    * config_link_id: exclusion_2
    */
   exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Measurement Period")
+    where I.relevantPeriod overlaps "Denominator Period")
   or exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
-    where I.relevantPeriod overlaps "Measurement Period")
+    where I.relevantPeriod overlaps "Denominator Period")
 
 define "Numerator Performance Met: 3014F":
   /*
