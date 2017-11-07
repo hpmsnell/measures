@@ -31,11 +31,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -82,6 +83,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: LOINC
         code_value: 39156-5 # BMI
         result: 30
@@ -95,7 +103,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 433202001 # Surgical site infection
         start_date: 2017-03-20
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1 # ACI Health Information Exchange
@@ -132,7 +140,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -153,6 +161,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_date: 2017-10-01
         result: 90
@@ -166,10 +178,10 @@ patients:
       - code_type: SNOMEDCT
         code_value: 273472005 # Functional status assessment
         start_date: 2017-02-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -177,11 +189,17 @@ patients:
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
       - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
+      - code_type: ICD10CM
         code_value: Z12.31 # Mammogram
         start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: I10 # Hypertension
         start_date: 2010-01-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
         start_date: 2010-01-01
@@ -219,11 +237,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
@@ -234,6 +253,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -247,7 +273,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 433202001 # Surgical site infection
         start_date: 2017-03-20
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1 # ACI Health Information Exchange
@@ -278,7 +304,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -299,6 +325,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_date: 2017-10-01
         result: 89
@@ -312,10 +342,10 @@ patients:
       - code_type: SNOMEDCT
         code_value: 273472005 # Functional status assessment
         start_date: 2017-02-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -323,9 +353,12 @@ patients:
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
       - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
         claim_id: 18930400
-        start_date: 2016-05-01
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 162607003 # Limited life expectancy
         start_date: 2017-02-01
@@ -335,6 +368,9 @@ patients:
       - code_type: ICD10CM
         code_value: I10 # Hypertension
         start_date: 2010-01-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
         start_date: 2010-01-01
@@ -376,11 +412,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
@@ -388,6 +425,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -397,7 +441,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 433202001 # Surgical site infection
         start_date: 2017-03-20
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1 # ACI Health Information Exchange
@@ -425,7 +469,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -446,6 +490,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_date: 2017-10-01
         result: 89
@@ -463,6 +511,9 @@ patients:
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: SNOMEDCT
         code_value: 162607003 # Limited life expectancy
         start_date: 2017-02-01
@@ -472,6 +523,9 @@ patients:
       - code_type: ICD10CM
         code_value: I10 # Hypertension
         start_date: 2010-01-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
         start_date: 2010-01-01
@@ -518,11 +572,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
@@ -530,6 +585,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -606,11 +668,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -654,6 +717,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -693,13 +763,16 @@ patients:
       - code_type: CPT
         code_value: G9301 # MIPS 352 Performance Met
         start_date: 2017-03-01
+      - code_type: SNOMEDCT
+        code_value: 423059004 # 20/40 vision
+        start_date: 2017-03-20
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
-      - code_type: SNOMEDCT
-        code_value: 423059004 # 20/40 vision
-        start_date: 2017-03-20
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -747,17 +820,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -770,6 +843,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
@@ -780,6 +854,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -809,7 +890,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -829,11 +910,15 @@ patients:
       - code_type: SNOMEDCT
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
       diagnoses:
       - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
+        code_value: E10.21 # Diabetes
         claim_id: 18930400
-        start_date: 2016-05-01
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 266924008 # Tobacco non-user
         start_date: 2017-02-01
@@ -873,18 +958,13 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201 # Visit
-        start_date: 2017-02-01
-        stop_date: 2017-02-02
-        provider: Angela
-      - code_type: CPT
-        code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -897,6 +977,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
@@ -907,6 +988,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -934,7 +1022,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -954,11 +1042,15 @@ patients:
       - code_type: SNOMEDCT
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
       diagnoses:
       - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
+        code_value: E10.21 # Diabetes
         claim_id: 18930400
-        start_date: 2016-05-01
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco non-user
         start_date: 2017-02-01
@@ -1013,18 +1105,13 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201 # Visit
-        start_date: 2017-02-01
-        stop_date: 2017-02-02
-        provider: Angela
-      - code_type: CPT
-        code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -1037,6 +1124,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -1054,6 +1142,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -1087,7 +1182,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -1108,6 +1203,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 24604-1 # Mammogram
         start_date: 2016-10-01
       - code_type: LOINC
@@ -1116,14 +1215,14 @@ patients:
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
         start_date: 2017-02-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
-        claim_id: 18930400
-        start_date: 2016-05-01
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        claim_id: 18930400
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -1157,7 +1256,7 @@ patients:
         start_date: 2017-09-09
   - name: Theresa Reiner
     attributes:
-      date_of_birth: 1956-09-02
+      date_of_birth: 1951-09-02
       external_id: 4a9f98f540b8
       given_name: Theresa
       family_name: Reiner
@@ -1169,18 +1268,13 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201 # Visit
-        start_date: 2017-02-01
-        stop_date: 2017-02-02
-        provider: Angela
-      - code_type: CPT
-        code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -1193,6 +1287,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -1210,6 +1305,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -1229,12 +1331,15 @@ patients:
       - code_type: LOINC
         code_value: 24604-1 # Mammogram
         start_date: 2016-10-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-06-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco user
+        start_date: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
         start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
@@ -1269,7 +1374,7 @@ patients:
         result: negative
   - name: Yvette Li
     attributes:
-      date_of_birth: 1956-09-02
+      date_of_birth: 1949-09-02
       external_id: f351d4a9e709
       given_name: Yvette
       family_name: Li
@@ -1281,18 +1386,13 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201 # Visit
-        start_date: 2017-02-01
-        stop_date: 2017-02-02
-        provider: Angela
-      - code_type: CPT
-        code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -1305,6 +1405,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -1322,6 +1423,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -1329,10 +1437,10 @@ patients:
         code_value: 39156-5 # BMI
         result: 29
         start_date: 2017-02-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -1363,7 +1471,7 @@ patients:
         start_date: 2017-09-09
   - name: Amy Filbert
     attributes:
-      date_of_birth: 1963-03-22
+      date_of_birth: 1948-03-22
       external_id: f351d4a9e709
       given_name: Amy
       family_name: Filbert
@@ -1398,7 +1506,7 @@ patients:
         start_date: 2010-01-01
   - name: Coretta Smith
     attributes:
-      date_of_birth: 1960-01-05
+      date_of_birth: 1950-01-05
       external_id: 31ec96e7c945
       given_name: Coretta
       family_name: Smith
@@ -1828,11 +1936,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -1868,6 +1977,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-02-28
@@ -1887,7 +2003,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 433202001 # Surgical site infection
         start_date: 2017-03-20
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1 # ACI Health Information Exchange
@@ -1924,7 +2040,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -1937,6 +2053,10 @@ patients:
         start_date: 2017-02-01
       - code_type: SNOMEDCT
         code_value: 425392003 # Advance Directive
+        start_date: 2017-02-01
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
         start_date: 2017-02-01
       - code_type: LOINC
         code_value: 8462-4 # Diastolic
@@ -1952,10 +2072,10 @@ patients:
       - code_type: SNOMEDCT
         code_value: 273472005 # Functional status assessment
         start_date: 2017-02-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -1963,11 +2083,17 @@ patients:
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
       - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
+      - code_type: ICD10CM
         code_value: Z12.31 # Mammogram
         start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: I10 # Hypertension
         start_date: 2010-01-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
         start_date: 2010-01-01
@@ -2005,11 +2131,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
@@ -2020,6 +2147,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -2033,7 +2167,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 433202001 # Surgical site infection
         start_date: 2017-03-20
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1 # ACI Health Information Exchange
@@ -2064,7 +2198,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -2085,6 +2219,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_date: 2017-10-01
         result: 89
@@ -2098,10 +2236,10 @@ patients:
       - code_type: SNOMEDCT
         code_value: 273472005 # Functional status assessment
         start_date: 2017-02-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -2109,9 +2247,12 @@ patients:
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
       - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
         claim_id: 18930400
-        start_date: 2016-05-01
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 162607003 # Limited life expectancy
         start_date: 2017-02-01
@@ -2121,6 +2262,9 @@ patients:
       - code_type: ICD10CM
         code_value: I10 # Hypertension
         start_date: 2010-01-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
         start_date: 2010-01-01
@@ -2144,11 +2288,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
@@ -2156,6 +2301,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -2165,7 +2317,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 433202001 # Surgical site infection
         start_date: 2017-03-20
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1 # ACI Health Information Exchange
@@ -2193,7 +2345,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -2214,6 +2366,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_date: 2017-10-01
         result: 89
@@ -2231,6 +2387,9 @@ patients:
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: SNOMEDCT
         code_value: 162607003 # Limited life expectancy
         start_date: 2017-02-01
@@ -2240,6 +2399,9 @@ patients:
       - code_type: ICD10CM
         code_value: I10 # Hypertension
         start_date: 2010-01-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
         start_date: 2010-01-01
@@ -2286,11 +2448,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
@@ -2298,6 +2461,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -2355,11 +2525,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -2398,6 +2569,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -2434,13 +2612,16 @@ patients:
       - code_type: CPT
         code_value: 7025F # MIPS 225 Performance Met
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 423059004 # 20/40 vision
+        start_date: 2017-03-20
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
-      - code_type: SNOMEDCT
-        code_value: 423059004 # 20/40 vision
-        start_date: 2017-03-20
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -2485,17 +2666,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -2508,6 +2689,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
@@ -2518,6 +2700,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -2547,7 +2736,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -2567,11 +2756,15 @@ patients:
       - code_type: SNOMEDCT
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
       diagnoses:
       - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
+        code_value: E10.21 # Diabetes
         claim_id: 18930400
-        start_date: 2016-05-01
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 266924008 # Tobacco non-user
         start_date: 2017-02-01
@@ -2590,17 +2783,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -2613,6 +2806,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
@@ -2623,6 +2817,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -2650,7 +2851,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -2670,11 +2871,15 @@ patients:
       - code_type: SNOMEDCT
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
       diagnoses:
       - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
+        code_value: E10.21 # Diabetes
         claim_id: 18930400
-        start_date: 2016-05-01
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco non-user
         start_date: 2017-02-01
@@ -2727,17 +2932,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -2750,6 +2955,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -2767,6 +2973,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -2800,7 +3013,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -2821,19 +3034,23 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 24604-1 # Mammogram
         start_date: 2016-10-01
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
         start_date: 2017-02-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
-        claim_id: 18930400
-        start_date: 2016-05-01
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        claim_id: 18930400
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -2858,17 +3075,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -2881,6 +3098,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -2898,6 +3116,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -2917,12 +3142,18 @@ patients:
       - code_type: LOINC
         code_value: 24604-1 # Mammogram
         start_date: 2016-10-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-06-20
       - code_type: SNOMEDCT
+        code_value: 252779009 # Eye exam
+        start_date: 2017-02-01
+      diagnoses:
+      - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco user
+        start_date: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
         start_date: 2017-02-01
       medications:
       - code_type: RXNORM
@@ -2967,17 +3198,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -2990,6 +3221,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -3007,6 +3239,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -3014,10 +3253,10 @@ patients:
         code_value: 39156-5 # BMI
         result: 29
         start_date: 2017-02-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -3488,11 +3727,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -3528,6 +3768,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -3544,7 +3791,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 433202001 # Surgical site infection
         start_date: 2017-03-20
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1 # ACI Health Information Exchange
@@ -3581,7 +3828,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -3599,6 +3846,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_date: 2017-10-01
         result: 90
@@ -3612,10 +3863,10 @@ patients:
       - code_type: SNOMEDCT
         code_value: 273472005 # Functional status assessment
         start_date: 2017-02-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -3623,11 +3874,17 @@ patients:
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
       - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
+      - code_type: ICD10CM
         code_value: Z12.31 # Mammogram
         start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: I10 # Hypertension
         start_date: 2010-01-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
         start_date: 2010-01-01
@@ -3665,11 +3922,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
@@ -3680,6 +3938,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -3693,7 +3958,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 433202001 # Surgical site infection
         start_date: 2017-03-20
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1 # ACI Health Information Exchange
@@ -3724,7 +3989,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -3745,6 +4010,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_date: 2017-10-01
         result: 89
@@ -3758,10 +4027,10 @@ patients:
       - code_type: SNOMEDCT
         code_value: 273472005 # Functional status assessment
         start_date: 2017-02-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -3769,9 +4038,12 @@ patients:
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
       - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
         claim_id: 18930400
-        start_date: 2016-05-01
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 162607003 # Limited life expectancy
         start_date: 2017-02-01
@@ -3781,6 +4053,9 @@ patients:
       - code_type: ICD10CM
         code_value: I10 # Hypertension
         start_date: 2010-01-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
         start_date: 2010-01-01
@@ -3804,11 +4079,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
@@ -3816,6 +4092,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -3825,7 +4108,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 433202001 # Surgical site infection
         start_date: 2017-03-20
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1 # ACI Health Information Exchange
@@ -3853,7 +4136,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -3874,6 +4157,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_date: 2017-10-01
         result: 89
@@ -3891,6 +4178,9 @@ patients:
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: SNOMEDCT
         code_value: 162607003 # Limited life expectancy
         start_date: 2017-02-01
@@ -3900,6 +4190,9 @@ patients:
       - code_type: ICD10CM
         code_value: I10 # Hypertension
         start_date: 2010-01-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
         start_date: 2010-01-01
@@ -3946,11 +4239,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
@@ -3958,6 +4252,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -4015,11 +4316,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -4055,6 +4357,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -4091,13 +4400,16 @@ patients:
       - code_type: CPT
         code_value: 7025F # MIPS 225 Performance Met
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 423059004 # 20/40 vision
+        start_date: 2017-03-20
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
-      - code_type: SNOMEDCT
-        code_value: 423059004 # 20/40 vision
-        start_date: 2017-03-20
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -4142,17 +4454,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -4165,6 +4477,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
@@ -4175,6 +4488,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -4204,7 +4524,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -4224,11 +4544,15 @@ patients:
       - code_type: SNOMEDCT
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
       diagnoses:
       - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
+        code_value: E10.21 # Diabetes
         claim_id: 18930400
-        start_date: 2016-05-01
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 266924008 # Tobacco non-user
         start_date: 2017-02-01
@@ -4247,17 +4571,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -4270,6 +4594,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
@@ -4280,6 +4605,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -4307,7 +4639,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -4327,11 +4659,15 @@ patients:
       - code_type: SNOMEDCT
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
       diagnoses:
       - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
+        code_value: E10.21 # Diabetes
         claim_id: 18930400
-        start_date: 2016-05-01
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco non-user
         start_date: 2017-02-01
@@ -4384,17 +4720,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -4407,6 +4743,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -4424,6 +4761,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -4457,7 +4801,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -4478,19 +4822,23 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 24604-1 # Mammogram
         start_date: 2016-10-01
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
         start_date: 2017-02-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
-        claim_id: 18930400
-        start_date: 2016-05-01
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        claim_id: 18930400
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -4515,17 +4863,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -4538,6 +4886,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -4555,6 +4904,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -4574,12 +4930,18 @@ patients:
       - code_type: CPT
         code_value: 99231 # Readmission
         start_date: 2017-03-20
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-06-20
       - code_type: SNOMEDCT
+        code_value: 252779009 # Eye exam
+        start_date: 2017-02-01
+      diagnoses:
+      - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco user
+        start_date: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
         start_date: 2017-02-01
       medications:
       - code_type: RXNORM
@@ -4624,17 +4986,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -4647,6 +5009,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -4664,6 +5027,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -4671,10 +5041,10 @@ patients:
         code_value: 39156-5 # BMI
         result: 29
         start_date: 2017-02-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -5145,11 +5515,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -5185,6 +5556,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -5201,7 +5579,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 433202001 # Surgical site infection
         start_date: 2017-03-20
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1 # ACI Health Information Exchange
@@ -5238,7 +5616,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -5259,6 +5637,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_date: 2017-10-01
         result: 90
@@ -5272,10 +5654,10 @@ patients:
       - code_type: SNOMEDCT
         code_value: 273472005 # Functional status assessment
         start_date: 2017-02-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -5283,11 +5665,17 @@ patients:
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
       - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
+      - code_type: ICD10CM
         code_value: Z12.31 # Mammogram
         start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: I10 # Hypertension
         start_date: 2010-01-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
         start_date: 2010-01-01
@@ -5325,11 +5713,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
@@ -5340,6 +5729,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -5353,7 +5749,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 433202001 # Surgical site infection
         start_date: 2017-03-20
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1 # ACI Health Information Exchange
@@ -5384,7 +5780,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -5405,6 +5801,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_date: 2017-10-01
         result: 89
@@ -5418,10 +5818,10 @@ patients:
       - code_type: SNOMEDCT
         code_value: 273472005 # Functional status assessment
         start_date: 2017-02-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -5429,9 +5829,12 @@ patients:
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
       - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
         claim_id: 18930400
-        start_date: 2016-05-01
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 162607003 # Limited life expectancy
         start_date: 2017-02-01
@@ -5441,6 +5844,9 @@ patients:
       - code_type: ICD10CM
         code_value: I10 # Hypertension
         start_date: 2010-01-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
         start_date: 2010-01-01
@@ -5464,11 +5870,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
@@ -5476,6 +5883,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -5485,7 +5899,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 433202001 # Surgical site infection
         start_date: 2017-03-20
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1 # ACI Health Information Exchange
@@ -5513,7 +5927,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -5534,6 +5948,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_date: 2017-10-01
         result: 89
@@ -5551,6 +5969,9 @@ patients:
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: SNOMEDCT
         code_value: 162607003 # Limited life expectancy
         start_date: 2017-02-01
@@ -5560,6 +5981,9 @@ patients:
       - code_type: ICD10CM
         code_value: I10 # Hypertension
         start_date: 2010-01-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
         start_date: 2010-01-01
@@ -5606,11 +6030,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
@@ -5618,6 +6043,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -5675,11 +6107,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -5715,6 +6148,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -5751,13 +6191,16 @@ patients:
       - code_type: CPT
         code_value: 7025F # MIPS 225 Performance Met
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 423059004 # 20/40 vision
+        start_date: 2017-03-20
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
-      - code_type: SNOMEDCT
-        code_value: 423059004 # 20/40 vision
-        start_date: 2017-03-20
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -5802,17 +6245,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -5825,6 +6268,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
@@ -5835,6 +6279,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -5864,7 +6315,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -5884,11 +6335,15 @@ patients:
       - code_type: SNOMEDCT
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
       diagnoses:
       - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
+        code_value: E10.21 # Diabetes
         claim_id: 18930400
-        start_date: 2016-05-01
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 266924008 # Tobacco non-user
         start_date: 2017-02-01
@@ -5907,17 +6362,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -5930,6 +6385,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
@@ -5940,6 +6396,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -5967,7 +6430,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -5987,11 +6450,15 @@ patients:
       - code_type: SNOMEDCT
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
       diagnoses:
       - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
+        code_value: E10.21 # Diabetes
         claim_id: 18930400
-        start_date: 2016-05-01
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco non-user
         start_date: 2017-02-01
@@ -6044,17 +6511,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -6067,6 +6534,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -6084,6 +6552,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -6117,7 +6592,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -6138,19 +6613,23 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 24604-1 # Mammogram
         start_date: 2016-10-01
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
         start_date: 2017-02-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
-        claim_id: 18930400
-        start_date: 2016-05-01
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        claim_id: 18930400
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -6175,17 +6654,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -6198,6 +6677,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -6215,6 +6695,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -6234,12 +6721,18 @@ patients:
       - code_type: LOINC
         code_value: 24604-1 # Mammogram
         start_date: 2016-10-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-06-20
       - code_type: SNOMEDCT
+        code_value: 252779009 # Eye exam
+        start_date: 2017-02-01
+      diagnoses:
+      - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco user
+        start_date: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
         start_date: 2017-02-01
       medications:
       - code_type: RXNORM
@@ -6284,17 +6777,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -6307,6 +6800,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -6324,6 +6818,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -6331,10 +6832,10 @@ patients:
         code_value: 39156-5 # BMI
         result: 29
         start_date: 2017-02-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -6805,11 +7306,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -6845,6 +7347,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -6861,7 +7370,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 433202001 # Surgical site infection
         start_date: 2017-03-20
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1 # ACI Health Information Exchange
@@ -6898,7 +7407,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -6919,6 +7428,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_date: 2017-10-01
         result: 90
@@ -6932,10 +7445,10 @@ patients:
       - code_type: SNOMEDCT
         code_value: 273472005 # Functional status assessment
         start_date: 2017-02-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -6943,11 +7456,17 @@ patients:
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
       - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
+      - code_type: ICD10CM
         code_value: Z12.31 # Mammogram
         start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: I10 # Hypertension
         start_date: 2010-01-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
         start_date: 2010-01-01
@@ -6985,11 +7504,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
@@ -7000,6 +7520,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -7013,7 +7540,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 433202001 # Surgical site infection
         start_date: 2017-03-20
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1 # ACI Health Information Exchange
@@ -7044,7 +7571,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -7065,6 +7592,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_date: 2017-10-01
         result: 89
@@ -7078,10 +7609,10 @@ patients:
       - code_type: SNOMEDCT
         code_value: 273472005 # Functional status assessment
         start_date: 2017-02-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -7089,9 +7620,12 @@ patients:
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
       - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
         claim_id: 18930400
-        start_date: 2016-05-01
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 162607003 # Limited life expectancy
         start_date: 2017-02-01
@@ -7101,6 +7635,9 @@ patients:
       - code_type: ICD10CM
         code_value: I10 # Hypertension
         start_date: 2010-01-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
         start_date: 2010-01-01
@@ -7124,11 +7661,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
@@ -7136,6 +7674,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -7145,7 +7690,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 433202001 # Surgical site infection
         start_date: 2017-03-20
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1 # ACI Health Information Exchange
@@ -7173,7 +7718,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -7194,6 +7739,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_date: 2017-10-01
         result: 89
@@ -7211,6 +7760,9 @@ patients:
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: SNOMEDCT
         code_value: 162607003 # Limited life expectancy
         start_date: 2017-02-01
@@ -7220,6 +7772,9 @@ patients:
       - code_type: ICD10CM
         code_value: I10 # Hypertension
         start_date: 2010-01-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
         start_date: 2010-01-01
@@ -7266,11 +7821,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
@@ -7278,6 +7834,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -7335,11 +7898,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -7375,6 +7939,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -7411,13 +7982,16 @@ patients:
       - code_type: CPT
         code_value: 7025F # MIPS 225 Performance Met
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 423059004 # 20/40 vision
+        start_date: 2017-03-20
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
-      - code_type: SNOMEDCT
-        code_value: 423059004 # 20/40 vision
-        start_date: 2017-03-20
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -7462,17 +8036,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -7485,6 +8059,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
@@ -7495,6 +8070,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -7524,7 +8106,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -7544,11 +8126,15 @@ patients:
       - code_type: SNOMEDCT
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
       diagnoses:
       - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
+        code_value: E10.21 # Diabetes
         claim_id: 18930400
-        start_date: 2016-05-01
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 266924008 # Tobacco non-user
         start_date: 2017-02-01
@@ -7567,17 +8153,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -7590,6 +8176,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
@@ -7600,6 +8187,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -7627,7 +8221,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -7647,11 +8241,15 @@ patients:
       - code_type: SNOMEDCT
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
       diagnoses:
       - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
+        code_value: E10.21 # Diabetes
         claim_id: 18930400
-        start_date: 2016-05-01
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco non-user
         start_date: 2017-02-01
@@ -7704,17 +8302,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -7727,6 +8325,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -7744,6 +8343,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -7774,7 +8380,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -7795,6 +8401,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 24604-1 # Mammogram
         start_date: 2016-10-01
       - code_type: CPT
@@ -7803,14 +8413,14 @@ patients:
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
         start_date: 2017-02-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
-        claim_id: 18930400
-        start_date: 2016-05-01
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        claim_id: 18930400
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -7835,17 +8445,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -7858,6 +8468,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -7875,6 +8486,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -7897,12 +8515,18 @@ patients:
       - code_type: CPT
         code_value: 99231 # Readmission
         start_date: 2017-03-20
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-06-20
       - code_type: SNOMEDCT
+        code_value: 252779009 # Eye exam
+        start_date: 2017-02-01
+      diagnoses:
+      - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco user
+        start_date: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
         start_date: 2017-02-01
       medications:
       - code_type: RXNORM
@@ -7947,17 +8571,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -7970,6 +8594,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -7987,6 +8612,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -7994,10 +8626,10 @@ patients:
         code_value: 39156-5 # BMI
         result: 29
         start_date: 2017-02-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -8468,11 +9100,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -8514,6 +9147,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -8530,7 +9170,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 433202001 # Surgical site infection
         start_date: 2017-03-20
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1 # ACI Health Information Exchange
@@ -8567,7 +9207,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -8588,6 +9228,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_date: 2017-10-01
         result: 90
@@ -8601,10 +9245,10 @@ patients:
       - code_type: SNOMEDCT
         code_value: 273472005 # Functional status assessment
         start_date: 2017-02-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -8612,11 +9256,17 @@ patients:
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
       - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
+      - code_type: ICD10CM
         code_value: Z12.31 # Mammogram
         start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: I10 # Hypertension
         start_date: 2010-01-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
         start_date: 2010-01-01
@@ -8654,11 +9304,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
@@ -8669,6 +9320,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -8682,7 +9340,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 433202001 # Surgical site infection
         start_date: 2017-03-20
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1 # ACI Health Information Exchange
@@ -8713,7 +9371,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -8734,6 +9392,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_date: 2017-10-01
         result: 89
@@ -8747,10 +9409,10 @@ patients:
       - code_type: SNOMEDCT
         code_value: 273472005 # Functional status assessment
         start_date: 2017-02-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -8758,9 +9420,12 @@ patients:
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
       - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
         claim_id: 18930400
-        start_date: 2016-05-01
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 162607003 # Limited life expectancy
         start_date: 2017-02-01
@@ -8770,6 +9435,9 @@ patients:
       - code_type: ICD10CM
         code_value: I10 # Hypertension
         start_date: 2010-01-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
         start_date: 2010-01-01
@@ -8793,11 +9461,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
@@ -8805,6 +9474,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -8814,7 +9490,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 433202001 # Surgical site infection
         start_date: 2017-03-20
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: ABLE
         code_value: ACI_TRANS_HIE_1 # ACI Health Information Exchange
@@ -8842,7 +9518,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Rachel
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -8863,6 +9539,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 8462-4 # Diastolic
         start_date: 2017-10-01
         result: 89
@@ -8880,6 +9560,9 @@ patients:
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: SNOMEDCT
         code_value: 162607003 # Limited life expectancy
         start_date: 2017-02-01
@@ -8889,6 +9572,9 @@ patients:
       - code_type: ICD10CM
         code_value: I10 # Hypertension
         start_date: 2010-01-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: ICD10CM
         code_value: M15.0 # Osteoarthritis
         start_date: 2010-01-01
@@ -8935,11 +9621,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
@@ -8947,6 +9634,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -9004,11 +9698,12 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-05-01
-        stop_date: 2017-05-02
+        stop_date: 2017-05-01
         provider: Rachel
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Rachel
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -9050,6 +9745,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -9086,13 +9788,16 @@ patients:
       - code_type: CPT
         code_value: 7025F # MIPS 225 Performance Met
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 423059004 # 20/40 vision
+        start_date: 2017-03-20
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco user
         start_date: 2017-02-01
-      - code_type: SNOMEDCT
-        code_value: 423059004 # 20/40 vision
-        start_date: 2017-03-20
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        start_date: 2017-02-01
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -9137,17 +9842,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -9160,6 +9865,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
@@ -9170,6 +9876,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -9199,7 +9912,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -9219,11 +9932,15 @@ patients:
       - code_type: SNOMEDCT
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
       diagnoses:
       - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
+        code_value: E10.21 # Diabetes
         claim_id: 18930400
-        start_date: 2016-05-01
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 266924008 # Tobacco non-user
         start_date: 2017-02-01
@@ -9242,17 +9959,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -9265,6 +9982,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
@@ -9275,6 +9993,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -9302,7 +10027,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -9322,11 +10047,15 @@ patients:
       - code_type: SNOMEDCT
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
+      - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
       diagnoses:
       - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
+        code_value: E10.21 # Diabetes
         claim_id: 18930400
-        start_date: 2016-05-01
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco non-user
         start_date: 2017-02-01
@@ -9379,17 +10108,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -9402,6 +10131,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -9419,6 +10149,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -9452,7 +10189,7 @@ patients:
       - code_type: CPT
         code_value: 70450 # CT Scan (MIPS 360/362)
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: G9321 # MIPS 360 Performance Met
@@ -9473,6 +10210,10 @@ patients:
         code_value: 425392003 # Advance Directive
         start_date: 2017-02-01
       - code_type: LOINC
+        code_value: 39156-5 # BMI
+        result: 22
+        start_date: 2017-02-01
+      - code_type: LOINC
         code_value: 24604-1 # Mammogram
         start_date: 2016-10-01
       - code_type: CPT
@@ -9481,14 +10222,14 @@ patients:
       - code_type: SNOMEDCT
         code_value: 252779009 # Eye exam
         start_date: 2017-02-01
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.3522 # Diabetes
-        claim_id: 18930400
-        start_date: 2016-05-01
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
+        claim_id: 18930400
+        start_date: 2017-01-15
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
@@ -9532,17 +10273,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -9555,6 +10296,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -9572,6 +10314,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -9594,12 +10343,18 @@ patients:
       - code_type: CPT
         code_value: 99231 # Readmission
         start_date: 2017-03-20
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-06-20
       - code_type: SNOMEDCT
+        code_value: 252779009 # Eye exam
+        start_date: 2017-02-01
+      diagnoses:
+      - code_type: SNOMEDCT
         code_value: 160603005 # Tobacco user
+        start_date: 2017-02-01
+      - code_type: ICD10CM
+        code_value: E10.21 # Diabetes
         start_date: 2017-02-01
       medications:
       - code_type: RXNORM
@@ -9644,17 +10399,17 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-06-01
-        stop_date: 2017-06-02
+        stop_date: 2017-06-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 6143009 # Chronic disease management education
         start_date: 2017-02-01
-        stop_date: 2017-02-02
+        stop_date: 2017-02-01
         provider: Angela
       - code_type: SNOMEDCT
         code_value: 713863004 # Patient activation measure
@@ -9667,6 +10422,7 @@ patients:
       - code_type: CPT
         code_value: 99201 # Visit
         start_date: 2017-01-24
+        stop_date: 2017-01-24
         provider: Angela
       - code_type: CPT
         code_value: 66840 # Cataract surgery
@@ -9684,6 +10440,13 @@ patients:
       - code_type: SNOMEDCT
         code_value: 428191000124101 # Documentation of meds
         start_date: 2017-02-01
+      - code_type: SNOMEDCT
+        code_value: 428191000124101 # Documentation of meds
+        start_date: 2017-03-02
+      - code_type: CPT
+        code_value: 99238 # Discharge
+        start_date: 2017-05-16
+        stop_date: 2017-05-16
       - code_type: CPT
         code_value: G9316 # 358 performance met (surgical risk assessment)
         start_date: 2017-06-14
@@ -9691,10 +10454,10 @@ patients:
         code_value: 39156-5 # BMI
         result: 29
         start_date: 2017-02-01
-      diagnoses:
       - code_type: SNOMEDCT
         code_value: 423059004 # 20/40 vision
         start_date: 2017-03-20
+      diagnoses:
       - code_type: SNOMEDCT
         code_value: 236085004 # Gastrointestinal leak
         start_date: 2017-03-20
