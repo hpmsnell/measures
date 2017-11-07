@@ -45,7 +45,7 @@ define "Numerator Performance Met: 5015F":
    */
   "Denominator Encounter" E
     with ["Encounter, Performed": "MIPS; Performance Met: 5015F"] P
-      such that P.relevantPeriod starts during E.relevantPeriod
+      such that P.relevantPeriod starts at or 7 or days or less after start of E.relevantPeriod
 
 define "Numerator Performance Not Met: 5015F-8P":
   /*
