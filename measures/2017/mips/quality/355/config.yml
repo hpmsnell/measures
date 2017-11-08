@@ -15,15 +15,15 @@ performance_met_reasons:
     required:
       display_title: "Unplanned return to the operating room for a surgical procedure, for complications of the principal operative procedure, within 30 days of the principal operative procedure"
       validation_record_groups:
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; MIPS 355 Procedure"
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: G9308"
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; MIPS 355 Reoperation"
@@ -34,19 +34,19 @@ performance_not_met_reasons:
     required:
       display_title: "No return to the operating room for a surgical procedure for complications of the principal operative procedure within 30 days of the principal operative procedure"
       validation_record_groups:
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; MIPS 355 Procedure"
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: G9308"
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Not Met: G9307"
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; MIPS 355 Reoperation"

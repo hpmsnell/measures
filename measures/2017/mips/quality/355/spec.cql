@@ -51,5 +51,4 @@ define "Numerator Performance Not Met: G9307":
   /*
    * config_link_id: G9307
    */
-   not "Denominator Exclusion"
-   and not "Numerator Performance Met: G9308"
+  not "Numerator Performance Met: G9308"
