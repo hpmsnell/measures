@@ -16,8 +16,13 @@ using QDM
 valueset "MIPS; MIPS 024 Encounter"
 valueset "MIPS; MIPS 024 Procedure"
 valueset "MIPS; Fracture"
+valueset "MIPS; MIPS Hospice Service"
 valueset "MIPS; Performance Met: 5015F"
 valueset "MIPS; Performance Not Met: 5015F-8P"
+
+// VSAC value Sets
+
+valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 
 parameter "Measurement Period" Interval<DateTime>
 parameter "Denominator Period" Interval<DateTime>
@@ -39,6 +44,15 @@ define "Denominator Encounter":
 define "Denominator":
   "Denominator Encounter"
 
+define "Denominator Exclusion":
+  /*
+   * config_link_id: exclusion
+   */
+  exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
+    where I.relevantPeriod starts during "Denominator Period")
+  or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
+    where I.relevantPeriod overlaps "Denominator Period")
+
 define "Numerator Performance Met: 5015F":
   /*
    * config_link_id: 5015F
@@ -51,4 +65,5 @@ define "Numerator Performance Not Met: 5015F-8P":
   /*
    * config_link_id: 5015F-8P
    */
-  not "Numerator Performance Met: 5015F"
+  not "Denominator Exclusion"
+  and not "Numerator Performance Met: 5015F"

@@ -5,11 +5,31 @@ measure:
   optional:
     gap_resolution_action:
     set: MIPS
-    external_id: 024
+    external_id: '024'
     version: 2017
     mips_measure_type: Process
     mips_high_priority: true
 exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: Patient excluded due to hospice service
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 024 Encounter
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 024 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Fracture
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS Hospice service
+            - model: ClinicalActivity
+              value_set: VSAC; Palliative Care
 performance_met_reasons:
   - config_link_id: 5015F
     required:
