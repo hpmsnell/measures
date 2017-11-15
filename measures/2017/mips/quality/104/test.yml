@@ -56,26 +56,26 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Denominator HighRisk # Before
+    - name: DenominatorHighRisk Before # Before
       start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Denominator HighRisk # Lower
-      start_date: 2016-05-01
+    - name: DenominatorHighRisk Lower # Lower
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
-    - name: Denominator HighRisk # Upper
-      start_date: 2016-08-01
+    - name: DenominatorHighRisk Upper # Upper
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4164F-8P
-    - name: Denominator HighRisk # After
-      start_date: 2016-11-01
+    - name: DenominatorHighRisk After # After
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -293,26 +293,26 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator:
-      - name: Denominator HighRisk # Before
+      - name: DenominatorHighRisk Before # Before
         start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
-      - name: Denominator HighRisk # Lower
-        start_date: 2016-05-01
+      - name: DenominatorHighRisk Lower # Lower
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
-      - name: Denominator HighRisk # Upper
-        start_date: 2016-08-01
+      - name: DenominatorHighRisk Upper # Upper
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: 4164F-8P
-      - name: Denominator HighRisk # After
-        start_date: 2016-11-01
+      - name: DenominatorHighRisk After # After
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
@@ -623,11 +623,11 @@ patients:
       code_value: C61
       start_date: 2016-11-03 # Too late
       stop_date: 2016-11-04
-- name: Denominator HighRisk
+- name: DenominatorHighRisk Before
   attributes:
     date_of_birth: 2000-01-01
-    given_name: Denominator
-    family_name: HighRisk
+    given_name: DenominatorHighRisk
+    family_name: Before
     sex: Male
   clinical_models:
     clinical_activities:
@@ -638,48 +638,71 @@ patients:
       provider: Rachel
     - code_type: CPT
       code_value: G8465 # High risk
-      start_date: 2016-01-29 # Early
-    - code_type: CPT
-      code_value: 77427
-      start_date: 2016-05-01
-      stop_date: 2016-05-02
-      provider: Rachel
-    - code_type: CPT
-      code_value: G8465 # High risk
-      start_date: 2016-04-30 # Lower bound
-    - code_type: CPT
-      code_value: 77427
-      start_date: 2016-08-01
-      stop_date: 2016-08-02
-      provider: Rachel
-    - code_type: CPT
-      code_value: G8465 # High risk
-      start_date: 2016-08-31 # Upper bound
-    - code_type: CPT
-      code_value: 77427
-      start_date: 2016-11-01
-      stop_date: 2016-11-02
-      provider: Rachel
-    - code_type: CPT
-      code_value: G8465 # High risk
-      start_date: 2016-12-01 # Too late
+      start_date: 2015-12-31 # Early
     diagnoses:
     - code_type: ICD10CM
       code_value: C61
       start_date: 2016-01-30
-      stop_date: 2016-02-28
+- name: DenominatorHighRisk Lower
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: DenominatorHighRisk
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 77427
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8465 # High risk
+      start_date: 2016-01-01 # Lower bound
+    diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_date: 2016-04-30
-      stop_date: 2016-05-31
+      start_date: 2016-01-30
+- name: DenominatorHighRisk Upper
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: DenominatorHighRisk
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 77427
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8465 # High risk
+      start_date: 2016-12-31 # Upper bound
+    diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_date: 2016-08-01
-      stop_date: 2016-08-31
+      start_date: 2016-01-30
+- name: DenominatorHighRisk After
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: DenominatorHighRisk
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 77427
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8465 # High risk
+      start_date: 2017-01-01 # Late
+    diagnoses:
     - code_type: ICD10CM
       code_value: C61
-      start_date: 2016-11-01
-      stop_date: 2016-11-30
+      start_date: 2016-01-30
 - name: Denominator SecondEncounter
   attributes:
     date_of_birth: 2000-01-01

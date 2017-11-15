@@ -46,8 +46,6 @@ define "Denominator Encounter":
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Prostate Cancer"] D
       such that D.prevalencePeriod overlaps E1.relevantPeriod
-    with ["Procedure, Performed": "MIPS; Low Risk of Recurrence of Prostate Cancer"] P
-      such that P.relevantPeriod starts during D.relevantPeriod
     without ["Encounter, Performed": "MIPS; MIPS 102 Encounter"] E2 // Without an additional occurrence of the same encounter
       such that E2.relevantPeriod starts 56 days or less before start of E1.relevantPeriod
 
@@ -73,6 +71,8 @@ define "Bone Scan":
 
 define "Denominator":
   "Denominator Encounter"
+  and ["Procedure, Performed": "MIPS; Low Risk of Recurrence of Prostate Cancer"] P
+    where P.relevantPeriod starts during "Denominator Period"
 
 define "Numerator Performance Met: 3270F":
   /*
