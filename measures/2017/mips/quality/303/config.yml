@@ -26,7 +26,11 @@ performance_met_reasons:
         - count: 10
           validation_records:
             - model: ClinicalActivity
-              value_set: "Able; Visual Acuity"
+              value_set: "Able; Visual Acuity Left Eye"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Visual Acuity Right Eye"
     optional:
       code_value: G0913
 exception_reasons:
@@ -64,6 +68,10 @@ performance_not_met_reasons:
         - count: 10
           validation_records:
             - model: ClinicalActivity
-              value_set: "Able; Visual Acuity"
+              value_set: "Able; Visual Acuity Left Eye"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Visual Acuity Right Eye"
     optional:
       code_value: G0915
