@@ -3,7 +3,7 @@ measure:
   required:
     display_title: "Optimizing Patient Exposure to Ionizing Radiation: Computed Tomography (CT) Images Available for Patient Follow-up and Comparison Purposes"
   optional:
-    gap_resolution_action: Patient requires documentation of availability of DICOM format image data
+    gap_resolution_action:
     set: MIPS
     external_id: 362
     version: 2017
@@ -15,11 +15,11 @@ performance_met_reasons:
     required:
       display_title: Final report documented that DICOM format image data available to non-affiliated external healthcare facilities or entities on a secure, media free, reciprocally searchable basis with patient authorization for at least a 12-month period after the study
       validation_record_groups:
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: MIPS; MIPS 362 Procedure
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: G9340"
@@ -31,15 +31,15 @@ performance_not_met_reasons:
     required:
       display_title: DICOM format image data available to non-affiliated external healthcare facilities or entities on a secure, media free, reciprocally searchable basis with patient authorization for at least a 12-month period after the study not documented in final report, reason not given
       validation_record_groups:
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: MIPS; MIPS 362 Procedure
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: G9340"
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Not Met: G9329"

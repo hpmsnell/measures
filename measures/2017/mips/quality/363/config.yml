@@ -1,0 +1,75 @@
+measure:
+  name: 17.MIPS.Mips363
+  required:
+    display_title: "Optimizing Patient Exposure to Ionizing Radiation: Search for Prior Computed Tomography (CT) Studies Through a Secure, Authorized, Media-Free, Shared Archive"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 363
+    version: 2017
+    mips_measure_type: Structure
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9341
+    required:
+      display_title: Search conducted for prior patient CT studies completed at non-affiliated external healthcare facilities or entities within the past 12-months and are available through a secure, authorized, media-free, shared archive prior to an imaging study being performed
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 363 Procedure
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9341"
+    optional:
+      code_value: G9341
+exception_reasons:
+  - config_link_id: G9344
+    required:
+      display_title: Due to system reasons search not conducted for DICOM format images for prior patient CT imaging studies completed at non-affiliated external healthcare facilities or entities within the past 12 months that are available through a secure, authorized, media-free, shared archive (e.g., non-affiliated external healthcare facilities or entities does not have archival abilities through a shared archival system)
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 363 Procedure
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G9344"
+    optional:
+      code_value: G9344
+  - config_link_id: G9753
+    required:
+      display_title: Documentation of medical reason for not conducting a search for DICOM format images for prior patient CT imaging studies completed at non-affiliated external healthcare facilities or entities within the past 12 months that are available through a secure, authorized, media- free, shared archive (e.g., trauma, acute myocardial infarction, stroke, aortic aneurysm where time is of the essence)
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 363 Procedure
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G9753"
+    optional:
+      code_value: G9753
+performance_not_met_reasons:
+  - config_link_id: G9342
+    required:
+      display_title: Search not conducted prior to an imaging study being performed for prior patient CT studies completed at non- affiliated external healthcare facilities or entities within the past 12-months and are available through a secure, authorized, media-free, shared archive, reason not given
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 363 Procedure
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9341"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9342"
+    optional:
+      code_value: G9342
