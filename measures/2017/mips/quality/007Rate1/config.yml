@@ -9,6 +9,7 @@ measure:
     version: 2017
     mips_measure_type: Process
     mips_high_priority: false
+    mips_stratum: 'LVSD'
 exclusion_reasons:
 performance_met_reasons:
   - config_link_id: G9189
@@ -69,9 +70,13 @@ exception_reasons:
         - count: 1
           validation_records:
             - model: Allergy
-              value_set: "VSAC; Beta Blocker Therapy"
-            - model: Allergy
               value_set: "VSAC; Beta Blocker Therapy Ingredient"
+            - model: Diagnosis
+              value_set: "VSAC; Allergy to Beta Blocker Therapy"
+            - model: Diagnosis
+              value_set: "VSAC; Intolerance to Beta Blocker Therapy"
+        - count: 1
+          validation_records:
             - model: Diagnosis
               value_set: "VSAC; Arrhythmia"
             - model: Diagnosis

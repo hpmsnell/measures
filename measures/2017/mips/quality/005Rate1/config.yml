@@ -61,7 +61,9 @@ exception_reasons:
         - count: 1
           validation_records:
             - model: Allergy
-              value_set: "VSAC; ACE Inhibitor or ARB"
+              value_set: "VSAC; ACE Inhibitor or ARB Ingredient"
+            - model: Diagnosis
+              value_set: "VSAC; Allergy to ACE Inhibitor or ARB"
         - count: 1
           validation_records:
             - model: Diagnosis

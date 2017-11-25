@@ -26,6 +26,8 @@ valueset "MIPS; Performance Not Met: 4010F-8P"
 // VSAC value sets
 
 valueset "VSAC; ACE Inhibitor or ARB": '2.16.840.1.113883.3.526.3.1139'
+valueset "VSAC; ACE Inhibitor or ARB Ingredient": '2.16.840.1.113883.3.526.3.1489'
+valueset "VSAC; Allergy to ACE Inhibitor or ARB": '2.16.840.1.113883.3.526.3.1211'
 valueset "VSAC; Hypotension": '2.16.840.1.113883.3.526.3.370'
 
 parameter "Measurement Period" Interval<DateTime>
@@ -63,10 +65,13 @@ define "Denominator Exception: 4010F-1P":
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: 4010F-1P"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists(["Allergy": "VSAC; Ace Inhibitor or ARB"] M
+  or exists(["Allergy": "VSAC; Ace Inhibitor or ARB Ingredient"] M
     with "Denominator Encounter with Diagnosis" E
       such that M.relevantPeriod overlaps E.relevantPeriod)
   or exists(["Diagnosis": "VSAC; Hypotension"] D
+    with "Denominator Encounter with Diagnosis" E
+      such that D.relevantPeriod overlaps E.relevantPeriod)
+  or exists(["Diagnosis": "VSAC; Allergy to Ace Inhibitor or ARB"] D
     with "Denominator Encounter with Diagnosis" E
       such that D.relevantPeriod overlaps E.relevantPeriod)
 

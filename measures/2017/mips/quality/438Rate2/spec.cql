@@ -43,6 +43,10 @@ valueset "VSAC; Liver Disease": '2.16.840.1.113762.1.4.1047.42'
 valueset "VSAC; Hepatitis A": '2.16.840.1.113883.3.464.1003.110.12.1024'
 valueset "VSAC; Hepatitis B": '2.16.840.1.113883.3.67.1.101.1.269'
 
+// Able value sets
+
+valueset "Able; Allergy to Statin"
+
 parameter "Measurement Period" Interval<DateTime>
 parameter "Denominator Period" Interval<DateTime>
 
@@ -87,6 +91,7 @@ define "Exception Diagnosis":
   union ["Diagnosis": "VSAC; Liver Disease"]
   union ["Diagnosis": "VSAC; Hepatitis A"]
   union ["Diagnosis": "VSAC; Hepatitis B"]
+  union ["Diagnosis": "Able; Allergy to Statin"]
 
 define "Denominator":
   AgeInYearsAt(start of "Measurement Period") >= 21

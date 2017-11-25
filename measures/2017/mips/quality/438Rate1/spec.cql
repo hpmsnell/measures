@@ -47,6 +47,10 @@ valueset "VSAC; Liver Disease": '2.16.840.1.113762.1.4.1047.42'
 valueset "VSAC; Hepatitis A": '2.16.840.1.113883.3.464.1003.110.12.1024'
 valueset "VSAC; Hepatitis B": '2.16.840.1.113883.3.67.1.101.1.269'
 
+// Able value sets
+
+valueset "Able; Allergy to Statin"
+
 parameter "Measurement Period" Interval<DateTime>
 parameter "Denominator Period" Interval<DateTime>
 
@@ -85,6 +89,7 @@ define "Statin":
   union ["Medication": "VSAC; High intensity statin therapy"]
 
 define "Exception Diagnosis":
+  ["Diagnosis": "VSAC; Allergy to Statin"]
   union ["Diagnosis": "VSAC; End Stage Renal Disease"]
   union ["Diagnosis": "VSAC; Liver Disease"]
   union ["Diagnosis": "VSAC; Hepatitis A"]
@@ -127,7 +132,7 @@ define "Denominator Exception: G9781":
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: G9781"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists(["Allergy": "Statin Allergen"] A
+  or exists(["Allergy": "VSAC; Statin Allergen"] A
     where A.prevalencePeriod overlaps "Measurement Period")
   or exists(["Procedure, Performed": "MIPS; MIPS Hospice Service"] P
     where P.relevantPeriod starts during "Measurement Period")

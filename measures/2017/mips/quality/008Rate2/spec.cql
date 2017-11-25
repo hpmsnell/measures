@@ -55,8 +55,7 @@ define "Denominator Encounter":
       such that P.relevantPeriod starts on or before end of E.relevantPeriod
 
 define "Medical Exception":
-  ["Allergy": "VSAC; Beta Blocker Therapy"]
-  union ["Allergy": "VSAC; Beta Blocker Therapy Ingredient"]
+  ["Allergy": "VSAC; Beta Blocker Therapy Ingredient"]
   union ["Diagnosis": "VSAC; Allergy To Beta-Blocker Therapy"]
   union ["Diagnosis": "VSAC; Intolerance To Beta-Blocker Therapy"]
   union ["Diagnosis": "VSAC; Arrhythmia"]

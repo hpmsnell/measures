@@ -72,12 +72,16 @@ exception_reasons:
               value_set: "Able; Systemic Antibiotics"
         - count: 10
           validation_records:
+            - model: Allergy
+              value_set: "Able; Amoxicillin Ingredient"
+            - model: Diagnosis
+              value_set: "Able; Allergy to Amoxicillin"
+        - count: 10
+          validation_records:
             - model: Diagnosis
               value_set: "VSAC; Cystic Fibrosis"
             - model: Diagnosis
               value_set: "VSAC; Immunodeficient Conditions"
-            - model: Allergy
-              value_set: "Able; Amoxicillin"
             - model: Diagnosis
               value_set: "Able; Chronic Sinusitis"
             - model: ClinicalActivity

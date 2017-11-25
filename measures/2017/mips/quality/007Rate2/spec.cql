@@ -68,8 +68,7 @@ define "Denominator Encounter Exists":
   or exists("Denominator Encounter with Surgery")
 
 define "Medical Exception":
-  ["Allergy": "VSAC; Beta Blocker Therapy"]
-  union ["Allergy": "VSAC; Beta Blocker Therapy Ingredient"]
+  ["Allergy": "VSAC; Beta Blocker Therapy Ingredient"]
   union ["Diagnosis": "VSAC; Allergy To Beta Blocker Therapy"]
   union ["Diagnosis": "VSAC; Intolerance To Beta Blocker Therapy"]
   union ["Diagnosis": "VSAC; Arrhythmia"]

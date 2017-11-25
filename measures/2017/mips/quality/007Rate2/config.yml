@@ -9,6 +9,7 @@ measure:
     version: 2017
     mips_measure_type: Process
     mips_high_priority: false
+    mips_stratum: 'priorMI'
 exclusion_reasons:
 performance_met_reasons:
   - config_link_id: 4008F
@@ -34,7 +35,7 @@ performance_met_reasons:
         - count: 1
           validation_records:
             - model: Medication
-              value_set: "VSAC; Beta Blocker Therapy"
+              value_set: "VSAC; Beta-Blocker Therapy"
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -65,9 +66,13 @@ exception_reasons:
         - count: 1
           validation_records:
             - model: Allergy
-              value_set: "VSAC; Beta Blocker Therapy"
-            - model: Allergy
               value_set: "VSAC; Beta Blocker Therapy Ingredient"
+            - model: Diagnosis
+              value_set: "VSAC; Allergy to Beta Blocker Therapy"
+            - model: Diagnosis
+              value_set: "VSAC; Intolerance to Beta Blocker Therapy"
+        - count: 1
+          validation_records:
             - model: Diagnosis
               value_set: "VSAC; Arrhythmia"
             - model: Diagnosis
@@ -158,7 +163,7 @@ performance_not_met_reasons:
         - count: 1
           validation_records:
             - model: Medication
-              value_set: "VSAC; Beta Blocker Therapy"
+              value_set: "VSAC; Beta-Blocker Therapy"
         - count: 1
           validation_records:
             - model: ClinicalActivity

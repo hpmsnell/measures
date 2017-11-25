@@ -31,6 +31,8 @@ valueset "VSAC; Immunodeficient Conditions": '2.16.840.1.113883.3.666.5.1726'
 
 valueset "Able; Systemic Antibiotics": '2.16.840.1.113762.1.4.1133.6'
 valueset "Able; Amoxicillin"
+valueset "Able; Amoxicillin Ingredient"
+valueset "Able; Allergy to Amoxicillin"
 valueset "Able; Bacterial Sinusitis"
 valueset "Able; Chronic Sinusitis"
 valueset "Able; Cilia Disorder"
@@ -90,10 +92,13 @@ define "Denominator Exception: G9313":
   or exists("Coexisting Conditions" D
     with "Denominator Encounter" E
       such that D.prevalencePeriod overlaps E.relevantPeriod)
-  or exists(["Allergy"; "Able; Amoxicillin"] A
+  or exists(["Allergy"; "Able; Amoxicillin Ingredient"] A
     with "Denominator Encounter" E
       such that A.prevalencePeriod overlaps E.relevantPeriod)
   or exists(["Diagnosis": "Able; Chronic Sinusitis"] D
+    with "Denominator Encounter" E
+      such that D.prevalencePeriod overlaps E.relevantPeriod)
+  or exists(["Diagnosis": "Able; Allergy to Amoxicillin"] D
     with "Denominator Encounter" E
       such that D.prevalencePeriod overlaps E.relevantPeriod)
   or exists(["Procedure, Performed": "Able; Sinus Surgery"] P
