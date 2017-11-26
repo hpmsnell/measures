@@ -96,8 +96,5 @@ define "Numerator Performance Not Met: 4086F-8P":
    */
   not "Numerator Performance Met: 4086F"
   and not "Denominator Exception 1: 4086F-1P"
-  and not "Denominator Exception 2: 4086F-1P"
-  and not "Denominator Exception 3: 4086F-1P"
-  and not "Denominator Exception 4: 4086F-1P"
-  and not "Denominator Exception 5: 4086F-2P"
-  and not "Denominator Exception 6: 4086F-3P"
+  and not "Denominator Exception 2: 4086F-2P"
+  and not "Denominator Exception 3: 4086F-3P"
