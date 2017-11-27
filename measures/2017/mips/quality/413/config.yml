@@ -1,0 +1,73 @@
+measure:
+  name: 17.MIPS.Mips413
+  required:
+    display_title: "Door to Puncture Time for Endovascular Stroke Treatmen"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 413
+    version: 2017
+    mips_measure_type: Intermediate Outcome
+    mips_high_priority: true
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: 'Patient excluded due to transfer or hospitalization with CVA for endovascular stroke treatment'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 413 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Ischemic Stroke"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Transfer with Diagnosis of CVA"
+            - model: ClinicalActivity
+              value_set: "MIPS; Hospitalization with Newly Diagnosed CVA"
+performance_met_reasons:
+  - config_link_id: G9580
+    required:
+      display_title: 'Door to puncture time of less than 2 hours'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 413 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Ischemic Stroke"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9580"
+    optional:
+      code_value: G9580
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: G9582
+    required:
+      display_title: 'Door to puncture time of greater than 2 hours, no reason given'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 413 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Ischemic Stroke"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9580"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9582"
+    optional:
+      code_value: G9582
