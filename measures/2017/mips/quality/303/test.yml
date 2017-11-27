@@ -406,11 +406,11 @@ patients:
     - code_type: SNOMEDCT
       code_value: 386708005 # Preoperative visual acuity
       start_date: 2015-12-01 # Early
-      result: .5
+      result_as_decimal: .5
     - code_type: SNOMEDCT
       code_value: 386708005 # Post visual acuity
       start_date: 2016-01-02
-      result: 1.0
+      result_as_decimal: 1.0
     - code_type: CPT
       code_value: 66840
       start_date: 2016-06-01
@@ -418,11 +418,11 @@ patients:
     - code_type: SNOMEDCT
       code_value: 386708005 # Preoperative visual acuity
       start_date: 2016-05-02 # Lower bound
-      result: .5
+      result_as_decimal: .5
     - code_type: SNOMEDCT
       code_value: 386708005 # Post visual acuity
       start_date: 2016-06-02
-      result: 1.0
+      result_as_decimal: 1.0
 - name: PerformanceMet PreoperativeVisualAcuity-2
   attributes:
     date_of_birth: 1988-03-22
@@ -439,11 +439,11 @@ patients:
     - code_type: SNOMEDCT
       code_value: 386708005 # Preoperative visual acuity
       start_date: 2016-01-01 # Upper bound
-      result: .5
+      result_as_decimal: .5
     - code_type: SNOMEDCT
       code_value: 386708005 # Post visual acuity
       start_date: 2016-01-02
-      result: 1.0
+      result_as_decimal: 1.0
     - code_type: CPT
       code_value: 66840
       start_date: 2016-06-01
@@ -451,11 +451,11 @@ patients:
     - code_type: SNOMEDCT
       code_value: 386708005 # Preoperative visual acuity
       start_date: 2016-06-02 # Too late
-      result: .5
+      result_as_decimal: .5
     - code_type: SNOMEDCT
       code_value: 386708005 # Post visual acuity
       start_date: 2016-06-02
-      result: 1.0
+      result_as_decimal: 1.0
 - name: PerformanceMet PostoperativeVisualAcuity-1
   attributes:
     date_of_birth: 1988-03-22
@@ -472,11 +472,11 @@ patients:
     - code_type: SNOMEDCT
       code_value: 386708005 # Preoperative visual acuity
       start_date: 2015-12-31
-      result: .5
+      result_as_decimal: .5
     - code_type: SNOMEDCT
       code_value: 386708005 # Post visual acuity
       start_date: 2016-01-01 # Too early
-      result: 1.0
+      result_as_decimal: 1.0
     - code_type: CPT
       code_value: 66840
       start_date: 2016-06-01
@@ -484,11 +484,11 @@ patients:
     - code_type: SNOMEDCT
       code_value: 386708005 # Preoperative visual acuity
       start_date: 2016-05-30
-      result: .5
+      result_as_decimal: .5
     - code_type: SNOMEDCT
       code_value: 386708005 # Post visual acuity
       start_date: 2016-06-02 # Lower bound
-      result: 1.0
+      result_as_decimal: 1.0
 - name: PerformanceMet PostoperativeVisualAcuity-2
   attributes:
     date_of_birth: 1988-03-22
@@ -505,11 +505,11 @@ patients:
     - code_type: SNOMEDCT
       code_value: 386708005 # Preoperative visual acuity
       start_date: 2015-12-31
-      result: .5
+      result_as_decimal: .5
     - code_type: SNOMEDCT
       code_value: 386708005 # Post visual acuity
       start_date: 2016-03-31 # Upper bound
-      result: 1.0
+      result_as_decimal: 1.0
     - code_type: CPT
       code_value: 66840
       start_date: 2016-06-01
@@ -517,11 +517,11 @@ patients:
     - code_type: SNOMEDCT
       code_value: 386708005 # Preoperative visual acuity
       start_date: 2016-05-30
-      result: .5
+      result_as_decimal: .5
     - code_type: SNOMEDCT
       code_value: 386708005 # Post visual acuity
       start_date: 2016-08-31 # Too late
-      result: 1.0
+      result_as_decimal: 1.0
 - name: PerformanceMet VisualAcuity-TooLow
   attributes:
     date_of_birth: 1988-03-22
@@ -538,11 +538,11 @@ patients:
     - code_type: SNOMEDCT
       code_value: 386708005 # Preoperative visual acuity
       start_date: 2015-12-31
-      result: .5
+      result_as_decimal: .5
     - code_type: SNOMEDCT
       code_value: 386708005 # Post visual acuity
       start_date: 2016-01-02
-      result: .5
+      result_as_decimal: .5
 - name: Exception G0914-1
   attributes:
     date_of_birth: 1988-03-22

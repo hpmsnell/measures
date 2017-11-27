@@ -473,7 +473,7 @@ patients:
       - code_type: LOINC
         code_value: 38208-5
         start_date: 2016-01-31 # Too early
-        result: 0
+        result_as_decimal: 0.0
       - code_type: CPT
         code_value: 90791
         start_date: 2016-03-01
@@ -482,7 +482,7 @@ patients:
       - code_type: LOINC
         code_value: 38208-5
         start_date: 2016-03-01 # Lower bound
-        result: 0
+        result_as_decimal: 0.0
       - code_type: CPT
         code_value: 90791
         start_date: 2016-04-01
@@ -491,7 +491,7 @@ patients:
       - code_type: LOINC
         code_value: 38208-5
         start_date: 2016-04-02 # Upper bound
-        result: 0
+        result_as_decimal: 0.0
       - code_type: CPT
         code_value: 90791
         start_date: 2016-05-01
@@ -500,7 +500,7 @@ patients:
       - code_type: LOINC
         code_value: 38208-5
         start_date: 2016-05-03 # Too late
-        result: 0
+        result_as_decimal: 0.0
   - name: Exception G8442
     attributes:
       date_of_birth: 1990-03-22

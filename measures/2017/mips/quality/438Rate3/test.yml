@@ -231,7 +231,6 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9665:
       numerator: G9665
     - name: ExceptionLDL Below70 # Last LDL < 7
       denominator: 1
@@ -761,6 +760,7 @@ patients:
     - code_type: LOINC
       code_value: 2089-1 # LDL
       result: 189
+      result_as_decimal: 189.0
       start_date: 2013-12-31 # Before 2 years before measurement period
 - name: DenominatorLDL Lower
   attributes:
@@ -783,6 +783,7 @@ patients:
     - code_type: LOINC
       code_value: 2089-1 # LDL
       result: 189
+      result_as_decimal: 189.0
       start_date: 2014-01-01 # Lower bound
 - name: DenominatorLDL Upper
   attributes:
@@ -805,6 +806,7 @@ patients:
     - code_type: LOINC
       code_value: 2089-1 # LDL
       result: 189
+      result_as_decimal: 189.0
       start_date: 2016-12-31 # Upper bound
 - name: DenominatorLDL After
   attributes:
@@ -827,6 +829,7 @@ patients:
     - code_type: LOINC
       code_value: 2089-1 # LDL
       result: 189
+      result_as_decimal: 189.0
       start_date: 2017-01-01 # Too late
 - name: DenominatorLDL High
   attributes:
@@ -849,10 +852,12 @@ patients:
     - code_type: LOINC
       code_value: 2089-1 # LDL
       result: 190 # Too high
+      result_as_decimal: 190.0
       start_date: 2016-03-01
     - code_type: LOINC
       code_value: 2089-1 # LDL
       result: 189
+      result_as_decimal: 189.0
       start_date: 2016-02-01
 - name: DenominatorLDL Low
   attributes:
@@ -875,6 +880,7 @@ patients:
     - code_type: LOINC
       code_value: 2089-1 # LDL
       result: 69 # Too low
+      result_as_decimal: 69.0
       start_date: 2016-02-01
 - name: ExclusionPregnancy Before
   attributes:
@@ -1548,7 +1554,7 @@ patients:
       code_value: 99201
       start_date: 2016-02-01
       stop_date: 2016-02-02
-      provider: Rachel
+      provider: Patty
     - code_type: CPT
       code_value: G9783
       start_date: 2015-12-31 # Too early
@@ -1557,14 +1563,15 @@ patients:
       code_value: E10.10 # Diabetes
       start_date: 2016-02-01
     laboratory_test_performeds:
-  laboratory_test_performeds:
     - code_type: LOINC
       code_value: 2089-1 # LDL
       result: 70
+      result_as_decimal: 70.0
       start_date: 2016-01-01
     - code_type: LOINC
       code_value: 2089-1 # LDL
       result: 69
+      result_as_decimal: 69.0
       start_date: 2016-01-02 # Most recent
 - name: ExceptionLDL 70
   attributes:
@@ -1578,7 +1585,7 @@ patients:
       code_value: 99201
       start_date: 2016-02-01
       stop_date: 2016-02-02
-      provider: Rachel
+      provider: Patty
     - code_type: CPT
       code_value: G9783
       start_date: 2015-12-31 # Too early
@@ -1587,12 +1594,13 @@ patients:
       code_value: E10.10 # Diabetes
       start_date: 2016-02-01
     laboratory_test_performeds:
-  laboratory_test_performeds:
     - code_type: LOINC
       code_value: 2089-1 # LDL
       result: 69
+      result_as_decimal: 69.0
       start_date: 2016-01-01
     - code_type: LOINC
       code_value: 2089-1 # LDL
       result: 70
+      result_as_decimal: 70.0
       start_date: 2016-01-02 # Most recent

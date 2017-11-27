@@ -614,6 +614,7 @@ patients:
     - code_type: LOINC
       code_value: 2089-1 # LDL
       result: 190
+      result_as_decimal: 190.0
       start_date: 2015-01-31 # Before encounter but ok
 - name: DenominatorLDL Lower
   attributes:
@@ -632,6 +633,7 @@ patients:
     - code_type: LOINC
       code_value: 2089-1 # LDL
       result: 190
+      result_as_decimal: 190.0
       start_date: 2016-02-01 # Start of encounter
 - name: DenominatorLDL Upper
   attributes:
@@ -650,6 +652,7 @@ patients:
     - code_type: LOINC
       code_value: 2089-1 # LDL
       result: 190
+      result_as_decimal: 190.0
       start_date: 2016-02-02 # Upper bound
 - name: DenominatorLDL After
   attributes:
@@ -668,6 +671,7 @@ patients:
     - code_type: LOINC
       code_value: 2089-1 # LDL
       result: 190
+      result_as_decimal: 190.0
       start_date: 2017-02-03 # Too late
 - name: DenominatorLDL Low
   attributes:
@@ -686,6 +690,7 @@ patients:
     - code_type: LOINC
       code_value: 2089-1 # LDL
       result: 189 # Too low
+      result_as_decimal: 189.0
       start_date: 2016-02-01
 - name: ExclusionPregnancy Before
   attributes:

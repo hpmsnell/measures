@@ -503,11 +503,11 @@ patients:
     - code_type: SNOMEDCT
       code_value: 363983007
       start_date: 2015-12-31 # Early
-      result: .5
+      result_as_decimal: .5
     - code_type: SNOMEDCT
       code_value: 363983007
       start_date: 2016-06-01 # Lower
-      result: .5
+      result_as_decimal: .5
 - name: PerformanceMet Finding2
   attributes:
     date_of_birth: 1988-03-22
@@ -528,11 +528,11 @@ patients:
     - code_type: SNOMEDCT
       code_value: 363983007
       start_date: 2016-03-31 # Upper
-      result: .5
+      result_as_decimal: .5
     - code_type: SNOMEDCT
       code_value: 363983007
       start_date: 2016-08-31 # After
-      result: .5
+      result_as_decimal: .5
 - name: PerformanceMet FindingTooLow
   attributes:
     date_of_birth: 1988-03-22
@@ -549,4 +549,4 @@ patients:
     - code_type: SNOMEDCT
       code_value: 363983007
       start_date: 2016-01-02
-      result: .4 # Too low
+      result_as_decimal: .4
