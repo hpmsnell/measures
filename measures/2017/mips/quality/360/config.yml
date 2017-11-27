@@ -15,11 +15,11 @@ performance_met_reasons:
     required:
       display_title: Count of previous CT (any type of CT) and cardiac nuclear medicine (myocardial perfusion) studies documented in the 12-month period prior to the current study
       validation_record_groups:
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: MIPS; MIPS 360 Procedure
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: G9321"
@@ -31,15 +31,15 @@ performance_not_met_reasons:
     required:
       display_title: Count of previous CT and cardiac nuclear medicine (myocardial perfusion) studies not documented in the 12-month period prior to the current study, reason not given
       validation_record_groups:
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: MIPS; MIPS 360 Procedure
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: G9321"
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Not Met: G9322"
