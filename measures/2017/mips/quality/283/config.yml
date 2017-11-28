@@ -15,7 +15,7 @@ performance_met_reasons:
     required:
       display_title: 'Neuropsychiatric symptoms assessed and results reviewed'
       validation_record_groups:
-        - count: 2
+        - count: 1
           validation_records:
             - model: ClinicalActivity
               value_set: MIPS; MIPS 283 Encounter
@@ -30,7 +30,7 @@ performance_met_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Neuropsychiatric Assessment"
+              value_set: "Able; Neuropsychiatric Assessment"
     optional:
       code_value: 1181F
 exception_reasons:
@@ -39,7 +39,7 @@ performance_not_met_reasons:
     required:
       display_title: "Neuropsychiatric symptoms not assessed and results not reviewed, reason not otherwise specified"
       validation_record_groups:
-        - count: 2
+        - count: 1
           validation_records:
             - model: ClinicalActivity
               value_set: MIPS; MIPS 283 Encounter
@@ -58,6 +58,6 @@ performance_not_met_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Neuropsychiatric Assessment"
+              value_set: "Able; Neuropsychiatric Assessment"
     optional:
       code_value: 1181F-8P
