@@ -47,7 +47,7 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: 0509F-8P
-    - name: Diagnosis Late  # Patient has a diagnosis that is late but otherwise meets the denominator
+    - name: Diagnosis After  # Patient has a diagnosis that is late but otherwise meets the denominator
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -150,7 +150,7 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: 0509F-8P
-    - name: Diagnosis Late  # Patient has a diagnosis that is late but otherwise meets the denominator
+    - name: Diagnosis After  # Patient has a diagnosis that is late but otherwise meets the denominator
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -570,4 +570,4 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 863629
-      start_date: 2016-02-02
+      start_date: 2015-01-01
