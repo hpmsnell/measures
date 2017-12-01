@@ -1,0 +1,63 @@
+measure:
+  name: 17.MIPS.Mips291
+  required:
+    display_title: "Parkinson’s Disease: Cognitive Impairment or Dysfunction Assessment"
+  optional:
+    gap_resolution_action: "Patient is due for assessment for cognitive impairment or dysfunction due to Parkinson's disease"
+    set: MIPS
+    external_id: '291'
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: 3720F
+    required:
+      display_title: 'Cognitive impairment or dysfunction assessed'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 291 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Parkinson's Disease
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3720F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Cognitive Assessment"
+    optional:
+      code_value: 3720F
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: 3720F-8P
+    required:
+      display_title: "Cognitive impairment or dysfunction was not assessed, reason not otherwise specified"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 291 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Parkinson's Disease
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3720F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 3720F-8P"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Cognitive Assessment"
+    optional:
+      code_value: 3720F-8P
