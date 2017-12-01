@@ -51,13 +51,15 @@ define "Denominator Encounter":
 
 define "Hypertensive Diastolic Blood Pressure":
   ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] P
-    where P.relevantPeriod starts during E.relevantPeriod
-      and P.result >= 90
+    with "Denominator Encounter"
+      such that P.relevantPeriod starts during E.relevantPeriod
+        and P.result >= 90
 
 define "Hypertensive Systolic Blood Pressure":
   ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] P
-    where P.relevantPeriod starts during E.relevantPeriod
-      and P.result >= 140
+    with "Denominator Encounter"
+      such that P.relevantPeriod starts during E.relevantPeriod
+        and P.result >= 140
 
 define "Normal Blood Pressure Exists"
   exists("Normal Systolic Blood Pressure")
@@ -65,9 +67,10 @@ define "Normal Blood Pressure Exists"
 
 define "Hypertensive Blood Pressure Exists":
   exists(["Procedure, Performed": "MIPS; Performance Not Met: G8477"] P
-    where P.relevantPeriod starts during "Measurement Period")
-    or exists("Hypertensive Systolic")
-    or exists("Hypertensive Diastolic")
+    with "Denominator Encounter"
+      such that P.relevantPeriod starts during E.relevantPeriod)
+  or exists("Hypertensive Systolic")
+  or exists("Hypertensive Diastolic")
 
 // Follow-Ups
 
@@ -99,7 +102,8 @@ define "Re-Screening Exists":
 
 define "Follow-Up Exists":
   exists(["Procedure, Performed": "MIPS; Performance Met: 0513F"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    with "Denominator Encounter"
+      such that P.relevantPeriod starts during E.relevantPeriod)
   or "Lifestyle Modification Exists"
   or "Hypertensive Re-Screening Exists"
   or "Hypertensive Medication Exists"
