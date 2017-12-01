@@ -31,6 +31,10 @@ performance_met_reasons:
             value_set: "VSAC; Influenza Vaccination"
           - model: ClinicalActivity
             value_set: "VSAC; Previous Receipt of Influenza Vaccine"
+      - count: 1
+        validation_records:
+          - model: ClinicalActivity
+            value_set: "MIPS; Performance Met: G8482"
 exception_reasons:
   - config_link_id: G8483
     required:
@@ -54,6 +58,8 @@ exception_reasons:
           value_set: "VSAC; Intolerance to Influenza Vaccine"
         - model: Allergy
           value_set: "VSAC; Influenza Vaccine"
+        - model: Allergy
+          value_set: "Able; Influenza Vaccine NDFRT"
       - count: 1
         validation_records:
           - model: ClinicalActivity
@@ -83,8 +89,12 @@ performance_not_met_reasons:
             value_set: "VSAC; Influenza Vaccination"
           - model: ClinicalActivity
             value_set: "VSAC; Previous Receipt of Influenza Vaccine"
+      - count: 1
+        validation_records:
           - model: ClinicalActivity
             value_set: "MIPS; Performance Met: G8482"
+      - count: 1
+        validation_records:
           - model: ClinicalActivity
             value_set: "MIPS; Performance Not Met: G8484"
     optional:
