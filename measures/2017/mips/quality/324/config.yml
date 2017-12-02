@@ -1,0 +1,51 @@
+measure:
+  name: 17.MIPS.Mips324
+  required:
+    display_title: "Cardiac Stress Imaging Not Meeting Appropriate Use Criteria: Testing in Asymptomatic, Low-Risk Patients"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: '324'
+    version: 2017
+    mips_measure_type: Efficiency
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G8965
+    required:
+      display_title: 'Cardiac Stress Imaging Test primarily performed on low CHD risk patient for initial detection and risk assessment'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 324 Procedure
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8965"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G8966"
+    optional:
+      code_value: G8965
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: G8966
+    required:
+      display_title: "Cardiac Stress Imaging test performed on symptomatic or higher than low CHD risk patient or for any reason other than initial detection and risk assessment"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 324 Procedure
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8965"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G8966"
+    optional:
+      code_value: G8966
