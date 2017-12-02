@@ -15,15 +15,15 @@ performance_met_reasons:
     required:
       display_title: 'Cardiac Stress Imaging Test primarily performed on low-risk surgery patient for preoperative evaluation within 30 days preceding this surgery'
       validation_record_groups:
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: MIPS; MIPS 322 Procedure
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: G8961"
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Not Met: G8962"
@@ -35,15 +35,15 @@ performance_not_met_reasons:
     required:
       display_title: "Cardiac Stress Imaging Test performed on patient for any reason including those who did not have low-risk surgery or test that was performed more than 30 days preceding low-risk surgery"
       validation_record_groups:
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: MIPS; MIPS 322 Procedure
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: G8961"
-        - count: 1
+        - count: 10
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Not Met: G8962"
