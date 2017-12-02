@@ -1,0 +1,51 @@
+measure:
+  name: 17.MIPS.Mips322
+  required:
+    display_title: "Cardiac Stress Imaging Not Meeting Appropriate Use Criteria: Preoperative Evaluation in Low Risk Surgery Patients"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: '322'
+    version: 2017
+    mips_measure_type: Efficiency
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G8961
+    required:
+      display_title: 'Cardiac Stress Imaging Test primarily performed on low-risk surgery patient for preoperative evaluation within 30 days preceding this surgery'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 322 Procedure
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8961"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G8962"
+    optional:
+      code_value: G8961
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: G8962
+    required:
+      display_title: "Cardiac Stress Imaging Test performed on patient for any reason including those who did not have low-risk surgery or test that was performed more than 30 days preceding low-risk surgery"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 322 Procedure
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8961"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G8962"
+    optional:
+      code_value: G8962
