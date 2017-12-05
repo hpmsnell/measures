@@ -1,0 +1,227 @@
+measure:
+  name: 17.MIPS.Mips326
+  required:
+    display_title: "Atrial Fibrillation and Atrial Flutter: Chronic Anticoagulation Therapy"
+  optional:
+    gap_resolution_action:  Patient is due for anticoagulant drug therapy for nonvalvular atrial fibrillation or atrial flutter
+    set: MIPS
+    external_id: 326
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: Patient is excluded due to mitral stenosis, prosthetic heart valves, or transient or reversible cause of atrial fibrillation
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 326 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Nonvalvular Atrial Fibrillation or Atrial Flutter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Risk Factors for Thromboembolism"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Cerebrovascular disease, Stroke, TIA"
+        - count: 3
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Diagnosis of hypertension"
+            - model: Diagnosis
+              value_set: "VSAC; Diabetes"
+            - model: Diagnosis
+              value_set: "VSAC; Heart Failure"
+            - model: ClinicalActivity
+              value_set: "MIPS; LVEF <40%"
+            - model: Diagnosis
+              value_set: "VSAC; Moderate or Severe LVSD"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 326 Exclusion"
+            - model: Diagnosis
+              value_set: "Able; Mitral Stenosis"
+            - model: ClinicalActivity
+              value_set: "Able; Prosthetic Heart Valve"
+performance_met_reasons:
+  - config_link_id: G8967
+    required:
+      display_title: 'Warfarin OR another oral anticoagulant that is FDA approved prescribed'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 326 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Nonvalvular Atrial Fibrillation or Atrial Flutter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Risk Factors for Thromboembolism"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Cerebrovascular disease, Stroke, TIA"
+        - count: 3
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Diagnosis of hypertension"
+            - model: Diagnosis
+              value_set: "VSAC; Diabetes"
+            - model: Diagnosis
+              value_set: "VSAC; Heart Failure"
+            - model: ClinicalActivity
+              value_set: "MIPS; LVEF <40%"
+            - model: Diagnosis
+              value_set: "VSAC; Moderate or Severe LVSD"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; Anticoagulant Medications"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8967"
+    optional:
+      code_value: G8967
+exception_reasons:
+  - config_link_id: G8968
+    required:
+      display_title: 'Documentation of medical reason(s) for not prescribing warfarin OR another oral anticoagulant that is FDA approved for the prevention of thromboembolism  (e.g., allergy, risk of bleeding, other medical reasons'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 326 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Nonvalvular Atrial Fibrillation or Atrial Flutter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Risk Factors for Thromboembolism"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Cerebrovascular disease, Stroke, TIA"
+        - count: 3
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Diagnosis of hypertension"
+            - model: Diagnosis
+              value_set: "VSAC; Diabetes"
+            - model: Diagnosis
+              value_set: "VSAC; Heart Failure"
+            - model: ClinicalActivity
+              value_set: "MIPS; LVEF <40%"
+            - model: Diagnosis
+              value_set: "VSAC; Moderate or Severe LVSD"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G8968"
+        - count: 1
+          validation_records:
+            - model: Allergy
+              value_set: "VSAC; Anticoagulant ingredient specific"
+            - model: Diagnosis
+              value_set: "Able; Anticoagulant Allergy"
+            - model: Diagnosis
+              value_set: "Able; Iron Deficiency Anemia"
+    optional:
+      code_value: G8968
+  - config_link_id: G8969
+    required:
+      display_title: 'Documentation of patient reason(s) for not prescribing warfarin OR another oral anticoagulant that is FDA approved for the prevention of thromboembolism (e.g., economic, social, and/or religious impediments, noncompliance, patient refusal, other patient reasons)'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 326 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Nonvalvular Atrial Fibrillation or Atrial Flutter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Risk Factors for Thromboembolism"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Cerebrovascular disease, Stroke, TIA"
+        - count: 3
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Diagnosis of hypertension"
+            - model: Diagnosis
+              value_set: "VSAC; Diabetes"
+            - model: Diagnosis
+              value_set: "VSAC; Heart Failure"
+            - model: ClinicalActivity
+              value_set: "MIPS; LVEF <40%"
+            - model: Diagnosis
+              value_set: "VSAC; Moderate or Severe LVSD"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G8969"
+    optional:
+      code_value: G8969
+performance_not_met_reasons:
+  - config_link_id: G8971
+    required:
+      display_title: 'Warfarin OR another oral anticoagulant that is FDA approved not prescribed, reason not given'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 326 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Nonvalvular Atrial Fibrillation or Atrial Flutter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Risk Factors for Thromboembolism"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Cerebrovascular disease, Stroke, TIA"
+        - count: 3
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Diagnosis of hypertension"
+            - model: Diagnosis
+              value_set: "VSAC; Diabetes"
+            - model: Diagnosis
+              value_set: "VSAC; Heart Failure"
+            - model: ClinicalActivity
+              value_set: "MIPS; LVEF <40%"
+            - model: Diagnosis
+              value_set: "VSAC; Moderate or Severe LVSD"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; Anticoagulant Medications"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8967"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8967"
+    optional:
+      code_value: G8971
