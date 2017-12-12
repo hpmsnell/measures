@@ -25,6 +25,10 @@ valueset "MIPS; Performance Not Met: G9811"
 
 valueset "NCQA; MMA-B"
 
+// VSAC value sets
+
+valueset "VSAC; Preferred Asthma Therapy": '2.16.840.1.113883.3.464.1003.196.12.1212'
+
 parameter "Measurement Period" Interval<DateTime>
 parameter "Denominator Period" Interval<DateTime>
 
@@ -39,20 +43,24 @@ define "Patient Age at Encounter":
     with ["Diagnosis": "MIPS; Persistent Asthma"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod
 
+define "Asthma Medication":
+  ["Medication": "NCQA; MMA-B"]
+  union ["Medication": "VSAC; Preferred Asthma Therapy"]
+
 define "No Medication Exists":
-  not exists(["Medication": "NCQA; MMA-B"] M
+  not exists("Asthma Medication" M
     where M.relevantPeriod overlaps "Denominator Period")
 
-define "Asthma Controller Prescription":
-  ["Medication, Order": "NCQA; MMA-B"] M
+define "Asthma Medication in Measurement Period":
+  "Asthma Medication" M
     where M.relevantPeriod starts during "Measurement Period"
 
 define "Prescription Start Date":
-  "Asthma Controller Prescription" M
+  "Asthma Medication in Measurement Period" M
     return start of M.relevantPeriod
 
 define "Prescription Stop Date":
-  "Asthma Controller Prescription" M
+  "Asthma Medication in Measurement Period" M
     return end of M.relevantPeriod
 
 define "Prescription Duration":

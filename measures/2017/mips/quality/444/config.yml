@@ -42,6 +42,8 @@ exclusion_reasons:
           validation_records:
             - model: Medication
               value_set: "NCQA; MMA-B"
+            - model: Medication
+              value_set: "VSAC; Preferred Asthma Therapy"
   - config_link_id: exclusion_3
     required:
       display_title: 'Patient is excluded due to hospice service'
@@ -81,6 +83,8 @@ performance_met_reasons:
           validation_records:
             - model: Medication
               value_set: "NCQA; MMA-B"
+            - model: Medication
+              value_set: "VSAC; Preferred Asthma Therapy"
     optional:
       code_value: G9810
 exception_reasons:
@@ -109,5 +113,7 @@ performance_not_met_reasons:
           validation_records:
             - model: Medication
               value_set: "NCQA; MMA-B"
+            - model: Medication
+              value_set: "VSAC; Preferred Asthma Therapy"
     optional:
       code_value: G9811
