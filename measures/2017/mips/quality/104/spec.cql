@@ -60,7 +60,7 @@ define "Date of Earliest Diagnosis in Measurement Year":
 define "Denominator":
   "Denominator Encounter"
   and ["Procedure, Performed": "MIPS; High Risk of Recurrence of Prostate Cancer"] P
-    where P.relevantPeriod starts during "Denominator Period"
+    where P.relevantPeriod starts during [56 days before start of "Denominator Period", end of "Denominator Period"]
 
 define "Denominator Exclusion"
   /*

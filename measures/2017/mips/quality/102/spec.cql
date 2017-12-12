@@ -72,7 +72,7 @@ define "Bone Scan":
 define "Denominator":
   "Denominator Encounter"
   and ["Procedure, Performed": "MIPS; Low Risk of Recurrence of Prostate Cancer"] P
-    where P.relevantPeriod starts during "Denominator Period"
+    where P.relevantPeriod starts during [56 days before start of "Denominator Period", end of "Denominator Period"]
 
 define "Numerator Performance Met: 3270F":
   /*
