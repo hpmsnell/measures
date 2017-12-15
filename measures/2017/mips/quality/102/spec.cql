@@ -33,6 +33,7 @@ valueset "VSAC; Salvage Therapy": '2.16.840.1.113883.3.526.3.399'
 
 valueset "Able; Bone Health Assessment": '2.16.840.1.113762.1.4.1047.234'
 valueset "Able; Pain Assessments": '2.16.840.1.113762.1.4.1047.152'
+valueset "Able; Low Risk of Recurrence of Prostate Cancer"
 
 parameter "Measurement Period" Interval<DateTime>
 parameter "Denominator Period" Interval<DateTime>
@@ -48,6 +49,10 @@ define "Denominator Encounter":
       such that D.prevalencePeriod overlaps E1.relevantPeriod
     without ["Encounter, Performed": "MIPS; MIPS 102 Encounter"] E2 // Without an additional occurrence of the same encounter
       such that E2.relevantPeriod starts 56 days or less before start of E1.relevantPeriod
+
+define "Low Risk of Recurrence of Prostate Cancer":
+  ["Procedure, Performed": "MIPS; Low Risk of Recurrence of Prostate Cancer"]
+  union ["Procedure, Performed": "Able; Low Risk of Recurrence of Prostate Cancer"]
 
 define "Start of Denominator Encounter":
   "Denominator Encounter" E
@@ -71,8 +76,8 @@ define "Bone Scan":
 
 define "Denominator":
   "Denominator Encounter"
-  and ["Procedure, Performed": "MIPS; Low Risk of Recurrence of Prostate Cancer"] P
-    where P.relevantPeriod starts during [56 days before start of "Denominator Period", end of "Denominator Period"]
+  and exists("Low Risk of Recurrence of Prostate Cancer" P
+    where P.relevantPeriod starts during [56 days before start of "Denominator Period", end of "Denominator Period"])
 
 define "Numerator Performance Met: 3270F":
   /*

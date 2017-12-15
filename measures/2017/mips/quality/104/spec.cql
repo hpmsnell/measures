@@ -32,6 +32,7 @@ valueset "VSAC; Salvage Therapy": '2.16.840.1.113883.3.526.3.399'
 
 valueset "Able; GnRH"
 valueset "Able; GnRH Administered"
+valueset "Able; High Risk of Recurrence of Prostate Cancer"
 
 parameter "Measurement Period" Interval<DateTime>
 parameter "Denominator Period" Interval<DateTime>
@@ -48,6 +49,10 @@ define "Denominator Encounter":
     without ["Encounter, Performed": "MIPS; MIPS 104 Encounter"] E2 // Without an additional occurrence of the same encounter
       such that E2.relevantPeriod starts 56 days or less before start of E1.relevantPeriod
 
+define "High Risk of Recurrence of Prostate Cancer":
+  ["Procedure, Performed": "MIPS; High Risk of Recurrence of Prostate Cancer"]
+  union ["Procedure, Performed": "Able; High Risk of Recurrence of Prostate Cancer"]
+
 define "Start of Denominator Encounter":
   "Denominator Encounter" E
     return start of E.relevantPeriod
@@ -59,8 +64,8 @@ define "Date of Earliest Diagnosis in Measurement Year":
 
 define "Denominator":
   "Denominator Encounter"
-  and ["Procedure, Performed": "MIPS; High Risk of Recurrence of Prostate Cancer"] P
-    where P.relevantPeriod starts during [56 days before start of "Denominator Period", end of "Denominator Period"]
+  and exists("High Risk of Recurrence of Prostate Cancer" P
+    where P.relevantPeriod starts during [56 days before start of "Denominator Period", end of "Denominator Period"])
 
 define "Denominator Exclusion"
   /*
