@@ -43,7 +43,7 @@ define "Denominator Encounter":
 
 define "Denominator Encounter with Exam":
   "Denominator Encounter"
-    with ["Procedure, Performed": "VSAC; Macular Exam"] P
+    with ["Procedure, Performed": "MIPS; Dilated Macular or Fundus Exam"] P
       such that P.relevantPeriod starts during E.relevantPeriod
 
 define "Denominator Encounter with Findings":
