@@ -1,0 +1,47 @@
+measure:
+  name: 17.MIPS.Mips165
+  required:
+    display_title: "Coronary Artery Bypass Graft (CABG): Deep Sternal Wound Infection Rate"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 165
+    version: 2017
+    mips_measure_type: Outcome
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G8571
+    required:
+      display_title: 'Development of deep sternal wound infection/mediastinitis within 30 days postoperatively'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 165 Procedure
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8571"
+    optional:
+      code_value: G8571
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: G8572
+    required:
+      display_title: 'No deep sternal wound infection/mediastinitis'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 165 Procedure
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G8571"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G8572"
+    optional:
+      code_value: G8572

@@ -1,0 +1,387 @@
+measure_id: 17.MIPS.Mips167
+test_set_keys:
+  organization_key:
+    episodes_of_care:
+    - name: Too Young # Patient is too young
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower # Patient is at lower age bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8576
+    - name: Procedure Before # Patient has an encounter that is early but otherwise meets the denominator
+      start_date: 2015-12-31
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Procedure Lower # Patient has an encounter that is at the lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8576
+    - name: Procedure Upper  # Patient has an encounter that is at the upper bound
+      start_date: 2016-12-31
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8576
+    - name: Procedure After  # Patient has an encounter that is late but otherwise meets the denominator
+      start_date: 2017-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exclusion Before # Exclusion before allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8576
+    - name: Exclusion Lower # Exclusion at start of allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: Exclusion Upper # Exclusion at end of allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: Exclusion After # Exclusion too late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8576
+    - name: G8575 Before # G8575 before allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8576
+    - name: G8575 Lower # G8575 at start of allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8575
+    - name: G8575 Upper # G8575 at end of allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8575
+    - name: G8575 After # G8575 too late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8576
+  providers_key:
+  - name: Rachel
+    episodes_of_care:
+    - name: Too Young # Patient is too young
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower # Patient is at lower age bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8576
+    - name: Procedure Before # Patient has an encounter that is early but otherwise meets the denominator
+      start_date: 2015-12-31
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Procedure Lower # Patient has an encounter that is at the lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8576
+    - name: Procedure Upper  # Patient has an encounter that is at the upper bound
+      start_date: 2016-12-31
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8576
+    - name: Procedure After  # Patient has an encounter that is late but otherwise meets the denominator
+      start_date: 2017-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exclusion Before # Exclusion before allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8576
+    - name: Exclusion Lower # Exclusion at start of allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: Exclusion Upper # Exclusion at end of allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: Exclusion After # Exclusion too late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8576
+    - name: G8575 Before # G8575 before allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8576
+    - name: G8575 Lower # G8575 at start of allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8575
+    - name: G8575 Upper # G8575 at end of allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8575
+    - name: G8575 After # G8575 too late
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  external_id: '111-111'
+  credential: DO
+  primary_specialty: Family Medicine
+- given_name: Patty
+  family_name: PrimaryCare
+  external_id: '222-222'
+  credential: MD
+  primary_specialty: Family Medicine
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1998-02-02 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2016-02-01
+      provider: Rachel
+- name: Age Lower
+  attributes:
+    date_of_birth: 1998-02-01 # Age Lower
+    given_name: Age
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2016-02-01
+      provider: Rachel
+- name: Procedure Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Procedure
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-12-31 # Early
+      provider: Rachel
+- name: Procedure Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Procedure
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2016-01-01 # Lower
+      provider: Rachel
+- name: Procedure Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Procedure
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2016-12-31 # Upper
+      provider: Rachel
+- name: Procedure After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Procedure
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2017-01-01 # After
+      provider: Rachel
+- name: Exclusion Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Exclusion
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9722
+      start_date: 2016-01-31 # Early
+- name: Exclusion Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Exclusion
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9722
+      start_date: 2016-02-01 # Lower
+- name: Exclusion Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Exclusion
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9722
+      start_date: 2016-02-02 # Upper
+- name: Exclusion After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Exclusion
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9722
+      start_date: 2016-02-03 # After
+- name: G8575 Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G8575
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8575
+      start_date: 2016-01-31 # Early
+- name: G8575 Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G8575
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8575
+      start_date: 2016-02-01 # Lower
+- name: G8575 Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G8575
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8575
+      start_date: 2016-02-02 # Upper
+- name: G8575 After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G8575
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: G8575
+      start_date: 2016-02-03 # After
