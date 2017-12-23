@@ -13,7 +13,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8678
+      numerator: G8578
     - name: Procedure Before # Patient has an encounter that is early but otherwise meets the denominator
       start_date: 2015-12-31
       denominator:
@@ -25,43 +25,43 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8678
+      numerator: G8578
     - name: Procedure Upper  # Patient has an encounter that is at the upper bound
       start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8678
+      numerator: G8578
     - name: Procedure After  # Patient has an encounter that is late but otherwise meets the denominator
       start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: G8677 Before # G8677 before allowable period
+    - name: G8577 Before # G8577 before allowable period
       start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8678
-    - name: G8677 Lower # G8677 at start of allowable period
+      numerator: G8578
+    - name: G8577 Lower # G8577 at start of allowable period
       start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8677
-    - name: G8677 Upper # G8677 at end of allowable period
+      numerator: G8577
+    - name: G8577 Upper # G8577 at end of allowable period
       start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8677
-    - name: G8677 After # G8677 too late
+      numerator: G8577
+    - name: G8577 After # G8577 too late
       start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8678
+      numerator: G8578
   providers_key:
   - name: Rachel
     episodes_of_care:
@@ -76,7 +76,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8678
+      numerator: G8578
     - name: Procedure Before # Patient has an encounter that is early but otherwise meets the denominator
       start_date: 2015-12-31
       denominator:
@@ -88,38 +88,38 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8678
+      numerator: G8578
     - name: Procedure Upper  # Patient has an encounter that is at the upper bound
       start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8678
+      numerator: G8578
     - name: Procedure After  # Patient has an encounter that is late but otherwise meets the denominator
       start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: G8677 Before # G8677 before allowable period
+    - name: G8577 Before # G8577 before allowable period
       start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8678
-    - name: G8677 Lower # G8677 at start of allowable period
+      numerator: G8578
+    - name: G8577 Lower # G8577 at start of allowable period
       start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8677
-    - name: G8677 Upper # G8677 at end of allowable period
+      numerator: G8577
+    - name: G8577 Upper # G8577 at end of allowable period
       start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G8677
-    - name: G8677 After # G8677 too late
+      numerator: G8577
+    - name: G8577 After # G8577 too late
       start_date: 2016-02-01
       denominator:
       denominator_exclusion:
@@ -209,10 +209,10 @@ patients:
       code_value: 33510
       start_date: 2017-01-01 # After
       provider: Rachel
-- name: G8677 Before
+- name: G8577 Before
   attributes:
     date_of_birth: 1990-01-01
-    given_name: G8677
+    given_name: G8577
     family_name: Before
     sex: Female
   clinical_models:
@@ -223,12 +223,12 @@ patients:
       stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
-      code_value: G8677
+      code_value: G8577
       start_date: 2016-01-31 # Early
-- name: G8677 Lower
+- name: G8577 Lower
   attributes:
     date_of_birth: 1990-01-01
-    given_name: G8677
+    given_name: G8577
     family_name: Lower
     sex: Female
   clinical_models:
@@ -239,12 +239,12 @@ patients:
       stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
-      code_value: G8677
+      code_value: G8577
       start_date: 2016-02-01 # Lower
-- name: G8677 Upper
+- name: G8577 Upper
   attributes:
     date_of_birth: 1990-01-01
-    given_name: G8677
+    given_name: G8577
     family_name: Upper
     sex: Female
   clinical_models:
@@ -255,12 +255,12 @@ patients:
       stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
-      code_value: G8677
+      code_value: G8577
       start_date: 2016-02-02 # Upper
-- name: G8677 After
+- name: G8577 After
   attributes:
     date_of_birth: 1990-01-01
-    given_name: G8677
+    given_name: G8577
     family_name: After
     sex: Female
   clinical_models:
@@ -271,5 +271,5 @@ patients:
       stop_date: 2016-02-02
       provider: Patty
     - code_type: CPT
-      code_value: G8677
+      code_value: G8577
       start_date: 2016-02-03 # After

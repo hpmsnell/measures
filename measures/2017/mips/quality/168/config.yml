@@ -11,7 +11,7 @@ measure:
     mips_high_priority: true
 exclusion_reasons:
 performance_met_reasons:
-  - config_link_id: G8677
+  - config_link_id: G8577
     required:
       display_title: 'Re-exploration required due to mediastinal bleeding with or without tamponade, graft occlusion, valve dysfunction, or other cardiac reason'
       validation_record_groups:
@@ -22,12 +22,12 @@ performance_met_reasons:
         - count: 10
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8677"
+              value_set: "MIPS; Performance Met: G8577"
     optional:
-      code_value: G8677
+      code_value: G8577
 exception_reasons:
 performance_not_met_reasons:
-  - config_link_id: G8678
+  - config_link_id: G8578
     required:
       display_title: 'Re-exploration not required due to mediastinal bleeding with or without tamponade, graft occlusion, valve dysfunction, or other cardiac reason'
       validation_record_groups:
@@ -38,10 +38,10 @@ performance_not_met_reasons:
         - count: 10
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8677"
+              value_set: "MIPS; Performance Met: G8577"
         - count: 10
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Performance Not Met: G8678"
+              value_set: "MIPS; Performance Not Met: G8578"
     optional:
-      code_value: G8678
+      code_value: G8578
