@@ -1000,6 +1000,7 @@ patients:
       code_value: 1191185 # Beta-blocker
       method: E
       start_date: 2015-12-31 # Too early
+      stop_date: 2015-12-31
 - name: PerformanceMetMedication Lower
   attributes:
     date_of_birth: 1990-02-01
@@ -1259,7 +1260,7 @@ patients:
       start_date: 2016-02-01
     allergies:
     - code_type: RXNORM
-      code_value: 1191185 # Beta-blocker
+      code_value: 10600 # Beta-blocker
       start_date: 2016-01-01
       stop_date: 2015-12-31 # Too early
 - name: ExceptionAllergy Lower
@@ -1289,7 +1290,7 @@ patients:
       start_date: 2016-02-01
     allergies:
     - code_type: RXNORM
-      code_value: 1191185 # Beta-blocker
+      code_value: 10600 # Beta-blocker
       start_date: 2016-01-01
       stop_date: 2016-01-01 # Lower bound
 - name: ExceptionAllergy Upper
@@ -1319,7 +1320,7 @@ patients:
       start_date: 2016-02-01
     allergies:
     - code_type: RXNORM
-      code_value: 1191185 # Beta-blocker
+      code_value: 10600 # Beta-blocker
       start_date: 2016-12-31 # Upper bound
 - name: ExceptionAllergy After
   attributes:
@@ -1348,5 +1349,5 @@ patients:
       start_date: 2016-02-01
     allergies:
     - code_type: RXNORM
-      code_value: 1191185 # Beta-blocker
+      code_value: 10600 # Beta-blocker
       start_date: 2017-01-01 # Too late

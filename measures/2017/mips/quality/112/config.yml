@@ -29,15 +29,15 @@ exclusion_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "VSAC; Left Mastectomy"
+              value_set: "VSAC; Status Post Left Mastectomy"
             - model: Diagnosis
-              value_set: "VSAC; Left Mastectomy"
+              value_set: "VSAC; Status Post Left Mastectomy"
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "VSAC; Right Mastectomy"
+              value_set: "VSAC; Status Post Right Mastectomy"
             - model: Diagnosis
-              value_set: "VSAC; Right Mastectomy"
+              value_set: "VSAC; Status Post Right Mastectomy"
   - config_link_id: exclusion_2
     required:
       display_title: Patient is excluded for this measure due to hospice service during the measurement period
@@ -63,7 +63,7 @@ performance_met_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "VSAC; Mammogram"
+              value_set: "VSAC; Mammography"
             - model: ClinicalActivity
               value_set: "Able; Mammogram"
         - count: 1
@@ -84,7 +84,7 @@ performance_not_met_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "VSAC; Mammogram"
+              value_set: "VSAC; Mammography"
             - model: ClinicalActivity
               value_set: "Able; Mammogram"
         - count: 1

@@ -25,11 +25,11 @@ valueset "MIPS; Performance Met: 3014F"
 valueset "MIPS; Performance Not Met: 3014F-8P"
 
 // VSAC Value Sets
-valueset "VSAC; Left Mastectomy": '2.16.840.1.113883.3.464.1003.198.12.1069'
-valueset "VSAC; Right Mastectomy": '2.16.840.1.113883.3.464.1003.198.12.1070'
+valueset "VSAC; Status Post Left Mastectomy": '2.16.840.1.113883.3.464.1003.198.12.1069'
+valueset "VSAC; Status Post Right Mastectomy": '2.16.840.1.113883.3.464.1003.198.12.1070'
 valueset "VSAC; Bilateral Mastectomy": '2.16.840.1.113883.3.464.1003.198.12.1005'
 valueset "VSAC; History of bilateral mastectomy": '2.16.840.1.113883.3.464.1003.198.12.1068'
-valueset "VSAC; Mammogram":'2.16.840.1.113883.3.464.1003.108.12.1018'
+valueset "VSAC; Mammography":'2.16.840.1.113883.3.464.1003.108.12.1018'
 valueset "VSAC; Female": '2.16.840.1.113883.3.560.100.2'
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 
@@ -67,15 +67,15 @@ define "Denominator Exclusion 1":
   or exists(["Diagnosis": "VSAC; History of bilateral mastectomy"] D
     where D.prevalencePeriod starts before end "Denominator Period")
   or (
-     exists(["Procedure, Performed": "VSAC; Left Mastectomy"] P
+     exists(["Procedure, Performed": "VSAC; Status Post Left Mastectomy"] P
       where P.relevantPeriod starts before end "Denominator Period")
-     and exists(["Procedure, Performed": "VSAC; Right Mastectomy"] P
+     and exists(["Procedure, Performed": "VSAC; Status Post Right Mastectomy"] P
       where P.relevantPeriod starts before end "Denominator Period")
   )
    or (
-     exists(["Diagnosis": "VSAC; Left Mastectomy"] D
+     exists(["Diagnosis": "VSAC; Status Post Left Mastectomy"] D
       where D.prevalencePeriod starts before end "Denominator Period")
-     and exists(["Diagnosis": "VSAC; Right Mastectomy"] D
+     and exists(["Diagnosis": "VSAC; Status Post Right Mastectomy"] D
       where D.prevalencePeriod starts before end "Denominator Period")
    )
 
@@ -92,7 +92,7 @@ define "Numerator Performance Met: 3014F":
   /*
    * config_link_id: 3014F
    */
-  exists("Mammogram" D where D.relevantPeriod starts 27 months or less before end "Measurement Period")
+  exists("Mammography" D where D.relevantPeriod starts 27 months or less before end "Measurement Period")
   or exists(["Procedure, Performed": "MIPS; Performance Met: 3014F"] P where P.relevantPeriod starts 27 months or less before end "Measurement Period")
 
 define "Numerator Performance Not Met: 3014F-8P":

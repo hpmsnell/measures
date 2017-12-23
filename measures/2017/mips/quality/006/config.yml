@@ -5,12 +5,12 @@ measure:
   optional:
     gap_resolution_action:  Patient is due for antiplatelet therapy
     set: MIPS
-    external_id: 006
+    external_id: '006'
     version: 2017
     mips_measure_type: Process
     mips_high_priority: false
 exception_reasons:
-  - config_link_id: denominator_exception_1
+  - config_link_id: 4086F-1P
     required:
       display_title: Patient is excepted for documentation of medical reason(s) for not prescribing aspirin or clopidogrel (e.g., allergy, intolerance, receiving other thienopyridine therapy, receiving warfarin therapy, or bleeding coagulation disorders)
       validation_record_groups:
@@ -41,11 +41,10 @@ exception_reasons:
         - count: 1
           validation_records:
             - model: Diagnosis
-              value_set: "VSAC; Thrombocytopenia"
-
+              value_set: "Able; Thrombocytopenia"
     optional:
       code_value: 4086F-1P
-  - config_link_id: denominator_exception_5
+  - config_link_id: 4086F-2P
     required:
         display_title: Patient is excepted due to refusal
         validation_record_groups:
@@ -63,7 +62,7 @@ exception_reasons:
               value_set: "MIPS; Denominator Exception: 4086F-2P"
     optional:
       code_value: 4086F-2P
-  - config_link_id: denominator_exception_6
+  - config_link_id: 4086F-3P
     required:
         display_title: Patient excepted due to system reason
         validation_record_groups:
