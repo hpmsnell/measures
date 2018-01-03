@@ -71,8 +71,8 @@ define "Prescription Stop Date":
 define "Prescription Duration":
   Min(
     {
-      days between "Prescription Start Date" and "Prescription stop Date",
-      days between "Prescription Start Date" and end of "Measurement Period"
+      days between "Prescription Start Date" and "Prescription Stop Date",
+      days between "Prescription Start Date" and end of "Measurement Period" // Default to this if Stop Date is null
     }
   )
 
