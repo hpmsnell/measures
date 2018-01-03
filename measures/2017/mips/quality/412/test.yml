@@ -47,6 +47,16 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
+    - name: Medication Lower # Patient prescribed medication at lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: Medication Upper # Patient prescribed medication at upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
     - name: Medication Late # Patient prescribed medication too late
       denominator:
       denominator_exclusion:
@@ -120,6 +130,16 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
+    - name: Medication Lower # Patient prescribed medication at lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: Medication Upper # Patient prescribed medication at upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
     - name: Medication Late # Patient prescribed medication too late
       denominator:
       denominator_exclusion:
@@ -296,7 +316,41 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_date: 2015-12-20
+      start_date: 2015-01-01
+      stop_date: 2015-12-31
+- name: Medication Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Medication
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_date: 2015-01-01
+      stop_date: 2016-02-13
+- name: Medication Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Medication
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_date: 2016-11-18
 - name: Medication Late
   attributes:
     date_of_birth: 1990-01-01
@@ -312,7 +366,7 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1010600
-      start_date: 2015-12-21
+      start_date: 2016-11-19 # 42 days before end of year
 - name: Agreement Before
   attributes:
     date_of_birth: 1990-01-01

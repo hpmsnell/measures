@@ -25,7 +25,7 @@ valueset "Able; Opioid Evaluation"
 
 parameter "Measurement Period" Interval<DateTime>
 parameter "Denominator Period" Interval<DateTime>
-parameter "Opioid Period" Interval[start of "Measurement Period", 90 days before end of "Measurement Period"]
+parameter "Opioid Period" Interval[start of "Measurement Period", 91 days before end of "Measurement Period"]
 
 context Patient
 
@@ -36,14 +36,17 @@ define "Denominator Encounter":
       and E.signingProvider.hasMeasureMembership = true
 
 define "Opioid Exists":
-  exists(["Procedure Performed": "Opiates Prescribed for Longer than Six Weeks"] P
+  exists(["Procedure Performed": "MIPS; Opiates Prescribed for Longer than Six Weeks"] P
     where P.relevantPeriod starts during "Opioid Period"
       and P.relevantPeriod starts during "Denominator Period")
   or exists(["Medication": "Able; Opioids Used for Pain Control"] M
     where M.relevantPeriod overlaps "Opioid Period"
       and M.relevantPeriod overlaps "Denominator Period"
       and days between start of M.relevantPeriod and end of M.relevantPeriod > 42
-      and days between start of M.relevantPeriod and end of "Denominator Period" > 42)
+        or end of M.relevantPeriod = null
+      and days between start of M.relevantPeriod and end of "Opioid Period" > 42
+      and days between start of M.relevantPeriod and end of "Denominator Period" > 42
+      and days between start of "Denominator Period" and end of M.relevantPeriod > 42)
 
 define "Follow-Up":
   "Able; Opioid Evaluation" P

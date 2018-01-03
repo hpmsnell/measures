@@ -77,7 +77,7 @@ define "Prescription Duration":
   )
 
 define "Sum of Prescription Durations":
-  Sum(days between "Prescription Start Date" and "Prescription Stop Date")
+  Sum("Prescription Duration")
 
 define "First Prescription Start Date":
   First("Prescription Start Date")
