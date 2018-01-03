@@ -71,13 +71,13 @@ define "Prescription Stop Date":
 define "Prescription Duration":
   Min(
     {
-      days between "Prescription Start Date" and "Prescription stop Date",
+      days between "Prescription Start Date" and "Prescription Stop Date",
       days between "Prescription Start Date" and end of "Measurement Period"
     }
   )
 
 define "Sum of Prescription Durations":
-  Sum(days between "Prescription Start Date" and "Prescription Stop Date")
+  Sum("Prescription Duration")
 
 define "First Prescription Start Date":
   First("Prescription Start Date")
