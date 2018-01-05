@@ -46,7 +46,7 @@ define "Denominator Encounter":
       and "Patient Characteristic Sex" = 'Male'
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Prostate Cancer"] D
-      such that D.prevalencePeriod overlaps E1.relevantPeriod
+      such that D.prevalencePeriod starts on or 56 days or less before start of E1.relevantPeriod
     without ["Encounter, Performed": "MIPS; MIPS 102 Encounter"] E2 // Without an additional occurrence of the same encounter
       such that E2.relevantPeriod starts 56 days or less before start of E1.relevantPeriod
 
