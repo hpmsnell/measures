@@ -64,8 +64,6 @@ define "Numerator Performance Met: 2022F":
     where P.relevantPeriod starts during "Measurement Period")
   or exists(["Physical Exam, Performed": "VSAC; Retinal or Dilated Eye Exam"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists(["Procedure, Performed": "VSAC; Retinal or Dilated Eye Exam"] P //Same as revious Physical Exam - both are clinical activities
-    where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Met: 2024F":
   /*

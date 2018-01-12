@@ -45,23 +45,22 @@ define "LVEF <40%":
     ["Assessment, Performed": "MIPS; LVEF <40%"]
     union ["Diagnosis": "VSAC; Moderate or Severe LVSD"]
 
-define "Denominator Encounter with Diagnosis":
+define "Denominator Encounter"
   ["Encounter, Performed": "MIPS; MIPS 007 Encounter"] E
     where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {'GQ', 'GT'}
+
+define "Denominator Encounter with Diagnosis":
+  "Denominator Encounter"
     with ["Diagnosis": "MIPS; MIPS 007 Coronary Artery Disease"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod
     with "LVEF <40%" P
       such that P.relevantPeriod starts on or before end of E.relevantPeriod
 
 define "Denominator Encounter with Surgery":
-  ["Encounter, Performed": "MIPS; MIPS 007 Encounter"] E
-    where E.relevantPeriod starts during "Denominator Period"
-      and AgeInYearsAt(start of E.relevantPeriod) >= 18
-      and E.signingProvider.hasMeasureMembership = true
-      and not E.code.modifier in {'GQ', 'GT'}
+  "Denominator Encounter"
     with ["Procedue, Performed": "MIPS; Cardiac Surgery"] D
       such that D.prevalencePeriod starts on or before end of E.relevantPeriod
     with "LVEF <40%" P
