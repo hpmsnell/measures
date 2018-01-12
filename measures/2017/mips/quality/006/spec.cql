@@ -38,15 +38,12 @@ context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 006 Encounter"] E
-      where E.relevantPeriod starts during "Denominator Period"
-        and AgeInYearsAt(start of E.relevantPeriod) >= 18
-        and not E.code.modifier "MIPS; Telemedicine Modifier"
-        and E.signingProvider.hasMeasureMembership = true
-
-define "Denominator":
-  exists("Denominator Encounter")
-  and exists(["Diagnosis": "MIPS; Coronary Artery Disease (CAD)"] D
-    where D.prevalencePeriod overlaps "Denominator Period")
+    where E.relevantPeriod starts during "Denominator Period"
+      and AgeInYearsAt(start of E.relevantPeriod) >= 18
+      and not E.code.modifier "MIPS; Telemedicine Modifier"
+      and E.signingProvider.hasMeasureMembership = true
+    with ["Diagnosis": "MIPS; Coronary Artery Disease (CAD)"] D
+      such that D.prevalencePeriod overlaps E.relevantPeriod
 
 define "Numerator Performance Met: 4086F":
   /*
