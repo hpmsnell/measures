@@ -22,7 +22,7 @@ exclusion_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Hypertension Exclusion"
-            - model: ClinicalActivity
+            - model: Diagnosis
               value_set: "VSAC; Diagnosis of Hypertension"
 performance_met_reasons:
   - config_link_id: G8783
@@ -47,7 +47,7 @@ performance_met_reasons:
               value_set: "VSAC; Systolic Blood Pressure"
     optional:
       code_value: G8783
-  - config_link_id: G8950_1
+  - config_link_id: G8950
     required:
       display_title: "Pre-hypertensive (120/80 - 139/89) or hypertensive (>= 140/90) blood pressure reading documented, and the indicated follow-up is documented"
       validation_record_groups:
@@ -59,16 +59,6 @@ performance_met_reasons:
           validation_records:
             - model: ClinicalActivity
               value_set: "MIPS; Performance Met: G8950"
-    optional:
-      code_value: G8950_1
-  - config_link_id: G8950_2
-    required:
-      display_title: "Two hypertensive (>= 140/90) blood pressure readings documented, and the indicated follow-up is documented"
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 317 Encounter"
         - count: 3
           validation_records:
             - model: ClinicalActivity
@@ -88,7 +78,9 @@ performance_met_reasons:
             - model: ClinicalActivity
               value_set: "VSAC; Physical Activity Recommendation"
             - model: ClinicalActivity
-              value_set: "VSAC; Moderation of ETOH Consumption"
+              value_set: "VSAC; Moderation of ETOH Consumption Recommendation"
+            - model: ClinicalActivity
+              value_set: "VSAC; Referral to Alternative Provider / Primary Care Provider"
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -100,71 +92,7 @@ performance_met_reasons:
             - model: Medication
               value_set: "VSAC; Anti-Hypertensive Pharmacologic Therapy"
     optional:
-      code_value: G8950_2
-  - config_link_id: G8950_3
-    required:
-      display_title: "Hypertensive (>= 140/90) blood pressure reading documented, and the indicated follow-up is documented"
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 317 Encounter"
-        - count: 3
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Diastolic Blood Pressure"
-        - count: 3
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Systolic Blood Pressure"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Lifestyle Recommendation"
-            - model: ClinicalActivity
-              value_set: "VSAC; Weight Reduction Recommended"
-            - model: ClinicalActivity
-              value_set: "VSAC; Dietary Recommendations"
-            - model: ClinicalActivity
-              value_set: "VSAC; Physical Activity Recommendation"
-            - model: ClinicalActivity
-              value_set: "VSAC; Moderation of ETOH Consumption"
-    optional:
-      code_value: G8950_3
-  - config_link_id: G8950_4
-    required:
-      display_title: "Pre-hypertensive (120/80 - 139/89)  blood pressure reading documented, and the indicated follow-up is documented"
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 317 Encounter"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8950"
-        - count: 3
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Diastolic Blood Pressure"
-        - count: 3
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Systolic Blood Pressure"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Lifestyle Recommendation"
-            - model: ClinicalActivity
-              value_set: "VSAC; Weight Reduction Recommended"
-            - model: ClinicalActivity
-              value_set: "VSAC; Dietary Recommendations"
-            - model: ClinicalActivity
-              value_set: "VSAC; Physical Activity Recommendation"
-            - model: ClinicalActivity
-              value_set: "VSAC; Moderation of ETOH Consumption"
-    optional:
-      code_value: G8950_4
+      code_value: G8950
 exception_reasons:
   - config_link_id: G9745
     required:
@@ -177,7 +105,7 @@ exception_reasons:
         - count: 1
           validation_records:
             - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G9745"
+              value_set: "MIPS; Denominator Exception: G9745"
         - count: 3
           validation_records:
             - model: ClinicalActivity
@@ -197,7 +125,9 @@ exception_reasons:
             - model: ClinicalActivity
               value_set: "VSAC; Physical Activity Recommendation"
             - model: ClinicalActivity
-              value_set: "VSAC; Moderation of ETOH Consumption"
+              value_set: "VSAC; Moderation of ETOH Consumption Recommendation"
+            - model: ClinicalActivity
+              value_set: "VSAC; Referral to Alternative Provider / Primary Care Provider"
         - count: 1
           validation_records:
             - model: ClinicalActivity
@@ -250,7 +180,9 @@ performance_not_met_reasons:
             - model: ClinicalActivity
               value_set: "VSAC; Physical Activity Recommendation"
             - model: ClinicalActivity
-              value_set: "VSAC; Moderation of ETOH Consumption"
+              value_set: "VSAC; Moderation of ETOH Consumption Recommendation"
+            - model: ClinicalActivity
+              value_set: "VSAC; Referral to Alternative Provider / Primary Care Provider"
         - count: 1
           validation_records:
             - model: ClinicalActivity

@@ -72,10 +72,12 @@ define "Numerator Performance Met: G8420":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G8420"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists(["Assessment, Performed": "VSAC; BMI LOINC Value"] A
-    where A.authorDateTime starts during "Measurement Period")
-    and A.result >= 18.5
-    and A.result < 25
+  or exists("Denominator Encounter"
+    with ["Assessment, Performed": "VSAC; BMI LOINC Value"] A
+      such that
+        A.authorDateTime starts on or 6 months or less before start of E.relevantPeriod
+        and A.result >= 18.5
+        and A.result < 25)
 
  define "Numerator Performance Met: G8417":
    /*
@@ -83,13 +85,13 @@ define "Numerator Performance Met: G8420":
     */
   exists(["Procedure, Performed": "MIPS; Performance Met: G8417"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or (
-    exists(["Assessment, Performed": "VSAC; BMI LOINC Value"] A
-      where A.authorDateTime starts during "Measurement Period")
-      and A.result >= 25
-      with ["Intervention, Performed": "VSAC; Above Normal Follow-up"] I
-        such that I.relevantPeriod starts 6 months or less before A.authorDateTime
-  )
+  or exists("Denominator Encounter"
+    with ["Assessment, Performed": "VSAC; BMI LOINC Value"] A
+      such that
+        A.authorDateTime starts on or 6 months or less before start of E.relevantPeriod
+        and A.result >= 25
+    with ["Intervention, Performed": "VSAC; Above Normal Follow-up"] I
+        such that I.relevantPeriod starts 6 months or less before start of E.relevantPeriod)
 
 define "Numerator Performance Met: G8418":
   /*
@@ -97,12 +99,13 @@ define "Numerator Performance Met: G8418":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G8418"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or (
-    exists(["Assessment, Performed": "VSAC; BMI LOINC Value"] A
-      where A.authorDateTime starts during "Measurement Period")
-      and A.result < 18.5
-      with ["Intervention, Performed": "VSAC; Below Normal Follow up"] I
-        such that I.relevantPeriod starts 6 months or less before A.authorDateTime
+  or exists("Denominator Encounter"
+    with ["Assessment, Performed": "VSAC; BMI LOINC Value"] A
+      such that
+        A.authorDateTime starts on or 6 months or less before start of E.relevantPeriod
+        and A.result < 18.5
+    with ["Intervention, Performed": "VSAC; Below Normal Follow-up"] I
+        such that I.relevantPeriod starts 6 months or less before start of E.relevantPeriod)
 
 define "Denominator Exception: G9716":
   /*
@@ -117,13 +120,16 @@ define "Numerator Performance Not Met: G8419":
    */
    exists(["Procedure, Performed": "MIPS; Performance Not Met: G8419"] P
      where P.relevantPeriod starts during "Measurement Period")
-   or (
-     exists(["Assessment, Performed": "VSAC; BMI LOINC Value"] A
-       where A.authorDateTime starts during "Measurement Period")
-       and (
-         A.result < 18.5
-         or A.result >= 25
-       )
+   or exists("Denominator Encounter"
+     with ["Assessment, Performed": "VSAC; BMI LOINC Value"] A
+       such that
+         A.authorDateTime starts on or 6 months or less before start of E.relevantPeriod
+         and A.result < 18.5)
+   or exists("Denominator Encounter"
+     with ["Assessment, Performed": "VSAC; BMI LOINC Value"] A
+       such that
+         A.authorDateTime starts on or 6 months or less before start of E.relevantPeriod
+         and A.result >= 25)
 
 define "Numerator Performance Not Met: G8421":
   /*

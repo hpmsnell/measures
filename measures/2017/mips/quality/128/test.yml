@@ -618,12 +618,8 @@ patients:
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_date: 2016-01-01
+      start_date: 2016-07-01
       result_as_decimal: 20.0
-    - code_type: LOINC
-      code_value: 39156-5 # BMI
-      start_date: 2016-01-01
-      result_as_decimal:
 - name: Patient has a normal BMI at the end of the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -638,7 +634,7 @@ patients:
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_date: 2016-12-31
+      start_date: 2016-01-01
       result_as_decimal: 20.0
 - name: Patient has a normal BMI before the allowable period
   attributes:
@@ -654,7 +650,7 @@ patients:
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_date: 2015-12-31
+      start_date: 2015-06-30
       result_as_decimal: 20.0
 - name: Patient has a normal BMI after the allowable period
   attributes:
@@ -670,7 +666,7 @@ patients:
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_date: 2017-01-01
+      start_date: 2016-01-02
       result_as_decimal: 20.0
 - name: Patient has a high BMI and follow-up at the start of the allowable period
   attributes:

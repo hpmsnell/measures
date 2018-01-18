@@ -87,8 +87,9 @@ define "Hypertensive Systolic Blood Pressure":
     and P.result >= 140
 
 define "Normal Blood Pressure Exists"
-  exists("Normal Systolic Blood Pressure")
-  and exists ("Normal Diastolic Blood Pressure")
+  exists("Normal Systolic Blood Pressure" S
+    with "Normal Diastolic Blood Pressure" D
+      such that S.authorDateTime equals D.authorDateTime)
 
 define "Pre-Hypertensive Blood Pressure Exists":
   exists("Pre-Hypertensive Systolic")
