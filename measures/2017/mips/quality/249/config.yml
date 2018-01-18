@@ -1,0 +1,89 @@
+measure:
+  name: 17.MIPS.Mips249
+  required:
+    display_title: "Barrett's Esophagus"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 249
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: 'Procedure is excluded due to specimen site other than anatomical location of esophagus'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 249 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Barrett's Esophagus
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Specimen Site Other Than Esophagus"
+performance_met_reasons:
+  - config_link_id: 3126F
+    required:
+      display_title: 'Esophageal biopsy reports with the histological finding of Barrett’s mucosa that contains a statement about dysplasia (present, absent, or indefinite and if present, contains appropriate grading)'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 249 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Barrett's Esophagus
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3126F"
+    optional:
+      code_value: 3126F
+exception_reasons:
+  - config_link_id: 3126F-1P
+    required:
+      display_title: 'Documentation of medical reason(s) for not reporting the histological finding of Barrett’s mucosa (eg, malignant neoplasm or absence of intestinal metaplasia)'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 249 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Barrett's Esophagus
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 3126F-1P"
+    optional:
+      code_value: 3126F-1P
+performance_not_met_reasons:
+  - config_link_id: 3126F-8P
+    required:
+      display_title: 'Pathology report with the histological finding of Barrett’s mucosa that does not contain a statement about dysplasia (present, absent, or indefinite, and if present, contains appropriate grading), reason not otherwise specified'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 249 Procedure
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Barrett's Esophagus
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3126F"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 3126F-8P"
+    optional:
+      code_value: 3126F-8P
