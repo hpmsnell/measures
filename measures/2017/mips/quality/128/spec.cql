@@ -19,7 +19,6 @@ using QDM
 // Able Custom Value Sets
 
 valueset "MIPS; MIPS 128 Encounter"
-valueset "MIPS; Telehealth Modifier"
 valueset "MIPS; Patient Not Eligible: G8422"
 valueset "MIPS; Patient Not Eligible: G8938"
 valueset "MIPS; Performance Met: G8420"
@@ -43,12 +42,50 @@ parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
+// Components used in measure statuses
+
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 128 Encounter"] E
     where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
-      and not E.code.modifier = "MIPS; Telehealth Modifier"
+      and not E.code.modifier in {'GQ', 'GT'}
       and E.signingProvider.hasMeasureMembership = true
+
+define "Last BMI Before Encounter":
+  Last(["Assessment, Performed": "VSAC; BMI LOINC Value"] A
+    with "Denominator Encounter" E
+      such that A.authorDateTime on or 6 months or less before start of E.relevantPeriod
+    sort by A.authorDateTime asc)
+
+define "Last BMI Before Encounter Result":
+  "Last BMI Before Encounter"
+    return A.result
+
+define "Last BMI Before Encounter Is Normal":
+  "Last BMI Before Encounter Result" >= 18.5
+  and "Last BMI Before Encounter Result" < 25
+
+define "Last BMI Before Encounter Is Abnormal":
+  "Last BMI Before Encounter Result" >= 25
+  or "Last BMI Before Encounter Result" < 18.5
+
+define "Last BMI Before Encounter Is High With Follow-Up":
+  exists("Denominator Encounter" E
+    with "Last BMI Before Encounter" A
+      such that A.result >= 25
+        and A.authorDateTime on or 6 months or less before start of E.relevantPeriod
+    with ["Procedure, Performed": "VSAC; Above Normal Follow-Up"] P
+      such that P.relevantPeriod starts on or 6 months or less before start of E.relevantPeriod)
+
+define "Last BMI Before Encounter Is Low With Follow-Up":
+  exists("Denominator Encounter" E
+    with "Last BMI Before Encounter" A
+      such that A.result < 18.5
+        and A.authorDateTime on or 6 months or less before start of E.relevantPeriod
+    with ["Procedure, Performed": "VSAC; Below Normal Follow-Up"] P
+      such that P.relevantPeriod starts on or 6 months or less before start of E.relevantPeriod)
+
+// Measure statuses
 
 define "Denominator":
   exists("Denominator Encounter")
@@ -63,7 +100,7 @@ define "Denominator Exclusion":
     where P.relevantPeriod starts during "Denominator Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
     where I.relevantPeriod starts during "Denominator Period")
-  or or exists(["Diagnosis": "VSAC; Pregnancy"] D
+  or exists(["Diagnosis": "VSAC; Pregnancy"] D
     where D.prevalencePeriod overlaps "Denominator Period")
 
 define "Numerator Performance Met: G8420":
@@ -72,12 +109,7 @@ define "Numerator Performance Met: G8420":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G8420"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists("Denominator Encounter"
-    with ["Assessment, Performed": "VSAC; BMI LOINC Value"] A
-      such that
-        A.authorDateTime starts on or 6 months or less before start of E.relevantPeriod
-        and A.result >= 18.5
-        and A.result < 25)
+  or "Last BMI Before Encounter Is Normal"
 
  define "Numerator Performance Met: G8417":
    /*
@@ -85,13 +117,7 @@ define "Numerator Performance Met: G8420":
     */
   exists(["Procedure, Performed": "MIPS; Performance Met: G8417"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists("Denominator Encounter"
-    with ["Assessment, Performed": "VSAC; BMI LOINC Value"] A
-      such that
-        A.authorDateTime starts on or 6 months or less before start of E.relevantPeriod
-        and A.result >= 25
-    with ["Intervention, Performed": "VSAC; Above Normal Follow-up"] I
-        such that I.relevantPeriod starts 6 months or less before start of E.relevantPeriod)
+  or "Last BMI Before Encounter Is High With Follow-Up"
 
 define "Numerator Performance Met: G8418":
   /*
@@ -99,13 +125,7 @@ define "Numerator Performance Met: G8418":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G8418"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists("Denominator Encounter"
-    with ["Assessment, Performed": "VSAC; BMI LOINC Value"] A
-      such that
-        A.authorDateTime starts on or 6 months or less before start of E.relevantPeriod
-        and A.result < 18.5
-    with ["Intervention, Performed": "VSAC; Below Normal Follow-up"] I
-        such that I.relevantPeriod starts 6 months or less before start of E.relevantPeriod)
+  or "Last BMI Before Encounter Is Low With Follow-Up"
 
 define "Denominator Exception: G9716":
   /*
@@ -120,16 +140,7 @@ define "Numerator Performance Not Met: G8419":
    */
    exists(["Procedure, Performed": "MIPS; Performance Not Met: G8419"] P
      where P.relevantPeriod starts during "Measurement Period")
-   or exists("Denominator Encounter"
-     with ["Assessment, Performed": "VSAC; BMI LOINC Value"] A
-       such that
-         A.authorDateTime starts on or 6 months or less before start of E.relevantPeriod
-         and A.result < 18.5)
-   or exists("Denominator Encounter"
-     with ["Assessment, Performed": "VSAC; BMI LOINC Value"] A
-       such that
-         A.authorDateTime starts on or 6 months or less before start of E.relevantPeriod
-         and A.result >= 25)
+   or "Last BMI Before Encounter Is Abnormal"
 
 define "Numerator Performance Not Met: G8421":
   /*
@@ -140,5 +151,4 @@ define "Numerator Performance Not Met: G8421":
   and not "Numerator Performance Met: G8417"
   and not "Numerator Performance Met: G8418"
   and not "Denominator Exception: G9716"
-  and not "Numerator Performance Not Met: G8421"
   and not "Numerator Performance Not Met: G8419"

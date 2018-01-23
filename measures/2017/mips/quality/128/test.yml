@@ -82,6 +82,11 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: G8421
+    - name: BMI RecentHigh # Patient has multiple BMIs with most recent high
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8419
     - name: BMI HighFollowUpStart # Patient has a high BMI and follow-up at the start of the allowable period
       denominator: 1
       denominator_exclusion:
@@ -225,6 +230,11 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: G8421
+    - name: BMI RecentHigh # Patient has multiple BMIs with most recent high
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8419
     - name: BMI HighFollowUpStart # Patient has a high BMI and follow-up at the start of the allowable period
       denominator: 1
       denominator_exclusion:
@@ -668,6 +678,26 @@ patients:
       code_value: 39156-5 # BMI
       start_date: 2016-01-02
       result_as_decimal: 20.0
+- name: Patient has multiple BMIs with most recent high
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: BMI
+    family_name: RecentHigh
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2016-01-01
+      result_as_decimal: 20.0
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2016-01-02
+      result_as_decimal: 30.0
 - name: Patient has a high BMI and follow-up at the start of the allowable period
   attributes:
     date_of_birth: 1950-01-01
