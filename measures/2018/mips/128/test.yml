@@ -1,4 +1,4 @@
-measure_id: 17.MIPS.Mips128
+measure_id: 18.MIPS.Mips128
 test_set_keys:
   organization_key:
     patients:
@@ -624,11 +624,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_date: 2016-01-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_date: 2015-07-01
+      start_date: 2015-02-01
       result_as_decimal: 20.0
 - name: Patient has a normal BMI at the end of the allowable period
   attributes:
@@ -656,11 +656,11 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_date: 2016-01-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_date: 2015-06-30
+      start_date: 2015-01-31
       result_as_decimal: 20.0
 - name: Patient has a normal BMI after the allowable period
   attributes:
@@ -708,15 +708,15 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_date: 2016-01-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_date: 2016-01-01
+      start_date: 2016-02-01
       result_as_decimal: 25.0
     - code_type: SNOMEDCT
       code_value: 304549008 # Encouragement to exercise
-      start_date: 2015-07-01
+      start_date: 2015-01-31
 - name: Patient has a high BMI and follow-up at the end of the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -747,15 +747,15 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_date: 2016-01-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_date: 2016-01-01
+      start_date: 2016-02-01
       result_as_decimal: 25.0
     - code_type: SNOMEDCT
       code_value: 304549008 # Encouragement to exercise
-      start_date: 2015-06-30
+      start_date: 2015-02-01
 - name: Patient has a high BMI and follow-up after the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -785,15 +785,15 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_date: 2016-01-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_date: 2016-01-01
+      start_date: 2016-02-01
       result_as_decimal: 18.4
     - code_type: SNOMEDCT
       code_value: 386464006 # Diet education
-      start_date: 2015-07-01
+      start_date: 2015-02-01
 - name: Patient has a low BMI and follow-up at the end of the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -823,15 +823,15 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
-      start_date: 2016-01-01
+      start_date: 2016-02-01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
-      start_date: 2016-01-01
+      start_date: 2016-02-01
       result_as_decimal: 18.4
     - code_type: SNOMEDCT
       code_value: 386464006 # Diet education
-      start_date: 2015-06-30
+      start_date: 2015-01-31
 - name: Patient has a low BMI and follow-up after the allowable period
   attributes:
     date_of_birth: 1950-01-01
