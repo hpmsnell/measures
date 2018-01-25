@@ -107,6 +107,11 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: G8419
+    - name: BMI HighFollowUpDifferentEncounter # Patient has a high BMI and follow-up anchored to a different encounter
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8419
     - name: BMI LowFollowUpStart # Patient has a low BMI and follow-up at the start of the allowable period
       denominator: 1
       denominator_exclusion:
@@ -251,6 +256,11 @@ test_set_keys:
       denominator_exception:
       numerator: G8419
     - name: BMI HighFollowUpLate # Patient has a high BMI and follow-up after the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8419
+    - name: BMI HighFollowUpDifferentEncounter # Patient has a high BMI and follow-up anchored to a different encounter
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -775,6 +785,28 @@ patients:
     - code_type: SNOMEDCT
       code_value: 304549008 # Encouragement to exercise
       start_date: 2016-01-02
+- name: Patient has a high BMI and follow-up anchored to a different encounter
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: BMI
+    family_name: HighFollowUpDifferentEncounter
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-10-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2016-01-01 # Within 6 months prior to the first encounter
+      result_as_decimal: 25.0
+    - code_type: SNOMEDCT
+      code_value: 304549008 # Encouragement to exercise
+      start_date: 2016-08-01 # Within 6 months prior to the second encounter
 - name: Patient has a low BMI and follow-up at the start of the allowable period
   attributes:
     date_of_birth: 1950-01-01
