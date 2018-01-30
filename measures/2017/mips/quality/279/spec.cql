@@ -45,7 +45,7 @@ define "Denominator Encounter":
 define "Denominator":
   exists("Denominator Encounter")
   and exists("Positive Airway Pressure Therapy"
-    where P.relevantPeriod starts during D.prevalencePeriod)
+    where P.relevantPeriod starts during "Denominator Period")
 
 define "Numerator Performance Met: G8851":
   /*

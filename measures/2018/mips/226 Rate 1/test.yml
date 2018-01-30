@@ -1,0 +1,789 @@
+measure_id: 18.MIPS.Mips226Rate1
+test_set_keys:
+  organization_key:
+    patients:
+      - name: Too Young # Below age range
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower # Lower bound of age range
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9905
+      - name: 226Encounter Early # Encounter too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: 226Encounter Lower # Encounter at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9905
+      - name: 226Encounter Upper # Encounter at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9905
+      - name: 226Encounter Late # Encounter too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: 226Encounter DifferentProviders # 226 encounters with different providers
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9905
+      - name: PreventiveEncounter Early # Encounter too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: PreventiveEncounter Lower # Encounter at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9905
+      - name: PreventiveEncounter Upper # Encounter at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9905
+      - name: PreventiveEncounter Late # Encounter too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: G9902 Early # Performance met G9902 before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9905
+      - name: G9902 Lower # Performance met G9902 lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9902
+      - name: G9902 Upper # Performance met G9902 upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9902
+      - name: G9902 Late # Performance met G9902 after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9905
+      - name: G9903 Early # Performance met G9903 before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9905
+      - name: G9903 Lower # Performance met G9903 lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9903
+      - name: G9903 Upper # Performance met G9903 upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9903
+      - name: G9903 Late # Performance met G9903 after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9905
+      - name: NonUser Early # Tobacco non-user before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9905
+      - name: NonUser Lower # Tobacco non-user lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9903
+      - name: NonUser Upper # Tobacco non-user upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9903
+      - name: NonUser Late # Tobacco non-user after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9905
+      - name: G9904 Early # G9904 before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9905
+      - name: G9904 Lower # G9904 lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G99021P
+        numerator:
+      - name: G9904 Upper # G9904 upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G99021P
+        numerator:
+      - name: G9904 Late # G9904 after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9905
+      - name: LimitedLife Early # Limited life expectancy ends before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9905
+      - name: LimitedLife Lower # Limited life expectancy ends lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G99021P
+        numerator:
+      - name: LimitedLife Upper # Limited life expectancy starts upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G99021P
+        numerator:
+      - name: LimitedLife Late # Limited life expectancy starts after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9905
+  providers_key:
+    - name: Rachel
+      patients:
+        - name: Too Young # Below age range
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Age Lower # Lower bound of age range
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9905
+        - name: 226Encounter Early # Encounter too early
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: 226Encounter Lower # Encounter at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9905
+        - name: 226Encounter Upper # Encounter at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9905
+        - name: 226Encounter Late # Encounter too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: 226Encounter DifferentProviders # 226 encounters with different providers
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: PreventiveEncounter Early # Encounter too early
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: PreventiveEncounter Lower # Encounter at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9905
+        - name: PreventiveEncounter Upper # Encounter at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9905
+        - name: PreventiveEncounter Late # Encounter too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: G9902 Early # Performance met G9902 before interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9905
+        - name: G9902 Lower # Performance met G9902 lower bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9902
+        - name: G9902 Upper # Performance met G9902 upper bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9902
+        - name: G9902 Late # Performance met G9902 after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9905
+        - name: G9903 Early # Performance met G9903 before interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9905
+        - name: G9903 Lower # Performance met G9903 lower bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9903
+        - name: G9903 Upper # Performance met G9903 upper bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9903
+        - name: G9903 Late # Performance met G9903 after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9905
+        - name: NonUser Early # Tobacco non-user before interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9905
+        - name: NonUser Lower # Tobacco non-user lower bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9903
+        - name: NonUser Upper # Tobacco non-user upper bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9903
+        - name: NonUser Late # Tobacco non-user after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9905
+        - name: G9904 Early # G9904 before interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9905
+        - name: G9904 Lower # G9904 lower bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: G99021P
+          numerator:
+        - name: G9904 Upper # G9904 upper bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: G99021P
+          numerator:
+        - name: G9904 Late # G9904 after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9905
+        - name: LimitedLife Early # Limited life expectancy ends before interval
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: LimitedLife Lower # Limited life expectancy ends lower bound interval
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: LimitedLife Upper # Limited life expectancy starts upper bound interval
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: LimitedLife Late # Limited life expectancy starts after interval
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  external_id: '111-111'
+  credential: DO
+  primary_specialty: Family Medicine
+- given_name: Patty
+  family_name: PrimaryCare
+  external_id: '222-222'
+  credential: MD
+  primary_specialty: Family Medicine
+patients:
+  - name: Too Young
+    attributes:
+      date_of_birth: 1998-02-02
+      given_name: Too
+      family_name: Young
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92521
+        start_date: 2016-02-01
+        provider: Rachel
+  - name: Age Lower
+    attributes:
+      date_of_birth: 1998-02-01
+      given_name: Age
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92521
+        start_date: 2016-02-01
+        provider: Rachel
+  - name: 226Encounter Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 226Encounter
+      family_name: Early
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90791
+        start_date: 2015-12-31
+        provider: Rachel
+      - code_type: CPT
+        code_value: 90792
+        start_date: 2016-01-01
+        provider: Rachel
+  - name: 226Encounter Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 226Encounter
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90791
+        start_date: 2016-01-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 90792
+        start_date: 2016-01-01
+        provider: Rachel
+  - name: 226Encounter Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 226Encounter
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90791
+        start_date: 2016-12-31
+        provider: Rachel
+      - code_type: CPT
+        code_value: 90792
+        start_date: 2016-01-01
+        provider: Rachel
+  - name: 226Encounter Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 226Encounter
+      family_name: Late
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90791
+        start_date: 2017-01-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 90792
+        start_date: 2016-01-01
+        provider: Rachel
+  - name: 226Encounter DifferentProviders
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: 226Encounter
+      family_name: DifferentProviders
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90791
+        start_date: 2016-01-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 90792
+        start_date: 2016-01-01
+        provider: Patty
+  - name: PreventiveEncounter Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: PreventiveEncounter
+      family_name: Early
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2015-12-31
+        provider: Rachel
+  - name: PreventiveEncounter Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: PreventiveEncounter
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-01-01
+        provider: Rachel
+  - name: PreventiveEncounter Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: PreventiveEncounter
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-12-31
+        provider: Rachel
+  - name: PreventiveEncounter Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: PreventiveEncounter
+      family_name: Late
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2017-01-01
+  - name: G9902 Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9902
+      family_name: Early
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9902
+        start_date: 2015-12-31
+  - name: G9902 Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9902
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9902
+        start_date: 2016-01-01
+  - name: G9902 Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9902
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9902
+        start_date: 2016-12-31
+  - name: G9902 Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9902
+      family_name: Late
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9902
+        start_date: 2017-01-01
+  - name: G9903 Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9903
+      family_name: Early
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9903
+        start_date: 2015-12-31
+  - name: G9903 Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9903
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9903
+        start_date: 2016-01-01
+  - name: G9903 Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9903
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9903
+        start_date: 2016-12-31
+  - name: G9903 Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9903
+      family_name: Late
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9903
+        start_date: 2017-01-01
+  - name: NonUser Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: NonUser
+      family_name: Early
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 266924008
+        start_date: 2014-12-31
+  - name: NonUser Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: NonUser
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 266924008
+        start_date: 2015-01-01
+  - name: NonUser Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: NonUser
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 266924008
+        start_date: 2016-12-31
+  - name: NonUser Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: NonUser
+      family_name: Late
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 266924008
+        start_date: 2017-01-01
+  - name: G9904 Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9904
+      family_name: Early
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9904
+        start_date: 2015-12-31
+  - name: G9904 Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9904
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9904
+        start_date: 2016-01-01
+  - name: G9904 Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9904
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9904
+        start_date: 2016-12-31
+  - name: G9904 Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9904
+      family_name: Late
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9904
+        start_date: 2017-01-01
+  - name: LimitedLife Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: LimitedLife
+      family_name: Early
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Patty
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 162607003
+        start_date: 2015-01-01
+        stop_date: 2015-12-31
+  - name: LimitedLife Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: LimitedLife
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Patty
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 162607003
+        start_date: 2016-01-01
+  - name: LimitedLife Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: LimitedLife
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Patty
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 162607003
+        start_date: 2016-12-31
+  - name: LimitedLife Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: LimitedLife
+      family_name: Late
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Patty
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 162607003
+        start_date: 2017-01-01

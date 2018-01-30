@@ -1,0 +1,104 @@
+measure:
+  name: 18.MIPS.Mips226Rate2
+  required:
+    display_title: "Preventive Care and Screening: Tobacco Use: Screening and Cessation Intervention"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: '226 Rate 2'
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_stratum:
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9906
+    required:
+      display_title: "Patient identified as a tobacco user received tobacco cessation intervention (counseling and/or pharmacotherapy)"
+      validation_record_groups:
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 226 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 226 Preventive Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9906"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Tobacco User"
+            - model: Diagnosis
+              value_set: "VSAC; Tobacco User"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; Tobacco Use Cessation Pharmacotherapy"
+            - model: ClinicalActivity
+              value_set: "VSAC; Tobacco Use Cessation Counseling"
+    optional:
+      code_value: G9906
+exception_reasons:
+  - config_link_id: G9907
+    required:
+      display_title: "Documentation of medical reason(s) for not providing tobacco cessation intervention (e.g., limited life expectancy, other medical reason)"
+      validation_record_groups:
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 226 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 226 Preventive Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G9907"
+            - model: Diagnosis
+              value_set: "VSAC; Limited Life Expectancy"
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS Hospice Service"
+    optional:
+      code_value: G9907
+performance_not_met_reasons:
+  - config_link_id: G9908
+    required:
+      display_title: "Patient identified as tobacco user did not receive tobacco cessation intervention (counseling and/or pharmacotherapy), reason not given"
+      validation_record_groups:
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 226 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 226 Preventive Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9908"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9906"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Tobacco User"
+            - model: Diagnosis
+              value_set: "VSAC; Tobacco User"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; Tobacco Use Cessation Pharmacotherapy"
+            - model: ClinicalActivity
+              value_set: "VSAC; Tobacco Use Cessation Counseling"
+    optional:
+      code_value: G9908
