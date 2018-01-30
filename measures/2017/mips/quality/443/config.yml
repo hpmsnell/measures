@@ -1,0 +1,85 @@
+measure:
+  name: 17.MIPS.Mips443
+  required:
+    display_title: "Non-Recommended Cervical Cancer Screening in Adolescent Females"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 443
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: Patient excluded due to hospice service
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 443 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS Hospice Service"
+  - config_link_id: exclusion_2
+    required:
+      display_title: Patient excluded due to a history of cervical cancer, HIV, or immunodeficiency
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 443 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Cervical Cancer, HIV, or Immunodeficiency"
+performance_met_reasons:
+  - config_link_id: G9806
+    required:
+      display_title: 'Patients who received cervical cytology or an HPV test'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 443 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9806"
+        - count: 1
+          validation_records:
+            - model: LaboratoryTestPerformed
+              value_set: "VSAC; Pap Test"
+            - model: LaboratoryTestPerformed
+              value_set: "VSAC; HPV Test"
+    optional:
+      code_value: G9806
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: G9807
+    required:
+      display_title: 'Patients who did not receive cervical cytology or an HPV test'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 443 Encounter"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9806"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9807"
+        - count: 1
+          validation_records:
+            - model: LaboratoryTestPerformed
+              value_set: "VSAC; Pap Test"
+            - model: LaboratoryTestPerformed
+              value_set: "VSAC; HPV Test"
+    optional:
+      code_value: G9807
