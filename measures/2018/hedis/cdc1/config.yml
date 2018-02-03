@@ -1,0 +1,138 @@
+measure:
+  name: 18.Hedis.Cdc1
+  required:
+    display_title: "Comprehensive Diabetes Care: HbAc1 Testing"
+  optional:
+    gap_resolution_action: 'Patient is due for an HbA1c test'
+    set: HEDIS
+    external_id: CDC1
+    version: 2018
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: 'Patient excluded due to hospice service'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Diabetes"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Acute Inpatient"
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Outpatient"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Observation"
+            - model: ClinicalActivity
+              value_set: "HEDIS; ED"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Nonacute Inpatient"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "HEDIS; Diabetes Medications"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS Hospice Service"
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+  - config_link_id: exclusion_2
+    required:
+      display_title: 'Patient excluded due to a diagnosis of gestational diabetes or steroid-induced diabetes'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Diabetes"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Acute Inpatient"
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Outpatient"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Observation"
+            - model: ClinicalActivity
+              value_set: "HEDIS; ED"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Nonacute Inpatient"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "HEDIS; Diabetes Medications"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Diabetes Exclusions"
+performance_met_reasons:
+  - config_link_id: performance_met
+    required:
+      display_title: 'Patient received an HbA1c test'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Diabetes"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Acute Inpatient"
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Outpatient"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Observation"
+            - model: ClinicalActivity
+              value_set: "HEDIS; ED"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Nonacute Inpatient"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "HEDIS; Diabetes Medications"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; HbA1c Tests"
+            - model: LaboratoryTestPerformed
+              value_set: "HEDIS; HbA1c Tests"
+performance_not_met_reasons:
+  - config_link_id: performance_not_met
+    required:
+      display_title: 'No HbA1c test found in the appropriate timeframe'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Diabetes"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Acute Inpatient"
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Outpatient"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Observation"
+            - model: ClinicalActivity
+              value_set: "HEDIS; ED"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Nonacute Inpatient"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "HEDIS; Diabetes Medications"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; HbA1c Tests"
+            - model: LaboratoryTestPerformed
+              value_set: "HEDIS; HbA1c Tests"
