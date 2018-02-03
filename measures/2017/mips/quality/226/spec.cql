@@ -76,7 +76,7 @@ define "Numerator Performance Met: 4004F":
    * config_link_id: 4004F
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 4004F"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Tobacco Interval")
   or (
     exists("Tobacco User" D
       where D.prevalencePeriod starts during "Tobacco Interval")
