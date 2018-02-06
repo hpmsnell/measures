@@ -1,0 +1,47 @@
+measure:
+  name: 18.HEDIS.Coa4
+  required:
+    display_title: "Care for Older Adults: Pain Assessment"
+  optional:
+    gap_resolution_action: Patient is due for pain assessment
+    set: HEDIS
+    external_id: 'COA4'
+    version: 2018
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: 'Patient excluded due to hospice service during the measurement period'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS Hospice Service"
+performance_met_reasons:
+  - config_link_id: performance_met
+    required:
+      display_title: 'Pain assessment performed during the measurement period'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Pain Assessment"
+            - model: ClinicalActivity
+              value_set: "Able; Standardized Pain Assessment Tool"
+            - model: ClinicalActivity
+              value_set: "Able; Pain Assessments"
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: performance_not_met
+    required:
+      display_title: 'No pain assessment found during the measurement period'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Pain Assessment"
+            - model: ClinicalActivity
+              value_set: "Able; Standardized Pain Assessment Tool"
+            - model: ClinicalActivity
+              value_set: "Able; Pain Assessments"

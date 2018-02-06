@@ -1,0 +1,47 @@
+measure:
+  name: 18.HEDIS.Coa1
+  required:
+    display_title: "Care for Older Adults: Advance Care Planning"
+  optional:
+    gap_resolution_action: Patient requires documentation of an advance directive or surrogate decision maker
+    set: HEDIS
+    external_id: 'COA1'
+    version: 2018
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: 'Patient excluded due to hospice service during the measurement period'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS Hospice Service"
+performance_met_reasons:
+  - config_link_id: performance_met
+    required:
+      display_title: 'Advance care planning performed during the measurement period'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Advance Care Planning"
+            - model: ClinicalActivity
+              value_set: "Able; Advance Directive"
+            - model: ClinicalActivity
+              value_set: "Able; Advance Directive Discussed"
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: performance_not_met
+    required:
+      display_title: 'No evidence of advance care planning found during the measurement period'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Advance Care Planning"
+            - model: ClinicalActivity
+              value_set: "Able; Advance Directive"
+            - model: ClinicalActivity
+              value_set: "Able; Advance Directive Discussed

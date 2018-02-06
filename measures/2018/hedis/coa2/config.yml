@@ -1,0 +1,55 @@
+measure:
+  name: 18.HEDIS.Coa2
+  required:
+    display_title: "Care for Older Adults: Medication Review"
+  optional:
+    gap_resolution_action: Patient is due for medication review
+    set: HEDIS
+    external_id: 'COA2'
+    version: 2018
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: 'Patient excluded due to hospice service during the measurement period'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS Hospice Service"
+performance_met_reasons:
+  - config_link_id: performance_met
+    required:
+      display_title: 'Medications reviewed during the measurement period'
+      validation_record_groups:
+        - count: 5
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Medication Review"
+        - count: 5
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Medication List"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Transitional Care Management Services"
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: performance_not_met
+    required:
+      display_title: 'No medication review and/or medication list found during the measurement period'
+      validation_record_groups:
+        - count: 5
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Medication Review"
+        - count: 5
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Medication List"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Transitional Care Management Services"
