@@ -80,7 +80,7 @@ patients:
   clinical_models:
 - name: ExclusionHospice Before
   attributes:
-    date_of_birth: 1970-01-01
+    date_of_birth: 1940-01-01
     given_name: ExclusionHospice
     family_name: Before
     sex: Male
@@ -91,7 +91,7 @@ patients:
       start_date: 2015-12-31 # Too early
 - name: ExclusionHospice Lower
   attributes:
-    date_of_birth: 1970-01-01
+    date_of_birth: 1940-01-01
     given_name: ExclusionHospice
     family_name: Lower
     sex: Male
@@ -102,7 +102,7 @@ patients:
       start_date: 2016-01-01 # Lower bound
 - name: ExclusionHospice Upper
   attributes:
-    date_of_birth: 1970-01-01
+    date_of_birth: 1940-01-01
     given_name: ExclusionHospice
     family_name: Upper
     sex: Male
@@ -113,7 +113,7 @@ patients:
       start_date: 2016-12-31 # Upper bound
 - name: ExclusionHospice After
   attributes:
-    date_of_birth: 1970-01-01
+    date_of_birth: 1940-01-01
     given_name: ExclusionHospice
     family_name: After
     sex: Male
@@ -124,7 +124,7 @@ patients:
       start_date: 2017-01-01 # Too late
 - name: Pain Before
   attributes:
-    date_of_birth: 1970-01-01
+    date_of_birth: 1940-01-01
     given_name: Pain
     family_name: Before
     sex: Male
@@ -135,29 +135,29 @@ patients:
       start_date: 2015-12-31 # Too early
 - name: Pain Lower
   attributes:
-    date_of_birth: 1970-01-01
+    date_of_birth: 1940-01-01
     given_name: Pain
     family_name: Lower
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: SNOMEDCT
-      code_value: 1170F
+      code_value: 225399009
       start_date: 2016-01-01 # Lower bound
-- name: Pain 225399009
+- name: Pain Upper
   attributes:
-    date_of_birth: 1970-01-01
+    date_of_birth: 1940-01-01
     given_name: Pain
     family_name: Upper
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: SNOMEDCT
-      code_value: 1170F
+      code_value: 225399009
       start_date: 2016-12-31 # Upper bound
-- name: Pain 225399009
+- name: Pain After
   attributes:
-    date_of_birth: 1970-01-01
+    date_of_birth: 1940-01-01
     given_name: Pain
     family_name: After
     sex: Male
