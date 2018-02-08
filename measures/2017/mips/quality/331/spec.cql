@@ -66,6 +66,10 @@ define "Numerator Performance Met: G9286":
    */
   "Performance Met Exists"
   and not "Denominator Exception Exists"
+  and not exists(
+    exists(["Procedure, Performed": "Performance Not Met: G9287"] P
+      with "Denominator Encounter" E
+        such that M.relevantPeriod starts on or 10 days or less after start of E.relevantPeriod)
 
 define "Denominator Exception: G9505":
   /*
