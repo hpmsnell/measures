@@ -1,0 +1,69 @@
+measure:
+  name: 18.HEDIS.Aba
+  required:
+    display_title: "Adult BMI Assessment"
+  optional:
+    gap_resolution_action: Patient is due for BMI assessment
+    set: HEDIS
+    external_id: 'ABA'
+    version: 2018
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: performance_met
+    required:
+      display_title: 'Pain assessment performed during the measurement period'
+      validation_record_groups:
+      - count: 1
+        validation_records:
+          - model: ClinicalActivity
+            value_set: "HEDIS; Outpatient"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; BMI"
+            - model: ClinicalActivity
+              value_set: "VSAC; BMI LOINC Vale"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; BMI Percentile"
+            - model: ClinicalActivity
+              value_set: "VSAC; BMI percentile"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Height"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Weight"
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: performance_not_met
+    required:
+      display_title: 'No pain assessment found during the measurement period'
+      validation_record_groups:
+      - count: 1
+        validation_records:
+          - model: ClinicalActivity
+            value_set: "HEDIS; Outpatient"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; BMI"
+            - model: ClinicalActivity
+              value_set: "VSAC; BMI LOINC Vale"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; BMI Percentile"
+            - model: ClinicalActivity
+              value_set: "VSAC; BMI percentile"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Height"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "VSAC; Weight"
