@@ -1,0 +1,65 @@
+measure:
+  name: 18.HEDIS.Col
+  required:
+    display_title: "Colorectal Cancer Screening"
+  optional:
+    gap_resolution_action: Patient is due for colorectal cancer screening
+    set: HEDIS
+    external_id: 'COA4'
+    version: 2018
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: Patient is excluded for this measure due to a history of total colectomy or colorectal cancer
+      validation_record_groups:
+        - count: 1
+          validation_records:
+          - model: Diagnosis
+            value_set_name: HEDIS; Colorectal Cancer
+          - model: ClinicalActivity
+            value_set_name: HEDIS; Colorectal Cancer
+          - model: ClinicalActivity
+            value_set_name: HEDIS; Total Colectomy
+performance_met_reasons:
+  - config_link_id: performance_met
+    required:
+      display_title: 'Patient screened for colorectal cancer'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+          - model: ClinicalActivity
+            value_set_name: HEDIS; Colonoscopy
+          - model: ClinicalActivity
+            value_set_name: HEDIS; Flexible Sigmoidoscopy
+          - model: ClinicalActivity
+            value_set_name: HEDIS; CT Colonography
+          - model: LaboratoryTest
+            value_set_name: HEDIS; FOBT
+          - model: ClinicalActivity
+            value_set_name: HEDIS; FOBT
+          - model: LaboratoryTest
+            value_set_name: HEDIS; FIT-DNA
+          - model: ClinicalActivity
+            value_set_name: HEDIS; FIT-DNA
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: performance_not_met
+    required:
+      display_title: 'No colorectal cancer screening found during the allowable period'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+          - model: ClinicalActivity
+            value_set_name: HEDIS; Colonoscopy
+          - model: ClinicalActivity
+            value_set_name: HEDIS; Flexible Sigmoidoscopy
+          - model: ClinicalActivity
+            value_set_name: HEDIS; CT Colonography
+          - model: LaboratoryTest
+            value_set_name: HEDIS; FOBT
+          - model: ClinicalActivity
+            value_set_name: HEDIS; FOBT
+          - model: LaboratoryTest
+            value_set_name: HEDIS; FIT-DNA
+          - model: ClinicalActivity
+            value_set_name: HEDIS; FIT-DNA
