@@ -17,26 +17,26 @@ performance_met_reasons:
         validation_records:
           - model: ClinicalActivity
             value_set: "HEDIS; Outpatient"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; BMI"
-            - model: ClinicalActivity
-              value_set: "VSAC; BMI LOINC Vale"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; BMI Percentile"
-            - model: ClinicalActivity
-              value_set: "VSAC; BMI percentile"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Height"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Weight"
+      - count: 1
+        validation_records:
+          - model: ClinicalActivity
+            value_set: "HEDIS; BMI"
+          - model: ClinicalActivity
+            value_set: "VSAC; BMI LOINC Value"
+      - count: 1
+        validation_records:
+          - model: ClinicalActivity
+            value_set: "HEDIS; BMI Percentile"
+          - model: ClinicalActivity
+            value_set: "VSAC; BMI percentile"
+      - count: 1
+        validation_records:
+          - model: ClinicalActivity
+            value_set: "VSAC; Height"
+      - count: 1
+        validation_records:
+          - model: ClinicalActivity
+            value_set: "VSAC; Weight"
 exception_reasons:
 performance_not_met_reasons:
   - config_link_id: performance_not_met
@@ -47,23 +47,23 @@ performance_not_met_reasons:
         validation_records:
           - model: ClinicalActivity
             value_set: "HEDIS; Outpatient"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; BMI"
-            - model: ClinicalActivity
-              value_set: "VSAC; BMI LOINC Vale"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; BMI Percentile"
-            - model: ClinicalActivity
-              value_set: "VSAC; BMI percentile"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Height"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Weight"
+      - count: 1
+        validation_records:
+          - model: Diagnosis
+            value_set: "HEDIS; BMI"
+          - model: ClinicalActivity
+            value_set: "VSAC; BMI LOINC Value"
+      - count: 1
+        validation_records:
+          - model: Diagnosis
+            value_set: "HEDIS; BMI Percentile"
+          - model: ClinicalActivity
+            value_set: "VSAC; BMI percentile"
+      - count: 1
+        validation_records:
+          - model: ClinicalActivity
+            value_set: "VSAC; Height"
+      - count: 1
+        validation_records:
+          - model: ClinicalActivity
+            value_set: "VSAC; Weight"

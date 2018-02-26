@@ -34,11 +34,9 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Hospice Exists":
-  exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
-    where I.relevantPeriod starts during "Measurement Period")
-  or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Measurement Period")
+define "Hospice":
+  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
+  union ["Intervention, Performed": "VSAC; Palliative Care"]
 
 define "BMI and Weight Exists":
   exists(["Assessment, Performed": "VSAC; BMI LOINC Value"] A
@@ -47,7 +45,7 @@ define "BMI and Weight Exists":
     where A.authorDateTime during [24 months before end of "Measurement Period", end of "Measurement Period"])
 
 define "BMI Exists":
-  exists(["Assessment, Performed": "HEDIS; BMI"] D
+  exists(["Diagnosis": "HEDIS; BMI"] D
     where D.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
   or "Patient has BMI and Weight"
 
@@ -83,7 +81,8 @@ define "Denominator":
   and AgeInYearsAt(end of "Measurement Period") < 75
   and exists(["Encounter, Performed": "HEDIS; Outpatient"] E
     where E.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
-  and not "Hospice Exists"
+  and not exists("Hospice" I
+    where I.relevantPeriod starts during "Measurement Period")
 
 define "Denominator Exclusion":
   /*
@@ -103,5 +102,4 @@ define "Numerator Performance Not Met":
   /*
    * config_link_id: performance_not_met
    */
-  not "Denominator Exclusion"
-  and not "Numerator Performance Met"
+  not "Numerator Performance Met"
