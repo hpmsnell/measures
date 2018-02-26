@@ -26,31 +26,34 @@ valueset "HEDIS; FOBT": '2.16.840.1.113883.3.464.1004.1093'
 valueset "HEDIS; CT Colonography": '2.16.840.1.113883.3.464.1004.1421'
 valueset "HEDIS; FIT-DNA": '2.16.840.1.113883.3.464.1004.1420'
 
+// VSAC value sets
+
+valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
+
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Hospice Exists":
-  exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
-    where I.relevantPeriod starts during "Measurement Period")
-  or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Measurement Period")
+define "Hospice":
+  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
+  union ["Intervention, Performed": "VSAC; Palliative Care"]
 
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 51
   and AgeInYearsAt(end of "Measurement Period") < 76
-  and not "Hospice Exists"
+  and not exists("Hospice" I
+    where I.relevantPeriod starts during "Measurement Period")
 
 define "Denominator Exclusion":
   /*
    * config_link_id: exclusion_1
    */
   exists(["Diagnosis": "HEDIS; Colorectal Cancer"] D
-    where D.prevalencePeriod starts before end "Measurement Period")
- exists(["Procedure, Performed": "HEDIS; Colorectal Cancer"] P
-   where P.prevalencePeriod starts before end "Measurement Period")
+    where D.prevalencePeriod starts before end of "Measurement Period")
+  or exists(["Procedure, Performed": "HEDIS; Colorectal Cancer"] P
+    where P.prevalencePeriod starts before end of "Measurement Period")
   or exists(["Procedure, Performed": "HEDIS; Total Colectomy"] P
-    where P.relevantPeriod starts before end "Measurement Period")
+    where P.relevantPeriod starts before end of "Measurement Period")
 
 define "Numerator Performance Met":
   /*

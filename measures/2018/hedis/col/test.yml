@@ -44,9 +44,9 @@ test_set_keys:
       numerator: performance_not_met
     - name: ExclusionColectomy Before
       denominator: 1
-      denominator_exclusion:
+      denominator_exclusion: exclusion_1
       denominator_exception:
-      numerator: performance_not_met
+      numerator:
     - name: ExclusionColectomy After
       denominator: 1
       denominator_exclusion:
@@ -54,9 +54,9 @@ test_set_keys:
       numerator: performance_not_met
     - name: ExclusionCancer Before
       denominator: 1
-      denominator_exclusion:
+      denominator_exclusion: exclusion_1
       denominator_exception:
-      numerator: performance_not_met
+      numerator:
     - name: ExclusionCancer After
       denominator: 1
       denominator_exclusion:
@@ -343,7 +343,7 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 44392
+      code_value: 45330
       start_date: 2011-12-31 # Too early
 - name: Sigmoidoscopy Lower
   attributes:
@@ -354,7 +354,7 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 44392
+      code_value: 45330
       start_date: 2012-01-01 # Lower bound
 - name: Sigmoidoscopy Upper
   attributes:
@@ -365,7 +365,7 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 44392
+      code_value: 45330
       start_date: 2016-12-31 # Upper bound
 - name: Sigmoidoscopy After
   attributes:
@@ -376,7 +376,7 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 44392
+      code_value: 45330
       start_date: 2017-01-01 # Too late
 - name: FOBT Before
   attributes:
@@ -475,7 +475,7 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 44392
+      code_value: 74261
       start_date: 2011-12-31 # Too early
 - name: Colonography Lower
   attributes:
@@ -486,7 +486,7 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 44392
+      code_value: 74261
       start_date: 2012-01-01 # Lower bound
 - name: Colonography Upper
   attributes:
@@ -497,7 +497,7 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 44392
+      code_value: 74261
       start_date: 2016-12-31 # Upper bound
 - name: Colonography After
   attributes:
@@ -508,5 +508,5 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 44392
+      code_value: 74261
       start_date: 2017-01-01 # Too late

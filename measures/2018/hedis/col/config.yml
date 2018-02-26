@@ -15,11 +15,11 @@ exclusion_reasons:
         - count: 1
           validation_records:
           - model: Diagnosis
-            value_set_name: HEDIS; Colorectal Cancer
+            value_set: HEDIS; Colorectal Cancer
           - model: ClinicalActivity
-            value_set_name: HEDIS; Colorectal Cancer
+            value_set: HEDIS; Colorectal Cancer
           - model: ClinicalActivity
-            value_set_name: HEDIS; Total Colectomy
+            value_set: HEDIS; Total Colectomy
 performance_met_reasons:
   - config_link_id: performance_met
     required:
@@ -28,19 +28,19 @@ performance_met_reasons:
         - count: 1
           validation_records:
           - model: ClinicalActivity
-            value_set_name: HEDIS; Colonoscopy
+            value_set: HEDIS; Colonoscopy
           - model: ClinicalActivity
-            value_set_name: HEDIS; Flexible Sigmoidoscopy
+            value_set: HEDIS; Flexible Sigmoidoscopy
           - model: ClinicalActivity
-            value_set_name: HEDIS; CT Colonography
-          - model: LaboratoryTest
-            value_set_name: HEDIS; FOBT
+            value_set: HEDIS; CT Colonography
+          - model: LaboratoryTestPerformed
+            value_set: HEDIS; FOBT
           - model: ClinicalActivity
-            value_set_name: HEDIS; FOBT
-          - model: LaboratoryTest
-            value_set_name: HEDIS; FIT-DNA
+            value_set: HEDIS; FOBT
+          - model: LaboratoryTestPerformed
+            value_set: HEDIS; FIT-DNA
           - model: ClinicalActivity
-            value_set_name: HEDIS; FIT-DNA
+            value_set: HEDIS; FIT-DNA
 exception_reasons:
 performance_not_met_reasons:
   - config_link_id: performance_not_met
@@ -50,16 +50,16 @@ performance_not_met_reasons:
         - count: 1
           validation_records:
           - model: ClinicalActivity
-            value_set_name: HEDIS; Colonoscopy
+            value_set: HEDIS; Colonoscopy
           - model: ClinicalActivity
-            value_set_name: HEDIS; Flexible Sigmoidoscopy
+            value_set: HEDIS; Flexible Sigmoidoscopy
           - model: ClinicalActivity
-            value_set_name: HEDIS; CT Colonography
-          - model: LaboratoryTest
-            value_set_name: HEDIS; FOBT
+            value_set: HEDIS; CT Colonography
+          - model: LaboratoryTestPerformed
+            value_set: HEDIS; FOBT
           - model: ClinicalActivity
-            value_set_name: HEDIS; FOBT
-          - model: LaboratoryTest
-            value_set_name: HEDIS; FIT-DNA
+            value_set: HEDIS; FOBT
+          - model: LaboratoryTestPerformed
+            value_set: HEDIS; FIT-DNA
           - model: ClinicalActivity
-            value_set_name: HEDIS; FIT-DNA
+            value_set: HEDIS; FIT-DNA
