@@ -42,9 +42,9 @@ define "Denominator Exclusion":
    * config_link_id: exclusion_1
    */
   exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
-    where I.relevantPeriod starts during "Denominator Period")
+    where I.relevantPeriod starts during "Measurement Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Denominator Period")
+    where I.relevantPeriod overlaps "Measurement Period")
 
 define "Numerator Performance Met":
   /*

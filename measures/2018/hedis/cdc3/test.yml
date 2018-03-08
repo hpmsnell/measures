@@ -122,6 +122,46 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
+    - name: ExclusionHospice Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: hba1c_none
+    - name: ExclusionHospice Lower
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Upper
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: hba1c_none
+    - name: ExclusionDiagnosis Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: hba1c_none
+    - name: ExclusionDiagnosis Lower
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionDiagnosis Upper
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionDiagnosis After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: hba1c_none
     - name: HbA1cControlled Before
       denominator: 1
       denominator_exclusion:
@@ -171,7 +211,7 @@ providers:
 patients:
 - name: Too Young
   attributes:
-    date_of_birth: 1998-02-02 # Too late
+    date_of_birth: 1999-01-01 # Too late
     given_name: Too
     family_name: Young
     sex: Male
@@ -182,7 +222,7 @@ patients:
       start_date: 2010-01-01
 - name: Age Lower
   attributes:
-    date_of_birth: 1998-02-01 # Lower bound
+    date_of_birth: 1998-12-31 # Lower bound
     given_name: Age
     family_name: Lower
     sex: Male
@@ -193,7 +233,7 @@ patients:
       start_date: 2010-01-01
 - name: Age Upper
   attributes:
-    date_of_birth: 1941-02-02 # Upper bound
+    date_of_birth: 1941-01-01 # Upper bound
     given_name: Age
     family_name: Upper
     sex: Male
@@ -204,7 +244,7 @@ patients:
       start_date: 2010-01-01
 - name: Too Old
   attributes:
-    date_of_birth: 1941-02-01 # Too early
+    date_of_birth: 1940-12-31 # Too early
     given_name: Too
     family_name: Old
     sex: Male
@@ -380,7 +420,7 @@ patients:
     - code_type: CPT
       code_value: 99221
       start_date: 2016-01-01
-      start_date: 2016-01-02
+      stop_date: 2016-01-02
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
@@ -397,7 +437,7 @@ patients:
     - code_type: CPT
       code_value: 99221
       start_date: 2016-01-01
-      start_date: 2016-01-02
+      stop_date: 2016-01-02
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
@@ -414,7 +454,7 @@ patients:
     - code_type: CPT
       code_value: 99221
       start_date: 2016-01-01
-      start_date: 2016-01-02
+      stop_date: 2016-01-02
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
@@ -431,7 +471,7 @@ patients:
     - code_type: CPT
       code_value: 99221
       start_date: 2016-01-01
-      start_date: 2016-01-02
+      stop_date: 2016-01-02
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
@@ -460,7 +500,7 @@ patients:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2010-01-01
-      stop_date: 2016-12-31  # Lower bound
+      stop_date: 2017-01-01  # Lower bound
 - name: Diagnosis Upper
   attributes:
     date_of_birth: 1970-01-01
@@ -478,8 +518,7 @@ patients:
     given_name: Diagnosis
     family_name: After
     sex: Male
-  clinical_models:2
-      provider: Rachel
+  clinical_models:
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
@@ -528,6 +567,126 @@ patients:
     - code_type: NDC
       code_value: '00054014225'
       start_date: 2017-01-01 # Too late
+- name: ExclusionHospice Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionHospice
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: G9687 # Hospice
+      start_date: 2015-12-31 # Too early
+    medications:
+    - code_type: NDC
+      code_value: '00054014225'
+      start_date: 2016-01-01
+- name: ExclusionHospice Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionHospice
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: G9687 # Hospice
+      start_date: 2016-01-01 # Lower bound
+    medications:
+    - code_type: NDC
+      code_value: '00054014225'
+      start_date: 2016-01-01
+- name: ExclusionHospice Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionHospice
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: G9687 # Hospice
+      start_date: 2016-12-31 # Upper bound
+    medications:
+    - code_type: NDC
+      code_value: '00054014225'
+      start_date: 2016-01-01
+- name: ExclusionHospice After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionHospice
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: G9687 # Hospice
+      start_date: 2017-01-01 # Too late
+    medications:
+    - code_type: NDC
+      code_value: '00054014225'
+      start_date: 2016-01-01
+- name: ExclusionDiagnosis Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionDiagnosis
+    family_name: Before
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E08.00 # Diabetews exclusion
+      start_date: 2014-12-31 # Too early
+    medications:
+    - code_type: NDC
+      code_value: '00054014225'
+      start_date: 2016-01-01
+- name: ExclusionDiagnosis Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionDiagnosis
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E08.00 # Diabetews exclusion
+      start_date: 2015-01-01 # Lower bound
+    medications:
+    - code_type: NDC
+      code_value: '00054014225'
+      start_date: 2016-01-01
+- name: ExclusionDiagnosis Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionDiagnosis
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E08.00 # Diabetews exclusion
+      start_date: 2016-12-31 # Upper bound
+    medications:
+    - code_type: NDC
+      code_value: '00054014225'
+      start_date: 2016-01-01
+- name: ExclusionDiagnosis After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionDiagnosis
+    family_name: After
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E08.00 # Diabetews exclusion
+      start_date: 2017-01-01 # Too late
+    medications:
+    - code_type: NDC
+      code_value: '00054014225'
+      start_date: 2016-01-01
 - name: HbA1cControlled Before
   attributes:
     date_of_birth: 1970-01-01
