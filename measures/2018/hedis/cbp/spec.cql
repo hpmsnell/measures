@@ -88,16 +88,16 @@ define "Most Recent Diastolic":
     sort by A.authorDateTime asc
     return A.result)
 
-define "Patient under 60 or Diabetes Exists":
-  AgeInYearsAt(end of "Measurement Period") < 60
-  or "Diabetes Exists"
+define "Patient over 60 without Diabetes"
+  AgeInYearsAt(end of "Measurement Period") >= 60
+  and not "Diabetes Exists"
 
 define "Blood Pressure < 140/90":
-  "Patient under 60 or Diabetes Exists"
   and "Most Recent Systolic" < 140
   and "Most Recent Diastolic" < 90
 
 define "Blood Pressure < 150/90":
+  "Patient over 60 without Diabetes"
   and "Most Recent Systolic" < 150
   and "Most Recent Diastolic" < 90
 
@@ -105,7 +105,7 @@ define "Blood Pressure < 150/90":
 
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 18
-  and AgeInYearsAt(end of "Measurement Period") < 85
+  and AgeInYearsAt(end of "Measurement Period") < 86
   and "Hypertension Exists"
   and not exists("Hospice" I
     where I.relevantPeriod starts during "Measurement Period")

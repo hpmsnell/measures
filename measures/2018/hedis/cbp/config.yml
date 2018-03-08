@@ -1,5 +1,5 @@
 measure:
-  name: 18.HEDIS.CBP
+  name: 18.HEDIS.Cbp
   required:
     display_title: "Controlling High Blood Pressure"
   optional:
@@ -108,6 +108,7 @@ performance_not_met_reasons:
   - config_link_id: no_blood_pressure
     required:
       display_title: 'No blood pressure found during the measurement period'
+      validation_record_groups:
         - count: 1
           validation_records:
             - model: ClinicalActivity
