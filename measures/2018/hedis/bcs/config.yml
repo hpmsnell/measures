@@ -1,0 +1,55 @@
+measure:
+  name: 18.HEDIS.Bcs1
+  required:
+    display_title: "Breast Cancer Screening"
+  optional:
+    gap_resolution_action: Patient is due for a breast cancer screening
+    set: HEDIS
+    external_id: 'BCS'
+    version: 2018
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: 'Patient excluded due to history of mastectomy'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Bilateral Mastectomy"
+            - model: Diagnosis
+              value_set: "HEDIS; History of Bilateral Mastectomy"
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Unilateral Mastectomy"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Absence of Left Breast"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Unilateral Mastectomy Left"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Absence of Right Breast"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Unilateral Mastectomy Right"
+performance_met_reasons:
+  - config_link_id: performance_met
+    required:
+      display_title: 'Patient received a breast cancer screening'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Mammography"
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: performance_not_met
+    required:
+      display_title: 'No breast cancer screening found within the appropriate timeframe'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Mammography"
