@@ -1,0 +1,97 @@
+measure:
+  name: 17.MIPS.Mips176
+  required:
+    display_title: "Rheumatoid Arthritis (RA): Tuberculosis Screening"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 176
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: 3455F
+    required:
+      display_title: 'TB screening performed and results interpreted within six months prior to initiation of first-time biologic disease modifying anti-rheumatic drug therapy for RA'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 176 Encounter"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "Able; Anti-Rheumatic Drug Therapy"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Rheumatoid Arthritis"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; First-Time Anti-Rheumatic Drug Therapy"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3455F"
+    optional:
+      code_value: 3455F
+exception_reasons:
+  - config_link_id: 3455F-1P
+    required:
+      display_title: 'Documentation of medical reason for not screening for TB or interpreting results (ie, patient positive for TB and documentation of past treatment; patient who has recently completed a course of anti-TB therapy)'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 176 Encounter"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "Able; Anti-Rheumatic Drug Therapy"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Rheumatoid Arthritis"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; First-Time Anti-Rheumatic Drug Therapy"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 3455F-1P"
+    optional:
+      code_value: 3455F-1P
+performance_not_met_reasons:
+  - config_link_id: 3455F-8P
+    required:
+      display_title: 'TB screening not performed or results not interpreted, reason not otherwise specified'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 176 Encounter"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "Able; Anti-Rheumatic Drug Therapy"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Rheumatoid Arthritis"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; First-Time Anti-Rheumatic Drug Therapy"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3455F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 3455F-8P"
+    optional:
+      code_value: 3455F-8P
