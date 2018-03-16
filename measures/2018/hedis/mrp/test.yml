@@ -3,19 +3,19 @@ test_set_keys:
   organization_key:
     episodes_of_care:
       - name: Too Young
-        start_date: 2016-02-01
+        start_date: 2016-01-31
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Age Lower
-        start_date: 2016-02-01
+        start_date: 2016-01-31
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: Denominator Discharge # Before
-        start_date: 2015-12-01
+        start_date: 2015-12-31
         denominator:
         denominator_exclusion:
         denominator_exception:
@@ -33,79 +33,79 @@ test_set_keys:
         denominator_exception:
         numerator: performance_not_met
       - name: Denominator Discharge # After
-        start_date: 2017-01-02
+        start_date: 2017-01-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Denominator ExclusionBefore # Before
-        start_date: 2016-03-02
+        start_date: 2016-02-20
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: Denominator ExclusionLower # Lower
-        start_date: 2016-03-02
+        start_date: 2016-02-20
         denominator: 1
         denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: Denominator ExclusionUpper # Upper
-        start_date: 2016-03-02
+        start_date: 2016-02-20
         denominator: 1
         denominator_exclusion: exclusion_1
         denominator_exception:
         numerator:
       - name: Denominator ExclusionAfter # After
-        start_date: 2016-03-02
+        start_date: 2016-02-20
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: PerformanceMet 1111F # Before
-        start_date: 2016-03-02
+        start_date: 2016-02-20
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: PerformanceMet 1111F # Lower
-        start_date: 2016-05-02
+        start_date: 2016-04-20
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_met
       - name: PerformanceMet 1111F # Upper
-        start_date: 2016-07-02
+        start_date: 2016-06-20
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_met
       - name: PerformanceMet 1111F # After
-        start_date: 2016-09-02
+        start_date: 2016-08-20
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: PerformanceMet Reconciliation # Before
-        start_date: 2016-03-02
+        start_date: 2016-02-20
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: PerformanceMet Reconciliation # Lower
-        start_date: 2016-05-02
+        start_date: 2016-04-20
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_met
       - name: PerformanceMet Reconciliation # Upper
-        start_date: 2016-07-02
+        start_date: 2016-06-20
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_met
       - name: PerformanceMet Reconciliation # After
-        start_date: 2016-09-02
+        start_date: 2016-08-20
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -124,26 +124,26 @@ providers:
 patients:
 - name: Too Young
   attributes:
-    date_of_birth: 1998-02-02 # Too late
+    date_of_birth: 1999-01-01 # Too late
     given_name: Too
     family_name: Young
     sex: Male
   clinical_models:
     clinical_activities:
-    - code_type: CPT
-      code_value: 99234 # Discharge
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-01-31
       stop_date: 2016-01-31
 - name: Age Lower
   attributes:
-    date_of_birth: 1998-02-01 # Lower bound
+    date_of_birth: 1998-12-31 # Lower bound
     given_name: Age
     family_name: Lower
     sex: Male
   clinical_models:
     clinical_activities:
-    - code_type: CPT
-      code_value: 99234 # Discharge
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-01-31
       stop_date: 2016-01-31
 - name: Denominator Discharge
@@ -154,20 +154,20 @@ patients:
     sex: Male
   clinical_models:
     clinical_activities:
-    - code_type: CPT
-      code_value: 99234 # Discharge
-      start_date: 2015-11-30
-      stop_date: 2015-11-30  # Too early
-    - code_type: CPT
-      code_value: 99234 # Discharge
-      start_date: 2015-12-02
-      stop_date: 2015-12-02  # Lower bound
-    - code_type: CPT
-      code_value: 99234 # Discharge
-      start_date: 2016-12-30
-      stop_date: 2016-12-30  # Upper bound
-    - code_type: CPT
-      code_value: 99234 # Discharge
+    - code_type: UB
+      code_value: '0100'  # Discharge
+      start_date: 2015-12-31
+      stop_date: 2015-12-13  # Too early
+    - code_type: UB
+      code_value: '0100'  # Discharge
+      start_date: 2016-01-01
+      stop_date: 2016-01-01  # Lower bound
+    - code_type: UB
+      code_value: '0100'  # Discharge
+      start_date: 2016-12-31
+      stop_date: 2016-12-31  # Upper bound
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2017-01-01
       stop_date: 2017-01-01  # Too late
 - name: Denominator ExclusionBefore
@@ -178,8 +178,8 @@ patients:
     sex: Male
   clinical_models:
     clinical_activities:
-    - code_type: CPT
-      code_value: 99234 # Discharge
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-02-20
       stop_date: 2016-03-01
       provider: Rachel
@@ -194,8 +194,8 @@ patients:
     sex: Male
   clinical_models:
     clinical_activities:
-    - code_type: CPT
-      code_value: 99234 # Discharge
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-02-20
       stop_date: 2016-03-01
     - code_type: CPT
@@ -209,8 +209,8 @@ patients:
     sex: Male
   clinical_models:
     clinical_activities:
-    - code_type: CPT
-      code_value: 99234 # Discharge
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-02-20
       stop_date: 2016-03-01
     - code_type: CPT
@@ -224,8 +224,8 @@ patients:
     sex: Male
   clinical_models:
     clinical_activities:
-    - code_type: CPT
-      code_value: 99234 # Discharge
+    - code_type: UB
+      code_value: '0100'
       start_date: 2016-02-20
       stop_date: 2016-03-01
     - code_type: CPT
@@ -239,29 +239,29 @@ patients:
     sex: Male
   clinical_models:
     clinical_activities:
-    - code_type: CPT
-      code_value: 99234 # Discharge
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-02-20
       stop_date: 2016-03-01
     - code_type: CPT
       code_value: 1111F # Performance met
       start_date: 2016-02-28 # Too early
-    - code_type: CPT
-      code_value: 99234 # Discharge
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-04-20
       stop_date: 2016-05-01
     - code_type: CPT
       code_value: 1111F # Performance met
       start_date: 2016-05-01 # Lower bound
-    - code_type: CPT
-      code_value: 99234 # Discharge
+    - code_type: UB
+      code_value: '0100' # Discharge
       start_date: 2016-06-20
       stop_date: 2016-07-01
     - code_type: CPT
       code_value: 1111F # Performance met
       start_date: 2016-07-31 # Upper bound
-    - code_type: CPT
-      code_value: 99234 # Discharge
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-08-20
       stop_date: 2016-09-01
     - code_type: CPT
@@ -275,29 +275,29 @@ patients:
     sex: Male
   clinical_models:
     clinical_activities:
-    - code_type: CPT
-      code_value: 99234 # Discharge
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-02-20
       stop_date: 2016-03-01
     - code_type: SNOMEDCT
       code_value: 430193006 # Medication reconciliation
       start_date: 2016-02-28 # Too early
-    - code_type: CPT
-      code_value: 99234 # Discharge
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-04-20
       stop_date: 2016-05-01
     - code_type: SNOMEDCT
       code_value: 430193006 # Medication reconciliation
       start_date: 2016-05-01 # Lower bound
-    - code_type: CPT
-      code_value: 99234 # Discharge
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-06-20
       stop_date: 2016-07-01
     - code_type: SNOMEDCT
       code_value: 430193006 # Medication reconciliation
       start_date: 2016-07-31 # Upper bound
-    - code_type: CPT
-      code_value: 99234 # Discharge
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-08-20
       stop_date: 2016-09-01
     - code_type: SNOMEDCT
