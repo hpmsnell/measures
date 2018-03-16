@@ -1,0 +1,33 @@
+measure:
+  name: 18.HEDIS.W34
+  required:
+    display_title: "Well-Child Visits in the Third, Fourth, Fifth and Sixth Years of Life"
+  optional:
+    gap_resolution_action: Patient is due for a well-child visit
+    set: HEDIS
+    external_id: 'W34'
+    version: 2018
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: performance_met
+    required:
+      display_title: 'Patient received a well-child visit during the measurement period'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Well-Care"
+            - model: Diagnosis
+              value_set: "HEDIS; Well-Care"
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: performance_not_met
+    required:
+      display_title: 'No well-child visit found during the measurement period'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Well-Care"
+            - model: Diagnosis
+              value_set: "HEDIS; Well-Care"
