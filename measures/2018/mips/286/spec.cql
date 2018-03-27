@@ -70,7 +70,7 @@ define "Numerator Performance Not Met: G9926": //need to build this valueset
   /*
    * config_link_id: G9926
    */
-  not exists(["Procedure, Performed": "MIPS; Performance Not Met: G9926"] P //need to build this valueset
+  exists(["Procedure, Performed": "MIPS; Performance Not Met: G9926"] P //need to build this valueset
     with "Denominator Encounter" E
       such that P.relaventPeriod starts on or 12 months or less before start of E.relevantPeriod
 
