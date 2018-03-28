@@ -1,0 +1,49 @@
+measure:
+  name: 18.HEDIS.Ima2
+  required:
+    display_title: "Immunizations for Adolescents: Tdap"
+  optional:
+    gap_resolution_action: Patient is missing a Tdap vaccine
+    set: HEDIS
+    external_id: 'IMA2'
+    version: 2018
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: 'Patient excluded due to allergy to vaccine'
+      validation_record_groups:
+      - count: 1
+        validation_records:
+          - model: Allergy
+            value_set: "HEDIS; Meningococcal Vaccine Administered"
+          - model: Allergy
+            value_set: "HEDIS; HPV Vaccine Administered"
+          - model: Allergy
+            value_set: "HEDIS; Tdap Vaccine Administered"
+          - model: Diagnosis
+            value_set: "HEDIS; Anaphylactic Reaction Due to Vaccination"
+          - model: Diagnosis
+            value_set: "HEDIS; Anaphylactic Reaction Due to Serum"
+performance_met_reasons:
+  - config_link_id: performance_met
+    required:
+      display_title: 'Tdap vacine administered'
+      validation_record_groups:
+      - count: 1
+        validation_records:
+          - model: ClinicalActivity
+            value_set: "HEDIS; Tdap Vaccine Administered"
+          - model: Medication
+            value_set: "HEDIS; Tdap Vaccine Administered"
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: performance_not_met
+    required:
+      display_title: "No Tdap vaccination found between the patient's 11th and 13th birthdays"
+      validation_record_groups:
+      - count: 1
+        validation_records:
+          - model: ClinicalActivity
+            value_set: "HEDIS; Tdap Vaccine Administered"
+          - model: Medication
+            value_set: "HEDIS; Tdap Vaccine Administered"
