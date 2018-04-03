@@ -1,0 +1,111 @@
+measure:
+  name: 18.HEDIS.Cis2
+  required:
+    display_title: "Childhood Immunization Status: IPV"
+  optional:
+    gap_resolution_action: Patient is missing one or more IPV vaccines
+    set: HEDIS
+    external_id: 'CIS IPV'
+    version: 2018
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: 'Patient excluded due to allergy to vaccine'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Anaphylactic Reaction Due to Vaccination"
+            - model: Allergy
+              value_set: "HEDIS; DTaP Vaccine Administered"
+            - model: Allergy
+              value_set: "HEDIS; Inactivated Polio Vaccine (IPV) Administered"
+            - model: Allergy
+              value_set: "HEDIS; Measles, Mumps and Rubella (MMR)"
+            - model: Allergy
+              value_set: "HEDIS; Measles/Rubella Vaccine Administered"
+            - model: Allergy
+              value_set: "HEDIS; Mumps Vaccine Administered"
+            - model: Allergy
+              value_set: "HEDIS; Measles Vaccine Administered"
+            - model: Allergy
+              value_set: "HEDIS; Rubella Vaccine Administered"
+            - model: Allergy
+              value_set: "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered"
+            - model: Allergy
+              value_set: "HEDIS; Hepatitis B Vaccine Administered"
+            - model: Allergy
+              value_set: "HEDIS; Newborn Hepatitis B Vaccine Administered"
+            - model: Allergy
+              value_set: "HEDIS; Varicella Zoster (VZV) Vaccine Administered"
+            - model: Allergy
+              value_set: "HEDIS; Pneumococcal Conjugate Vaccine Administered"
+            - model: Allergy
+              value_set: "HEDIS; Hepatitis A Vaccine Administered"
+            - model: Allergy
+              value_set: "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered"
+            - model: Allergy
+              value_set: "HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered"
+            - model: Allergy
+              value_set: "HEDIS; Influenza Vaccine Administered"
+          - count: 1
+            validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Encephalopathy Due To Vaccination"
+          - count: 1
+            validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Vaccine Causing Adverse Effect"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Disorders of the Immune System"
+            - model: Diagnosis
+              value_set: "HEDIS; HIV"
+            - model: Diagnosis
+              value_set: "HEDIS; HIV Type 2"
+            - model: Diagnosis
+              value_set: "HEDIS; Malignant Neoplasm of Lymphatic Tissue"
+            - model: Allergy
+              value_set: "Able; Neomycin Ingredient"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Severe Combined Immunodeficiency"
+            - model: Diagnosis
+              value_set: "HEDIS; Intussusception"
+        - count: 1
+          validation_records:
+            - model: Allergy
+              value_set: "Able; Streptomycin Ingredient"
+            - model: Allergy
+              value_set: "Able; Neomycin Ingredient"
+            - model: Allergy
+              value_set: "Able; Polymyxin B Ingredient"
+        - count: 1
+          validation_records:
+            - model: Allergy
+              value_set: "Able; Baker's Yeast"
+performance_met_reasons:
+  - config_link_id: performance_met
+    required:
+      display_title: 'At least three IPV vaccinations administered'
+      validation_record_groups:
+        - count: 4
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; IPV Vaccine Administered"
+            - model: Medication
+              value_set: "HEDIS; IPV Vaccine Administered"
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: performance_not_met
+    required:
+      display_title: 'Fewer than three IPV vaccinations found between 42 days and 2 years of age'
+      validation_record_groups:
+        - count: 4
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; IPV Vaccine Administered"
+            - model: Medication
+              value_set: "HEDIS; IPV Vaccine Administered"
