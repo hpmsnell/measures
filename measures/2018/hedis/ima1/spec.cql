@@ -45,6 +45,8 @@ define "Vaccine Allergy":
 
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") = 13
+  and not exists("Hospice" E
+    where E.relevantPeriod starts during "Measurement Period")
 
 define "Denominator Exclusion":
   /*
