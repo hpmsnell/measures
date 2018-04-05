@@ -67,6 +67,11 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
+    - name: ExclusionAllergyDTaP NoAdverseReaction
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
     - name: ExclusionAllergyDTaP PerformanceMet
       denominator: 1
       denominator_exclusion:
@@ -111,7 +116,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: ExclusionAllergyIPV Before
       denominator: 1
       denominator_exclusion: exclusion_1
@@ -351,7 +356,7 @@ patients:
       start_date: 2016-02-02 # Too late
     clinical_activities:
     - code_type: CPT
-      code_value: 90680 # Rotavirus 3 dose schedule
+      code_value: 90698 # DTaP vaccine Procedure
       start_date: 2015-01-01
 - name: ExclusionAllergyDTaP Before
   attributes:
@@ -364,6 +369,9 @@ patients:
     - code_type: ICD10CM
       code_value: G04.32 # Encephalopathy due to vaccination
       start_date: 2016-02-01 # Before deadline
+    - code_type: ICD10CM
+      code_value: T50.A15A # Adverse reaction due to vaccination
+      start_date: 2016-02-01
 - name: ExclusionAllergyDTaP After
   attributes:
     date_of_birth: 2014-02-01
@@ -375,6 +383,23 @@ patients:
     - code_type: ICD10CM
       code_value: G04.32 # Encephalopathy due to vaccination
       start_date: 2016-02-02 # Too late
+    - code_type: ICD10CM
+      code_value: T50.A15A # Adverse reaction due to vaccination
+      start_date: 2016-02-02
+- name: ExclusionAllergyDTaP NoAdverseReaction
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyDTaP
+    family_name: NoAdverseReaction
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G04.32 # Encephalopathy due to vaccination
+      start_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: T50.A15A # Adverse reaction due to vaccination
+      start_date: 2016-02-02 # Different date
 - name: ExclusionAllergyDTaP PerformanceMet
   attributes:
     date_of_birth: 2014-02-01
@@ -386,10 +411,22 @@ patients:
     - code_type: ICD10CM
       code_value: G04.32 # Encephalopathy due to vaccination
       start_date: 2016-02-02 # Too late
+    - code_type: ICD10CM
+      code_value: T50.A15A # Adverse reaction due to vaccination
+      start_date: 2016-02-01
     clinical_activities:
     - code_type: CPT
-      code_value: 90680 # Rotavirus 3 dose schedule
-      start_date: 2015-01-01
+      code_value: 90700 # DTaP vaccine Procedure
+      start_date: 2014-03-15
+    - code_type: CPT
+      code_value: 90700 # DTaP vaccine Procedure
+      start_date: 2014-03-16
+    - code_type: CPT
+      code_value: 90700 # DTaP vaccine Procedure
+      start_date: 2014-03-17
+    - code_type: CPT
+      code_value: 90700 # DTaP vaccine Procedure
+      start_date: 2014-03-18
 - name: ExclusionAllergyMMR Before
   attributes:
     date_of_birth: 2014-02-01
@@ -440,7 +477,7 @@ patients:
       start_date: 2016-02-02 # Too late
     clinical_activities:
     - code_type: CPT
-      code_value: 90710 # VZV vaccine Procedure
+      code_value: 90716 # VZV vaccine Procedure
       start_date: 2015-01-01
 - name: ExclusionAllergyInfluenza PerformanceMet
   attributes:
@@ -456,7 +493,10 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 90655 # Influenza vaccine Procedure
-      start_date: 2015-01-01
+      start_date: 2014-07-31
+    - code_type: CPT
+      code_value: 90655 # Influenza vaccine Procedure
+      start_date: 2014-08-01
 - name: ExclusionAllergyRotavirus Before
   attributes:
     date_of_birth: 2014-02-01
@@ -492,8 +532,11 @@ patients:
       start_date: 2016-02-02 # Too late
     clinical_activities:
     - code_type: CPT
-      code_value: 90681 # Rotavirus vaccine Procedure
-      start_date: 2015-01-01
+      code_value: 90681 # Rotavirus 2 dose schedule
+      start_date: 2014-03-14
+    - code_type: CPT
+      code_value: 90681 # Rotavirus 2 dose schedule
+      start_date: 2014-03-16
 - name: ExclusionAllergyIPV Before
   attributes:
     date_of_birth: 2014-02-01
@@ -529,8 +572,14 @@ patients:
       start_date: 2016-02-02 # Too late
     clinical_activities:
     - code_type: CPT
-      code_value: 90680 # Rotavirus 3 dose schedule
-      start_date: 2015-01-01
+      code_value: 90713 # IPV vaccine Procedure
+      start_date: 2014-03-15
+    - code_type: CPT
+      code_value: 90713 # IPV vaccine Procedure
+      start_date: 2014-03-16
+    - code_type: CPT
+      code_value: 90713 # IPV vaccine Procedure
+      start_date: 2014-03-17
 - name: ExclusionAllergyHepB Before
   attributes:
     date_of_birth: 2014-02-01
@@ -566,8 +615,14 @@ patients:
       start_date: 2016-02-02 # Too late
     clinical_activities:
     - code_type: CPT
-      code_value: 90723 # HepB vaccine Procedure
-      start_date: 2015-01-01
+      code_value: 90740 # Hepatitis B vaccine procedure
+      start_date: 2014-03-14
+    - code_type: CPT
+      code_value: 90740 # Hepatitis B vaccine procedure
+      start_date: 2014-03-16
+    - code_type: CPT
+      code_value: 90740 # Hepatitis B vaccine procedure
+      start_date: 2014-03-17
 - name: Vaccine2DoseProcedure Before
   attributes:
     date_of_birth: 2014-02-01

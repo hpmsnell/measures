@@ -19,7 +19,7 @@ valueset "MIPS; MIPS Hospice Service"
 // HEDIS value sets
 
 valueset "HEDIS; DTaP Vaccine Administered": '2.16.840.1.113883.3.464.1004.1071'
-valueset "HEDIS; Inactivated Polio Vaccine (IPV) Vaccine Administered": '2.16.840.1.113883.3.464.1004.1135'
+valueset "HEDIS; Inactivated Polio Vaccine (IPV) Administered": '2.16.840.1.113883.3.464.1004.1135'
 valueset "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered": '2.16.840.1.113883.3.464.1004.1158'
 valueset "HEDIS; Measles/Rubella Vaccine Administered": '2.16.840.1.113883.3.464.1004.1172'
 valueset "HEDIS; Mumps Vaccine Administered": '2.16.840.1.113883.3.464.1004.1321'
@@ -44,7 +44,7 @@ valueset "HEDIS; Malignant Neoplasm of Lymphatic Tissue": '2.16.840.1.113883.3.4
 valueset "HEDIS; Severe Combined Immunodeficiency": '2.16.840.1.113883.3.464.1004.1416'
 valueset "HEDIS; Intussusception": '2.16.840.1.113883.3.464.1004.1415'
 valueset "HEDIS Varicella Zoster": '2.16.840.1.113883.3.464.1004.1258'
-valueset "HEDIS Hepatitis B": '2.16.840.1.113883.3.464.1004.1266'
+valueset "HEDIS; Hepatitis B": '2.16.840.1.113883.3.464.1004.1266'
 
 // VSAC value sets
 

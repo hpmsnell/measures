@@ -21,7 +21,7 @@ exclusion_reasons:
             - model: Allergy
               value_set: "HEDIS; Inactivated Polio Vaccine (IPV) Administered"
             - model: Allergy
-              value_set: "HEDIS; Measles, Mumps and Rubella (MMR)"
+              value_set: "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered"
             - model: Allergy
               value_set: "HEDIS; Measles/Rubella Vaccine Administered"
             - model: Allergy
@@ -31,31 +31,25 @@ exclusion_reasons:
             - model: Allergy
               value_set: "HEDIS; Rubella Vaccine Administered"
             - model: Allergy
-              value_set: "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered"
-            - model: Allergy
               value_set: "HEDIS; Hepatitis B Vaccine Administered"
             - model: Allergy
               value_set: "HEDIS; Newborn Hepatitis B Vaccine Administered"
             - model: Allergy
               value_set: "HEDIS; Varicella Zoster (VZV) Vaccine Administered"
             - model: Allergy
-              value_set: "HEDIS; Pneumococcal Conjugate Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Hepatitis A Vaccine Administered"
-            - model: Allergy
               value_set: "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered"
             - model: Allergy
               value_set: "HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered"
             - model: Allergy
               value_set: "HEDIS; Influenza Vaccine Administered"
-          - count: 1
-            validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Encephalopathy Due To Vaccination"
-          - count: 1
-            validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Vaccine Causing Adverse Effect"
+        - count: 1
+          validation_records:
+          - model: Diagnosis
+            value_set: "HEDIS; Encephalopathy Due To Vaccination"
+        - count: 1
+          validation_records:
+          - model: Diagnosis
+            value_set: "HEDIS; Vaccine Causing Adverse Effect"
         - count: 1
           validation_records:
             - model: Diagnosis
@@ -94,9 +88,9 @@ performance_met_reasons:
         - count: 4
           validation_records:
             - model: ClinicalActivity
-              value_set: "HEDIS; IPV Vaccine Administered"
+              value_set: "HEDIS; Inactivated Polio Vaccine (IPV) Administered"
             - model: Medication
-              value_set: "HEDIS; IPV Vaccine Administered"
+              value_set: "HEDIS; Inactivated Polio Vaccine (IPV) Administered"
 exception_reasons:
 performance_not_met_reasons:
   - config_link_id: performance_not_met
@@ -106,6 +100,6 @@ performance_not_met_reasons:
         - count: 4
           validation_records:
             - model: ClinicalActivity
-              value_set: "HEDIS; IPV Vaccine Administered"
+              value_set: "HEDIS; Inactivated Polio Vaccine (IPV) Administered"
             - model: Medication
-              value_set: "HEDIS; IPV Vaccine Administered"
+              value_set: "HEDIS; Inactivated Polio Vaccine (IPV) Administered"

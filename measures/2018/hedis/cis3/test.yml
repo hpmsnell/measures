@@ -67,6 +67,11 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
+    - name: ExclusionAllergyDTaP NoAdverseReaction
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
     - name: ExclusionAllergyDTaP PerformanceMet
       denominator: 1
       denominator_exclusion:
@@ -86,7 +91,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: ExclusionAllergyVZV PerformanceMet
       denominator: 1
       denominator_exclusion:
@@ -391,7 +396,7 @@ patients:
       start_date: 2016-02-02 # Too late
     clinical_activities:
     - code_type: CPT
-      code_value: 90713 # IPV vaccine Procedure
+      code_value: 90698 # DTaP vaccine Procedure
       start_date: 2015-01-01
 - name: ExclusionAllergyDTaP Before
   attributes:
@@ -404,6 +409,9 @@ patients:
     - code_type: ICD10CM
       code_value: G04.32 # Encephalopathy due to vaccination
       start_date: 2016-02-01 # Before deadline
+    - code_type: ICD10CM
+      code_value: T50.A15A # Adverse reaction due to vaccination
+      start_date: 2016-02-01
 - name: ExclusionAllergyDTaP After
   attributes:
     date_of_birth: 2014-02-01
@@ -415,6 +423,23 @@ patients:
     - code_type: ICD10CM
       code_value: G04.32 # Encephalopathy due to vaccination
       start_date: 2016-02-02 # Too late
+    - code_type: ICD10CM
+      code_value: T50.A15A # Adverse reaction due to vaccination
+      start_date: 2016-02-02
+- name: ExclusionAllergyDTaP NoAdverseReaction
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyDTaP
+    family_name: NoAdverseReaction
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G04.32 # Encephalopathy due to vaccination
+      start_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: T50.A15A # Adverse reaction due to vaccination
+      start_date: 2016-02-02 # Different date
 - name: ExclusionAllergyDTaP PerformanceMet
   attributes:
     date_of_birth: 2014-02-01
@@ -426,10 +451,22 @@ patients:
     - code_type: ICD10CM
       code_value: G04.32 # Encephalopathy due to vaccination
       start_date: 2016-02-02 # Too late
+    - code_type: ICD10CM
+      code_value: T50.A15A # Adverse reaction due to vaccination
+      start_date: 2016-02-01
     clinical_activities:
     - code_type: CPT
-      code_value: 90713 # IPV vaccine Procedure
-      start_date: 2015-01-01
+      code_value: 90700 # DTaP vaccine Procedure
+      start_date: 2014-03-15
+    - code_type: CPT
+      code_value: 90700 # DTaP vaccine Procedure
+      start_date: 2014-03-16
+    - code_type: CPT
+      code_value: 90700 # DTaP vaccine Procedure
+      start_date: 2014-03-17
+    - code_type: CPT
+      code_value: 90700 # DTaP vaccine Procedure
+      start_date: 2014-03-18
 - name: ExclusionAllergyMMR Before
   attributes:
     date_of_birth: 2014-02-01
@@ -480,7 +517,7 @@ patients:
       start_date: 2016-02-02 # Too late
     clinical_activities:
     - code_type: CPT
-      code_value: 90710 # VZV vaccine Procedure
+      code_value: 90716 # VZV vaccine Procedure
       start_date: 2015-01-01
 - name: ExclusionAllergyInfluenza PerformanceMet
   attributes:
@@ -496,7 +533,10 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 90655 # Influenza vaccine Procedure
-      start_date: 2015-01-01
+      start_date: 2014-07-31
+    - code_type: CPT
+      code_value: 90655 # Influenza vaccine Procedure
+      start_date: 2014-08-01
 - name: ExclusionAllergyRotavirus Before
   attributes:
     date_of_birth: 2014-02-01
@@ -532,8 +572,11 @@ patients:
       start_date: 2016-02-02 # Too late
     clinical_activities:
     - code_type: CPT
-      code_value: 90681 # Rotavirus vaccine Procedure
-      start_date: 2015-01-01
+      code_value: 90681 # Rotavirus 2 dose schedule
+      start_date: 2014-03-14
+    - code_type: CPT
+      code_value: 90681 # Rotavirus 2 dose schedule
+      start_date: 2014-03-16
 - name: ExclusionAllergyIPV Before
   attributes:
     date_of_birth: 2014-02-01
@@ -570,7 +613,13 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 90713 # IPV vaccine Procedure
-      start_date: 2015-01-01
+      start_date: 2014-03-15
+    - code_type: CPT
+      code_value: 90713 # IPV vaccine Procedure
+      start_date: 2014-03-16
+    - code_type: CPT
+      code_value: 90713 # IPV vaccine Procedure
+      start_date: 2014-03-17
 - name: ExclusionAllergyHepB Before
   attributes:
     date_of_birth: 2014-02-01
@@ -606,8 +655,14 @@ patients:
       start_date: 2016-02-02 # Too late
     clinical_activities:
     - code_type: CPT
-      code_value: 90723 # HepB vaccine Procedure
-      start_date: 2015-01-01
+      code_value: 90740 # Hepatitis B vaccine procedure
+      start_date: 2014-03-14
+    - code_type: CPT
+      code_value: 90740 # Hepatitis B vaccine procedure
+      start_date: 2014-03-16
+    - code_type: CPT
+      code_value: 90740 # Hepatitis B vaccine procedure
+      start_date: 2014-03-17
 - name: VaccineMMRProcedure Before
   attributes:
     date_of_birth: 2014-02-01
@@ -639,7 +694,7 @@ patients:
   clinical_models:
     medications:
     - code_type: CVX
-      code_value: 3 # MMR vaccine
+      code_value: '03' # MMR vaccine
       start_date: 2014-03-14 # Before deadline
 - name: VaccineMMRMedication After
   attributes:
@@ -650,7 +705,7 @@ patients:
   clinical_models:
     medications:
     - code_type: CVX
-      code_value: 3 # MMR vaccine
+      code_value: '03' # MMR vaccine
       start_date: 2016-02-02 # After deadline
 - name: VaccineMeaslesRubellaProcedure Before
   attributes:
@@ -689,10 +744,10 @@ patients:
   clinical_models:
     medications:
     - code_type: CVX
-      code_value: 4 # Measles/Rubella vaccine
+      code_value: '04' # Measles/Rubella vaccine
       start_date: 2014-03-14 # Before deadline
     - code_type: CVX
-      code_value: 7 # Mumps vaccine
+      code_value: '07' # Mumps vaccine
       start_date: 2014-03-14
 - name: VaccineMeaslesRubellaMedication After
   attributes:
@@ -703,10 +758,10 @@ patients:
   clinical_models:
     medications:
     - code_type: CVX
-      code_value: 4 # Measles/Rubella vaccine
+      code_value: '04' # Measles/Rubella vaccine
       start_date: 2016-02-02 # After deadline
     - code_type: CVX
-      code_value: 7 # Mumps vaccine
+      code_value: '07' # Mumps vaccine
       start_date: 2014-03-14
 - name: VaccineMeaslesProcedure Before
   attributes:
@@ -751,13 +806,13 @@ patients:
   clinical_models:
     medications:
     - code_type: CVX
-      code_value: 5 # Measles vaccine
+      code_value: '05' # Measles vaccine
       start_date: 2014-03-14 # Before deadline
     - code_type: CVX
-      code_value: 7 # Mumps vaccine
+      code_value: '07' # Mumps vaccine
       start_date: 2014-03-14
     - code_type: CVX
-      code_value: 6 # Rubella vaccine
+      code_value: '06' # Rubella vaccine
       start_date: 2014-03-14
 - name: VaccineMeaslesMedication After
   attributes:
@@ -768,14 +823,14 @@ patients:
   clinical_models:
     medications:
     - code_type: CVX
-      code_value: 5 # Measles vaccine
+      code_value: '05' # Measles vaccine
       start_date: 2016-02-02 # After deadline
     - code_type: CVX
-      code_value: 7 # Mumps vaccine
+      code_value: '07' # Mumps vaccine
       start_date: 2014-03-14
       start_date: 2014-03-14
     - code_type: CVX
-      code_value: 6 # Rubella vaccine
+      code_value: '06' # Rubella vaccine
       start_date: 2014-03-14
 - name: VaccineMeaslesDiagnosis Before
   attributes:
@@ -791,10 +846,10 @@ patients:
       stop_date: 2014-03-14
     medications:
     - code_type: CVX
-      code_value: 7 # Mumps vaccine
+      code_value: '07' # Mumps vaccine
       start_date: 2014-03-14
     - code_type: CVX
-      code_value: 6 # Rubella vaccine
+      code_value: '06' # Rubella vaccine
       start_date: 2014-03-14
 - name: VaccineMeaslesDiagnosis After
   attributes:
@@ -810,10 +865,10 @@ patients:
       stop_date: 2016-02-02
     medications:
     - code_type: CVX
-      code_value: 7 # Mumps vaccine
+      code_value: '07' # Mumps vaccine
       start_date: 2014-03-14
     - code_type: CVX
-      code_value: 6 # Rubella vaccine
+      code_value: '06' # Rubella vaccine
       start_date: 2014-03-14
 - name: VaccineMumpsProcedure Before
   attributes:
@@ -858,13 +913,13 @@ patients:
   clinical_models:
     medications:
     - code_type: CVX
-      code_value: 7 # Mumps vaccine
+      code_value: '07' # Mumps vaccine
       start_date: 2014-03-14 # Before deadline
     - code_type: CVX
-      code_value: 5 # Measles vaccine
+      code_value: '05' # Measles vaccine
       start_date: 2014-03-14
     - code_type: CVX
-      code_value: 6 # Rubella vaccine
+      code_value: '06' # Rubella vaccine
       start_date: 2014-03-14
 - name: VaccineMumpsMedication After
   attributes:
@@ -875,13 +930,13 @@ patients:
   clinical_models:
     medications:
     - code_type: CVX
-      code_value: 7 # Mumps vaccine
+      code_value: '07' # Mumps vaccine
       start_date: 2016-02-02 # After deadline
     - code_type: CVX
-      code_value: 5 # Measles vaccine
+      code_value: '05' # Measles vaccine
       start_date: 2014-03-14
     - code_type: CVX
-      code_value: 6 # Rubella vaccine
+      code_value: '06' # Rubella vaccine
       start_date: 2014-03-14
 - name: VaccineMumpsDiagnosis Before
   attributes:
@@ -897,10 +952,10 @@ patients:
       stop_date: 2014-03-14
     medications:
     - code_type: CVX
-      code_value: 5 # Measles vaccine
+      code_value: '05' # Measles vaccine
       start_date: 2014-03-14
     - code_type: CVX
-      code_value: 6 # Rubella vaccine
+      code_value: '06' # Rubella vaccine
       start_date: 2014-03-14
 - name: VaccineMumpsDiagnosis After
   attributes:
@@ -916,10 +971,10 @@ patients:
       stop_date: 2016-02-02
     medications:
     - code_type: CVX
-      code_value: 5 # Measles vaccine
+      code_value: '05' # Measles vaccine
       start_date: 2014-03-14
     - code_type: CVX
-      code_value: 6 # Rubella vaccine
+      code_value: '06' # Rubella vaccine
       start_date: 2014-03-14
 - name: VaccineRubellaProcedure Before
   attributes:
@@ -964,13 +1019,13 @@ patients:
   clinical_models:
     medications:
     - code_type: CVX
-      code_value: 6 # Rubella vaccine
+      code_value: '06' # Rubella vaccine
       start_date: 2014-03-14 # Before deadline
     - code_type: CVX
-      code_value: 5 # Measles vaccine
+      code_value: '05' # Measles vaccine
       start_date: 2014-03-14
     - code_type: CVX
-      code_value: 7 # Mumps vaccine
+      code_value: '07' # Mumps vaccine
       start_date: 2014-03-14
 - name: VaccineRubellaMedication After
   attributes:
@@ -981,13 +1036,13 @@ patients:
   clinical_models:
     medications:
     - code_type: CVX
-      code_value: 6 # Rubella vaccine
+      code_value: '06' # Rubella vaccine
       start_date: 2016-02-02 # After deadline
     - code_type: CVX
-      code_value: 5 # Measles vaccine
+      code_value: '05' # Measles vaccine
       start_date: 2014-03-14
     - code_type: CVX
-      code_value: 7 # Mumps vaccine
+      code_value: '07' # Mumps vaccine
       start_date: 2014-03-14
 - name: VaccineRubellaDiagnosis Before
   attributes:
@@ -1003,10 +1058,10 @@ patients:
       stop_date: 2014-03-14
     medications:
     - code_type: CVX
-      code_value: 5 # Measles vaccine
+      code_value: '05' # Measles vaccine
       start_date: 2014-03-14
     - code_type: CVX
-      code_value: 7 # Mumps vaccine
+      code_value: '07' # Mumps vaccine
       start_date: 2014-03-14
 - name: VaccineRubellaDiagnosis After
   attributes:
@@ -1022,8 +1077,8 @@ patients:
       stop_date: 2016-02-02
     medications:
     - code_type: CVX
-      code_value: 5 # Measles vaccine
+      code_value: '05' # Measles vaccine
       start_date: 2014-03-14
     - code_type: CVX
-      code_value: 7 # Mumps vaccine
+      code_value: '07' # Mumps vaccine
       start_date: 2014-03-14
