@@ -19,7 +19,7 @@ valueset "MIPS; MIPS Hospice Service"
 // HEDIS value sets
 
 valueset "HEDIS; DTaP Vaccine Administered": '2.16.840.1.113883.3.464.1004.1071'
-valueset "HEDIS; Inactivated Polio Vaccine (IPV) Vaccine Administered": '2.16.840.1.113883.3.464.1004.1135'
+valueset "HEDIS; Inactivated Polio Vaccine (IPV) Administered": '2.16.840.1.113883.3.464.1004.1135'
 valueset "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered": '2.16.840.1.113883.3.464.1004.1158'
 valueset "HEDIS; Measles/Rubella Vaccine Administered": '2.16.840.1.113883.3.464.1004.1172'
 valueset "HEDIS; Mumps Vaccine Administered": '2.16.840.1.113883.3.464.1004.1321'
@@ -63,24 +63,6 @@ define "Hospice":
   ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
   union ["Intervention, Performed": "VSAC; Palliative Care"]
 
-define "Allergy":
-  ["Allergy": "HEDIS; DTaP Vaccine Administered"]
-  union ["Allergy": "HEDIS; Inactivated Polio Vaccine (IPV) Vaccine Administered"]
-  union ["Allergy": "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered"]
-  union ["Allergy": "HEDIS; Measles/Rubella Vaccine Administered"]
-  union ["Allergy": "HEDIS; Mumps Vaccine Administered"]
-  union ["Allergy": "HEDIS; Measles Vaccine Administered"]
-  union ["Allergy": "HEDIS; Rubella Vaccine Administered"]
-  union ["Allergy": "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered"]
-  union ["Allergy": "HEDIS; Hepatitis B Vaccine Administered"]
-  union ["Allergy": "HEDIS; Newborn Hepatitis B Vaccine Administered"]
-  union ["Allergy": "HEDIS; Varicella Zoster (VZV) Vaccine Administered"]
-  union ["Allergy": "HEDIS; Pneumococcal Conjugate Vaccine Administered"]
-  union ["Allergy": "HEDIS; Hepatitis A Vaccine Administered"]
-  union ["Allergy": "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered"]
-  union ["Allergy": "HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered"]
-  union ["Allergy": "HEDIS; Influenza Vaccine Administered"]
-
 define "Exclusion for Any Vaccine Exists"
   exists(["Diagnosis": "HEDIS; Analphylactic Reaction Due to Vaccination"] D
     where D.prevalencePeriod starts on or before 2 years after "Patient Characteristic Birthdate")
@@ -113,39 +95,84 @@ define "Diagnosis for MMR, VZV, and Influenza Exclusion"
   union ["Diagnosis": "HEDIS; HIV Type 2"]
   union ["Diagnosis": "HEDIS; Malignant Neoplasm of Lymphatic Tissue"]
 
-define "MMR, VZV, or Influenza Allergy Exists":
+define "MMR Allergy":
+  ["Allergy": "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered"]
+  union ["Allergy": "HEDIS; Measles/Rubella Vaccine Administered"]
+  union ["Allergy": "HEDIS; Measles Vaccine Administered"]
+  union ["Allergy": "HEDIS; Mumps Vaccine Administered"]
+  union ["Allergy": "HEDIS; Rubella Vaccine Administered"]
+  union ["Allergy": "Able; Neomycin Ingredient"]
+
+define "Allergy for MMR Exists":
+  exists("Diagnosis for MMR, VZV, and Influenza Exclusion" D
+    where D.prevalencePeriod starts on or before 2 years after "Patient Characteristic Birthdate")
+  or exists("MMR Allergy" A
+    where A.prevalencePeriod starts on or before 2 years after "Patient Characteristic Birthdate")
+
+define "Exclusion for MMR Exists":
+  "Allergy for MMR Exists"
+  and not "CIS3 Performance Met"
+
+define "Allergy for VZV Exists":
   exists("Diagnosis for MMR, VZV, and Influenza Exclusion" D
     where D.prevalencePeriod starts on or before 2 years after "Patient Characteristic Birthdate")
   or exists(["Allergy": "Able; Neomycin Ingredient"] A
     where A.prevalencePeriod starts on or before 2 years after "Patient Characteristic Birthdate")
+  or exists(["Allergy": "HEDIS: Varicella Zoster (VZV) Vaccine Administered"] A
+    where A.prevalencePeriod starts on or before 2 years after "Patient Characteristic Birthdate")
 
-define "Exclusion for MMR, VZV, and Influenza Exists":
-  "MMR, VZV, or Influenza Allergy Exists"
-  and not "CIS3 Performance Met"
+define "Exclusion for VZV Exists":
+  "Allergy for VZV Exists"
   and not "CIS6 Performance Met"
+
+define "Allergy for Influenza Exists":
+  exists("Diagnosis for MMR, VZV, and Influenza Exclusion" D
+    where D.prevalencePeriod starts on or before 2 years after "Patient Characteristic Birthdate")
+  or exists(["Allergy": "Able; Neomycin Ingredient"] A
+    where A.prevalencePeriod starts on or before 2 years after "Patient Characteristic Birthdate")
+  or exists(["Allergy": "HEDIS: Influenza Vaccine Administered"] A
+    where A.prevalencePeriod starts on or before 2 years after "Patient Characteristic Birthdate")
+
+define "Exclusion for Influenza Exists":
+  "Allergy for Influenza Exists"
   and not "CIS10 Performance Met"
 
 define "Diagnosis for Rotavirus Exclusion":
   ["Diagnosis": "HEDIS; Severe Combined Immunodeficiency"
   union ["Diagnosis": "HEDIS; Intussusception"]
 
-define "Exclusion for Rotavirus":
+define "Rotavirus Allergy":
+  ["Allergy": "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered"]
+  union ["Allergy": "HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered"]
+
+define "Rotavirus Allergy Exists":
   exists("Diagnosis for Rotavirus Exclusion" D
     where D.prevalencePeriod starts on or before 2 years after "Patient Characteristic Birthdate")
-  amnd not "CIS9 Performance Met"
+  or exists("Rotavirus Allergy" A
+    where A.prevalencePeriod starts on or before 2 years after "Patient Characteristic Birthdate")
+
+define "Exclusion for Rotavirus":
+  "Rotavirus Allergy Exists"
+  and not "CIS9 Performance Met"
 
 define "Allergy for IPV Exclusion"
   ["Allergy": "Able; Neomycin Ingredient"]
   union ["Allergy": "Able; Streptomycin Ingredient"]
   union ["Allergy": "Able; Polymyxin B Ingredient"]
+  union ["Allergy": "Able; Inactivated Polio Vaccine (IPV) Administered"]
 
 define "Exclusion for IPV":
   exists("Allergy for IPV Exclusion" A
     where A.prevalencePeriod starts on or before 2 years after "Patient Characteristic Birthdate")
   amnd not "CIS2 Performance Met"
 
+define "Allergy for Hepatitis B":
+    ["Allergy": "Able; Baker's Yeast"]
+    union ["Allergy": "HEDIS; Hepatitis B Vaccine Administered"]
+    union ["Allergy": "HEDIS; Newborn Hepatitis B Vaccine Administered"]
+
 define "Exclusion for Hepatitis B":
-  exists(["Allergy": "Able; Baker's Yeast"] A
+  exists("Allergy for Hepatitis B" A
     where A.prevalencePeriod starts on or before 2 years after "Patient Characteristic Birthdate")
   amnd not "CIS5 Performance Met"
 
@@ -170,7 +197,9 @@ define "Denominator Exclusion":
    */
   "Exclusion for Any Vaccine Exists"
   or "Exclusion for DTaP Exists"
-  or "Exclusion for MMR, VZV, and Influenza Exists"
+  or "Exclusion for MMR Exists"
+  or "Exclusion for VZV Exists"
+  or "Exclusion for Influenza Exists"
   or "Exclusion for Rotavirus Exists"
   or "Exclusion for IPV Exists"
   or "Exclusion for Hepatitis B Exists"
