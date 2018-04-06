@@ -1,0 +1,148 @@
+measure:
+  name: 18.Demo.Clover1
+  required:
+    display_title: "Diabetes: Screening for Metabolic Syndrome"
+  optional:
+    gap_resolution_action: 'Patient is due for metabolic testing'
+    set: Clover
+    external_id: 1
+    version: 2018
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: 'Patient excluded due to hospice service'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Diabetes"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Acute Inpatient"
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Outpatient"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Observation"
+            - model: ClinicalActivity
+              value_set: "HEDIS; ED"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Nonacute Inpatient"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "HEDIS; Diabetes Medications"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS Hospice Service"
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+performance_met_reasons:
+  - config_link_id: performance_met
+    required:
+      display_title: 'Patient received a complete metabolic assessment'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Diabetes"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Acute Inpatient"
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Outpatient"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Observation"
+            - model: ClinicalActivity
+              value_set: "HEDIS; ED"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Nonacute Inpatient"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "HEDIS; Diabetes Medications"
+        - count: 1
+          validation_records:
+            - model: LaboratoryTestPerformed
+              value_set: "Able; Glucose Lab Test"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Systolic Blood Pressure"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Diastolic Blood Pressure"
+        - count: 1
+          validation_records:
+            - model: LaboratoryTestPerformed
+              value_set: "Able; Triglyceride Laboratory Test"
+        - count: 1
+          validation_records:
+            - model: LaboratoryTestPerformed
+              value_set: "Able; HDL-C Laboratory Test"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Adult Waist Circumference"
+performance_not_met_reasons:
+  - config_link_id: performance_not_met
+    required:
+      display_title: 'Patient is missing one or more assessments for metabolic syndrom during the measurement period'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Diabetes"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Acute Inpatient"
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Outpatient"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Observation"
+            - model: ClinicalActivity
+              value_set: "HEDIS; ED"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Nonacute Inpatient"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "HEDIS; Diabetes Medications"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "HEDIS; Diabetes Medications"
+        - count: 1
+          validation_records:
+            - model: LaboratoryTestPerformed
+              value_set: "Able; Glucose Lab Test"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Systolic Blood Pressure"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Diastolic Blood Pressure"
+        - count: 1
+          validation_records:
+            - model: LaboratoryTestPerformed
+              value_set: "Able; Triglyceride Laboratory Test"
+        - count: 1
+          validation_records:
+            - model: LaboratoryTestPerformed
+              value_set: "Able; HDL-C Laboratory Test"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Adult Waist Circumference"
