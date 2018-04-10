@@ -27,7 +27,6 @@ valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
 // VSAC value sets
 
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
-valueset "VSAC; Oral Antihyperglycemic Medications" '2.16.840.1.113762.1.4.1029.62'
 
 // MIPS value sets
 
@@ -36,6 +35,7 @@ valueset "MIPS; MIPS Hospice Service"
 // Able value sets
 
 valueset "Able; Metabolic Syndrome"
+valueset "Able; Oral Antihyperglycemic Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -77,7 +77,7 @@ define "Denominator Exclusion: Hospice"
    where I.relevantPeriod overlaps "Denominator Period")
 
 define "Numerator Performance Met":
-  exists(["Medication": "Able; Fasting Glucose"] M
+  exists(["Medication": "Able; Oral Antihyperglycemic Medications"] M
     where M.relevantPeriod overlaps "Measurement Period")
 
 define "Numerator Performance Not Met":
