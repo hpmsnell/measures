@@ -1,0 +1,1131 @@
+measure_id:
+providers:
+  - given_name: Rachel
+    family_name: Kohler
+    credential: MD
+    external_id: '111-111'
+    primary_specialty: Ophthalmology
+  - given_name: Angela
+    family_name: Jimenez
+    credential: MD
+    external_id: '222-222'
+    primary_specialty: General Practice
+  - given_name: Duke
+    family_name: Carlton
+    credential: MD
+    external_id: '444-444'
+    primary_specialty: Surgery
+  - given_name: Ronald
+    family_name: Chu
+    credential: MD
+    external_id: '555-555'
+    primary_specialty: Orthopedics
+  - given_name: Hildegard
+    family_name: Jones
+    credential: MD
+    external_id: '666-666'
+    primary_specialty: Urology
+  - given_name: Brenda
+    family_name: Higgins
+    credential: MD
+    external_id: '777-777'
+    primary_specialty: Radiology
+  - given_name: Andrew
+    family_name: Vogel
+    credential: MD
+    external_id: '333-333'
+    primary_specialty: General Practice
+    npi: '123456789'
+patients:
+  - name: Rose Odingo # No screening and no metabolic syndrome
+    attributes:
+      date_of_birth: 1950-03-22
+      given_name: Rose
+      family_name: Odingo
+      sex: Female
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2015-10-28
+        result: 94 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-03-18
+        result: 140 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-03-18
+        result: 62 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-03-18
+        stop_date: 2018-03-18
+        result: 115
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-03-18
+        stop_date: 2018-03-18
+        result: 80
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-03-18
+        stop_date: 2018-03-18
+        result: 76 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2010-01-04
+  - name: Brenton Jones # Screening and no metabolic syndrome
+    attributes:
+      date_of_birth: 1943-06-24
+      given_name: Brenton
+      family_name: Jones
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2018-01-24
+        result: 98 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-01-24
+        result: 142 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-01-24
+        result: 46 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 116
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 82
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 94 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2016-02-14
+  - name: Bethany Gomez # Screening and metabolic syndrome with no medication
+    attributes:
+      date_of_birth: 1948-08-12
+      given_name: Bethany
+      family_name: Gomez
+      sex: Female
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2018-03-26
+        result: 110 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-03-26
+        result: 160 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-03-26
+        result: 48 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-03-26
+        stop_date: 2018-03-26
+        result: 130
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-03-26
+        stop_date: 2018-03-26
+        result: 90
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-03-26
+        stop_date: 2018-03-26
+        result: 105 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2017-02-28
+      - code_type: ICD10CM
+        code_value: E88.81 # Metabolic syndrome
+        start_date: 2018-03-26
+  - name: Roger D'Angelo # Screening and metabolic syndrome with medication
+    attributes:
+      date_of_birth: 1958-02-16
+      given_name: Roger
+      family_name: D'Angelo
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2018-01-24
+        result: 112 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-01-24
+        result: 156 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-01-24
+        result: 35 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 138
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 94
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 108 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2016-08-10
+      - code_type: ICD10CM
+        code_value: E88.81 # Metabolic syndrome
+        start_date: 2018-01-24
+      medications:
+      - code_type: RXNORM
+        code_value: 1043563 # Antihyperglycemic medication
+        start_date: 2018-01-24
+  - name: Yvonne Li # No screening and no metabolic syndrome
+    attributes:
+      date_of_birth: 1950-03-22
+      given_name: Yvonne
+      family_name: Li
+      sex: Female
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2015-10-28
+        result: 94 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-03-18
+        result: 140 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-03-18
+        result: 62 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-03-18
+        stop_date: 2018-03-18
+        result: 115
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-03-18
+        stop_date: 2018-03-18
+        result: 80
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-03-18
+        stop_date: 2018-03-18
+        result: 76 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2010-01-04
+  - name: Andrew Chavez # Screening and no metabolic syndrome
+    attributes:
+      date_of_birth: 1943-06-24
+      given_name: Andrew
+      family_name: Chavez
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2018-01-24
+        result: 98 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-01-24
+        result: 142 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-01-24
+        result: 46 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 116
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 82
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 94 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2016-02-14
+  - name: Angelina Bravo # Screening and metabolic syndrome with no medication
+    attributes:
+      date_of_birth: 1948-08-12
+      given_name: Angelina
+      family_name: Bravo
+      sex: Female
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2018-03-26
+        result: 110 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-03-26
+        result: 160 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-03-26
+        result: 48 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-03-26
+        stop_date: 2018-03-26
+        result: 130
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-03-26
+        stop_date: 2018-03-26
+        result: 90
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-03-26
+        stop_date: 2018-03-26
+        result: 105 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2017-02-28
+      - code_type: ICD10CM
+        code_value: E88.81 # Metabolic syndrome
+        start_date: 2018-03-26
+  - name: Doug Atkins # Screening and metabolic syndrome with medication
+    attributes:
+      date_of_birth: 1958-02-16
+      given_name: Doug
+      family_name: Atkins
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2018-01-24
+        result: 112 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-01-24
+        result: 156 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-01-24
+        result: 35 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 138
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 94
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 108 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2016-08-10
+      - code_type: ICD10CM
+        code_value: E88.81 # Metabolic syndrome
+        start_date: 2018-01-24
+      medications:
+      - code_type: RXNORM
+        code_value: 1043563 # Antihyperglycemic medication
+        start_date: 2018-01-24
+  - name: Marla Higgins # No screening and no metabolic syndrome
+    attributes:
+      date_of_birth: 1950-03-22
+      given_name: Marla
+      family_name: Higgins
+      sex: Female
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2015-10-28
+        result: 94 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-03-18
+        result: 140 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-03-18
+        result: 62 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-03-18
+        stop_date: 2018-03-18
+        result: 115
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-03-18
+        stop_date: 2018-03-18
+        result: 80
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-03-18
+        stop_date: 2018-03-18
+        result: 76 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2010-01-04
+  - name: Jean Hu # Screening and no metabolic syndrome
+    attributes:
+      date_of_birth: 1943-06-24
+      given_name: Jean
+      family_name: Hu
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2018-01-24
+        result: 98 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-01-24
+        result: 142 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-01-24
+        result: 46 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 116
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 82
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 94 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2016-02-14
+  - name: Jolanda Briggs # Screening and metabolic syndrome with no medication
+    attributes:
+      date_of_birth: 1948-08-12
+      given_name: Jolanda
+      family_name: Briggs
+      sex: Female
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2018-03-26
+        result: 110 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-03-26
+        result: 160 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-03-26
+        result: 48 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-03-26
+        stop_date: 2018-03-26
+        result: 130
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-03-26
+        stop_date: 2018-03-26
+        result: 90
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-03-26
+        stop_date: 2018-03-26
+        result: 105 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2017-02-28
+      - code_type: ICD10CM
+        code_value: E88.81 # Metabolic syndrome
+        start_date: 2018-03-26
+  - name: Bradley Neptune # Screening and metabolic syndrome with medication
+    attributes:
+      date_of_birth: 1958-02-16
+      given_name: Bradley
+      family_name: Neptune
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2018-01-24
+        result: 112 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-01-24
+        result: 156 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-01-24
+        result: 35 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 138
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 94
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 108 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2016-08-10
+      - code_type: ICD10CM
+        code_value: E88.81 # Metabolic syndrome
+        start_date: 2018-01-24
+      medications:
+      - code_type: RXNORM
+        code_value: 1043563 # Antihyperglycemic medication
+        start_date: 2018-01-24
+  - name: Nicole Minetta # No screening and no metabolic syndrome
+    attributes:
+      date_of_birth: 1950-03-22
+      given_name: Nicole
+      family_name: Minetta
+      sex: Female
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2015-10-28
+        result: 94 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-03-18
+        result: 140 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-03-18
+        result: 62 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-03-18
+        stop_date: 2018-03-18
+        result: 115
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-03-18
+        stop_date: 2018-03-18
+        result: 80
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-03-18
+        stop_date: 2018-03-18
+        result: 76 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2010-01-04
+  - name: Victor Jimenez # Screening and no metabolic syndrome
+    attributes:
+      date_of_birth: 1943-06-24
+      given_name: Victor
+      family_name: Jimenez
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2018-01-24
+        result: 98 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-01-24
+        result: 142 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-01-24
+        result: 46 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 116
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 82
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 94 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2016-02-14
+  - name: Gloria Chu # Screening and metabolic syndrome with no medication
+    attributes:
+      date_of_birth: 1948-08-12
+      given_name: Gloria
+      family_name: Chu
+      sex: Female
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2018-03-26
+        result: 110 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-03-26
+        result: 160 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-03-26
+        result: 48 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-03-26
+        stop_date: 2018-03-26
+        result: 130
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-03-26
+        stop_date: 2018-03-26
+        result: 90
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-03-26
+        stop_date: 2018-03-26
+        result: 105 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2017-02-28
+      - code_type: ICD10CM
+        code_value: E88.81 # Metabolic syndrome
+        start_date: 2018-03-26
+  - name: Manny Fisher # Screening and metabolic syndrome with medication
+    attributes:
+      date_of_birth: 1958-02-16
+      given_name: Manny
+      family_name: Fisher
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2018-01-24
+        result: 112 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-01-24
+        result: 156 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-01-24
+        result: 35 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 138
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 94
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 108 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2016-08-10
+      - code_type: ICD10CM
+        code_value: E88.81 # Metabolic syndrome
+        start_date: 2018-01-24
+      medications:
+      - code_type: RXNORM
+        code_value: 1043563 # Antihyperglycemic medication
+        start_date: 2018-01-24
+  - name: Victoria Obongo # No screening and no metabolic syndrome
+    attributes:
+      date_of_birth: 1950-03-22
+      given_name: Victoria
+      family_name: Obongo
+      sex: Female
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2015-10-28
+        result: 94 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-03-18
+        result: 140 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-03-18
+        result: 62 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-03-18
+        stop_date: 2018-03-18
+        result: 115
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-03-18
+        stop_date: 2018-03-18
+        result: 80
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-03-18
+        stop_date: 2018-03-18
+        result: 76 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2010-01-04
+  - name: Woodley Harris # Screening and no metabolic syndrome
+    attributes:
+      date_of_birth: 1943-06-24
+      given_name: Woodley
+      family_name: Harris
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2018-01-24
+        result: 98 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-01-24
+        result: 142 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-01-24
+        result: 46 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 116
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 82
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 94 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2016-02-14
+  - name: Brittany Alabama # Screening and metabolic syndrome with no medication
+    attributes:
+      date_of_birth: 1948-08-12
+      given_name: Brittany
+      family_name: Alabama
+      sex: Female
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2018-03-26
+        result: 110 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-03-26
+        result: 160 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-03-26
+        result: 48 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-03-26
+        stop_date: 2018-03-26
+        result: 130
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-03-26
+        stop_date: 2018-03-26
+        result: 90
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-03-26
+        stop_date: 2018-03-26
+        result: 105 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2017-02-28
+      - code_type: ICD10CM
+        code_value: E88.81 # Metabolic syndrome
+        start_date: 2018-03-26
+  - name: Rodney Morris # Screening and metabolic syndrome with medication
+    attributes:
+      date_of_birth: 1958-02-16
+      given_name: Rodney
+      family_name: Morris
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2018-01-24
+        result: 112 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-01-24
+        result: 156 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-01-24
+        result: 35 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 138
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 94
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 108 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2016-08-10
+      - code_type: ICD10CM
+        code_value: E88.81 # Metabolic syndrome
+        start_date: 2018-01-24
+      medications:
+      - code_type: RXNORM
+        code_value: 1043563 # Antihyperglycemic medication
+        start_date: 2018-01-24
+  - name: Caitlin O'Doule # No screening and no metabolic syndrome
+    attributes:
+      date_of_birth: 1950-03-22
+      given_name: Caitlin
+      family_name: O'Doule
+      sex: Female
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2015-10-28
+        result: 94 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-03-18
+        result: 140 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-03-18
+        result: 62 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-03-18
+        stop_date: 2018-03-18
+        result: 115
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-03-18
+        stop_date: 2018-03-18
+        result: 80
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-03-18
+        stop_date: 2018-03-18
+        result: 76 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2010-01-04
+  - name: Charles Hu # Screening and no metabolic syndrome
+    attributes:
+      date_of_birth: 1943-06-24
+      given_name: Charles
+      family_name: Hu
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2018-01-24
+        result: 98 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-01-24
+        result: 142 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-01-24
+        result: 46 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 116
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 82
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 94 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2016-02-14
+  - name: Amanda Carlano # Screening and metabolic syndrome with no medication
+    attributes:
+      date_of_birth: 1948-08-12
+      given_name: Amanda
+      family_name: Carlano
+      sex: Female
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2018-03-26
+        result: 110 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-03-26
+        result: 160 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-03-26
+        result: 48 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-03-26
+        stop_date: 2018-03-26
+        result: 130
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-03-26
+        stop_date: 2018-03-26
+        result: 90
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-03-26
+        stop_date: 2018-03-26
+        result: 105 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2017-02-28
+      - code_type: ICD10CM
+        code_value: E88.81 # Metabolic syndrome
+        start_date: 2018-03-26
+  - name: Wolfram Bracht # Screening and metabolic syndrome with medication
+    attributes:
+      date_of_birth: 1958-02-16
+      given_name: Wolfram
+      family_name: Bracht
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Clover Health
+    clinical_models:
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 1557-8 # Fasting glucose
+        start_date: 2018-01-24
+        result: 112 mg/dL
+      - code_type: LOINC
+        code_value: 12951-0 # Triglycerides
+        start_date: 2018-01-24
+        result: 156 mg/dL
+      - code_type: LOINC
+        code_value: 18263-4 # HDL-C
+        start_date: 2018-01-24
+        result: 35 mg/dL
+      clinical_activities:
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 138
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 94
+      - code_type: LOINC
+        code_value: 56086-2 # Waist circumference
+        start_date: 2018-01-24
+        stop_date: 2018-01-24
+        result: 108 cm
+      diagnoses:
+      - code_type: ICD10CM
+        code_value: E13.49 # Diabetes
+        start_date: 2016-08-10
+      - code_type: ICD10CM
+        code_value: E88.81 # Metabolic syndrome
+        start_date: 2018-01-24
+      medications:
+      - code_type: RXNORM
+        code_value: 1043563 # Antihyperglycemic medication
+        start_date: 2018-01-24
