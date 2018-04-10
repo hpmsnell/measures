@@ -55,6 +55,7 @@ define "Patient 30-64 with Cervical Cytology and HPV Test":
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 24
   and AgeInYearsAt(end of "Measurement Period") < 65
+  and "Patient Characteristic Sex" = "Female"
   and not exists("Hospice" I
     where I.relevantPeriod starts during "Measurement Period")
 

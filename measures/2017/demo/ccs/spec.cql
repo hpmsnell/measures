@@ -22,8 +22,8 @@ context Patient
 
 define "Denominator":
   AgeInYearsAt(start of "Measurement Period") >= 24
-  and "Patient Characteristic Sex" = "Female"
   and AgeInYearsAt(start of "Measurement Period") < 75
+  and "Patient Characteristic Sex" = "Female"
 
 define "Numerator Performance Met":
   /*
