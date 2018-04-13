@@ -1,0 +1,127 @@
+measure:
+  name: 18.MIPS.Mips286
+  required:
+    display_title: "Dementia: Safety Concerns Screening and Mitigation Recommendations or Referral for Patients with Dementia"
+  optional:
+    gap_resolution_action: "Patient is due for safety concerns screening for dementia or mitigation recommendation in the case of a positive screening"
+    set: MIPS
+    external_id: '286'
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9922
+    required:
+      display_title: 'Safety concerns screen provided and if positive then documented mitigation recommendations'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 286 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Dementia
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9922"
+    optional:
+      code_value: G9922
+  - config_link_id: G9923
+    required:
+      display_title: 'Safety concerns screen provided and negative'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 286 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Dementia
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9923"
+    optional:
+      code_value: G9923
+exception_reasons:
+  - config_link_id: G9924
+    required:
+      display_title: 'Documentation of medical reason(s) for not providing safety concerns screen OR for not providing recommendations, orders or referrals for positive screen (e.g., patient in palliative care, other medical reason)'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 286 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Dementia
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G9924"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Hospice Service"
+            - model: ClinicalActivity
+              value_set: "VSAC; Palliative Care"
+    optional:
+      code_value: G9924
+performance_not_met_reasons:
+  - config_link_id: G9926
+    required:
+      display_title: "Safety concerns screening positive screen is without provision of mitigation recommendations, including but not limited to referral to other resources"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 286 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Dementia
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9922"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9923"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9926"
+    optional:
+      code_value: G9926
+  - config_link_id: G9925
+    required:
+      display_title: "Safety concerns screening not provided, reason not otherwise specified"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 286 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Dementia
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9922"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9923"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9925"
+    optional:
+      code_value: G9925

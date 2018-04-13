@@ -1,0 +1,78 @@
+measure:
+  name: 18.MIPS.Mips283
+  required:
+    display_title: "Dementia Associated Behavioral and Psychiatric Symptoms Screening and Management"
+  optional:
+    gap_resolution_action: "Patient is due for a neuropsychiatric symptom assessment for dementia or mitigation recommendations for a positive screening"
+    set: MIPS
+    external_id: '283'
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9919
+    required:
+      display_title: 'Screening performed and positive and provision of recommendations'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 283 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Dementia
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9919"
+    optional:
+      code_value: G9919
+  - config_link_id: G9920
+    required:
+      display_title: 'Screening performed and negative'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 283 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Dementia
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9920"
+    optional:
+      code_value: G9920
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: G9921
+    required:
+      display_title: "No screening performed, partial screening performed or positive screen without recommendations and reason is not given or not otherwise specified"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 283 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Dementia
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9919"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9919"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9921"
+
+    optional:
+      code_value: G9921
