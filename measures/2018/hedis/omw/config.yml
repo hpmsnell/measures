@@ -1,0 +1,101 @@
+measure:
+  name: 18.HEDIS.Omw
+  required:
+    display_title: "Osteoporosis Management in Women Who Had a Fracture"
+  optional:
+    gap_resolution_action: Patient is due for osteoporosis management due to a fracture
+    set: HEDIS
+    external_id: 'COA1'
+    version: 2018
+exclusion_reasons:
+  - config_link_id: exclusion_1
+    required:
+      display_title: 'Patient excluded due to prior osteoporosis management'
+      validation_record_groups:
+        - count: 5
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Outpatient"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Observation"
+            - model: ClinicalActivity
+              value_set: "HEDIS; ED"
+        - count: 5
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Inpatient Stay"
+        - count: 5
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Fractures"
+        - count: 5
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Bone Mineral Density Tests"
+            - model: Medication
+              value_set: "HEDIS; Osteoporosis Medications"
+            - model: Medication
+              value_set: "HEDIS; Osteoporosis Medications List"
+performance_met_reasons:
+  - config_link_id: performance_met
+    required:
+      display_title: 'Patient received osteoporosis management'
+      validation_record_groups:
+        - count: 5
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Outpatient"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Observation"
+            - model: ClinicalActivity
+              value_set: "HEDIS; ED"
+        - count: 5
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Inpatient Stay"
+        - count: 5
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Fractures"
+        - count: 5
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Bone Mineral Density Tests"
+            - model: Medication
+              value_set: "HEDIS; Osteoporosis Medications"
+            - model: Medication
+              value_set: "HEDIS; Osteoporosis Medications List"
+            - model: Medication
+              value_set: "HEDIS; Long-Acting Osteoporosis Medications"
+exception_reasons:
+performance_not_met_reasons:
+  - config_link_id: performance_not_met
+    required:
+      display_title: 'No osteoporosis management found during the appropriate timeframe'
+      validation_record_groups:
+        - count: 5
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Outpatient"
+            - model: ClinicalActivity
+              value_set: "HEDIS; Observation"
+            - model: ClinicalActivity
+              value_set: "HEDIS; ED"
+        - count: 5
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Inpatient Stay"
+        - count: 5
+          validation_records:
+            - model: Diagnosis
+              value_set: "HEDIS; Fractures"
+        - count: 5
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Bone Mineral Density Tests"
+            - model: Medication
+              value_set: "HEDIS; Osteoporosis Medications"
+            - model: Medication
+              value_set: "HEDIS; Osteoporosis Medications List"
+            - model: Medication
+              value_set: "HEDIS; Long-Acting Osteoporosis Medications"
