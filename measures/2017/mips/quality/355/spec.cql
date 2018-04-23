@@ -44,7 +44,7 @@ define "Numerator Performance Met: G9308":
     with "Denominator Procedure" P
       where R.relevantPeriod starts 30 days or less after end of P.relevantPeriod)
   or exists(["Procedure, Performed": "MIPS; MIPS 355 Procedure"] P1
-    where not P1.code.modifier in {78}
+    where P1.code.modifier in {78}
     with "Denominator Procedure" P2
       where P1.relevantPeriod starts 30 days or less after end of P2.relevantPeriod)
 
