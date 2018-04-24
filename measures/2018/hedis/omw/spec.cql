@@ -57,7 +57,7 @@ define "Encounter With Fracture":
 
 define "Fracture During Index Period"
   "Encounter With Fracture" E
-    where E.relevantPeriod starts during [17 months before end of "Measurement Period", 5 months before end of "Measurement Period"]
+    where E.relevantPeriod starts during [18 months before end of "Measurement Period", 6 months before end of "Measurement Period"]
 
 define "Fracture During Index Period Exists":
   exists("Fracture During Index Period")
