@@ -26,6 +26,12 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
+    - name: Exclusion Male
+      start_date: 2016-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
     - name: ExclusionNonLiveBirth Before
       start_date: 2016-01-01
       denominator: 1
@@ -202,6 +208,17 @@ patients:
     - code_type: CPT
       code_value: 59400 # Delivery
       start_date: 2016-11-05 # Too late
+- name: Exclusion Male
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: Exclusion
+    family_name: Male
+    sex: Male # Not female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
 - name: ExclusionNonLiveBirth Before
   attributes:
     date_of_birth: 1970-01-01

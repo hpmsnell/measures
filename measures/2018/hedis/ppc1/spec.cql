@@ -90,6 +90,7 @@ define "ABO or Rh Test":
 
 define "Denominator":
   "Delivery" P1
+    where "Patient Characteristic Sex" = 'Female'
     without ["Diagnosis": "HEDIS; Non-Live Births"] D
       such that D.prevalencePeriod starts during P1.relevantPeriod
     without "Delivery" P2
