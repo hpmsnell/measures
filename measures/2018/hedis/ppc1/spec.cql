@@ -32,7 +32,7 @@ valueset "HEDIS; Herpes Simplex Antibody": '2.16.840.1.113883.3.464.1004.1119'
 valueset "HEDIS; ABO": '2.16.840.1.113883.3.464.1004.1001'
 valueset "HEDIS; Rh": '2.16.840.1.113883.3.464.1004.1228'
 valueset "HEDIS; ABO and Rh": '2.16.840.1.113883.3.464.1004.1002'
-valueset "HEDIS; Preganancy Diagnosis": '2.16.840.1.113883.3.464.1004.1220'
+valueset "HEDIS; Pregnancy Diagnosis": '2.16.840.1.113883.3.464.1004.1220'
 
 // VSAC value sets
 
