@@ -18,7 +18,6 @@ valueset "MIPS; MIPS Hospice Service"
 
 // HEDIS value sets
 
-valueset "HEDIS; ACE Inhibitor/ARB"
 valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
 valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1398'
 valueset "HEDIS; Lab Panel": '2.16.840.1.113883.3.464.1004.1145'
@@ -28,6 +27,7 @@ valueset "HEDIS; Serum Creatinine": '2.16.840.1.113883.3.464.1004.1236'
 // VSAC value sets
 
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
+valueset "VSAC; ACE Inhibitor/ARB": '2.16.840.1.113883.3.526.3.1139'
 
 parameter "Measurement Period" Interval<DateTime>
 
