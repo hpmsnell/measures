@@ -14,26 +14,50 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
-      - name: Denominator Discharge # Before
+      - name: DenominatorDischarge Before
         start_date: 2015-12-31
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
-      - name: Denominator Discharge # Lower
+      - name: DenominatorDischarge Lower
         start_date: 2016-01-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
-      - name: Denominator Discharge # Upper
-        start_date: 2016-12-31
+      - name: DenominatorDischarge Upper
+        start_date: 2016-12-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
-      - name: Denominator Discharge # After
-        start_date: 2017-01-01
+      - name: DenominatorDischarge After
+        start_date: 2016-12-02
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorDischarge 30Days # Within 30 days before
+        start_date: 2016-01-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorDischarge 30Days # Last discharge in series
+        start_date: 2016-01-02
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: DenominatorDischarge 30Days # Within 30 days before
+        start_date: 2016-11-30
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorDischarge 30Days # After deadline
+        start_date: 2016-12-02
         denominator:
         denominator_exclusion:
         denominator_exception:
@@ -146,30 +170,78 @@ patients:
       code_value: '0100'  # Discharge
       start_date: 2016-01-31
       stop_date: 2016-01-31
-- name: Denominator Discharge
+- name: DenominatorDischarge Before
   attributes:
     date_of_birth: 1990-01-01
-    given_name: Denominator
-    family_name: Discharge
+    given_name: DenominatorDischarge
+    family_name: Before
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
       start_date: 2015-12-31
-      stop_date: 2015-12-13  # Too early
+      stop_date: 2015-12-31  # Too early
+- name: DenominatorDischarge Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorDischarge
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
       start_date: 2016-01-01
       stop_date: 2016-01-01  # Lower bound
+- name: DenominatorDischarge Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorDischarge
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-12-31
-      stop_date: 2016-12-31  # Upper bound
+      start_date: 2016-12-01
+      stop_date: 2016-12-01  # Upper bound
+- name: DenominatorDischarge After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorDischarge
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2017-01-01
-      stop_date: 2017-01-01  # Too late
+      start_date: 2016-12-02
+      stop_date: 2016-12-02  # Too late
+- name: DenominatorDischarge 30Days
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorDischarge
+    family_name: 30Days
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: UB
+      code_value: '0100'  # Discharge
+      start_date: 2016-01-01
+      stop_date: 2016-01-01 # Within 30 days before
+    - code_type: UB
+      code_value: '0100'  # Discharge
+      start_date: 2016-01-02
+      stop_date: 2016-01-02  # Last discharge in series
+    - code_type: UB
+      code_value: '0100'  # Discharge
+      start_date: 2016-11-30
+      stop_date: 2016-11-30  # Within 30 days before
+    - code_type: UB
+      code_value: '0100'  # Discharge
+      start_date: 2016-12-02
+      stop_date: 2016-12-02  # Too late
 - name: Denominator ExclusionBefore
   attributes:
     date_of_birth: 1990-01-01

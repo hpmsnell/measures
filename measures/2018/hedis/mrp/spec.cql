@@ -30,9 +30,11 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Discharge":
-  ["Encounter, Performed": "HEDIS; Inpatient Stay"] E
-    where E.relevantPeriod starts during "Measurement Period"
+  ["Encounter, Performed": "HEDIS; Inpatient Stay"] E1
+    where E1.relevantPeriod starts during [start of "Measurement Period", 30 days before end of "Measurement Period"]
       and AgeInYearsAt(end of "Measurement Period") >= 18
+    without ["Encounter, Performed": "HEDIS; Inpatient Stay"] E2
+      such that E2.relevantPeriod starts 30 days or less after start of E1.relevantPeriod
 
 define "Medication Reconciliation":
   ["Procedure, Performed": "HEDIS; Medication Reconciliation"]
