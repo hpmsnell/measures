@@ -102,6 +102,11 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
+    - name: CytologyWithHPV OldEnough
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
     - name: HPVWithCytology Before
       denominator: 1
       denominator_exclusion:
@@ -344,9 +349,24 @@ patients:
       start_date: 2012-02-19 # Too late
 - name: CytologyWithHPV TooYoung
   attributes:
-    date_of_birth: 1987-01-01 # Too young
+    date_of_birth: 1982-02-15 # Too young
     given_name: CytologyWithHPV
     family_name: TooYoung
+    sex: Female
+  clinical_models:
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10524-7 # Cervical cytology
+      start_date: 2012-02-14
+    clinical_activities:
+    - code_type: CPT
+      code_value: 87622 # HPV Test
+      start_date: 2012-02-14
+- name: CytologyWithHPV OldEnough
+  attributes:
+    date_of_birth: 1982-02-14 # Lower bound
+    given_name: CytologyWithHPV
+    family_name: OldEnough
     sex: Female
   clinical_models:
     laboratory_test_performeds:

@@ -43,10 +43,11 @@ define "HPV Test":
   union ["Laboratory Test, Performed": "HEDIS; HPV Tests"]
 
 define "Patient 30-64 with Cervical Cytology and HPV Test":
-  AgeInYearsAt(end of "Measurement Period") >= 30
-  and exists("Certival Cytology" P1
+  exists("Certival Cytology" P1
     where P1.relevantPeriod starts during [60 months before end of "Measurement Period", end of "Measurement Period"
+      and AgeInYearsAt(start of P1.relevantPeriod) >= 30
     with "HPV Test" P2
+      where AgeInYearsAt(start of P2.relevantPeriod) >= 30
       such that P1.relevantPeriod starts on or after 4 days before start of P2.relevantPeriod
         and P1.relevantPeriod starts on or before 4 days after start of P2.relevantPeriod)
 
