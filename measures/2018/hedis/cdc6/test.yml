@@ -862,7 +862,8 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: E10.21
-      start_date: 2015-12-31 # Too early
+      start_date: 2015-01-01
+      stop_date: 2015-12-31 # Too early
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2010-01-01
@@ -876,7 +877,8 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: E10.21
-      start_date: 2016-01-01 # Lower bound:
+      start_date: 2015-01-01
+      stop_date: 2016-01-01 # Lower bound:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2010-01-01

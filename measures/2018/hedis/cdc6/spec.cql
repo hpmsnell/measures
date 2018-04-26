@@ -76,7 +76,7 @@ define "Numerator Performance Met":
   or exists("Nephropathy Procedures" P
     where P.relevantPeriod starts during "Measurement Year")
   or exists("Nephropathy Diagnoses" D
-    where D.prevalencePeriod starts during "Measurement Year")
+    where D.prevalencePeriod overlaps "Measurement Year")
   or exists(["Medication": "VSAC; ACE Inhibitor or ARB"] M
     where M.relevantPeriod starts during "Measurement Year")
 
