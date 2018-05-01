@@ -1,0 +1,117 @@
+measure:
+  name: 17.MIPS.Mips051
+  required:
+    display_title: "Chronic Obstructive Pulmonary Disease (COPD): Spirometry Evaluation"
+  optional:
+    gap_resolution_action: "Patient is due for spirometry evaluation for COPD"
+    set: MIPS
+    external_id: 051
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: 3023F
+    required:
+      display_title: Spirometry results documented and reviewed
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 051 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; COPD"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3023F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Spirometry"
+    optional:
+      code_value: 3023F
+exception_reasons:
+  - config_link_id: 3023F-1P
+    required:
+      display_title: Documentation of medical reason(s) for not documenting and reviewing spirometry results
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 051 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; COPD"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 3023F-1P"
+    optional:
+      code_value: 3023F-1P
+  - config_link_id: 3023F-2P
+    required:
+      display_title: Documentation of patient reason(s) for not documenting and reviewing spirometry results
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 051 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; COPD"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 3023F-2P"
+    optional:
+      code_value: 3023F-2P
+  - config_link_id: 3023F-3P
+    required:
+      display_title: Documentation of system reason(s) for not documenting and reviewing spirometry result
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 051 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; COPD"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 3023F-3P"
+    optional:
+      code_value: 3023F-3P
+performance_not_met_reasons:
+  - config_link_id: 3023F-8P
+    required:
+      display_title: Spirometry results not documented and reviewed, reason not otherwise specified
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 051 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; COPD"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3023F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 3023F-8P"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Spirometry"
+    optional:
+      code_value: 3023F-8P
