@@ -1,11 +1,11 @@
-library MIPS_019_2017 version '1'
+library MIPS_019_2018 version '1'
 
 /*
  * Source: MIPS
  * ID: 019
- * Year: 2017
+ * Year: 2018
  * Version: 1
- * Author: Steve Daniels
+ * Author: Becky Weber
  *
   */
 
@@ -28,13 +28,12 @@ valueset "Able; Macular Edema Finding"
 valueset "Able; Retinopathy Finding"
 
 parameter "Measurement Period" Interval<DateTime>
-parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 019 Encounter"] E
-    where E.relevantPeriod starts during "Denominator Period"
+    where E.relevantPeriod starts during "Measurement Period"
       and not E.code.modifier in "MIPS; Telehealth Modifier"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true

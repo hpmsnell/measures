@@ -1,12 +1,12 @@
-library MIPS_091_2017 version '1'
+library MIPS_091_2018 version '1'
 
 /*
  *
  * Source: MIPS
  * ID: 091
- * Year: 2017
+ * Year: 2018
  * Version: 1
- * Author: Steve Daniels
+ * Author: Becky Weber
  *
   */
 
@@ -29,7 +29,6 @@ valueset "Able; Acute Otitis Media"
 valueset "Able; Tympanic Membrane Perforation"
 
 parameter "Measurement Period" Interval<DateTime>
-parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
@@ -38,7 +37,7 @@ define "AOE":
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 091 Encounter"] E
-    where E.relevantPeriod starts during "Denominator Period"
+    where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 2
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"

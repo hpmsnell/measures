@@ -1,11 +1,11 @@
-library MIPS_268_2017 version '1'
+library MIPS_268_2018 version '1'
 
 /*
  * Source: MIPS
  * ID: 268
- * Year: 2017
+ * Year: 2018
  * Version: 1
- * Author: Steve Daniels
+ * Author: Becky Weber
  *
   */
 
@@ -20,13 +20,12 @@ valueset "MIPS; Denominator Exception: 4340F-1P"
 valueset "MIPS; Performance Not Met: 4340F-8P"
 
 parameter "Measurement Period" Interval<DateTime>
-parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 268 Encounter"] E
-    where E.relevantPeriod starts during "Denominator Period"
+    where E.relevantPeriod starts during "Measurement Period"
       and not E.code.modifier in {'GQ', 'GT'}
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Epilepsy"] D

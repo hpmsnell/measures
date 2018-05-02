@@ -1,11 +1,11 @@
-library MIPS_051_2017 version '1'
+library MIPS_051_2018 version '1'
 
 /*
  * Source: MIPS
  * ID: 051
- * Year: 2017
+ * Year: 2018
  * Version: 1
- * Written By: Steve Daniels
+ * Written By: Becky Weber
  *
   */
 
@@ -26,13 +26,12 @@ valueset "MIPS; Performance Not Met: 3023F-8P"
 valueset "Able; Spirometry"
 
 parameter "Measurement Period" Interval<DateTime>
-parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 051 Encounter"] E
-    where E.relevantPeriod starts during "Denominator Period"
+    where E.relevantPeriod starts during "Measurement Period"
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {GQ, GT}
     with ["Diagnosis": "MIPS; COPD"] D

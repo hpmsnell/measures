@@ -1,9 +1,9 @@
-library MIPS_052_2017 version '1'
+library MIPS_052_2018 version '1'
 
 /*
  * Source: MIPS
  * ID: 052
- * Year: 2017
+ * Year: 2018
  * Version: 1
  */
 
@@ -25,13 +25,12 @@ valueset "MIPS; Performance Met: G9695"
 valueset "MIPS; Performance Not Met: G9699"
 
 parameter "Measurement Period" Interval<DateTime>
-parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 052 Encounter"] E
-      where E.relevantPeriod starts during "Denominator Period"
+      where E.relevantPeriod starts during "Measurement Period"
         and AgeInYearsAt(start of E.relevantPeriod) >= 18
         and not E.code.modifier in {'GQ', 'GT'}
         and E.signingProvider.hasMeasureMembership = true
@@ -41,7 +40,7 @@ define "Denominator Encounter":
 define "Denominator":
   exists("Denominator Encounter")
   and exists(["Assessment, Performed": "MIPS; FEV1/FVC < 70%, FEV1 < 60%, COPD Symptoms"] A
-    where A.authorDateTime during "Denominator Period")
+    where A.authorDateTime during "Measurement Period")
 
 define "Numerator Performance Met: G9695":
   /*

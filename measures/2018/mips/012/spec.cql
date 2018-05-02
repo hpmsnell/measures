@@ -1,11 +1,11 @@
-library MIPS_012_2017 version '1'
+library MIPS_012_2018 version '1'
 
 /*
  * Source: MIPS
  * ID: 012
- * Year: 2017
+ * Year: 2018
  * Version: 1
- * Author: Steve Daniels
+ * Author: Becky Weber
  *
   */
 
@@ -25,13 +25,12 @@ valueset "MIPS; Performance Not Met: 2027F-8P"
 valueset "Able; Optic Nerve Head Evaluation"
 
 parameter "Measurement Period" Interval<DateTime>
-parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Patient Age at Encounter":
   ["Encounter, Performed": "MIPS; MIPS 012 Encounter"] E
-    where E.relevantPeriod starts during "Denominator Period"
+    where E.relevantPeriod starts during "Measurement Period"
       and not E.code.modifier in "MIPS; Telehealth Modifier"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true

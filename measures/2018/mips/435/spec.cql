@@ -1,11 +1,11 @@
-library MIPS_435_2017 version '1'
+library MIPS_435_2018 version '1'
 
 /*
  * Source: MIPS
  * ID: 435
- * Year: 2017
+ * Year: 2018
  * Version: 1
- * Author: Steve Daniels
+ * Author: Becky Weber
  *
   */
 
@@ -20,13 +20,12 @@ valueset "MIPS; Denominator Exception: G9635"
 valueset "MIPS; Performance Not Met: G9636"
 
 parameter "Measurement Period" Interval<DateTime>
-parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 435 Encounter"] E
-    where E.relevantPeriod starts during "Denominator Period"
+    where E.relevantPeriod starts during "Measurement Period"
       and not E.code.modifier in {'GQ', 'GT'}
       and E.signingProvider.hasMeasureMembership = true
 

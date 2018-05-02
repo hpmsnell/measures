@@ -1,13 +1,13 @@
-library MIPS_104_2017 version '1'
+library MIPS_104_2018 version '1'
 
 /*
  *
  * Source: MIPS
  * ID: 104
- * Year: 2017
+ * Year: 2018
  * Version: 1
- * Written by: Steve Daniels
- * Reviewed by: Rachel Katz 2017-07-18
+ * Written by: Becky Weber
+ * Reviewed by: Steve Daniels 2018-05-01
  *
   */
 
@@ -35,13 +35,12 @@ valueset "Able; GnRH Administered"
 valueset "Able; High Risk of Recurrence of Prostate Cancer"
 
 parameter "Measurement Period" Interval<DateTime>
-parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 104 Encounter"] E1
-    where E1.relevantPeriod starts during "Denominator Period"
+    where E1.relevantPeriod starts during "Measurement Period"
       and "Patient Characteristic Sex" = "Male"
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Prostate Cancer"] D
@@ -65,7 +64,7 @@ define "Date of Earliest Diagnosis in Measurement Year":
 define "Denominator":
   "Denominator Encounter"
   and exists("High Risk of Recurrence of Prostate Cancer" P
-    where P.relevantPeriod starts during [56 days before start of "Denominator Period", end of "Denominator Period"])
+    where P.relevantPeriod starts during [56 days before start of "Measurement Period", end of "Measurement Period"])
 
 define "Denominator Exclusion"
   /*
@@ -98,7 +97,7 @@ define "Denominator Exception: 4164F-1P":
       such that P.relevantPeriod starts during E.relevantPeriod
   or exists("VSAC; Salvage Therapy" P
     with "Denominator Encounter" E
-      such that P.relevantPeriod overlaps E.relevantPeriod
+      such that P.relevantPeriod starts during E.relevantPeriod
 
 define "Denominator Exception: 4164F-2P":
   /*
