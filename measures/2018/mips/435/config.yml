@@ -1,0 +1,73 @@
+measure:
+  name: 17.MIPS.Mips435
+  required:
+    display_title: "Quality of Life Assessment For Patients With Primary Headache Disorders"
+  optional:
+    gap_resolution_action: "Patient requires a quality of life assessment for primary headache disorder or attention for declining quality of life"
+    set: MIPS
+    external_id: '435'
+    version: 2017
+    mips_measure_type: Outcome
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9634
+    required:
+      display_title: 'Health-related quality of life assessed with tool during at least two visits and quality of life score remained the same or improved'
+      validation_record_groups:
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 435 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Primary Headache
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9634"
+    optional:
+      code_value: G9634
+exception_reasons:
+  - config_link_id: G9635
+    required:
+      display_title: 'Health-related quality of life not assessed with tool for documented reason(s) (e.g., patient has a cognitive or neuropsychiatric impairment that impairs his/her ability to complete the HRQoL survey, patient has the inability to read and/or write in order to complete the HRQoL questionnaire)'
+      validation_record_groups:
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 435 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Primary Headache
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G9635"
+    optional:
+      code_value: G9635
+performance_not_met_reasons:
+  - config_link_id: G9636
+    required:
+      display_title: "Health-related quality of life not assessed with tool during at least two visits or quality of life score declined"
+      validation_record_groups:
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 435 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Primary Headache
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9634"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9636"
+    optional:
+      code_value: G9636

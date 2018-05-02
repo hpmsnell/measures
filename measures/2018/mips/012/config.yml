@@ -1,0 +1,81 @@
+measure:
+  name: 17.MIPS.Mips012
+  required:
+    display_title: "Primary Open-Angle Glaucoma (POAG): Optic Nerve Evaluation"
+  optional:
+    gap_resolution_action: Patient is due for an optic nerve head evaluation
+    set: MIPS
+    external_id: '012'
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: 2027F
+    required:
+      display_title: 'Optic nerve head evaluation performed'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 012 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Primary Open-Angle Glaucoma (POAG)
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 2027F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Optic Nerve Head Evaluation"
+    optional:
+      code_value: 2027F
+exception_reasons:
+  - config_link_id: 2027F-1P
+    required:
+      display_title: 'Documentation of medical reason(s) for not performing an optic nerve head evaluation'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 012 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Primary Open-Angle Glaucoma (POAG)
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 2027F-1P"
+    optional:
+      code_value: 2027F-1P
+performance_not_met_reasons:
+  - config_link_id: 2027F-8P
+    required:
+      display_title: "Optic nerve head evaluation was not performed, reason not otherwise specified"
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: MIPS; MIPS 012 Encounter
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: MIPS; Primary Open-Angle Glaucoma (POAG)
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 2027F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; Optic Nerve Head Evaluation"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 2027F-8P"
+    optional:
+      code_value: 2027F-8P

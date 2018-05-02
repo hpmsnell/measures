@@ -1,0 +1,1111 @@
+measure_id: 18.MIPS.Mips052
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Too Young
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9699
+    - name: DenominatorEncounter Before # Early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter Lower # Lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9699
+    - name: DenominatorEncounter Upper # Upper Bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9699
+    - name: DenominatorEncounter After # Late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorDiagnosis Before # Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorDiagnosis Lower # Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9699
+    - name: DenominatorDiagnosis Upper # Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9699
+    - name: DenominatorDiagnosis After # After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorAssessment Before # Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorAssessment Lower # Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9699
+    - name: DenominatorAssessment Upper # Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9699
+    - name: DenominatorAssessment After # After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: PerformanceMetG9695 Before # Early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9699
+    - name: PerformanceMetG9695 Lower # Lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9695
+    - name: PerformanceMetG9695 Upper # Upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9695
+    - name: PerformanceMetG9695 After # Late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9699
+    - name: PerformanceMetMedication Before # Early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9699
+    - name: PerformanceMetMedication Lower # Lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9695
+    - name: PerformanceMetMedication Upper # Upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9695
+    - name: PerformanceMetMedication After # Late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9699
+    - name: ExceptionG9696 Before # Early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9699
+    - name: ExceptionG9696 Lower # Lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9696
+      numerator:
+    - name: ExceptionG9696 Upper # Upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9696
+      numerator:
+    - name: ExceptionG9696 After # Late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9699
+    - name: ExceptionG9697 Before # Early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9699
+    - name: ExceptionG9697 Lower # Lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9697
+      numerator:
+    - name: ExceptionG9697 Upper # Upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9697
+      numerator:
+    - name: ExceptionG9697 After # Late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9699
+    - name: ExceptionG9698 Before # Early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9699
+    - name: ExceptionG9698 Lower # Lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9698
+      numerator:
+    - name: ExceptionG9698 Upper # Upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9698
+      numerator:
+    - name: ExceptionG9698 After # Late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9699
+  providers_key:
+    - name: Rachel
+      patients:
+      - name: Too Young
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9699
+      - name: DenominatorEncounter Before # Early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorEncounter Lower # Lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9699
+      - name: DenominatorEncounter Upper # Upper Bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9699
+      - name: DenominatorEncounter After # Late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorDiagnosis Before # Before
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorDiagnosis Lower # Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9699
+      - name: DenominatorDiagnosis Upper # Upper
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9699
+      - name: DenominatorDiagnosis After # After
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorAssessment Before # Before
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorAssessment Lower # Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9699
+      - name: DenominatorAssessment Upper # Upper
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9699
+      - name: DenominatorAssessment After # After
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: PerformanceMetG9695 Before # Early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9699
+      - name: PerformanceMetG9695 Lower # Lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9695
+      - name: PerformanceMetG9695 Upper # Upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9695
+      - name: PerformanceMetG9695 After # Late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9699
+      - name: PerformanceMetMedication Before # Early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9699
+      - name: PerformanceMetMedication Lower # Lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9695
+      - name: PerformanceMetMedication Upper # Upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9695
+      - name: PerformanceMetMedication After # Late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9699
+      - name: ExceptionG9696 Before # Early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9699
+      - name: ExceptionG9696 Lower # Lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G9696
+        numerator:
+      - name: ExceptionG9696 Upper # Upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G9696
+        numerator:
+      - name: ExceptionG9696 After # Late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9699
+      - name: ExceptionG9697 Before # Early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9699
+      - name: ExceptionG9697 Lower # Lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G9697
+        numerator:
+      - name: ExceptionG9697 Upper # Upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G9697
+        numerator:
+      - name: ExceptionG9697 After # Late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9699
+      - name: ExceptionG9698 Before # Early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: ExceptionG9698 Lower # Lower bound
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: ExceptionG9698 Upper # Upper bound
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: ExceptionG9698 After # Late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+providers:
+- given_name: Rachel
+  family_name:  Katz
+  credential: DO
+  primary_specialty:  Family Medicine
+  external_id: '111-111'
+- given_name: Patty
+  family_name:  Smith
+  credential: MD
+  primary_specialty:  Family Medicine
+  external_id: '222-222'
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1998-02-02 # Late
+    given_name: Too
+    family_name: Young
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+- name: Age Lower
+  attributes:
+    date_of_birth: 1998-02-01 # Lower bound
+    given_name: Age
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+- name: DenominatorEncounter Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2015-12-31 # Too early
+      stop_date: 2015-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2015-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2015-12-31
+- name: DenominatorEncounter Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-01-01
+- name: DenominatorEncounter Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-12-31 # Upper bound
+      stop_date: 2016-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-12-31
+- name: DenominatorEncounter After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2017-01-01 # Too late
+      stop_date: 2017-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2017-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2017-01-01
+- name: DenominatorDiagnosis Before
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: DenominatorDiagnosis
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-01-01
+      stop_date: 2016-01-31 # Too early
+- name: DenominatorDiagnosis Lower
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: DenominatorDiagnosis
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-01-01
+      stop_date: 2016-02-01 # Lower bound
+- name: DenominatorDiagnosis Upper
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: DenominatorDiagnosis
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-02 # Upper bound
+- name: DenominatorDiagnosis After
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: DenominatorDiagnosis
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-03 # Too late
+- name: DenominatorAssessment Before
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: DenominatorAssessment
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2015-12-31 # Too early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+- name: DenominatorAssessment Lower
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: DenominatorAssessment
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-01-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+- name: DenominatorAssessment Upper
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: DenominatorAssessment
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-12-31 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+- name: DenominatorAssessment After
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: DenominatorAssessment
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2017-01-01 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+- name: PerformanceMetG9695 Before
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: PerformanceMetG9695
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9695
+      start_date: 2015-12-31 # Too early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+- name: PerformanceMetG9695 Lower
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: PerformanceMetG9695
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9695
+      start_date: 2016-01-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+- name: PerformanceMetG9695 Upper
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: PerformanceMetG9695
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9695
+      start_date: 2016-12-31 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+- name: PerformanceMetG9695 After
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: PerformanceMetG9695
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9695
+      start_date: 2017-01-01 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+- name: PerformanceMetMedication Before
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: PerformanceMetMedication
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1607111 # Bronchodilator
+      start_date: 2015-01-01
+      stop_date: 2015-12-31 # Too early
+- name: PerformanceMetMedication Lower
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: PerformanceMetMedication
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1607111 # Bronchodilator
+      start_date: 2015-01-01
+      stop_date: 2016-01-01 # Lower bound
+- name: PerformanceMetMedication Upper
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: PerformanceMetMedication
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1607111 # Bronchodilator
+      start_date: 2016-12-31 # Upper bound
+- name: PerformanceMetMedication After
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: PerformanceMetMedication
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1607111 # Bronchodilator
+      start_date: 2017-01-01 # Too late
+- name: ExceptionG9696 Before
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: ExceptionG9696
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9696
+      start_date: 2016-01-31 # Too early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+- name: ExceptionG9696 Lower
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: ExceptionG9696
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9696
+      start_date: 2016-02-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+- name: ExceptionG9696 Upper
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: ExceptionG9696
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9696
+      start_date: 2016-02-02 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+- name: ExceptionG9696 After
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: ExceptionG9696
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9696
+      start_date: 2016-02-03 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+- name: ExceptionG9697 Before
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: ExceptionG9697
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9697
+      start_date: 2016-1-31 # Too early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+- name: ExceptionG9697 Lower
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: ExceptionG9697
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9697
+      start_date: 2016-02-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+- name: ExceptionG9697 Upper
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: ExceptionG9697
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9697
+      start_date: 2016-02-02 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+- name: ExceptionG9697 After
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: ExceptionG9697
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9697
+      start_date: 2016-02-03 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+- name: ExceptionG9698 Before
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: ExceptionG9698
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9698
+      start_date: 2016-01-31 # Too early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+- name: ExceptionG9698 Lower
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: ExceptionG9698
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9698
+      start_date: 2016-02-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+- name: ExceptionG9698 Upper
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: ExceptionG9698
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9698
+      start_date: 2016-02-02 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
+- name: ExceptionG9698 After
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: ExceptionG9698
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: G8924 # FEV1/FVC
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9698
+      start_date: 2016-02-03 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J41.0
+      start_date: 2016-02-01
