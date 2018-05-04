@@ -59,7 +59,7 @@ define "Numerator Performance Met: G9916":
     with "Functional Status Assessment" P
       such that P.relevantPeriod starts on or 1 year or less before start of E.relevantPeriod)
 
-define "Numerator Performance Met: G9917":
+define "Denominator Exception: G9917":
   /*
    * config_link_id: G9917
    */
