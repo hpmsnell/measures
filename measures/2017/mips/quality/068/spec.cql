@@ -62,7 +62,7 @@ define "Numerator Performance Met: 3160F":
     where P.relevantPeriod starts during "Measurement Period")
   or exists(["Procedure, Performed": "Able; Documentation of Iron Stores"] P
     with "First Erythropoietin Therapy" M
-      such that P.relevantPeriod starts at or 60 days or less before start of M.relevantPeriod)
+      such that P.relevantPeriod starts on or 60 days or less before start of M.relevantPeriod)
 
 define "Denominator Exception: 3160F-3P":
   /*
