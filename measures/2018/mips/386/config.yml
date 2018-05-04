@@ -1,0 +1,157 @@
+---
+measure:
+  name: 18.MIPS.Mips386
+  required:
+    display_title: 'Amyotrophic Lateral Sclerosis (ALS) Patient Care Preferences'
+    inverse: false
+    subject_type: Patient
+    set: HEDIS
+    external_id: 386
+  optional:
+    description: Percentage of patients diagnosed with Amyotrophic Lateral Sclerosis (ALS) who were offered assistance in planning for end of life issues (e.g., advance directives, invasive ventilation, hospice) at least once annually
+    gap_resolution_action: Patient is due for assistance in planning for end of life issues
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Neurology'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: All patients with a diagnosis of Amyotrophic Lateral Sclerosis (ALS)
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 386 Encounter
+  - validation_record_table_count: 1
+    logical_operator: 'AND'
+    components:
+    - display_title: Amyotrophic Lateral Sclerosis
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; Amyotrophic Lateral Sclerosis
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Hospice Service
+    description: Patient in hospice at any time during the measurement period
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Encounter
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: MIPS; MIPS 386 Encounter
+    - validation_record_table_count: 1
+      logical_operator: 'AND'
+      components:
+      - display_title: Amyotrophic Lateral Sclerosis
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: MIPS; Amyotrophic Lateral Sclerosis
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Hospice Service'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; MIPS Hospice Service'
+        - model: ClinicalActivity
+          value_set: 'VSAC; Palliative Care'
+exception:
+  description:
+  reasons:
+performance_met:
+  description: Patients who were offered assistance in planning for end of life issues (e.g., advance directives, invasive ventilation, or hospice) at least once annually
+  reasons:
+  - config_link_id: G9380
+    code_value: G9380
+    display_title: G9380
+    description: Patient offered assistance with end of life issues during the measurement period
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Encounter
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; MIPS 386 Encounter'
+    - validation_record_table_count: 1
+      logical_operator: 'AND'
+      components:
+      - display_title: Amyotrophic Lateral Sclerosis
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: 'MIPS; Amyotrophic Lateral Sclerosis'
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9380'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9380'
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: 'End of Life Planning'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; End of Life Planning'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9918
+    code_value: G9918
+    display_title: G9918
+    description: Functional status not performed, reason not otherwise specified
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Encounter
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; MIPS 386 Encounter'
+    - validation_record_table_count: 1
+      logical_operator: 'AND'
+      components:
+      - display_title: Amyotrophic Lateral Sclerosis
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: 'MIPS; Amyotrophic Lateral Sclerosis'
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9918'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9918'
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9380'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9380'
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: 'End of Life Planning'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; End of Life Planning'
