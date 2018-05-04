@@ -86,5 +86,5 @@ define "Numerator Performance Not Met: G9517":
   /*
    * config_link_id: G9517
    */
-  not "Numerator Performance Met: G9516"
-  and not "Denominator Exception: G0914"
+  not "Denominator Exclusion: G9757"
+  and not "Numerator Performance Met: G9516"
