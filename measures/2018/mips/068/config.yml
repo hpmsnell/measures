@@ -1,0 +1,91 @@
+measure:
+  name: 18.MIPS.Mips068
+  required:
+    display_title: "Hematology: Myelodysplastic Syndrome (MDS): Documentation of Iron Stores in Patients Receiving Erythropoietin Therapy"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 068
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: 3160F
+    required:
+      display_title: 'Documentation of iron stores prior to initiating erythropoietin therapy'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 068 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Myelodysplastic Syndrome (MDS)"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Erythropoietin Therapy"
+            - model: Medication
+              value_set: "Able; Erythropoietin Therapy"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3160F"
+    optional:
+      code_value: 3160F
+exception_reasons:
+  - config_link_id: 3160F-3P
+    required:
+      display_title: 'Documentation of system reason(s) for not documenting iron stores prior to initiating erythropoietin therapy'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 068 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Myelodysplastic Syndrome (MDS)"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Erythropoietin Therapy"
+            - model: Medication
+              value_set: "Able; Erythropoietin Therapy"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 3160F-3P"
+    optional:
+      code_value: 3160F-3P
+performance_not_met_reasons:
+  - config_link_id: 3160F-8P
+    required:
+      display_title: 'Iron stores prior to initiating erythropoietin therapy not documented, reason not otherwise specified'
+      validation_record_groups:
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 068 Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Myelodysplastic Syndrome (MDS)"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Erythropoietin Therapy"
+            - model: Medication
+              value_set: "Able; Erythropoietin Therapy"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 3160F"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 3160F-8P"
+    optional:
+      code_value: 3160F-8P
