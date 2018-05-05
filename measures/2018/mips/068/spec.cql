@@ -59,10 +59,10 @@ define "Numerator Performance Met: 3160F":
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 3160F"] P
     with "First Erythropoietin Therapy" M
-      such that P.relevantPeriod starts at or 60 days or less before start of M.relevantPeriod)
+      such that P.relevantPeriod starts on or 60 days or less before start of M.relevantPeriod)
   or exists(["Procedure, Performed": "Able; Documentation of Iron Stores"] P
     with "First Erythropoietin Therapy" M
-      such that P.relevantPeriod starts at or 60 days or less before start of M.relevantPeriod)
+      such that P.relevantPeriod starts on or 60 days or less before start of M.relevantPeriod)
 
 define "Denominator Exception: 3160F-3P":
   /*
@@ -70,7 +70,7 @@ define "Denominator Exception: 3160F-3P":
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: 3160F-3P"] P
     with "First Erythropoietin Therapy" M
-      such that P.relevantPeriod starts at or 60 days or less before start of M.relevantPeriod)
+      such that P.relevantPeriod starts on or 60 days or less before start of M.relevantPeriod)
 
 define "Numerator Performance Not Met: 3160F-8P":
   /*
