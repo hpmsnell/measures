@@ -1,0 +1,267 @@
+---
+measure:
+  name: 18.MIPS.Mips325
+  required:
+    display_title: 'Adult Major Depressive Disorder (MDD): Coordination of Care of Patients with Specific Comorbid Conditions'
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: 325
+  optional:
+    description: "Percentage of medical records of patients aged 18 years and older with a diagnosis of major depressive disorder (MDD) and a specific diagnosed comorbid condition (diabetes, coronary artery disease, ischemic stroke, intracranial hemorrhage, chronic kidney disease [stages 4 or 5], End Stage Renal Disease [ESRD] or congestive heart failure) being treated by another clinician with communication to the clinician treating the comorbid condition"
+    gap_resolution_action: "Patient is due for communication to the clinician treating the patient's comorbid condition that the patient has MDD"
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Mental/Behavioral Health'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: "All medical records of patients aged 18 years and older with a diagnosis of major depressive disorder (MDD) and a specific diagnosed comorbid condition (diabetes, coronary artery disease, ischemic stroke, intracranial hemorrhage, chronic kidney disease [stages 4 or 5], ESRD or congestive heart failure) being treated by another clinician"
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 325 Encounter
+  - validation_record_table_count: 1
+    logical_operator: 'AND'
+    components:
+    - display_title: "Major Depressive Disorder (MDD)"
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: "MIPS; MIPS 325 Major Depressive Disorder"
+  - validation_record_table_count: 1
+    logical_operator: 'AND'
+    components:
+    - display_title: "Diabetes"
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: "MIPS; MIPS 325 Diabetes"
+    - display_title: "Coronary Artery Disease (CAD)"
+      logical_operator: "OR"
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: "MIPS; MIPS 325 CAD"
+    - display_title: "Stroke"
+      logical_operator: "OR"
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: "MIPS; MIPS 325 Stroke"
+    - display_title: "Kidney Disease"
+      logical_operator: "OR"
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: "MIPS; MIPS 325 Kidney Disesase"
+    - display_title: "Heart Failure"
+      logical_operator: "OR"
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: "MIPS; MIPS 325 Heart Failure"
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: G9232
+    code_value: G9232
+    display_title: G9232
+    description: "Clinician treating Major Depressive Disorder did not communicate to clinician treating comorbid condition for specified patient reason (e.g. patient is unable to communicate the diagnosis of a comorbid condition; the patient is unwilling to communicate the diagnosis of a comorbid condition; or he patient is unaware of the comorbid condition, or any other specified patient reason)"
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Encounter
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: MIPS; MIPS 325 Encounter
+    - validation_record_table_count: 1
+      logical_operator: 'AND'
+      components:
+      - display_title: "Major Depressive Disorder (MDD)"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "MIPS; MIPS 325 Major Depressive Disorder"
+    - validation_record_table_count: 1
+      logical_operator: 'AND'
+      components:
+      - display_title: "Diabetes"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "MIPS; MIPS 325 Diabetes"
+      - display_title: "Coronary Artery Disease (CAD)"
+        logical_operator: "OR"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "MIPS; MIPS 325 CAD"
+      - display_title: "Stroke"
+        logical_operator: "OR"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "MIPS; MIPS 325 Stroke"
+      - display_title: "Kidney Disease"
+        logical_operator: "OR"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "MIPS; MIPS 325 Kidney Disesase"
+      - display_title: "Heart Failure"
+        logical_operator: "OR"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "MIPS; MIPS 325 Heart Failure"
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9232'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G9232'
+performance_met:
+  description: Medical records of patients with communication to the clinician treating the comorbid condition
+  reasons:
+  - config_link_id: G8959
+    code_value: G8959
+    display_title: G8959
+    description: Clinician treating Major Depressive Disorder communicates to clinician treating comorbid condition
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Encounter
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: MIPS; MIPS 325 Encounter
+    - validation_record_table_count: 1
+      logical_operator: 'AND'
+      components:
+      - display_title: "Major Depressive Disorder (MDD)"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "MIPS; MIPS 325 Major Depressive Disorder"
+    - validation_record_table_count: 1
+      logical_operator: 'AND'
+      components:
+      - display_title: "Diabetes"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "MIPS; MIPS 325 Diabetes"
+      - display_title: "Coronary Artery Disease (CAD)"
+        logical_operator: "OR"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "MIPS; MIPS 325 CAD"
+      - display_title: "Stroke"
+        logical_operator: "OR"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "MIPS; MIPS 325 Stroke"
+      - display_title: "Kidney Disease"
+        logical_operator: "OR"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "MIPS; MIPS 325 Kidney Disesase"
+      - display_title: "Heart Failure"
+        logical_operator: "OR"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "MIPS; MIPS 325 Heart Failure"
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8959'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8959'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G8960
+    code_value: G8960
+    display_title: G8960
+    description: Medical and surgical treatment options not reviewed with patient (or caregiver), reasons not otherwise specified
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Encounter
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: MIPS; MIPS 325 Encounter
+    - validation_record_table_count: 1
+      logical_operator: 'AND'
+      components:
+      - display_title: "Major Depressive Disorder (MDD)"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "MIPS; MIPS 325 Major Depressive Disorder"
+    - validation_record_table_count: 1
+      logical_operator: 'AND'
+      components:
+      - display_title: "Diabetes"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "MIPS; MIPS 325 Diabetes"
+      - display_title: "Coronary Artery Disease (CAD)"
+        logical_operator: "OR"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "MIPS; MIPS 325 CAD"
+      - display_title: "Stroke"
+        logical_operator: "OR"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "MIPS; MIPS 325 Stroke"
+      - display_title: "Kidney Disease"
+        logical_operator: "OR"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "MIPS; MIPS 325 Kidney Disesase"
+      - display_title: "Heart Failure"
+        logical_operator: "OR"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "MIPS; MIPS 325 Heart Failure"
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8960'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G8960'
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8959'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8959'
