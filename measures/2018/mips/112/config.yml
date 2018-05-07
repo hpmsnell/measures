@@ -1,0 +1,135 @@
+---
+measure:
+  name: 18.MIPS.Mips226Rate1
+  required:
+    display_title: "Breast Cancer Screening"
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: '112'
+  optional:
+    description: 'Percentage of women 50 - 74 years of age who had a mammogram to screen for breast cancer'
+    gap_resolution_action: Patient is due for breast cancer screening
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'Internal Medicine, Obstetrics/Gynecology, Preventive Medicine, General Practice/Family Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'Women 51 - 74 years of age with a visit during the measurement period'
+  component_groups:
+  - validation_record_table_count: 2
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 112 Encounter
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Mastectomy
+    description: "Patient excluded due to history of bilateral mastectomy or left and right mastectomy"
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9708'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G9708'
+    - validation_record_table_count: 5
+      logical_operator: OR
+      components:
+      - display_title: 'Mastectomy'
+        show_codes: false
+        records:
+          - model: ClinicalActivity
+            value_set: "MIPS; History of Mastectomy: G9708"
+          - model: ClinicalActivity
+            value_set: "VSAC; Bilateral Mastectomy"
+          - model: ClinicalActivity
+            value_set: "VSAC; History of bilateral mastectomy"
+          - model: ClinicalActivity
+            value_set: "VSAC; Status Post Left Mastectomy"
+          - model: Diagnosis
+            value_set: "VSAC; Status Post Left Mastectomy"
+          - model: Diagnosis
+            value_set: "VSAC; Status Post Right Mastectomy"
+          - model: Diagnosis
+            value_set: "VSAC; Status Post Right Mastectomy"
+  - config_link_id: exclusion_2
+    code_value:
+    display_title: Hospice Service
+    description: "Patient excluded due to hospice service during the measurement period"
+    component_groups:
+    - validation_record_table_count: 5
+      components:
+      - display_title: 'Hospice Service'
+        show_codes: true
+        records:
+          - model: ClinicalActivity
+            value_set: "MIPS; MIPS Hospice Service"
+          - model: ClinicalActivity
+            value_set: "VSAC; Palliative Care"
+  - config_link_id: exclusion_3
+    code_value:
+    display_title: Special Needs Plans
+    description: "Patient excluded due age 65 or older in Institutional Special Needs Plans (SNP) or residing in long-term care with POS code 32, 33, 34, 54, or 56 during the measurement period"
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9898'
+        show_codes: true
+        records:
+          - model: ClinicalActivity
+            value_set: "MIPS; Denominator Exclusion: G9898"
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Women with one or more mammograms during the measurement period or the 15 months prior to the measurement period'
+  reasons:
+  - config_link_id: G9899
+    code_value: G9899
+    display_title: G9899
+    description: "Screening, diagnostic, film, digital or digital breast Tomosynthesis (3D) mammography results documented and reviewed"
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9899'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9899'
+    - validation_record_table_count: 1
+      logical_operator: 'OR'
+      components:
+      - display_title: Mammogram
+        show_codes: false
+        records:
+          - model: ClinicalActivity
+            value_set: "VSAC; Mammography"
+          - model: ClinicalActivity
+            value_set: "Able; Mammogram"
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9900
+    code_value: G9900
+    display_title: G9900
+    description: "Screening, diagnostic, film, digital or digital breast Tomosynthesis (3D) mammography results were not documented and reviewed, reason not otherwise specified"
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9900'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9900'
