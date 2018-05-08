@@ -137,6 +137,11 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: G9905
+      - name: G9904 PriorEncounter # G9904 not on most recent encounter
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9905
       - name: LimitedLife Early # Limited life expectancy ends before interval
         denominator: 1
         denominator_exclusion:
@@ -153,6 +158,11 @@ test_set_keys:
         denominator_exception: G99021P
         numerator:
       - name: LimitedLife Late # Limited life expectancy starts after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9905
+      - name: LimitedLife PriorEncounter # Limited life expectancy not on most recent encounter
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -295,26 +305,36 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator: G9905
+        - name: G9904 PriorEncounter # G9904 not on most recent encounter
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9905
         - name: LimitedLife Early # Limited life expectancy ends before interval
-          denominator:
+          denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator:
+          numerator: G9905
         - name: LimitedLife Lower # Limited life expectancy ends lower bound interval
-          denominator:
+          denominator: 1
           denominator_exclusion:
-          denominator_exception:
+          denominator_exception: G99021P
           numerator:
         - name: LimitedLife Upper # Limited life expectancy starts upper bound interval
-          denominator:
+          denominator: 1
           denominator_exclusion:
-          denominator_exception:
+          denominator_exception: G99021P
           numerator:
         - name: LimitedLife Late # Limited life expectancy starts after interval
-          denominator:
+          denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator:
+          numerator: G9905
+        - name: LimitedLife PriorEncounter # Limited life expectancy not on most recent encounter
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9905
 providers:
 - given_name: Rachel
   family_name: Kohler
@@ -673,10 +693,11 @@ patients:
       - code_type: CPT
         code_value: 92522
         start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: CPT
         code_value: G9904
-        start_date: 2015-12-31
+        start_date: 2016-01-31 # Too early
   - name: G9904 Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -688,10 +709,11 @@ patients:
       - code_type: CPT
         code_value: 92522
         start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: CPT
         code_value: G9904
-        start_date: 2016-01-01
+        start_date: 2016-02-01 # Lower bound
   - name: G9904 Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -703,10 +725,11 @@ patients:
       - code_type: CPT
         code_value: 92522
         start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: CPT
         code_value: G9904
-        start_date: 2016-12-31
+        start_date: 2016-02-02 # Upper bound
   - name: G9904 Late
     attributes:
       date_of_birth: 1988-03-22
@@ -718,10 +741,32 @@ patients:
       - code_type: CPT
         code_value: 92522
         start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: CPT
         code_value: G9904
-        start_date: 2017-01-01
+        start_date: 2016-02-03 # Too late
+  - name: G9904 PriorEncounter
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9904
+      family_name: PriorEncounter
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-03-01
+        stop_date: 2016-03-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9904
+        start_date: 2016-02-01 # During encounter that is not the most recent
   - name: LimitedLife Early
     attributes:
       date_of_birth: 1988-03-22
@@ -733,12 +778,13 @@ patients:
       - code_type: CPT
         code_value: 92522
         start_date: 2016-02-01
-        provider: Patty
+        stop_date: 2016-02-02
+        provider: Rachel
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 162607003
         start_date: 2015-01-01
-        stop_date: 2015-12-31
+        stop_date: 2016-01-31 # Too early
   - name: LimitedLife Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -750,11 +796,12 @@ patients:
       - code_type: CPT
         code_value: 92522
         start_date: 2016-02-01
-        provider: Patty
+        stop_date: 2016-02-02
+        provider: Rachel
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 162607003
-        start_date: 2016-01-01
+        start_date: 2016-02-01 # Lower bound
   - name: LimitedLife Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -766,11 +813,12 @@ patients:
       - code_type: CPT
         code_value: 92522
         start_date: 2016-02-01
-        provider: Patty
+        stop_date: 2016-02-02
+        provider: Rachel
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 162607003
-        start_date: 2016-12-31
+        start_date: 2016-02-02 # Upper bound
   - name: LimitedLife Late
     attributes:
       date_of_birth: 1988-03-22
@@ -782,8 +830,32 @@ patients:
       - code_type: CPT
         code_value: 92522
         start_date: 2016-02-01
-        provider: Patty
+        stop_date: 2016-02-02
+        provider: Rachel
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 162607003
-        start_date: 2017-01-01
+        start_date: 2016-02-03 # Too late
+  - name: LimitedLife PriorEncounter
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: LimitedLife
+      family_name: PriorEncounter
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-03-01
+        stop_date: 2016-03-02
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 162607003
+        start_date: 2016-02-01 # Overlaps encounter that is not the most recent
+        stop_date: 2016-02-01

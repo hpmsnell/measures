@@ -15,7 +15,6 @@ using QDM
 
 valueset "MIPS; MIPS 226 Encounter"
 valueset "MIPS; MIPS 226 Preventive Encounter"
-valueset "MIPS; Telehealth Modifier"
 valueset "MIPS; Performance Met: 4004F"
 valueset "MIPS; Performance Met: 1036F"
 valueset "MIPS; Denominator Exception: 4004F-1P"
@@ -37,7 +36,6 @@ valueset "VSAC; Tobacco Use Cessation Pharmacotherapy": '2.16.840.1.113883.3.526
 valueset "Able; Never Tobacco User"
 
 parameter "Measurement Period" Interval<DateTime>
-parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
@@ -45,17 +43,19 @@ define "Tobacco Interval": Interval[24 months before end "Measurement Period", e
 
 define "226 Encounter"
   ["Encounter, Performed": "MIPS; MIPS 226 Encounter"] E
-    where E.relevantPeriod starts during "Denominator Period"
+    where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
-      and not E.code.modifier in "MIPS; Telehealth Modifier"
+      and not E.code.modifier in {'GQ','GT','95'}
+      and not E.placeOfService in {'02'}
 
 define "226 Preventive Encounter"
   ["Encounter, Performed": "MIPS; MIPS 226 Preventive Encounter"] E
-    where E.relevantPeriod starts during "Denominator Period"
+    where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
-      and not E.code.modifier in "MIPS; Telehealth Modifier"
+      and not E.code.modifier in {'GQ','GT','95'}
+      and not E.placeOfService in {'02'}
 
 define "Tobacco User":
   ["Diagnosis": "VSAC; Tobacco User"]
@@ -71,13 +71,25 @@ define "Screening"
   "Tobacco User"
   union "Tobacco Non-User"
 
+define "Denominator Encounter":
+  "226 Encounter"
+  union "226 Preventive Encounter"
+
+define "Most Recent Denominator Encounter":
+  Last("Denominator Encounter" E
+    sort by start of E.relevantPeriod asc)
+
+define "Hospice Service":
+  ["Intervention, Performed": "VSAC; Palliative Care"]
+  union ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
+
 define "Exception Exists":
-  exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Measurement Period")
-  or exists(["Procedure, Performed": "MIPS; MIPS Hospice Service"] P
-    where P.relevantPeriod starts during "Measurement Period")
+  exists("Hospice Service" I
+    with "Most Recent Denominator Encounter" E
+      such that I.authorDateTime during E.relevantPeriod)
   or exists(["Diagnosis": "VSAC; Limited Life Expectancy"] D
-    where D.prevalencePeriod overlaps "Measurement Period")
+    with "Most Recent Denominator Encounter" E
+      such that D.prevalencePeriod overlaps E.relevantPeriod)
 
 define "Exception for Not Screening":
   not exists("Screening" D
@@ -88,6 +100,8 @@ define "Exception for Not Performing Intervention":
   exists("Tobacco User" D
     where D.prevalencePeriod starts during "Tobacco Interval")
   and "Exception Exists"
+
+/* Populations */
 
 define "Denominator":
   count("226 Encounter") >= 2
@@ -132,8 +146,9 @@ define "Denominator Exception: G9909":
    * config_link_id: G9909
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G9909"] P
-    where P.relevantPeriod starts during "Measurement Period")
-  or "Exception for Not Providing Intervention"
+    with "Most Recent Denominator Encounter" E
+      such that P.relevantPeriod starts during E.relevantPeriod)
+  or "Exception for Not Performing Intervention"
 
 define "Numerator Performance Not Met: 4004F-8P":
   /*

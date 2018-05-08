@@ -145,14 +145,19 @@ test_set_keys:
       - name: G9907 Lower # G9907 lower bound interval
         denominator: 1
         denominator_exclusion:
-        denominator_exception: G99061P
+        denominator_exception: G9907
         numerator:
       - name: G9907 Upper # G9907 upper bound interval
         denominator: 1
         denominator_exclusion:
-        denominator_exception: G99061P
+        denominator_exception: G9907
         numerator:
       - name: G9907 Late # G9907 after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9908
+      - name: G9907 PriorEncounter # G9907 not on most recent encounter
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -165,14 +170,19 @@ test_set_keys:
       - name: LimitedLife Lower # Limited life expectancy ends lower bound interval
         denominator: 1
         denominator_exclusion:
-        denominator_exception: G99061P
+        denominator_exception: G9907
         numerator:
       - name: LimitedLife Upper # Limited life expectancy starts upper bound interval
         denominator: 1
         denominator_exclusion:
-        denominator_exception: G99061P
+        denominator_exception: G9907
         numerator:
       - name: LimitedLife Late # Limited life expectancy starts after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9908
+      - name: LimitedLife PriorEncounter # Limited life expectancy not on most recent encounter
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -323,38 +333,48 @@ test_set_keys:
         - name: G9907 Lower # G9907 lower bound interval
           denominator: 1
           denominator_exclusion:
-          denominator_exception: G99061P
+          denominator_exception: G9907
           numerator:
         - name: G9907 Upper # G9907 upper bound interval
           denominator: 1
           denominator_exclusion:
-          denominator_exception: G99061P
+          denominator_exception: G9907
           numerator:
         - name: G9907 Late # G9907 after interval
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G9908
+        - name: G9907 PriorEncounter # G9907 not on most recent encounter
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9908
         - name: LimitedLife Early # Limited life expectancy ends before interval
-          denominator:
+          denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator:
+          numerator: G9908
         - name: LimitedLife Lower # Limited life expectancy ends lower bound interval
-          denominator:
+          denominator: 1
           denominator_exclusion:
-          denominator_exception:
+          denominator_exception: G9907
           numerator:
         - name: LimitedLife Upper # Limited life expectancy starts upper bound interval
-          denominator:
+          denominator: 1
           denominator_exclusion:
-          denominator_exception:
+          denominator_exception: G9907
           numerator:
         - name: LimitedLife Late # Limited life expectancy starts after interval
-          denominator:
+          denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator:
+          numerator: G9908
+        - name: LimitedLife PriorEncounter # Limited life expectancy not on most recent encounter
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9908
 providers:
 - given_name: Rachel
   family_name: Kohler
@@ -551,6 +571,66 @@ patients:
       - code_type: CPT
         code_value: G9902 # Tobacco user
         start_date: 2016-02-01
+  - name: TobaccoUser Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: TobaccoUser
+      family_name: Early
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9902 # Tobacco user
+        start_date: 2014-12-31 # Too early
+  - name: TobaccoUser Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: TobaccoUser
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9902 # Tobacco user
+        start_date: 2015-01-01 # Lower bound
+  - name: TobaccoUser Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: TobaccoUser
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-12-31
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9902 # Tobacco user
+        start_date: 2016-12-31 # Upper bound
+  - name: TobaccoUser Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: TobaccoUser
+      family_name: Late
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+      - code_type: CPT
+        code_value: G9902 # Tobacco user
+        start_date: 2017-01-01 # Too late
   - name: G9906 Early
     attributes:
       date_of_birth: 1988-03-22
@@ -568,7 +648,7 @@ patients:
         start_date: 2016-02-01
       - code_type: CPT
         code_value: G9906
-        start_date: 2015-12-31
+        start_date: 2014-12-31 # Too early
   - name: G9906 Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -586,7 +666,7 @@ patients:
         start_date: 2016-02-01
       - code_type: CPT
         code_value: G9906
-        start_date: 2016-01-01
+        start_date: 2015-01-01 # Lower bound
   - name: G9906 Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -816,13 +896,14 @@ patients:
       - code_type: CPT
         code_value: 92522
         start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: CPT
         code_value: G9902 # Tobacco user
         start_date: 2016-02-01
       - code_type: CPT
         code_value: G9907
-        start_date: 2015-12-31
+        start_date: 2016-01-31 # Too early
   - name: G9907 Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -834,13 +915,14 @@ patients:
       - code_type: CPT
         code_value: 92522
         start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: CPT
         code_value: G9902 # Tobacco user
         start_date: 2016-02-01
       - code_type: CPT
         code_value: G9907
-        start_date: 2016-01-01
+        start_date: 2016-02-01 # Lower bound
   - name: G9907 Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -852,13 +934,14 @@ patients:
       - code_type: CPT
         code_value: 92522
         start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: CPT
         code_value: G9902 # Tobacco user
         start_date: 2016-02-01
       - code_type: CPT
         code_value: G9907
-        start_date: 2016-12-31
+        start_date: 2016-02-02 # Upper bound
   - name: G9907 Late
     attributes:
       date_of_birth: 1988-03-22
@@ -870,13 +953,38 @@ patients:
       - code_type: CPT
         code_value: 92522
         start_date: 2016-02-01
+        stop_date: 2016-02-02
         provider: Rachel
       - code_type: CPT
         code_value: G9902 # Tobacco user
         start_date: 2016-02-01
       - code_type: CPT
         code_value: G9907
-        start_date: 2017-01-01
+        start_date: 2016-02-03 # Too late
+  - name: G9907 PriorEncounter
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9907
+      family_name: PriorEncounter
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-03-01
+        stop_date: 2016-03-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9902 # Tobacco user
+        start_date: 2016-02-01
+      - code_type: CPT
+        code_value: G9907
+        start_date: 2016-02-01 # During encounter that is not the most recent
   - name: LimitedLife Early
     attributes:
       date_of_birth: 1988-03-22
@@ -888,12 +996,16 @@ patients:
       - code_type: CPT
         code_value: 92522
         start_date: 2016-02-01
-        provider: Patty
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9902 # Tobacco user
+        start_date: 2016-02-01
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 162607003
         start_date: 2015-01-01
-        stop_date: 2015-12-31
+        stop_date: 2016-01-31 # Too early
   - name: LimitedLife Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -905,11 +1017,15 @@ patients:
       - code_type: CPT
         code_value: 92522
         start_date: 2016-02-01
-        provider: Patty
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9902 # Tobacco user
+        start_date: 2016-02-01
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 162607003
-        start_date: 2016-01-01
+        start_date: 2016-02-01 # Lower bound
   - name: LimitedLife Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -921,11 +1037,15 @@ patients:
       - code_type: CPT
         code_value: 92522
         start_date: 2016-02-01
-        provider: Patty
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9902 # Tobacco user
+        start_date: 2016-02-01
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 162607003
-        start_date: 2016-12-31
+        start_date: 2016-02-02 # Upper bound
   - name: LimitedLife Late
     attributes:
       date_of_birth: 1988-03-22
@@ -937,8 +1057,38 @@ patients:
       - code_type: CPT
         code_value: 92522
         start_date: 2016-02-01
-        provider: Patty
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9902 # Tobacco user
+        start_date: 2016-02-01
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 162607003
-        start_date: 2017-01-01
+        start_date: 2016-02-03 # Too late
+  - name: LimitedLife PriorEncounter
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: LimitedLife
+      family_name: PriorEncounter
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-03-01
+        stop_date: 2016-03-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9902 # Tobacco user
+        start_date: 2016-02-01
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 162607003
+        start_date: 2016-02-01 # Overlaps encounter that is not the most recent
+        stop_date: 2016-02-01
