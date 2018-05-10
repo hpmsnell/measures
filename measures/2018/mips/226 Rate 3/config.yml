@@ -148,17 +148,13 @@ performance_met:
             value_set: "VSAC; Tobacco Non-User"
           - model: Diagnosis
             value_set: "VSAC; Tobacco Non-User"
-          - model: ClinicalActivity
-            value_set: "Able; Never Tobacco User"
-          - model: Diagnosis
-            value_set: "Able; Never Tobacco User"
 performance_not_met:
   description:
   reasons:
   - config_link_id: 4004F-8P
     code_value: 4004F-8P
     display_title: 4004F-8P
-      display_title: "Patient not screened for tobacco use OR patient screened for tobacco use but did not receive tobacco cessation intervention, reason not otherwise specified"
+    description: "Patient not screened for tobacco use OR patient screened for tobacco use but did not receive tobacco cessation intervention, reason not otherwise specified"
     component_groups:
     - validation_record_table_count: 1
       components:
