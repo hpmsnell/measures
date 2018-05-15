@@ -15,11 +15,11 @@ using QDM
 
 valueset "MIPS; MIPS 286 Encounter"
 valueset "MIPS; Dementia"
-valueset "MIPS; Performance Met: G9922" //need to build valueset
-valueset "MIPS; Performance Met: G9923" //need to buid valueset
-valueset "MIPS; Denominator Exception: G9924" //need to build valueset
-valueset "MIPS; Performance Not Met: G9925" //need to build valueset
-valueset "MIPS; Performance Not Met: G9926" //need to build valueset
+valueset "MIPS; Performance Met: G9922"
+valueset "MIPS; Performance Met: G9923"
+valueset "MIPS; Denominator Exception: G9924"
+valueset "MIPS; Performance Not Met: G9925"
+valueset "MIPS; Performance Not Met: G9926"
 
 // Able value sets
 

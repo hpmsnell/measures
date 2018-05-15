@@ -15,9 +15,9 @@ using QDM
 
 valueset "MIPS; MIPS 283 Encounter"
 valueset "MIPS; Dementia"
-valueset "MIPS; Performance Met: G9919" //need to build this valueset
-valueset "MIPS; Performance Met: G9920" //need to build this valueset
-valueset "MIPS; Performance Not Met: G9921" //need to build this valueset
+valueset "MIPS; Performance Met: G9919"
+valueset "MIPS; Performance Met: G9920"
+valueset "MIPS; Performance Not Met: G9921"
 
 // Able value sets
 
