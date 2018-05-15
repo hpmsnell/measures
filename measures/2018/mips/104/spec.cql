@@ -19,10 +19,10 @@ valueset "MIPS; MIPS 104 Encounter"
 valueset "MIPS; Prostate Cancer"
 valueset "MIPS; High Risk of Recurrence of Prostate Cancer"
 valueset "MIPS; Metastatic Cancer"
-valueset "MIPS; Performance Met: 4164F"
-valueset "MIPS; Denominator Exception: 4164F-1P"
-valueset "MIPS; Denominator Exception: 4164F-2P"
-valueset "MIPS; Performance Not Met: 4164F-8P"
+valueset "MIPS; Performance Met: G9894"
+valueset "MIPS; Denominator Exception: G9895"
+valueset "MIPS; Denominator Exception: G9896"
+valueset "MIPS; Performance Not Met: G9897"
 
 // VSAC value sets
 
@@ -74,11 +74,11 @@ define "Denominator Exclusion"
     with "Denominator Encounter" E
       such that D.prevalencePeriod overlaps E.relevantPeriod)
 
-define "Numerator Performance Met: 4164F":
+define "Numerator Performance Met: G9894":
   /*
-   * config_link_id: 4164F
+   * config_link_id: G9894
    */
-  exists(["Procedure, Performed": "MIPS; Performance Met: 4164F"] P
+  exists(["Procedure, Performed": "MIPS; Performance Met: G9894"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 56 days or less after start of E.relevantPeriod)
  or exists(["Procedure, Performed": "Able; GnRH Administered"] P
@@ -88,29 +88,29 @@ define "Numerator Performance Met: 4164F":
     with "Denominator Encounter" E
       such that M.relevantPeriod overlaps [start of E.relevantPeriod, start of E.relevantPeriod + 56 days)
 
-define "Denominator Exception: 4164F-1P":
+define "Denominator Exception: G9895":
   /*
-   * config_link_id: 4164F-1P
+   * config_link_id: G9895
    */
-  exists(["Procedure, Performed": "MIPS; Denominator Exception: 4164F-1P"] P
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: G9895"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts during E.relevantPeriod
   or exists("VSAC; Salvage Therapy" P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts during E.relevantPeriod
 
-define "Denominator Exception: 4164F-2P":
+define "Denominator Exception: G9896":
   /*
-   * config_link_id: 4164F-2P
+   * config_link_id: G9896
    */
-  exists(["Procedure, Performed": "MIPS; Denominator Exception: 4164F-2P"] P
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: G9896"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts during E.relevantPeriod
 
-define "Numerator Performance Not Met: 4164F-8P":
+define "Numerator Performance Not Met: G9897":
   /*
-   * config_link_id: 4164F-8P
+   * config_link_id: G9897
    */
-  not "Numerator Performance Met: 4164F"
-  and not "Denominator Exception: 4164F-1P"
-  and not "Denominator Exception: 4164F-2P"
+  not "Numerator Performance Met: G9894"
+  and not "Denominator Exception: G9895"
+  and not "Denominator Exception: G9896"
