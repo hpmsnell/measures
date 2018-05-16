@@ -1,0 +1,194 @@
+---
+measure:
+  name: 18.MIPS.Mips326
+  required:
+    display_title: 'Atrial Fibrillation and Atrial Flutter: Chronic Anticoagulation
+      Therapy'
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: 326
+  optional:
+    description: 'Percentage of patients aged 18 years and older with nonvalvular
+      atrial fibrillation (AF) or atrial flutter who were prescribed warfarin OR another
+      FDA-approved anticoagulant drug for the prevention of thromboembolism during
+      the measurement period'
+    gap_resolution_action: Patient is due for anticoagulant drug therapy for nonvalvular
+      atrial fibrillation or atrial flutter
+    version: 2017
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'Internal Medicine, Cardiology, General Practice/Family Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 years and older with a diagnosis of nonvalvular
+    AF or atrial flutter who do not have a documented CHA 2 DS 2 -VASc risk score
+    of 0 or 1'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 326 Encounter
+  - logical_operator: AND
+    validation_record_table_count: 1
+    components:
+    - display_title: Nonvalvular Atrial Fibrillation or Atrial Flutter
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; Nonvalvular Atrial Fibrillation or Atrial Flutter
+  - logical_operator: AND
+    validation_record_table_count: 1
+    components:
+    - display_title: Risk Factors for Thromboembolism
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; Risk Factors for Thromboembolism
+      - model: Diagnosis
+        value_set: VSAC; Cerebrovascular disease, Stroke, TIA
+      - model: Diagnosis
+        value_set: VSAC; Diagnosis of hypertension
+      - model: Diagnosis
+        value_set: VSAC; Diabetes
+      - model: Diagnosis
+        value_set: VSAC; Heart Failure
+      - model: ClinicalActivity
+        value_set: MIPS; LVEF <40%
+      - model: Diagnosis
+        value_set: VSAC; Moderate or Severe LVSD
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: exclusion_1
+    description: Patient is excluded due to mitral stenosis, prosthetic heart valves,
+      or transient or reversible cause of atrial fibrillation
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9746'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: MIPS; MIPS 326 Exclusion
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: Mitral Stenosis or Prosthetic Heart Valve
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: Able; Mitral Stenosis
+        - model: ClinicalActivity
+          value_set: Able; Prosthetic Heart Valve
+exception:
+  description:
+  reasons:
+  - config_link_id: G8968
+    code_value: G8968
+    display_title: G8968
+    description: Documentation of medical reason(s) for not prescribing warfarin OR
+      another FDA-approved anticoagulant (e.g., atrial appendage device in place)
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8968'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G8968'
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: Allergy to Anticoagulant
+        show_codes: false
+        records:
+        - model: Allergy
+          value_set: Able; Anticoagulant ingredient specific
+        - model: Diagnosis
+          value_set: Able; Anticoagulant Allergy
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: Iron Deficiency Anemia
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: Able; Iron Deficiency Anemia
+  - config_link_id: G8969
+    code_value: G8969
+    display_title: G8969
+    description: Documentation of patient reason(s) for not prescribing warfarin OR
+      another FDA-approved oral anticoagulant that is FDA-approved for the prevention
+      of thromboembolism (e.g., patient choice of having atrial appendage device placed)
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8969'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G8969'
+  - config_link_id: G9927
+    code_value: G9927
+    display_title: G9927
+    description: Documentation of system reason(s) for not prescribing warfarin OR
+      another FDA-approved anticoagulation due to patient being currently enrolled in a
+      clinical trial related to AF/atrial flutter treatment
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9927'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G9927'
+performance_met:
+  description: 'Patients with nonvalvular AF or atrial flutter for whom warfarin or
+    another FDA-approved anticoagulant was prescribed'
+  reasons:
+  - config_link_id: G8967
+    code_value: G8967
+    display_title: G8967
+    description: Warfarin OR another FDA-approved oral anticoagulant is prescribed
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8967'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8967'
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: Anticoagulant
+        show_codes: false
+        records:
+        - model: Medication
+          value_set: VSAC; Anticoagulant Medications
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9928
+    code_value: G9928
+    display_title: G9928
+    description: Warfarin OR another FDA-approved anticoagulant not prescribed, reason
+      not given
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9928'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9928'
