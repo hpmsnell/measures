@@ -1,0 +1,111 @@
+---
+measure:
+  name: 18.MIPS.Mips337
+  required:
+    display_title: Tuberculosis (TB) Prevention for Psoriasis, Psoriatic Arthritis
+      and Rheumatoid Arthritis Patients on a Biological Immune Response Modifier
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: 337
+    version:
+  optional:
+    description: 'Percentage of patients whose providers are ensuring active tuberculosis
+      prevention either through yearly negative standard tuberculosis screening tests
+      or are reviewing the patient’s history to determine if they have had appropriate
+      management for a recent or prior positive test'
+    gap_resolution_action:
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'Dermatology, Rheumatology, General Practice/Family Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients with a diagnosis of psoriasis and/or psoriatic arthritis
+    and/or rheumatoid arthritis who are on a biologic immune response modifier'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 337 Encounter
+  - logical_operator: 'AND'
+    validation_record_table_count: 1
+    components:
+    - display_title: Psoriasis or Arthritis
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; MIPS 337 Rheumatoid Arthritis
+      - model: Diagnosis
+        value_set: MIPS; Psoriasis
+      - model: Diagnosis
+        value_set: MIPS; Psoriatic Arthritis
+  - logical_operator: 'AND'
+    validation_record_table_count: 1
+    components:
+    - display_title: Biologic Immune Response Modifier
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; Biologic Immune Response Modifier
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: G9932
+    code_value: G9932
+    display_title: G9932
+    description: Documentation of patient reasons(s) for not having records of
+      negative or managed positive TB screen (e.g., patient does not return for Mantoux 
+      (PPD) skin test evaluation)
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9932'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G9932'
+performance_met:
+  description: 'Patients who have a documented negative annual TB screening or have
+    documentation of the management of a positive TB screening test with no evidence
+    of active tuberculosis, confirmed through use of radiographic imaging (i.e., chest
+    x-ray, CT)'
+  reasons:
+  - config_link_id: G9359
+    code_value: G9359
+    display_title: G9359
+    description: Documentation of negative or managed positive TB screen with further
+      evidence that TB is not active within one year of patient visit
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9359'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9359'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9360
+    code_value: G9360
+    display_title: G9360
+    description: No documentation of negative or managed positive TB screen
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9360'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9360'
