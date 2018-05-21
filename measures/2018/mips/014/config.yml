@@ -1,0 +1,112 @@
+---
+measure:
+  name: 18.MIPS.Mips014
+  required:
+    display_title: 'Age-Related Macular Degeneration (AMD): Dilated Macular Examination'
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: '014'
+    version:
+  optional:
+    description: 'Percentage of patients aged 50 years and older with a diagnosis
+      of age-related macular degeneration (AMD) who had a dilated macular examination
+      performed which included documentation of the presence or absence of macular
+      thickening or geographic atrophy or hemorrhage AND the level of macular degeneration
+      severity during one or more office visits within 12 months'
+    gap_resolution_action: Patient requires a dilated macular exam and/or documentation
+      of findings
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'Ophthalmology'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 50 years and older with a diagnosis of AMD'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: 'Encounter'
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 014 Encounter
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: Age-Related Macular Degeneration
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; Age-Related Macular Degeneration
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: G9891
+    code_value: G9891
+    display_title: G9891
+    description: Documentation of medical reason(s) for not performing a dilated macular
+      examination
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9891'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G9891'
+  - config_link_id: G9892
+    code_value: G9892
+    display_title: G9892
+    description: Documentation of patient reason(s) for not performing a dilated macular
+      examination
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9892'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G9892'
+performance_met:
+  description: 'Patients who had a dilated macular examination performed which included
+    documentation of the presence or absence of macular thickening or geographic atrophy
+    or hemorrhage AND the level of macular degeneration severity during one or more
+    office visits within 12 months'
+  reasons:
+  - config_link_id: G9890
+    code_value: G9890
+    display_title: G9890
+    description: Dilated macular exam performed, including documentation of the presence or
+      absence of macular thickening or geographic atrophy or hemorrhage AND the level of
+      macular degeneration severity
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9890'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9890'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9893
+    code_value: G9893
+    display_title: G9893
+    description: Dilated macular exam was not performed, reason not otherwise specified
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9893'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9893'
