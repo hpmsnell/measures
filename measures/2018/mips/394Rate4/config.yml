@@ -1,0 +1,189 @@
+---
+measure:
+  name: 18.MIPS.Mips394Rate4
+  required:
+    display_title: 'Immunizations for Adolescents: All Immunizations'
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: 394 Rate 4
+    version:
+  optional:
+    description: "The percentage of adolescents who are compliant for Meningococcal,
+      Tdap and HPV during the specified timeframes"
+    gap_resolution_action:
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: ""
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    - 18.MIPS.Mips394Rate1
+    - 18.MIPS.Mips394Rate2
+    - 18.MIPS.Mips394Rate3
+    mips_stratum: overall
+    mips_objective:
+denominator:
+  description: 'Adolescents who turn 13 years of age during the measurement period'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 394 Encounter
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title:
+    description: Patient excluded due to allergy to meningococcal, Tdap, and/or HPV
+      vaccine
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Allergy to Vaccine
+        show_codes: false
+        records:
+        - model: Allergy
+          value_set: Able; DTaP Vaccine
+        - model: Diagnosis
+          value_set: VSAC; Anaphylactic Reaction to DTaP Vaccine
+        - model: Allergy
+          value_set: Able; Tetanus Vaccine
+        - model: Allergy
+          value_set: Able; Diphtheria Vaccine
+        - model: Allergy
+          value_set: Able; Pertussis Vaccine
+        - model: Allergy
+          value_set: Able; HPV Vaccine
+        - model: Diagnosis
+          value_set: Able; Allergy to HPV Vaccine
+        - model: Allergy
+          value_set: Able; Meningococcal Vaccine
+        - model: Diagnosis
+          value_set: Able; Allergy to Meningococcal Vaccine
+  - config_link_id: exclusion_2
+    code_value:
+    display_title:
+    description: Patient excluded due to hospice service
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Palliative Care
+        - model: ClinicalActivity
+          value_set: MIPS; MIPS Hospice Service
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Adolescents who are numerator compliant for Rates 1, 2 and 3'
+  reasons:
+  - config_link_id: G9414_G9416_G9762
+    code_value: G9414/G9416/G9762
+    display_title: G9414_G9416_G9762
+    description: "Patient had one dose of meningococcal vaccine on or between the patient's
+      11th and 13th birthdays, one tetanus, diphtheria toxoids and acellular pertussis
+      vaccine (Tdap) on or between the patient's 10th and 13th birthdays, AND at least
+      three HPV vaccines on or between the patient's 9th and 13th birthdays"
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9414'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9414'
+      - logical_operator: 'OR'
+        display_title: Meningococcal Vaccine
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: Able; Meningococcal Vaccine
+        - model: ClinicalActivity
+          value_set: HEDIS; Meningococcal Vaccine Administered
+    - logical_operator: 'AND'
+      validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9416'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9416'
+      - logical_operator: 'OR'
+        display_title: DTaP Vaccine or Components
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: Able; DTaP Vaccine
+        - model: ClinicalActivity
+          value_set: VSAC; DTaP Vaccine Administered
+        - model: Medication
+          value_set: Able; Tetanus Vaccine
+        - model: ClinicalActivity
+          value_set: Able; Tetanus Vaccine Administered
+        - model: Medication
+          value_set: Able; Diphtheria Vaccine
+        - model: ClinicalActivity
+          value_set: Able; Diphtheria Vaccine Administered
+        - model: Medication
+          value_set: Able; Pertussis Vaccine
+    - logical_operator: 'AND'
+      validation_record_table_count: 4
+      components:
+      - display_title: 'Quality Data Code: G9762'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9762'
+      - logical_operator: 'OR'
+        display_title: HPV Vaccines
+        show_codes: true
+        annotation: '3 vaccines or 2 vaccines at least 146 days apart'
+        records:
+        - model: Medication
+          value_set: Able; HPV Vaccine
+        - model: ClinicalActivity
+          value_set: HEDIS; HPV Vaccine Administered
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9415_G9417_G9763
+    code_value: G9415/G9417/G9763
+    display_title: G9415_G9417_G9763
+    description: "Patient did not have one or more of the following vaccinations:
+      one dose of meningococcal vaccine on or between the patient's 11th and 13th
+      birthdays, one tetanus, diphtheria toxoids and acellular pertussis vaccine (Tdap)
+      on or between the patient's 10th and 13th birthdays, AND/OR at least three
+      HPV vaccines on or between the patient's 9th and 13th birthdays"
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9415'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9415'
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9417'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9417'
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9763'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9763'
