@@ -1,0 +1,83 @@
+---
+measure:
+  name: 18.MIPS.Mips361
+  required:
+    display_title: 'Optimizing Patient Exposure to Ionizing Radiation: Reporting to
+      a Radiation Dose Index Registry'
+    inverse: false
+    subject_type: Encounter
+    set: MIPS
+    external_id: 361
+    version:
+  optional:
+    description: 'Percentage of total computed tomography (CT) studies performed for
+      all patients, regardless of age, that are submitted to a radiation dose index
+      registry that is capable of collecting at a minimum selected data elements'
+    gap_resolution_action:
+    version: 2018
+    mips_measure_type: Structure
+    mips_high_priority: true
+    mips_specialty_sets: 'Diagnostic Radiology'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All final reports for patients, regardless of age, undergoing a CT
+    procedure'
+  component_groups:
+  - validation_record_table_count: 10
+    components:
+    - display_title: Procedure
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 361 Procedure
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'CT studies performed that are reported to a radiation dose index registry
+    that is capable of collecting at a minimum all of the following data elements:
+    • Manufacturer • Study description • Manufacturer’s model name • Patient’s weight
+    • Patient’s size • Patient’s sex'
+  reasons:
+  - config_link_id: G9327
+    code_value: G9327
+    display_title: G9327
+    description: CT studies performed reported to a radiation dose index registry
+      that is capable of collecting at a minimum all necessary data elements
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G9327'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9327'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9326
+    code_value: G9326
+    display_title: G9326
+    description: CT studies performed not reported to a radiation dose index registry
+      that is capable of collecting at a minimum all necessary data elements, reason
+      not given
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G9326'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9326'
+  - config_link_id: 'no_qdc'
+    code_value:
+    display_title: No Quality Data Code
+    description: No quality data code found in the appropriate time period
+    component_groups:

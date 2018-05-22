@@ -1,0 +1,88 @@
+---
+measure:
+  name: 18.MIPS.Mips360
+  required:
+    display_title: 'Optimizing Patient Exposure to Ionizing Radiation: Count of Potential
+      High Dose Radiation Imaging Studies: Computed Tomography (CT) and Cardiac Nuclear
+      Medicine Studies'
+    inverse: false
+    subject_type: Encounter
+    set: MIPS
+    external_id: 360
+    version:
+  optional:
+    description: 'Percentage of computed tomography (CT) and cardiac nuclear medicine
+      (myocardial perfusion studies) imaging reports for all patients, regardless
+      of age, that document a count of known previous CT (any type of CT) and cardiac
+      nuclear medicine (myocardial perfusion) studies that the patient has received
+      in the 12-month period prior to the current study'
+    gap_resolution_action: Patient requires documentation of count of previous CT
+      and cardiac nuclear medicine studies
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Diagnostic Radiology'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All final reports for patients, regardless of age, undergoing a CT
+    procedure'
+  component_groups:
+  - validation_record_table_count: 10
+    components:
+    - display_title: Procedure
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 360 Procedure
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'CT and cardiac nuclear medicine (myocardial perfusion studies) imaging
+    reports that document a count of known previous CT (any type of CT) and cardiac
+    nuclear medicine (myocardial perfusion) studies that the patient has received
+    in the 12-month period prior to the current study'
+  reasons:
+  - config_link_id: G9321
+    code_value: G9321
+    display_title: G9321
+    description: Count of previous CT (any type of CT) and cardiac nuclear medicine
+      (myocardial perfusion) studies documented in the 12-month period prior to the
+      current study
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G9321'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9321'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9322
+    code_value: G9322
+    display_title: G9322
+    description: Count of previous CT and cardiac nuclear medicine (myocardial perfusion)
+      studies not documented in the 12-month period prior to the current study, reason
+      not given
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G9322'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9322'
+  - config_link_id: 'no_qdc'
+    code_value:
+    display_title: No Quality Data Code
+    description: No quality data code found in the appropriate time period
+    component_groups:
