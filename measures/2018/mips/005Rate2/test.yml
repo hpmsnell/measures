@@ -1,0 +1,1344 @@
+measure_id: 18.MIPS.Mips005Rate2
+test_set_keys:
+  organization_key:
+    episodes_of_care:
+    - name: Too Young
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: DenominatorEncounter Before # Early
+      start_date: 2015-12-31
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter Lower # Lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: DenominatorEncounter Upper # Upper Bound
+      start_date: 2016-12-31
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: DenominatorEncounter After # Late
+      start_date: 2017-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorDiagnosis Before # Before
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorDiagnosis Lower # Lower
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: DenominatorDiagnosis Upper # Upper
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: DenominatorDiagnosis After # After
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorAssessment Before # Before
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: DenominatorAssessment Lower # Lower
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: DenominatorAssessment Upper # Upper
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: DenominatorAssessment After # After
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: PerformanceMet4010F Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: PerformanceMet4010F Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F
+    - name: PerformanceMet4010F Upper # Upper bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F
+    - name: PerformanceMet4010F After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: PerformanceMetMedication Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: PerformanceMetMedication Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F
+    - name: PerformanceMetMedication Upper # Upper bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F
+    - name: PerformanceMetMedication After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: Exception4010F-1P Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: Exception4010F-1P Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4010F-1P
+      numerator:
+    - name: Exception4010F-1P Upper # Upper bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4010F-1P
+      numerator:
+    - name: Exception4010F-1P After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: ExceptionAllergy Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: ExceptionAllergy Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4010F-1P
+      numerator:
+    - name: ExceptionAllergy Upper # Upper bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4010F-1P
+      numerator:
+    - name: ExceptionAllergy After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: Exception4010F-2P Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: Exception4010F-2P Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4010F-2P
+      numerator:
+    - name: Exception4010F-2P Upper # Upper bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4010F-2P
+      numerator:
+    - name: Exception4010F-2P After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: Exception4010F-3P Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+    - name: Exception4010F-3P Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4010F-3P
+      numerator:
+    - name: Exception4010F-3P Upper # Upper bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4010F-3P
+      numerator:
+    - name: Exception4010F-3P After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4010F-8P
+  providers_key:
+    - name: Rachel
+      episodes_of_care:
+      - name: Too Young
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F-8P
+      - name: DenominatorEncounter Before # Early
+        start_date: 2015-12-31
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorEncounter Lower # Lower bound
+        start_date: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F-8P
+      - name: DenominatorEncounter Upper # Upper Bound
+        start_date: 2016-12-31
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F-8P
+      - name: DenominatorEncounter After # Late
+        start_date: 2017-01-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorDiagnosis Before # Before
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorDiagnosis Lower # Lower
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F-8P
+      - name: DenominatorDiagnosis Upper # Upper
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F-8P
+      - name: DenominatorDiagnosis After # After
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorAssessment Before # Before
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F-8P
+      - name: DenominatorAssessment Lower # Lower
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F-8P
+      - name: DenominatorAssessment Upper # Upper
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F-8P
+      - name: DenominatorAssessment After # After
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: PerformanceMet4010F Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F-8P
+      - name: PerformanceMet4010F Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F
+      - name: PerformanceMet4010F Upper # Upper bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F
+      - name: PerformanceMet4010F After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F-8P
+      - name: PerformanceMetMedication Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F-8P
+      - name: PerformanceMetMedication Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F
+      - name: PerformanceMetMedication Upper # Upper bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F
+      - name: PerformanceMetMedication After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F-8P
+      - name: Exception4010F-1P Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F-8P
+      - name: Exception4010F-1P Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: 4010F-1P
+        numerator:
+      - name: Exception4010F-1P Upper # Upper bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: 4010F-1P
+        numerator:
+      - name: Exception4010F-1P After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F-8P
+      - name: ExceptionAllergy Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F-8P
+      - name: ExceptionAllergy Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: 4010F-1P
+        numerator:
+      - name: ExceptionAllergy Upper # Upper bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: 4010F-1P
+        numerator:
+      - name: ExceptionAllergy After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F-8P
+      - name: Exception4010F-2P Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F-8P
+      - name: Exception4010F-2P Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: 4010F-2P
+        numerator:
+      - name: Exception4010F-2P Upper # Upper bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: 4010F-2P
+        numerator:
+      - name: Exception4010F-2P After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4010F-8P
+      - name: Exception4010F-3P Before # Early
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Exception4010F-3P Lower # Lower bound
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Exception4010F-3P Upper # Upper bound
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Exception4010F-3P After # Late
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+providers:
+- given_name: Rachel
+  family_name:  Katz
+  credential: DO
+  primary_specialty:  Family Medicine
+  external_id: '111-111'
+- given_name: Patty
+  family_name:  Smith
+  credential: MD
+  primary_specialty:  Family Medicine
+  external_id: '222-222'
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1998-02-02 # Late
+    given_name: Too
+    family_name: Young
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+- name: Age Lower
+  attributes:
+    date_of_birth: 1998-02-01 # Lower bound
+    given_name: Age
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+- name: DenominatorEncounter Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2015-12-31 # Too early
+      stop_date: 2015-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2015-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2015-12-31
+- name: DenominatorEncounter Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-01-01
+- name: DenominatorEncounter Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-12-31 # Upper bound
+      stop_date: 2016-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-12-31
+- name: DenominatorEncounter After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2017-01-01 # Too late
+      stop_date: 2017-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2017-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2017-01-01
+- name: DenominatorDiagnosis Before
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: DenominatorDiagnosis
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-01-31 # Too early
+- name: DenominatorDiagnosis Lower
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: DenominatorDiagnosis
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01 # Lower bound
+- name: DenominatorDiagnosis Upper
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: DenominatorDiagnosis
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-02 # Upper bound
+- name: DenominatorDiagnosis After
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: DenominatorDiagnosis
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-03 # Too late
+- name: DenominatorAssessment Before
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: DenominatorAssessment
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2015-12-31 # Before
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+- name: DenominatorAssessment Lower
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: DenominatorAssessment
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+- name: DenominatorAssessment Upper
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: DenominatorAssessment
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-02 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+- name: DenominatorAssessment After
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: DenominatorAssessment
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-03 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+- name: PerformanceMet4010F Before
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: PerformanceMet4010F
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 4010F # Performance met
+      start_date: 2015-12-31 # Too early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+- name: PerformanceMet4010F Lower
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: PerformanceMet4010F
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 4010F # Performance met
+      start_date: 2016-02-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+- name: PerformanceMet4010F Upper
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: PerformanceMet4010F
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 4010F # Performance met
+      start_date: 2016-02-02 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+- name: PerformanceMet4010F After
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: PerformanceMet4010F
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 4010F # Performance met
+      start_date: 2016-02-03 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+- name: PerformanceMetMedication Before
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: PerformanceMetMedication
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1000001 # ACE or ARB
+      start_date: 2016-01-01
+      stop_date: 2016-01-31 # Too early
+- name: PerformanceMetMedication Lower
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: PerformanceMetMedication
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1000001 # ACE or ARB
+      method: E
+      start_date: 2016-01-01
+      stop_date: 2016-02-01 # Lower bound
+- name: PerformanceMetMedication Upper
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: PerformanceMetMedication
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1000001 # ACE or ARB
+      start_date: 2016-02-02 # Upper bound
+- name: PerformanceMetMedication After
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: PerformanceMetMedication
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1000001 # ACE or ARB
+      start_date: 2016-02-03 # Too late
+- name: Exception4010F-1P Before
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: Exception4010F-1P
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 4010F-1P # Denominator excption
+      start_date: 2016-01-31 # Too early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+- name: Exception4010F-1P Lower
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: Exception4010F-1P
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 4010F-1P # Denominator excption
+      start_date: 2016-02-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+- name: Exception4010F-1P Upper
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: Exception4010F-1P
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 4010F-1P # Denominator excption
+      start_date: 2016-02-02 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+- name: Exception4010F-1P After
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: Exception4010F-1P
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 4010F-1P # Denominator excption
+      start_date: 2016-02-03 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+- name: ExceptionAllergy Before
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: ExceptionAllergy
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+    allergies:
+    - code_type: RXNORM
+      code_value: 18867 # ACE or ARB
+      start_date: 2016-01-01
+      stop_date: 2016-01-31 # Too early
+- name: ExceptionAllergy Lower
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: ExceptionAllergy
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+    allergies:
+    - code_type: RXNORM
+      code_value: 18867 # ACE or ARB
+      start_date: 2016-01-01
+      stop_date: 2016-02-01 # Lower bound
+- name: ExceptionAllergy Upper
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: ExceptionAllergy
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+    allergies:
+    - code_type: RXNORM
+      code_value: 18867 # ACE or ARB
+      start_date: 2016-02-02 # Upper bound
+- name: ExceptionAllergy After
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: ExceptionAllergy
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+    allergies:
+    - code_type: RXNORM
+      code_value: 18867 # ACE or ARB
+      start_date: 2016-02-03 # Too late
+- name: Exception4010F-2P Before
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: Exception4010F-2P
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 4010F-2P # Denominator exception
+      start_date: 2016-01-31 # Too early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+- name: Exception4010F-2P Lower
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: Exception4010F-2P
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 4010F-2P # Denominator exception
+      start_date: 2016-02-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+- name: Exception4010F-2P Upper
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: Exception4010F-2P
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 4010F-2P # Denominator exception
+      start_date: 2016-02-02 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+- name: Exception4010F-2P After
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: Exception4010F-2P
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 4010F-2P # Denominator exception
+      start_date: 2016-02-03 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+- name: Exception4010F-3P Before
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: Exception4010F-3P
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: 99238
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+      provider: Patty
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 4010F-3P # Denominator exception
+      start_date: 2016-01-31 # Too early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+- name: Exception4010F-3P Lower
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: Exception4010F-3P
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: 99238
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+      provider: Patty
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 4010F-3P # Denominator exception
+      start_date: 2016-02-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+- name: Exception4010F-3P Upper
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: Exception4010F-3P
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: 99238
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+      provider: Patty
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 4010F-3P # Denominator exception
+      start_date: 2016-02-02 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01
+- name: Exception4010F-3P After
+  attributes:
+    date_of_birth: 1990-02-01
+    given_name: Exception4010F-3P
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99238 # Denominator encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: 99238
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+      provider: Patty
+    - code_type: CPT
+      code_value: 3021F # LVEF <= 40%
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 4010F-3P # Denominator exception
+      start_date: 2016-02-03 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I11.0
+      start_date: 2016-02-01

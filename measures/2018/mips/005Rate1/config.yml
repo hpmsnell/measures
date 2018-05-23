@@ -1,0 +1,157 @@
+measure:
+  name: 18.MIPS.Mips005Rate1
+  required:
+    display_title: "Heart Failure (HF): Angiotensin-Converting Enzyme (ACE) Inhibitor or Angiotensin Receptor Blocker (ARB) Therapy for Left Ventricular Systolic Dysfunction (LVSD) in the Outpatient Setting"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: '005 Rate 1'
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: 4010F
+    required:
+      display_title: 'Angiotensin Converting Enzyme (ACE) Inhibitor or Angiotensin Receptor Blocker (ARB) therapy prescribed or currently being taken'
+      validation_record_groups:
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 005 Outpatient Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Heart Failure"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Depressed Left Ventricular Systolic Function"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; ACE Inhibitor or ARB"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: 4010F"
+    optional:
+      code_value: 4010F
+exception_reasons:
+  - config_link_id: 4010F-1P
+    required:
+      display_title: 'Documentation of medical reason(s) for not prescribing ACE inhibitor or ARB therapy (eg, hypotensive patients who are at immediate risk of cardiogenic shock, hospitalized patients who have experienced marked azotemia, allergy, intolerance, other medical reasons)'
+      validation_record_groups:
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 005 Outpatient Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Heart Failure"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Depressed Left Ventricular Systolic Function"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; ACE Inhibitor or ARB"
+        - count: 1
+          validation_records:
+            - model: Allergy
+              value_set: "VSAC; ACE Inhibitor or ARB Ingredient"
+            - model: Allergy
+              value_set: "Able; ACE Inhibitor or ARB Ingredient NDFRT"
+            - model: Diagnosis
+              value_set: "VSAC; Allergy to ACE Inhibitor or ARB"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "VSAC; Hypotension"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 4010F-1P"
+    optional:
+      code_value: 4010F-1P
+  - config_link_id: 4010F-2P
+    required:
+      display_title: 'Documentation of patient reason(s) for not prescribing ACE inhibitor or ARB therapy (eg, patient declined, other patient reasons)'
+      validation_record_groups:
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 005 Outpatient Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Heart Failure"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Depressed Left Ventricular Systolic Function"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; ACE Inhibitor or ARB"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 4010F-2P"
+    optional:
+      code_value: 4010F-2P
+  - config_link_id: 4010F-3P
+    required:
+      display_title: 'Documentation of system reason(s) for not prescribing ACE inhibitor or ARB therapy (eg, other system reasons) '
+      validation_record_groups:
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 005 Outpatient Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Heart Failure"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Depressed Left Ventricular Systolic Function"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; ACE Inhibitor or ARB"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: 4010F-3P"
+    optional:
+      code_value: 4010F-3P
+performance_not_met_reasons:
+  - config_link_id: 4010F-8P
+    required:
+      display_title: 'Angiotensin converting enzyme (ACE) inhibitor or angiotensin receptor blocker (ARB) therapy was not prescribed, reason not otherwise specified'
+      validation_record_groups:
+        - count: 2
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 005 Outpatient Encounter"
+        - count: 1
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Heart Failure"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Depressed Left Ventricular Systolic Function"
+        - count: 1
+          validation_records:
+            - model: Medication
+              value_set: "VSAC; ACE Inhibitor or ARB"
+        - count: 1
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: 4010F-8P"
+    optional:
+      code_value: 4010F-8P
