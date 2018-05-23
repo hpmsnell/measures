@@ -1,0 +1,115 @@
+---
+measure:
+  name: 18.MIPS.Mips109
+  required:
+    display_title: 'Osteoarthritis (OA): Function and Pain Assessment'
+    inverse: false
+    subject_type: Encounter
+    set: MIPS
+    external_id: 109
+    version:
+  optional:
+    description: 'Percentage of patient visits for patients aged 21 years and older
+      with a diagnosis of osteoarthritis (OA) with assessment for function and pain'
+    gap_resolution_action: Patient is due for functional status and pain assessments
+      due to diagnosis of osteoarthritis
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Internal Medicine, Orthopedic Surgery, Physical Medicine,
+      Preventive Medicine, General Practice/Family Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patient visits for patients aged 21 years and older with a diagnosis
+    of OA'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 109 Encounter
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: Osteoarthritis
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; Osteoarthritis
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patient visits with assessment for level of function and pain documented
+    (may include the use of a standardized scale or the completion of an assessment
+    questionnaire, such as an SF-36, AAOS Hip & Knee Questionnaire)'
+  reasons:
+  - config_link_id: 1006F
+    code_value: 1006F
+    display_title: 1006F
+    description: Osteoarthritis symptoms and functional status assessed (may include
+      the use of a standardized scale or the completion of an assessment questionnaire,
+      such as the SF-36, AAOS Hip & Knee Questionnaire)
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: 1006F"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: 1006F'
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Functional Status Assessment with Pain Assessment
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Functional Status Assessment for Knee Replacement
+        - model: ClinicalActivity
+          value_set: VSAC; Functional Status Assessment  for Hip Replacement
+        - model: ClinicalActivity
+          value_set: ABLE; Standardized Pain Assessment Tool
+        - model: ClinicalActivity
+          value_set: ABLE; Pain Assessments
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Functional Status Assessment
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: Able; Functional Status Assessment
+      - logical_operator: AND
+        display_title: Pain Assessment
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: ABLE; Standardized Pain Assessment Tool
+        - model: ClinicalActivity
+          value_set: ABLE; Pain Assessments
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: 1006F-8P
+    code_value: 1006F-8P
+    display_title: 1006F-8P
+    description: Osteoarthritis symptoms and functional status not assessed, reason
+      not otherwise specified
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: 1006F-8P"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: 1006F-8P'
