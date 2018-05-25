@@ -32,15 +32,13 @@ valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 valueset "VSAC; Pregnancy": '2.16.840.1.113883.3.600.1622'
 
 parameter "Measurement Period" Interval<DateTime>
-parameter "Denominator Period" Interval<DateTime>
-
 context Patient
 
 // Components used in measure statuses
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 128 Encounter"] E
-    where E.relevantPeriod starts during "Denominator Period"
+    where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and not E.code.modifier in {'GQ', 'GT'}
       and E.signingProvider.hasMeasureMembership = true
@@ -89,13 +87,13 @@ define "Denominator Exclusion":
    * config_link_id: denominator_exclusion
    */
   exists(["Procedure, Performed": "MIPS; Patient Not Eligible: G8422"] P
-    where P.relevantPeriod starts during "Denominator Period")
+    where P.relevantPeriod starts during "Measurement Period")
   or exists(["Procedure, Performed": "MIPS; Patient Not Eligible: G8938"] P
-    where P.relevantPeriod starts during "Denominator Period")
+    where P.relevantPeriod starts during "Measurement Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod starts during "Denominator Period")
+    where I.relevantPeriod starts during "Measurement Period")
   or exists(["Diagnosis": "VSAC; Pregnancy"] D
-    where D.prevalencePeriod overlaps "Denominator Period")
+    where D.prevalencePeriod overlaps "Measurement Period")
 
 define "Numerator Performance Met: G8420":
   /*
