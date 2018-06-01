@@ -1,0 +1,671 @@
+measure_id: 18.MIPS.Mips110Rate2
+test_set_keys:
+  organization_key:
+    patients:
+      - name: Too Young # Below age range
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower # Lower bound of age range
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8484
+      - name: Encounter Early # 110 encounter before first interval
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Lower # 110 encountar at lower bound first interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8484
+      - name: Encounter Upper # 110 encountar at upper bound first interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8484
+      - name: Encounter After # 110 encountar at after first interval
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter DifferentProvider # 110 encounter with Patty
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8484
+      - name: G8482 Before # Performance met G8482 before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8484
+      - name: G8482 Lower # Performance met G8482 lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8482
+      - name: G8482 Upper # Performance met G8482 upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8482
+      - name: G8482 After # Performance met G8482 after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8484
+      - name: VaccineBefore # Vaccine before first interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8484
+      - name: VaccineLower # Vaccinet lower bound first interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8482
+      - name: VaccineUpper # Vaccinet upper bound first interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8482
+      - name: VaccineAfter # Vaccinefter first interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8484
+      - name: Vaccinedministered # Vaccine using vaccination value set
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8482
+      - name: G8483 Before # G8483 before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8484
+      - name: G8483 Lower # G8483 at lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G8483
+        numerator:
+      - name: G8483 Upper # G8483 at upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G8483
+        numerator:
+      - name: G8483 After # G8483 after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8484
+      - name: Allergy Before # Allergy to influenza vaccine ends before MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8484
+      - name: Allergy Lower # Allergy to influenza vaccine ends lower bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G8483
+        numerator:
+      - name: Allergy Upper # Allergy to influenza vaccine starts upper bound MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G8483
+        numerator:
+      - name: Allergy After # Allergy to influenza vaccine ends after MP
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8484
+      - name: Allergy Allergy # Allergy to influenza using Allergy datatype
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G8483
+        numerator:
+  providers_key:
+    - name: Rachel
+      patients:
+        - name: Too Young # Below age range
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Age Lower # Lower bound of age range
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8484
+        - name: Encounter Early # 110 encounter before first interval
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Lower # 110 encountar at lower bound first interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8484
+        - name: Encounter Upper # 110 encountar at upper bound first interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8484
+        - name: Encounter After # 110 encountar at after first interval
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter DifferentProvider # 110 encounter with Patty
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: G8482 Before # Performance met G8482 before MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8484
+        - name: G8482 Lower # Performance met G8482 lower bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8482
+        - name: G8482 Upper # Performance met G8482 upper bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8482
+        - name: G8482 After # Performance met G8482 after MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8484
+        - name: VaccineBefore # Vaccine before first interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8484
+        - name: VaccineLower # Vaccinet lower bound first interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8482
+        - name: VaccineUpper # Vaccinet upper bound first interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8482
+        - name: VaccineAfter # Vaccinefter first interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8484
+        - name: Vaccinedministered # Vaccine using vaccination value set
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8482
+        - name: G8483 Before # G8483 before MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8484
+        - name: G8483 Lower # G8483 at lower bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: G8483
+          numerator:
+        - name: G8483 Upper # G8483 at upper bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: G8483
+          numerator:
+        - name: G8483 After # G8483 after MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8484
+        - name: Allergy Before # Allergy to influenza vaccine ends before MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8484
+        - name: Allergy Lower # Allergy to influenza vaccine ends lower bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: G8483
+          numerator:
+        - name: Allergy Upper # Allergy to influenza vaccine starts upper bound MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: G8483
+          numerator:
+        - name: Allergy After # Allergy to influenza vaccine ends after MP
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8484
+        - name: Allergy Allergy # Allergy to influenza using Allergy datatype
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: G8483
+          numerator:
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  credential: DO
+  primary_specialty: Family Medicine
+  external_id: 111
+- given_name: Patty
+  family_name: PrimaryCare
+  credential: MD
+  primary_specialty: Family Medicine
+  external_id: 222
+- given_name: Derek
+  family_name: NoMIPS
+  credential: MD
+  external_id: 333
+patients:
+  - name: Too Young
+    attributes:
+      date_of_birth: 2015-08-02
+      given_name: Too
+      family_name: Young
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        provider: Rachel
+  - name: Age Lower
+    attributes:
+      date_of_birth: 2015-08-01
+      given_name: Age
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        provider: Rachel
+  - name: Encounter Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: AEarly
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # 110 Encounter
+        start_date: 2016-09-30 # Too early
+  - name: Encounter Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: ALower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-10-01 # Lower bound
+        provider: Rachel
+  - name: Encounter Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: AUpper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # 110 Encounter
+        start_date: 2016-12-31 # Upper bound
+        provider: Rachel
+  - name: Encounter After
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: AAfter
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2017-01-01 # Too late
+        provider: Rachel
+  - name: Encounter DifferentProvider
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: DifferentProvider
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-11-01
+        provider: Rachel # Different provider
+  - name: G8482 Before
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G8482
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G8482
+        start_date: 201g-09-30 # Too early
+  - name: G8482 Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G8482
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G8482 # Performance Met: G8482
+        start_date: 2015-10-01 # Lower bound
+  - name: G8482 Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G8482
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G8482
+        start_date: 2016-12-31 # Upper bound
+  - name: G8482 After
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G8482
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G8482
+        start_date: 2017-01-01 # Too late
+  - name: Vaccine Before
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Vaccine
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        provider: Rachel
+      medications:
+      - code_type: CVX
+        code_value: 135 # Influenza Vaccine
+        start_date: 201g-09-30 # Too early
+  - name: Vaccine Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Vaccine
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        provider: Rachel
+      medications:
+      - code_type: CVX
+        code_value: 135 # Influenza Vaccine # Performance Met: G8482
+        start_date: 2015-10-01 # Lower bound
+  - name: Vaccine Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Vaccine
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        provider: Rachel
+      medications:
+      - code_type: CVX
+        code_value: 135 # Influenza Vaccine
+        start_date: 2016-12-31 # Upper bound
+  - name: Vaccine After
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Vaccine
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        provider: Rachel
+      medications:
+      - code_type: CVX
+        code_value: 135 # Influenza Vaccine
+        start_date: 2017-01-01
+  - name: Vaccine Administered
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Vaccine
+      family_name: Administered
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 90630 # Influenza vaccine administered
+        start_date: 2016-11-01
+  - name: G8483 Before
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G8483
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        stop_date: 2016-11-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: G8483 # Denominator exception
+        start_date: 2016-10-31 # Too early
+  - name: G8483 Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G8483
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        stop_date: 2016-11-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: G8483 # Denominator exception
+        start_date: 2016-11-01
+  - name: G8483 Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G8483
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        stop_date: 2016-11-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: G8483 # Denominator exception
+        start_date: 2016-11-02
+  - name: G8483 After
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G8483
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        stop_date: 2016-11-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: G8483 # Denominator exception
+        start_date: 2016-11-03
+  - name: Allergy Before
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Allergy
+      family_name: Before
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        stop_date: 2016-11-02
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 294647003 # Allergy to Influenza Vaccine
+        start_date: 2015-01-01
+        stop_date: 2016-10-31 # Too early
+  - name: Allergy Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Allergy
+      family_name: Lower
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        stop_date: 2016-11-02
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 294647003 # Allergy to Influenza Vaccine
+        start_date: 2015-01-01
+        stop_date: 2016-11-01 # Lower bound
+  - name: Allergy Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Allergy
+      family_name: Upper
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        stop_date: 2016-11-02
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 294647003 # Allergy to Influenza Vaccine
+        start_date: 2016-11-02 # Upper bound
+  - name: Allergy After
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Allergy
+      family_name: After
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        stop_date: 2016-11-02
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 294647003 # Allergy to Influenza Vaccine
+        start_date: 2016-11-03 # Too late
+  - name: Allergy Allergy
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Allergy
+      family_name: Allergy
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90945 # MIPS 110 Preventive Encounter
+        start_date: 2016-11-01
+        stop_date: 2016-11-02
+        provider: Rachel
+      allergies:
+      - code_type: CVX
+        code_value: 135 # Influenza Vaccine
+        start_date: 2015-01-01
