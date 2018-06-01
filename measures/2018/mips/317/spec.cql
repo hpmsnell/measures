@@ -1,4 +1,4 @@
-library MIPS_318 version '1'
+library MIPS_317_2018 version '1'
 
 /*
  * Source: MIPS
@@ -55,55 +55,57 @@ define "Blood Pressure Screening":
 
 define "Normal Diastolic Blood Pressure":
   ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] P
-    where P.relevantPeriod starts during E.relevantPeriod
-      and P.result < 80
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts during E.relevantPeriod
+        and P.result < 80
 
 define "Normal Systolic Blood Pressure":
   ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] P
-    where P.relevantPeriod starts during E.relevantPeriod
-      and P.result < 120
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts during E.relevantPeriod
+        and P.result < 120
 
 define "Pre-Hypertensive Diastolic":
   ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] P
-    where P.relevantPeriod starts during E.relevantPeriod
-      and P.result >= 80
-      and P.result < 90
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts during E.relevantPeriod
+        and P.result >= 80
+        and P.result < 90
 
 define "Pre-Hypertensive Systolic":
   ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] P
-    where P.relevantPeriod starts during E.relevantPeriod
-      and P.result >= 120
-      and P.result < 140
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts during E.relevantPeriod
+        and P.result >= 120
+        and P.result < 140
 
 define "Hypertensive Diastolic Blood Pressure":
   ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] P
-    where P.relevantPeriod starts during E.relevantPeriod
-    and P.result >= 90
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts during E.relevantPeriod
+        and P.result >= 90
 
 define "Hypertensive Systolic Blood Pressure":
   ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] P
-    where P.relevantPeriod starts during E.relevantPeriod
-    and P.result >= 140
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts during E.relevantPeriod
+        and P.result >= 140
 
 define "Normal Blood Pressure Exists"
   exists("Normal Systolic Blood Pressure" S
     with "Normal Diastolic Blood Pressure" D
       such that S.authorDateTime equals D.authorDateTime)
 
-define "Last Diastolic Blood Pressure With Results":
-  ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] P
-    where P.relevantPeriod starts during E.relevantPeriod
-    and P.result > 0
+define "Encounter with Results":
+  ["Denominator Encounter"] E
+    with ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] S
+      such that S.authorDateTime during E.relevantPeriod
+    with ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] D
+      such that D.authorDateTime during E.relevantPeriod
 
-define "Last Systolic Blood Pressure With Results":
-  ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] P
-    where P.relevantPeriod starts during E.relevantPeriod
-      and P.result > 0
-
-define "Last Blood Pressure With Results":
-  exists("Last Systolic Blood Pressure With Results" S
-    with "Last Diastolic Blood Pressure With Results" D
-      such that S.authorDateTime equals D.authorDateTime)
+define "Ordered Encounter with Results":
+  "Encounter with Results" E
+    sort by start of E.relevantPeriod ASC
 
 define "Pre-Hypertensive Blood Pressure Exists":
   exists("Pre-Hypertensive Systolic")
@@ -262,9 +264,9 @@ define "Denominator Exception: G9745":
   /*
    * config_link_id: G9745
    */
-   exists(["Procedure, Performed": "MIPS; Denominator Exception: G9745"] P
-     with "Last Blood Pressure With Results" E
-       such that P.relevantPeriod starts during E.relevantPeriod)
+   exists(["Procedure, Performed": "MIPS; Performance Not Met: G8952"] P
+     with Last("Ordered Encounter with Results") E
+        such that P.relevantPeriod starts during E.relevantPeriod
 
 define "Numerator Performance Not Met: G8952":
   /*
