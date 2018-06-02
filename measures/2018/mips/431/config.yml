@@ -1,0 +1,155 @@
+---
+measure:
+  name: 18.MIPS.Mips431
+  required:
+    display_title: "Preventive Care and Screening: Unhealthy Alcohol Use: Screening
+      & Brief Counseling"
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: 431
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older who were screened
+      for unhealthy alcohol use using a systematic screening method at least once
+      within the last 24 months AND who received brief counseling if identified as
+      an unhealthy alcohol user'
+    gap_resolution_action: Patient is due for a alcohol screening or brief counseling
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'Internal Medicine, Cardiology, Emergency Medicine, Gastroenterology,
+      General Oncology, Hospitalists, Neurology, Obstetrics/Gynecology, Otolaryngology,
+      Physical Medicine, Preventive Medicine, Mental/Behavioral Health, General Practice/Family
+      Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 years and older seen for at least two visits
+    or at least one preventive visit during the measurement period'
+  component_groups:
+  - validation_record_table_count: 2
+    components:
+    - display_title: 2 Encounters
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 431 Encounter
+  - logical_operator: 'OR'
+    validation_record_table_count: 1
+    components:
+    - display_title: Preventive Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 431 Preventive Encounter
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: G9623
+    code_value: G9623
+    display_title: G9623
+    description: Documentation of medical reason(s) for not screening for unhealthy
+      alcohol use (e.g., limited life expectancy, other medical reasons)
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9623'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G9623'
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: Limited Life Expectancy
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: VSAC; Limited Life Expectancy
+        - model: ClinicalActivity
+          value_set: VSAC; Palliative Care
+        - model: ClinicalActivity
+          value_set: MIPS; MIPS Hospice Service
+performance_met:
+  description: 'Patients who were screened for unhealthy alcohol use using a systematic
+    screening method at least once within the last 24 months AND who received brief
+    counseling if identified as an unhealthy alcohol user'
+  reasons:
+  - config_link_id: G9621
+    code_value: G9621
+    display_title: G9621
+    description: Patient identified as an unhealthy alcohol user when screened for
+      unhealthy alcohol use using a systematic screening method and received brief
+      counseling
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9621'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9621'
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: Alcohol User
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: Able; Alcohol User
+        - model: Diagnosis
+          value_set: Able; Alcohol User
+      - logical_operator: 'AND'
+        display_title: Follow-Up
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Alcohol and Drug Dependence Treatment
+        - model: ClinicalActivity
+          value_set: VSAC; Moderation of ETOH Consumption Recommendation
+  - config_link_id: G9622
+    code_value: G9622
+    display_title: G9622
+    description: Patient not identified as an unhealthy alcohol user when screened
+      for unhealthy alcohol use using a systematic screening method
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9622'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9622'
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: Alcohol Non-User
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: Able; Alcohol Non-User
+        - model: Diagnosis
+          value_set: Able; Alcohol Non-User
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9624
+    code_value: G9624
+    display_title: G9624
+    description: Patient not screened for unhealthy alcohol screening using a systematic
+      screening method OR patient did not receive brief counseling, reason not given
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9624'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9624'
