@@ -1,0 +1,1447 @@
+measure_id: 18.MIPS.Mips134
+test_set_keys:
+  organization_key:
+    patients:
+      - name: Too Young # Below age range
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower # Lower bound of age range
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: Encounter Before # Encounter too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Lower # Encounter at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: Encounter Upper # Encounter at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: Encounter After # Encounter too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: ExclusionMIPS Before # Exclusion too early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: ExclusionMIPS Lower # Exclusion at lower bound
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: ExclusionMIPS Upper # Exclusion at upper bound
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: ExclusionMIPS After # Exclusion too late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: ExclusionDiagnosis Before # Exclusion too early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: ExclusionDiagnosis Lower # Exclusion at lower bound
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: ExclusionDiagnosis Upper # Exclusion at upper bound
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: ExclusionDiagnosis After # Exclusion too late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: G8431 Before # Performance met G8431 before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: G8431 Lower # Performance met G8431 lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8431
+      - name: G8431 Upper # Performance met G8431 upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8431
+      - name: G8431 After # Performance met G8431 after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: AdolescentScreeningPositive Before # Positive screening before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: AdolescentScreeningPositive Lower # Positive screening lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8431
+      - name: AdolescentScreeningPositive Upper # Positive screening upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8431
+      - name: AdolescentScreeningPositive After # Positive screening after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: AdolescentScreeningPositive Adult # Positive screening for adult
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: AdolescentFollowUp Before # Positive screening before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8511
+      - name: AdolescentFollowUp Lower # Positive screening lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8431
+      - name: AdolescentFollowUp Upper # Positive screening upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8431
+      - name: AdolescentFollowUp After # Positive screening after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8511
+      - name: AdultScreeningPositive Before # Positive screening before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: AdultScreeningPositive Lower # Positive screening lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8431
+      - name: AdultScreeningPositive Upper # Positive screening upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8431
+      - name: AdultScreeningPositive After # Positive screening after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: AdultScreeningPositive Adolescent # Adult screening for adolescent
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: AdultFollowUp Before # Positive screening before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8511
+      - name: AdultFollowUp Lower # Positive screening lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8431
+      - name: AdultFollowUp Upper # Positive screening upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8431
+      - name: AdultFollowUp After # Positive screening after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8511
+      - name: G8510 Before # Performance met G8510 before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: G8510 Lower # Performance met G8510 lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8510
+      - name: G8510 Upper # Performance met G8510 upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8510
+      - name: G8510 After # Performance met G8510 after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: ScreeningNegative Before # Negative screening before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: ScreeningNegative Lower # Negative screening lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8510
+      - name: ScreeningNegative Upper # Negative screening upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8510
+      - name: ScreeningNegative After # Negative screening after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: G8433 Before # G8433 before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: G8433 Lower # G8433 lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G8433
+        numerator:
+      - name: G8433 Upper # G8433 upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G8433
+        numerator:
+      - name: G8433 After # G8433 after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: G8511 Before # Performance met G8510 before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+      - name: G8511 Lower # Performance met G8510 lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8511
+      - name: G8511 Upper # Performance met G8510 upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8511
+      - name: G8511 After # Performance met G8510 after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G8432
+  providers_key:
+    - name: Rachel
+      patients:
+        - name: Too Young # Below age range
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Age Lower # Lower bound of age range
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: Encounter Before # Encounter too early
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Lower # Encounter at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: Encounter Upper # Encounter at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: Encounter After # Encounter too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: ExclusionMIPS Before # Exclusion too early
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: ExclusionMIPS Lower # Exclusion at lower bound
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: ExclusionMIPS Upper # Exclusion at upper bound
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: ExclusionMIPS After # Exclusion too late
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: ExclusionDiagnosis Before # Exclusion too early
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: ExclusionDiagnosis Lower # Exclusion at lower bound
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: ExclusionDiagnosis Upper # Exclusion at upper bound
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: ExclusionDiagnosis After # Exclusion too late
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: G8431 Before # Performance met G8431 before interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: G8431 Lower # Performance met G8431 lower bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8431
+        - name: G8431 Upper # Performance met G8431 upper bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8431
+        - name: G8431 After # Performance met G8431 after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: AdolescentScreeningPositive Before # Positive screening before interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: AdolescentScreeningPositive Lower # Positive screening lower bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8431
+        - name: AdolescentScreeningPositive Upper # Positive screening upper bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8431
+        - name: AdolescentScreeningPositive After # Positive screening after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: AdolescentScreeningPositive Adult # Positive screening for adult
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: AdolescentFollowUp Before # Positive screening before interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8511
+        - name: AdolescentFollowUp Lower # Positive screening lower bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8431
+        - name: AdolescentFollowUp Upper # Positive screening upper bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8431
+        - name: AdolescentFollowUp After # Positive screening after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8511
+        - name: AdultScreeningPositive Before # Positive screening before interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: AdultScreeningPositive Lower # Positive screening lower bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8431
+        - name: AdultScreeningPositive Upper # Positive screening upper bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8431
+        - name: AdultScreeningPositive After # Positive screening after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: AdultScreeningPositive Adolescent # Adult screening for adolescent
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: AdultFollowUp Before # Positive screening before interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8511
+        - name: AdultFollowUp Lower # Positive screening lower bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8431
+        - name: AdultFollowUp Upper # Positive screening upper bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8431
+        - name: AdultFollowUp After # Positive screening after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8511
+        - name: G8510 Before # Performance met G8510 before interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: G8510 Lower # Performance met G8510 lower bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8510
+        - name: G8510 Upper # Performance met G8510 upper bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8510
+        - name: G8510 After # Performance met G8510 after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: ScreeningNegative Before # Negative screening before interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: ScreeningNegative Lower # Negative screening lower bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8510
+        - name: ScreeningNegative Upper # Negative screening upper bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8510
+        - name: ScreeningNegative After # Negative screening after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: G8433 Before # G8433 before interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: G8433 Lower # G8433 lower bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: G8433
+          numerator:
+        - name: G8433 Upper # G8433 upper bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: G8433
+          numerator:
+        - name: G8433 After # G8433 after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8432
+        - name: G8511 Before # Performance met G8510 before interval
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: G8511 Lower # Performance met G8510 lower bound interval
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: G8511 Upper # Performance met G8510 upper bound interval
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: G8511 After # Performance met G8510 after interval
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  external_id: '111-111'
+  credential: DO
+  primary_specialty: Family Medicine
+- given_name: Patty
+  family_name: PrimaryCare
+  external_id: '222-222'
+  credential: MD
+  primary_specialty: Family Medicine
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 2004-01-01 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      provider: Rachel
+- name: Age Lower
+  attributes:
+    date_of_birth: 2003-12-31 # Lower bound
+    given_name: Age
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      provider: Rachel
+- name: Encounter Before
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: Encounter
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2015-12-31
+      provider: Rachel
+- name: Encounter Lower
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: Encounter
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-01-01
+      provider: Rachel
+- name: Encounter Upper
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: Encounter
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-12-31
+      provider: Rachel
+- name: Encounter After
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: Encounter
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2017-01-01
+      provider: Rachel
+- name: ExclusionMIPS Before
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: ExclusionMIPS
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9717
+      start_date: 2016-01-31 # Too early
+- name: ExclusionMIPS Lower
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: ExclusionMIPS
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9717
+      start_date: 2016-02-01 # Lower bound
+- name: ExclusionMIPS Upper
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: ExclusionMIPS
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9717
+      start_date: 2016-02-02 # Upper bound
+- name: ExclusionMIPS After
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: ExclusionMIPS
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9717
+      start_date: 2016-02-03 # Too late
+- name: ExclusionDiagnosis Before
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: ExclusionDiagnosis
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: F30.10
+      start_date: 2016-01-01
+      stop_date:  2016-01-31 # Too early
+- name: ExclusionDiagnosis Lower
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: ExclusionDiagnosis
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: F30.10
+      start_date: 2016-01-01
+      stop_date: 2016-02-01 # Lower bound
+- name: ExclusionDiagnosis Upper
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: ExclusionDiagnosis
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: F30.10
+      start_date: 2016-02-02 # Upper bound
+- name: ExclusionDiagnosis After
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: ExclusionDiagnosis
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: F30.10
+      start_date: 2016-02-03 # Too late
+- name: G8431 Before
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: G8431
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8431
+      start_date: 2016-01-31 # Too early
+- name: G8431 Lower
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: G8431
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8431
+      start_date: 2016-02-01 # Lower bound
+- name: G8431 Upper
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: G8431
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8431
+      start_date: 2016-02-02 # Upper bound
+- name: G8431 After
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: G8431
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8431
+      start_date: 2016-02-03 # Too late
+- name: AdolescentScreeningPositive Before
+  attributes:
+    date_of_birth: 2000-03-22
+    given_name: AdolescentScreeningPositive
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 44261-6 # PHQ-9
+      result: 5
+      start_date: 2016-01-31 # Too early
+    - code_type: SNOMEDCT
+      code_value: 306291008 # Adolescent follow-up
+      start_date: 2016-02-01
+- name: AdolescentScreeningPositive Lower
+  attributes:
+    date_of_birth: 2000-03-22
+    given_name: AdolescentScreeningPositive
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 44261-6 # PHQ-9
+      result: 5
+      start_date: 2016-02-01 # Lower bound
+    - code_type: SNOMEDCT
+      code_value: 306291008 # Adolescent follow-up
+      start_date: 2016-02-01
+- name: AdolescentScreeningPositive Upper
+  attributes:
+    date_of_birth: 2000-03-22
+    given_name: AdolescentScreeningPositive
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 428161000124109 # Adolescent screening
+      result: positive
+      start_date: 2016-02-02 # Upper bound
+    - code_type: SNOMEDCT
+      code_value: 306291008 # Adolescent follow-up
+      start_date: 2016-02-01
+- name: AdolescentScreeningPositive After
+  attributes:
+    date_of_birth: 2000-03-22
+    given_name: AdolescentScreeningPositive
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 44261-6 # PHQ-9
+      result: 5
+      start_date: 2016-02-03 # Too late
+    - code_type: SNOMEDCT
+      code_value: 306291008 # Adolescent follow-up
+      start_date: 2016-02-01
+- name: AdolescentScreeningPositive Adult
+  attributes:
+    date_of_birth: 1990-03-22
+    given_name: AdolescentScreeningPositive
+    family_name: Adult
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 428161000124109 # Adolescent screening
+      result: positive
+      start_date: 2016-02-01 # Lower bound
+    - code_type: SNOMEDCT
+      code_value: 306291008 # Adolescent follow-up
+      start_date: 2016-02-01
+- name: AdolescentFollowUp Before
+  attributes:
+    date_of_birth: 2000-03-22
+    given_name: AdolescentFollowUp
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 44261-6 # PHQ-9
+      result: 5
+      start_date: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 306291008 # Adolescent follow-up
+      start_date: 2016-01-31 # Too early
+- name: AdolescentFollowUp Lower
+  attributes:
+    date_of_birth: 2000-03-22
+    given_name: AdolescentFollowUp
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 44261-6 # PHQ-9
+      result: 5
+      start_date: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 306291008 # Adolescent follow-up
+      start_date: 2016-02-01 # Lower bound
+- name: AdolescentFollowUp Upper
+  attributes:
+    date_of_birth: 2000-03-22
+    given_name: AdolescentFollowUp
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 44261-6 # PHQ-9
+      result: 5
+      start_date: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 306291008 # Adolescent follow-up
+      start_date: 2016-02-02 # Upper bound
+- name: AdolescentFollowUp After
+  attributes:
+    date_of_birth: 2000-03-22
+    given_name: AdolescentFollowUp
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 44261-6 # PHQ-9
+      result: 5
+      start_date: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 306291008 # Adolescent follow-up
+      start_date: 2016-02-03 # Too late
+- name: AdultScreeningPositive Before
+  attributes:
+    date_of_birth: 1990-03-22
+    given_name: AdultScreeningPositive
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 44261-6 # PHQ-9
+      result: 5
+      start_date: 2016-01-31 # Too early
+    medications:
+    - code_type: RXNORM
+      code_value: 1000048 # Adult medication
+      method: E
+      start_date: 2016-02-01
+- name: AdultScreeningPositive Lower
+  attributes:
+    date_of_birth: 1990-03-22
+    given_name: AdultScreeningPositive
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 44261-6 # PHQ-9
+      result: 5
+      start_date: 2016-02-01 # Lower bound
+    medications:
+    - code_type: RXNORM
+      code_value: 1000048 # Adult medication
+      method: E
+      start_date: 2016-02-01
+- name: AdultScreeningPositive Upper
+  attributes:
+    date_of_birth: 1990-03-22
+    given_name: AdultScreeningPositive
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 428151000124107 # Adult screening
+      result: positive
+      start_date: 2016-02-02 # Upper bound
+    medications:
+    - code_type: RXNORM
+      code_value: 1000048 # Adult medication
+      method: E
+      start_date: 2016-02-01
+- name: AdultScreeningPositive After
+  attributes:
+    date_of_birth: 1990-03-22
+    given_name: AdultScreeningPositive
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 44261-6 # PHQ-9
+      result: 5
+      start_date: 2016-02-03 # Too late
+    medications:
+    - code_type: RXNORM
+      code_value: 1000048 # Adult medication
+      method: E
+      start_date: 2016-02-01
+- name: AdultScreeningPositive Adolescent
+  attributes:
+    date_of_birth: 2000-03-22
+    given_name: AdultScreeningPositive
+    family_name: Adolescent
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 428151000124107 # Adult screening
+      result: positive
+      start_date: 2016-02-01 # Lower bound
+    medications:
+    - code_type: RXNORM
+      code_value: 1000048 # Adult medication
+      method: E
+      start_date: 2016-02-01
+- name: AdultFollowUp Before
+  attributes:
+    date_of_birth: 1990-03-22
+    given_name: AdultFollowUp
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 44261-6 # PHQ-9
+      result: 5
+      start_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1000048 # Adult medication
+      start_date: 2015-01-31
+      stop_date: 2016-01-31 # Too early
+- name: AdultFollowUp Lower
+  attributes:
+    date_of_birth: 1990-03-22
+    given_name: AdultFollowUp
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 44261-6 # PHQ-9
+      result: 5
+      start_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1000048 # Adult medication
+      start_date: 2015-01-31
+      stop_date: 2016-02-01 # Lower bound
+- name: AdultFollowUp Upper
+  attributes:
+    date_of_birth: 1990-03-22
+    given_name: AdultFollowUp
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 44261-6 # PHQ-9
+      result: 5
+      start_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1000048 # Adult medication
+      method: E
+      start_date: 2016-02-02 # Upper bound
+- name: AdultFollowUp After
+  attributes:
+    date_of_birth: 1990-03-22
+    given_name: AdultFollowUp
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 44261-6 # PHQ-9
+      result: 5
+      start_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1000048 # Adult medication
+      method: E
+      start_date: 2016-02-03 # Too late
+- name: G8510 Before
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: G8510
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8510
+      start_date: 2016-01-31 # Too early
+- name: G8510 Lower
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: G8510
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8510
+      start_date: 2016-02-01 # Lower bound
+- name: G8510 Upper
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: G8510
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8510
+      start_date: 2016-02-02 # Upper bound
+- name: G8510 After
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: G8510
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8510
+      start_date: 2016-02-03 # Too late
+- name: ScreeningNegative Before
+  attributes:
+    date_of_birth: 2000-03-22
+    given_name: ScreeningNegative
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 44261-6 # PHQ-9
+      result: 4
+      start_date: 2016-01-31 # Too early
+- name: ScreeningNegative Lower
+  attributes:
+    date_of_birth: 2000-03-22
+    given_name: ScreeningNegative
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 44261-6 # PHQ-9
+      result: 4
+      start_date: 2016-02-01 # Lower bound
+- name: ScreeningNegative Upper
+  attributes:
+    date_of_birth: 2000-03-22
+    given_name: ScreeningNegative
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 44261-6 # PHQ-9
+      result: 4
+      start_date: 2016-02-02 # Upper bound
+- name: ScreeningNegative After
+  attributes:
+    date_of_birth: 2000-03-22
+    given_name: ScreeningNegative
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 44261-6 # PHQ-9
+      result: 4
+      start_date: 2016-02-03 # Too late
+- name: G8433 Before
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: G8433
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8433
+      start_date: 2016-01-31 # Too early
+- name: G8433 Lower
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: G8433
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8433
+      start_date: 2016-02-01 # Lower bound
+- name: G8433 Upper
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: G8433
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8433
+      start_date: 2016-02-02 # Upper bound
+- name: G8433 After
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: G8433
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8433
+      start_date: 2016-02-03 # Too late
+- name: G8511 Before
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: G8511
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: G8511
+      start_date: 2016-01-31 # Too early
+- name: G8511 Lower
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: G8511
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: G8511
+      start_date: 2016-02-01 # Lower bound
+- name: G8511 Upper
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: G8511
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: G8511
+      start_date: 2016-02-02 # Upper bound
+- name: G8511 After
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: G8511
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: G8511
+      start_date: 2016-02-03 # Too late
