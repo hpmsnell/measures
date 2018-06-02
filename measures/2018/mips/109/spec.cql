@@ -43,7 +43,8 @@ define "Denominator Encounter":
       such that D.prevalencePeriod overlaps E.relevantPeriod
 
 define "Functional Status and Pain Assessment":
-  ["Assessment, Performed": "VSAC; Functional Status Assessment for Knee Replacement"]
+  ["Procedure, Performed": "MIPS; Performance Met: 1006F"]
+  union ["Assessment, Performed": "VSAC; Functional Status Assessment for Knee Replacement"]
   union ["Assessment, Performed": "VSAC; Functional Status Assessment for Hip Replacement"]
 
 define "Pain Assessment":
@@ -51,25 +52,19 @@ define "Pain Assessment":
   union ["Assessment, Performed": "VSAC; Pain Assessments"]
 
 define "Denominator":
-  "Denominator Encounter"
+  exists("Denominator Encounter")
 
 define "Numerator Performance Met: 1006F":
   /*
    * config_link_id: 1006F
    */
-  exists(["Procedure, Performed": "MIPS; Performance Met: 1006F"] P
-    with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod)
-  or exists("Functional Status and Pain Assessment" A
-    with "Denominator Encounter" E
-      such that A.relevantPeriod starts during E.relevantPeriod)
+  exists("Functional Status and Pain Assessment" A
+    where A.authorDateTime starts during "Measurement Period")
   or (
     exists("Pain Assessment" A
-      with "Denominator Encounter" E
-        such that A.relevantPeriod starts during E.relevantPeriod)
+      where A.authorDateTime starts during "Measurement Period")
     and exists(["Assessment, Performed": "Able; Functional Status Assessment"] A
-      with "Denominator Encounter" E
-        such that A.relevantPeriod starts during E.relevantPeriod)
+      where A.authorDateTime starts during "Measurement Period")
   )
 
 define "Numerator Performance Not Met: 1006F-8P":

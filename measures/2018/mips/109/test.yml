@@ -1,294 +1,246 @@
 measure_id: 18.MIPS.Mips109
 test_set_keys:
   organization_key:
-    episodes_of_care:
+    patients:
     - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
-      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Age Lower # Patient is at lower age bound and otherwise meets the denominator
-      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: Denominator Encounter # Patient has an encounter that is early but otherwise meets the denominator
-      start_date: 2015-12-31
+    - name: DenominatorEncounter Early # Patient has an encounter that is early but otherwise meets the denominator
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Denominator Encounter  # Patient has an encounter that is late but otherwise meets the denominator
-      start_date: 2017-01-01
+    - name: DenominatorEncounter Late # Patient has an encounter that is late but otherwise meets the denominator
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: OA Diagnosis # Patient has a diagnosis that is early but otherwise meets the denominator
-      start_date: 2016-02-01
+    - name: DenominatorDiagnosis Before # Patient has a diagnosis that is early but otherwise meets the denominator
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: OA Diagnosis  # Patient has an diagnosis that is at lower bound
-      start_date: 2016-04-01
+    - name: DenominatorDiagnosis Lower # Patient has an diagnosis that is at lower bound
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: OA Diagnosis  # Patient has an diagnosis that is at upper bound
-      start_date: 2016-05-01
+    - name: DenominatorDiagnosis Upper # Patient has an diagnosis that is at upper bound
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: OA Diagnosis  # Patient has an diagnosis that is late but otherwise meets the denominator
-      start_date: 2016-06-01
+    - name: DenominatorDiagnosis After # Patient has an diagnosis that is late but otherwise meets the denominator
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Assessed 1006F # Patient assessed at start of allowable period
-      start_date: 2016-02-01
+    - name: Assessed1006F Before # Patient assessed too early
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: Assessed 1006F # Patient assessed at end of allowable period
-      start_date: 2016-04-01
+    - name: Assessed1006F Lower # Patient assessed at start of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F
-    - name: Assessed 1006F # Patient assessed too early
-      start_date: 2016-05-01
+    - name: Assessed1006F Upper # Patient assessed at end of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F
-    - name: Assessed 1006F # Patient assessed too late
-      start_date: 2016-06-01
+    - name: Assessed1006F After # Patient assessed too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: FunctionPain Assessment # Patient assessed at start of allowable period
-      start_date: 2016-02-01
+    - name: FunctionPainAssessment Before # Patient assessed too early
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: FunctionPain Assessment # Patient assessed at lower bound
-      start_date: 2016-04-01
+    - name: FunctionPainAssessment Lower # Patient assessed at lower bound
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F
-    - name: FunctionPain Assessment # Patient assessed at upper bound
-      start_date: 2016-05-01
+    - name: FunctionPainAssessment Upper # Patient assessed at upper bound
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F
-    - name: FunctionPain Assessment # Patient assessed too late
-      start_date: 2016-06-01
+    - name: FunctionPainAssessment After # Patient assessed too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: Function Assessment # Patient assessed at start of allowable period
-      start_date: 2016-02-01
+    - name: FunctionAssessment Before # Patient assessed too early
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: Function Assessment # Patient assessed at lower bound
-      start_date: 2016-04-01
+    - name: FunctionAssessment Lower # Patient assessed at lower bound
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F
-    - name: Function Assessment # Patient assessed at upper bound
-      start_date: 2016-05-01
+    - name: FunctionAssessment Upper # Patient assessed at upper bound
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F
-    - name: Function Assessment # Patient assessed too late
-      start_date: 2016-06-01
+    - name: FunctionAssessment After # Patient assessed too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: Pain Assessment # Patient assessed at start of allowable period
-      start_date: 2016-02-01
+    - name: PainAssessment Before # Patient assessed too early
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: Pain Assessment # Patient assessed at lower bound
-      start_date: 2016-04-01
+    - name: PainAssessment Lower # Patient assessed at lower bound
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F
-    - name: Pain Assessment # Patient assessed at upper bound
-      start_date: 2016-05-01
+    - name: PainAssessment Upper # Patient assessed at upper bound
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F
-    - name: Pain Assessment # Patient assessed too late
-      start_date: 2016-06-01
+    - name: PainAssessment After # Patient assessed too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
   providers_key:
   - name: Rachel
-    episodes_of_care:
+    patients:
     - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
-      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Age Lower # Patient is at lower age bound and otherwise meets the denominator
-      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: Denominator Encounter # Patient has an encounter that is early but otherwise meets the denominator
-      start_date: 2015-12-31
+    - name: DenominatorEncounter Early # Patient has an encounter that is early but otherwise meets the denominator
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Denominator Encounter  # Patient has an encounter that is late but otherwise meets the denominator
-      start_date: 2017-01-01
+    - name: DenominatorEncounter Late # Patient has an encounter that is late but otherwise meets the denominator
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: OA Diagnosis # Patient has a diagnosis that is early but otherwise meets the denominator
-      start_date: 2016-02-01
+    - name: DenominatorDiagnosis Before # Patient has a diagnosis that is early but otherwise meets the denominator
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: OA Diagnosis  # Patient has an diagnosis that is at lower bound
-      start_date: 2016-04-01
+    - name: DenominatorDiagnosis Lower # Patient has an diagnosis that is at lower bound
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: OA Diagnosis  # Patient has an diagnosis that is at upper bound
-      start_date: 2016-05-01
+    - name: DenominatorDiagnosis Upper # Patient has an diagnosis that is at upper bound
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: OA Diagnosis  # Patient has an diagnosis that is late but otherwise meets the denominator
-      start_date: 2016-06-01
+    - name: DenominatorDiagnosis After # Patient has an diagnosis that is late but otherwise meets the denominator
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Assessed 1006F # Patient assessed at start of allowable period
-      start_date: 2016-02-01
+    - name: Assessed1006F Before # Patient assessed too early
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: Assessed 1006F # Patient assessed at end of allowable period
-      start_date: 2016-04-01
+    - name: Assessed1006F Lower # Patient assessed at start of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F
-    - name: Assessed 1006F # Patient assessed too early
-      start_date: 2016-05-01
+    - name: Assessed1006F Upper # Patient assessed at end of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F
-    - name: Assessed 1006F # Patient assessed too late
-      start_date: 2016-06-01
+    - name: Assessed1006F After # Patient assessed too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: FunctionPain Assessment # Patient assessed at start of allowable period
-      start_date: 2016-02-01
+    - name: FunctionPainAssessment Before # Patient assessed too early
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: FunctionPain Assessment # Patient assessed at lower bound
-      start_date: 2016-04-01
+    - name: FunctionPainAssessment Lower # Patient assessed at lower bound
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F
-    - name: FunctionPain Assessment # Patient assessed at upper bound
-      start_date: 2016-05-01
+    - name: FunctionPainAssessment Upper # Patient assessed at upper bound
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F
-    - name: FunctionPain Assessment # Patient assessed too late
-      start_date: 2016-06-01
+    - name: FunctionPainAssessment After # Patient assessed too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: Function Assessment # Patient assessed at start of allowable period
-      start_date: 2016-02-01
+    - name: FunctionAssessment Before # Patient assessed too early
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: Function Assessment # Patient assessed at end of allowable period
-      start_date: 2016-04-01
+    - name: FunctionAssessment Lower # Patient assessed at lower bound
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F
-    - name: Function Assessment # Patient assessed too early
-      start_date: 2016-05-01
+    - name: FunctionAssessment Upper # Patient assessed at upper bound
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F
-    - name: Function Assessment # Patient assessed too late
-      start_date: 2016-06-01
+    - name: FunctionAssessment After # Patient assessed too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 1006F-8P
-    - name: Pain Assessment # Patient assessed at start of allowable period
-      start_date: 2016-02-01
+    - name: PainAssessment Before # Patient assessed too early
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Pain Assessment # Patient assessed at end of allowable period
-      start_date: 2016-04-01
+    - name: PainAssessment Lower # Patient assessed at lower bound
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Pain Assessment # Patient assessed too early
-      start_date: 2016-05-01
+    - name: PainAssessment Upper # Patient assessed at upper bound
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Pain Assessment # Patient assessed too late
-      start_date: 2016-06-01
+    - name: PainAssessment After # Patient assessed too late
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -339,11 +291,11 @@ patients:
       - code_type: ICD10CM
         code_value: M15.0
         start_date: 2016-02-01
-- name: Denominator Encounter
+- name: DenominatorEncounter Early
   attributes:
     date_of_birth: 1950-01-01
-    given_name: Denominator
-    family_name: Encounter
+    given_name: DenominatorEncounter
+    family_name: Early
     sex: Female
   clinical_models:
     clinical_activities:
@@ -352,6 +304,18 @@ patients:
         start_date: 2015-12-31 # Too early
         stop_date: 2015-12-31
         provider: Rachel
+    diagnoses:
+      - code_type: ICD10CM
+        code_value: M15.0
+        start_date: 2015-12-31
+- name: DenominatorEncounter Late
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: DenominatorEncounter
+    family_name: Late
+    sex: Female
+  clinical_models:
+    clinical_activities:
       - code_type: CPT
         code_value: 99201
         start_date: 2017-01-01 # Too late
@@ -361,11 +325,11 @@ patients:
       - code_type: ICD10CM
         code_value: M15.0
         start_date: 2015-12-31
-- name: OA Diagnosis
+- name: DenominatorDiagnosis Before
   attributes:
     date_of_birth: 1950-01-01
-    given_name: OA
-    family_name: Diagnosis
+    given_name: DenominatorDiagnosis
+    family_name: Before
     sex: Female
   clinical_models:
     clinical_activities:
@@ -373,43 +337,70 @@ patients:
         code_value: 99201
         start_date: 2016-02-01
         stop_date: 2016-02-02
-        provider: Rachel
-      - code_type: CPT
-        code_value: 99201
-        start_date: 2016-04-01
-        stop_date: 2016-04-02
-        provider: Rachel
-      - code_type: CPT
-        code_value: 99201
-        start_date: 2016-05-01
-        stop_date: 2016-05-02
-        provider: Rachel
-      - code_type: CPT
-        code_value: 99201
-        start_date: 2016-06-01
-        stop_date: 2016-06-02
         provider: Rachel
     diagnoses:
       - code_type: ICD10CM
         code_value: M15.0
         start_date: 2016-01-01
         stop_date: 2016-01-30 # Too early
+- name: DenominatorDiagnosis Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: DenominatorDiagnosis
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-04-01
+        stop_date: 2016-04-02
+        provider: Rachel
+    diagnoses:
       - code_type: ICD10CM
         code_value: M15.0
         start_date: 2016-04-01 # Lower bound
         stop_date: 2016-04-01
+- name: DenominatorDiagnosis Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: DenominatorDiagnosis
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-05-01
+        stop_date: 2016-05-02
+        provider: Rachel
+    diagnoses:
       - code_type: ICD10CM
         code_value: M15.0
         start_date: 2016-05-02 # Upper bound
         stop_date: 2016-05-02
+- name: DenominatorDiagnosis After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: DenominatorDiagnosis
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-06-01
+        stop_date: 2016-06-02
+        provider: Rachel
+    diagnoses:
       - code_type: ICD10CM
         code_value: M15.0
         start_date: 2016-06-03 # Too late
-- name: Assessed 1006F
+- name: Assessed1006F Before
   attributes:
     date_of_birth: 1950-01-01
-    given_name: Assessed
-    family_name: 1006F
+    given_name: Assessed1006F
+    family_name: Before
     sex: Female
   clinical_models:
     clinical_activities:
@@ -420,7 +411,19 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1006F
-        start_date: 2016-01-30  # Too early
+        start_date: 2015-12-31  # Too early
+    diagnoses:
+      - code_type: ICD10CM
+        code_value: M15.0
+        start_date: 2016-02-01
+- name: Assessed1006F Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Assessed1006F
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
       - code_type: CPT
         code_value: 99201
         start_date: 2016-04-01
@@ -428,7 +431,19 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1006F
-        start_date: 2016-04-01 # Lower bound
+        start_date: 2016-01-01 # Lower bound
+    diagnoses:
+      - code_type: ICD10CM
+        code_value: M15.0
+        start_date: 2016-02-01
+- name: Assessed1006F Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Assessed1006F
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
       - code_type: CPT
         code_value: 99201
         start_date: 2016-05-01
@@ -436,7 +451,19 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1006F
-        start_date: 2016-05-02 # Upper bound
+        start_date: 2016-12-31 # Upper bound
+    diagnoses:
+      - code_type: ICD10CM
+        code_value: M15.0
+        start_date: 2016-02-01
+- name: Assessed1006F After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Assessed1006F
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
       - code_type: CPT
         code_value: 99201
         start_date: 2016-06-01
@@ -444,16 +471,16 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 1006F
-        start_date: 2016-06-03 # Late
+        start_date: 2017-01-01 # Late
     diagnoses:
       - code_type: ICD10CM
         code_value: M15.0
         start_date: 2016-02-01
-- name: FunctionPain Assessment
+- name: FunctionPainAssessment Before
   attributes:
     date_of_birth: 1950-01-01
-    given_name: FunctionPain
-    family_name: Assessment
+    given_name: FunctionPainAssessment
+    family_name: Before
     sex: Female
   clinical_models:
     clinical_activities:
@@ -464,7 +491,19 @@ patients:
       provider: Rachel
     - code_type: LOINC
       code_value: 71969-0 # Function and pain
-      start_date: 2016-01-30 # Early
+      start_date: 2015-12-31 # Early
+    diagnoses:
+      - code_type: ICD10CM
+        code_value: M15.0
+        start_date: 2016-02-01
+- name: FunctionPainAssessment Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: FunctionPainAssessment
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-04-01
@@ -472,7 +511,19 @@ patients:
       provider: Rachel
     - code_type: LOINC
       code_value: 71969-0 # Function and pain
-      start_date: 2016-04-01 # Lower
+      start_date: 2016-01-01 # Lower
+    diagnoses:
+      - code_type: ICD10CM
+        code_value: M15.0
+        start_date: 2016-02-01
+- name: FunctionPainAssessment Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: FunctionPainAssessment
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-05-01
@@ -480,7 +531,19 @@ patients:
       provider: Rachel
     - code_type: LOINC
       code_value: 71969-0 # Function and pain
-      start_date: 2016-05-02 # Upper
+      start_date: 2016-12-31 # Upper
+    diagnoses:
+      - code_type: ICD10CM
+        code_value: M15.0
+        start_date: 2016-02-01
+- name: FunctionPainAssessment After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: FunctionPainAssessment
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-06-01
@@ -488,16 +551,16 @@ patients:
       provider: Rachel
     - code_type: LOINC
       code_value: 71969-0 # Function and pain
-      start_date: 2016-06-03 # Late
+      start_date: 2017-01-01 # Late
     diagnoses:
       - code_type: ICD10CM
         code_value: M15.0
         start_date: 2016-02-01
-- name: Function Assessment
+- name: FunctionAssessment Before
   attributes:
     date_of_birth: 1950-01-01
-    given_name: Function
-    family_name: Assessment
+    given_name: FunctionAssessment
+    family_name: Before
     sex: Female
   clinical_models:
     clinical_activities:
@@ -508,10 +571,22 @@ patients:
       provider: Rachel
     - code_type: SNOMEDCT
       code_value: 273472005 # Function
-      start_date: 2016-01-30 # Early
+      start_date: 2015-12-31 # Early
     - code_type: SNOMEDCT
       code_value: 225399009 # Pain
       start_date: 2016-02-01
+    diagnoses:
+      - code_type: ICD10CM
+        code_value: M15.0
+        start_date: 2016-02-01
+- name: FunctionAssessment Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: FunctionAssessment
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-04-01
@@ -519,10 +594,22 @@ patients:
       provider: Rachel
     - code_type: SNOMEDCT
       code_value: 273472005 # Function
-      start_date: 2016-04-01 # Lower
+      start_date: 2016-01-01 # Lower
     - code_type: SNOMEDCT
       code_value: 225399009 # Pain
       start_date: 2016-04-01
+    diagnoses:
+      - code_type: ICD10CM
+        code_value: M15.0
+        start_date: 2016-02-01
+- name: FunctionAssessment Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: FunctionAssessment
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-05-01
@@ -530,10 +617,22 @@ patients:
       provider: Rachel
     - code_type: SNOMEDCT
       code_value: 273472005 # Function
-      start_date: 2016-05-02 # Upper
+      start_date: 2016-12-31 # Upper
     - code_type: SNOMEDCT
       code_value: 225399009 # Pain
       start_date: 2016-05-01
+    diagnoses:
+      - code_type: ICD10CM
+        code_value: M15.0
+        start_date: 2016-02-01
+- name: FunctionAssessment After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: FunctionAssessment
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-06-01
@@ -541,7 +640,7 @@ patients:
       provider: Rachel
     - code_type: SNOMEDCT
       code_value: 273472005 # Function
-      start_date: 2016-06-03 # Late
+      start_date: 2017-01-01 # Late
     - code_type: SNOMEDCT
       code_value: 225399009 # Pain
       start_date: 2016-06-01
@@ -549,11 +648,11 @@ patients:
       - code_type: ICD10CM
         code_value: M15.0
         start_date: 2016-02-01
-- name: Pain Assessment
+- name: PainAssessment Before
   attributes:
     date_of_birth: 1950-01-01
-    given_name: Pain
-    family_name: Assessment
+    given_name: PainAssessment
+    family_name: Before
     sex: Female
   clinical_models:
     clinical_activities:
@@ -567,7 +666,19 @@ patients:
       start_date: 2016-02-01
     - code_type: SNOMEDCT
       code_value: 225399009 # Pain
-      start_date: 2016-01-30 # Early
+      start_date: 2015-12-31 # Early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M15.0
+      start_date: 2016-02-01
+- name: PainAssessment Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: PainAssessment
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-04-01
@@ -575,10 +686,22 @@ patients:
       provider: Patty
     - code_type: SNOMEDCT
       code_value: 273472005 # Function
-      start_date: 2016-04-01
+      start_date: 2016-02-01
     - code_type: SNOMEDCT
       code_value: 225399009 # Pain
-      start_date: 2016-04-01 # Lower
+      start_date: 2016-01-01 # Lower
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M15.0
+      start_date: 2016-02-01
+- name: PainAssessment Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: PainAssessment
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-05-01
@@ -589,7 +712,19 @@ patients:
       start_date: 2016-05-01
     - code_type: SNOMEDCT
       code_value: 225399009 # Pain
-      start_date: 2016-05-02 # Upper
+      start_date: 2016-12-31 # Upper
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M15.0
+      start_date: 2016-02-01
+- name: PainAssessment After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: PainAssessment
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-06-01
@@ -600,7 +735,7 @@ patients:
       start_date: 2016-06-01
     - code_type: SNOMEDCT
       code_value: 225399009 # Pain
-      start_date: 2016-06-03 # Late
+      start_date: 2017-01-01 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: M15.0
