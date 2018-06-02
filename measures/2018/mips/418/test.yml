@@ -1,0 +1,1592 @@
+measure_id: 18.MIPS.Mips418
+test_set_keys:
+  organization_key:
+    episodes_of_care:
+    - name: Too Young
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: Age Upper
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: Too Old
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Sex Male
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Encounter #  Encounter prior to measurement year
+      start_date: 2015-12-31
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Encounter #  Encounter at beginning of measurement year
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: Denominator Encounter #  Encounter at end of measurement year
+      start_date: 2016-06-30
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: Denominator Encounter #  Encounter after measurement year
+      start_date: 2016-07-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Encounter # Exclusion with a different provider
+      start_date: 2016-04-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: Denominator Diagnosis #  Diagnosis prior to measurement year
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Diagnosis #  Diagnosis at beginning of measurement year
+      start_date: 2016-03-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: Denominator Diagnosis #  Diagnosis at end of measurement year
+      start_date: 2016-04-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: Denominator Diagnosis #  Diagnosis after measurement year
+      start_date: 2017-05-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Before #  Exclusion too early
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: ExclusionHospice Lower #  Exclusion at lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Upper #  Exclusion at upper bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice After #  Exclusion too late
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: ExclusionG9769 Before #  Exclusion too early
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: ExclusionG9769 Lower #  Exclusion at lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionG9769 Upper #  Exclusion at upper bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionG9769 After #  Exclusion too late
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: ExclusionScan Before #  Exclusion too early
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: ExclusionScan Lower #  Exclusion at lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionScan Upper #  Exclusion at upper bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionScan After #  Exclusion too late
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F
+    - name: ExclusionMedication Before #  Exclusion too early
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: ExclusionMedication Lower #  Exclusion at lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionMedication Upper #  Exclusion at upper bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionMedication After #  Exclusion too late
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8633
+    - name: ExclusionInstitutional Before #  Exclusion too early
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: ExclusionInstitutional Lower #  Exclusion at lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_3
+      denominator_exception:
+      numerator:
+    - name: ExclusionInstitutional Upper #  Exclusion at upper bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_3
+      denominator_exception:
+      numerator:
+    - name: ExclusionInstitutional After #  Exclusion too late
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: ExclusionInstitutional Under65 #  Exclusion for patient under 65
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: PerformanceMet3095F Before #  PerformanceMet too early
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: PerformanceMet3095F Lower #  PerformanceMet at lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F
+    - name: PerformanceMet3095F Upper #  PerformanceMet at upper bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F
+    - name: PerformanceMet3095F After #  PerformanceMet too late
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: PerformanceMetScan Before #  PerformanceMet too early
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: PerformanceMetScan Lower #  PerformanceMet at lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F
+    - name: PerformanceMetScan Upper #  PerformanceMet at upper bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F
+    - name: PerformanceMetScan After #  PerformanceMet too late
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: PerformanceMetG8633 Before #  PerformanceMet too early
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: PerformanceMetG8633 Lower #  PerformanceMet at lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8633
+    - name: PerformanceMetG8633 Upper #  PerformanceMet at upper bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8633
+    - name: PerformanceMetG8633 After #  PerformanceMet too late
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: PerformanceMetMedication Before #  PerformanceMet too early
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:  exclusion_2
+      denominator_exception:
+      numerator:
+    - name: PerformanceMetMedication Lower #  PerformanceMet at lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8633
+    - name: PerformanceMetMedication Upper #  PerformanceMet at upper bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8633
+    - name: PerformanceMetMedication After #  PerformanceMet too late
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+  providers_key:
+  - name: Rachel
+    episodes_of_care:
+    - name: Too Young
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: Age Upper
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: Too Old
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Sex Male
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Encounter #  Encounter prior to measurement year
+      start_date: 2015-12-31
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Encounter #  Encounter at beginning of measurement year
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: Denominator Encounter #  Encounter at end of measurement year
+      start_date: 2016-06-30
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: Denominator Encounter #  Encounter after measurement year
+      start_date: 2016-07-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Encounter # Exclusion with a different provider
+      start_date: 2016-04-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Diagnosis #  Diagnosis prior to measurement year
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Diagnosis #  Diagnosis at beginning of measurement year
+      start_date: 2016-03-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: Denominator Diagnosis #  Diagnosis at end of measurement year
+      start_date: 2016-04-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: Denominator Diagnosis #  Diagnosis after measurement year
+      start_date: 2017-05-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Before #  Exclusion too early
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: ExclusionHospice Lower #  Exclusion at lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Upper #  Exclusion at upper bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice After #  Exclusion too late
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: ExclusionG9769 Before #  Exclusion too early
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: ExclusionG9769 Lower #  Exclusion at lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionG9769 Upper #  Exclusion at upper bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionG9769 After #  Exclusion too late
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: ExclusionScan Before #  Exclusion too early
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: ExclusionScan Lower #  Exclusion at lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionScan Upper #  Exclusion at upper bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionScan After #  Exclusion too late
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F
+    - name: ExclusionMedication Before #  Exclusion too early
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: ExclusionMedication Lower #  Exclusion at lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionMedication Upper #  Exclusion at upper bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionMedication After #  Exclusion too late
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8633
+    - name: ExclusionInstitutional Before #  Exclusion too early
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: ExclusionInstitutional Lower #  Exclusion at lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_3
+      denominator_exception:
+      numerator:
+    - name: ExclusionInstitutional Upper #  Exclusion at upper bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_3
+      denominator_exception:
+      numerator:
+    - name: ExclusionInstitutional After #  Exclusion too late
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: ExclusionInstitutional Under65 #  Exclusion for patient under 65
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: PerformanceMet3095F Before #  PerformanceMet too early
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: PerformanceMet3095F Lower #  PerformanceMet at lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F
+    - name: PerformanceMet3095F Upper #  PerformanceMet at upper bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F
+    - name: PerformanceMet3095F After #  PerformanceMet too late
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: PerformanceMetScan Before #  PerformanceMet too early
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: PerformanceMetScan Lower #  PerformanceMet at lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F
+    - name: PerformanceMetScan Upper #  PerformanceMet at upper bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F
+    - name: PerformanceMetScan After #  PerformanceMet too late
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: PerformanceMetG8633 Before #  PerformanceMet too early
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: PerformanceMetG8633 Lower #  PerformanceMet at lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8633
+    - name: PerformanceMetG8633 Upper #  PerformanceMet at upper bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8633
+    - name: PerformanceMetG8633 After #  PerformanceMet too late
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+    - name: PerformanceMetMedication Before #  PerformanceMet too early
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: PerformanceMetMedication Lower #  PerformanceMet at lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8633
+    - name: PerformanceMetMedication Upper #  PerformanceMet at upper bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G8633
+    - name: PerformanceMetMedication After #  PerformanceMet too late
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3095F-8P
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  credential: DO
+  primary_specialty: Family Medicine
+  external_id: '111-111'
+- given_name: Patty
+  family_name: PrimaryCare
+  credential: MD
+  primary_specialty: Family Medicine
+  external_id: '222-222'
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1966-02-02 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-02-01
+- name: Age Lower
+  attributes:
+    date_of_birth: 1966-02-01 # Lower bound
+    given_name: Age
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-02-01
+- name: Age Upper
+  attributes:
+    date_of_birth: 1931-02-02 # Upper bound
+    given_name: Age
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-02-01
+- name: Too Old
+  attributes:
+    date_of_birth: 1931-02-01 # Too early
+    given_name: Too
+    family_name: Old
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-02-01
+- name: Sex Male
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: Sex
+    family_name: Male
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-02-01
+- name: Denominator Encounter
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: Denominator
+    family_name: Encounter
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2015-12-31 # Too early
+      stop_date: 2015-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-06-30 # Upper bound
+      stop_date: 2016-06-30
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-07-01 # Too late
+      stop_date: 2016-07-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-04-01
+      stop_date: 2016-04-01
+      provider: Patty # Different provider
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2015-12-31
+      stop_date: 2015-12-31
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-06-30
+      stop_date: 2016-06-30
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-07-01
+      stop_date: 2016-07-01
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-04-01
+      stop_date: 2016-04-01
+- name: Denominator Diagnosis
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: Denominator
+    family_name: Diagnosis
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-04-01
+      stop_date: 2016-04-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-05-01
+      stop_date: 2016-05-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-31 # Too early
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-03-01 # Lower bound
+      stop_date: 2016-03-01
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-04-02 # Upper bound
+      stop_date: 2016-04-02
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-05-03 # Too late
+      stop_date: 2016-05-04
+- name: ExclusionHospice Before
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: ExclusionHospice
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9768 # Hospice service
+      start_date: 2015-12-31 # Early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: ExclusionHospice Lower
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: ExclusionHospice
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9768 # Hospice service
+      start_date: 2016-01-01 # Lower
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: ExclusionHospice Upper
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: ExclusionHospice
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9768 # Hospice service
+      start_date: 2016-12-31 # Upper
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: ExclusionHospice After
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: ExclusionHospice
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9768 # Hospice service
+      start_date: 2017-01-01 # Late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: ExclusionG9769 Before
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: ExclusionG9769
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9769 # Prior treatment
+      start_date: 2015-12-31 # Early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: ExclusionG9769 Lower
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: ExclusionG9769
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9769 # Prior treatment
+      start_date: 2016-01-01 # Lower
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: ExclusionG9769 Upper
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: ExclusionG9769
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9769 # Prior treatment
+      start_date: 2016-01-02 # Upper
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: ExclusionG9769 After
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: ExclusionG9769
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9769 # Prior treatment
+      start_date: 2016-01-03 # Late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: ExclusionScan Before
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: ExclusionScan
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 77080 # Bone scan
+      start_date: 2013-12-31 # Early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: ExclusionScan Lower
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: ExclusionScan
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 77080 # Bone scan
+      start_date: 2014-01-01 # Lower
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: ExclusionScan Upper
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: ExclusionScan
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 77080 # Bone scan
+      start_date: 2015-12-31 # Upper
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: ExclusionScan After
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: ExclusionScan
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 77080 # Bone scan
+      start_date: 2016-01-01 # Late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: ExclusionMedication Before
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: ExclusionMedication
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 1020064 # Osteoporosis medication
+      start_date: 2010-01-01
+      stop_date: 2014-12-31 # Early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: ExclusionMedication Lower
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: ExclusionMedication
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 1020064 # Osteoporosis medication
+      start_date: 2010-01-01
+      stop_date: 2015-01-01 # Lower
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: ExclusionMedication Upper
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: ExclusionMedication
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 1020064 # Osteoporosis medication
+      start_date: 2015-12-31 # Upper
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: ExclusionMedication After
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: ExclusionMedication
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 1020064 # Osteoporosis medication
+      start_date: 2016-01-01 # Late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: ExclusionInstitutional Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionInstitutional
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9938
+      start_date: 2015-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+- name: ExclusionInstitutional Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionInstitutional
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9938
+      start_date: 2016-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+- name: ExclusionInstitutional Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionInstitutional
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9938
+      start_date: 2016-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+- name: ExclusionInstitutional After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionInstitutional
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9938
+      start_date: 2017-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+- name: ExclusionInstitutional Under65
+  attributes:
+    date_of_birth: 1951-02-02 # Too late
+    given_name: ExclusionInstitutional
+    family_name: Under65
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9938
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+- name: PerformanceMet3095F Before
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: PerformanceMet3095F
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3095F
+      start_date: 2015-12-31 # Early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: PerformanceMet3095F Lower
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: PerformanceMet3095F
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3095F
+      start_date: 2016-01-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: PerformanceMet3095F Upper
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: PerformanceMet3095F
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3095F
+      start_date: 2016-07-01 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: PerformanceMet3095F After
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: PerformanceMet3095F
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3095F
+      start_date: 2016-07-02 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: PerformanceMetScan Before
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: PerformanceMetScan
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 77080 # Bone scan
+      start_date: 2015-12-31 # Early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: PerformanceMetScan Lower
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: PerformanceMetScan
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 77080 # Bone scan
+      start_date: 2016-01-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: PerformanceMetScan Upper
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: PerformanceMetScan
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 77080 # Bone scan
+      start_date: 2016-07-01 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: PerformanceMetScan After
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: PerformanceMetScan
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 77080 # Bone scan
+      start_date: 2016-07-02 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: PerformanceMetG8633 Before
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: PerformanceMetG8633
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8633
+      start_date: 2015-12-31 # Early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: PerformanceMetG8633 Lower
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: PerformanceMetG8633
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8633
+      start_date: 2016-01-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: PerformanceMetG8633 Upper
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: PerformanceMetG8633
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8633
+      start_date: 2016-07-01 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: PerformanceMetG8633 After
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: PerformanceMetG8633
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8633
+      start_date: 2016-07-02 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: PerformanceMetMedication Before
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: PerformanceMetMedication
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 1020064 # Osteoporosis medication
+      start_date: 2015-12-31 # Early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: PerformanceMetMedication Lower
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: PerformanceMetMedication
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 1020064 # Osteoporosis medication
+      start_date: 2016-01-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: PerformanceMetMedication Upper
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: PerformanceMetMedication
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 1020064 # Osteoporosis medication
+      start_date: 2016-07-01 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: PerformanceMetMedication After
+  attributes:
+    date_of_birth: 1940-01-02
+    given_name: PerformanceMetMedication
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Encounter
+      stop_date: 2016-01-02
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 1020064 # Osteoporosis medication
+      start_date: 2016-07-02 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
