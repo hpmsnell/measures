@@ -1,0 +1,363 @@
+measure_id: 18.MIPS.Mips360
+test_set_keys:
+  organization_key:
+    episodes_of_care:
+    - name: Procedure Before # Patient has an encounter that is early but otherwise meets the denominator
+      start_date: 2015-12-31
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Procedure Lower # Patient has an encounter that is at the lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: nodata
+    - name: Procedure Upper  # Patient has an encounter that is at the upper bound
+      start_date: 2016-12-31
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: nodata
+    - name: Procedure After  # Patient has an encounter that is late but otherwise meets the denominator
+      start_date: 2017-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Procedure DifferentProvider # Patient has an encounter with a different provider
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: nodata
+    - name: G9321 Before # G9321 before allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: nodata
+    - name: G9321 Lower # G9321 at start of allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9321
+    - name: G9321 Upper # G9321 at end of allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9321
+    - name: G9321 After # G9321 too late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: nodata
+    - name: G9322 Before # G9322 before allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: nodata
+    - name: G9322 Lower # G9322 at start of allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9322
+    - name: G9322 Upper # G9322 at end of allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9322
+    - name: G9322 After # G9322 too late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: nodata
+  providers_key:
+  - name: Rachel
+    episodes_of_care:
+    - name: Procedure Before # Patient has an encounter that is early but otherwise meets the denominator
+      start_date: 2015-12-31
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Procedure Lower # Patient has an encounter that is at the lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: nodata
+    - name: Procedure Upper  # Patient has an encounter that is at the upper bound
+      start_date: 2016-12-31
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: nodata
+    - name: Procedure After  # Patient has an encounter that is late but otherwise meets the denominator
+      start_date: 2017-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Procedure DifferentProvider # Patient has an encounter with a different provider
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: G9321 Before # G9321 before allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: nodata
+    - name: G9321 Lower # G9321 at start of allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9321
+    - name: G9321 Upper # G9321 at end of allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9321
+    - name: G9321 After # G9321 too late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: nodata
+    - name: G9322 Before # G9322 before allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: nodata
+    - name: G9322 Lower # G9322 at start of allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9322
+    - name: G9322 Upper # G9322 at end of allowable period
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9322
+    - name: G9322 After # G9322 too late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: nodata
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  external_id: '111-111'
+  credential: DO
+  primary_specialty: Family Medicine
+- given_name: Patty
+  family_name: PrimaryCare
+  external_id: '222-222'
+  credential: MD
+  primary_specialty: Family Medicine
+patients:
+- name: Procedure Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Procedure
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450
+      start_date: 2015-12-31 # Early
+      provider: Rachel
+- name: Procedure Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Procedure
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450
+      start_date: 2016-01-01 # Lower
+      provider: Rachel
+- name: Procedure Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Procedure
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450
+      start_date: 2016-12-31 # Upper
+      provider: Rachel
+- name: Procedure After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Procedure
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450
+      start_date: 2017-01-01 # After
+      provider: Rachel
+- name: Procedure DifferentProvider
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Procedure
+    family_name: DifferentProvider
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450
+      start_date: 2016-02-01
+      provider: Patty # Different provider
+- name: G9321 Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G9321
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9321
+      start_date: 2016-01-31 # Early
+- name: G9321 Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G9321
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9321
+      start_date: 2016-02-01 # Lower
+- name: G9321 Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G9321
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9321
+      start_date: 2016-02-02 # Upper
+- name: G9321 After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G9321
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9321
+      start_date: 2016-02-03 # After
+- name: G9322 Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G9322
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9322
+      start_date: 2016-01-31 # Early
+- name: G9322 Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G9322
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9322
+      start_date: 2016-02-01 # Lower
+- name: G9322 Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G9322
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9322
+      start_date: 2016-02-02 # Upper
+- name: G9322 After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G9322
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9322
+      start_date: 2016-02-03 # After
