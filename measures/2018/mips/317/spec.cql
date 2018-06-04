@@ -266,7 +266,7 @@ define "Denominator Exception: G9745":
    */
    exists(["Procedure, Performed": "MIPS; Performance Not Met: G8952"] P
      with Last("Ordered Encounter with Results") E
-        such that P.relevantPeriod starts during E.relevantPeriod
+        such that P.relevantPeriod starts during E.relevantPeriod)
 
 define "Numerator Performance Not Met: G8952":
   /*
