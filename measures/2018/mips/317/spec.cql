@@ -97,7 +97,7 @@ define "Normal Blood Pressure Exists"
       such that S.authorDateTime equals D.authorDateTime)
 
 define "Encounter with Results":
-  ["Denominator Encounter"] E
+  "Denominator Encounter" E
     with ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] S
       such that S.authorDateTime during E.relevantPeriod
     with ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] D
