@@ -1,12 +1,11 @@
-library MIPS_192_2017 version '1'
+library MIPS_192_2018 version '1'
 
 /*
  * Source: MIPS
  * ID: 192
- * Year: 2017
+ * Year: 2018
  * Version: 1
  * Written By: Steve Daniels
- * Reviewed By: Rachel Katz
  *
   */
 
@@ -73,7 +72,7 @@ define "Cataract Surgery":
   ["Encounter, Performed": "MIPS; MIPS 192 Encounter"] E
     where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt >= 18
-      and not E.code.modifier in "MIPS; MIPS 192 Encounter Modifier"
+      and not E.code.modifier in {'55','56'}
       and E.signingProvider.hasMeasureMembership = true
     without "Complications" P
       such that P.relevantPeriod starts during E.relevantPeriod
