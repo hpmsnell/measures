@@ -1,0 +1,449 @@
+measure_id: 18.MIPS.Mips384
+test_set_keys:
+  organization_key:
+    episodes_of_care:
+      - name: Too Young # Below age range
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower # Lower bound of age range
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9515
+      - name: Denominator Encounter # Encounter too early
+        start_date: 2015-12-31
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator Encounter # Encounter at lower bound
+        start_date: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9515
+      - name: Denominator Encounter # Encounter at upper bound
+        start_date: 2016-12-31
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9515
+      - name: Denominator Encounter # Encounter too late
+        start_date: 2017-01-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator Encounter # Encounter with different provider
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9515
+      - name: Exclusion SiliconeOil # SiliconeOil exclusion before interval
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9515
+      - name: Exclusion SiliconeOil # SiliconeOil exclusion at lower bound of interval
+        start_date: 2016-03-01
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: Exclusion SiliconeOil # SiliconeOil exclusion at upper bound of interval
+        start_date: 2016-04-01
+        denominator: 1
+        denominator_exclusion: exclusion_1
+        denominator_exception:
+        numerator:
+      - name: Exclusion SiliconeOil # SiliconeOil exclusion after interval
+        start_date: 2016-05-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9515
+      - name: PerformanceNotMet G9514 # Performance met G9515 before period
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9515
+      - name: PerformanceNotMet G9514 # Performance met G9515 lower bound of period
+        start_date: 2016-04-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9514
+      - name: PerformanceNotMet G9514 # Performance met G9515 upper bound of period
+        start_date: 2016-06-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9514
+      - name: PerformanceNotMet G9514 # Performance met G9515 after period
+        start_date: 2016-08-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9515
+      - name: PerformanceNotMet Complication # Eye Complication before end of procedure
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9515
+      - name: PerformanceNotMet Complication # Eye Complication at end of procedure
+        start_date: 2016-04-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9514
+      - name: PerformanceNotMet Complication # Eye Complication at upper bound of period
+        start_date: 2016-06-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9514
+      - name: PerformanceNotMet Complication # Eye Complication after period
+        start_date: 2016-08-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9515
+      - name: PerformanceNotMet Complication # Eye Complication with no CPT modifier
+        start_date: 2016-10-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9515
+  providers_key:
+    - name: Rachel
+      episodes_of_care:
+        - name: Too Young # Below age range
+          start_date: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Age Lower # Lower bound of age range
+          start_date: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9515
+        - name: Denominator Encounter # Encounter too early
+          start_date: 2015-12-31
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Denominator Encounter # Encounter at lower bound
+          start_date: 2016-01-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9515
+        - name: Denominator Encounter # Encounter at upper bound
+          start_date: 2016-12-31
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9515
+        - name: Denominator Encounter # Encounter too late
+          start_date: 2017-01-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Denominator Encounter # Encounter with different provider
+          start_date: 2016-02-01
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Exclusion SiliconeOil # SiliconeOil exclusion before interval
+          start_date: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9515
+        - name: Exclusion SiliconeOil # SiliconeOil exclusion at lower bound of interval
+          start_date: 2016-03-01
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: Exclusion SiliconeOil # SiliconeOil exclusion at upper bound of interval
+          start_date: 2016-04-01
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: Exclusion SiliconeOil # SiliconeOil exclusion after interval
+          start_date: 2016-05-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9515
+        - name: PerformanceNotMet G9514 # Performance met G9515 before period
+          start_date: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9515
+        - name: PerformanceNotMet G9514 # Performance met G9515 lower bound of period
+          start_date: 2016-04-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9514
+        - name: PerformanceNotMet G9514 # Performance met G9515 upper bound of period
+          start_date: 2016-06-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9514
+        - name: PerformanceNotMet G9514 # Performance met G9515 after period
+          start_date: 2016-08-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9515
+        - name: PerformanceNotMet Complication # Eye Complication before end of procedure
+          start_date: 2016-02-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9515
+        - name: PerformanceNotMet Complication # Eye Complication at end of procedure
+          start_date: 2016-04-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9514
+        - name: PerformanceNotMet Complication # Eye Complication at upper bound of period
+          start_date: 2016-06-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9514
+        - name: PerformanceNotMet Complication # Eye Complication after period
+          start_date: 2016-08-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9515
+        - name: PerformanceNotMet Complication # Eye Complication with no CPT modifier
+          start_date: 2016-10-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9515
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  external_id: '111-111'
+  credential: DO
+  primary_specialty: Family Medicine
+- given_name: Patty
+  family_name: PrimaryCare
+  external_id: '222-222'
+  credential: MD
+  primary_specialty: Family Medicine
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1998-02-02
+    given_name: Too
+    family_name: Young
+    sex: Female
+  health_plan_id: Medicare Part B
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2016-02-01
+      provider: Rachel
+- name: Age Lower
+  attributes:
+    date_of_birth: 1998-02-01
+    given_name: Age
+    family_name: Lower
+    sex: Female
+  health_plan_id: Medicare Part B
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2016-02-01
+      provider: Rachel
+- name: Denominator Encounter
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: Denominator
+    family_name: Encounter
+    sex: Female
+  health_plan_id: Medicare Part B
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2015-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2016-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2017-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2016-02-01
+      provider: Patty
+- name: Exclusion SiliconeOil
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: Exclusion
+    family_name: SiliconeOil
+    sex: Female
+  health_plan_id: Medicare Part B
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2016-04-01
+      stop_date: 2016-04-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2016-05-01
+      stop_date: 2016-05-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9756
+      start_date: 2016-01-31 # Early
+    - code_type: CPT
+      code_value: G9756
+      start_date: 2016-03-01 # Lower
+    - code_type: CPT
+      code_value: G9756
+      start_date: 2016-04-02 # Upper
+    - code_type: CPT
+      code_value: G9756
+      start_date: 2016-05-03 # Late
+- name: PerformanceNotMet G9514
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: PerformanceNotMet
+    family_name: G9514
+    sex: Female
+  health_plan_id: Medicare Part B
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2016-04-01
+      stop_date: 2016-04-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2016-06-01
+      stop_date: 2016-06-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2016-08-01
+      stop_date: 2016-08-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9514
+      start_date: 2016-01-31 # Early
+    - code_type: CPT
+      code_value: G9514
+      start_date: 2016-04-01 # Lower
+    - code_type: CPT
+      code_value: G9514
+      start_date: 2016-07-01 # Upper
+    - code_type: CPT
+      code_value: G9514
+      start_date: 2016-09-01 # Late
+- name: PerformanceNotMet Complication
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: PerformanceNotMet
+    family_name: Complication
+    sex: Female
+  health_plan_id: Medicare Part B
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2016-04-01
+      stop_date: 2016-04-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2016-06-01
+      stop_date: 2016-06-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2016-08-01
+      stop_date: 2016-08-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 67107
+      start_date: 2016-10-01
+      stop_date: 2016-10-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 67107
+      code_modifiers: ['78']
+      start_date: 2016-01-31 # Early
+    - code_type: CPT
+      code_value: 67107
+      code_modifiers: ['78']
+      start_date: 2016-04-01 # Lower
+    - code_type: CPT
+      code_value: 67107
+      code_modifiers: ['78']
+      start_date: 2016-07-01 # Upper
+    - code_type: CPT
+      code_value: 67107
+      code_modifiers: ['78']
+      start_date: 2016-09-01 # Late
+    - code_type: CPT
+      code_value: 67107 # No modifier
+      start_date: 2016-10-02
