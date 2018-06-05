@@ -2,13 +2,17 @@
 measure:
   name: 18.MIPS.Mips385
   required:
-    display_title: 'Adult Primary Rhegmatogenous Retinal Detachment Surgery: Visual Acuity Improvement Within 90 Days of Surgery'
+    display_title: 'Adult Primary Rhegmatogenous Retinal Detachment Surgery: Visual
+      Acuity Improvement Within 90 Days of Surgery'
     inverse: false
     subject_type: Encounter
     set: MIPS
     external_id: 385
+    version:
   optional:
-    description: Patients aged 18 years and older who had surgery for primary rhegmatogenous retinal detachment and achieved an improvement in their visual acuity, from their preoperative level, within 90 days of surgery in the operative eye
+    description: 'Patients aged 18 years and older who had surgery for primary rhegmatogenous
+      retinal detachment and achieved an improvement in their visual acuity, from
+      their preoperative level, within 90 days of surgery in the operative eye'
     gap_resolution_action:
     version: 2018
     mips_measure_type: Outcome
@@ -20,7 +24,8 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Patients aged 18 years and older who had surgery for primary rhegmatogenous retinal detachment
+  description: 'Patients aged 18 years and older who had surgery for primary rhegmatogenous
+    retinal detachment'
   component_groups:
   - validation_record_table_count: 10
     components:
@@ -28,7 +33,7 @@ denominator:
       show_codes: true
       records:
       - model: ClinicalActivity
-        value_set: MIPS; MIPS 385 Encounter
+        value_set: MIPS; MIPS 385 Procedure
 exclusion:
   description:
   reasons:
@@ -39,36 +44,24 @@ exclusion:
     component_groups:
     - validation_record_table_count: 10
       components:
-      - display_title: Encounter
+      - display_title: 'Procedure Using Silicone Oil'
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: MIPS; MIPS 385 Encounter
-    - validation_record_table_count: 10
-      components:
-      - display_title: Procedures Using Silicone Oil
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: 'MIPS; Denominator Exclusion: G9757'
+          value_set: 'MIPS; Procedures Using Silicone Oil'
 exception:
   description:
   reasons:
 performance_met:
-  description: Patients who achieved an improvement in their visual acuity, from their preoperative level, within 90 days of surgery in the operative eye
+  description: 'Patients who achieved an improvement in their visual acuity, from
+    their preoperative level, within 90 days of surgery in the operative eye'
   reasons:
   - config_link_id: G9516
     code_value: G9516
     display_title: G9516
-    description: Patient achieved an improvement in visual acuity, from their preoperative level, within 90 days of surgery
+    description: Patient achieved an improvement in visual acuity, from their preoperative
+      level, within 90 days of surgery
     component_groups:
-    - validation_record_table_count: 10
-      components:
-      - display_title: Encounter
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: MIPS; MIPS 385 Encounter
     - validation_record_table_count: 10
       components:
       - display_title: 'Quality Data Code: G9516'
@@ -82,26 +75,13 @@ performance_not_met:
   - config_link_id: G9517
     code_value: G9517
     display_title: G9517
-    description: Patient did not achieve an improvement in visual acuity, from their preoperative level, within 90 days of surgery, reason not given
+    description: Patient did not achieve an improvement in visual acuity, from their
+      preoperative level, within 90 days of surgery, reason not given
     component_groups:
-    - validation_record_table_count: 10
-      components:
-      - display_title: Encounter
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: MIPS; MIPS 385 Encounter
-    - validation_record_table_count: 10
-      components:
-      - display_title: 'Quality Data Code: G9516'
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: 'MIPS; Performance Met: G9516'
     - validation_record_table_count: 10
       components:
       - display_title: 'Quality Data Code: G9517'
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: 'MIPS; Performance Met: G9517'
+          value_set: 'MIPS; Performance Not Met: G9517'
