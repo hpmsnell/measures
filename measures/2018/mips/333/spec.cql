@@ -41,12 +41,12 @@ define "Acute Sinusitis Interval":
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 333 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Acute Sinusitis Interval"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in "MIPS; Telehealth Modifier"
     with ["Diagnosis": "MIPS; Acute Sinusitis"] D
-      such that D.prevalencePeriod starts during "Acute Sinusitis Interval"
+      such that D.prevalencePeriod starts during E.relevantPeriod
 
 define "Performance Met":
   ["Procedure, Performed": "MIPS; Performance Met: G9349"]
