@@ -85,10 +85,10 @@ define "Denominator Exception: G8451":
    * config_link_id: G8451
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: G8451"] P
-    with "Denominator Encounter" E
+    with "Denominator Encounter with Diagnosis" E
       such that P.relevantPeriod starts during E.relevantPeriod
   or exists("Medical Exception" D
-    where D.prevalencePeriod starts during "Measurement Period")
+    where D.prevalencePeriod overlaps E.relevantPeriod)
 
 define "Numerator Performance Not Met: G8452":
   /*

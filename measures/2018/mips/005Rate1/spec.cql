@@ -71,7 +71,7 @@ define "Denominator Exception: 4010F-1P":
    * config_link_id: 4010F-1P
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: 4010F-1P"] P
-    with "Denominator Encounter" E
+    with "Denominator Encounter with Diagnosis" E
       such that P.relevantPeriod starts during E.relevantPeriod
   or exists(["Allergy": "VSAC; Ace Inhibitor or ARB Ingredient"] M
     with "Denominator Encounter with Diagnosis" E

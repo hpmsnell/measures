@@ -53,10 +53,10 @@ define "Numerator Performance Met: 4010F":
   /*
    * config_link_id: 4010F
    */
-  exists(["Procedure, Performed": "MIPS; Performance Met: 4010F"] P
-    where P.relevantPeriod starts during "Measurement Period")
+  exists()["Procedure, Performed": "MIPS; Performance Met: 4010F"] P
+    where P.relevantPeriod starts during E.relevantPeriod
   or exists(["Medication": "VSAC; Ace Inhibitor or ARB"] M
-    with "Denominator Encounter with Diagnosis" E
+    with "Denominator Encounter" E
       such that M.relevantPeriod overlaps E.relevantPeriod)
 
 define "Denominator Exception: 4010F-1P":
@@ -67,13 +67,13 @@ define "Denominator Exception: 4010F-1P":
     with "Denominator Encounter" E
       such that P.relevantPeriod starts during E.relevantPeriod
   or exists(["Allergy": "VSAC; Ace Inhibitor or ARB Ingredient"] M
-    with "Denominator Encounter with Diagnosis" E
+    with "Denominator Encounter" E
       such that M.relevantPeriod overlaps E.relevantPeriod)
   or exists(["Diagnosis": "VSAC; Hypotension"] D
-    with "Denominator Encounter with Diagnosis" E
+    with "Denominator Encounter" E
       such that D.relevantPeriod overlaps E.relevantPeriod)
   or exists(["Diagnosis": "VSAC; Allergy to Ace Inhibitor or ARB"] D
-    with "Denominator Encounter with Diagnosis" E
+    with "Denominator Encounter" E
       such that D.relevantPeriod overlaps E.relevantPeriod)
 
 define "Denominator Exception: 4010F-2P":

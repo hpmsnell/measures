@@ -116,7 +116,7 @@ define "Denominator Exception: G9191":
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: G9191 or 4008F-2P"] P
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod
+      such that P.relevantPeriod starts during E.relevantPeriod)
 
 define "Denominator Exception: G9192":
   /*

@@ -104,7 +104,7 @@ define "Denominator Exception: 4008F-1P":
     with "Denominator Encounter" E
       such that P.relevantPeriod starts during E.relevantPeriod
   or exists("Medical Exception" D
-    where D.prevalencePeriod overlaps "Measurement Year")
+    where D.prevalencePeriod overlaps E.relevantPeriod)
 
 define "Denominator Exception: 4008F-2P":
   /*
@@ -112,7 +112,7 @@ define "Denominator Exception: 4008F-2P":
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: G9191 or 4008F-2P"] P
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod
+      such that P.relevantPeriod starts during E.relevantPeriod)
 
 define "Denominator Exception: 4008F-3P":
   /*
@@ -120,7 +120,7 @@ define "Denominator Exception: 4008F-3P":
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: G9192 or 4008F-3P"] P
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod
+      such that P.relevantPeriod starts during E.relevantPeriod)
 
 define "Numerator Performance Not Met: 4008F-8P":
   /*
