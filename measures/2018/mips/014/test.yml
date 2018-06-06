@@ -52,42 +52,42 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: G9890 Before # G9890 too early
+    - name: G9974 Before # G9974 too early
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9893
-    - name: G9890 Lower # G9890 at start of allowable period
+    - name: G9974 Lower # G9974 at start of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9890
-    - name: G9890 Upper # G9890 at end of allowable period
+      numerator: G9974
+    - name: G9974 Upper # G9974 at end of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9890
-    - name: G9890 After # G9890 too late
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: G9893
-    - name: G9891 Before # G9891 too early
+      numerator: G9974
+    - name: G9974 After # G9974 too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9893
-    - name: G9891 Lower # G9891 at start of allowable period
+    - name: G9975 Before # G9975 too early
       denominator: 1
       denominator_exclusion:
-      denominator_exception: G9891
+      denominator_exception:
+      numerator: G9893
+    - name: G9975 Lower # G9975 at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9975
       numerator:
-    - name: G9891 Upper # G9891 at end of allowable period
+    - name: G9975 Upper # G9975 at end of allowable period
       denominator: 1
       denominator_exclusion:
-      denominator_exception: G9891
+      denominator_exception: G9975
       numerator:
-    - name: G9891 After # G9891 too late
+    - name: G9975 After # G9975 too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -165,42 +165,42 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: G9890 Before # G9890 too early
+    - name: G9974 Before # G9974 too early
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9893
-    - name: G9890 Lower # G9890 at start of allowable period
+    - name: G9974 Lower # G9974 at start of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9890
-    - name: G9890 Upper # G9890 at end of allowable period
+      numerator: G9974
+    - name: G9974 Upper # G9974 at end of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9890
-    - name: G9890 After # G9890 too late
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: G9893
-    - name: G9891 Before # G9891 too early
+      numerator: G9974
+    - name: G9974 After # G9974 too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9893
-    - name: G9891 Lower # G9891 at start of allowable period
+    - name: G9975 Before # G9975 too early
       denominator: 1
       denominator_exclusion:
-      denominator_exception: G9891
+      denominator_exception:
+      numerator: G9893
+    - name: G9975 Lower # G9975 at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9975
       numerator:
-    - name: G9891 Upper # G9891 at end of allowable period
+    - name: G9975 Upper # G9975 at end of allowable period
       denominator: 1
       denominator_exclusion:
-      denominator_exception: G9891
+      denominator_exception: G9975
       numerator:
-    - name: G9891 After # G9891 too late
+    - name: G9975 After # G9975 too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -409,10 +409,10 @@ patients:
     - code_type: ICD10CM
       code_value: H35.30
       start_date: 2016-02-03
-- name: G9890 Before
+- name: G9974 Before
   attributes:
     date_of_birth: 1950-01-01
-    given_name: G9890
+    given_name: G9974
     family_name: Before
     sex: Female
   clinical_models:
@@ -423,16 +423,16 @@ patients:
       stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
-      code_value: G9890 # Performance Met
+      code_value: G9974 # Performance Met
       start_date: 2015-12-31 # Early
     diagnoses:
     - code_type: ICD10CM
       code_value: H35.30
       start_date: 2010-01-01
-- name: G9890 Lower
+- name: G9974 Lower
   attributes:
     date_of_birth: 1950-01-01
-    given_name: G9890
+    given_name: G9974
     family_name: Lower
     sex: Female
   clinical_models:
@@ -443,16 +443,16 @@ patients:
       stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
-      code_value: G9890 # Performance Met
+      code_value: G9974 # Performance Met
       start_date: 2016-01-01 # Lower
     diagnoses:
     - code_type: ICD10CM
       code_value: H35.30
       start_date: 2010-01-01
-- name: G9890 Upper
+- name: G9974 Upper
   attributes:
     date_of_birth: 1950-01-01
-    given_name: G9890
+    given_name: G9974
     family_name: Upper
     sex: Female
   clinical_models:
@@ -463,16 +463,16 @@ patients:
       stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
-      code_value: G9890 # Performance Met
+      code_value: G9974 # Performance Met
       start_date: 2016-12-31 # Upper
     diagnoses:
     - code_type: ICD10CM
       code_value: H35.30
       start_date: 2010-01-01
-- name: G9890 After
+- name: G9974 After
   attributes:
     date_of_birth: 1950-01-01
-    given_name: G9890
+    given_name: G9974
     family_name: After
     sex: Female
   clinical_models:
@@ -483,16 +483,16 @@ patients:
       stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
-      code_value: G9890 # Performance Met
+      code_value: G9974 # Performance Met
       start_date: 2017-01-01 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: H35.30
       start_date: 2010-01-01
-- name: G9891 Before
+- name: G9975 Before
   attributes:
     date_of_birth: 1950-01-01
-    given_name: G9891
+    given_name: G9975
     family_name: Before
     sex: Female
   clinical_models:
@@ -503,16 +503,16 @@ patients:
       stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
-      code_value: G9891
+      code_value: G9975
       start_date: 2015-12-31 # Early
     diagnoses:
     - code_type: ICD10CM
       code_value: H35.30
       start_date: 2010-01-01
-- name: G9891 Lower
+- name: G9975 Lower
   attributes:
     date_of_birth: 1950-01-01
-    given_name: G9891
+    given_name: G9975
     family_name: Lower
     sex: Female
   clinical_models:
@@ -523,16 +523,16 @@ patients:
       stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
-      code_value: G9891
+      code_value: G9975
       start_date: 2016-01-01 # Lower
     diagnoses:
     - code_type: ICD10CM
       code_value: H35.30
       start_date: 2010-01-01
-- name: G9891 Upper
+- name: G9975 Upper
   attributes:
     date_of_birth: 1950-01-01
-    given_name: G9891
+    given_name: G9975
     family_name: Upper
     sex: Female
   clinical_models:
@@ -543,16 +543,16 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: G9891
+      code_value: G9975
       start_date: 2016-02-01 # Upper
     diagnoses:
     - code_type: ICD10CM
       code_value: H35.30
       start_date: 2010-01-01
-- name: G9891 After
+- name: G9975 After
   attributes:
     date_of_birth: 1950-01-01
-    given_name: G9891
+    given_name: G9975
     family_name: After
     sex: Female
   clinical_models:
@@ -563,7 +563,7 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: G9891
+      code_value: G9975
       start_date: 2016-02-02 # Late
     diagnoses:
     - code_type: ICD10CM

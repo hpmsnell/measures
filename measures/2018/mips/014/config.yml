@@ -49,19 +49,19 @@ exclusion:
 exception:
   description:
   reasons:
-  - config_link_id: G9891
-    code_value: G9891
-    display_title: G9891
+  - config_link_id: G9975
+    code_value: G9975
+    display_title: G9975
     description: Documentation of medical reason(s) for not performing a dilated macular
       examination
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title: 'Quality Data Code: G9891'
+      - display_title: 'Quality Data Code: G9975'
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: 'MIPS; Denominator Exception: G9891'
+          value_set: 'MIPS; Denominator Exception: G9975'
   - config_link_id: G9892
     code_value: G9892
     display_title: G9892
@@ -81,20 +81,20 @@ performance_met:
     or hemorrhage AND the level of macular degeneration severity during one or more
     office visits within 12 months'
   reasons:
-  - config_link_id: G9890
-    code_value: G9890
-    display_title: G9890
+  - config_link_id: G9974
+    code_value: G9974
+    display_title: G9974
     description: Dilated macular exam performed, including documentation of the presence or
       absence of macular thickening or geographic atrophy or hemorrhage AND the level of
       macular degeneration severity
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title: 'Quality Data Code: G9890'
+      - display_title: 'Quality Data Code: G9974'
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: 'MIPS; Performance Met: G9890'
+          value_set: 'MIPS; Performance Met: G9974'
 performance_not_met:
   description:
   reasons:
