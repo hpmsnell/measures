@@ -97,6 +97,11 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: G9905
+      - name: NonUser 1036F # Patient Non-tobacco user 1036F
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9903
       - name: NonUser Early # Tobacco non-user before interval
         denominator: 1
         denominator_exclusion:
@@ -125,12 +130,12 @@ test_set_keys:
       - name: G9904 Lower # G9904 lower bound interval
         denominator: 1
         denominator_exclusion:
-        denominator_exception: G99021P
+        denominator_exception: G9904
         numerator:
       - name: G9904 Upper # G9904 upper bound interval
         denominator: 1
         denominator_exclusion:
-        denominator_exception: G99021P
+        denominator_exception: G9904
         numerator:
       - name: G9904 Late # G9904 after interval
         denominator: 1
@@ -150,12 +155,12 @@ test_set_keys:
       - name: LimitedLife Lower # Limited life expectancy ends lower bound interval
         denominator: 1
         denominator_exclusion:
-        denominator_exception: G99021P
+        denominator_exception: G9904
         numerator:
       - name: LimitedLife Upper # Limited life expectancy starts upper bound interval
         denominator: 1
         denominator_exclusion:
-        denominator_exception: G99021P
+        denominator_exception: G9904
         numerator:
       - name: LimitedLife Late # Limited life expectancy starts after interval
         denominator: 1
@@ -293,12 +298,12 @@ test_set_keys:
         - name: G9904 Lower # G9904 lower bound interval
           denominator: 1
           denominator_exclusion:
-          denominator_exception: G99021P
+          denominator_exception: G9904
           numerator:
         - name: G9904 Upper # G9904 upper bound interval
           denominator: 1
           denominator_exclusion:
-          denominator_exception: G99021P
+          denominator_exception: G9904
           numerator:
         - name: G9904 Late # G9904 after interval
           denominator: 1
@@ -318,12 +323,12 @@ test_set_keys:
         - name: LimitedLife Lower # Limited life expectancy ends lower bound interval
           denominator: 1
           denominator_exclusion:
-          denominator_exception: G99021P
+          denominator_exception: G9904
           numerator:
         - name: LimitedLife Upper # Limited life expectancy starts upper bound interval
           denominator: 1
           denominator_exclusion:
-          denominator_exception: G99021P
+          denominator_exception: G9904
           numerator:
         - name: LimitedLife Late # Limited life expectancy starts after interval
           denominator: 1
@@ -512,7 +517,7 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: G9902
-        start_date: 2015-12-31
+        start_date: 2014-12-31 # Too early
   - name: G9902 Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -527,7 +532,7 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: G9902
-        start_date: 2016-01-01
+        start_date: 2015-01-01 # Lower bound
   - name: G9902 Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -572,7 +577,7 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: G9903
-        start_date: 2015-12-31
+        start_date: 2014-12-31 # Too early
   - name: G9903 Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -587,7 +592,7 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: G9903
-        start_date: 2016-01-01
+        start_date: 2015-01-01 # Lower bound
   - name: G9903 Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -618,6 +623,22 @@ patients:
       - code_type: CPT
         code_value: G9903
         start_date: 2017-01-01
+  - name: NonUser 1036F
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: NonUser
+      family_name: 1036F
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 92522
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 1036F
+        start_date: 2016-02-01
+        provider: Rachel
   - name: NonUser Early
     attributes:
       date_of_birth: 1988-03-22
@@ -767,6 +788,7 @@ patients:
       - code_type: CPT
         code_value: G9904
         start_date: 2016-02-01 # During encounter that is not the most recent
+        stop_date: 2016-02-01
   - name: LimitedLife Early
     attributes:
       date_of_birth: 1988-03-22
