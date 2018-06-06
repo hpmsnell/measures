@@ -582,8 +582,7 @@ patients:
       code_value: 4090F # Drug therapy
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 3160F
-      start_date: 2015-12-02 # Too early
+      code_value: 3
     diagnoses:
     - code_type: ICD10CM
       code_value: D46.0
@@ -782,7 +781,8 @@ patients:
       code_value: 4090F # Drug therapy
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 3160F-3P
+      code_value: 3160F
+      code_modifiers: ['3P']
       start_date: 2015-12-02 # Too early
     diagnoses:
     - code_type: ICD10CM
@@ -805,7 +805,8 @@ patients:
       code_value: 4090F # Drug therapy
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 3160F-3P
+      code_value: 3160F
+      code_modifiers: ['3P']
       start_date: 2015-12-03 # Lower bound
     diagnoses:
     - code_type: ICD10CM
@@ -828,7 +829,8 @@ patients:
       code_value: 4090F # Drug therapy
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 3160F-3P
+      code_value: 3160F
+      code_modifiers: ['3P']
       start_date: 2016-02-01 # Upper bound
     diagnoses:
     - code_type: ICD10CM
@@ -851,7 +853,8 @@ patients:
       code_value: 4090F # Drug therapy
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 3160F-3P
+      code_value: 3160F
+      code_modifiers: ['3P']
       start_date: 2016-02-02 # Too late
     diagnoses:
     - code_type: ICD10CM

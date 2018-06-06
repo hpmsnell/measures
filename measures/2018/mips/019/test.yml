@@ -655,9 +655,11 @@ patients:
     - code_type: LOINC
       code_value: 32451-7 # Macular edema
       start_date: 2016-01-31 # Early
+      stop_date: 2016-01-31
     - code_type: SNOMEDCT
       code_value: 312903003 # Retinopathy
       start_date: 2016-02-01
+      stop_date: 2016-02-02
     diagnoses:
     - code_type: ICD10CM
       code_value: E08.311
@@ -678,9 +680,11 @@ patients:
     - code_type: LOINC
       code_value: 32451-7 # Macular edema
       start_date: 2016-02-01 # Lower bound
+      stop_date: 2016-02-02
     - code_type: SNOMEDCT
       code_value: 312903003 # Retinopathy
       start_date: 2016-02-01
+      stop_date: 2016-02-02
     diagnoses:
     - code_type: ICD10CM
       code_value: E08.311
@@ -701,9 +705,11 @@ patients:
     - code_type: LOINC
       code_value: 32451-7 # Macular edema
       start_date: 2016-02-02 # Upper
+      stop_date: 2016-02-02
     - code_type: SNOMEDCT
       code_value: 312903003 # Retinopathy
-      start_date: 2016-02-01
+      start_date: 2016-02-02
+      stop_date: 2016-02-02
     diagnoses:
     - code_type: ICD10CM
       code_value: E08.311
@@ -724,9 +730,11 @@ patients:
     - code_type: LOINC
       code_value: 32451-7 # Macular edema
       start_date: 2016-02-03 # Late
+      stop_date: 2016-02-03
     - code_type: SNOMEDCT
       code_value: 312903003 # Retinopathy
       start_date: 2016-02-01
+      stop_date: 2016-02-02
     diagnoses:
     - code_type: ICD10CM
       code_value: E08.311
@@ -747,9 +755,11 @@ patients:
     - code_type: LOINC
       code_value: 32451-7 # Macular edema
       start_date: 2016-02-01
+      stop_date: 2016-02-02
     - code_type: SNOMEDCT
       code_value: 312903003 # Retinopathy
       start_date: 2016-01-31 # Early
+      stop_date: 2016-01-31
     diagnoses:
     - code_type: ICD10CM
       code_value: E08.311
@@ -770,9 +780,11 @@ patients:
     - code_type: LOINC
       code_value: 32451-7 # Macular edema
       start_date: 2016-02-01
+      stop_date: 2016-02-02
     - code_type: SNOMEDCT
       code_value: 312903003 # Retinopathy
       start_date: 2016-02-01 # Lower bound
+      stop_date: 2016-02-02
     diagnoses:
     - code_type: ICD10CM
       code_value: E08.311
@@ -793,9 +805,11 @@ patients:
     - code_type: LOINC
       code_value: 32451-7 # Macular edema
       start_date: 2016-02-01
+      stop_date: 2016-02-02
     - code_type: SNOMEDCT
       code_value: 312903003 # Retinopathy
       start_date: 2016-02-02 # Upper
+      stop_date: 2016-02-02
     diagnoses:
     - code_type: ICD10CM
       code_value: E08.311
@@ -816,9 +830,11 @@ patients:
     - code_type: LOINC
       code_value: 32451-7 # Macular edema
       start_date: 2016-02-01
+      stop_date: 2016-02-02
     - code_type: SNOMEDCT
       code_value: 312903003 # Retinopathy
       start_date: 2016-02-03 # Late
+      stop_date: 2016-02-03
     diagnoses:
     - code_type: ICD10CM
       code_value: E08.311
@@ -932,7 +948,8 @@ patients:
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 5010F-1P
+      code_value: 5010F
+      code_modifiers: ['1P']
       start_date: 2016-01-31 # Early
     diagnoses:
     - code_type: ICD10CM
@@ -955,7 +972,8 @@ patients:
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 5010F-1P
+      code_value: 5010F
+      code_modifiers: ['1P']
       start_date: 2016-02-01 # Lower
     diagnoses:
     - code_type: ICD10CM
@@ -978,7 +996,8 @@ patients:
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 5010F-1P
+      code_value: 5010F
+      code_modifiers: ['1P']
       start_date: 2016-02-02 # Upper
     diagnoses:
     - code_type: ICD10CM
@@ -1001,7 +1020,8 @@ patients:
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 5010F-1P
+      code_value: 5010F
+      code_modifiers: ['1P']
       start_date: 2016-02-03 # Late
     diagnoses:
     - code_type: ICD10CM
@@ -1024,7 +1044,8 @@ patients:
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 5010F-2P
+      code_value: 5010F
+      code_modifiers: ['2P']
       start_date: 2016-01-31 # Early
     diagnoses:
     - code_type: ICD10CM
@@ -1047,7 +1068,8 @@ patients:
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 5010F-2P
+      code_value: 5010F
+      code_modifiers: ['2P']
       start_date: 2016-02-01 # Lower
     diagnoses:
     - code_type: ICD10CM
@@ -1070,7 +1092,8 @@ patients:
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 5010F-2P
+      code_value: 5010F
+      code_modifiers: ['2P']
       start_date: 2016-02-02 # Upper
     diagnoses:
     - code_type: ICD10CM
@@ -1093,7 +1116,8 @@ patients:
       code_value: G8397
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 5010F-2P
+      code_value: 5010F
+      code_modifiers: ['2P']
       start_date: 2016-02-03 # Late
     diagnoses:
     - code_type: ICD10CM

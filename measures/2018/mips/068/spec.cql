@@ -39,15 +39,18 @@ define "Denominator Encounter":
     with ["Diagnosis": "MIPS; Myelodysplastic Syndrome (MDS)"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod
 
+define "Erythropoietin Therapy":
+  ["Medication": "Able; Erythropoietin Therapy"]
+  union ["Medication": "Able; Erythropoietin Therapy"]
+
 define "Erythropoietin Therapy Exists":
-  exists(["Procedure, Performed": "MIPS; Erythropoietin Therapy"] P
-    where P.relevantPeriod starts during "Measurement Period"])
-  or exists(["Medication": "Able; Erythropoietin Therapy"] M
+  exists("Erythropoietin Therapy" M
     where M.relevantPeriod starts during "Measurement Period"])
 
 define "First Erythropoietin Therapy":
-  First(["Medication": "Able; Erythropoietin Therapy"] M
-    where M.relevantPeriod starts during "Measurement Period")
+  First("Erythropoietin Therapy" M
+    where M.relevantPeriod starts during "Measurement Period"
+    sort by M.relevantPeriod asc)
 
 define "Denominator":
   exists("Denominator Encounter")

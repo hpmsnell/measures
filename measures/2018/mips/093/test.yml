@@ -368,7 +368,7 @@ patients:
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-02-01
 - name: Age Lower
   attributes:
@@ -385,7 +385,7 @@ patients:
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-02-01
 - name: Denominator Encounter
   attributes:
@@ -421,19 +421,19 @@ patients:
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2015-12-31
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-01-01
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-01-30
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-12-31
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2017-01-01
 - name: Denominator Diagnosis
   attributes:
@@ -465,19 +465,19 @@ patients:
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-01-30
       stop_date: 2016-01-31 # Too early
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-04-01 # Lower bound
       stop_date: 2016-04-01
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-06-02 # Upper bound
       stop_date: 2016-06-02
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-08-03 # Too late
       stop_date: 2016-08-03
 - name: PerformanceMet 4132F
@@ -522,16 +522,16 @@ patients:
       start_date: 2016-09-02 # Late
     diagnoses:
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-02-01
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-04-01
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-06-01
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-08-01
     medications:
     - code_type: RXNORM
@@ -589,19 +589,19 @@ patients:
       provider: Rachel
     diagnoses:
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-02-01
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-04-01
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-06-01
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-08-01
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-10-01
     medications:
     - code_type: RXNORM
@@ -642,7 +642,8 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: 4131F-1P
+      code_value: 4131F
+      code_modifiers: ['1P']
       start_date: 2016-01-31 # Too early
     - code_type: CPT
       code_value: 99201
@@ -650,36 +651,39 @@ patients:
       stop_date: 2016-04-01
       provider: Rachel
     - code_type: CPT
-      code_value: 4131F-1P
+      code_value: 4131F
+      code_modifiers: ['1P']
       start_date: 2016-04-01 # Lower bound
     - code_type: CPT
       code_value: 99201
       start_date: 2016-06-01
-      stop_date: 2016-06-01
+      stop_date: 2016-06-02
       provider: Rachel
     - code_type: CPT
-      code_value: 4131F-1P
-      start_date: 2016-06-01 # Upper bound
+      code_value: 4131F
+      code_modifiers: ['1P']
+      start_date: 2016-06-02 # Upper bound
     - code_type: CPT
       code_value: 99201
       start_date: 2016-08-01
-      stop_date: 2016-08-01
+      stop_date: 2016-08-02
       provider: Rachel
     - code_type: CPT
-      code_value: 4131F-1P
-      start_date: 2016-08-02 # Late
+      code_value: 4131F
+      code_modifiers: ['1P']
+      start_date: 2016-08-03 # Late
     diagnoses:
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-02-01
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-04-01
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-06-01
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-08-01
     medications:
     - code_type: RXNORM
@@ -732,28 +736,28 @@ patients:
       provider: Patty
     diagnoses:
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-02-01
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-01-01
       stop_date: 2016-01-31 # Early
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-04-01
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-03-30
       stop_date: 2016-04-01 # Lower bound
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-06-01
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-06-02 # Upper bound
       stop_date: 2016-06-02
     - code_type: ICD10CM
-      code_value: H60.00
+      code_value: H60.311
       start_date: 2016-08-01
     - code_type: ICD10CM
       code_value: E13.49

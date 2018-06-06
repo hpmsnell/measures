@@ -52,9 +52,19 @@ define "Denominator Encounter with Findings":
     with ["Procedure, Performed": "Able; Retinopathy Finding"]
       such that P.relevantPeriod starts during E.relevantPeriod
 
+define "Exam or Findings":
+  ["Procedure, Performed": "MIPS; Dilated Macular or Fundus Exam"] P
+  or ["Procedure, Performed": "Able; Macular Edema Finding"] P1
+    with ["Procedure, Performed": "Able; Retinopathy Finding"] P2
+      such that P1.relevantPeriod starts during P2.relevantPeriod
+
+define "Denominator Encounter with Exam or Findings":
+  "Denominator Encounter" E
+    with "Exam or Findings" P
+      such that P.relevantPeriod starts during E.relevantPeriod
+
 define "Denominator":
-  exists("Denominator Encounter with Exam")
-  or exists("Denominator Encounter with Findings")
+  exists("Denominator Encounter with Exam or Findings")
 
 define "Numerator Performance Met: 5010F":
   /*
