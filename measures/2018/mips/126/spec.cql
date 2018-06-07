@@ -70,12 +70,11 @@ define "Other Neurological Exam":
   union ["Procedure, Performed": "Able; Foot Pin Prick Exam"]
 
 define "Neurological Exam Exists"
-  exists(["Procedure, Performed": "Able; Monofilament Exam"] P
-    with "Denominator Encounter" E
-      such that P.relaventPeriod starts on or 12 months or less before start of E.relevantPeriod
-  and exists("Other Neurological Exam" P
-    with "Denominator Encounter" E
-      such that P.relaventPeriod starts on or 12 months or less before start of E.relevantPeriod
+  exists("Denominator Encounter" E
+    with ["Procedure, Performed": "Able; Monofilament Exam"] P1
+      such that P1.relaventPeriod starts on or 12 months or less before start of E.relevantPeriod
+    with "Other Neurological Exam" P2
+      such that P2.relaventPeriod starts on or 12 months or less before start of E.relevantPeriod)
 
 define "Denominator":
   exists("Denominator Encounter")
