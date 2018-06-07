@@ -1,0 +1,85 @@
+measure:
+  name: 18.MIPS.Mips334
+  required:
+    display_title: "Adult Sinusitis: Computerized Tomography (CT) for Chronic Sinusitis (Overuse)"
+  optional:
+    gap_resolution_action:
+    set: MIPS
+    external_id: 334
+    version: 2018
+    mips_measure_type: Efficiency
+    mips_high_priority: true
+exclusion_reasons:
+performance_met_reasons:
+  - config_link_id: G9352
+    required:
+      display_title: 'More than one CT scan of the paranasal sinuses ordered or received within 90 days after the date of diagnosis, reason not given'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 334 Encounter"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Chronic Sinusitis"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; CT Scan of Paranasal Sinuses"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9352"
+    optional:
+      code_value: G9352
+exception_reasons:
+  - config_link_id: G9353
+    required:
+      display_title: 'More than one CT scan of the paranasal sinuses ordered or received within 90 days after the date of diagnosis for documented reasons (e.g., patients with complications, second CT obtained prior to surgery, other medical reasons)'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 334 Encounter"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Chronic Sinusitis"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; CT Scan of Paranasal Sinuses"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Denominator Exception: G9353"
+    optional:
+      code_value: G9353
+performance_not_met_reasons:
+  - config_link_id: G9354
+    required:
+      display_title: 'One CT scan or no CT scan of the paranasal sinuses ordered within 90 days after the date of diagnosis'
+      validation_record_groups:
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; MIPS 334 Encounter"
+        - count: 10
+          validation_records:
+            - model: Diagnosis
+              value_set: "MIPS; Chronic Sinusitis"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "Able; CT Scan of Paranasal Sinuses"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Met: G9352"
+        - count: 10
+          validation_records:
+            - model: ClinicalActivity
+              value_set: "MIPS; Performance Not Met: G9354"
+    optional:
+      code_value: G9354
