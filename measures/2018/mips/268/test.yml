@@ -409,7 +409,8 @@ patients:
       stop_date: 2016-02-02
       provider: Patty
     - code_type: CPT
-      code_value: 4340F-1P # Exception
+      code_value: 4340F # Exception
+      code_modifiers: ['1P']
       start_date: 2016-01-31 # Early
     diagnoses:
     - code_type: ICD10CM
@@ -429,7 +430,8 @@ patients:
       stop_date: 2016-02-02
       provider: Patty
     - code_type: CPT
-      code_value: 4340F-1P # Exception
+      code_value: 4340F # Exception
+      code_modifiers: ['1P']
       start_date: 2016-02-01 # Lower
     diagnoses:
     - code_type: ICD10CM
@@ -449,7 +451,8 @@ patients:
       stop_date: 2016-02-02
       provider: Patty
     - code_type: CPT
-      code_value: 4340F-1P # Exception
+      code_value: 4340F # Exception
+      code_modifiers: ['1P']
       start_date: 2016-02-02 # Upper
     diagnoses:
     - code_type: ICD10CM
@@ -469,7 +472,8 @@ patients:
       stop_date: 2016-02-02
       provider: Patty
     - code_type: CPT
-      code_value: 4340F-1P # Exception
+      code_value: 4340F # Exception
+      code_modifiers: ['1P']
       start_date: 2016-02-03 # Late
     diagnoses:
     - code_type: ICD10CM

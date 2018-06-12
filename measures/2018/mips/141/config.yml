@@ -8,21 +8,27 @@ measure:
     subject_type: Patient
     set: MIPS
     external_id: '141'
+    version:
   optional:
-    description:
+    description: 'Percentage of patients aged 18 years and older with a diagnosis
+      of primary open-angle glaucoma (POAG) whose glaucoma treatment has not failed
+      (the most recent IOP was reduced by at least 15% from the pre-intervention level)
+      OR if the most recent IOP was not reduced by at least 15% from the pre-intervention
+      level, a plan of care was documented within 12 months'
     gap_resolution_action: Patient requires attention for high intraocular pressure
       or documentation of a plan of care
     version: 2018
     mips_measure_type: Outcome
     mips_high_priority: true
-    mips_specialty_sets:
-    mips_seven_point_max:
+    mips_specialty_sets: 'Ophthalmology'
+    mips_seven_point_max: false
     source_specification_url:
     measure_children_names:
     mips_stratum:
     mips_objective:
 denominator:
-  description:
+  description: 'All patients aged 18 years and older with a diagnosis of primary open-angle
+    glaucoma'
   component_groups:
   - validation_record_table_count: 1
     components:
@@ -46,7 +52,10 @@ exception:
   description:
   reasons:
 performance_met:
-  description:
+  description: 'Patients whose glaucoma treatment has not failed (the most recent
+    IOP was reduced by at least 15% from the pre- intervention level) OR if the most
+    recent IOP was not reduced by at least 15% from the pre-intervention level, a
+    plan of care was documented within 12 months'
   reasons:
   - config_link_id: 3284F
     code_value: 3284F
@@ -61,9 +70,18 @@ performance_met:
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Met: 3284F'
+      - display_title: Reduced Intraocular Pressure
+        logical_operator: OR
+        show_codes: false
+        annotation: "Reduced by ≥ 15%"
+        records:
+        - model: ClinicalActivity
+          value_set: Able; IOP Left Eye
+        - model: ClinicalActivity
+          value_set: Able; IOP Right Eye
   - config_link_id: 3285F-0517F
     code_value: 3285F/0517F
-    display_title: 3285F-0517F
+    display_title: 3285F and 0517F
     description: Intraocular pressure (IOP) reduced by a value less than 15% from
       the pre-intervention level AND glaucoma plan of care documented
     component_groups:
@@ -82,14 +100,15 @@ performance_met:
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Met: 3285F'
-      - display_title: Intraocular Pressure
+      - display_title: Reduced Intraocular Pressure
         logical_operator: OR
         show_codes: false
+        annotation: "Reduced by < 15%"
         records:
         - model: ClinicalActivity
-          value_set: 'Able; IOP Left Eye'
+          value_set: Able; IOP Left Eye
         - model: ClinicalActivity
-          value_set: 'Able; IOP Right Eye'
+          value_set: Able; IOP Right Eye
   - config_link_id: 0517F
     code_value: 0517F
     display_title: 0517F
@@ -107,7 +126,7 @@ performance_not_met:
   reasons:
   - config_link_id: 3285F-0517F-8P
     code_value: 3285F/0517F-8P
-    display_title: 3285F-0517F-8P
+    display_title: 3285F and 0517F-8P
     description: Intraocular pressure (IOP) reduced by a value less than 15% from
       the pre-intervention level AND glaucoma plan of care not documented, reason
       not otherwise specified
@@ -127,14 +146,15 @@ performance_not_met:
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Met: 3285F'
-      - display_title: Intraocular Pressure
+      - display_title: Reduced Intraocular Pressure
         logical_operator: OR
         show_codes: false
+        annotation: "Reduced by < 15%"
         records:
         - model: ClinicalActivity
-          value_set: 'Able; IOP Left Eye'
+          value_set: Able; IOP Left Eye
         - model: ClinicalActivity
-          value_set: 'Able; IOP Right Eye'
+          value_set: Able; IOP Right Eye
   - config_link_id: 3284F-8P
     code_value: 3284F-8P
     display_title: 3284F-8P

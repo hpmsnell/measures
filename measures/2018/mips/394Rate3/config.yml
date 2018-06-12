@@ -6,7 +6,8 @@ measure:
     inverse: false
     subject_type: Patient
     set: MIPS
-    external_id: 394 Rate 3
+    external_id: '394'
+    rate_id: '3'
     version:
   optional:
     description: 'The percentage of adolescents who have completed the HPV vaccine
@@ -36,7 +37,7 @@ exclusion:
   reasons:
   - config_link_id: exclusion_1
     code_value:
-    display_title:
+    display_title: Allergy to Vaccine
     description: Patient excluded due to allergy to meningococcal, Tdap, and/or HPV
       vaccine
     component_groups:
@@ -65,7 +66,7 @@ exclusion:
           value_set: Able; Allergy to Meningococcal Vaccine
   - config_link_id: exclusion_2
     code_value:
-    display_title:
+    display_title: Hospice Service
     description: Patient excluded due to hospice service
     component_groups:
     - validation_record_table_count: 1

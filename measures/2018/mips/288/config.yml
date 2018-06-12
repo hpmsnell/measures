@@ -1,73 +1,97 @@
+---
 measure:
   name: 18.MIPS.Mips288
   required:
-    display_title: "Dementia: Caregiver Education and Support"
-  optional:
-    gap_resolution_action:
+    display_title: 'Dementia: Caregiver Education and Support'
+    inverse: false
+    subject_type: Patient
     set: MIPS
     external_id: 288
+    version:
+  optional:
+    description: 'Percentage of patients with dementia whose caregiver(s) were provided
+      with education on dementia disease management and health behavior changes
+      AND were referred to additional resources for support in the last 12 months'
+    gap_resolution_action:
     version: 2018
     mips_measure_type: Process
     mips_high_priority: true
-exclusion_reasons:
-performance_met_reasons:
-  - config_link_id: 4322F
-    required:
-      display_title: 'Caregiver provided with education and referred to additional resources for support'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 288 Encounter"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "MIPS; Dementia"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: 4322F"
-    optional:
-      code_value: 4322F
-exception_reasons:
+    mips_specialty_sets: 'Neurology, Mental/Behavioral Health'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients with a diagnosis of dementia'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 288 Encounter
+  - logical_operator: AND
+    validation_record_table_count: 1
+    components:
+    - display_title: 'Dementia'
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; Dementia
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
   - config_link_id: 4322F-1P
-    required:
-      display_title: 'Documentation of medical reason(s) for not providing the caregiver with education on disease management and health behavior changes or referring to additional sources for support (eg, patient does not have a caregiver, other medical reason)'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 288 Encounter"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "MIPS; Dementia"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Denominator Exception: 4322F-1P"
-    optional:
-      code_value: 4322F-1P
-performance_not_met_reasons:
+    code_value: 4322F-1P
+    display_title: 4322F-1P
+    description: Documentation of medical reason(s) for not providing the caregiver
+      with education on disease management and health behavior changes or referring
+      to additional sources for support (eg, patient does not have a caregiver, other
+      medical reason)
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: 4322F-1P'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: 4322F-1P'
+performance_met:
+  description: 'Patients with dementia whose caregiver(s) were provided with education
+    on dementia disease management and health behavior changes AND were referred to
+    additional resources for support in the last 12 months.'
+  reasons:
+  - config_link_id: 4322F
+    code_value: 4322F
+    display_title: 4322F
+    description: Caregiver provided with education and referred to additional resources
+      for support
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: 4322F'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: 4322F'
+performance_not_met:
+  description:
+  reasons:
   - config_link_id: 4322F-8P
-    required:
-      display_title: 'Caregiver not provided with education and not referred to additional resources for support, reason not otherwise specified'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 288 Encounter"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "MIPS; Dementia"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: 4322F"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Not Met: 4322F-8P"
-    optional:
-      code_value: 4322F-8P
+    code_value: 4322F-8P
+    display_title: 4322F-8P
+    description: Caregiver not provided with education and not referred to additional
+      resources for support, reason not otherwise specified
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: 4322F-8P'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: 4322F-8P'

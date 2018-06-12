@@ -2,14 +2,15 @@
 measure:
   name: 18.MIPS.Mips283
   required:
-    display_title: 'Dementia: Neuropsychiatric Symptom Assessment'
+    display_title: 'Dementia Associated Behavioral and Psychiatric Symptoms Screening and Management'
     inverse: false
     subject_type: Patient
     set: MIPS
     external_id: '283'
+    version:
   optional:
     description: 'Percentage of patients with dementia for whom there was a documented
-      symptoms screening* for behavioral and psychiatric symptoms, including depression,
+      symptoms screening for behavioral and psychiatric symptoms, including depression,
       AND for whom, if symptoms screening was positive, there was also documentation
       of recommendations for symptoms management in the last 12 months.'
     gap_resolution_action: Patient is due for a neuropsychiatric symptom assessment
@@ -49,15 +50,15 @@ exception:
   reasons:
 performance_met:
   description: 'Patients with dementia for whom there was at least one documented
-    symptoms screening* in the last 12 months for at least one symptom each for three
+    symptoms screening in the last 12 months for at least one symptom each for three
     domains of behavioral and psychiatric symptoms, including depression and for whom,
     if symptoms screening was positive, there was also documentation of recommendations
-    for symptoms management in the last 12 months.'
+    for symptoms management in the last 12 months'
   reasons:
   - config_link_id: G9919
     code_value: G9919
     display_title: G9919
-    description: 'Screening performed and positive and provision of recommendations'
+    description: Screening performed and positive and provision of recommendations
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -69,7 +70,7 @@ performance_met:
   - config_link_id: G9920
     code_value: G9920
     display_title: G9920
-    description: 'Screening performed and negative'
+    description: Screening performed and negative
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -84,7 +85,8 @@ performance_not_met:
   - config_link_id: G9921
     code_value: G9921
     display_title: G9921
-    description: 'No screening performed, partial screening performed or positive screen without recommendations and reason is not given or not otherwise specified'
+    description: No screening performed, partial screening performed or positive screen
+      without recommendations and reason is not given or not otherwise specified
     component_groups:
     - validation_record_table_count: 1
       components:

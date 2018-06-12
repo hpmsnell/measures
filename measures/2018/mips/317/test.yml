@@ -242,11 +242,6 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: G8785
-      - name: G9745 NotMostRecent # G9745 not documented on most recent BP screen with results
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G8785
       - name: G8952 Before # G8952 starts early
         denominator: 1
         denominator_exclusion:
@@ -510,11 +505,6 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator: G8785
-        - name: G9745 NotMostRecent # G9745 not documented on most recent BP screen with results
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: G8952
         - name: G8952 Before # G8952 starts early
           denominator:
           denominator_exclusion:
@@ -888,7 +878,7 @@ patients:
     attributes:
       date_of_birth: 1950-01-01
       given_name: GoodBP
-      family_name: After
+      family_name: DifferentDates
       sex: Male
     clinical_models:
       clinical_activities:
@@ -1383,19 +1373,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_date: 2016-01-02
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: CPT
-        code_value: G9745 #Exception
-        start_date: 2016-01-01 #Before
-      - code_type: LOINC
-        code_value: 8462-4 # Diastolic
-        start_date: 2016-01-02
-        result: 100
-      - code_type: LOINC
-        code_value: 8480-6 # Systolic
-        start_date: 2016-01-02
-        result: 120
+        code_value: G9745
+        start_date: 2015-12-31
   - name: G9745 Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -1406,19 +1388,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_date: 2016-01-02
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: CPT
-        code_value: G9745 #Exception
-        start_date: 2016-01-02 #Lower
-      - code_type: LOINC
-        code_value: 8462-4 # Diastolic
-        start_date: 2016-01-02
-        result: 100
-      - code_type: LOINC
-        code_value: 8480-6 # Systolic
-        start_date: 2016-01-02
-        result: 120
+        code_value: G9745
+        start_date: 2016-01-01
   - name: G9745 Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -1429,19 +1403,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_date: 2016-01-02
+        start_date: 2016-01-01
         provider: Rachel
       - code_type: CPT
-        code_value: G9745 #Exception
-        start_date: 2016-01-02 #Upper
-      - code_type: LOINC
-        code_value: 8462-4 # Diastolic
-        start_date: 2016-01-02
-        result: 100
-      - code_type: LOINC
-        code_value: 8480-6 # Systolic
-        start_date: 2016-01-02
-        result: 120
+        code_value: G9745
+        start_date: 2016-12-31
   - name: G9745 After
     attributes:
       date_of_birth: 1950-01-01
@@ -1452,54 +1418,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201
-        start_date: 2016-01-02
-        provider: Rachel
-      - code_type: CPT
-        code_value: G9745 #Exception
-        start_date: 2016-01-03 # After
-      - code_type: LOINC
-        code_value: 8462-4 # Diastolic
-        start_date: 2016-01-02
-        result: 100
-      - code_type: LOINC
-        code_value: 8480-6 # Systolic
-        start_date: 2016-01-02
-        result: 120
-  - name: G9745 NotMostRecent
-    attributes:
-      date_of_birth: 1950-01-01
-      given_name: G9745
-      family_name: NotMostRecent
-      sex: Male
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
         start_date: 2016-01-01
         provider: Rachel
       - code_type: CPT
-        code_value: 99201
-        start_date: 2016-10-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: G9745 # Exception
-        start_date: 2016-01-01 # Not documented on most recent BP screen with results
-      - code_type: LOINC
-        code_value: 8462-4 # Diastolic
-        start_date: 2016-01-01
-        result: 100
-      - code_type: LOINC
-        code_value: 8480-6 # Systolic
-        start_date: 2016-01-01
-        result: 120
-      - code_type: LOINC
-        code_value: 8462-4 # Diastolic
-        start_date: 2016-10-01
-        result: 100
-      - code_type: LOINC
-        code_value: 8480-6 # Systolic
-        start_date: 2016-10-01
-        result: 120
+        code_value: G9745
+        start_date: 2017-01-01
   - name: G8952 Before
     attributes:
       date_of_birth: 1950-01-01

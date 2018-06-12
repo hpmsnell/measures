@@ -2,25 +2,32 @@
 measure:
   name: 18.MIPS.Mips294
   required:
-    display_title: 'Parkinson’s Disease: Parkinson’s Disease Medical and Surgical Treatment Options Reviewed'
+    display_title: 'Parkinson’s Disease: Parkinson’s Disease Medical and Surgical
+      Treatment Options Reviewed'
     inverse: false
     subject_type: Patient
     set: MIPS
     external_id: 294
+    version:
   optional:
-    description: All patients with a diagnosis of Parkinson’s disease (or caregiver(s), as appropriate) who had the Parkinson’s disease treatment options (e.g., non-pharmacological treatment, pharmacological treatment, or surgical treatment) reviewed at least once annually
-    gap_resolution_action: "Patient is due for review of treatment options for Parkinson's Disease"
+    description: 'All patients with a diagnosis of Parkinson’s disease (or caregiver(s),
+      as appropriate) who had the Parkinson’s disease treatment options (e.g., non-pharmacological
+      treatment, pharmacological treatment, or surgical treatment) reviewed at least
+      once annually'
+    gap_resolution_action: Patient is due for review of treatment options for Parkinson's
+      Disease
     version: 2018
     mips_measure_type: Process
-    mips_high_priority:
-    mips_specialty_sets: 
+    mips_high_priority: true
+    mips_specialty_sets: ""
     mips_seven_point_max: false
     source_specification_url:
     measure_children_names:
     mips_stratum:
     mips_objective:
 denominator:
-  description: "All patients aged 18 years and older with a diagnosis of Parkinson's disease"
+  description: 'All patients aged 18 years and older with a diagnosis of Parkinson’s
+    disease'
   component_groups:
   - validation_record_table_count: 1
     components:
@@ -30,13 +37,13 @@ denominator:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 294 Encounter
   - validation_record_table_count: 1
-    logical_operator: 'AND'
+    logical_operator: AND
     components:
-    - display_title: "Parkinson's Disease"
+    - display_title: Parkinson's Disease
       show_codes: true
       records:
       - model: Diagnosis
-        value_set: "MIPS; Parkinson's Disease"
+        value_set: MIPS; Parkinson's Disease
 exclusion:
   description:
   reasons:
@@ -46,23 +53,10 @@ exception:
   - config_link_id: 4325F-1P
     code_value: 4325F-1P
     display_title: 4325F-1P
-    description: "Medical and surgical treatment options not reviewed with patient (or caregiver) for medical reasons (e.g.,patient is unable to respond and no informant is available)"
+    description: Medical and surgical treatment options not reviewed with patient
+      (or caregiver) for medical reasons (e.g.,patient is unable to respond and no
+      informant is available)
     component_groups:
-    - validation_record_table_count: 1
-      components:
-      - display_title: Encounter
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: MIPS; MIPS 294 Encounter
-    - validation_record_table_count: 1
-      logical_operator: 'AND'
-      components:
-      - display_title: "Parkinson's Disease"
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: "MIPS; Parkinson's Disease"
     - validation_record_table_count: 1
       components:
       - display_title: 'Quality Data Code: 4325F-1P'
@@ -71,28 +65,15 @@ exception:
         - model: ClinicalActivity
           value_set: 'MIPS; Denominator Exception: 4325F-1P'
 performance_met:
-  description: Patients (or caregiver(s), as appropriate) who had the Parkinson’s disease treatment options (e.g., non- pharmacological treatment, pharmacological treatment, or surgical treatment) reviewed at least once annually
+  description: 'Patients (or caregiver(s), as appropriate) who had the Parkinson’s
+    disease treatment options (e.g., non- pharmacological treatment, pharmacological
+    treatment, or surgical treatment) reviewed at least once annually'
   reasons:
   - config_link_id: 4325F
     code_value: 4325F
     display_title: 4325F
     description: Functional status performed once in the last 12 months
     component_groups:
-    - validation_record_table_count: 1
-      components:
-      - display_title: Encounter
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: 'MIPS; MIPS 294 Encounter'
-    - validation_record_table_count: 1
-      logical_operator: 'AND'
-      components:
-      - display_title: "Parkinson's Disease"
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: "MIPS; Parkinson's Disease"
     - validation_record_table_count: 1
       components:
       - display_title: 'Quality Data Code: 4325F'
@@ -106,23 +87,9 @@ performance_not_met:
   - config_link_id: 4325F-8P
     code_value: 4325F-8P
     display_title: 4325F-8P
-    description: Medical and surgical treatment options not reviewed with patient (or caregiver), reasons not otherwise specified
+    description: Medical and surgical treatment options not reviewed with patient
+      (or caregiver), reasons not otherwise specified
     component_groups:
-    - validation_record_table_count: 1
-      components:
-      - display_title: Encounter
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: 'MIPS; MIPS 294 Encounter'
-    - validation_record_table_count: 1
-      logical_operator: 'AND'
-      components:
-      - display_title: "Parkinson's Disease"
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: "MIPS; Parkinson's Disease"
     - validation_record_table_count: 1
       components:
       - display_title: 'Quality Data Code: 4325F-8P'
@@ -130,10 +97,3 @@ performance_not_met:
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Not Met: 4325F-8P'
-    - validation_record_table_count: 1
-      components:
-      - display_title: 'Quality Data Code: 4325F'
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: 'MIPS; Performance Met: 4325F'

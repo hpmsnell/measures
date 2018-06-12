@@ -1,4 +1,4 @@
-measure_id: 17.MIPS.Mips192
+measure_id: 18.MIPS.Mips192
 test_set_keys:
   organization_key:
     episodes_of_care:
@@ -34,12 +34,6 @@ test_set_keys:
         numerator: G8628
       - name: Denominator Encounter # Encounter too late
         start_date: 2017-01-01
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Denominator Encounter # Encounter with modifier
-        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
@@ -175,12 +169,6 @@ test_set_keys:
           numerator: G8628
         - name: Denominator Encounter # Encounter too late
           start_date: 2017-01-01
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: Denominator Encounter # Encounter with modifier
-          start_date: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -344,11 +332,6 @@ patients:
       code_value: 66840
       start_date: 2017-01-01
       provider: Rachel
-    - code_type: CPT
-      code_value: 66840
-      start_date: 2016-02-01
-      provider: Rachel
-      code_modifiers: ['55']
 - name: Excluded Diagnosis
   attributes:
     date_of_birth: 1988-03-22

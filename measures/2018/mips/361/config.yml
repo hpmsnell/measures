@@ -43,8 +43,9 @@ exception:
 performance_met:
   description: 'CT studies performed that are reported to a radiation dose index registry
     that is capable of collecting at a minimum all of the following data elements:
-    • Manufacturer • Study description • Manufacturer’s model name • Patient’s weight
-    • Patient’s size • Patient’s sex'
+    manufacturer, study description, manufacturer’s model name, patient’s weight,
+    patient’s size, patient’s sex, exposure time, X-ray tube current, Kilovoltage (kV),
+    Mean Volume Computed tomography dose index (CTDIvol), Dose-length product (DLP)'
   reasons:
   - config_link_id: G9327
     code_value: G9327
@@ -79,5 +80,5 @@ performance_not_met:
   - config_link_id: nodata
     code_value:
     display_title: No Quality Data Code
-    description: No quality data code found for this measure
+    description: No quality data code found for this procedure
     component_groups:
