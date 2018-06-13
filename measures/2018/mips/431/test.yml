@@ -608,6 +608,25 @@ patients:
       - code_type: CPT
         code_value: G9621
         start_date: 2016-02-02 # Too late
+  - name: G9621 NotMostRecentEncounter
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9621
+      family_name: NotMostRecentEncounter
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 96160
+        start_date: 2016-10-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 96160
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9621
+        start_date: 2014-02-01 # Lower bound of previous encounter
   - name: Counseling Early
     attributes:
       date_of_birth: 1988-03-22
@@ -744,6 +763,25 @@ patients:
       - code_type: CPT
         code_value: G9622
         start_date: 2016-02-02 # Too late
+  - name: G9622 NotMostRecentEncounter
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9622
+      family_name: NotMostRecentEncounter
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 96160
+        start_date: 2016-10-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 96160
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9622
+        start_date: 2014-02-01 # Lower bound of previous encounter
   - name: NonUser Early
     attributes:
       date_of_birth: 1988-03-22
@@ -873,6 +911,26 @@ patients:
       - code_type: CPT
         code_value: G9623
         start_date: 2016-02-03 # Too late
+  - name: G9623 NotMostRecentEncounter
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: G9623
+      family_name: NotMostRecentEncounter
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 96160
+        start_date: 2016-10-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 96160
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9623
+        start_date: 2016-02-01 # Lower bound of previous encounter
   - name: LimitedLife Early
     attributes:
       date_of_birth: 1988-03-22

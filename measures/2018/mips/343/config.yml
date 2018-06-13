@@ -7,6 +7,7 @@ measure:
     subject_type: Encounter
     set: MIPS
     external_id: 343
+    version:
   optional:
     description: 'The percentage of patients age 50 years or older with at least one
       conventional adenoma or colorectal cancer detected during screening colonoscopy'
@@ -44,20 +45,19 @@ exclusion:
 exception:
   description:
   reasons:
-  - config_link_id: G9496
-    code_value: G9496
-    display_title: G9496
-    description: Documentation of reason for not detecting adenoma(s) or other neoplasm
-      (e.g., Neoplasm detected is only diagnosed as traditional serrated adenoma,
-      sessile serrated polyp, or sessile serrated adenoma)
+  - config_link_id: G9934
+    code_value: G9934
+    display_title: G9934
+    description: 'Documentation that neoplasm detected is only diagnosed as traditional
+      serrated adenoma, sessile serrated polyp, or sessile serrated adenoma'
     component_groups:
     - validation_record_table_count: 10
       components:
-      - display_title: 'Quality Data Code: G9496'
+      - display_title: 'Quality Data Code: G9934'
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: 'MIPS; Denominator Exception: G9496'
+          value_set: 'MIPS; Denominator Exception: G9934'
 performance_met:
   description: 'Number of patients age 50 years or older with at least one conventional
     adenoma or colorectal cancer detected during screening colonoscopy'
@@ -65,7 +65,7 @@ performance_met:
   - config_link_id: G9933
     code_value: G9933
     display_title: G9933
-    description: Adenoma(s) or other neoplasm detected during screening colonoscopy
+    description: Adenoma(s) or colorectal cancer detected during screening colonoscopy
     component_groups:
     - validation_record_table_count: 10
       components:
@@ -87,15 +87,15 @@ performance_met:
 performance_not_met:
   description:
   reasons:
-  - config_link_id: 3776F
-    code_value: 3776F
-    display_title: 3776F
-    description: Adenoma(s) or other neoplasm not detected during screening colonoscopy
+  - config_link_id: G9935
+    code_value: G9935
+    display_title: G9935
+    description: Adenoma(s) or colorectal cancer not detected during screening colonoscopy
     component_groups:
     - validation_record_table_count: 10
       components:
-      - display_title: 'Quality Data Code: 3776F'
+      - display_title: 'Quality Data Code: G9935'
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: 'MIPS; Performance Not Met: 3776F'
+          value_set: 'MIPS; Performance Not Met: G9935'

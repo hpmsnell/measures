@@ -1,27 +1,33 @@
 ---
 measure:
-  name: 17.MIPS.Mips286
+  name: 18.MIPS.Mips286
   required:
-    display_title: 'Dementia: Counseling Regarding Safety Concerns'
+    display_title: 'Dementia: Safety Concerns Screening and Mitigation Recommendations or Referral for Patients with Dementia'
     inverse: false
     subject_type: Patient
     set: MIPS
     external_id: '286'
+    version:
   optional:
-    description:
+    description: 'Percentage of patients with dementia or their caregiver(s) for whom
+      there was a documented safety concerns screening in two domains of risk: 1)
+      dangerousness to self or others and 2) environmental risks; and if safety concerns
+      screening was positive in the last 12 months, there was documentation of mitigation
+      recommendations, including but not limited to referral to other resources or
+      orders for home safety evaluation.'
     gap_resolution_action: Patient is due for a counseling regarding safety concerns
       related to dementia
-    version: 2017
+    version: 2018
     mips_measure_type: Process
-    mips_high_priority: false
-    mips_specialty_sets:
-    mips_seven_point_max:
+    mips_high_priority: true
+    mips_specialty_sets: 'Neurology, Mental/Behavioral Health'
+    mips_seven_point_max: false
     source_specification_url:
     measure_children_names:
     mips_stratum:
     mips_objective:
 denominator:
-  description:
+  description: 'All patients with a diagnosis of dementia'
   component_groups:
   - validation_record_table_count: 1
     components:
@@ -47,8 +53,9 @@ exception:
   - config_link_id: G9924
     code_value: G9924
     display_title: G9924
-    description: Documentation of medical reason(s) for not providing safety concerns screen OR for not providing
-    recommendations, orders or referrals for positive screen (e.g., patient in palliative care, other medical reason)
+    description: Documentation of medical reason(s) for not providing safety concerns
+      screen OR for not providing recommendations, orders or referrals for positive
+      screen (e.g., patient in palliative care, other medical reason)
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -60,7 +67,7 @@ exception:
     - validation_record_table_count: 1
       logical_operator: OR
       components:
-      - display_title: 'Hospice Service'
+      - display_title: Hospice Service
         show_codes: true
         records:
         - model: ClinicalActivity
@@ -68,12 +75,18 @@ exception:
         - model: ClinicalActivity
           value_set: VSAC; Palliative Care
 performance_met:
-  description:
+  description: 'Patients with dementia or their caregiver(s) for whom there was a
+    documented safety concerns screening in two domains of risk: 1) dangerousness
+    to self or others and 2) environmental risks; and if safety concerns screening
+    was positive in the last 12 months, there was documentation of mitigation recommendations,
+    including but not limited to referral to other resources or orders for home safety
+    evaluation'
   reasons:
   - config_link_id: G9922
     code_value: G9922
     display_title: G9922
-    description: 'Safety concerns screen provided and if positive then documented mitigation recommendations'
+    description: Safety concerns screen provided and if positive then documented mitigation
+      recommendations
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -85,7 +98,7 @@ performance_met:
   - config_link_id: G9923
     code_value: G9923
     display_title: G9923
-    description: 'Safety concerns screen provided and negative'
+    description: Safety concerns screen provided and negative
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -112,8 +125,8 @@ performance_not_met:
   - config_link_id: G9926
     code_value: G9926
     display_title: G9926
-    description: 'Safety concerns screening positive screen is without provision of mitigation recommendations,
-    including but not limited to referral to other resources'
+    description: Safety concerns screening positive screen is without provision of
+      mitigation recommendations, including but not limited to referral to other resources
     component_groups:
     - validation_record_table_count: 1
       components:

@@ -1,81 +1,102 @@
+---
 measure:
   name: 18.MIPS.Mips127
   required:
-    display_title: "Diabetes Mellitus: Diabetic Foot and Ankle Care, Ulcer Prevention – Evaluation of Footwear"
-  optional:
-    gap_resolution_action: "Patient requires a dilated macular exam and/or documentation of findings"
+    display_title: 'Diabetes Mellitus: Diabetic Foot and Ankle Care, Ulcer Prevention
+      – Evaluation of Footwear'
+    inverse: false
+    subject_type: Patient
     set: MIPS
     external_id: '127'
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older with a diagnosis
+      of diabetes mellitus who were evaluated for proper footwear and sizing'
+    gap_resolution_action: Patient requires a dilated macular exam and/or documentation
+      of findings
     version: 2018
     mips_measure_type: Process
     mips_high_priority: false
-exclusion_reasons:
-performance_met_reasons:
-  - config_link_id: G8410
-    required:
-      display_title: 'Footwear evaluation performed and documented'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: MIPS; MIPS 127 Encounter
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: MIPS; MIPS 127 Diabetes
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8410"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "Able; Footwear Assessment"
-    optional:
-      code_value: G8410
-exception_reasons:
+    mips_specialty_sets: ""
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 years and older with a diagnosis of diabetes
+    mellitus'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 127 Encounter
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: Diabetes
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; MIPS 127 Diabetes
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
   - config_link_id: G8416
-    required:
-      display_title: 'Clinician documented that patient was not an eligible candidate for footwear evaluation measure'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: MIPS; MIPS 127 Encounter
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: MIPS; MIPS 127 Diabetes
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Denominator Exception: G8416"
-    optional:
-      code_value: G8416
-performance_not_met_reasons:
+    code_value: G8416
+    display_title: G8416
+    description: Clinician documented that patient was not an eligible candidate for
+      footwear evaluation measure
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8416'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G8416'
+performance_met:
+  description: 'Patients who were evaluated for proper footwear and sizing at least
+    once within 12 months'
+  reasons:
+  - config_link_id: G8410
+    code_value: G8410
+    display_title: G8410
+    description: Footwear evaluation performed and documented
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8410'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8410'
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Footwear Evaluation
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: Able; Footwear Evaluation
+performance_not_met:
+  description:
+  reasons:
   - config_link_id: G8415
-    required:
-      display_title: "Footwear evaluation was not performed"
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: MIPS; MIPS 127 Encounter
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: MIPS; MIPS 127 Diabetes
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8410"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Not Met: G8415"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "Able; Footwear Assessment"
-    optional:
-      code_value: G8415
+    code_value: G8415
+    display_title: G8415
+    description: Footwear evaluation was not performed
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8415'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G8415'

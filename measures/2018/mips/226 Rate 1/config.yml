@@ -2,35 +2,45 @@
 measure:
   name: 18.MIPS.Mips226Rate1
   required:
-    display_title: "Preventive Care and Screening: Tobacco Use: Screening and Cessation Intervention: Screened for Tobacco Use"
+    display_title: 'Preventive Care and Screening: Tobacco Use: Screening and Cessation
+      Intervention: Screened for Tobacco Use'
     inverse: false
     subject_type: Patient
     set: MIPS
-    external_id: '226 Rate 1'
+    external_id: '226'
+    rate_id: '1'
+    version:
   optional:
-    description: 'Percentage of patients aged 18 years and older who were screened for tobacco use one or more times within 24 months'
+    description: 'Percentage of patients aged 18 years and older who were screened
+      for tobacco use one or more times within 24 months'
     gap_resolution_action: Patient is due for tobacco screening
     version: 2018
     mips_measure_type: Process
     mips_high_priority: false
-    mips_specialty_sets: 'Allergy/Immunology, Internal Medicine, Cardiology, Dermatology, Emergency Medicine, Gastroenterology, General Surgery, General Oncology, Hospitalists, Neurology, Obstetrics/Gynecology, Ophthalmology, Orthopedic Surgery, Otolaryngology, Physical Medicine, Preventive Medicine, Rheumatology, Thoracic Surgery, Urology, Vascular Surgery, Mental/Behavioral Health, Plastic Surgery, General Practice/Family Medicine'
+    mips_specialty_sets: 'Allergy/Immunology, Internal Medicine, Cardiology, Dermatology,
+      Emergency Medicine, Gastroenterology, General Surgery, General Oncology, Hospitalists,
+      Neurology, Obstetrics/Gynecology, Ophthalmology, Orthopedic Surgery, Otolaryngology,
+      Physical Medicine, Preventive Medicine, Rheumatology, Thoracic Surgery, Urology,
+      Vascular Surgery, Mental/Behavioral Health, Plastic Surgery, General Practice/Family
+      Medicine'
     mips_seven_point_max: false
     source_specification_url:
     measure_children_names:
     mips_stratum:
     mips_objective:
 denominator:
-  description: 'All patients aged 18 years and older seen for at least two visits or at least one preventive visit during the measurement period'
+  description: 'All patients aged 18 years and older seen for at least two visits
+    or at least one preventive visit during the measurement period'
   component_groups:
   - validation_record_table_count: 2
     components:
-    - display_title: Encounter
+    - display_title: 2 Encounters
       show_codes: true
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 226 Encounter
   - validation_record_table_count: 1
-    logical_operator: 'OR'
+    logical_operator: OR
     components:
     - display_title: Preventive Encounter
       show_codes: true
@@ -46,7 +56,8 @@ exception:
   - config_link_id: G9904
     code_value: G9904
     display_title: G9904
-    description: "Documentation of medical reason(s) for not screening for tobacco use (e.g., limited life expectancy, other medical reason)"
+    description: Documentation of medical reason(s) for not screening for tobacco
+      use (e.g., limited life expectancy, other medical reason)
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -58,22 +69,23 @@ exception:
     - validation_record_table_count: 1
       logical_operator: OR
       components:
-      - display_title: 'Limited Life Expectancy'
-        show_codes: true
+      - display_title: Limited Life Expectancy
+        show_codes: false
         records:
         - model: Diagnosis
-          value_set: "VSAC; Limited Life Expectancy"
+          value_set: VSAC; Limited Life Expectancy
         - model: ClinicalActivity
-          value_set: "VSAC; Palliative Care"
+          value_set: VSAC; Palliative Care
         - model: ClinicalActivity
-          value_set: "MIPS; MIPS Hospice Service"
+          value_set: MIPS; MIPS Hospice Service
 performance_met:
-  description: 'Patients who were screened for tobacco use at least once within 24 months'
+  description: 'Patients who were screened for tobacco use at least once within 24
+    months'
   reasons:
   - config_link_id: G9902
     code_value: G9902
     display_title: G9902
-    description: "Patient screened for tobacco use AND identified as a tobacco user"
+    description: Patient screened for tobacco use AND identified as a tobacco user
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -83,19 +95,19 @@ performance_met:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Met: G9902'
     - validation_record_table_count: 1
-      logical_operator: 'OR'
+      logical_operator: OR
       components:
       - display_title: Tobacco User
         show_codes: true
         records:
-          - model: ClinicalActivity
-            value_set: "VSAC; Tobacco User"
-          - model: Diagnosis
-            value_set: "VSAC; Tobacco User"
+        - model: ClinicalActivity
+          value_set: VSAC; Tobacco User
+        - model: Diagnosis
+          value_set: VSAC; Tobacco User
   - config_link_id: G9903
     code_value: G9903
     display_title: G9903
-    description: "Patient screened for tobacco use AND identified as a tobacco non-user"
+    description: Patient screened for tobacco use AND identified as a tobacco non-user
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -105,22 +117,22 @@ performance_met:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Met: G9903'
     - validation_record_table_count: 1
-      logical_operator: 'OR'
+      logical_operator: OR
       components:
       - display_title: Tobacco Non-User
         show_codes: true
         records:
-          - model: ClinicalActivity
-            value_set: "Able; Tobacco Non-User"
-          - model: Diagnosis
-            value_set: "Able; Tobacco Non-User"
+        - model: ClinicalActivity
+          value_set: Able; Tobacco Non-User
+        - model: Diagnosis
+          value_set: Able; Tobacco Non-User
 performance_not_met:
   description:
   reasons:
   - config_link_id: G9905
     code_value: G9905
     display_title: G9905
-    description: "Patient not screened for tobacco use, reason not given"
+    description: Patient not screened for tobacco use, reason not given
     component_groups:
     - validation_record_table_count: 1
       components:

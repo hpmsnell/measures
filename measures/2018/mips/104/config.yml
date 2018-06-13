@@ -8,6 +8,7 @@ measure:
     subject_type: Encounter
     set: MIPS
     external_id: 104
+    version:
   optional:
     description: 'Percentage of patients, regardless of age, with a diagnosis of prostate
       cancer at high or very high risk of recurrence receiving external beam radiotherapy
@@ -58,7 +59,7 @@ exclusion:
   reasons:
   - config_link_id: exclusion
     code_value:
-    display_title: exclusion
+    display_title: Metastatic Cancer
     description: Patient excluded due to diagnosis of metastatic cancer
     component_groups:
     - validation_record_table_count: 10
@@ -75,7 +76,7 @@ exception:
     code_value: G9895
     display_title: G9895
     description: Documentation of medical reason(s) for not prescribing/administering
-      adjuvant hormonal therapy (eg, salvage therapy)
+      adjuvant hormonal therapy (e.g., salvage therapy)
     component_groups:
     - validation_record_table_count: 10
       components:

@@ -8,6 +8,7 @@ measure:
     subject_type: Patient
     set: MIPS
     external_id: 326
+    version:
   optional:
     description: 'Percentage of patients aged 18 years and older with nonvalvular
       atrial fibrillation (AF) or atrial flutter who were prescribed warfarin OR another
@@ -69,7 +70,7 @@ exclusion:
   reasons:
   - config_link_id: exclusion_1
     code_value:
-    display_title: exclusion_1
+    display_title: G9746
     description: Patient is excluded due to mitral stenosis, prosthetic heart valves,
       or transient or reversible cause of atrial fibrillation
     component_groups:

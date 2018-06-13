@@ -1,55 +1,85 @@
+---
 measure:
   name: 18.MIPS.Mips354
   required:
-    display_title: "Anastomotic Leak Intervention"
-  optional:
-    gap_resolution_action:
+    display_title: Anastomotic Leak Intervention
+    inverse: true
+    subject_type: Encounter
     set: MIPS
     external_id: 354
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older who required an anastomotic
+      leak intervention following gastric bypass or colectomy surgery'
+    gap_resolution_action:
     version: 2018
     mips_measure_type: Outcome
     mips_high_priority: true
-exclusion_reasons:
-performance_met_reasons:
+    mips_specialty_sets: 'General Surgery'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'Patients aged 18 years and older undergoing gastric bypass or colectomy
+    surgery'
+  component_groups:
+  - validation_record_table_count: 10
+    components:
+    - display_title: Procedure
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 354 Procedure
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Intervention (via return to operating room, interventional radiology,
+    or interventional gastroenterology) for presence of leak of endoluminal contents
+    (such as air, fluid, GI contents, or contrast material) through an anastomosis.
+    The presence of an infection/abscess thought to be related to an anastomosis,
+    even if the leak cannot be definitively identified as visualized during an operation,
+    or by contrast extravasation would also be considered an anastomotic leak'
+  reasons:
   - config_link_id: G9306
-    required:
-      display_title: 'Intervention for presence of leak of endoluminal contents through an anastomosis required'
-      validation_record_groups:
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 354 Procedure"
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G9306"
-        - count: 10
-          validation_records:
-            - model: Diagnosis
-              value_set: "Able; Gastrointestinal Anastomotic Leak"
-    optional:
-      code_value: G9306
-exception_reasons:
-performance_not_met_reasons:
+    code_value: G9306
+    display_title: G9306
+    description: Intervention for presence of leak of endoluminal contents through
+      an anastomosis required
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G9306'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9306'
+    - logical_operator: 'OR'
+      validation_record_table_count: 10
+      components:
+      - display_title: Gastrointestinal Anastomotic Leak
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: Able; Gastrointestinal Anastomotic Leak
+performance_not_met:
+  description:
+  reasons:
   - config_link_id: G9305
-    required:
-      display_title: 'Intervention for presence of leak of endoluminal contents through an anastomosis not required'
-      validation_record_groups:
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 354 Procedure"
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G9306"
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Not Met: G9305"
-        - count: 10
-          validation_records:
-            - model: Diagnosis
-              value_set: "Able; Gastrointestinal Anastomotic Leak"
-    optional:
-      code_value: G9305
+    code_value: G9305
+    display_title: G9305
+    description: Intervention for presence of leak of endoluminal contents through
+      an anastomosis not required
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G9305'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9305'

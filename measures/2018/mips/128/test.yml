@@ -62,21 +62,6 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: G8421
-    - name: Exclusion PalliativeCare  # Patient has palliative care
-      denominator: 1
-      denominator_exclusion: exclusion_1
-      denominator_exception:
-      numerator:
-    - name: Exclusion PalliativeCareEnd  # Patient has palliative care
-      denominator: 1
-      denominator_exclusion: exclusion_1
-      denominator_exception:
-      numerator:
-    - name: Exclusion PalliativeCareLate  # Patient has palliative care, but it is too late
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: G8421
     - name: BMI NormalStart # Patient has a normal BMI at the start of the allowable period
       denominator: 1
       denominator_exclusion:
@@ -225,21 +210,6 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: G8421
-    - name: Exclusion PalliativeCare  # Patient has palliative care
-      denominator: 1
-      denominator_exclusion: exclusion_1
-      denominator_exception:
-      numerator:
-    - name: Exclusion PalliativeCareEnd  # Patient has palliative care
-      denominator: 1
-      denominator_exclusion: exclusion_1
-      denominator_exception:
-      numerator:
-    - name: Exclusion PalliativeCareLate  # Patient has palliative care, but it is too late
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: G8421
     - name: BMI NormalStart # Patient has a normal BMI at the start of the allowable period
       denominator: 1
       denominator_exclusion:
@@ -383,21 +353,6 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: Exclusion PregnantLate  # Patient has an exclusion but it is too late
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Exclusion PalliativeCare  # Patient has palliative care
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Exclusion PalliativeCareEnd  # Patient has palliative care
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Exclusion PalliativeCareLate  # Patient has palliative care, but it is too late
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -659,51 +614,6 @@ patients:
     - code_type: SNOMEDCT
       code_value: 102872000 # Pregnant
       start_date: 2017-01-01
-- name: Patient has an exclusion for palliative care
-  attributes:
-    date_of_birth: 1950-01-01
-    given_name: Exclusion
-    family_name: PalliativeCare
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99201
-      start_date: 2016-01-01
-      provider: Rachel
-    - code_type: SNOMEDCT
-      code_value: 385736008 # Palliative Care
-      start_date: 2010-01-01
-- name: Patient has an exclusion for palliative care at the end of the allowable period
-  attributes:
-    date_of_birth: 1950-01-01
-    given_name: Exclusion
-    family_name: PalliativeCareEnd
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99201
-      start_date: 2016-01-01
-      provider: Rachel
-    - code_type: SNOMEDCT
-      code_value: 385736008 # Palliative Care
-      start_date: 2016-01-01
-- name: Patient has an exclusion for palliative care but it is too late
-  attributes:
-    date_of_birth: 1950-01-01
-    given_name: Exclusion
-    family_name: PalliativeCareLate
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99201
-      start_date: 2016-01-01
-      provider: Rachel
-    - code_type: SNOMEDCT
-      code_value: 385736008 # Palliative Care
-      start_date: 2016-01-02
 - name: Patient has a normal BMI at the start of the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -805,8 +715,8 @@ patients:
       start_date: 2016-02-01
       result_as_decimal: 25.0
     - code_type: SNOMEDCT
-      code_value: 304549008 # Encouragement to exercise
-      start_date: 2015-01-31
+      code_value: 386464006 # Diet education
+      start_date: 2015-02-01
 - name: Patient has a high BMI and follow-up at the end of the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -845,7 +755,7 @@ patients:
       result_as_decimal: 25.0
     - code_type: SNOMEDCT
       code_value: 304549008 # Encouragement to exercise
-      start_date: 2015-02-01
+      start_date: 2015-01-31
 - name: Patient has a high BMI and follow-up after the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -900,6 +810,10 @@ patients:
       code_value: 39156-5 # BMI
       start_date: 2016-01-01
       result_as_decimal: 18.4
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2015-12-01
+      result_as_decimal: 30
     - code_type: SNOMEDCT
       code_value: 386464006 # Diet education
       start_date: 2016-01-01

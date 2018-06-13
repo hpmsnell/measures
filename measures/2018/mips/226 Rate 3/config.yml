@@ -2,37 +2,48 @@
 measure:
   name: 18.MIPS.Mips226Rate3
   required:
-    display_title: "Preventive Care and Screening: Tobacco Use: Screening and Cessation Intervention"
+    display_title: 'Preventive Care and Screening: Tobacco Use: Screening and Cessation
+      Intervention'
     inverse: false
     subject_type: Patient
     set: MIPS
-    external_id: '226 Rate 3'
+    external_id: '226'
+    rate_id: '3'
+    version:
   optional:
-    description: 'Percentage of patients aged 18 years and older who were screened for tobacco use one or more times within 24 months AND who received tobacco cessation intervention if identified as a tobacco user'
+    description: 'Percentage of patients aged 18 years and older who were screened
+      for tobacco use one or more times within 24 months AND who received tobacco
+      cessation intervention if identified as a tobacco user'
     gap_resolution_action:
     version: 2018
     mips_measure_type: Process
     mips_high_priority: false
-    mips_specialty_sets: 'Allergy/Immunology, Internal Medicine, Cardiology, Dermatology, Emergency Medicine, Gastroenterology, General Surgery, General Oncology, Hospitalists, Neurology, Obstetrics/Gynecology, Ophthalmology, Orthopedic Surgery, Otolaryngology, Physical Medicine, Preventive Medicine, Rheumatology, Thoracic Surgery, Urology, Vascular Surgery, Mental/Behavioral Health, Plastic Surgery, General Practice/Family Medicine'
+    mips_specialty_sets: 'Allergy/Immunology, Internal Medicine, Cardiology, Dermatology,
+      Emergency Medicine, Gastroenterology, General Surgery, General Oncology, Hospitalists,
+      Neurology, Obstetrics/Gynecology, Ophthalmology, Orthopedic Surgery, Otolaryngology,
+      Physical Medicine, Preventive Medicine, Rheumatology, Thoracic Surgery, Urology,
+      Vascular Surgery, Mental/Behavioral Health, Plastic Surgery, General Practice/Family
+      Medicine'
     mips_seven_point_max: false
     source_specification_url:
     measure_children_names:
-      - 18.MIPS.Mips226Rate1
-      - 18.MIPS.Mips226Rate2
+    - 18.MIPS.Mips226Rate1
+    - 18.MIPS.Mips226Rate2
     mips_stratum:
     mips_objective:
 denominator:
-  description: 'All patients aged 18 years and older seen for at least two visits or at least one preventive visit during the measurement period'
+  description: 'All patients aged 18 years and older seen for at least two visits
+    or at least one preventive visit during the measurement period'
   component_groups:
   - validation_record_table_count: 2
     components:
-    - display_title: Encounter
+    - display_title: 2 Encounters
       show_codes: true
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 226 Encounter
   - validation_record_table_count: 1
-    logical_operator: 'OR'
+    logical_operator: OR
     components:
     - display_title: Preventive Encounter
       show_codes: true
@@ -48,7 +59,8 @@ exception:
   - config_link_id: 4004F-1P
     code_value: 4004F-1P
     display_title: 4004F-1P
-    description: "Documentation of medical reason for not screening for tobacco use (e.g. limited life expectancy, other medical reason)"
+    description: Documentation of medical reason for not screening for tobacco use
+      (e.g. limited life expectancy, other medical reason)
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -60,19 +72,21 @@ exception:
     - validation_record_table_count: 1
       logical_operator: OR
       components:
-      - display_title: 'Limited Life Expectancy'
-        show_codes: true
+      - display_title: Limited Life Expectancy
+        show_codes: false
         records:
         - model: Diagnosis
-          value_set: "VSAC; Limited Life Expectancy"
+          value_set: VSAC; Limited Life Expectancy
         - model: ClinicalActivity
-          value_set: "VSAC; Palliative Care"
+          value_set: VSAC; Palliative Care
         - model: ClinicalActivity
-          value_set: "MIPS; MIPS Hospice Service"
+          value_set: MIPS; MIPS Hospice Service
   - config_link_id: G9909
     code_value: G9909
     display_title: G9909
-    description: "Documentation of medical reason(s) for not providing tobacco cessation intervention if identified as a tobacco user (e.g., limited life expectancy, other medical reason)"
+    description: Documentation of medical reason(s) for not providing tobacco cessation
+      intervention if identified as a tobacco user (e.g., limited life expectancy,
+      other medical reason)
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -84,22 +98,25 @@ exception:
     - validation_record_table_count: 1
       logical_operator: OR
       components:
-      - display_title: 'Limited Life Expectancy'
-        show_codes: true
+      - display_title: Limited Life Expectancy
+        show_codes: false
         records:
         - model: Diagnosis
-          value_set: "VSAC; Limited Life Expectancy"
+          value_set: VSAC; Limited Life Expectancy
         - model: ClinicalActivity
-          value_set: "VSAC; Palliative Care"
+          value_set: VSAC; Palliative Care
         - model: ClinicalActivity
-          value_set: "MIPS; MIPS Hospice Service"
+          value_set: MIPS; MIPS Hospice Service
 performance_met:
-  description: 'Patients who were screened for tobacco use at least once within 24 months'
+  description: "Patients who were screened for tobacco use at least once within 24
+    months AND who received tobacco cessation\n intervention if identified as a tobacco
+    user"
   reasons:
   - config_link_id: 4004F
     code_value: 4004F
     display_title: 4004F
-    description: "Patient identified as a tobacco user and received tobacco cessation intervention"
+    description: Patient identified as a tobacco user and received tobacco cessation
+      intervention
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -109,27 +126,27 @@ performance_met:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Met: 4004F'
     - validation_record_table_count: 1
-      logical_operator: 'OR'
+      logical_operator: OR
       components:
       - display_title: Tobacco User
         show_codes: true
         records:
-          - model: ClinicalActivity
-            value_set: "VSAC; Tobacco User"
-          - model: Diagnosis
-            value_set: "VSAC; Tobacco User"
+        - model: ClinicalActivity
+          value_set: VSAC; Tobacco User
+        - model: Diagnosis
+          value_set: VSAC; Tobacco User
       - display_title: Tobacco Cessation Intervention
         logical_operator: AND
-        show_codes: true
+        show_codes: false
         records:
-          - model: Medication
-            value_set: "VSAC; Tobacco Use Cessation Pharmacotherapy"
-          - model: ClinicalActivity
-            value_set: "VSAC; Tobacco Use Cessation Counseling"
+        - model: Medication
+          value_set: VSAC; Tobacco Use Cessation Pharmacotherapy
+        - model: ClinicalActivity
+          value_set: VSAC; Tobacco Use Cessation Counseling
   - config_link_id: 1036F
     code_value: 1036F
     display_title: 1036F
-    description: "Patient identified as a tobacco non-user"
+    description: Patient identified as a tobacco non-user
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -139,22 +156,24 @@ performance_met:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Met: 1036F'
     - validation_record_table_count: 1
-      logical_operator: 'OR'
+      logical_operator: OR
       components:
       - display_title: Tobacco Non-User
-        show_codes: true
+        show_codes: false
         records:
-          - model: ClinicalActivity
-            value_set: "VSAC; Tobacco Non-User"
-          - model: Diagnosis
-            value_set: "VSAC; Tobacco Non-User"
+        - model: ClinicalActivity
+          value_set: VSAC; Tobacco Non-User
+        - model: Diagnosis
+          value_set: VSAC; Tobacco Non-User
 performance_not_met:
   description:
   reasons:
   - config_link_id: 4004F-8P
     code_value: 4004F-8P
     display_title: 4004F-8P
-    description: "Patient not screened for tobacco use OR patient screened for tobacco use but did not receive tobacco cessation intervention, reason not otherwise specified"
+    description: Patient not screened for tobacco use OR patient screened for tobacco
+      use but did not receive tobacco cessation intervention, reason not otherwise
+      specified
     component_groups:
     - validation_record_table_count: 1
       components:

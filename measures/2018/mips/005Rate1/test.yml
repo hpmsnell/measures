@@ -949,7 +949,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: 4010F # Performance met
-      start_date: 2015-12-31 # Too early
+      start_date: 2016-01-31 # Too early
     diagnoses:
     - code_type: ICD10CM
       code_value: I11.0
@@ -977,7 +977,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: 4010F # Performance met
-      start_date: 2016-01-01 # Lower bound
+      start_date: 2016-02-01 # Lower bound
     diagnoses:
     - code_type: ICD10CM
       code_value: I11.0
@@ -1005,7 +1005,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: 4010F # Performance met
-      start_date: 2016-12-31 # Upper bound
+      start_date: 2016-02-02 # Upper bound
     diagnoses:
     - code_type: ICD10CM
       code_value: I11.0
@@ -1033,7 +1033,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: 4010F # Performance met
-      start_date: 2017-01-01 # Too late
+      start_date: 2016-02-03 # Too late
     diagnoses:
     - code_type: ICD10CM
       code_value: I11.0
@@ -1178,8 +1178,9 @@ patients:
       code_value: 3021F # LVEF <= 40%
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 4010F-1P # Denominator Exception
-      start_date: 2016-01-31 # Too early
+      code_value: 4010F # Performance met
+      code_modifiers: ['1P']
+      start_date: 2015-12-31 # Too early
     diagnoses:
     - code_type: ICD10CM
       code_value: I11.0
@@ -1206,8 +1207,9 @@ patients:
       code_value: 3021F # LVEF <= 40%
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 4010F-1P # Denominator Exception
-      start_date: 2016-02-01 # Lower bound
+      code_value: 4010F # Performance met
+      code_modifiers: ['1P']
+      start_date: 2016-01-01 # Lower bound
     diagnoses:
     - code_type: ICD10CM
       code_value: I11.0
@@ -1234,8 +1236,9 @@ patients:
       code_value: 3021F # LVEF <= 40%
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 4010F-1P # Denominator Exception
-      start_date: 2016-02-02 # Upper bound
+      code_value: 4010F # Performance met
+      code_modifiers: ['1P']
+      start_date: 2016-12-31 # Upper bound
     diagnoses:
     - code_type: ICD10CM
       code_value: I11.0
@@ -1262,8 +1265,9 @@ patients:
       code_value: 3021F # LVEF <= 40%
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 4010F-1P # Denominator Exception
-      start_date: 2016-02-03 # Too late
+      code_value: 4010F # Performance met
+      code_modifiers: ['1P']
+      start_date: 2017-01-01 # Too late
     diagnoses:
     - code_type: ICD10CM
       code_value: I11.0
@@ -1408,8 +1412,9 @@ patients:
       code_value: 3021F # LVEF <= 40%
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 4010F-2P # Denominator Exception
-      start_date: 2016-01-31 # Too early
+      code_value: 4010F # Performance met
+      code_modifiers: ['2P']
+      start_date: 2015-12-31 # Too early
     diagnoses:
     - code_type: ICD10CM
       code_value: I11.0
@@ -1436,8 +1441,9 @@ patients:
       code_value: 3021F # LVEF <= 40%
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 4010F-2P # Denominator Exception
-      start_date: 2016-02-01 # Lower bound
+      code_value: 4010F # Performance met
+      code_modifiers: ['2P']
+      start_date: 2016-01-01 # Lower bound
     diagnoses:
     - code_type: ICD10CM
       code_value: I11.0
@@ -1464,8 +1470,9 @@ patients:
       code_value: 3021F # LVEF <= 40%
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 4010F-2P # Denominator Exception
-      start_date: 2016-02-02 # Upper bound
+      code_value: 4010F # Performance met
+      code_modifiers: ['2P']
+      start_date: 2016-12-31 # Upper bound
     diagnoses:
     - code_type: ICD10CM
       code_value: I11.0
@@ -1492,8 +1499,9 @@ patients:
       code_value: 3021F # LVEF <= 40%
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 4010F-2P # Denominator Exception
-      start_date: 2016-02-03 # Too late
+      code_value: 4010F # Performance met
+      code_modifiers: ['2P']
+      start_date: 2017-01-01 # Too late
     diagnoses:
     - code_type: ICD10CM
       code_value: I11.0
@@ -1520,8 +1528,9 @@ patients:
       code_value: 3021F # LVEF <= 40%
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 4010F-3P # Denominator Exception
-      start_date: 2016-01-31 # Too early
+      code_value: 4010F # Performance met
+      code_modifiers: ['3P']
+      start_date: 2015-12-31 # Too early
     diagnoses:
     - code_type: ICD10CM
       code_value: I11.0
@@ -1548,8 +1557,9 @@ patients:
       code_value: 3021F # LVEF <= 40%
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 4010F-3P # Denominator Exception
-      start_date: 2016-02-01 # Lower bound
+      code_value: 4010F # Performance met
+      code_modifiers: ['3P']
+      start_date: 2016-01-01 # Lower bound
     diagnoses:
     - code_type: ICD10CM
       code_value: I11.0
@@ -1576,8 +1586,9 @@ patients:
       code_value: 3021F # LVEF <= 40%
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 4010F-3P # Denominator Exception
-      start_date: 2016-02-02 # Upper bound
+      code_value: 4010F # Performance met
+      code_modifiers: ['3P']
+      start_date: 2016-12-31 # Upper bound
     diagnoses:
     - code_type: ICD10CM
       code_value: I11.0
@@ -1604,8 +1615,9 @@ patients:
       code_value: 3021F # LVEF <= 40%
       start_date: 2016-02-01
     - code_type: CPT
-      code_value: 4010F-3P # Denominator Exception
-      start_date: 2016-02-03 # Too late
+      code_value: 4010F # Performance met
+      code_modifiers: ['3P']
+      start_date: 2017-01-01 # Too late
     diagnoses:
     - code_type: ICD10CM
       code_value: I11.0

@@ -1,136 +1,137 @@
+---
 measure:
-  name: 17.MIPS.Mips052
+  name: 18.MIPS.Mips052
   required:
-    display_title: "Chronic Obstructive Pulmonary Disease (COPD): Long-Acting Inhaled Bronchodilator Therapy"
-  optional:
-    gap_resolution_action:  Patient is due forlong-acting inhaled bronchodilator therapy
+    display_title: 'Chronic Obstructive Pulmonary Disease (COPD): Long-Acting Inhaled
+      Bronchodilator Therapy'
+    inverse: false
+    subject_type: Patient
     set: MIPS
     external_id: '052'
-    version: 2017
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older with a diagnosis
+      of COPD (FEV1/FVC < 70%) and who have an FEV1 less than 60% predicted and have
+      symptoms who were prescribed an long-acting inhaled bronchodilator'
+    gap_resolution_action: Patient is due forlong-acting inhaled bronchodilator therapy
+    version: 2018
     mips_measure_type: Process
     mips_high_priority: false
-exception_reasons:
+    mips_specialty_sets: ""
+    mips_seven_point_max: true
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 years and older with a diagnosis of COPD (FEV1/FVC
+    < 70%), who have an FEV1 < 60% predicted and have symptoms (e.g., dyspnea, cough/sputum,
+    wheezing)'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 052 Encounter
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: COPD
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; COPD
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: FEV1/FVC < 70%, FEV1 < 60% and COPD Symptoms
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; FEV1/FVC < 70%, FEV1 < 60%, COPD Symptoms
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
   - config_link_id: G9696
-    required:
-      display_title: Documentation of medical reason(s) for not prescribing a long-acting inhaled bronchodilator
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 052 Encounter"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "MIPS; COPD"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; FEV1/FVC < 70%, FEV1 < 60%, COPD Symptoms"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Denominator Exception: G9696"
-    optional:
-      code_value: G9696
+    code_value: G9696
+    display_title: G9696
+    description: Documentation of medical reason(s) for not prescribing a long-acting
+      inhaled bronchodilator
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G9696"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G9696'
   - config_link_id: G9697
-    required:
-        display_title: Documentation of patient reason(s) for not prescribing a long-acting inhaled bronchodilator
-        validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 052 Encounter"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "MIPS; COPD"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; FEV1/FVC < 70%, FEV1 < 60%, COPD Symptoms"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Denominator Exception: G9697"
-    optional:
-      code_value: G9697
+    code_value: G9697
+    display_title: G9697
+    description: Documentation of patient reason(s) for not prescribing a long-acting
+      inhaled bronchodilator
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G9697"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G9697'
   - config_link_id: G9698
-    required:
-        display_title: Documentation of system reason(s) for not prescribing a long-acting inhaled bronchodilator
-        validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 052 Encounter"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "MIPS; COPD"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; FEV1/FVC < 70%, FEV1 < 60%, COPD Symptoms"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Denominator Exception: G9698"
-    optional:
-      code_value: G9698
-performance_met_reasons:
+    code_value: G9698
+    display_title: G9698
+    description: Documentation of system reason(s) for not prescribing a long-acting
+      inhaled bronchodilator
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G9698"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G9698'
+performance_met:
+  description: 'Patients who were prescribed a long-acting inhaled bronchodilator'
+  reasons:
   - config_link_id: G9695
-    required:
-      display_title: Long-acting inhaled bronchodilator prescribed
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 052 Encounter"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "MIPS; COPD"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; FEV1/FVC < 70%, FEV1 < 60%, COPD Symptoms"
-        - count: 1
-          validation_records:
-            - model: Medication
-              value_set: "Able; Long-Acting Inhaled Bronchodilator"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G9695"
-    optional:
-      code_value: G9695
-performance_not_met_reasons:
+    code_value: G9695
+    display_title: G9695
+    description: Long-acting inhaled bronchodilator prescribed
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G9695"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9695'
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Long-Acting Inhaled Bronchodilator
+        show_codes: false
+        records:
+        - model: Medication
+          value_set: Able; Long-Acting Inhaled Bronchodilator
+performance_not_met:
+  description:
+  reasons:
   - config_link_id: G9699
-    required:
-      display_title: Long-acting inhaled bronchodilator not prescribed, reason not otherwise specified
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 052 Encounter"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "MIPS; COPD"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; FEV1/FVC < 70%, FEV1 < 60%, COPD Symptoms"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Not Met: G9699"
-        - count: 1
-          validation_records:
-            - model: Medication
-              value_set: "Able; Long-Acting Inhaled Bronchodilator"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G9695"
-    optional:
-      code_value: G9699
+    code_value: G9699
+    display_title: G9699
+    description: Long-acting inhaled bronchodilator not prescribed, reason not otherwise
+      specified
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G9699"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9699'

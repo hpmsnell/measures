@@ -1,129 +1,148 @@
+---
 measure:
   name: 18.MIPS.Mips008Rate1
   required:
-    display_title: "Heart Failure (HF): Beta-Blocker Therapy for Left Ventricular Systolic Dysfunction (LVSD) in the Outpatient Setting"
-  optional:
-    gap_resolution_action:
+    display_title: 'Heart Failure (HF): Beta-Blocker Therapy for Left Ventricular
+      Systolic Dysfunction (LVSD) in the Outpatient Setting'
+    inverse: false
+    subject_type: Patient
     set: MIPS
-    external_id: '008 Rate 1'
+    external_id: '008'
+    rate_id: '1'
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older with a diagnosis
+      of heart failure (HF) with a current or prior left ventricular ejection fraction
+      (LVEF) < 40% who were prescribed beta-blocker therapy either within a 12 month
+      period seen in the outpatient setting with two denominator eligible visits'
+    gap_resolution_action:
     version: 2018
     mips_measure_type: Process
     mips_high_priority: false
-exclusion_reasons:
-performance_met_reasons:
-  - config_link_id: G8450
-    required:
-      display_title: 'Beta-blocker therapy prescribed'
-      validation_record_groups:
-        - count: 2
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 008 Encounter"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "MIPS; Heart Failure"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "MIPS; Cardiac Surgery"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; LVEF <40%"
-            - model: Diagnosis
-              value_set: "VSAC; Moderate or Severe LVSD"
-        - count: 1
-          validation_records:
-            - model: Medication
-              value_set: "VSAC; Beta Blocker Therapy"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8450"
-    optional:
-      code_value: G8450
-exception_reasons:
+    mips_specialty_sets: 'Cardiology, Hospitalists, General Practice/Family Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 years and older with a diagnosis of heart failure
+    with a current or prior LVEF < 40%'
+  component_groups:
+  - validation_record_table_count: 2
+    components:
+    - display_title: 2 Encounters
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 008 Encounter
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: Heart Failure
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; Heart Failure
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: LVEF < 40%
+      show_codes: true
+      annotation: 'With result: < 40%'
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; LVEF <40%
+    - display_title: Moderate or Severe LVSD
+      logical_operator: OR
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: VSAC; Moderate or Severe LVSD
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
   - config_link_id: G8451
-    required:
-      display_title: 'Beta-Blocker Therapy for LVEF < 40% not prescribed for reasons documented by the clinician (e.g., low blood pressure, fluid overload, asthma, patients recently treated with an intravenous positive inotropic agent, allergy, intolerance, other medical reasons, patient declined, other patient reasons, or other reasons attributable to the healthcare system)'
-      validation_record_groups:
-        - count: 2
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 008 Encounter"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "MIPS; Heart Failure"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "MIPS; Cardiac Surgery"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; LVEF <40%"
-            - model: Diagnosis
-              value_set: "VSAC; Moderate or Severe LVSD"
-        - count: 1
-          validation_records:
-            - model: Allergy
-              value_set: "VSAC; Beta Blocker Therapy Ingredient"
-            - model: Diagnosis
-              value_set: "VSAC; Allergy to Beta Blocker Therapy"
-            - model: Diagnosis
-              value_set: "VSAC; Intolerance to Beta Blocker Therapy"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "VSAC; Arrhythmia"
-            - model: Diagnosis
-              value_set: "VSAC; Hypotension"
-            - model: Diagnosis
-              value_set: "VSAC; Asthma"
-            - model: Diagnosis
-              value_set: "VSAC; Bradycardia"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Denominator Exception: G8451"
-    optional:
-      code_value: G8451
-performance_not_met_reasons:
+    code_value: G8451
+    display_title: G8451
+    description: Beta-Blocker Therapy for LVEF < 40% not prescribed for reasons documented
+      by the clinician (e.g., low blood pressure, fluid overload, asthma, patients
+      recently treated with an intravenous positive inotropic agent, allergy, intolerance,
+      other medical reasons, patient declined, other patient reasons, or other reasons
+      attributable to the healthcare system)
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G8451"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G8451'
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Allergy to Beta Blocker Therapy
+        show_codes: false
+        records:
+        - model: Allergy
+          value_set: VSAC; Beta Blocker Therapy Ingredient
+        - model: Diagnosis
+          value_set: VSAC; Allergy to Beta Blocker Therapy
+        - model: Diagnosis
+          value_set: VSAC; Intolerance to Beta Blocker Therapy
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Arrhythmia, Hypotension, Asthma, or Bradycardia
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: VSAC; Arrhythmia
+        - model: Diagnosis
+          value_set: VSAC; Hypotension
+        - model: Diagnosis
+          value_set: VSAC; Asthma
+        - model: Diagnosis
+          value_set: VSAC; Bradycardia
+performance_met:
+  description: 'Patients who were prescribed beta-blocker therapy within a 12 month
+    period when seen in the outpatient setting'
+  reasons:
+  - config_link_id: G8450
+    code_value: G8450
+    display_title: G8450
+    description: Beta-blocker therapy prescribed
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G8450"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8450'
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Beta Blocker Therapy
+        show_codes: false
+        records:
+        - model: Medication
+          value_set: VSAC; Beta Blocker Therapy
+performance_not_met:
+  description:
+  reasons:
   - config_link_id: G8452
-    required:
-      display_title: 'Beta-blocker therapy not prescribed, reason not given'
-      validation_record_groups:
-        - count: 2
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 008 Encounter"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "MIPS; Heart Failure"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "MIPS; Cardiac Surgery"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; LVEF <40%"
-            - model: Diagnosis
-              value_set: "VSAC; Moderate or Severe LVSD"
-        - count: 1
-          validation_records:
-            - model: Medication
-              value_set: "VSAC; Beta Blocker Therapy"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8450"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Not Met: G8452"
-    optional:
-      code_value: G8452
+    code_value: G8452
+    display_title: G8452
+    description: Beta-blocker therapy not prescribed, reason not given
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G8452"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G8452'
