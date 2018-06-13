@@ -33,8 +33,8 @@ context Patient
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 386 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
-      and not E.code.modifer in {'QG', 'GT', '95'}
-      and not E.placeOfServices in {'02'}
+      and not E.code.modifier in {'GQ','GT','95'}
+      and not E.placeOfService in {'02'}
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Amyotrophic Lateral Sclerosis"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod

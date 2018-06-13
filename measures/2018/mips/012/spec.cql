@@ -34,6 +34,8 @@ define "Patient Age at Encounter":
       and not E.code.modifier in "MIPS; Telehealth Modifier"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
+      and not E.code.modifier in {'GQ','GT','95'}
+      and not E.placeOfService in {'02'}
     with ["Diagnosis": "MIPS; Primary Open-Angle Glaucoma (POAG)"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod
 

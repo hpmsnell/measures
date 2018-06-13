@@ -1,0 +1,553 @@
+measure_id: 17.MIPS.Mips414
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower # Patient is at lower age bound and otherwise meets the denominator
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9585
+    - name: Encounter Before # Patient has an encounter that is early but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Lower # Patient has an encounter that is at the lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9585
+    - name: Encounter Upper  # Patient has an encounter that is at the upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9585
+    - name: Encounter After  # Patient has an encounter that is late but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Medication 42Days  # Patient prescribed for too few days
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Medication 43Days # Patient prescribed for lower bound of days
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9585
+    - name: Medication Early # Patient prescribed medication too early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Medication Lower # Patient prescribed medication at lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: Medication Upper # Patient prescribed medication at upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: Medication Late # Patient prescribed medication too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: PerformanceMet Before # Patient assessed at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9585
+    - name: PerformanceMet Lower # Patient assessed at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9584
+    - name: PerformanceMet Upper # Patient assessed too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9584
+    - name: PerformanceMet After # Patient assessed too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9585
+    - name: Assessment Before # Patient assessed at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9585
+    - name: Assessment Lower # Patient assessed at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9584
+    - name: Assessment Upper # Patient assessed too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9584
+    - name: Assessment After # Patient assessed too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9585
+  providers_key:
+  - name: Rachel
+    patients:
+    - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower # Patient is at lower age bound and otherwise meets the denominator
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9585
+    - name: Encounter Before # Patient has an encounter that is early but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Lower # Patient has an encounter that is at the lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9585
+    - name: Encounter Upper  # Patient has an encounter that is at the upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9585
+    - name: Encounter After  # Patient has an encounter that is late but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Medication 42Days  # Patient prescribed for too few days
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Medication 43Days # Patient prescribed for lower bound of days
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9585
+    - name: Medication Early # Patient prescribed medication too early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Medication Lower # Patient prescribed medication at lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: Medication Upper # Patient prescribed medication at upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9563
+    - name: Medication Late # Patient prescribed medication too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: PerformanceMet Before # Patient assessed at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9585
+    - name: PerformanceMet Lower # Patient assessed at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9584
+    - name: PerformanceMet Upper # Patient assessed too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9584
+    - name: PerformanceMet After # Patient assessed too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9585
+    - name: Assessment Before # Patient assessed at start of allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Assessment Lower # Patient assessed at end of allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Assessment Upper # Patient assessed too early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Assessment After # Patient assessed too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  external_id: '111-111'
+  credential: DO
+  primary_specialty: Family Medicine
+- given_name: Patty
+  family_name: PrimaryCare
+  external_id: '222-222'
+  credential: MD
+  primary_specialty: Family Medicine
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1998-02-02 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9583
+      start_date: 2016-02-01
+- name: Age Lower
+  attributes:
+    date_of_birth: 1998-02-01 # Lower bound
+    given_name: Age
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9577
+      start_date: 2016-02-01
+- name: Encounter Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Encounter
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2015-12-31 # Early
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9577
+      start_date: 2016-02-01
+- name: Encounter Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Encounter
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Lower
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9577
+      start_date: 2016-02-01
+- name: Encounter Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Encounter
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-12-31 # Upper
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9577
+      start_date: 2016-02-01
+- name: Encounter After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Encounter
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2017-01-01 # After
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9577
+      start_date: 2016-02-01
+- name: Medication 42Days
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Medication
+    family_name: 42Days
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_date: 2015-12-20
+      stop_date: 2016-01-31 # 42 days
+- name: Medication 43Days
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Medication
+    family_name: 43Days
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_date: 2015-12-20
+      stop_date: 2016-02-01 # 43 days
+- name: Medication Early
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Medication
+    family_name: Early
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_date: 2015-01-01
+      stop_date: 2015-12-31
+- name: Medication Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Medication
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_date: 2015-01-01
+      stop_date: 2016-02-13
+- name: Medication Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Medication
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_date: 2016-11-18
+- name: Medication Late
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Medication
+    family_name: Late
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    medications:
+    - code_type: RXNORM
+      code_value: 1010600
+      start_date: 2016-11-19 # 42 days before end of year
+- name: PerformanceMet Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: PerformanceMet
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9577
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9584
+      start_date: 2015-12-31
+- name: PerformanceMet Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: PerformanceMet
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9577
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9584
+      start_date: 2016-01-01 # Lower
+- name: PerformanceMet Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: PerformanceMet
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9577
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9584
+      start_date: 2016-12-31 # Upper
+- name: PerformanceMet After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: PerformanceMet
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9577
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9584
+      start_date: 2017-01-01 # After
+- name: Assessment Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Assessment
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Patty
+    - code_type: CPT
+      code_value: G9577
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9584
+      start_date: 2015-12-31
+- name: Assessment Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Assessment
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Patty
+    - code_type: CPT
+      code_value: G9577
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9584
+      start_date: 2016-01-01 # Lower
+- name: Assessment Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Assessment
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Patty
+    - code_type: CPT
+      code_value: G9577
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9584
+      start_date: 2016-12-31 # Upper
+- name: Assessment After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Assessment
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Patty
+    - code_type: CPT
+      code_value: G9577
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9584
+      start_date: 2017-01-01 # After

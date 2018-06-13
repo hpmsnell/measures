@@ -1,0 +1,1585 @@
+measure_id: 17.MIPS.Mips332
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Too Young
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: Encounter Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: Encounter Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: Encounter After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Diagnosis Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Diagnosis Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: Diagnosis Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: Diagnosis After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Bacterial Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Bacterial Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: Bacterial Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: Bacterial After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Antibiotic Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Antibiotic Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: Antibiotic Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: Antibiotic After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: G9315 Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: G9315 Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9315
+    - name: G9315 Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9315
+    - name: G9315 After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: Amoxicillin Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: Amoxicillin Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9315
+    - name: Amoxicillin Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9315
+    - name: Amoxicillin After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: Amoxicillin Active
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: G9313 Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: G9313 Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9313
+      numerator:
+    - name: G9313 Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9313
+      numerator:
+    - name: G9313 After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: CysticFibrosis Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: CysticFibrosis Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9313
+      numerator:
+    - name: CysticFibrosis Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9313
+      numerator:
+    - name: CysticFibrosis After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: Allergy Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: Allergy Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9313
+      numerator:
+    - name: Allergy Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9313
+      numerator:
+    - name: Allergy After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: SinusSurgery Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+    - name: SinusSurgery Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9313
+      numerator:
+    - name: SinusSurgery Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9313
+      numerator:
+    - name: SinusSurgery After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9314
+  providers_key:
+    - name: Rachel
+      patients:
+      - name: Too Young
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: Encounter Before
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: Encounter Upper
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: Encounter After
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Diagnosis Before
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Diagnosis Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: Diagnosis Upper
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: Diagnosis After
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Bacterial Before
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Bacterial Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: Bacterial Upper
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: Bacterial After
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Antibiotic Before
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Antibiotic Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: Antibiotic Upper
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: Antibiotic After
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: G9315 Before
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: G9315 Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9315
+      - name: G9315 Upper
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9315
+      - name: G9315 After
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: Amoxicillin Before
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: Amoxicillin Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9315
+      - name: Amoxicillin Upper
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9315
+      - name: Amoxicillin After
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: Amoxicillin Active
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: G9313 Before
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: G9313 Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G9313
+        numerator:
+      - name: G9313 Upper
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G9313
+        numerator:
+      - name: G9313 After
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: CysticFibrosis Before
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: CysticFibrosis Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G9313
+        numerator:
+      - name: CysticFibrosis Upper
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G9313
+        numerator:
+      - name: CysticFibrosis After
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: Allergy Before
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: Allergy Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G9313
+        numerator:
+      - name: Allergy Upper
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G9313
+        numerator:
+      - name: Allergy After
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9314
+      - name: SinusSurgery Before
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: SinusSurgery Lower
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: SinusSurgery Upper
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: SinusSurgery After
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+providers:
+  - given_name: Rachel
+    family_name:  Katz
+    credential: DO
+    primary_specialty:  Family Medicine
+    external_id: 111
+  - given_name: Patty
+    family_name:  Smith
+    credential: MD
+    primary_specialty:  Family Medicine
+    external_id: 222
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1998-02-02 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+- name: Age Lower
+  attributes:
+    date_of_birth: 1998-02-01 # Lower bound
+    given_name: Age
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+- name: Encounter Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Encounter
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2015-12-31 # Too early
+      stop_date: 2015-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2015-12-31
+- name: Encounter Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Encounter
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-01-01
+- name: Encounter Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Encounter
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-12-31 # Upper bound
+      stop_date: 2016-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-12-31
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-12-31
+- name: Encounter After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Encounter
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2017-01-01 # Too late
+      stop_date: 2017-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2017-01-01
+- name: Diagnosis Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Diagnosis
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-01-30
+      stop_date: 2016-01-31 # Too early
+- name: Diagnosis Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Diagnosis
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01 # Lower bound
+- name: Diagnosis Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Diagnosis
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-02 # Upper bound
+- name: Diagnosis After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Diagnosis
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-03 # Too late
+- name: Bacterial Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Bacterial
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 703470001 # Bacterial sinusitis
+      start_date: 2016-01-31 # Early
+- name: Bacterial Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Bacterial
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 703470001 # Bacterial sinusitis
+      start_date: 2016-02-01 # Lower bound
+- name: Bacterial Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Bacterial
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 703470001 # Bacterial sinusitis
+      start_date: 2016-02-02 # Upper bound
+- name: Bacterial After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Bacterial
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 703470001 # Bacterial sinusitis
+      start_date: 2016-01-31 # Late
+- name: Antibiotic Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Antibiotic
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01 # Lower bound
+    medications:
+    - code_type: RXNORM
+      code_value: 1013659 # Antibiotic
+      method: E
+      start_date: 2016-01-31 # Early
+      provider: Rachel
+- name: Antibiotic Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Antibiotic
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01 # Lower bound
+    medications:
+    - code_type: RXNORM
+      code_value: 1013659 # Antibiotic
+      method: E
+      start_date: 2016-02-01 # Lower bound
+      provider: Rachel
+- name: Antibiotic Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Antibiotic
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01 # Lower bound
+    medications:
+    - code_type: RXNORM
+      code_value: 1013659 # Antibiotic
+      method: E
+      start_date: 2016-02-11 # Upper bound
+      provider: Rachel
+- name: Antibiotic After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Antibiotic
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01 # Lower bound
+    medications:
+    - code_type: RXNORM
+      code_value: 1013659 # Antibiotic
+      method: E
+      start_date: 2016-02-12 # Late
+      provider: Rachel
+- name: G9315 Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G9315
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9315
+      start_date: 2015-12-31 # Too early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+- name: G9315 Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G9315
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9315
+      start_date: 2016-01-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+- name: G9315 Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G9315
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9315
+      start_date: 2016-12-31 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+- name: G9315 After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G9315
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9315
+      start_date: 2017-01-01 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+- name: Amoxicillin Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Amoxicillin
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 239191 # Amoixicillin
+      method: E
+      start_date: 2016-01-30
+      provider: Rachel
+- name: Amoxicillin Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Amoxicillin
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 239191 # Amoixicillin
+      method: E
+      start_date: 2016-02-01
+      provider: Rachel
+- name: Amoxicillin Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Amoxicillin
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-11
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 239191 # Amoixicillin
+      method: E
+      start_date: 2016-02-11 # Upper bound
+      provider: Rachel
+- name: Amoxicillin After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Amoxicillin
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 239191 # Amoixicillin
+      method: E
+      start_date: 2016-02-12 # Too late
+      provider: Rachel
+- name: Amoxicillin Active
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Amoxicillin
+    family_name: Active
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 239191 # Amoixicillin, No method
+      start_date: 2016-02-04
+      provider: Rachel
+- name: G9313 Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G9313
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9313
+      start_date: 2015-12-31 # Too early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+- name: G9313 Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G9313
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9313
+      start_date: 2016-01-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+- name: G9313 Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G9313
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9313
+      start_date: 2016-12-31 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+- name: G9313 After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: G9313
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9313
+      start_date: 2017-01-01 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+- name: CysticFibrosis Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: CysticFibrosis
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: E84.9
+      start_date: 2016-01-30
+      stop_date: 2016-01-31 # Too early
+- name: CysticFibrosis Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: CysticFibrosis
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: E84.9
+      start_date: 2016-02-01 # Lower bound
+- name: CysticFibrosis Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: CysticFibrosis
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: E84.9
+      start_date: 2016-02-02 # Upper bound
+- name: CysticFibrosis After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: CysticFibrosis
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: E84.9
+      start_date: 2016-02-03 # Too late
+- name: Allergy Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Allergy
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+    allergies:
+    - code_type: RXNORM
+      code_value: 239191 # Amoixicillin
+      start_date: 2016-01-30
+      stop_date: 2016-01-30 # Too early
+- name: Allergy Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Allergy
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+    allergies:
+    - code_type: RXNORM
+      code_value: 239191 # Amoixicillin
+      start_date: 2016-02-01 # Lower bound
+- name: Allergy Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Allergy
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+    allergies:
+    - code_type: RXNORM
+      code_value: 239191 # Amoixicillin
+      start_date: 2016-02-02 # Upper bound
+- name: Allergy After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Allergy
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+    allergies:
+    - code_type: RXNORM
+      code_value: 239191 # Amoixicillin
+      start_date: 2016-02-02 # Too late
+- name: SinusSurgery Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: SinusSurgery
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Patty
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 112788002 # Sinus surgery
+      start_date: 2015-01-31 # Too early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+- name: SinusSurgery Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: SinusSurgery
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Patty
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 112788002 # Sinus surgery
+      start_date: 2015-02-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+- name: SinusSurgery Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: SinusSurgery
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Patty
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 112788002 # Sinus surgery
+      start_date: 2016-02-01 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01
+- name: SinusSurgery After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: SinusSurgery
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Patty
+    - code_type: CPT
+      code_value: G9364 # Bacterial sinusitis
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: G9498 # Antibiotics prescribed
+      provider: Rachel
+      start_date: 2016-02-01
+    - code_type: SNOMEDCT
+      code_value: 112788002 # Sinus surgery
+      start_date: 2016-02-02 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-02-01

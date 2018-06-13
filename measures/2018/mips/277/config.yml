@@ -1,0 +1,96 @@
+---
+measure:
+  name: 18.MIPS.Mips277
+  required:
+    display_title: 'Sleep Apnea: Severity Assessment at Initial Diagnosis'
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: 277
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older with a diagnosis
+      of obstructive sleep apnea who had an apnea hypopnea index (AHI) or a respiratory
+      disturbance index (RDI) measured at the time of initial diagnosis'
+    gap_resolution_action:
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: ""
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 years and older with a diagnosis of sleep apnea'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 277 Encounter
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: Sleep Apnea
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; Sleep Apnea
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: G8843
+    code_value: G8843
+    display_title: G8843
+    description: Documentation of reason(s) for not measuring an apneahypopnea index
+      (AHI) or a respiratory disturbance index (RDI) at the time of initial diagnosis
+      (e.g., psychiatric disease, dementia, patient declined, financial, insurance
+      coverage, test ordered but not yet completed)
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8843'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G8843'
+performance_met:
+  description: 'Patients who had an apnea hypopnea index (AHI) or a respiratory disturbance
+    index (RDI) measured at the time of initial diagnosis'
+  reasons:
+  - config_link_id: G8842
+    code_value: G8842
+    display_title: G8842
+    description: Apnea hypopnea index (AHI) or respiratory disturbance index (RDI)
+      measured at the time of initial diagnosis
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8842'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8842'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G8844
+    code_value: G8844
+    display_title: G8844
+    description: Apnea hypopnea index (AHI) or respiratory disturbance index (RDI)
+      not measured at the time of initial diagnosis, reason not given
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8844'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G8844'

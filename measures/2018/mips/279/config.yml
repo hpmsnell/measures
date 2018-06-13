@@ -1,0 +1,113 @@
+---
+measure:
+  name: 18.MIPS.Mips279
+  required:
+    display_title: 'Sleep Apnea: Assessment of Adherence to Positive Airway Pressure
+      Therapy'
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: 279
+    version:
+  optional:
+    description: 'Percentage of visits for patients aged 18 years and older with a
+      diagnosis of obstructive sleep apnea who were prescribed positive airway pressure
+      therapy who had documentation that adherence to positive airway pressure therapy
+      was objectively measured'
+    gap_resolution_action: Patient is due for assessment of adherence to positive
+      airway pressure therapy for sleep apnea
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: ""
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 years and older with a diagnosis of sleep apnea'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 279 Encounter
+  - logical_operator: 'AND'
+    validation_record_table_count: 1
+    components:
+    - display_title: Sleep Apnea
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; Sleep Apnea
+  - logical_operator: 'AND'
+    validation_record_table_count: 1
+    components:
+    - display_title: Positive Airway Pressure Therapy Prescribed
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; Positive Airway Pressure Therapy Prescribed
+    - logical_operator: OR
+      display_title: Positive Airway Pressure Therapy
+      show_codes: false
+      records:
+      - model: ClinicalActivity
+        value_set: Able; Positive Airway Pressure Therapy
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: G8854
+    code_value: G8854
+    display_title: G8854
+    description: Documentation of reason(s) for not objectively measuring adherence
+      to positive airway pressure therapy (e.g., patient didn’t bring data from continuous
+      positive airway pressure [CPAP], therapy not yet initiated, not available on
+      machine)
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8854'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G8854'
+performance_met:
+  description: 'Patient visits with documentation that adherence to positive airway
+    pressure therapy was objectively measured'
+  reasons:
+  - config_link_id: G8851
+    code_value: G8851
+    display_title: G8851
+    description: Objective measurement of adherence to positive airway pressure therapy,
+      documented
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8851'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8851'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G8855
+    code_value: G8855
+    display_title: G8855
+    description: Objective measurement of adherence to positive airway pressure therapy
+      not performed, reason not given
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8855'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G8855'

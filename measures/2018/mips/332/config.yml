@@ -1,0 +1,160 @@
+---
+measure:
+  name: 18.MIPS.Mips332
+  required:
+    display_title: 'Adult Sinusitis: Appropriate Choice of Antibiotic: Amoxicillin
+      With or Without Clavulanate Prescribed for Patients with Acute Bacterial Sinusitis
+      (Appropriate Use)'
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: 332
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older with a diagnosis
+      of acute bacterial sinusitis that were prescribed amoxicillin, with or without
+      clavulanate, as a first line antibiotic at the time of diagnosis'
+    gap_resolution_action:
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Allergy/Immunology, Internal Medicine, Otolaryngology, General
+      Practice/Family Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 years and older with a diagnosis of acute bacterial
+    sinusitis who are prescribed an antibiotic'
+  component_groups:
+  - validation_record_table_count: 10
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 332 Encounter
+  - logical_operator: AND
+    validation_record_table_count: 10
+    components:
+    - display_title: Acute Sinusitis
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; Acute Sinusitis
+  - logical_operator: AND
+    validation_record_table_count: 10
+    components:
+    - display_title: Bacterial Sinusitis
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; Bacterial Sinusitis
+      - model: Diagnosis
+        value_set: Able; Bacterial Sinusitis
+  - logical_operator: AND
+    validation_record_table_count: 10
+    components:
+    - display_title: Systemic Antibiotic Prescribed
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; Antibiotic Prescribed
+    - logical_operator: 'OR'
+      display_title: Systemic Antibiotic
+      show_codes: false
+      records:
+      - model: Medication
+        value_set: Able; Amoxicillin
+      - model: Medication
+        value_set: Able; Systemic Antibiotics
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: G9313
+    code_value: G9313
+    display_title: G9313
+    description: Amoxicillin, with or without clavulanate, not prescribed as first
+      line antibiotic at the time of diagnosis for documented reason (e.g., cystic
+      fibrosis, immotile cilia disorders, ciliary dyskinesia, immune deficiency, prior
+      history of sinus surgery within the past 12 months, anatomic abnormalities,
+      such as deviated nasal septum, resistant organisms, allergy to medication, recurrent
+      sinusitis, chronic sinusitis, or other reasons)
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G9313"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G9313'
+    - logical_operator: OR
+      validation_record_table_count: 10
+      components:
+      - display_title: Allergy to Amoxicillin
+        show_codes: false
+        records:
+        - model: Allergy
+          value_set: Able; Amoxicillin Ingredient
+        - model: Diagnosis
+          value_set: Able; Allergy to Amoxicillin
+    - logical_operator: OR
+      validation_record_table_count: 10
+      components:
+      - display_title: Excepted Condition
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: Able; Cystic Fibrosis
+        - model: Diagnosis
+          value_set: Able; Immunodeficient Conditions
+        - model: Diagnosis
+          value_set: Able; Chronic Sinusitis
+        - model: ClinicalActivity
+          value_set: Able; Sinus Surgery
+performance_met:
+  description: 'Patients who were prescribed amoxicillin, with or without clavulanate,
+    as a first line antibiotic at the time of diagnosis'
+  reasons:
+  - config_link_id: G9315
+    code_value: G9315
+    display_title: G9315
+    description: Amoxicillin, with or without clavulanate, prescribed as a first line
+      antibiotic at the time of diagnosis
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9315'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9315'
+    - logical_operator: OR
+      validation_record_table_count: 1
+      components:
+      - display_title: Amoxicillin
+        show_codes: false
+        records:
+        - model: Medication
+          value_set: Able; Amoxicillin
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9314
+    code_value: G9314
+    display_title: G9314
+    description: Amoxicillin, with or without clavulanate, not prescribed as first
+      line antibiotic at the time of diagnosis, reason not given
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9314'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9314'

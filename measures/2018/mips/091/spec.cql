@@ -40,6 +40,8 @@ define "Denominator Encounter":
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 2
       and E.signingProvider.hasMeasureMembership = true
+      and not E.code.modifier in {'GQ','GT','95'}
+      and not E.placeOfService in {'02'}
       and not E.code.modifier in "MIPS; Telehealth Modifier"
     with "AOE" D
       such that D.prevalencePeriod starts during E.relevantPeriod

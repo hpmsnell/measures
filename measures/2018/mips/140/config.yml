@@ -1,0 +1,85 @@
+---
+measure:
+  name: 18.MIPS.Mips140
+  required:
+    display_title: 'Age-Related Macular Degeneration (AMD): Counseling on Antioxidant
+      Supplement'
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: '140'
+    version:
+  optional:
+    description: 'Percentage of Patients aged 50 years and older with a diagnosis
+      of age-related macular degeneration (AMD) or their caregiver(s) who were counseled
+      within the 12 month performance period on the benefits and/or risks of the Age-
+      Related Eye Disease Study (AREDS) formulation for preventing progression of
+      AMD'
+    gap_resolution_action: Patient requires counseling for AREDS formulation
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'Ophthalmology'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All Patients aged 50 years and older with a diagnosis of AMD'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 140 Encounter
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: Age-Related Macular Degeneration
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; Age-Related Macular Degeneration
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patients with AMD or their caregiver(s) who were counseled within
+    12 months on the benefits and/or risks of the AREDS 2 formulation for preventing
+    progression of AMD'
+  reasons:
+  - config_link_id: 4177F
+    code_value: 4177F
+    display_title: 4177F
+    description: Counseling about the benefits and/or risks of the AgeRelated Eye
+      Disease Study (AREDS) formulation for preventing progression of age-related
+      macular degeneration (AMD) provided to patient and/or caregiver(s)
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: 4177F"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: 4177F'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: 4177F-8P
+    code_value: 4177F-8P
+    display_title: 4177F-8P
+    description: AREDS counseling not performed, reason not otherwise Specified
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: 4177F-8P"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: 4177F-8P'

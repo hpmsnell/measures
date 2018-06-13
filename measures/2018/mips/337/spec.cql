@@ -41,7 +41,8 @@ define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 337 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
       and E.signingProvider.hasMeasureMembership = true
-      and not E.code.modifier in {'GQ', 'GT'}
+      and not E.code.modifier in {'GQ','GT','95'}
+      and not E.placeOfService in {'02'}
     with "Denominator Diagnosis" D
       such that D.prevalencePeriod overlaps E.relevantPeriod
 

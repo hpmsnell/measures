@@ -1,0 +1,91 @@
+---
+measure:
+  name: 18.MIPS.Mips408
+  required:
+    display_title: Opioid Therapy Follow-up Evaluation
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: 408
+    version:
+  optional:
+    description: 'All patients 18 and older prescribed opiates for longer than six
+      weeks duration who had a follow-up evaluation conducted at least every three
+      months during Opioid Therapy documented in the medical record'
+    gap_resolution_action:
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'Internal Medicine, Neurology, Physical Medicine, General
+      Practice/Family Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients 18 and older prescribed opiates for longer than six weeks
+    duration'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 408 Encounter
+  - logical_operator: 'AND'
+    validation_record_table_count: 10
+    components:
+    - display_title: Opiates Prescribed for Longer than Six Weeks
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; Opiates Prescribed for Longer than Six Weeks
+    - logical_operator: 'OR'
+      display_title: Opiate
+      show_codes: false
+      annotation: 'With duration longer than six weeks'
+      records:
+      - model: Medication
+        value_set: Able; Opioids Used for Pain Control
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patients who had a follow-up evaluation conducted at least every three
+    months during opioid therapy'
+  reasons:
+  - config_link_id: G9562
+    code_value: G9562
+    display_title: G9562
+    description: Patients who had a follow-up evaluation (e.g., functional status and
+      pain assessment) conducted at least every three months during opioid therapy
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9562'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9562'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9563
+    code_value: G9563
+    display_title: G9563
+    description: Patients who did not have a follow-up evaluation (e.g., functional
+      status and pain assessment) conducted at least every three months during opioid
+      therapy
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9563'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9563'

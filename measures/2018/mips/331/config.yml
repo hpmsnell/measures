@@ -1,0 +1,109 @@
+---
+measure:
+  name: 18.MIPS.Mips331
+  required:
+    display_title: 'Adult Sinusitis: Antibiotic Prescribed for Acute Sinusitis (Overuse)'
+    inverse: true
+    subject_type: Encounter
+    set: MIPS
+    external_id: 331
+    version:
+  optional:
+    description: 'Percentage of patients, aged 18 years and older, with a diagnosis
+      of acute viral sinusitis who were prescribed an antibiotic within 10 days after
+      onset of symptoms'
+    gap_resolution_action:
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Allergy/Immunology, Internal Medicine, Otolaryngology, General
+      Practice/Family Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 years and older with a diagnosis of acute viral
+    sinusitis'
+  component_groups:
+  - validation_record_table_count: 10
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 331 Encounter
+  - logical_operator: AND
+    validation_record_table_count: 10
+    components:
+    - display_title: Acute Sinusitis
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; Acute Sinusitis
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: G9505
+    code_value: G9505
+    display_title: G9505
+    description: Antibiotic regimen prescribed within 10 days after onset of symptoms
+      for documented medical reason
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G9505'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G9505'
+    - logical_operator: OR
+      validation_record_table_count: 10
+      components:
+      - display_title: Competing Condition for Sinusitis
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: Able; Competing Conditions for Sinusitis
+performance_met:
+  description: 'Patients prescribed any antibiotic within 10 days after onset of symptoms'
+  reasons:
+  - config_link_id: G9286
+    code_value: G9286
+    display_title: G9286
+    description: Antibiotic regimen prescribed within 10 days after onset of symptoms
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G9286'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9286'
+    - logical_operator: OR
+      validation_record_table_count: 10
+      components:
+      - display_title: Systemic Antibiotic
+        show_codes: false
+        records:
+        - model: Medication
+          value_set: Able; Systemic Antibiotics
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9287
+    code_value: G9287
+    display_title: G9287
+    description: Antibiotic regimen not prescribed within 10 days after onset of symptoms
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G9287'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9287'

@@ -52,7 +52,8 @@ define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 326 Encounter"] E
       where E.relevantPeriod starts during "Denominator Period"
         and AgeInYearsAt(start of E.relevantPeriod) >= 18
-        and not E.code.modifier "MIPS; Telemedicine Modifier"
+        and not E.code.modifier in {'GQ','GT','95'}
+        and not E.placeOfService in {'02'}
         and E.signingProvider.hasMeasureMembership = true
       with ["Diagnosis": "MIPS; Nonvalvular Atrial Fibrillation or Atrial Flutter"] D
         such that D.prevalencePeriod overlaps E.relevantPeriod
