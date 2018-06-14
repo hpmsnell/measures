@@ -42,6 +42,11 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
+    - name: DenominatorEncounter InvalidPOS
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
     - name: Exclusion BilateralMastectomy # Patient has an exclusion for bilateral mastectomy
       denominator: 1
       denominator_exclusion: exclusion_1
@@ -366,6 +371,20 @@ patients:
       code_value: 99201
       start_date: 2017-01-01 # Too late
       provider: Rachel
+- name: DenominatorEncounter InvalidPOS
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: DenominatorEncounter
+    family_name: InvalidPOS
+    sex: Female
+  health_plan_id: Medicare Part B
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+      place_of_service: [’32’]
 - name: Exclusion BilateralMastectomy
   attributes:
     date_of_birth: 1950-01-01

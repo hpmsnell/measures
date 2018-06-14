@@ -1,4 +1,4 @@
-measure_id: 17.MIPS.Mips388
+measure_id: 18.MIPS.Mips388
 test_set_keys:
   organization_key:
     episodes_of_care:
@@ -34,12 +34,6 @@ test_set_keys:
         numerator: G9390
       - name: Denominator Encounter # Encounter too late
         start_date: 2017-01-01
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Denominator Encounter # Invalid Modifier
-        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
@@ -131,6 +125,12 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator:
+      - name: Denominator Encounter # Invalid Modifier
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
         - name: PerformanceMet G9389 # Performance met G9389 before
           start_date: 2016-02-01
           denominator: 1

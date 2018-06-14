@@ -30,6 +30,11 @@ test_set_keys:
       denominator:
       denominator_exclusion:
       numerator:
+    - name: DenominatorEncounter InvalidPOS
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
     - name: Denominator Exclusion # Patient has an exclusion for colorectal cancer
       denominator: 1
       denominator_exclusion: exclusion_1
@@ -403,6 +408,19 @@ patients:
       code_value: 12843005 # Face-To-Face Interaction
       start_date: 2017-01-01 # Too late
       provider: Rachel
+- name: DenominatorEncounter InvalidPOS
+  attributes:
+    date_of_birth: 1951-01-01
+    given_name: DenominatorEncounter
+    family_name: InvalidPOS
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: SNOMEDCT
+      code_value: 12843005 # Face-To-Face Interaction
+      start_date: 2016-01-01 
+      provider: Rachel
+      place_of_service: [’32’]
 - name: Patient has an exclusion for colorectal cancer
   attributes:
     date_of_birth: 1947-01-01

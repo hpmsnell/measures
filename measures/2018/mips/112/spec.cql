@@ -48,6 +48,7 @@ define "Denominator":
   and exists(["Encounter, Performed": "MIPS; MIPS 112 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period")
     and E.signingProvider.hasMeasureMembership = true
+    and not E.placeOfService in {'32','33','34','54','56'}
 
 define "Denominator Exclusion 1":
   /*

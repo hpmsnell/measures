@@ -1,4 +1,4 @@
-measure_id: 17.MIPS.Mips304
+measure_id: 18.MIPS.Mips304
 test_set_keys:
   organization_key:
     episodes_of_care:
@@ -78,14 +78,14 @@ test_set_keys:
         start_date: 2016-06-01
         denominator: 1
         denominator_exclusion:
-        denominator_exception:
-        numerator: G0916
+        denominator_exception: G0917
+        numerator:
       - name: Exception G0917-2 # Performance met G0916 upper bound
         start_date: 2016-01-01
         denominator: 1
         denominator_exclusion:
-        denominator_exception:
-        numerator: G0916
+        denominator_exception: G0917
+        numerator:
       - name: Exception G0917-2 #  Performance met G0916 after
         start_date: 2016-06-01
         denominator: 1
@@ -165,8 +165,8 @@ test_set_keys:
           start_date: 2016-06-01
           denominator: 1
           denominator_exclusion:
-          denominator_exception:
-          numerator: G0916
+          denominator_exception: G0917
+          numerator:
         - name: Exception G0917-2 # Performance met G0916 upper bound
           start_date: 2016-01-01
           denominator:
@@ -336,7 +336,7 @@ patients:
     - code_type: CPT
       code_value: 66840
       start_date: 2016-06-01
-      provider: CPT
+      provider: Patty
     - code_type: CPT
       code_value: G0917
       start_date: 2016-08-31 # After

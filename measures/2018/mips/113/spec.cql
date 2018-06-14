@@ -52,6 +52,7 @@ define "Denominator":
       and AgeInYearsAt(start of E.relevantPeriod) >= 50
       and AgeInYearsAt(start of E.relevantPeriod) < 75
       and E.signingProvider.hasMeasureMembership = true
+      and not E.placeOfService in {'32','33','34','54','56'}
 
 define "Denominator Exclusion 1":
   /*
