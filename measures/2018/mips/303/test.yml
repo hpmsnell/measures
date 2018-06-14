@@ -1,4 +1,4 @@
-measure_id: 18.MIPS.Mips191
+measure_id: 17.MIPS.Mips303
 test_set_keys:
   organization_key:
     episodes_of_care:
@@ -13,7 +13,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: 4175F-8P
+        numerator: G0915
       - name: Denominator Encounter # Encounter too early
         start_date: 2015-12-31
         denominator:
@@ -25,13 +25,13 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: 4175F-8P
+        numerator: G0915
       - name: Denominator Encounter # Encounter at upper bound
         start_date: 2016-09-30
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: 4175F-8P
+        numerator: G0915
       - name: Denominator Encounter # Encounter too late
         start_date: 2016-10-01
         denominator:
@@ -44,108 +44,108 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator:
-      - name: Excluded Diagnosis # Diagnosis exclusion before interval
-        start_date: 2016-02-01
+      - name: PerformanceMet G0913-1 # Performance met G0913 before
+        start_date: 2016-01-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: 4175F-8P
-      - name: Excluded Diagnosis # Diagnosis exclusion at lower bound of interval
-        start_date: 2016-03-01
+        numerator: G0915
+      - name: PerformanceMet G0913-1 # Performance met G0913 lower bound
+        start_date: 2016-06-01
         denominator: 1
-        denominator_exclusion: exclusion_1
+        denominator_exclusion:
         denominator_exception:
+        numerator: G0913
+      - name: PerformanceMet G0913-2 # Performance met G0913 upper bound
+        start_date: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G0913
+      - name: PerformanceMet G0913-2 #  Performance met G0913 after
+        start_date: 2016-06-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G0915
+      - name: PerformanceMet PreoperativeVisualAcuity-1 # Preoperative visual acuity before
+        start_date: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G0915
+      - name: PerformanceMet PreoperativeVisualAcuity-1 # Preoperative visual acuity lower bound
+        start_date: 2016-06-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G0913
+      - name: PerformanceMet PreoperativeVisualAcuity-2 # Preoperative visual acuity upper bound
+        start_date: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G0913
+      - name: PerformanceMet PreoperativeVisualAcuity-2 #  Preoperative visual acuity after
+        start_date: 2016-06-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G0915
+      - name: PerformanceMet PostoperativeVisualAcuity-1 # Postoperative visual acuity before
+        start_date: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G0915
+      - name: PerformanceMet PostoperativeVisualAcuity-1 # Postoperative visual acuity lower bound
+        start_date: 2016-06-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G0913
+      - name: PerformanceMet PostoperativeVisualAcuity-2 # Postoperative visual acuity upper bound
+        start_date: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G0913
+      - name: PerformanceMet PostoperativeVisualAcuity-2 # Posteoperative visual acuity after
+        start_date: 2016-06-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G0915
+      - name: PerformanceMet VisualAcuity-TooLow # Posteoperative visual acuity not higher than preoperative
+        start_date: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G0915
+      - name: Exception G0914-1 # Performance met G0913 before
+        start_date: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G0915
+      - name: Exception G0914-1 # Performance met G0913 lower bound
+        start_date: 2016-06-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G0914
         numerator:
-      - name: Excluded Diagnosis # Diagnosis exclusion at upper bound of interval
-        start_date: 2016-04-01
+      - name: Exception G0914-2 # Performance met G0913 upper bound
+        start_date: 2016-01-01
         denominator: 1
-        denominator_exclusion: exclusion_1
-        denominator_exception:
+        denominator_exclusion:
+        denominator_exception: G0914
         numerator:
-      - name: Excluded Diagnosis # Diagnosis exclusion after interval
-        start_date: 2016-05-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4175F-8P
-      - name: PerformanceMet 4175F1 # Performance met 4175F before MP
-        start_date: 2016-01-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4175F-8P
-      - name: PerformanceMet 4175F1 # Performance met 4175F lower bound MP
+      - name: Exception G0914-2 #  Performance met G0913 after
         start_date: 2016-06-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: 4175F
-      - name: PerformanceMet 4175F2 # Performance met 4175F upper bound MP
-        start_date: 2016-01-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4175F
-      - name: PerformanceMet 4175F2 #  Performance met 4175F after MP
-        start_date: 2016-06-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4175F-8P
-      - name: PerformanceMet Exam1 # Eye exam before end of procedure
-        start_date: 2016-01-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4175F-8P
-      - name: PerformanceMet Exam1 # Eye exam at end of procedure
-        start_date: 2016-06-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4175F
-      - name: PerformanceMet Exam2 # Eye exam at upper bound of period
-        start_date: 2016-01-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4175F
-      - name: PerformanceMet Exam2 # Eye exam after period
-        start_date: 2016-06-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4175F-8P
-      - name: PerformanceMet Finding1 # Eye exam before end of procedure
-        start_date: 2016-01-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4175F-8P
-      - name: PerformanceMet Finding1 # Eye exam at end of procedure
-        start_date: 2016-06-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4175F
-      - name: PerformanceMet Finding2 # Eye exam at upper bound of period
-        start_date: 2016-01-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4175F
-      - name: PerformanceMet Finding2 # Eye exam after period
-        start_date: 2016-06-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4175F-8P
-      - name: PerformanceMet FindingTooLow # Visual acuity too low
-        start_date: 2016-01-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: 4175F-8P
+        numerator: G0915
   providers_key:
     - name: Rachel
       episodes_of_care:
@@ -160,7 +160,7 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: 4175F-8P
+          numerator: G0915
         - name: Denominator Encounter # Encounter too early
           start_date: 2015-12-31
           denominator:
@@ -172,117 +172,117 @@ test_set_keys:
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: 4175F-8P
+          numerator: G0915
         - name: Denominator Encounter # Encounter at upper bound
           start_date: 2016-09-30
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: 4175F-8P
+          numerator: G0915
         - name: Denominator Encounter # Encounter too late
           start_date: 2016-10-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: Excluded Diagnosis # Diagnosis exclusion before interval
-          start_date: 2016-02-01
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: 4175F-8P
-        - name: Excluded Diagnosis # Diagnosis exclusion at lower bound of interval
-          start_date: 2016-03-01
-          denominator: 1
-          denominator_exclusion: exclusion_1
-          denominator_exception:
-          numerator:
-        - name: Excluded Diagnosis # Diagnosis exclusion at upper bound of interval
-          start_date: 2016-04-01
-          denominator: 1
-          denominator_exclusion: exclusion_1
-          denominator_exception:
-          numerator:
-        - name: Excluded Diagnosis # Diagnosis exclusion after interval
-          start_date: 2016-05-01
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: 4175F-8P
-        - name: PerformanceMet 4175F1 # Performance met 4175F before MP
+        - name: PerformanceMet G0913-1 # Performance met G0913 before
           start_date: 2016-01-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: 4175F-8P
-        - name: PerformanceMet 4175F1 # Performance met 4175F lower bound MP
+          numerator: G0915
+        - name: PerformanceMet G0913-1 # Performance met G0913 lower bound
           start_date: 2016-06-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: 4175F
-        - name: PerformanceMet 4175F2 # Performance met 4175F upper bound MP
+          numerator: G0913
+        - name: PerformanceMet G0913-2 # Performance met G0913 upper bound
           start_date: 2016-01-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: 4175F
-        - name: PerformanceMet 4175F2 #  Performance met 4175F after MP
+          numerator: G0913
+        - name: PerformanceMet G0913-2 #  Performance met G0913 after
           start_date: 2016-06-01
           denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator: 4175F-8P
-        - name: PerformanceMet Exam1 # Eye exam before end of procedure
+          numerator: G0915
+        - name: PerformanceMet PreoperativeVisualAcuity-1 # Preoperative visual acuity before
           start_date: 2016-01-01
-          denominator:
+          denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator:
-        - name: PerformanceMet Exam1 # Eye exam at end of procedure
+          numerator: G0915
+        - name: PerformanceMet PreoperativeVisualAcuity-1 # Preoperative visual acuity lower bound
           start_date: 2016-06-01
-          denominator:
+          denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator:
-        - name: PerformanceMet Exam2 # Eye exam at upper bound of period
+          numerator: G0913
+        - name: PerformanceMet PreoperativeVisualAcuity-2 # Preoperative visual acuity upper bound
           start_date: 2016-01-01
-          denominator:
+          denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator:
-        - name: PerformanceMet Exam2 # Eye exam after period
+          numerator: G0913
+        - name: PerformanceMet PreoperativeVisualAcuity-2 #  Preoperative visual acuity after
           start_date: 2016-06-01
-          denominator:
+          denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator:
-        - name: PerformanceMet Finding1 # Eye exam before end of procedure
+          numerator: G0915
+        - name: PerformanceMet PostoperativeVisualAcuity-1 # Postoperative visual acuity before
           start_date: 2016-01-01
-          denominator:
+          denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator:
-        - name: PerformanceMet Finding1 # Eye exam at end of procedure
+          numerator: G0915
+        - name: PerformanceMet PostoperativeVisualAcuity-1 # Postoperative visual acuity lower bound
           start_date: 2016-06-01
-          denominator:
+          denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator:
-        - name: PerformanceMet Finding2 # Eye exam at upper bound of period
+          numerator: G0913
+        - name: PerformanceMet PostoperativeVisualAcuity-2 # Postoperative visual acuity upper bound
           start_date: 2016-01-01
-          denominator:
+          denominator: 1
           denominator_exclusion:
           denominator_exception:
-          numerator:
-        - name: PerformanceMet Finding2 # Eye exam after period
+          numerator: G0913
+        - name: PerformanceMet PostoperativeVisualAcuity-2 # Posteoperative visual acuity after
           start_date: 2016-06-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G0915
+        - name: PerformanceMet VisualAcuity-TooLow # Posteoperative visual acuity not higher than preoperative
+          start_date: 2016-01-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G0915
+        - name: Exception G0914-1 # Performance met G0913 before
+          start_date: 2016-01-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G0915
+        - name: Exception G0914-1 # Performance met G0913 lower bound
+          start_date: 2016-06-01
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: G0914
+          numerator:
+        - name: Exception G0914-2 # Performance met G0913 upper bound
+          start_date: 2016-01-01
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: PerformanceMet FindingTooLow # Visual acuity too low
-          start_date: 2016-01-01
+        - name: Exception G0914-2 #  Performance met G0913 after
+          start_date: 2016-06-01
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -356,57 +356,11 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
       code_modifiers: [’55’] #invalid modifier
-- name: Excluded Diagnosis
-  attributes:
-    date_of_birth: 1988-03-22
-    given_name: Excluded
-    family_name: Diagnosis
-    sex: Female
-  health_plan_id: Medicare Part B
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 66840
-      start_date: 2016-02-01
-      stop_date: 2016-02-02
-      provider: Rachel
-    - code_type: CPT
-      code_value: 66840
-      start_date: 2016-03-01
-      stop_date: 2016-03-02
-      provider: Rachel
-    - code_type: CPT
-      code_value: 66840
-      start_date: 2016-04-01
-      stop_date: 2016-04-02
-      provider: Rachel
-    - code_type: CPT
-      code_value: 66840
-      start_date: 2016-05-01
-      stop_date: 2016-05-02
-      provider: Rachel
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: H44.111
-      start_date: 2010-01-01
-      stop_date: 2016-01-31 # Early
-    - code_type: ICD10CM
-      code_value: H44.111
-      start_date: 2016-02-28
-      stop_date: 2016-03-01 # Lower bound
-    - code_type: ICD10CM
-      code_value: H44.111
-      start_date: 2016-04-02 # Upper bound
-      stop_date: 2016-04-03
-    - code_type: ICD10CM
-      code_value: H44.111
-      start_date: 2016-05-03 # Late
-      stop_date: 2016-05-04
-- name: PerformanceMet 4175F1
+- name: PerformanceMet G0913-1
   attributes:
     date_of_birth: 1988-03-22
     given_name: PerformanceMet
-    family_name: 4175F1
+    family_name: G0913-1
     sex: Female
   health_plan_id: Medicare Part B
   clinical_models:
@@ -416,20 +370,20 @@ patients:
       start_date: 2016-01-01
       provider: Rachel
     - code_type: CPT
-      code_value: 4175F
+      code_value: G0913
       start_date: 2015-12-31 # Early
     - code_type: CPT
       code_value: 66840
       start_date: 2016-06-01
       provider: Rachel
     - code_type: CPT
-      code_value: 4175F
-      start_date: 2016-06-01 # Lower
-- name: PerformanceMet 4175F2
+      code_value: G0913
+      start_date: 2016-06-02 # Lower
+- name: PerformanceMet G0913-2
   attributes:
     date_of_birth: 1988-03-22
     given_name: PerformanceMet
-    family_name: 4175F2
+    family_name: G0913-2
     sex: Female
   health_plan_id: Medicare Part B
   clinical_models:
@@ -439,20 +393,20 @@ patients:
       start_date: 2016-01-01
       provider: Rachel
     - code_type: CPT
-      code_value: 4175F
+      code_value: G0913
       start_date: 2016-03-31 # Upper
     - code_type: CPT
       code_value: 66840
       start_date: 2016-06-01
       provider: Rachel
     - code_type: CPT
-      code_value: 4175F
+      code_value: G0913
       start_date: 2016-08-31 # After
-- name: PerformanceMet Exam1
+- name: PerformanceMet PreoperativeVisualAcuity-1
   attributes:
     date_of_birth: 1988-03-22
     given_name: PerformanceMet
-    family_name: Exam1
+    family_name: PreoperativeVisualAcuity-1
     sex: Female
   health_plan_id: Medicare Part B
   clinical_models:
@@ -460,105 +414,190 @@ patients:
     - code_type: CPT
       code_value: 66840
       start_date: 2016-01-01
-      provider: Patty
-    - code_type: CPT
-      code_value: 66840
-      start_date: 2016-06-01
-      provider: Patty
+      provider: Rachel
     - code_type: SNOMEDCT
-      code_value: 423059004
-      start_date: 2015-12-31 # Early
-    - code_type: SNOMEDCT
-      code_value: 423059004
-      start_date: 2016-06-01 # Lower
-- name: PerformanceMet Exam2
-  attributes:
-    date_of_birth: 1988-03-22
-    given_name: PerformanceMet
-    family_name: Exam2
-    sex: Female
-  health_plan_id: Medicare Part B
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 66840
-      start_date: 2016-01-01
-      provider: Patty
-    - code_type: CPT
-      code_value: 66840
-      start_date: 2016-06-01
-      provider: Patty
-    - code_type: SNOMEDCT
-      code_value: 423059004
-      start_date: 2016-03-31 # Upper
-    - code_type: SNOMEDCT
-      code_value: 423059004
-      start_date: 2016-08-31 # After
-
-- name: PerformanceMet Finding1
-  attributes:
-    date_of_birth: 1988-03-22
-    given_name: PerformanceMet
-    family_name: Finding1
-    sex: Female
-  health_plan_id: Medicare Part B
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 66840
-      start_date: 2016-01-01
-      provider: Patty
-    - code_type: CPT
-      code_value: 66840
-      start_date: 2016-06-01
-      provider: Patty
-    - code_type: SNOMEDCT
-      code_value: 363983007
-      start_date: 2015-12-31 # Early
+      code_value: 386708005 # Preoperative visual acuity
+      start_date: 2015-12-01 # Early
       result_as_decimal: .5
     - code_type: SNOMEDCT
-      code_value: 363983007
-      start_date: 2016-06-01 # Lower
-      result_as_decimal: .5
-- name: PerformanceMet Finding2
-  attributes:
-    date_of_birth: 1988-03-22
-    given_name: PerformanceMet
-    family_name: Finding2
-    sex: Female
-  health_plan_id: Medicare Part B
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 66840
-      start_date: 2016-01-01
-      provider: Patty
-    - code_type: CPT
-      code_value: 66840
-      start_date: 2016-06-01
-      provider: Patty
-    - code_type: SNOMEDCT
-      code_value: 363983007
-      start_date: 2016-03-31 # Upper
-      result_as_decimal: .5
-    - code_type: SNOMEDCT
-      code_value: 363983007
-      start_date: 2016-08-31 # After
-      result_as_decimal: .5
-- name: PerformanceMet FindingTooLow
-  attributes:
-    date_of_birth: 1988-03-22
-    given_name: PerformanceMet
-    family_name: FindingTooLow
-    sex: Female
-  health_plan_id: Medicare Part B
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 66840
-      start_date: 2016-01-01
-      provider: Patty
-    - code_type: SNOMEDCT
-      code_value: 363983007
+      code_value: 386708005 # Post visual acuity
       start_date: 2016-01-02
-      result_as_decimal: .4
+      result_as_decimal: 1.0
+    - code_type: CPT
+      code_value: 66840
+      start_date: 2016-06-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 386708005 # Preoperative visual acuity
+      start_date: 2016-05-02 # Lower bound
+      result_as_decimal: .5
+    - code_type: SNOMEDCT
+      code_value: 386708005 # Post visual acuity
+      start_date: 2016-06-02
+      result_as_decimal: 1.0
+- name: PerformanceMet PreoperativeVisualAcuity-2
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: PerformanceMet
+    family_name: PreoperativeVisualAcuity-2
+    sex: Female
+  health_plan_id: Medicare Part B
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 66840
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 386708005 # Preoperative visual acuity
+      start_date: 2016-01-01 # Upper bound
+      result_as_decimal: .5
+    - code_type: SNOMEDCT
+      code_value: 386708005 # Post visual acuity
+      start_date: 2016-01-02
+      result_as_decimal: 1.0
+    - code_type: CPT
+      code_value: 66840
+      start_date: 2016-06-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 386708005 # Preoperative visual acuity
+      start_date: 2016-06-02 # Too late
+      result_as_decimal: .5
+    - code_type: SNOMEDCT
+      code_value: 386708005 # Post visual acuity
+      start_date: 2016-06-02
+      result_as_decimal: 1.0
+- name: PerformanceMet PostoperativeVisualAcuity-1
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: PerformanceMet
+    family_name: PostoperativeVisualAcuity-1
+    sex: Female
+  health_plan_id: Medicare Part B
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 66840
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 386708005 # Preoperative visual acuity
+      start_date: 2015-12-31
+      result_as_decimal: .5
+    - code_type: SNOMEDCT
+      code_value: 386708005 # Post visual acuity
+      start_date: 2016-01-01 # Too early
+      result_as_decimal: 1.0
+    - code_type: CPT
+      code_value: 66840
+      start_date: 2016-06-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 386708005 # Preoperative visual acuity
+      start_date: 2016-05-30
+      result_as_decimal: .5
+    - code_type: SNOMEDCT
+      code_value: 386708005 # Post visual acuity
+      start_date: 2016-06-02 # Lower bound
+      result_as_decimal: 1.0
+- name: PerformanceMet PostoperativeVisualAcuity-2
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: PerformanceMet
+    family_name: PostoperativeVisualAcuity-2
+    sex: Female
+  health_plan_id: Medicare Part B
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 66840
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 386708005 # Preoperative visual acuity
+      start_date: 2015-12-31
+      result_as_decimal: .5
+    - code_type: SNOMEDCT
+      code_value: 386708005 # Post visual acuity
+      start_date: 2016-03-31 # Upper bound
+      result_as_decimal: 1.0
+    - code_type: CPT
+      code_value: 66840
+      start_date: 2016-06-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 386708005 # Preoperative visual acuity
+      start_date: 2016-05-30
+      result_as_decimal: .5
+    - code_type: SNOMEDCT
+      code_value: 386708005 # Post visual acuity
+      start_date: 2016-08-31 # Too late
+      result_as_decimal: 1.0
+- name: PerformanceMet VisualAcuity-TooLow
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: PerformanceMet
+    family_name: VisualAcuity-TooLow
+    sex: Female
+  health_plan_id: Medicare Part B
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 66840
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 386708005 # Preoperative visual acuity
+      start_date: 2015-12-31
+      result_as_decimal: .5
+    - code_type: SNOMEDCT
+      code_value: 386708005 # Post visual acuity
+      start_date: 2016-01-02
+      result_as_decimal: .5
+- name: Exception G0914-1
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: Exception
+    family_name: G0914-1
+    sex: Female
+  health_plan_id: Medicare Part B
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 66840
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G0914
+      start_date: 2015-12-31 # Early
+    - code_type: CPT
+      code_value: 66840
+      start_date: 2016-06-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G0914
+      start_date: 2016-06-01 # Lower
+- name: Exception G0914-2
+  attributes:
+    date_of_birth: 1988-03-22
+    given_name: Exception
+    family_name: G0914-2
+    sex: Female
+  health_plan_id: Medicare Part B
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 66840
+      start_date: 2016-01-01
+      provider: Patty
+    - code_type: CPT
+      code_value: G0914
+      start_date: 2016-03-31 # Upper
+    - code_type: CPT
+      code_value: 66840
+      start_date: 2016-06-01
+      provider: Patty
+    - code_type: CPT
+      code_value: G0914
+      start_date: 2016-08-31 # After
