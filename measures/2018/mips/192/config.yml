@@ -34,7 +34,6 @@ denominator:
     components:
     - display_title: Procedure
       show_codes: true
-      annotation: 'Without modifier: 55, 56'
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 192 Encounter
@@ -43,14 +42,14 @@ exclusion:
   reasons:
   - config_link_id: exclusion_1
     code_value:
-    display_title:
+    display_title: Significant Ocular Condition
     description: Patient is excluded due to the presence of a significant ocular condition
       at the time of surgery
     component_groups:
     - validation_record_table_count: 10
       components:
       - display_title: Significant Ocular Condition
-        show_codes: true
+        show_codes: false
         records:
         - model: Diagnosis
           value_set: VSAC; Acute and Subacute Iridocyclitis

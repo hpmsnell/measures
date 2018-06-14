@@ -57,27 +57,27 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: G8484
-      - name: VaccineBefore # Vaccine before first interval
+      - name: Vaccine Before # Vaccine before first interval
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8484
-      - name: VaccineLower # Vaccinet lower bound first interval
+      - name: Vaccine Lower # Vaccinet lower bound first interval
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8482
-      - name: VaccineUpper # Vaccinet upper bound first interval
+      - name: Vaccine Upper # Vaccinet upper bound first interval
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8482
-      - name: VaccineAfter # Vaccinefter first interval
+      - name: Vaccine After # Vaccinefter first interval
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G8484
-      - name: Vaccinedministered # Vaccine using vaccination value set
+      - name: Vaccine Administered # Vaccine using vaccination value set
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -185,27 +185,27 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator: G8484
-        - name: VaccineBefore # Vaccine before first interval
+        - name: Vaccine Before # Vaccine before first interval
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8484
-        - name: VaccineLower # Vaccinet lower bound first interval
+        - name: Vaccine Lower # Vaccinet lower bound first interval
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8482
-        - name: VaccineUpper # Vaccinet upper bound first interval
+        - name: Vaccine Upper # Vaccinet upper bound first interval
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8482
-        - name: VaccineAfter # Vaccinefter first interval
+        - name: Vaccine After # Vaccinefter first interval
           denominator: 1
           denominator_exclusion:
           denominator_exception:
           numerator: G8484
-        - name: Vaccinedministered # Vaccine using vaccination value set
+        - name: Vaccine Administered # Vaccine using vaccination value set
           denominator: 1
           denominator_exclusion:
           denominator_exception:
@@ -273,7 +273,7 @@ providers:
 patients:
   - name: Too Young
     attributes:
-      date_of_birth: 2015-08-02
+      date_of_birth: 2016-05-02
       given_name: Too
       family_name: Young
       sex: Female
@@ -286,7 +286,7 @@ patients:
         provider: Rachel
   - name: Age Lower
     attributes:
-      date_of_birth: 2015-08-01
+      date_of_birth: 2016-05-01
       given_name: Age
       family_name: Lower
       sex: Female
@@ -301,7 +301,7 @@ patients:
     attributes:
       date_of_birth: 1988-03-22
       given_name: Encounter
-      family_name: AEarly
+      family_name: Early
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
@@ -313,7 +313,7 @@ patients:
     attributes:
       date_of_birth: 1988-03-22
       given_name: Encounter
-      family_name: ALower
+      family_name: Lower
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
@@ -326,7 +326,7 @@ patients:
     attributes:
       date_of_birth: 1988-03-22
       given_name: Encounter
-      family_name: AUpper
+      family_name: Upper
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
@@ -339,7 +339,7 @@ patients:
     attributes:
       date_of_birth: 1988-03-22
       given_name: Encounter
-      family_name: AAfter
+      family_name: After
       sex: Female
     health_plan_id: Medicare Part B
     clinical_models:
@@ -360,7 +360,7 @@ patients:
       - code_type: CPT
         code_value: 99201
         start_date: 2016-11-01
-        provider: Rachel # Different provider
+        provider: Patty # Different provider
   - name: G8482 Before
     attributes:
       date_of_birth: 1988-03-22
@@ -376,7 +376,7 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: G8482
-        start_date: 201g-09-30 # Too early
+        start_date: 2016-07-31 # Too early
   - name: G8482 Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -392,7 +392,7 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: G8482 # Performance Met: G8482
-        start_date: 2015-10-01 # Lower bound
+        start_date: 2016-08-01 # Lower bound
   - name: G8482 Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -441,7 +441,7 @@ patients:
       medications:
       - code_type: CVX
         code_value: 135 # Influenza Vaccine
-        start_date: 201g-09-30 # Too early
+        start_date: 2016-07-31 # Too early
   - name: Vaccine Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -458,7 +458,7 @@ patients:
       medications:
       - code_type: CVX
         code_value: 135 # Influenza Vaccine # Performance Met: G8482
-        start_date: 2015-10-01 # Lower bound
+        start_date: 2016-08-01 # Lower bound
   - name: Vaccine Upper
     attributes:
       date_of_birth: 1988-03-22

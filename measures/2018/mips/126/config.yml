@@ -1,119 +1,139 @@
+---
 measure:
   name: 18.MIPS.Mips126
   required:
-    display_title: "Diabetes Mellitus: Diabetic Foot and Ankle Care, Peripheral Neuropathy – Neurological Evaluation"
-  optional:
-    gap_resolution_action: "Patient requires a neurological examination of lower extremities"
+    display_title: 'Diabetes Mellitus: Diabetic Foot and Ankle Care, Peripheral Neuropathy
+      – Neurological Evaluation'
+    inverse: false
+    subject_type: Patient
     set: MIPS
     external_id: '126'
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older with a diagnosis
+      of diabetes mellitus who had a neurological examination of their lower extremities
+      within 12 months'
+    gap_resolution_action: Patient requires a neurological examination of lower extremities
     version: 2018
     mips_measure_type: Process
     mips_high_priority: false
-exclusion_reasons:
+    mips_specialty_sets: ""
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 years and older with a diagnosis of diabetes
+    mellitus'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 126 Encounter
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: Diabetes
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; MIPS 126 Diabetes
+exclusion:
+  description:
+  reasons:
   - config_link_id: exclusion_1
-    required:
-      display_title: 'Patient excluded due to bilateral amputation'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: MIPS; MIPS 126 Encounter
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: MIPS; MIPS 126 Diabetes
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "Able; Bilateral Amputee"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "Able; Left Foot Amputee"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "Able; Right Foot Amputee"
+    code_value:
+    display_title: Bilateral Amputee
+    description: Patient excluded due to bilateral amputation
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Bilateral Amputee
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: Able; Bilateral Amputee
+    - logical_operator: OR
+      validation_record_table_count: 1
+      components:
+      - display_title: Left Foot Amputee
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: Able; Left Foot Amputee
+      - display_title: Right Foot Amputee
+        logical_operator: AND
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: Able; Right Foot Amputee
   - config_link_id: exclusion_2
-    required:
-      display_title: 'Patient excluded due to condition inhibiting ability to respond to exam'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: MIPS; MIPS 126 Encounter
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: MIPS; MIPS 126 Diabetes
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "Able; Cognitive and Psychiatric Disorders Indicative of Impaired Cognition"
-performance_met_reasons:
+    code_value:
+    display_title: Inability To Respond To Exam
+    description: Patient excluded due to condition inhibiting ability to respond to
+      exam
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Cognitive and Psychiatric Disorders
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: Able; Cognitive and Psychiatric Disorders Indicative of Impaired
+            Cognition
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patients who had a lower extremity neurological exam performed at
+    least once within 12 months'
+  reasons:
   - config_link_id: G8404
-    required:
-      display_title: 'Lower extremity neurological exam performed and documented'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: MIPS; MIPS 126 Encounter
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: MIPS; MIPS 126 Diabetes
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8404"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "Able; Monofilament Exam"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "Able; Foot Vibration Exam"
-            - model: ClinicalActivity
-              value_set: "Able; Ankle Reflex Exam"
-            - model: ClinicalActivity
-              value_set: "Able; Foot Pin Prick Exam"
-    optional:
-      code_value: G8404
-exception_reasons:
-performance_not_met_reasons:
+    code_value: G8404
+    display_title: G8404
+    description: Lower extremity neurological exam performed and documented
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8404'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8404'
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Monofilament Exam
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: Able; Monofilament Exam
+      - logical_operator: AND
+        display_title: Lower Extremity Neurological Exam
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: Able; Foot Vibration Exam
+        - model: ClinicalActivity
+          value_set: Able; Ankle Reflex Exam
+        - model: ClinicalActivity
+          value_set: Able; Foot Pin Prick Exam
+performance_not_met:
+  description:
+  reasons:
   - config_link_id: G8405
-    required:
-      display_title: "Lower extremity neurological exam not performed"
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: MIPS; MIPS 126 Encounter
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: MIPS; MIPS 126 Diabetes
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G8404"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Not Met: G8405"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "Able; Monofilament Exam"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "Able; Foot Vibration Exam"
-            - model: ClinicalActivity
-              value_set: "Able; Ankle Reflex Exam"
-            - model: ClinicalActivity
-              value_set: "Able; Foot Pin Prick Exam"
-    optional:
-      code_value: G8405
+    code_value: G8405
+    display_title: G8405
+    description: Lower extremity neurological exam not performed
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8405'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G8405'

@@ -1,95 +1,123 @@
+---
 measure:
   name: 18.MIPS.Mips333
   required:
-    display_title: "Adult Sinusitis: Computerized Tomography (CT) for Acute Sinusitis (Overuse)"
-  optional:
-    gap_resolution_action:
+    display_title: 'Adult Sinusitis: Computerized Tomography (CT) for Acute Sinusitis
+      (Overuse)'
+    inverse: true
+    subject_type: Encounter
     set: MIPS
     external_id: 333
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older, with a diagnosis
+      of acute sinusitis who had a computerized tomography (CT) scan of the paranasal
+      sinuses ordered at the time of diagnosis or received within 28 days after date
+      of diagnosis'
+    gap_resolution_action:
     version: 2018
     mips_measure_type: Efficiency
     mips_high_priority: true
-exclusion_reasons:
-performance_met_reasons:
-  - config_link_id: G9349
-    required:
-      display_title: 'CT scan of the paranasal sinuses ordered at the time of diagnosis or received within 28 days after date of diagnosis'
-      validation_record_groups:
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 333 Encounter"
-        - count: 10
-          validation_records:
-            - model: Diagnosis
-              value_set: "MIPS; Acute Sinusitis"
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "Able; CT Scan of Paranasal Sinuses"
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G9349"
-    optional:
-      code_value: G9349
-exception_reasons:
+    mips_specialty_sets: 'Allergy/Immunology, Internal Medicine, Otolaryngology, General
+      Practice/Family Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 years and older with a diagnosis of acute sinusitis'
+  component_groups:
+  - validation_record_table_count: 10
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 333 Encounter
+  - logical_operator: 'AND'
+    validation_record_table_count: 10
+    components:
+    - display_title: Acute Sinusitis
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; Acute Sinusitis
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
   - config_link_id: G9348
-    required:
-      display_title: 'CT scan of the paranasal sinuses ordered at the time of diagnosis for documented reasons (e.g., persons with sinusitis symptoms lasting at least 7 to 10 days, antibiotic resistance, immunocompromised, recurrent sinusitis, acute frontal sinusitis, acute sphenoid sinusitis, periorbital cellulitis, or other medical)'
-      validation_record_groups:
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 333 Encounter"
-        - count: 10
-          validation_records:
-            - model: Diagnosis
-              value_set: "MIPS; Acute Sinusitis"
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "Able; CT Scan of Paranasal Sinuses"
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Denominator Exception: G9348"
-        - count: 10
-          validation_records:
-            - model: Diagnosis
-              value_set: "Able; Immunodeficient Conditions"
-            - model: Diagnosis
-              value_set: "Able; Chronic Sinusitis"
-            - model: Diagnosis
-              value_set: "Able; Acute Frontal or Sphenoid Sinusitis"
-            - model: Diagnosis
-              value_set: "Able; Periorbital Cellulitis"
-    optional:
-      code_value: G9348
-performance_not_met_reasons:
+    code_value: G9348
+    display_title: G9348
+    description: CT scan of the paranasal sinuses ordered at the time of diagnosis
+      for documented reasons (e.g., persons with sinusitis symptoms lasting at least
+      7 to 10 days, antibiotic resistance, immunocompromised, recurrent sinusitis,
+      acute frontal sinusitis, acute sphenoid sinusitis, periorbital cellulitis, or
+      other medical)
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G9348'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G9348'
+    - logical_operator: 'OR'
+      validation_record_table_count: 10
+      components:
+      - display_title: 'Excepted Condition'
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: Able; Immunodeficient Conditions
+        - model: Diagnosis
+          value_set: Able; Chronic Sinusitis
+        - model: Diagnosis
+          value_set: Able; Acute Frontal or Sphenoid Sinusitis
+        - model: Diagnosis
+          value_set: Able; Periorbital Cellulitis
+performance_met:
+  description: 'Patients who had a computerized tomography (CT) scan of the paranasal
+    sinuses ordered at the time of diagnosis or received within 28 days after date
+    of diagnosis'
+  reasons:
+  - config_link_id: G9349
+    code_value: G9349
+    display_title: G9349
+    description: CT scan of the paranasal sinuses ordered at the time of diagnosis
+      or received within 28 days after date of diagnosis
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G9349'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9349'
+    - logical_operator: 'OR'
+      validation_record_table_count: 10
+      components:
+      - display_title: CT Scan of Paranasal Sinuses
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: Able; CT Scan of Paranasal Sinuses
+performance_not_met:
+  description:
+  reasons:
   - config_link_id: G9350
-    required:
-      display_title: 'CT scan of the paranasal sinuses not ordered at the time of diagnosis or received within 28 days after date of diagnosis'
-      validation_record_groups:
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS 333 Encounter"
-        - count: 10
-          validation_records:
-            - model: Diagnosis
-              value_set: "MIPS; Acute Sinusitis"
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "Able; CT Scan of Paranasal Sinuses"
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Met: G9349"
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; Performance Not Met: G9350"
-    optional:
-      code_value: G9350
+    code_value: G9350
+    display_title: G9350
+    description: CT scan of the paranasal sinuses not ordered at the time of diagnosis
+      or received within 28 days after date of diagnosis
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G9350'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9350'

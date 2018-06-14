@@ -91,33 +91,28 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G9368
+        numerator: G9367
       - name: 2Medications Same # 2 high-risk medications with same code value
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G9367
+        numerator: G9368
       - name: 3Medications Unique # 3 unique high-risk medications
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: G9368
-      - name: 2Medications Before # 2 same high-risk medications with one out of date
+        numerator: G9367
+      - name: 2Medications Before # 2 unique high-risk medications with one out of date
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9368
-      - name: 2Medications 91Days # 2 same high-risk medications with > 90 days supply
+      - name: 2Medications 91Days # 2 unique high-risk medications with > 90 days supply
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: G9367
-      - name: 2Medications 90Days # 2 same high-risk medications, 1 with only 90 days supply
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9368
-      - name: 2Medications 91DaysUnique # 2 unique high-risk medications with > 90 days supply
+      - name: 2Medications 90Days # 2 unique high-risk medications, 1 with only 90 days supply
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -230,22 +225,17 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: 2Medications Before # 2 same high-risk medications with one out of date
+        - name: 2Medications Before # 2 unique high-risk medications with one out of date
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: 2Medications 91Days # 2 same high-risk medications with > 90 days supply
+        - name: 2Medications 91Days # 2 unique high-risk medications with > 90 days supply
           denominator:
           denominator_exclusion:
           denominator_exception:
           numerator:
-        - name: 2Medications 90Days # 2 same high-risk medications, 1 with only 90 days supply
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: 2Medications 91DaysUnique # 2 unique high-risk medications with > 90 days supply
+        - name: 2Medications 90Days # 2 unique high-risk medications, 1 with only 90 days supply
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -433,7 +423,7 @@ patients:
         provider: Rachel
       medications:
       - code_type: RXNORM
-        code_value: 310539 # Glyburide
+        code_value: 310539
         method: E
         start_date: 2015-12-31
         provider: Rachel
@@ -452,7 +442,7 @@ patients:
         provider: Rachel
       medications:
       - code_type: RXNORM
-        code_value: 310539 # Glyburide
+        code_value: 310539
         method: E
         start_date: 2016-01-01
         provider: Rachel
@@ -471,7 +461,7 @@ patients:
         provider: Rachel
       medications:
       - code_type: RXNORM
-        code_value: 310539 # Glyburide
+        code_value: 310539
         method: E
         start_date: 2016-12-31
         provider: Rachel
@@ -490,7 +480,7 @@ patients:
         provider: Rachel
       medications:
       - code_type: RXNORM
-        code_value: 310539 # Glyburide
+        code_value: 310539
         method: E
         start_date: 2017-01-01
         provider: Rachel
@@ -528,13 +518,13 @@ patients:
         provider: Rachel
       medications:
       - code_type: RXNORM
-        code_value: 854894 # Zolpidem
+        code_value: 854894
         method: E
         start_date: 2016-01-01
         stop_date: 2016-04-01 # 91 days
         provider: Rachel
       - code_type: RXNORM
-        code_value: 854894 # Zolpidem
+        code_value: 854894
         method: E
         start_date: 2016-02-01
         stop_date: 2016-02-02 # 1 day
@@ -580,12 +570,12 @@ patients:
         provider: Rachel
       medications:
       - code_type: RXNORM
-        code_value: 310539 # Glyburide
+        code_value: 310539
         method: E
         start_date: 2016-01-01
         provider: Rachel
       - code_type: RXNORM
-        code_value: 310539 # Glyburide
+        code_value: 1363309
         method: E
         start_date: 2016-01-01
         provider: Patty
@@ -604,12 +594,12 @@ patients:
         provider: Patty
       medications:
       - code_type: RXNORM
-        code_value: 310539 # Glyburide
+        code_value: 310539
         method: E
         start_date: 2016-01-01
         provider: Patty
       - code_type: RXNORM
-        code_value: 1363309 # Chlorpheniramine
+        code_value: 1363309
         method: E
         start_date: 2016-01-01
         provider: Patty
@@ -628,12 +618,12 @@ patients:
         provider: Patty
       medications:
       - code_type: RXNORM
-        code_value: 310539 # Glyburide
+        code_value: 310539
         method: E
         start_date: 2016-01-01
         provider: Patty
       - code_type: RXNORM
-        code_value: 197737 # Glyburide
+        code_value: 310539
         method: E
         start_date: 2016-01-01
         provider: Patty
@@ -652,17 +642,17 @@ patients:
         provider: Patty
       medications:
       - code_type: RXNORM
-        code_value: 310539 # Glyburide
+        code_value: 310539
         method: E
         start_date: 2016-01-01
         provider: Patty
       - code_type: RXNORM
-        code_value: 1363309 # Chlorpheniramine
+        code_value: 1363309
         method: E
         start_date: 2016-01-01
         provider: Patty
       - code_type: RXNORM
-        code_value: 1359124 # Estradiol / Norethindrone
+        code_value: 1359124
         method: E
         start_date: 2016-01-01
         provider: Patty
@@ -681,12 +671,12 @@ patients:
         provider: Patty
       medications:
       - code_type: RXNORM
-        code_value: 310539 # Glyburide
+        code_value: 310539
         method: E
         start_date: 2016-01-01
         provider: Patty
       - code_type: RXNORM
-        code_value: 310539 # Glyburide
+        code_value: 1363309
         method: E
         start_date: 2015-12-31
         provider: Patty
@@ -705,19 +695,19 @@ patients:
         provider: Patty
       medications:
       - code_type: RXNORM
-        code_value: 485442 # Eszopiclone
+        code_value: 485465
         method: E
         start_date: 2016-01-01
         stop_date: 2016-03-31 # 90 days
         provider: Patty
       - code_type: RXNORM
-        code_value: 485440 # Eszopiclone
+        code_value: 485465
         method: E
         start_date: 2016-01-01
         stop_date: 2016-01-02 # 1 day
         provider: Patty
       - code_type: RXNORM
-        code_value: 485465 # Eszopiclone
+        code_value: 854894
         method: E
         start_date: 2016-01-01
         stop_date: 2016-04-01 # 91 days
@@ -737,51 +727,25 @@ patients:
         provider: Patty
       medications:
       - code_type: RXNORM
-        code_value: 485465 # Eszopiclone
+        code_value: 485465
         method: E
         start_date: 2016-01-01
         stop_date: 2016-03-31 # 90 days
         provider: Patty
       - code_type: RXNORM
-        code_value: 485465 # Eszopiclone
+        code_value: 485465
         method: E
         start_date: 2016-01-01
         stop_date: 2016-01-02 # 1 day
         provider: Patty
         provider: Rachel
       - code_type: RXNORM
-        code_value: 485465 # Eszopiclone
+        code_value: 854894
         method: E
         start_date: 2016-01-01
         stop_date: 2016-03-31 # 90 days
         provider: Patty
         provider: Rachel
-  - name: 2Medications 91DaysUnique
-    attributes:
-      date_of_birth: 1940-03-22
-      given_name: 2Medications
-      family_name: 91Days
-      sex: Female
-    health_plan_id: Medicare Part B
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201
-        start_date: 2016-02-01
-        provider: Patty
-      medications:
-      - code_type: RXNORM
-        code_value: 485465 # Eszopiclone
-        method: E
-        start_date: 2016-01-01
-        stop_date: 2016-03-31 # 91 days
-        provider: Patty
-      - code_type: RXNORM
-        code_value: 854894 # Zolpidem
-        method: E
-        start_date: 2016-01-01
-        stop_date: 2016-04-01 # 91 days
-        provider: Patty
   - name: Medication Active
     attributes:
       date_of_birth: 1940-03-22
@@ -797,17 +761,17 @@ patients:
         provider: Patty
       medications:
       - code_type: RXNORM
-        code_value: 485465 # Eszopiclone
+        code_value: 485465
         start_date: 2016-01-01
         stop_date: 2016-03-31 # 90 days
         provider: Patty
       - code_type: RXNORM
-        code_value: 485465 # Eszopiclone
+        code_value: 485465
         start_date: 2016-01-01
         stop_date: 2016-01-02 # 1 day
         provider: Patty
       - code_type: RXNORM
-        code_value: 485465 # Eszopiclone
+        code_value: 854894
         start_date: 2016-01-01
         stop_date: 2016-03-31 # 90 days
         provider: Patty

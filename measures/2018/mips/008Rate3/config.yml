@@ -1,14 +1,13 @@
 ---
 measure:
-  name: 18.MIPS.Mips005Rate3
+  name: 18.MIPS.Mips008Rate3
   required:
-    display_title: 'Heart Failure (HF): Angiotensin-Converting Enzyme (ACE) Inhibitor
-      or Angiotensin Receptor Blocker (ARB) Therapy for Left Ventricular Systolic
-      Dysfunction (LVSD)'
+    display_title: 'Heart Failure (HF): Beta-Blocker Therapy for Left Ventricular
+      Systolic Dysfunction (LVSD)'
     inverse: false
     subject_type: Patient
     set: MIPS
-    external_id: '005'
+    external_id: '008'
     rate_id: '3'
     version:
   optional:
@@ -17,13 +16,12 @@ measure:
     version: 2018
     mips_measure_type: Process
     mips_high_priority: false
-    mips_specialty_sets:  'Internal Medicine, Cardiology, Hospitalists, General Practice/Family
-      Medicine'
-    mips_seven_point_max: false
+    mips_specialty_sets:
+    mips_seven_point_max:
     source_specification_url:
     measure_children_names:
-    - 18.MIPS.Mips005Rate1
-    - 18.MIPS.Mips005Rate2
+    - 18.MIPS.Mips008Rate1
+    - 18.MIPS.Mips008Rate2
     mips_stratum:
     mips_objective:
 denominator:

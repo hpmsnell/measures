@@ -38,12 +38,6 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator:
-      - name: Denominator Encounter # Encounter with modifier
-        start_date: 2016-02-01
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
       - name: Excluded Diagnosis # Diagnosis exclusion before interval
         start_date: 2016-02-01
         denominator: 1
@@ -181,12 +175,6 @@ test_set_keys:
           numerator: 4175F-8P
         - name: Denominator Encounter # Encounter too late
           start_date: 2016-10-01
-          denominator:
-          denominator_exclusion:
-          denominator_exception:
-          numerator:
-        - name: Denominator Encounter # Encounter with modifier
-          start_date: 2016-02-01
           denominator:
           denominator_exclusion:
           denominator_exception:
@@ -356,11 +344,6 @@ patients:
       code_value: 66840
       start_date: 2016-10-01
       provider: Rachel
-    - code_type: CPT
-      code_value: 66840
-      start_date: 2016-02-01
-      provider: Rachel
-      code_modifiers: ['55']
 - name: Excluded Diagnosis
   attributes:
     date_of_birth: 1988-03-22

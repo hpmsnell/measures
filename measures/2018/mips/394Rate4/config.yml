@@ -6,7 +6,8 @@ measure:
     inverse: false
     subject_type: Patient
     set: MIPS
-    external_id: 394 Rate 4
+    external_id: '394'
+    rate_id: '4'
     version:
   optional:
     description: "The percentage of adolescents who are compliant for Meningococcal,
@@ -39,7 +40,7 @@ exclusion:
   reasons:
   - config_link_id: exclusion_1
     code_value:
-    display_title:
+    display_title: Allergy to Vaccine
     description: Patient excluded due to allergy to meningococcal, Tdap, and/or HPV
       vaccine
     component_groups:
@@ -68,7 +69,7 @@ exclusion:
           value_set: Able; Allergy to Meningococcal Vaccine
   - config_link_id: exclusion_2
     code_value:
-    display_title:
+    display_title: Hospice Service
     description: Patient excluded due to hospice service
     component_groups:
     - validation_record_table_count: 1
@@ -88,7 +89,7 @@ performance_met:
   reasons:
   - config_link_id: G9414_G9416_G9762
     code_value: G9414/G9416/G9762
-    display_title: G9414_G9416_G9762
+    display_title: G9414, G9416, and G9762
     description: "Patient had one dose of meningococcal vaccine on or between the patient's
       11th and 13th birthdays, one tetanus, diphtheria toxoids and acellular pertussis
       vaccine (Tdap) on or between the patient's 10th and 13th birthdays, AND at least
@@ -157,7 +158,7 @@ performance_not_met:
   reasons:
   - config_link_id: G9415_G9417_G9763
     code_value: G9415/G9417/G9763
-    display_title: G9415_G9417_G9763
+    display_title: G9415, G9417, or G9763
     description: "Patient did not have one or more of the following vaccinations:
       one dose of meningococcal vaccine on or between the patient's 11th and 13th
       birthdays, one tetanus, diphtheria toxoids and acellular pertussis vaccine (Tdap)

@@ -42,7 +42,7 @@ exclusion:
   reasons:
   - config_link_id: exclusion_1
     code_value:
-    display_title:
+    display_title: G9717
     description: Patient is excluded due to a diagnosis of depression or bipolar disorder
     component_groups:
     - validation_record_table_count: 1
@@ -70,13 +70,6 @@ exception:
     display_title: G8433
     description: Screening for depression not completed, documented reason
     component_groups:
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: MIPS; MIPS 134 Encounter
     - validation_record_table_count: 1
       components:
       - display_title: 'Quality Data Code: G8433'

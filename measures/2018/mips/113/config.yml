@@ -43,7 +43,7 @@ exclusion:
     - validation_record_table_count: 1
       components:
       - display_title: Total Colectomy or Colorectal Cancer
-        show_codes: true
+        show_codes: false
         records:
         - model: Diagnosis
           value_set: VSAC; Malignant Neoplasm of Colon
@@ -58,8 +58,8 @@ exclusion:
   - config_link_id: exclusion_2
     code_value:
     display_title: Hospice Service
-    description: Patient is excluded for this measure due to hospice service during
-      the measurement period
+    description: 'Patient is excluded for this measure due to hospice service during
+      the measurement period'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -100,9 +100,9 @@ performance_met:
   description: 'Patients with one or more screenings for colorectal cancer. Appropriate
     screenings are defined by any one of the following criteria:'
   reasons:
-  - config_link_id: Mips3017f
+  - config_link_id: 3017F
     code_value: 3017F
-    display_title: Mips3017f
+    display_title: 3017F
     description: Colorectal cancer screening results documented and reviewed
     component_groups:
     - validation_record_table_count: 1
@@ -127,9 +127,9 @@ performance_met:
 performance_not_met:
   description:
   reasons:
-  - config_link_id: Mips3017f8p
+  - config_link_id: 3017F-8P
     code_value: 3017F-8P
-    display_title: Mips3017f8p
+    display_title: 3017F-8P
     description: Colorectal cancer screening results were not documented and reviewed,
       reason not otherwise specified
     component_groups:
