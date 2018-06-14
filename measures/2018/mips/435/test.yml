@@ -22,6 +22,16 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
+    - name: DenominatorEncounter InvalidModifier
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter InvalidPOS
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
     - name: Encounter DifferentProviders # Encounters have different signing providers
       denominator: 1
       denominator_exclusion:
@@ -271,6 +281,52 @@ patients:
       start_date: 2016-03-01
       stop_date: 2016-03-02
       provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G43.001
+      start_date: 2010-01-01
+- name: DenominatorEncounter InvalidModifier
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: DenominatorEncounter
+    family_name: InvalidModifier
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-12-31
+      stop_date: 2016-12-31
+      provider: Rachel
+      code_modifiers: ['GQ']
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G43.001
+      start_date: 2010-01-01
+- name: DenominatorEncounter InvalidPOS
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: DenominatorEncounter
+    family_name: InvalidPOS
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-12-31
+      stop_date: 2016-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+      provider: Rachel
+      place_of_service: ['02']
     diagnoses:
     - code_type: ICD10CM
       code_value: G43.001

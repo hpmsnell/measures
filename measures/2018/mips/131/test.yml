@@ -38,6 +38,18 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator:
+      - name: Denominator Encounter # Invalid Modifier
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator Encounter # Invalid POS
+        start_date: 2016-02-02
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
       - name: PerformanceMet G8730 # Performance met G8730 before interval
         start_date: 2016-02-01
         denominator: 1
@@ -376,6 +388,18 @@ patients:
       - code_type: CPT
         code_value: 90791
         start_date: 2017-01-01 # Too late
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+        code_modifiers: ['GQ'] #invalid modifier
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-02
+        stop_date: 2016-02-02
+        provider: Rachel
+        place_of_service: ['02'] #invalid POS
         provider: Rachel
   - name: PerformanceMet G8730
     attributes:
