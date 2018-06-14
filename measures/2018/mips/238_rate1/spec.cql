@@ -59,6 +59,8 @@ define "Denominator Exclusion":
 define "Numerator Performance Met: G9365":
 	exists ( "Order For High Risk Medication" )
 	or exists ( "High Risk Medications With Prolonged Duration" )
+  or exists(["Procedure, Performed": "MIPS; Performance Met: G9365"] P
+    where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met: G9366":
 	not "Denominator Exclusion"
