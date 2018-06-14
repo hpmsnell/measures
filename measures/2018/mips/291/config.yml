@@ -28,8 +28,9 @@ denominator:
   component_groups:
   - validation_record_table_count: 1
     components:
-    - display_title:
+    - display_title: Encounter
       show_codes: true
+      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 291 Encounter

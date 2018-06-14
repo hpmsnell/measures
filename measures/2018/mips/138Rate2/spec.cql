@@ -28,8 +28,6 @@ define "Denominator Encounter":
   ["Procedure, Performed": "MIPS; MIPS 138 Excision of Malignant Melanoma"] P
     where P.relevantPeriod starts during "Measurement Period"
       and P.signingProvider.pqrsProvider = true
-      and not E.code.modifier in {'GQ','GT','95'}
-      and not E.placeOfService in {'02'}
     with ["Diagnosis": "MIPS; MIPS 138 Melanoma"] D
       such that D.prevalencePeriod during P.relevantPeriod
 

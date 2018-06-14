@@ -47,8 +47,6 @@ define "Denominator Encounter":
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
-      and not E.code.modifier in {'GQ','GT','95'}
-      and not E.placeOfService in {'02'}
     with ["Diagnosis": "MIPS; Heart Failure"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod
     with "LVEF <40%" P
