@@ -35,8 +35,8 @@ valueset "HEDIS; Falls": '2.16.840.1.113883.3.464.1004.1101'
 
 valueset "ABLE; Fall"
 valueset "ABLE; Fall with Injury"
-valueset "ABLE; Osteoporosis Diet Recommendation"
-valueset "ABLE; Osteoporosis Training Recommendation"
+valueset "ABLE; Falls Diet Recommendation"
+valueset "ABLE; Falls Training Recommendation"
 
 parameter "Measurement Period" Interval<DateTime>
 parameter "Denominator Period" Interval<DateTime>

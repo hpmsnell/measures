@@ -33,7 +33,7 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Patient Age at Encounter":
+define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 126 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
       and not E.code.modifier in {'GQ', 'GT'}
@@ -75,6 +75,8 @@ define "Neurological Exam Exists"
       such that P1.relaventPeriod starts on or 12 months or less before start of E.relevantPeriod
     with "Other Neurological Exam" P2
       such that P2.relaventPeriod starts on or 12 months or less before start of E.relevantPeriod)
+
+/* Populations */
 
 define "Denominator":
   exists("Denominator Encounter")
