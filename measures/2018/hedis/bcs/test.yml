@@ -57,6 +57,21 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
+    - name: ExclusionUnilateralMastectomy Before
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionUnilateralMastectomy After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionUnilateralMastectomy NoModifier
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
     - name: ExclusionLeftMastectomy Before
       denominator: 1
       denominator_exclusion: exclusion_1
@@ -136,11 +151,11 @@ patients:
     family_name: Old
     sex: Female
   clinical_models:
-- name: Age Upper
+- name: Patient Male
   attributes:
     date_of_birth: 1950-01-01
-    given_name: Age
-    family_name: Upper
+    given_name: Patient
+    family_name: Male
     sex: Male
   clinical_models:
 - name: ExclusionHospice Before
@@ -209,6 +224,41 @@ patients:
     - code_type: ICD10PCS
       code_value: '0HTV0ZZ' # Bilateral mastectomy
       start_date: 2017-01-01 # Too late
+- name: ExclusionUnilateralMastectomy Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionUnilateralMastectomy
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 19180 # Unilateral mastectomy
+      code_modifiers: ['50']
+      start_date: 2015-12-31 # Too early
+- name: ExclusionUnilateralMastectomy After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionUnilateralMastectomy
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 19180 # Unilateral mastectomy
+      code_modifiers: ['50']
+      start_date: 2017-01-01 # Too late
+- name: ExclusionUnilateralMastectomy NoModifier
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionUnilateralMastectomy
+    family_name: NoModifier
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 19180 # Unilateral mastectomy
+      start_date: 2016-01-01 # No modifier
 - name: ExclusionLeftMastectomy Before
   attributes:
     date_of_birth: 1950-01-01

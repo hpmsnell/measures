@@ -92,6 +92,8 @@ define "Numerator Performance Met":
       such that D.prevalencePeriod starts at A.authorDateTime)
   or exists(["Assessment, Performed": "HEDIS; Diabetic Retinal Screening with Eye Care Professional"] A
     where A.authorDateTime during "Measurement Year")
+  or exists ("Unilateral Enucleation" A
+    where A.code.modifier in {'50','09950'})
   or "Two Unilateral Enucleations Exist"
 
 define "Numerator Performance Not Met":

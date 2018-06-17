@@ -69,6 +69,9 @@ define "Denominator Exclusion":
    */
   exists(["Procedure, Performed": "HEDIS; Bilateral Mastectomy"] P
     where P.relevantPeriod starts before end of "Measurement Period")
+  or exists(["Procedure, Performed": "HEDIS; Unilateral Mastectomy"] P
+    where P.relevantPeriod starts before end of "Measurement Period"
+      and A.code.modifier in {'50','09950'})
   or exists(["Diagnosis": "HEDIS; History of Bilateral Mastectomy"] D
     where D.prevalencePeriod starts before end of "Measurement Period")
   or exists(["Procedure, Performed": "HEDIS; Unilateral Mastectomy"] P1
