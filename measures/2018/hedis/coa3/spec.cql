@@ -5,7 +5,7 @@ library HEDIS_COA3_2018 version '1'
  * Source: HEDIS
  * ID: COA3
  * Year: 2018
- * Version: 1
+ * Version: 2
  * Author: Steve Daniels
  *
   */
@@ -32,17 +32,16 @@ define "Functional Status Assessment":
   ["Procedure, Performed": "HEDIS; Functional Status Assessment"]
   union ["Procedure, Performed": "Able; Functional Status Assessment"]
 
+define "Hospice":
+  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
+  union ["Intervention, Performed": "VSAC; Palliative Care"]
+
+/* Populations */
+
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 66
-
-define "Denominator Exclusion":
-  /*
-   * config_link_id: exclusion_1
-   */
-  exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
-    where I.relevantPeriod starts during "Denominator Period")
-  or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Denominator Period")
+  and not exists("Hospice" I
+    where I.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Met":
   /*

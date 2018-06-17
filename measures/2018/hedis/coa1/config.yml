@@ -8,16 +8,6 @@ measure:
     external_id: 'COA1'
     version: 2018
 exclusion_reasons:
-  - config_link_id: exclusion_1
-    required:
-      display_title: 'Patient excluded due to hospice service during the measurement period'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Palliative Care"
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS Hospice Service"
 performance_met_reasons:
   - config_link_id: performance_met
     required:

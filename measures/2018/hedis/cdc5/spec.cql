@@ -5,7 +5,7 @@ library HEDIS_CDC5_2018 version '1'
  * Source: HEDIS
  * ID: CDC5
  * Year: 2018
- * Version: 1
+ * Version: 2
  * Author: Steve Daniels
  *
   */
@@ -66,15 +66,9 @@ define "Two Unilateral Enucleations Exist":
 define "Denominator":
   "HEDIS CDC1: Denominator"
 
-define "Denominator Exclusion: Hospice"
-  /*
-   * config_link_id: exclusion_1
-   */
-  "HEDIS CDC1: Denominator Exclusion: Hospice"
-
 define "Denominator Exclusion: Diagnosis"
   /*
-  * config_link_id: exclusion_2
+  * config_link_id: exclusion_1
   */
   "HEDIS CDC1: Denominator Exclusion: Diagnosis"
 

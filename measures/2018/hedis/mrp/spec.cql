@@ -36,12 +36,20 @@ define "Discharge":
     without ["Encounter, Performed": "HEDIS; Inpatient Stay"] E2
       such that E2.relevantPeriod starts 30 days or less after start of E1.relevantPeriod
 
+define "Hospice":
+  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
+  union ["Intervention, Performed": "VSAC; Palliative Care"]
+
+/* Populations */
+
 define "Medication Reconciliation":
   ["Procedure, Performed": "HEDIS; Medication Reconciliation"]
   union ["Procedure, Performed": "Able; Medication Reconciliation"]
 
 define "Denominator":
   "Discharge"
+  and not exists("Hospice" I
+    where I.relevantPeriod starts during "Measurement Period")
 
 define "Denominator Exclusion":
   /*

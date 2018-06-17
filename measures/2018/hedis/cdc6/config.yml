@@ -1,166 +1,208 @@
+---
 measure:
   name: 18.Hedis.Cdc6
   required:
-    display_title: "Comprehensive Diabetes Care: Medical Attention for Nephropathy"
-  optional:
-    gap_resolution_action: 'Patient is due for screening or monitoring for nephropathy'
+    display_title: 'Comprehensive Diabetes Care: Medical Attention for Nephropathy'
+    inverse: false
+    subject_type: Patient
     set: HEDIS
     external_id: CDC6
+  optional:
+    description:
+    gap_resolution_action: Patient is due for screening or monitoring for nephropathy
     version: 2018
-exclusion_reasons:
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description:
+  component_groups:
+exclusion:
+  description:
+  reasons:
   - config_link_id: exclusion_1
-    required:
-      display_title: 'Patient excluded due to hospice service'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Diabetes"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Acute Inpatient"
-        - count: 2
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Outpatient"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Observation"
-            - model: ClinicalActivity
-              value_set: "HEDIS; ED"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Nonacute Inpatient"
-        - count: 1
-          validation_records:
-            - model: Medication
-              value_set: "HEDIS; Diabetes Medications"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS Hospice Service"
-            - model: ClinicalActivity
-              value_set: "VSAC; Palliative Care"
-  - config_link_id: exclusion_2
-    required:
-      display_title: 'Patient excluded due to a diagnosis of gestational diabetes or steroid-induced diabetes'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Diabetes"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Acute Inpatient"
-        - count: 2
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Outpatient"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Observation"
-            - model: ClinicalActivity
-              value_set: "HEDIS; ED"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Nonacute Inpatient"
-        - count: 1
-          validation_records:
-            - model: Medication
-              value_set: "HEDIS; Diabetes Medications"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Diabetes Exclusions"
-performance_met_reasons:
+    code_value:
+    display_title: exclusion_1
+    description: Patient excluded due to a diagnosis of gestational diabetes or steroid-induced
+      diabetes
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Diabetes
+    - validation_record_table_count: 1
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Acute Inpatient
+    - validation_record_table_count: 2
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Outpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Observation
+        - model: ClinicalActivity
+          value_set: HEDIS; ED
+        - model: ClinicalActivity
+          value_set: HEDIS; Nonacute Inpatient
+    - validation_record_table_count: 1
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: HEDIS; Diabetes Medications
+    - validation_record_table_count: 1
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Diabetes Exclusions
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
   - config_link_id: performance_met
-    required:
-      display_title: 'Patient received screening or monitoring for nephropathy'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Diabetes"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Acute Inpatient"
-        - count: 2
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Outpatient"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Observation"
-            - model: ClinicalActivity
-              value_set: "HEDIS; ED"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Nonacute Inpatient"
-        - count: 1
-          validation_records:
-            - model: Medication
-              value_set: "HEDIS; Diabetes Medications"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Urine Protein Tests"
-            - model: LaboratoryTestPerformed
-              value_set: "HEDIS; Urine Protein Tests"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Nephropathy Treatment"
-            - model: Diagnosis
-              value_set: "HEDIS; Nephropathy Treatment"
-            - model: Diagnosis
-              value_set: "HEDIS; CKD Stage 4"
-            - model: ClinicalActivity
-              value_set: "HEDIS; ESRD"
-            - model: Diagnosis
-              value_set: "HEDIS; ESRD"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Kidney Transplant"
-            - model: Medication
-              value_set: "VSAC; ACE Inhibitor or ARB"
-performance_not_met_reasons:
+    code_value:
+    display_title: performance_met
+    description: Patient received screening or monitoring for nephropathy
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Diabetes
+    - validation_record_table_count: 1
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Acute Inpatient
+    - validation_record_table_count: 2
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Outpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Observation
+        - model: ClinicalActivity
+          value_set: HEDIS; ED
+        - model: ClinicalActivity
+          value_set: HEDIS; Nonacute Inpatient
+    - validation_record_table_count: 1
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: HEDIS; Diabetes Medications
+    - validation_record_table_count: 1
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Urine Protein Tests
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; Urine Protein Tests
+        - model: ClinicalActivity
+          value_set: HEDIS; Nephropathy Treatment
+        - model: Diagnosis
+          value_set: HEDIS; Nephropathy Treatment
+        - model: Diagnosis
+          value_set: HEDIS; CKD Stage 4
+        - model: ClinicalActivity
+          value_set: HEDIS; ESRD
+        - model: Diagnosis
+          value_set: HEDIS; ESRD
+        - model: ClinicalActivity
+          value_set: HEDIS; Kidney Transplant
+        - model: Medication
+          value_set: VSAC; ACE Inhibitor or ARB
+performance_not_met:
+  description:
+  reasons:
   - config_link_id: performance_not_met
-    required:
-      display_title: 'No screening or monitoring for nephropathy found in the appropriate timeframe'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Diabetes"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Acute Inpatient"
-        - count: 2
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Outpatient"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Observation"
-            - model: ClinicalActivity
-              value_set: "HEDIS; ED"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Nonacute Inpatient"
-        - count: 1
-          validation_records:
-            - model: Medication
-              value_set: "HEDIS; Diabetes Medications"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Urine Protein Tests"
-            - model: LaboratoryTestPerformed
-              value_set: "HEDIS; Urine Protein Tests"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Nephropathy Treatment"
-            - model: Diagnosis
-              value_set: "HEDIS; Nephropathy Treatment"
-            - model: Diagnosis
-              value_set: "HEDIS; CKD Stage 4"
-            - model: ClinicalActivity
-              value_set: "HEDIS; ESRD"
-            - model: Diagnosis
-              value_set: "HEDIS; ESRD"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Kidney Transplant"
-            - model: Medication
-              value_set: "VSAC; ACE Inhibitor or ARB"
+    code_value:
+    display_title: performance_not_met
+    description: No screening or monitoring for nephropathy found in the appropriate
+      timeframe
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Diabetes
+    - validation_record_table_count: 1
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Acute Inpatient
+    - validation_record_table_count: 2
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Outpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Observation
+        - model: ClinicalActivity
+          value_set: HEDIS; ED
+        - model: ClinicalActivity
+          value_set: HEDIS; Nonacute Inpatient
+    - validation_record_table_count: 1
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: HEDIS; Diabetes Medications
+    - validation_record_table_count: 1
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Urine Protein Tests
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; Urine Protein Tests
+        - model: ClinicalActivity
+          value_set: HEDIS; Nephropathy Treatment
+        - model: Diagnosis
+          value_set: HEDIS; Nephropathy Treatment
+        - model: Diagnosis
+          value_set: HEDIS; CKD Stage 4
+        - model: ClinicalActivity
+          value_set: HEDIS; ESRD
+        - model: Diagnosis
+          value_set: HEDIS; ESRD
+        - model: ClinicalActivity
+          value_set: HEDIS; Kidney Transplant
+        - model: Medication
+          value_set: VSAC; ACE Inhibitor or ARB

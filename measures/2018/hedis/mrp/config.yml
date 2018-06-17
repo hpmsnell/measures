@@ -1,54 +1,79 @@
+---
 measure:
   name: 18.HEDIS.Mrp
   required:
-    display_title: "Medication Reconciliation Post-Discharge"
-  optional:
-    gap_resolution_action:
+    display_title: Medication Reconciliation Post-Discharge
+    inverse: false
+    subject_type: Encounter
     set: HEDIS
-    external_id: 'MRP'
+    external_id: MRP
+  optional:
+    description:
+    gap_resolution_action:
     version: 2018
-exclusion_reasons:
-  - config_link_id: exclusion_1
-    required:
-      display_title: 'Patient excluded due to hospice service during the measurement period'
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Inpatient Stay"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "VSAC; Palliative Care"
-            - model: ClinicalActivity
-              value_set: "MIPS; MIPS Hospice Service"
-performance_met_reasons:
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description:
+  component_groups:
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
   - config_link_id: performance_met
-    required:
-      display_title: 'Medication reconciliation conducted within 30 days of discharge'
-      validation_record_groups:
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Inpatient Stay"
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Medication Reconciliation"
-            - model: ClinicalActivity
-              value_set: "Able; Medication Reconciliation"
-exception_reasons:
-performance_not_met_reasons:
+    code_value:
+    display_title: performance_met
+    description: Medication reconciliation conducted within 30 days of discharge
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Inpatient Stay
+    - validation_record_table_count: 10
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Medication Reconciliation
+        - model: ClinicalActivity
+          value_set: Able; Medication Reconciliation
+performance_not_met:
+  description:
+  reasons:
   - config_link_id: performance_not_met
-    required:
-      display_title: 'Discharge medications not reconciled with the current medication list in outpatient medical record, reason not otherwise specified'
-      validation_record_groups:
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Inpatient Stay"
-        - count: 10
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Medication Reconciliation"
-            - model: ClinicalActivity
-              value_set: "Able; Medication Reconciliation"
+    code_value:
+    display_title: performance_not_met
+    description: Discharge medications not reconciled with the current medication
+      list in outpatient medical record, reason not otherwise specified
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Inpatient Stay
+    - validation_record_table_count: 10
+      components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Medication Reconciliation
+        - model: ClinicalActivity
+          value_set: Able; Medication Reconciliation

@@ -5,7 +5,7 @@ library HEDIS_CDC1_2018 version '1'
  * Source: HEDIS
  * ID: CDC1
  * Year: 2018
- * Version: 1
+ * Version: 2
  * Author: Steve Daniels
  *
   */
@@ -56,23 +56,22 @@ define "Patient Has Diabetes":
   or exists(["Medication": "HEDIS; Diabetes Medication"] M
     where M.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
 
+define "Hospice":
+  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
+  union ["Intervention, Performed": "VSAC; Palliative Care"]
+
+/* Populations */
+
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 18
   and AgeInYearsAt(end of "Measurement Period") < 76
   and "Patient Has Diabetes"
-
-define "Denominator Exclusion: Hospice"
-  /*
-   * config_link_id: exclusion_1
-   */
-  exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
-   where I.relevantPeriod starts during "Denominator Period")
-  or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-   where I.relevantPeriod overlaps "Denominator Period")
+  and not exists("Hospice" I
+    where I.relevantPeriod starts during "Measurement Period")
 
  define "Denominator Exclusion: Diagnosis"
    /*
-    * config_link_id: exclusion_2
+    * config_link_id: exclusion_1
     */
    not exists(["Diagnosis": "HEDIS; Diabetes"] D
     where D.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])

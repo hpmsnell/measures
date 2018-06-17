@@ -5,7 +5,7 @@ library HEDIS_COA1_2018 version '1'
  * Source: HEDIS
  * ID: COA1
  * Year: 2018
- * Version: 1
+ * Version: 2
  * Author: Steve Daniels
  *
   */
@@ -34,17 +34,16 @@ define "Advance Care Planning":
   union ["Procedure, Performed": "Able; Advance Directive"]
   union ["Procedure, Performed": "Able; Advance Directive Discussed"]
 
+define "Hospice":
+  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
+  union ["Intervention, Performed": "VSAC; Palliative Care"]
+
+/* Populations */
+
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 66
-
-define "Denominator Exclusion":
-  /*
-   * config_link_id: exclusion_1
-   */
-  exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
+  and not exists("Hospice" I
     where I.relevantPeriod starts during "Measurement Period")
-  or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Measurement Period")
 
 define "Numerator Performance Met":
   /*
