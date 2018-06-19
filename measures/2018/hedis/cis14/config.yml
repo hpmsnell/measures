@@ -1,277 +1,267 @@
+---
 measure:
   name: 18.HEDIS.Cis14
   required:
-    display_title: "Childhood Immunization Status: Combination 5"
-  optional:
-    gap_resolution_action: Patient is missing one or more vaccines
+    display_title: 'Childhood Immunization Status: Combination 5'
+    inverse: false
+    subject_type: Patient
     set: HEDIS
-    external_id: 'CIS Combination 5'
+    external_id: CIS Combination 5
+  optional:
+    description: The percentage of children 2 years of age who had four
+    diphtheria, tetanus and acellular pertussis (DTaP); three polio (IPV); one
+    measles, mumps and rubella (MMR); three haemophilus influenza type B (HiB);
+    three hepatitis B (HepB), one chicken pox (VZV); four pneumococcal
+    conjugate (PCV); one hepatitis A (HepA); two or three rotavirus (RV); and
+    two influenza (flu) vaccines by their second birthday. The measure
+    calculates a rate for each vaccine and nine separate combination rates.
+    gap_resolution_action: Patient is missing one or more vaccines
     version: 2018
-exclusion_reasons:
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: Children who turn 2 years of age during the measurement year.
+  component_groups:
+  - validation_record_table_count: 10
+    logical_operator: NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
+exclusion:
+  description:
+  reasons:
   - config_link_id: exclusion_1
-    required:
-      display_title: 'Patient excluded due to allergy to vaccine'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Anaphylactic Reaction Due to Vaccination"
-            - model: Allergy
-              value_set: "HEDIS; DTaP Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Inactivated Polio Vaccine (IPV) Administered"
-            - model: Allergy
-              value_set: "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Measles/Rubella Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Mumps Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Measles Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Rubella Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Hepatitis B Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Newborn Hepatitis B Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Varicella Zoster (VZV) Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered"
-            - model: Allergy
-              value_set: "HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered"
-            - model: Allergy
-              value_set: "HEDIS; Influenza Vaccine Administered"
-        - count: 1
-          validation_records:
-          - model: Diagnosis
-            value_set: "HEDIS; Encephalopathy Due To Vaccination"
-        - count: 1
-          validation_records:
-          - model: Diagnosis
-            value_set: "HEDIS; Vaccine Causing Adverse Effect"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Disorders of the Immune System"
-            - model: Diagnosis
-              value_set: "HEDIS; HIV"
-            - model: Diagnosis
-              value_set: "HEDIS; HIV Type 2"
-            - model: Diagnosis
-              value_set: "HEDIS; Malignant Neoplasm of Lymphatic Tissue"
-            - model: Allergy
-              value_set: "Able; Neomycin Ingredient"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Severe Combined Immunodeficiency"
-            - model: Diagnosis
-              value_set: "HEDIS; Intussusception"
-        - count: 1
-          validation_records:
-            - model: Allergy
-              value_set: "Able; Streptomycin Ingredient"
-            - model: Allergy
-              value_set: "Able; Neomycin Ingredient"
-            - model: Allergy
-              value_set: "Able; Polymyxin B Ingredient"
-        - count: 1
-          validation_records:
-            - model: Allergy
-              value_set: "Able; Baker's Yeast"
-performance_met_reasons:
+    code_value:
+    display_title: Allergy to Vaccination
+    description: Patient excluded due to allergy to vaccine
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Allergy to Vaccination
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Anaphylactic Reaction Due to Vaccination
+        - model: Allergy
+          value_set: HEDIS; DTaP Vaccine Administered
+        - model: Allergy
+          value_set: HEDIS; Inactivated Polio Vaccine (IPV) Administered
+        - model: Allergy
+          value_set: HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered
+        - model: Allergy
+          value_set: HEDIS; Measles/Rubella Vaccine Administered
+        - model: Allergy
+          value_set: HEDIS; Mumps Vaccine Administered
+        - model: Allergy
+          value_set: HEDIS; Measles Vaccine Administered
+        - model: Allergy
+          value_set: HEDIS; Rubella Vaccine Administered
+        - model: Allergy
+          value_set: HEDIS; Hepatitis B Vaccine Administered
+        - model: Allergy
+          value_set: HEDIS; Newborn Hepatitis B Vaccine Administered
+        - model: Allergy
+          value_set: HEDIS; Varicella Zoster (VZV) Vaccine Administered
+        - model: Allergy
+          value_set: HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered
+        - model: Allergy
+          value_set: HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered
+        - model: Allergy
+          value_set: HEDIS; Influenza Vaccine Administered
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Encephalopathy Due To Vaccination
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Encephalopathy Due To Vaccination
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Vaccine Causing Adverse Effect
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Vaccine Causing Adverse Effect
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Disorders of the Immune System
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Disorders of the Immune System
+        - model: Diagnosis
+          value_set: HEDIS; HIV
+        - model: Diagnosis
+          value_set: HEDIS; HIV Type 2
+        - model: Diagnosis
+          value_set: HEDIS; Malignant Neoplasm of Lymphatic Tissue
+        - model: Diagnosis
+          value_set: HEDIS; Severe Combined Immunodeficiency
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Intussusception
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Intussusception
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Anaphylactic Reaction to Vaccine Ingredient
+        show_codes: false
+        records:
+        - model: Allergy
+          value_set: Able; Streptomycin Ingredient
+        - model: Allergy
+          value_set: Able; Neomycin Ingredient
+        - model: Allergy
+          value_set: Able; Polymyxin B Ingredient
+        - model: Allergy
+          value_set: Able; Baker's Yeast
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
   - config_link_id: performance_met
-    required:
-      display_title: 'All vaccinations administered'
-      validation_record_groups:
-        - count: 5
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; DTaP Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; DTaP Vaccine Administered"
-        - count: 4
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Inactivated Polio Vaccine (IPV) Administered"
-            - model: Medication
-              value_set: "HEDIS; Inactivated Polio Vaccine (IPV) Administered"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Measles/Rubella Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Measles/Rubella Vaccine Administered"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Mumps Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Mumps Vaccine Administered"
-            - model: Diagnosis
-              value_set: "HEDIS; Mumps"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Measles Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Measles Vaccine Administered"
-            - model: Diagnosis
-              value_set: "HEDIS; Measles"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Rubella Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Rubella Vaccine Administered"
-            - model: Diagnosis
-              value_set: "HEDIS; Rubella"
-        - count: 4
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered"
-        - count: 4
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Hepatitis B Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Hepatitis B Vaccine Administered"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Hepatitis B"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Varicella Zoster (VZV) Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Varicella Zoster (VZV) Vaccine Administered"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Varicella Zoster"
-        - count: 5
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Pneumococcal Conjugate Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Pneumococcal Conjugate Vaccine Administered"
-        - count: 4
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered"
-            - model: Medication
-              value_set: "HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered"
-        - count: 3
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered"
-            - model: Medication
-              value_set: "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered"
-exception_reasons:
-performance_not_met_reasons:
+    code_value:
+    display_title: All Vaccinations Administered
+    description: All vaccinations administered
+    component_groups:
+    - validation_record_table_count: 5
+      components:
+      - display_title: DTaP Vaccine Administered
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; DTaP Vaccine Administered
+        - model: Medication
+          value_set: HEDIS; DTaP Vaccine Administered
+    - validation_record_table_count: 4
+      logical_operator: AND
+      components:
+      - display_title: Inactivated Polio Vaccine (IPV) Administered
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Inactivated Polio Vaccine (IPV) Administered
+        - model: Medication
+          value_set: HEDIS; Inactivated Polio Vaccine (IPV) Administered
+    - validation_record_table_count: 1
+      logical_operator: AND
+      components:
+      - display_title: MMR Vaccine Administered or History of Illness
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered
+        - model: Medication
+          value_set: HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered
+        - model: ClinicalActivity
+          value_set: HEDIS; Measles/Rubella Vaccine Administered
+        - model: Medication
+          value_set: HEDIS; Measles/Rubella Vaccine Administered
+        - model: ClinicalActivity
+          value_set: HEDIS; Mumps Vaccine Administered
+        - model: Medication
+          value_set: HEDIS; Mumps Vaccine Administered
+        - model: Diagnosis
+          value_set: HEDIS; Mumps
+        - model: ClinicalActivity
+          value_set: HEDIS; Measles Vaccine Administered
+        - model: Medication
+          value_set: HEDIS; Measles Vaccine Administered
+        - model: Diagnosis
+          value_set: HEDIS; Measles
+        - model: ClinicalActivity
+          value_set: HEDIS; Rubella Vaccine Administered
+        - model: Medication
+          value_set: HEDIS; Rubella Vaccine Administered
+        - model: Diagnosis
+          value_set: HEDIS; Rubella
+    - validation_record_table_count: 4
+      logcial_operator: AND
+      components:
+      - display_title: Haemophilus Influenzae Type B (HiB) Vaccine Administered
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered
+        - model: Medication
+          value_set: HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered
+    - validation_record_table_count: 4
+      logical_operator: AND
+      components:
+      - display_title: Hepatitis B Vaccine Administered or History of Illness
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Hepatitis B Vaccine Administered
+        - model: Medication
+          value_set: HEDIS; Hepatitis B Vaccine Administered
+        - model: Diagnosis
+          value_set: HEDIS; Hepatitis B
+    - validation_record_table_count: 1
+      logical_operator: AND
+      components:
+      - display_title: VZV Vaccine Administered or History of Illness
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Varicella Zoster (VZV) Vaccine Administered
+        - model: Medication
+          value_set: HEDIS; Varicella Zoster (VZV) Vaccine Administered
+        - model: Diagnosis
+          value_set: HEDIS; Varicella Zoster
+    - validation_record_table_count: 5
+      logical_operator: AND
+      components:
+      - display_title: Pneumococcal Conjugate Vaccine Administered
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Pneumococcal Conjugate Vaccine Administered
+        - model: Medication
+          value_set: HEDIS; Pneumococcal Conjugate Vaccine Administered
+    - validation_record_table_count: 4
+      logical_operator: AND
+      components:
+      - display_title: Rotavirus Vaccine (3 Dose Schedule) Administered
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered
+        - model: Medication
+          value_set: HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered
+      - display_title: Rotavirus Vaccine (2 Dose Schedule) Administered
+        show_codes: false
+        logical_operator: OR
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered
+        - model: Medication
+          value_set: HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered
+performance_not_met:
+  description:
+  reasons:
   - config_link_id: performance_not_met
-    required:
-      display_title: "Patient is missing one or more vaccines"
-      validation_record_groups:
-        - count: 5
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; DTaP Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; DTaP Vaccine Administered"
-        - count: 4
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Inactivated Polio Vaccine (IPV) Administered"
-            - model: Medication
-              value_set: "HEDIS; Inactivated Polio Vaccine (IPV) Administered"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Measles/Rubella Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Measles/Rubella Vaccine Administered"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Mumps Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Mumps Vaccine Administered"
-            - model: Diagnosis
-              value_set: "HEDIS; Mumps"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Measles Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Measles Vaccine Administered"
-            - model: Diagnosis
-              value_set: "HEDIS; Measles"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Rubella Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Rubella Vaccine Administered"
-            - model: Diagnosis
-              value_set: "HEDIS; Rubella"
-        - count: 4
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered"
-        - count: 4
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Hepatitis B Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Hepatitis B Vaccine Administered"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Hepatitis B"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Varicella Zoster (VZV) Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Varicella Zoster (VZV) Vaccine Administered"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Varicella Zoster"
-        - count: 5
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Pneumococcal Conjugate Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Pneumococcal Conjugate Vaccine Administered"
-        - count: 4
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered"
-            - model: Medication
-              value_set: "HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered"
-        - count: 3
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered"
-            - model: Medication
-              value_set: "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered"
+    code_value:
+    display_title: One or More Vaccines Not Found
+    description: Patient is missing one or more vaccines
+    component_groups:

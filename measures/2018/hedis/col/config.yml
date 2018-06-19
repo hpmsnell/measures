@@ -1,65 +1,98 @@
+---
 measure:
   name: 18.HEDIS.Col
   required:
-    display_title: "Colorectal Cancer Screening"
-  optional:
-    gap_resolution_action: Patient is due for colorectal cancer screening
+    display_title: Colorectal Cancer Screening
+    inverse: false
+    subject_type: Patient
     set: HEDIS
     external_id: 'COL'
+  optional:
+    description: The percentage of patients 50–75 years of age who had
+    appropriate screening for colorectal cancer.
+    gap_resolution_action: Patient is due for colorectal cancer screening
     version: 2018
-exclusion_reasons:
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: Patients aged 51–75 years as of December 31 of the measurement year.
+  component_groups:
+  - validation_record_table_count: 10
+    logical_operator: NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
+exclusion:
+  description:
+  reasons:
   - config_link_id: exclusion_1
-    required:
-      display_title: Patient is excluded for this measure due to a history of total colectomy or colorectal cancer
-      validation_record_groups:
-        - count: 1
-          validation_records:
-          - model: Diagnosis
-            value_set: HEDIS; Colorectal Cancer
-          - model: ClinicalActivity
-            value_set: HEDIS; Colorectal Cancer
+    code_value:
+    display_title: Total Colectomy or History of Colorectal Cancer
+    description: Patient is excluded for this measure due to a history of total colectomy
+      or colorectal cancer
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Colorectal Cancer
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Colorectal Cancer
+        - model: ClinicalActivity
+          value_set: HEDIS; Colorectal Cancer
+      - validation_record_table_count: 1
+        components:
+        - display_title: Total Colectomy
+          show_codes: false
+          records:
           - model: ClinicalActivity
             value_set: HEDIS; Total Colectomy
-performance_met_reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
   - config_link_id: performance_met
-    required:
-      display_title: 'Patient screened for colorectal cancer'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-          - model: ClinicalActivity
-            value_set: HEDIS; Colonoscopy
-          - model: ClinicalActivity
-            value_set: HEDIS; Flexible Sigmoidoscopy
-          - model: ClinicalActivity
-            value_set: HEDIS; CT Colonography
-          - model: LaboratoryTestPerformed
-            value_set: HEDIS; FOBT
-          - model: ClinicalActivity
-            value_set: HEDIS; FOBT
-          - model: LaboratoryTestPerformed
-            value_set: HEDIS; FIT-DNA
-          - model: ClinicalActivity
-            value_set: HEDIS; FIT-DNA
-exception_reasons:
-performance_not_met_reasons:
+    code_value:
+    display_title: Screened for Colorectal Cancer
+    description: Patient screened for colorectal cancer
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Coloerctal Cancer Screening
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Colonoscopy
+        - model: ClinicalActivity
+          value_set: HEDIS; Flexible Sigmoidoscopy
+        - model: ClinicalActivity
+          value_set: HEDIS; CT Colonography
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; FOBT
+        - model: ClinicalActivity
+          value_set: HEDIS; FOBT
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; FIT-DNA
+        - model: ClinicalActivity
+          value_set: HEDIS; FIT-DNA
+performance_not_met:
+  description:
+  reasons:
   - config_link_id: performance_not_met
-    required:
-      display_title: 'No colorectal cancer screening found during the allowable period'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-          - model: ClinicalActivity
-            value_set: HEDIS; Colonoscopy
-          - model: ClinicalActivity
-            value_set: HEDIS; Flexible Sigmoidoscopy
-          - model: ClinicalActivity
-            value_set: HEDIS; CT Colonography
-          - model: LaboratoryTestPerformed
-            value_set: HEDIS; FOBT
-          - model: ClinicalActivity
-            value_set: HEDIS; FOBT
-          - model: LaboratoryTestPerformed
-            value_set: HEDIS; FIT-DNA
-          - model: ClinicalActivity
-            value_set: HEDIS; FIT-DNA
+    code_value:
+    display_title: No Colorectal Cancer Screening Found
+    description: No colorectal cancer screening found during the allowable period
+    component_groups:

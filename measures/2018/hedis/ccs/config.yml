@@ -1,55 +1,98 @@
+---
 measure:
   name: 18.HEDIS.Ccs1
   required:
-    display_title: "Cervical Cancer Screening"
-  optional:
-    gap_resolution_action: Patient is due for a cervical cancer screening
+    display_title: Cervical Cancer Screening
+    inverse: false
+    subject_type: Patient
     set: HEDIS
-    external_id: 'CCS'
+    external_id: CCS
+  optional:
+    description: The percentage of women 21–64 years of age who were screened
+    for cervical cancer.
     version: 2018
-exclusion_reasons:
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: Women 24–64 years as of December 31 of the measurement year.
+  component_groups:
+  - validation_record_table_count: 10
+    logical_operator: NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
+exclusion:
+  description:
+  reasons:
   - config_link_id: exclusion_1
-    required:
-      display_title: 'Patient excluded due to absence of cervix'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Absence of Cervix"
-            - model: Diagnosis
-              value_set: "HEDIS; Absence of Cervix"
-performance_met_reasons:
+    code_value:
+    display_title: Absence of Cervix
+    description: Patient excluded due to absence of cervix
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title:
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Absence of Cervix
+        - model: Diagnosis
+          value_set: HEDIS; Absence of Cervix
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
   - config_link_id: performance_met
-    required:
-      display_title: 'Patient received a cervical cancer screening'
-      validation_record_groups:
-        - count: 5
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Cervical Cytology"
-            - model: LaboratoryTestPerformed
-              value_set: "HEDIS; Cervical Cytology"
-        - count: 5
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; HPV Tests"
-            - model: LaboratoryTestPerformed
-              value_set: "HEDIS; HPV Tests"
-exception_reasons:
-performance_not_met_reasons:
+    code_value:
+    display_title: Cervical Cancer Screening
+    description: Patient received a cervical cancer screening
+    component_groups:
+    - validation_record_table_count: 5
+      components:
+      - display_title: Cervical Cytology
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Cervical Cytology
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; Cervical Cytology
+    - validation_record_table_count: 5
+        logical_operator: OR
+        show_codes: false
+        annotation: "Patient is 34-64 years in age"
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Cervical Cytology
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; Cervical Cytology
+      - display_title:
+        logical_operator: AND
+        show_codes: false
+        annotation: "Patient is 34-64 years in age"
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; HPV Tests
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; HPV Tests
+performance_not_met:
+  description:
+  reasons:
   - config_link_id: performance_not_met
-    required:
-      display_title: 'No cervical cancer screening found within the appropriate timeframe'
-      validation_record_groups:
-        - count: 5
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Cervical Cytology"
-            - model: LaboratoryTestPerformed
-              value_set: "HEDIS; Cervical Cytology"
-        - count: 5
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; HPV Tests"
-            - model: LaboratoryTestPerformed
-              value_set: "HEDIS; HPV Tests"
+    code_value:
+    display_title: No Cervical Cancer Screening Found
+    description: No cervical cancer screening found within the appropriate
+    timeframe
+    component_groups:

@@ -1,69 +1,103 @@
+---
 measure:
   name: 18.HEDIS.Aba
   required:
-    display_title: "Adult BMI Assessment"
-  optional:
-    gap_resolution_action: Patient is due for BMI assessment
+    display_title: Adult BMI Assessment
+    inverse: false
+    subject_type: Patient
     set: HEDIS
-    external_id: 'ABA'
+    external_id: ABA
+  optional:
+    description: The percentage of members 18–74 years of age who had an
+    outpatient visit and whose body mass index (BMI) was documented during the
+    measurement year or the year prior to the measurement year.
+    gap_resolution_action: Patient is due for BMI assessment
     version: 2018
-exclusion_reasons:
-performance_met_reasons:
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'Patients who had an outpatient visit during the measurement year
+  or the year prior to the measurement year.'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: 'Outpatient Visit'
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Outpatient
+  - validation_record_table_count: 1
+    logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Pregnancy
+    description: Patient excluded due to pregnancy
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: Pregnancy
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Pregnancy
+exception:
+  description:
+  reasons:
+performance_met:
+  description: For members 20 years of age or older on the date of service, BMI
+  documented during the measurement year or the year prior to the measurement
+  year. For members younger than 20 years of age on the date of service, BMI
+  percentile documented during the measurement year or the year prior to the
+  measurement year.
+  reasons:
   - config_link_id: performance_met
-    required:
-      display_title: 'Pain assessment performed during the measurement period'
-      validation_record_groups:
-      - count: 1
-        validation_records:
-          - model: ClinicalActivity
-            value_set: "HEDIS; Outpatient"
-      - count: 1
-        validation_records:
-          - model: ClinicalActivity
-            value_set: "HEDIS; BMI"
-          - model: ClinicalActivity
-            value_set: "VSAC; BMI LOINC Value"
-      - count: 1
-        validation_records:
-          - model: ClinicalActivity
-            value_set: "HEDIS; BMI Percentile"
-          - model: ClinicalActivity
-            value_set: "VSAC; BMI percentile"
-      - count: 1
-        validation_records:
-          - model: ClinicalActivity
-            value_set: "VSAC; Height"
-      - count: 1
-        validation_records:
-          - model: ClinicalActivity
-            value_set: "VSAC; Weight"
-exception_reasons:
-performance_not_met_reasons:
+    code_value:
+    display_title: BMI Assessment
+    description: BMI assessment performed during the measurement period
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: BMI is Documented
+        show_codes: true
+        annotation: "Patient is ≥ 20 years in age"
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; BMI
+        - model: ClinicalActivity
+          value_set: VSAC; BMI LOINC Value
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: BMI Percentile is Documented
+        show_codes: true
+        annotation: "Patient is < 20 years in age"
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; BMI Percentile
+        - model: ClinicalActivity
+          value_set: VSAC; BMI percentile
+performance_not_met:
+  description:
+  reasons:
   - config_link_id: performance_not_met
-    required:
-      display_title: 'No pain assessment found during the measurement period'
-      validation_record_groups:
-      - count: 1
-        validation_records:
-          - model: ClinicalActivity
-            value_set: "HEDIS; Outpatient"
-      - count: 1
-        validation_records:
-          - model: Diagnosis
-            value_set: "HEDIS; BMI"
-          - model: ClinicalActivity
-            value_set: "VSAC; BMI LOINC Value"
-      - count: 1
-        validation_records:
-          - model: Diagnosis
-            value_set: "HEDIS; BMI Percentile"
-          - model: ClinicalActivity
-            value_set: "VSAC; BMI percentile"
-      - count: 1
-        validation_records:
-          - model: ClinicalActivity
-            value_set: "VSAC; Height"
-      - count: 1
-        validation_records:
-          - model: ClinicalActivity
-            value_set: "VSAC; Weight"
+    code_value:
+    display_title: 'No BMI Found'
+    description: No BMI found during the measurement period
+    component_groups:
