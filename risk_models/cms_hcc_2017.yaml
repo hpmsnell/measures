@@ -1,0 +1,1305 @@
+model:
+  id: 'cms_hcc'
+  display_title: 'CMS-HCC'
+  version: '2017'
+categories:
+  COMMUNITY_NONDUAL_AGED:
+    display_title: `Community, NonDual, Aged`
+  COMMUNITY_NONDUAL_DISABLED:
+    display_title: `Community, NonDual, Disabled`
+  COMMUNITY_FBDUAL_AGED:
+    display_title: `Community, FBDual, Aged`
+  COMMUNITY_FBDUAL_DISABLED:
+    display_title: `Community, FBDual, Disabled`
+  COMMUNITY_PBDUAL_AGED:
+    display_title: `Community, PBDual, Aged`
+  COMMUNITY_PBDUAL_DISABLED:
+    display_title: `Community, PBDual, Disabled`
+  INSTITUTIONAL:
+    display_title: `Institutional`
+variables:
+  - demographics:
+      FEMALE_0_34:
+        display_title: 'Female, 0-34 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED: 0.244
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED: 0.318
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED: 0.344
+          INSTITUTIONAL: 1.031
+      FEMALE_35_44:
+        display_title: 'Female, 35-44 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED: 0.303
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED: 0.306
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED: 0.383
+          INSTITUTIONAL: 0.999
+      FEMALE_45_54:
+        display_title: 'Female, 45-54 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED: 0.433
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED: 0.338
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED: 0.374
+          INSTITUTIONAL: 1.007
+      FEMALE_55_59:
+        display_title: 'Female, 55-59 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED: 0.350
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED: 0.388
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED: 0.371
+          INSTITUTIONAL: 0.986
+      FEMALE_60_64:
+        display_title: 'Female, 60-64 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED: 0.411
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED: 0.449
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED: 0.395
+          INSTITUTIONAL: 1.028
+      FEMALE_65_69:
+        display_title: 'Female, 65-69 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.312
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED: 0.425
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED: 0.341
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 1.200
+      FEMALE_70_74:
+        display_title: 'Female, 70-74 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.374
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED: 0.511
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED: 0.406
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 1.092
+      FEMALE_75_79:
+        display_title: 'Female, 75-79 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.448
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED: 0.611
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED: 0.484
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.995
+      FEMALE_80_84:
+        display_title: 'Female, 80-84 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.537
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED: 0.739
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED: 0.552
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.860
+      FEMALE_85_89:
+        display_title: 'Female, 85-89 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.664
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED: 0.917
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED: 0.678
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.749
+      FEMALE_90_94:
+        display_title: 'Female, 90-94 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.797
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED: 1.037
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED: 0.817
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.626
+      FEMALE_95:
+        display_title: 'Female, 95 Years or Over'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.816
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED: 1.094
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED: 0.913
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.456
+      MALE_0_34:
+        display_title: 'Male, 0-34 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED: 0.155
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED: 0.225
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED: 0.330
+          INSTITUTIONAL: 1.049
+      MALE_35_44:
+        display_title: 'Male, 35-44 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED: 0.190
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED: 0.204
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED: 0.267
+          INSTITUTIONAL: 1.074
+      MALE_45_54:
+        display_title: 'Male, 45-54 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED: 0.221
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED: 0.281
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED: 0.300
+          INSTITUTIONAL: 1.008
+      MALE_55_59:
+        display_title: 'Male, 55-59 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED: 0.271
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED: 0.372
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED: 0.307
+          INSTITUTIONAL: 1.055
+      MALE_60_64:
+        display_title: 'Male, 60-64 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED: 0.303
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED: 0.486
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED: 0.343
+          INSTITUTIONAL: 1.039
+      MALE_65_69:
+        display_title: 'Male, 65-69 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.300
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED: 0.492
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED: 0.334
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 1.269
+      MALE_70_74:
+        display_title: 'Male, 70-74 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.379
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED: 0.582
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED: 0.409
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 1.323
+      MALE_75_79:
+        display_title: 'Male, 75-79 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.466
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED: 0.692
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED: 0.491
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 1.331
+      MALE_80_84:
+        display_title: 'Male, 80-84 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.561
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED: 0.816
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED: 0.546
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 1.189
+      MALE_85_89:
+        display_title: 'Male, 85-89 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.694
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED: 1.009
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED: 0.679
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 1.129
+      MALE_90_94:
+        display_title: 'Male, 90-94 Years'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.857
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED: 1.186
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED: 0.822
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.964
+      MALE_95:
+        display_title: 'Male, 95 Years or Over'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.976
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED: 1.268
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED: 1.038
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.781
+  - statuses:
+      MEDICAID:
+        display_title: 'Medicaid'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.062
+      ORIGINALLY_DISABLED_FEMALE:
+        display_title: 'Originally Disabled, Female'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.244
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED: 0.172
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED: 0.126
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL:
+      ORIGINALLY_DISABLED_MALE:
+        display_title: 'Originally Disabled, Male'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.152
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED: 0.192
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED: 0.105
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL:
+  - hccs:
+      HCC1:
+        display_title: 'HCC1'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.312
+          COMMUNITY_NONDUAL_DISABLED: 0.288
+          COMMUNITY_FBDUAL_AGED: 0.585
+          COMMUNITY_FBDUAL_DISABLED: 0.500
+          COMMUNITY_PBDUAL_AGED: 0.550
+          COMMUNITY_PBDUAL_DISABLED: 0.232
+          INSTITUTIONAL:
+      HCC2:
+        display_title: 'HCC2'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.455
+          COMMUNITY_NONDUAL_DISABLED: 0.532
+          COMMUNITY_FBDUAL_AGED: 0.596
+          COMMUNITY_FBDUAL_DISABLED: 0.811
+          COMMUNITY_PBDUAL_AGED: 0.409
+          COMMUNITY_PBDUAL_DISABLED: 0.417
+          INSTITUTIONAL: 0.346
+      HCC6:
+        display_title: 'HCC6'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.435
+          COMMUNITY_NONDUAL_DISABLED: 0.704
+          COMMUNITY_FBDUAL_AGED: 0.548
+          COMMUNITY_FBDUAL_DISABLED: 0.919
+          COMMUNITY_PBDUAL_AGED: 0.482
+          COMMUNITY_PBDUAL_DISABLED: 0.765
+          INSTITUTIONAL: 0.580
+      HCC8:
+        display_title: 'HCC8'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 2.625
+          COMMUNITY_NONDUAL_DISABLED: 2.644
+          COMMUNITY_FBDUAL_AGED: 2.542
+          COMMUNITY_FBDUAL_DISABLED: 2.767
+          COMMUNITY_PBDUAL_AGED: 2.442
+          COMMUNITY_PBDUAL_DISABLED: 2.582
+          INSTITUTIONAL: 1.143
+      HCC9:
+        display_title: 'HCC9'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.970
+          COMMUNITY_NONDUAL_DISABLED: 0.927
+          COMMUNITY_FBDUAL_AGED: 0.973
+          COMMUNITY_FBDUAL_DISABLED: 1.025
+          COMMUNITY_PBDUAL_AGED: 0.955
+          COMMUNITY_PBDUAL_DISABLED: 0.879
+          INSTITUTIONAL: 0.727
+      HCC10:
+        display_title: 'HCC10'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.677
+          COMMUNITY_NONDUAL_DISABLED: 0.656
+          COMMUNITY_FBDUAL_AGED: 0.713
+          COMMUNITY_FBDUAL_DISABLED: 0.761
+          COMMUNITY_PBDUAL_AGED: 0.667
+          COMMUNITY_PBDUAL_DISABLED: 0.577
+          INSTITUTIONAL: 0.401
+      HCC11:
+        display_title: 'HCC11'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.301
+          COMMUNITY_NONDUAL_DISABLED: 0.352
+          COMMUNITY_FBDUAL_AGED: 0.332
+          COMMUNITY_FBDUAL_DISABLED: 0.361
+          COMMUNITY_PBDUAL_AGED: 0.325
+          COMMUNITY_PBDUAL_DISABLED: 0.400
+          INSTITUTIONAL: 0.293
+      HCC12:
+        display_title: 'HCC12'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.146
+          COMMUNITY_NONDUAL_DISABLED: 0.202
+          COMMUNITY_FBDUAL_AGED: 0.159
+          COMMUNITY_FBDUAL_DISABLED: 0.190
+          COMMUNITY_PBDUAL_AGED: 0.152
+          COMMUNITY_PBDUAL_DISABLED: 0.182
+          INSTITUTIONAL: 0.199
+      HCC17:
+        display_title: 'HCC17'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.318
+          COMMUNITY_NONDUAL_DISABLED: 0.371
+          COMMUNITY_FBDUAL_AGED: 0.346
+          COMMUNITY_FBDUAL_DISABLED: 0.431
+          COMMUNITY_PBDUAL_AGED: 0.354
+          COMMUNITY_PBDUAL_DISABLED: 0.423
+          INSTITUTIONAL: 0.441
+      HCC18:
+        display_title: 'HCC18'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.318
+          COMMUNITY_NONDUAL_DISABLED: 0.371
+          COMMUNITY_FBDUAL_AGED: 0.346
+          COMMUNITY_FBDUAL_DISABLED: 0.431
+          COMMUNITY_PBDUAL_AGED: 0.354
+          COMMUNITY_PBDUAL_DISABLED: 0.423
+          INSTITUTIONAL: 0.441
+      HCC19:
+        display_title: 'HCC19'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.104
+          COMMUNITY_NONDUAL_DISABLED: 0.128
+          COMMUNITY_FBDUAL_AGED: 0.097
+          COMMUNITY_FBDUAL_DISABLED: 0.160
+          COMMUNITY_PBDUAL_AGED: 0.098
+          COMMUNITY_PBDUAL_DISABLED: 0.136
+          INSTITUTIONAL: 0.160
+      HCC21:
+        display_title: 'HCC21'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.545
+          COMMUNITY_NONDUAL_DISABLED: 0.753
+          COMMUNITY_FBDUAL_AGED: 0.752
+          COMMUNITY_FBDUAL_DISABLED: 0.845
+          COMMUNITY_PBDUAL_AGED: 0.562
+          COMMUNITY_PBDUAL_DISABLED: 0.709
+          INSTITUTIONAL: 0.260
+      HCC22:
+        display_title: 'HCC22'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.273
+          COMMUNITY_NONDUAL_DISABLED: 0.227
+          COMMUNITY_FBDUAL_AGED: 0.410
+          COMMUNITY_FBDUAL_DISABLED: 0.373
+          COMMUNITY_PBDUAL_AGED: 0.244
+          COMMUNITY_PBDUAL_DISABLED: 0.242
+          INSTITUTIONAL: 0.511
+      HCC23:
+        display_title: 'HCC23'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.228
+          COMMUNITY_NONDUAL_DISABLED: 0.444
+          COMMUNITY_FBDUAL_AGED: 0.228
+          COMMUNITY_FBDUAL_DISABLED: 0.353
+          COMMUNITY_PBDUAL_AGED: 0.193
+          COMMUNITY_PBDUAL_DISABLED: 0.351
+          INSTITUTIONAL: 0.337
+      HCC27:
+        display_title: 'HCC27'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.962
+          COMMUNITY_NONDUAL_DISABLED: 1.110
+          COMMUNITY_FBDUAL_AGED: 1.242
+          COMMUNITY_FBDUAL_DISABLED: 1.349
+          COMMUNITY_PBDUAL_AGED: 0.889
+          COMMUNITY_PBDUAL_DISABLED: 0.963
+          INSTITUTIONAL: 0.962
+      HCC28:
+        display_title: 'HCC28'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.390s
+          COMMUNITY_NONDUAL_DISABLED: 0.394
+          COMMUNITY_FBDUAL_AGED: 0.342
+          COMMUNITY_FBDUAL_DISABLED: 0.491
+          COMMUNITY_PBDUAL_AGED: 0.460
+          COMMUNITY_PBDUAL_DISABLED: 0.324
+          INSTITUTIONAL: 0.390
+      HCC29:
+        display_title: 'HCC29'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.165
+          COMMUNITY_NONDUAL_DISABLED: 0.267
+          COMMUNITY_FBDUAL_AGED: 0.038
+          COMMUNITY_FBDUAL_DISABLED: 0.400
+          COMMUNITY_PBDUAL_AGED: 0.263
+          COMMUNITY_PBDUAL_DISABLED: 0.324
+          INSTITUTIONAL: 0.390
+      HCC33:
+        display_title: 'HCC33'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.246
+          COMMUNITY_NONDUAL_DISABLED: 0.524
+          COMMUNITY_FBDUAL_AGED: 0.369
+          COMMUNITY_FBDUAL_DISABLED: 0.503
+          COMMUNITY_PBDUAL_AGED: 0.324
+          COMMUNITY_PBDUAL_DISABLED: 0.510
+          INSTITUTIONAL: 0.335
+      HCC34:
+        display_title: 'HCC34'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.276
+          COMMUNITY_NONDUAL_DISABLED: 0.678
+          COMMUNITY_FBDUAL_AGED: 0.333
+          COMMUNITY_FBDUAL_DISABLED: 0.875
+          COMMUNITY_PBDUAL_AGED: 0.412
+          COMMUNITY_PBDUAL_DISABLED: 0.849
+          INSTITUTIONAL: 0.241
+      HCC35:
+        display_title: 'HCC35'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.294
+          COMMUNITY_NONDUAL_DISABLED: 0.483
+          COMMUNITY_FBDUAL_AGED: 0.334
+          COMMUNITY_FBDUAL_DISABLED: 0.613
+          COMMUNITY_PBDUAL_AGED: 0.209
+          COMMUNITY_PBDUAL_DISABLED: 0.496
+          INSTITUTIONAL: 0.244
+      HCC39:
+        display_title: 'HCC39'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.425
+          COMMUNITY_NONDUAL_DISABLED: 0.474
+          COMMUNITY_FBDUAL_AGED: 0.552
+          COMMUNITY_FBDUAL_DISABLED: 0.713
+          COMMUNITY_PBDUAL_AGED: 0.418
+          COMMUNITY_PBDUAL_DISABLED: 0.491
+          INSTITUTIONAL: 0.345
+      HCC40:
+        display_title: 'HCC40'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.423
+          COMMUNITY_NONDUAL_DISABLED: 0.377
+          COMMUNITY_FBDUAL_AGED: 0.370
+          COMMUNITY_FBDUAL_DISABLED: 0.345
+          COMMUNITY_PBDUAL_AGED: 0.390
+          COMMUNITY_PBDUAL_DISABLED: 0.290
+          INSTITUTIONAL: 0.329
+      HCC46:
+        display_title: 'HCC46'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 1.388
+          COMMUNITY_NONDUAL_DISABLED: 3.188
+          COMMUNITY_FBDUAL_AGED: 1.219
+          COMMUNITY_FBDUAL_DISABLED: 4.256
+          COMMUNITY_PBDUAL_AGED: 1.226
+          COMMUNITY_PBDUAL_DISABLED: 3.529
+          INSTITUTIONAL: 0.680
+      HCC47:
+        display_title: 'HCC47'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.625
+          COMMUNITY_NONDUAL_DISABLED: 0.848
+          COMMUNITY_FBDUAL_AGED: 0.529
+          COMMUNITY_FBDUAL_DISABLED: 0.589
+          COMMUNITY_PBDUAL_AGED: 0.449
+          COMMUNITY_PBDUAL_DISABLED: 0.690
+          INSTITUTIONAL: 0.529
+      HCC48:
+        display_title: 'HCC48'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.221
+          COMMUNITY_NONDUAL_DISABLED: 0.339
+          COMMUNITY_FBDUAL_AGED: 0.268
+          COMMUNITY_FBDUAL_DISABLED: 0.378
+          COMMUNITY_PBDUAL_AGED: 0.225
+          COMMUNITY_PBDUAL_DISABLED: 0.382
+          INSTITUTIONAL: 0.151
+      HCC54:
+        display_title: 'HCC54'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.383
+          COMMUNITY_NONDUAL_DISABLED: 0.569
+          COMMUNITY_FBDUAL_AGED: 0.706
+          COMMUNITY_FBDUAL_DISABLED: 0.919
+          COMMUNITY_PBDUAL_AGED: 0.388
+          COMMUNITY_PBDUAL_DISABLED: 0.613
+          INSTITUTIONAL: 0.102
+      HCC55:
+        display_title: 'HCC55'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.383
+          COMMUNITY_NONDUAL_DISABLED: 0.285
+          COMMUNITY_FBDUAL_AGED: 0.522
+          COMMUNITY_FBDUAL_DISABLED: 0.366
+          COMMUNITY_PBDUAL_AGED: 0.377
+          COMMUNITY_PBDUAL_DISABLED: 0.286
+          INSTITUTIONAL: 0.102
+      HCC57:
+        display_title: 'HCC57'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.608
+          COMMUNITY_NONDUAL_DISABLED: 0.395
+          COMMUNITY_FBDUAL_AGED: 0.612
+          COMMUNITY_FBDUAL_DISABLED: 0.432
+          COMMUNITY_PBDUAL_AGED: 0.547
+          COMMUNITY_PBDUAL_DISABLED: 0.366
+          INSTITUTIONAL: 0.271
+      HCC58:
+        display_title: 'HCC58'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.395
+          COMMUNITY_NONDUAL_DISABLED: 0.209
+          COMMUNITY_FBDUAL_AGED: 0.444
+          COMMUNITY_FBDUAL_DISABLED: 0.178
+          COMMUNITY_PBDUAL_AGED: 0.413
+          COMMUNITY_PBDUAL_DISABLED: 0.163
+          INSTITUTIONAL: 0.271
+      HCC70:
+        display_title: 'HCC70'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 1.314
+          COMMUNITY_NONDUAL_DISABLED: 1.053
+          COMMUNITY_FBDUAL_AGED: 1.098
+          COMMUNITY_FBDUAL_DISABLED: 1.056
+          COMMUNITY_PBDUAL_AGED: 1.274
+          COMMUNITY_PBDUAL_DISABLED: 1.328
+          INSTITUTIONAL: 0.497
+      HCC71:
+        display_title: 'HCC71'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 1.007
+          COMMUNITY_NONDUAL_DISABLED: 0.704
+          COMMUNITY_FBDUAL_AGED: 0.920
+          COMMUNITY_FBDUAL_DISABLED: 1.019
+          COMMUNITY_PBDUAL_AGED: 0.958
+          COMMUNITY_PBDUAL_DISABLED: 0.908
+          INSTITUTIONAL: 0.467
+      HCC72:
+        display_title: 'HCC72'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.528
+          COMMUNITY_NONDUAL_DISABLED: 0.456
+          COMMUNITY_FBDUAL_AGED: 0.552
+          COMMUNITY_FBDUAL_DISABLED: 0.407
+          COMMUNITY_PBDUAL_AGED: 0.556
+          COMMUNITY_PBDUAL_DISABLED: 0.384
+          INSTITUTIONAL: 0.229
+      HCC73:
+        display_title: 'HCC73'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.970
+          COMMUNITY_NONDUAL_DISABLED: 1.082
+          COMMUNITY_FBDUAL_AGED: 1.230
+          COMMUNITY_FBDUAL_DISABLED: 1.219
+          COMMUNITY_PBDUAL_AGED: 0.570
+          COMMUNITY_PBDUAL_DISABLED: 0.814
+          INSTITUTIONAL: 0.224
+      HCC74:
+        display_title: 'HCC74'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.280
+          COMMUNITY_NONDUAL_DISABLED: 0.132
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED: 0.158
+          COMMUNITY_PBDUAL_DISABLED: 0.052
+          INSTITUTIONAL:
+      HCC75:
+        display_title: 'HCC75'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.457
+          COMMUNITY_NONDUAL_DISABLED: 0.528
+          COMMUNITY_FBDUAL_AGED: 0.436
+          COMMUNITY_FBDUAL_DISABLED: 0.465
+          COMMUNITY_PBDUAL_AGED: 0.364
+          COMMUNITY_PBDUAL_DISABLED: 0.331
+          INSTITUTIONAL: 0.369
+      HCC76:
+        display_title: 'HCC76'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.505
+          COMMUNITY_NONDUAL_DISABLED: 0.457
+          COMMUNITY_FBDUAL_AGED: 0.553
+          COMMUNITY_FBDUAL_DISABLED: 0.512
+          COMMUNITY_PBDUAL_AGED: 0.429
+          COMMUNITY_PBDUAL_DISABLED: 0.168
+          INSTITUTIONAL: 0.104
+      HCC77:
+        display_title: 'HCC77'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.441
+          COMMUNITY_NONDUAL_DISABLED: 0.540
+          COMMUNITY_FBDUAL_AGED: 0.687
+          COMMUNITY_FBDUAL_DISABLED: 0.794
+          COMMUNITY_PBDUAL_AGED: 0.407
+          COMMUNITY_PBDUAL_DISABLED: 0.459
+          INSTITUTIONAL:
+      HCC78:
+        display_title: 'HCC78'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.674
+          COMMUNITY_NONDUAL_DISABLED: 0.585
+          COMMUNITY_FBDUAL_AGED: 0.751
+          COMMUNITY_FBDUAL_DISABLED: 0.516
+          COMMUNITY_PBDUAL_AGED: 0.629
+          COMMUNITY_PBDUAL_DISABLED: 0.394
+          INSTITUTIONAL: 0.145
+      HCC79:
+        display_title: 'HCC79'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.309
+          COMMUNITY_NONDUAL_DISABLED: 0.227
+          COMMUNITY_FBDUAL_AGED: 0.357
+          COMMUNITY_FBDUAL_DISABLED: 0.195
+          COMMUNITY_PBDUAL_AGED: 0.349
+          COMMUNITY_PBDUAL_DISABLED: 0.245
+          INSTITUTIONAL: 0.088
+      HCC80:
+        display_title: 'HCC80'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.584
+          COMMUNITY_NONDUAL_DISABLED: 0.302
+          COMMUNITY_FBDUAL_AGED: 0.946
+          COMMUNITY_FBDUAL_DISABLED: 0.324
+          COMMUNITY_PBDUAL_AGED: 0.508
+          COMMUNITY_PBDUAL_DISABLED: 0.155
+          INSTITUTIONAL: 0.042
+      HCC82:
+        display_title: 'HCC82'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 1.055
+          COMMUNITY_NONDUAL_DISABLED: 1.024
+          COMMUNITY_FBDUAL_AGED: 2.304
+          COMMUNITY_FBDUAL_DISABLED: 1.575
+          COMMUNITY_PBDUAL_AGED: 0.914
+          COMMUNITY_PBDUAL_DISABLED: 0.676
+          INSTITUTIONAL: 1.631
+      HCC83:
+        display_title: 'HCC83'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.658
+          COMMUNITY_NONDUAL_DISABLED: 0.781
+          COMMUNITY_FBDUAL_AGED: 1.033
+          COMMUNITY_FBDUAL_DISABLED: 0.484
+          COMMUNITY_PBDUAL_AGED: 0.704
+          COMMUNITY_PBDUAL_DISABLED: 0.429
+          INSTITUTIONAL: 0.727
+      HCC84:
+        display_title: 'HCC84'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.302
+          COMMUNITY_NONDUAL_DISABLED: 0.578
+          COMMUNITY_FBDUAL_AGED: 0.471
+          COMMUNITY_FBDUAL_DISABLED: 0.484
+          COMMUNITY_PBDUAL_AGED: 0.301
+          COMMUNITY_PBDUAL_DISABLED: 0.429
+          INSTITUTIONAL: 0.297
+      HCC85:
+        display_title: 'HCC85'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.323
+          COMMUNITY_NONDUAL_DISABLED: 0.412
+          COMMUNITY_FBDUAL_AGED: 0.355
+          COMMUNITY_FBDUAL_DISABLED: 0.415
+          COMMUNITY_PBDUAL_AGED: 0.320
+          COMMUNITY_PBDUAL_DISABLED: 0.367
+          INSTITUTIONAL: 0.191
+      HCC86:
+        display_title: 'HCC86'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.233
+          COMMUNITY_NONDUAL_DISABLED: 0.306
+          COMMUNITY_FBDUAL_AGED: 0.473
+          COMMUNITY_FBDUAL_DISABLED: 0.618
+          COMMUNITY_PBDUAL_AGED: 0.280
+          COMMUNITY_PBDUAL_DISABLED: 0.438
+          INSTITUTIONAL: 0.497
+      HCC87:
+        display_title: 'HCC87'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.218
+          COMMUNITY_NONDUAL_DISABLED: 0.306
+          COMMUNITY_FBDUAL_AGED: 0.336
+          COMMUNITY_FBDUAL_DISABLED: 0.618
+          COMMUNITY_PBDUAL_AGED: 0.280
+          COMMUNITY_PBDUAL_DISABLED: 0.438
+          INSTITUTIONAL: 0.497
+      HCC88:
+        display_title: 'HCC88'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.140
+          COMMUNITY_NONDUAL_DISABLED: 0.121
+          COMMUNITY_FBDUAL_AGED: 0.068
+          COMMUNITY_FBDUAL_DISABLED: 0.205
+          COMMUNITY_PBDUAL_AGED: 0.175
+          COMMUNITY_PBDUAL_DISABLED: 0.220
+          INSTITUTIONAL: 0.497
+      HCC96:
+        display_title: 'HCC96'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.268
+          COMMUNITY_NONDUAL_DISABLED: 0.284
+          COMMUNITY_FBDUAL_AGED: 0.369
+          COMMUNITY_FBDUAL_DISABLED: 0.377
+          COMMUNITY_PBDUAL_AGED: 0.283
+          COMMUNITY_PBDUAL_DISABLED: 0.258
+          INSTITUTIONAL: 0.224
+      HCC99:
+        display_title: 'HCC99'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.263
+          COMMUNITY_NONDUAL_DISABLED: 0.282
+          COMMUNITY_FBDUAL_AGED: 0.474
+          COMMUNITY_FBDUAL_DISABLED: 0.690
+          COMMUNITY_PBDUAL_AGED: 0.278
+          COMMUNITY_PBDUAL_DISABLED: 0.280
+          INSTITUTIONAL: 0.114
+      HCC100:
+        display_title: 'HCC100'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.263
+          COMMUNITY_NONDUAL_DISABLED: 0.195
+          COMMUNITY_FBDUAL_AGED: 0.474
+          COMMUNITY_FBDUAL_DISABLED: 0.357
+          COMMUNITY_PBDUAL_AGED: 0.270
+          COMMUNITY_PBDUAL_DISABLED: 0.232
+          INSTITUTIONAL: 0.114
+      HCC103:
+        display_title: 'HCC103'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.538
+          COMMUNITY_NONDUAL_DISABLED: 0.324
+          COMMUNITY_FBDUAL_AGED: 0.548
+          COMMUNITY_FBDUAL_DISABLED: 0.435
+          COMMUNITY_PBDUAL_AGED: 0.603
+          COMMUNITY_PBDUAL_DISABLED: 0.401
+          INSTITUTIONAL: 0.031
+      HCC104:
+        display_title: 'HCC104'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.395
+          COMMUNITY_NONDUAL_DISABLED: 0.258
+          COMMUNITY_FBDUAL_AGED: 0.374
+          COMMUNITY_FBDUAL_DISABLED: 0.381
+          COMMUNITY_PBDUAL_AGED: 0.559
+          COMMUNITY_PBDUAL_DISABLED: 0.401
+          INSTITUTIONAL: 0.031
+      HCC106:
+        display_title: 'HCC106'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 1.461
+          COMMUNITY_NONDUAL_DISABLED: 1.506
+          COMMUNITY_FBDUAL_AGED: 1.744
+          COMMUNITY_FBDUAL_DISABLED: 1.740
+          COMMUNITY_PBDUAL_AGED: 1.452
+          COMMUNITY_PBDUAL_DISABLED: 1.601
+          INSTITUTIONAL: 0.884
+      HCC107:
+        display_title: 'HCC107'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.400
+          COMMUNITY_NONDUAL_DISABLED: 0.486
+          COMMUNITY_FBDUAL_AGED: 0.540
+          COMMUNITY_FBDUAL_DISABLED: 0.756
+          COMMUNITY_PBDUAL_AGED: 0.443
+          COMMUNITY_PBDUAL_DISABLED: 0.549
+          INSTITUTIONAL: 0.321
+      HCC108:
+        display_title: 'HCC108'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.298
+          COMMUNITY_NONDUAL_DISABLED: 0.333
+          COMMUNITY_FBDUAL_AGED: 0.324
+          COMMUNITY_FBDUAL_DISABLED: 0.319
+          COMMUNITY_PBDUAL_AGED: 0.316
+          COMMUNITY_PBDUAL_DISABLED: 0.326
+          INSTITUTIONAL: 0.094
+      HCC110:
+        display_title: 'HCC110'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.620
+          COMMUNITY_NONDUAL_DISABLED: 2.538
+          COMMUNITY_FBDUAL_AGED: 0.985
+          COMMUNITY_FBDUAL_DISABLED: 3.365
+          COMMUNITY_PBDUAL_AGED: 0.358
+          COMMUNITY_PBDUAL_DISABLED: 2.861
+          INSTITUTIONAL: 0.305
+      HCC111:
+        display_title: 'HCC111'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.328
+          COMMUNITY_NONDUAL_DISABLED: 0.262
+          COMMUNITY_FBDUAL_AGED: 0.422
+          COMMUNITY_FBDUAL_DISABLED: 0.354
+          COMMUNITY_PBDUAL_AGED: 0.358
+          COMMUNITY_PBDUAL_DISABLED: 0.293
+          INSTITUTIONAL: 0.305
+      HCC112:
+        display_title: 'HCC112'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.209
+          COMMUNITY_NONDUAL_DISABLED: 0.262
+          COMMUNITY_FBDUAL_AGED: 0.134
+          COMMUNITY_FBDUAL_DISABLED: 0.322
+          COMMUNITY_PBDUAL_AGED: 0.172
+          COMMUNITY_PBDUAL_DISABLED: 0.174
+          INSTITUTIONAL: 0.057
+      HCC114:
+        display_title: 'HCC114'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.599
+          COMMUNITY_NONDUAL_DISABLED: 0.530
+          COMMUNITY_FBDUAL_AGED: 0.707
+          COMMUNITY_FBDUAL_DISABLED: 0.490
+          COMMUNITY_PBDUAL_AGED: 0.666
+          COMMUNITY_PBDUAL_DISABLED: 0.373
+          INSTITUTIONAL: 0.067
+      HCC115:
+        display_title: 'HCC115'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.221
+          COMMUNITY_NONDUAL_DISABLED: 0.128
+          COMMUNITY_FBDUAL_AGED: 0.162
+          COMMUNITY_FBDUAL_DISABLED: 0.049
+          COMMUNITY_PBDUAL_AGED: 0.302
+          COMMUNITY_PBDUAL_DISABLED: 0.220
+          INSTITUTIONAL: 0.067
+      HCC122:
+        display_title: 'HCC122'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.217
+          COMMUNITY_NONDUAL_DISABLED: 0.171
+          COMMUNITY_FBDUAL_AGED: 0.223
+          COMMUNITY_FBDUAL_DISABLED: 0.284
+          COMMUNITY_PBDUAL_AGED: 0.276
+          COMMUNITY_PBDUAL_DISABLED: 0.195
+          INSTITUTIONAL: 0.460
+      HCC124:
+        display_title: 'HCC124'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.499
+          COMMUNITY_NONDUAL_DISABLED: 0.385
+          COMMUNITY_FBDUAL_AGED: 0.278
+          COMMUNITY_FBDUAL_DISABLED: 0.090
+          COMMUNITY_PBDUAL_AGED: 0.336
+          COMMUNITY_PBDUAL_DISABLED: 0.115
+          INSTITUTIONAL: 0.228
+      HCC134:
+        display_title: 'HCC134'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.422
+          COMMUNITY_NONDUAL_DISABLED: 0.500
+          COMMUNITY_FBDUAL_AGED: 0.672
+          COMMUNITY_FBDUAL_DISABLED: 0.637
+          COMMUNITY_PBDUAL_AGED: 0.435
+          COMMUNITY_PBDUAL_DISABLED: 0.512
+          INSTITUTIONAL: 0.462
+      HCC135:
+        display_title: 'HCC135'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.422
+          COMMUNITY_NONDUAL_DISABLED: 0.500
+          COMMUNITY_FBDUAL_AGED: 0.672
+          COMMUNITY_FBDUAL_DISABLED: 0.637
+          COMMUNITY_PBDUAL_AGED: 0.435
+          COMMUNITY_PBDUAL_DISABLED: 0.512
+          INSTITUTIONAL: 0.462
+      HCC136:
+        display_title: 'HCC136'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.237
+          COMMUNITY_NONDUAL_DISABLED: 0.141
+          COMMUNITY_FBDUAL_AGED: 0.244
+          COMMUNITY_FBDUAL_DISABLED: 0.167
+          COMMUNITY_PBDUAL_AGED: 0.184
+          COMMUNITY_PBDUAL_DISABLED: 0.147
+          INSTITUTIONAL: 0.436
+      HCC137:
+        display_title: 'HCC137'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.237
+          COMMUNITY_NONDUAL_DISABLED: 0.141
+          COMMUNITY_FBDUAL_AGED: 0.244
+          COMMUNITY_FBDUAL_DISABLED: 0.079
+          COMMUNITY_PBDUAL_AGED: 0.184
+          COMMUNITY_PBDUAL_DISABLED: 0.035
+          INSTITUTIONAL: 0.202
+      HCC157:
+        display_title: 'HCC157'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 2.163
+          COMMUNITY_NONDUAL_DISABLED: 2.203
+          COMMUNITY_FBDUAL_AGED: 2.879
+          COMMUNITY_FBDUAL_DISABLED: 2.626
+          COMMUNITY_PBDUAL_AGED: 2.274
+          COMMUNITY_PBDUAL_DISABLED: 2.655
+          INSTITUTIONAL: 0.924
+      HCC158:
+        display_title: 'HCC158'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 1.204
+          COMMUNITY_NONDUAL_DISABLED: 1.393
+          COMMUNITY_FBDUAL_AGED: 1.576
+          COMMUNITY_FBDUAL_DISABLED: 1.559
+          COMMUNITY_PBDUAL_AGED: 1.074
+          COMMUNITY_PBDUAL_DISABLED: 1.237
+          INSTITUTIONAL: 0.295
+      HCC161:
+        display_title: 'HCC161'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.535
+          COMMUNITY_NONDUAL_DISABLED: 0.636
+          COMMUNITY_FBDUAL_AGED: 0.757
+          COMMUNITY_FBDUAL_DISABLED: 0.631
+          COMMUNITY_PBDUAL_AGED: 0.586
+          COMMUNITY_PBDUAL_DISABLED: 0.620
+          INSTITUTIONAL: 0.294
+      HCC162:
+        display_title: 'HCC162'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.321
+          COMMUNITY_NONDUAL_DISABLED: 0.348
+          COMMUNITY_FBDUAL_AGED: 0.003
+          COMMUNITY_FBDUAL_DISABLED: 0.537
+          COMMUNITY_PBDUAL_AGED: 0.525
+          COMMUNITY_PBDUAL_DISABLED: 0.119
+          INSTITUTIONAL: 0.076
+      HCC166:
+        display_title: 'HCC166'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.584
+          COMMUNITY_NONDUAL_DISABLED: 0.302
+          COMMUNITY_FBDUAL_AGED: 0.946
+          COMMUNITY_FBDUAL_DISABLED: 0.324
+          COMMUNITY_PBDUAL_AGED: 1.065
+          COMMUNITY_PBDUAL_DISABLED: 0.155
+          INSTITUTIONAL: 0.042
+      HCC167:
+        display_title: 'HCC167'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.191
+          COMMUNITY_NONDUAL_DISABLED: 0.044
+          COMMUNITY_FBDUAL_AGED: 0.274
+          COMMUNITY_FBDUAL_DISABLED: 0.171
+          COMMUNITY_PBDUAL_AGED: 0.133
+          COMMUNITY_PBDUAL_DISABLED: 0.049
+          INSTITUTIONAL:
+      HCC169:
+        display_title: 'HCC169'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.495
+          COMMUNITY_NONDUAL_DISABLED: 0.456
+          COMMUNITY_FBDUAL_AGED: 0.552
+          COMMUNITY_FBDUAL_DISABLED: 0.407
+          COMMUNITY_PBDUAL_AGED: 0.516
+          COMMUNITY_PBDUAL_DISABLED: 0.384
+          INSTITUTIONAL: 0.209
+      HCC170:
+        display_title: 'HCC170'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.418
+          COMMUNITY_NONDUAL_DISABLED: 0.513
+          COMMUNITY_FBDUAL_AGED: 0.520
+          COMMUNITY_FBDUAL_DISABLED: 0.668
+          COMMUNITY_PBDUAL_AGED: 0.383
+          COMMUNITY_PBDUAL_DISABLED: 0.484
+          INSTITUTIONAL:
+      HCC173:
+        display_title: 'HCC173'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.266
+          COMMUNITY_NONDUAL_DISABLED: 0.340
+          COMMUNITY_FBDUAL_AGED: 0.412
+          COMMUNITY_FBDUAL_DISABLED: 0.383
+          COMMUNITY_PBDUAL_AGED: 0.233
+          COMMUNITY_PBDUAL_DISABLED: 0.232
+          INSTITUTIONAL: 0.267
+      HCC176:
+        display_title: 'HCC176'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.597
+          COMMUNITY_NONDUAL_DISABLED: 0.871
+          COMMUNITY_FBDUAL_AGED: 0.721
+          COMMUNITY_FBDUAL_DISABLED: 1.156
+          COMMUNITY_PBDUAL_AGED: 0.584
+          COMMUNITY_PBDUAL_DISABLED: 0.876
+          INSTITUTIONAL: 0.502
+      HCC186:
+        display_title: 'HCC186'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 1.000
+          COMMUNITY_NONDUAL_DISABLED: 0.618
+          COMMUNITY_FBDUAL_AGED: 0.816
+          COMMUNITY_FBDUAL_DISABLED: 1.075
+          COMMUNITY_PBDUAL_AGED: 0.795
+          COMMUNITY_PBDUAL_DISABLED: 0.655
+          INSTITUTIONAL: 0.962
+      HCC188:
+        display_title: 'HCC188'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.571
+          COMMUNITY_NONDUAL_DISABLED: 0.785
+          COMMUNITY_FBDUAL_AGED: 0.775
+          COMMUNITY_FBDUAL_DISABLED: 0.870
+          COMMUNITY_PBDUAL_AGED: 0.579
+          COMMUNITY_PBDUAL_DISABLED: 0.867
+          INSTITUTIONAL: 0.500
+      HCC189:
+        display_title: 'HCC189'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.588
+          COMMUNITY_NONDUAL_DISABLED: 0.455
+          COMMUNITY_FBDUAL_AGED: 0.787
+          COMMUNITY_FBDUAL_DISABLED: 1.065
+          COMMUNITY_PBDUAL_AGED: 0.737
+          COMMUNITY_PBDUAL_DISABLED: 0.696
+          INSTITUTIONAL: 0.407
+  - hcc_interactions:
+      HCC47_GCANCER:
+        display_title: 'HCC47_gCancer'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.893
+          COMMUNITY_NONDUAL_DISABLED: 0.675
+          COMMUNITY_FBDUAL_AGED: 0.815
+          COMMUNITY_FBDUAL_DISABLED: 0.652
+          COMMUNITY_PBDUAL_AGED: 0.776
+          COMMUNITY_PBDUAL_DISABLED: 0.808
+          INSTITUTIONAL:
+      HCC85_GDIABETESMELLIT:
+        display_title: 'HCC85_gDiabetesMellit'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.154
+          COMMUNITY_NONDUAL_DISABLED: 0.096
+          COMMUNITY_FBDUAL_AGED: 0.205
+          COMMUNITY_FBDUAL_DISABLED: 0.160
+          COMMUNITY_PBDUAL_AGED: 0.178
+          COMMUNITY_PBDUAL_DISABLED: 0.139
+          INSTITUTIONAL: 0.154
+      HCC85_GCOPDCF:
+        display_title: 'HCC85_gCopdCF'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.190
+          COMMUNITY_NONDUAL_DISABLED: 0.174
+          COMMUNITY_FBDUAL_AGED: 0.240
+          COMMUNITY_FBDUAL_DISABLED: 0.217
+          COMMUNITY_PBDUAL_AGED: 0.186
+          COMMUNITY_PBDUAL_DISABLED: 0.181
+          INSTITUTIONAL: 0.164
+      HCC85_GRENAL:
+        display_title: 'HCC85_gRenal'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.270
+          COMMUNITY_NONDUAL_DISABLED: 0.493
+          COMMUNITY_FBDUAL_AGED: 0.271
+          COMMUNITY_FBDUAL_DISABLED: 0.711
+          COMMUNITY_PBDUAL_AGED: 0.299
+          COMMUNITY_PBDUAL_DISABLED: 0.609
+          INSTITUTIONAL:
+      GRESPDEPANDARRE_GCOPDCF:
+        display_title: 'gRespDepandArre_gCopdCF'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.336
+          COMMUNITY_NONDUAL_DISABLED: 0.256
+          COMMUNITY_FBDUAL_AGED: 0.564
+          COMMUNITY_FBDUAL_DISABLED: 0.524
+          COMMUNITY_PBDUAL_AGED: 0.460
+          COMMUNITY_PBDUAL_DISABLED: 0.449
+          INSTITUTIONAL: 0.423
+      HCC85_HCC96:
+        display_title: 'HCC85_HCC96'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED: 0.105
+          COMMUNITY_NONDUAL_DISABLED: 0.285
+          COMMUNITY_FBDUAL_AGED: 0.200
+          COMMUNITY_FBDUAL_DISABLED: 0.405
+          COMMUNITY_PBDUAL_AGED: 0.116
+          COMMUNITY_PBDUAL_DISABLED: 0.318
+          INSTITUTIONAL:
+      GSUBSTANCEABUSE_GPSYCHIATRIC:
+        display_title: 'gSubstanceAbuse_gPsychiatric'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED: 0.191
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED: 0.233
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED: 0.230
+          INSTITUTIONAL:
+      SEPSIS_PRESSURE_ULCER:
+        display_title: 'SEPSIS_PRESSURE_ULCER'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.252
+      SEPSIS_ARTIF_OPENINGS:
+        display_title: 'SEPSIS_ARTIF_OPENINGS'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.568
+      ART_OPENINGS_PRESSURE_ULCER:
+        display_title: 'ART_OPENINGS_PRESSURE_ULCER'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.331
+      GCOPDCF_ASP_SPEC_BACT_PNEUM:
+        display_title: 'gCopdCF_ASP_SPEC_BACT_PNEUM'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.254
+      ASP_SPEC_BACT_PNEUM_PRES_ULC:
+        display_title: 'ASP_SPEC_BACT_PNEUM_PRES_ULC'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.366
+      SEPSIS_ASP_SPEC_BACT_PNEUM:
+        display_title: 'SEPSIS_ASP_SPEC_BACT_PNEUM'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.321
+      SCHIZOPHRENIA_GCOPDCF:
+        display_title: 'SCHIZOPHRENIA_gCopdCF'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.363
+      SCHIZOPHRENIA_CHF:
+        display_title: 'SCHIZOPHRENIA_CHF'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.173
+      SCHIZOPHRENIA_SEIZURES:
+        display_title: 'SCHIZOPHRENIA_SEIZURES'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.483
+  - status_hcc_interactions:
+      DISABLED_HCC85:
+        display_title: 'DISABLED_HCC85'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.321
+      DISABLED_PRESSURE_ULCER:
+        display_title: 'DISABLED_PRESSURE_ULCER'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.608
+      DISABLED_HCC161:
+        display_title: 'DISABLED_HCC161'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.369
+      DISABLED_HCC39:
+        display_title: 'DISABLED_HCC39'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.567
+      DISABLED_HCC77:
+        display_title: 'DISABLED_HCC77'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.425
+      DISABLED_HCC6:
+        display_title: 'DISABLED_HCC6'
+        coefficients:
+          COMMUNITY_NONDUAL_AGED:
+          COMMUNITY_NONDUAL_DISABLED:
+          COMMUNITY_FBDUAL_AGED:
+          COMMUNITY_FBDUAL_DISABLED:
+          COMMUNITY_PBDUAL_AGED:
+          COMMUNITY_PBDUAL_DISABLED:
+          INSTITUTIONAL: 0.277
