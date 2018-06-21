@@ -63,6 +63,7 @@ define "Tobacco Non-User":
   union ["Assessment, Performed": "VSAC; Tobacco Non-User"]
   union ["Diagnosis": "Able; Never Tobacco User"]
   union ["Assessment, Performed": "Able; Never Tobacco User"]
+  union ["Procedure, Performed": "MIPS; Performance Met: 1036F"]
 
 define "Screening"
   "Tobacco User"
