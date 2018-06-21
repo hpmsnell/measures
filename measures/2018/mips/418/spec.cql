@@ -48,6 +48,7 @@ define "Denominator Encounter":
       and AgeInYearsAt(start of E.relevantPeriod) < 85
       and PatientCharacteristicSex = 'Female'
       and E.signingProvider.hasMeasureMembership = true
+      and not E.placeOfService in {'32','33','34','54','56'}
     with ["Diagnosis": "MIPS; Fracture"] D
       such that D.prevalencePeriod starts during E.relevantPeriod
 

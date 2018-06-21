@@ -34,7 +34,7 @@ define "Denominator Encounter":
     where E.relevantPeriod starts during [start of "Measurement Period", 3 months after start of "Measurement Period"]
       and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
       and E.signingProvider.hasMeasureMembership = true
-      and not E.code.modifier in {'GQ', 'GT', '95'}
+      and not E.code.modifier in {'GQ','GT','95'}
       and not E.placeOfService in {'02'}
 
 define "Influenza Vaccine":

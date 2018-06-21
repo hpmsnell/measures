@@ -37,6 +37,16 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: G8484
+      - name: DenominatorEncounter InvalidModifier
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorEncounter InvalidPOS
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
       - name: G8482 Before # Performance met G8482 before MP
         denominator: 1
         denominator_exclusion:
@@ -361,6 +371,34 @@ patients:
         code_value: 99201
         start_date: 2016-01-01
         provider: Patty # Different provider
+  - name: DenominatorEncounter InvalidModifier
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: DenominatorEncounter
+      family_name: InvalidModifier
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # 110 Encounter
+        start_date: 2016-03-31 # Upper bound
+        provider: Rachel
+      code_modifiers: ['GQ']
+  - name: DenominatorEncounter InvalidPOS
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: DenominatorEncounter
+      family_name: InvalidPOS
+      sex: Female
+    health_plan_id: Medicare Part B
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # 110 Encounter
+        start_date: 2016-03-31 # Upper bound
+        provider: Rachel
+        place_of_service: '02'
   - name: G8482 Before
     attributes:
       date_of_birth: 1988-03-22

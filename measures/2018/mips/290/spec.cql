@@ -29,7 +29,7 @@ context Patient
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 290 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
-      and not E.code.modifier in {'GQ', 'GT', '95'}
+      and not E.code.modifier in {'GQ','GT','95'}
       and not E.placeOfService in {'02'}
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Parkinson's Disease"] D

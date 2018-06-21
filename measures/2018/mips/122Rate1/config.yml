@@ -1,0 +1,133 @@
+---
+measure:
+  name: 18.Mips.Mips122Rate1
+  required:
+    display_title: 'Adult Kidney Disease: Blood Pressure Management: < 140/90 mmHg'
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: '122'
+    rate_id: '1'
+    version:
+  optional:
+    description: 'Percentage of patient visits for those patients aged 18 years and
+      older with a diagnosis of chronic kidney disease (CKD) (stage 3, 4, or 5, not
+      receiving Renal Replacement Therapy [RRT]) with a blood pressure < 140/90 mmHg
+      OR ≥ 140/90 mmHg with a documented plan of care'
+    gap_resolution_action: Patient is due for a blood pressure screening or needs
+      attention for uncontrolled blood pressure
+    version: 2018
+    mips_measure_type: Intermediate Outcome
+    mips_high_priority: true
+    mips_specialty_sets: ""
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum: "<140/90mmHg"
+    mips_objective:
+denominator:
+  description: 'All patient visits for those patients aged 18 years and older with
+    a diagnosis of CKD (stage 3, 4, or 5, not receiving RRT)'
+  component_groups:
+  - validation_record_table_count: 15
+    components:
+    - display_title: Encounter
+      show_codes: true
+      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 122 Encounter
+  - validation_record_table_count: 15
+    logical_operator: AND
+    components:
+    - display_title: Chronic Kidney Disease Stage 3, 4, or 5
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; Chronic Kidney Disease Stage 3, 4, or 5
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patient visits with blood pressure < 140/90 mmHg OR ≥ 140/90 mmHg
+    with a documented plan of care'
+  reasons:
+  - config_link_id: G8476
+    code_value: G8476
+    display_title: G8476
+    description: Most recent blood pressure has a systolic measurement of < 140 mmHg
+      and a diastolic measurement of < 90 mmHg
+    component_groups:
+    - validation_record_table_count: 15
+      components:
+      - display_title: "Quality Data Code: G8476"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8476'
+    - validation_record_table_count: 15
+      logical_operator: OR
+      components:
+      - display_title: Normal Systolic Blood Pressure
+        show_codes: true
+        annotation: "With result: < 140 mmHg"
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Systolic Blood Pressure
+      - display_title: Normal Diastolic Blood Pressure
+        logical_operator: AND
+        show_codes: true
+        annotation: "With result: < 90 mmHg"
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Diastolic Blood Pressure
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G8477
+    code_value: G8477
+    display_title: G8477
+    description: Most recent blood pressure has a systolic measurement of ≥ 140 mmHg and/or
+      a diastolic measurement of ≥ 90 mmHg
+    component_groups:
+    - validation_record_table_count: 15
+      components:
+      - display_title: "Quality Data Code: G8477"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G8477'
+    - validation_record_table_count: 15
+      logical_operator: OR
+      components:
+      - display_title: High Systolic Blood Pressure
+        show_codes: true
+        annotation: "With result: ≥ 140 mmHg"
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Systolic Blood Pressure
+    - validation_record_table_count: 15
+      logical_operator: OR
+      components:
+      - display_title: High Diastolic Blood Pressure
+        show_codes: true
+        annotation: "With result: ≥ 90 mmHg"
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Diastolic Blood Pressure
+  - config_link_id: G8478
+    code_value: G8478
+    display_title: G8478
+    description: Blood pressure measurement not performed or documented, reason not
+      given
+    component_groups:
+    - validation_record_table_count: 15
+      components:
+      - display_title: "Quality Data Code: G8478"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G8478'

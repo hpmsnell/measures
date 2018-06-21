@@ -40,7 +40,6 @@ define "Denominator Encounter":
     where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
-      and not E.code.modifier in {'GQ', 'GT'}
     with ["Diagnosis": "MIPS; Heart Failure"] D
       such that D.prevalencePeriod starts during E.relevantPeriod
     with ["Assessment, Performed": "MIPS; Depressed Left Ventricular Systolic Function"] P

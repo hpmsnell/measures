@@ -1,0 +1,126 @@
+---
+measure:
+  name: 18.MIPS.Mips047
+  required:
+    display_title: Care Plan
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: '047'
+    version:
+  optional:
+    description: 'Percentage of patients aged 65 years and older who have an advance
+      care plan or surrogate decision maker documented in the medical record or documentation
+      in the medical record that an advance care plan was discussed but the patient
+      did not wish or was not able to name a surrogate decision maker or provide an
+      advance care plan'
+    gap_resolution_action: Patient requires documentation of an advance directive
+      or surrogate decision maker
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Internal Medicine, Cardiology, Emergency Medicine, Gastroenterology,
+      General Surgery, General Oncology, Hospitalists, Neurology, Obstetrics/Gynecology,
+      Ophthalmology, Orthopedic Surgery, Otolaryngology, Physical Medicine, Preventive
+      Medicine, Rheumatology, Thoracic Surgery, Urology, Vascular Surgery, Mental/Behavioral
+      Health, Plastic Surgery, General Practice/Family Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 65 years and older'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      annotation: 'Without place of service: 23 (emergency department)'
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 047 Encounter
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Hospice Service
+    description: Patient excluded due to hospice service
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Palliative Care
+        - model: ClinicalActivity
+          value_set: MIPS; MIPS Hospice Service
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patients who have an advance care plan or surrogate decision maker
+    documented in the medical record or documentation in the medical record that an
+    advance care plan was discussed but patient did not wish or was not able to name
+    a surrogate decision maker or provide an advance care plan'
+  reasons:
+  - config_link_id: 1123F
+    code_value: 1123F
+    display_title: 1123F
+    description: Advance care planning discussed and documented; Advance directive
+      or surrogate decision maker documented in the medical record
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: 1123F'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: 1123F'
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Advance Directive
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: ABLE; Advance Directive
+  - config_link_id: 1124F
+    code_value: 1124F
+    display_title: 1124F
+    description: Advance care planning discussed and documented in the medical record;
+      patient did not wish or was not able to name a surrogate decision maker or provide
+      an advance directive
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: 1124F'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: 1124F'
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Advance Directive Discussed
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: ABLE; Advance Directive Discussed
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: 1123F-8P
+    code_value: 1123F-8P
+    display_title: 1123F-8P
+    description: Advance care planning not documented, reason not otherwise specified
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: 1123F-8P'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: 1123F-8P'

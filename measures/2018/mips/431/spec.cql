@@ -47,6 +47,8 @@ define "431 Encounter"
     where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
+      and not E.code.modifier in {'GQ','GT','95'}
+      and not E.placeOfService in {'02'}
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "431 Preventive Encounter"
@@ -54,6 +56,8 @@ define "431 Preventive Encounter"
     where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
+      and not E.code.modifier in {'GQ','GT','95'}
+      and not E.placeOfService in {'02'}
       and not E.code.modifier in "MIPS; Telehealth Modifier"
 
 define "431 or 431 Preventive Encounter":

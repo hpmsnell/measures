@@ -1,0 +1,104 @@
+---
+measure:
+  name: 18.MIPS.Mips414
+  required:
+    display_title: Evaluation or Interview for Risk of Opioid Misuse
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: 414
+    version:
+  optional:
+    description: 'All patients 18 and older prescribed opiates for longer than six
+      weeks duration evaluated for risk of opioid misuse using a brief validated instrument
+      (e.g. Opioid Risk Tool, SOAPP-R) or patient interview documented at least once
+      during Opioid Therapy in the medical record'
+    gap_resolution_action: Patient requires evaluation or interview for risk of opioid
+      misuse
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'Internal Medicine, Neurology, Physical Medicine, General
+      Practice/Family Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients 18 and older prescribed opiates for longer than six weeks
+    duration'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 408 Encounter
+  - logical_operator: 'AND'
+    validation_record_table_count: 10
+    components:
+    - display_title: Opiates Prescribed for Longer than Six Weeks
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; Opiates Prescribed for Longer than Six Weeks
+    - logical_operator: 'OR'
+      display_title: Opiate
+      show_codes: false
+      annotation: 'With duration longer than six weeks'
+      records:
+      - model: Medication
+        value_set: Able; Opioids Used for Pain Control
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patients evaluated for risk of misuse of opiates by using a brief
+    validated instrument (e.g., Opioid Risk Tool, Opioid Assessment for Patients with
+    Pain, revised (SOAPP-R)) or patient interview at least once during opioid therapy'
+  reasons:
+  - config_link_id: G9584
+    code_value: G9584
+    display_title: G9584
+    description: Patient evaluated for risk of misuse of opiates by using a brief
+      validated instrument (e.g., Opioid Risk Tool, SOAPP-R) or patient interviewed
+      at least once during opioid therapy
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9584'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9584'
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: Opioid Risk Assessment
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: Able; Opioid Risk Assessment
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9585
+    code_value: G9585
+    display_title: G9585
+    description: Patient not evaluated for risk of misuse of opiates by using a brief
+      validated instrument (e.g., Opioid Risk Tool, SOAPP-R) or patient not interviewed
+      at least once during opioid therapy
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9585'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9585'

@@ -38,7 +38,7 @@ define "Denominator Encounter":
       and AgeInYearsAt(start of E.relevantPeriod) >= 14
       and AgeInYearsAt(start of E.relevantPeriod) < 50
       and E.signingProvider.hasMeasureMembership = true
-      and not E.placeOfService = 23
+      and E.placeOfService = 23
     with "Abdominal Pain or Vaginal Bleeding" D1
       such that D1.prevalencePeriod starts during E.relevantPeriod
     with ["Diagnosis": "Other Condition Complicating Pregnancy"] D2

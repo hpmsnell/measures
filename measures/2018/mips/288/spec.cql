@@ -32,7 +32,8 @@ define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 288 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
       and E.signingProvider.hasMeasureMembership = true
-      and not E.code.modifier in {'GQ', 'GT'}
+      and not E.code.modifier in {'GQ','GT','95'}
+      and not E.placeOfService in {'02'}
     with ["Diagnosis": "MIPS; Dementia"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod
 
@@ -43,7 +44,7 @@ define "Numerator Performance Met: 4322F":
   /*
    * config_link_id: 4322F
    */
-  exists(["Procedure, Performed": "MIPS; Performance Met: 4322F"] P 
+  exists(["Procedure, Performed": "MIPS; Performance Met: 4322F"] P
     with "Denominator Encounter" E
       such that P.relaventPeriod starts on or 12 months or less before start of E.relevantPeriod
 

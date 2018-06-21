@@ -1,0 +1,94 @@
+---
+measure:
+  name: 18.MIPS.Mips425
+  required:
+    display_title: Photodocumentation of Cecal Intubation
+    inverse: false
+    subject_type: Encounter
+    set: MIPS
+    external_id: 425
+    version:
+  optional:
+    description: 'The rate of screening and surveillance colonoscopies for which photodocumentation
+      of landmarks of cecal intubation is performed to establish a complete examination'
+    gap_resolution_action:
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: ""
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'Patients for whom a screening or surveillance colonoscopy was performed'
+  component_groups:
+  - validation_record_table_count: 10
+    components:
+    - display_title: Procedure
+      show_codes: true
+      annotation: 'Without modifier: 73, 74'
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 425 Procedure
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: G9613
+    description: Patient excluded due to documentation of post-surgical anatomy
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title:  'Quality Data Code: G9613'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: MIPS; Post-Surgical Colon Anatomy
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: Post-Surgical Colon Anatomy
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: Able; Colon Surgery
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Number of patients undergoing screening or surveillance colonoscopy
+    who have photodocumentation of landmarks of cecal intubation to establish a complete
+    examination'
+  reasons:
+  - config_link_id: G9612
+    code_value: G9612
+    display_title: G9612
+    description: Photodocumentation of one or more cecal landmarks to establish a
+      complete examination
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G9612'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9612'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9614
+    code_value: G9614
+    display_title: G9614
+    description: No photodocumentation of cecal landmarks to establish a complete
+      examination
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G9614'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9614'

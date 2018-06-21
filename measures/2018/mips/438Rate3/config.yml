@@ -1,0 +1,238 @@
+---
+measure:
+  name: 18.MIPS.Mips438Rate3
+  required:
+    display_title: 'Statin Therapy for the Prevention and Treatment of Cardiovascular
+      Disease: Patients with Diabetes and LDL-C 70-189'
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: '438'
+    rate_id: '3'
+    version:
+  optional:
+    description: 'Percentage of adults aged 40-75 years with a diagnosis of diabetes
+      with a fasting or direct LDL-C level of 70-189 mg/dL who were prescribed or
+      were on statin therapy during the performance period'
+    gap_resolution_action:
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'Internal Medicine, Cardiology, General Practice/Family Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'Patients aged 40 to 75 years at the beginning of the measurement period
+    with Type 1 or Type 2 diabetes and with a LDL-C result of 70-189 mg/dL recorded
+    as the highest fasting or direct laboratory test result in the measurement year
+    or during the two years prior to the beginning of the measurement period'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 438 Encounter
+  - logical_operator: 'AND'
+    validation_record_table_count: 1
+    components:
+    - display_title: Diabetes
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; MIPS 438 Diabetes
+  - logical_operator: 'AND'
+    validation_record_table_count: 1
+    components:
+    - display_title: LDL 70-189 mg/dL
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; LDL 70-189 mg/dL
+    - logical_operator: 'OR'
+      display_title: LDL 70-189 mg/dL
+      show_codes: true
+      annotation: 'With result: 70-189 mg/dL'
+      records:
+      - model: LaboratoryTestPerformed
+        value_set: VSAC; LDL Test
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Pregnancy or Breastfeeding
+    description: Patient excluded due to pregnancy or breastfeeding
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9778 (Pregnancy)'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: MIPS; Pregnancy Exclusion
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9779 (Breastfeeding)'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: MIPS; Breastfeeding Exclusion
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: Pregnancy or Breastfeeding
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: VSAC; Pregnancy Dx
+        - model: ClinicalActivity
+          value_set: MIPS; Breastfeeding Exclusion
+        - model: Diagnosis
+          value_set: VSAC; Breastfeeding
+  - config_link_id: exclusion_2
+    code_value:
+    display_title: G9780
+    description: Patient excluded due to a diagnosis of rhabdomyolysis
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9780'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: MIPS; Rhabdomyolysis Exclusion
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: Rhabdomyolysis
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: VSAC; Rhabdomyolysis
+exception:
+  description:
+  reasons:
+  - config_link_id: G9781
+    code_value: G9781
+    display_title: G9781
+    description: Documentation of medical reason(s) for not currently being a statin
+      therapy user or receive an order (prescription) for statin therapy (e.g., patient
+      with adverse effect, allergy or intolerance to statin medication therapy, patients
+      who are receiving palliative care, patients with active liver disease or hepatic
+      disease or insufficiency, and patients with end stage renal disease (ESRD)
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9781'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G9781'
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: Allergy to Statin
+        show_codes: false
+        records:
+        - model: Allergy
+          value_set: VSAC; Statin Allergen
+        - model: Diagnosis
+          value_set: Able; Allergy to Statin
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Palliative Care
+        - model: ClinicalActivity
+          value_set: MIPS; MIPS Hospice Service
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: Liver or Kidney Condition
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: VSAC; End Stage Renal Disease
+        - model: Diagnosis
+          value_set: VSAC; Liver Disease
+        - model: Diagnosis
+          value_set: VSAC; Hepatitis A
+        - model: Diagnosis
+          value_set: VSAC; Hepatitis B
+  - config_link_id: G9783
+    code_value: G9783
+    display_title: G9783
+    description: Documentation of patients with diabetes who have a most recent fasting
+      or direct LDL- C laboratory test result < 70 mg/dL and are not taking statin therapy
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9783'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G9783'
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: LDL < 70 mg/dL
+        show_codes: true
+        annotation: 'With result: < 70 mg/dL'
+        records:
+        - model: LaboratoryTestPerformed
+          value_set: VSAC; LDL Test
+performance_met:
+  description: 'Patients who are actively using or who receive an order (prescription)
+    for statin therapy at any point during the measurement period'
+  reasons:
+  - config_link_id: G9664
+    code_value: G9664
+    display_title: G9664
+    description: Patients who are currently statin therapy users or received an order
+      (prescription) for statin therapy
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9664'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9664'
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: Statin Therapy
+        show_codes: false
+        records:
+        - model: Medication
+          value_set: VSAC; Low intensity statin therapy
+        - model: Medication
+          value_set: VSAC; Moderate intensity statin therapy
+        - model: Medication
+          value_set: VSAC; High intensity statin therapy
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9665
+    code_value: G9665
+    display_title: G9665
+    description: Patients who are not currently statin therapy users or did not receive
+      an order (prescription) for statin therapy
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9665'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9665'

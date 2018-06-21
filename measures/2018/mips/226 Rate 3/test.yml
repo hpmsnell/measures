@@ -32,6 +32,16 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator:
+      - name: DenominatorEncounter InvalidModifier
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorEncounter InvalidPOS
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
       - name: 226Encounter DifferentProviders # 226 encounters with different providers
         denominator: 1
         denominator_exclusion:
@@ -611,6 +621,40 @@ patients:
         code_value: 90791
         start_date: 2017-01-01
         provider: Rachel
+      - code_type: CPT
+        code_value: 90792
+        start_date: 2016-01-01
+        provider: Rachel
+  - name: DenominatorEncounter InvalidModifier
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: DenominatorEncounter
+      family_name: InvalidModifier
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90791
+        start_date: 2016-12-31
+        provider: Rachel
+      - code_type: CPT
+        code_value: 90792
+        start_date: 2016-01-01
+        provider: Rachel
+        code_modifiers: ['GQ']
+  - name: DenominatorEncounter InvalidPOS
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: DenominatorEncounter
+      family_name: InvalidPOS
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90791
+        start_date: 2016-12-31
+        provider: Rachel
+        place_of_service: '02'
       - code_type: CPT
         code_value: 90792
         start_date: 2016-01-01

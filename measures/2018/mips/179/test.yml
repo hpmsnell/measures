@@ -1,0 +1,579 @@
+measure_id: 17.MIPS.Mips179
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Too Young
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3475F-8P
+    - name: DenominatorEncounter Before # Early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter Lower # Lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3475F-8P
+    - name: DenominatorEncounter Upper # Upper Bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3475F-8P
+    - name: DenominatorEncounter After # Late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter InvalidModifier
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter InvalidPOS
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorDiagnosis Before # Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorDiagnosis Lower # Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3475F-8P
+    - name: DenominatorDiagnosis Upper # Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3475F-8P
+    - name: DenominatorDiagnosis After # After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: 3475F Before # Early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3475F-8P
+    - name: 3475F Lower # Lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3475F
+    - name: 3475F Upper # Upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3475F
+    - name: 3475F After # Late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3475F-8P
+    - name: 3476F Before # Early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3475F-8P
+    - name: 3476F Lower # Lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3476F
+    - name: 3476F Upper # Upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3476F
+    - name: 3476F After # Late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3475F-8P
+  providers_key:
+    - name: Rachel
+      patients:
+      - name: Too Young
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3475F-8P
+      - name: DenominatorEncounter Before # Early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorEncounter Lower # Lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3475F-8P
+      - name: DenominatorEncounter Upper # Upper Bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3475F-8P
+      - name: DenominatorEncounter After # Late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorDiagnosis Before # Before
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorDiagnosis Lower # Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3475F-8P
+      - name: DenominatorDiagnosis Upper # Upper
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3475F-8P
+      - name: DenominatorDiagnosis After # After
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: 3475F Before # Early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3475F-8P
+      - name: 3475F Lower # Lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3475F
+      - name: 3475F Upper # Upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3475F
+      - name: 3475F After # Late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 3475F-8P
+      - name: 3476F Before # Early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: 3476F Lower # Lower bound
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: 3476F Upper # Upper bound
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: 3476F After # Late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+providers:
+- given_name: Rachel
+  family_name:  Katz
+  credential: DO
+  primary_specialty:  Family Medicine
+  external_id: '111-111'
+- given_name: Patty
+  family_name:  Smith
+  credential: MD
+  primary_specialty:  Family Medicine
+  external_id: '222-222'
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1998-02-02 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2016-02-01
+- name: Age Lower
+  attributes:
+    date_of_birth: 1998-02-01 # Lower bound
+    given_name: Age
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2016-02-01
+- name: DenominatorEncounter Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2015-12-31 # Too early
+      stop_date: 2015-12-31
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2015-12-31
+- name: DenominatorEncounter Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2016-01-01
+- name: DenominatorEncounter Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-12-31 # Upper bound
+      stop_date: 2016-12-31
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2016-12-31
+- name: DenominatorEncounter After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2017-01-01 # Too late
+      stop_date: 2017-01-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2017-01-01
+- name: DenominatorEncounter InvalidModifier
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: InvalidModifier
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-12-31 # Upper bound
+      stop_date: 2016-12-31
+      provider: Rachel
+      code_modifiers: ['GQ']
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2016-12-31
+- name: DenominatorEncounter InvalidPOS
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: InvalidPOS
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-12-31 # Upper bound
+      stop_date: 2016-12-31
+      provider: Rachel
+      place_of_service: '02'
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2016-12-31
+- name: DenominatorDiagnosis Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorDiagnosis
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2016-01-30
+      stop_date: 2016-01-31 # Early
+- name: DenominatorDiagnosis Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorDiagnosis
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2016-01-31
+      stop_date: 2016-02-01 # Lower
+- name: DenominatorDiagnosis Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorDiagnosis
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2016-02-02 # Upper
+      stop_date: 2016-02-02
+- name: DenominatorDiagnosis After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorDiagnosis
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2016-02-03 # Late
+      stop_date: 2016-02-03
+- name: 3475F Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: 3475F
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3475F
+      start_date: 2015-12-31 # Too early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2016-02-01
+- name: 3475F Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: 3475F
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3475F
+      start_date: 2016-01-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2016-02-01
+- name: 3475F Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: 3475F
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3475F
+      start_date: 2016-12-31 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2016-02-01
+- name: 3475F After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: 3475F
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 3475F
+      start_date: 2017-01-01 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2016-02-01
+- name: 3476F Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: 3476F
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: 3476F
+      start_date: 2015-12-31 # Too early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2016-02-01
+- name: 3476F Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: 3476F
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: 3476F
+      start_date: 2016-01-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2016-02-01
+- name: 3476F Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: 3476F
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: 3476F
+      start_date: 2016-12-31 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2016-02-01
+- name: 3476F After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: 3476F
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    - code_type: CPT
+      code_value: 3476F
+      start_date: 2017-01-01 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M05.00
+      start_date: 2016-02-01

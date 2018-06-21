@@ -1,0 +1,99 @@
+---
+measure:
+  name: 18.MIPS.Mips265
+  required:
+    display_title: Biopsy Follow-Up
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: 265
+    version:
+  optional:
+    description: 'Percentage of new patients whose biopsy results have been reviewed
+      and communicated to the primary care/referring physician and patient by the
+      performing physician'
+    gap_resolution_action: Patient is due for a biopsy follow-up
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Dermatology, Interventional Radiology, Obstetrics/Gynecology,
+      Urology'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients undergoing a biopsy'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 265 Encounter
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: Biopsy
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; Biopsy
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: G8884
+    code_value: G8884
+    display_title: G8884
+    description: Clinician documented reason that patient’s biopsy results were not
+      reviewed (e.g., patient asks that biopsy results not be communicated to the
+      primary care/referring physician, patient does not have a primary care/referring
+      physician or is a self-referred patient)
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G8884"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G8884'
+performance_met:
+  description: 'Patients whose biopsy results have been reviewed and communicated
+    to the primary care/referring physician and the patient by the provider and/or
+    office and medical team. There must also be acknowledgement and/or documentation
+    of the communication in a biopsy tracking log and document in the patient’s medical
+    record'
+  reasons:
+  - config_link_id: G8883
+    code_value: G8883
+    display_title: G8883
+    description: Biopsy results reviewed, communicated, tracked, and documented
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G8883"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8883'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G8885
+    code_value: G8885
+    display_title: G8885
+    description: Biopsy results not reviewed, communicated, tracked, or documented
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G8885"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G8885'

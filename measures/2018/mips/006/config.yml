@@ -1,0 +1,161 @@
+---
+measure:
+  name: 18.MIPS.Mips006
+  required:
+    display_title: 'Coronary Artery Disease (CAD): Antiplatelet Therapy'
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: '006'
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older with a diagnosis
+      of coronary artery disease (CAD) seen within a 12 month period who were prescribed
+      aspirin or clopidogrel'
+    gap_resolution_action: Patient is due for antiplatelet therapy
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'Cardiology'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 years and older with a diagnosis of coronary
+    artery disease seen within a 12 month period'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 006 Encounter
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: Coronary Artery Disease (CAD)
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; Coronary Artery Disease (CAD)
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: 4086F-1P
+    code_value: 4086F-1P
+    display_title: 4086F-1P
+    description: Patient is excepted for documentation of medical reason(s) for not
+      prescribing aspirin or clopidogrel (e.g., allergy, intolerance, receiving other
+      thienopyridine therapy, receiving warfarin therapy, or bleeding coagulation
+      disorders)
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: 4086F-1P"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: 4086F-1P'
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Allergy to Aspirin or Clopidogrel
+        show_codes: false
+        records:
+        - model: Allergy
+          value_set: Able; Aspirin and Clopidogrel
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Other Thienopyridine Agent
+        show_codes: false
+        records:
+        - model: Medication
+          value_set: Able; Other Thienopyridine Agent
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Warfarin
+        show_codes: false
+        records:
+        - model: Medication
+          value_set: VSAC; Warfarin
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Thrombocytopenia
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: Able; Thrombocytopenia
+  - config_link_id: 4086F-2P
+    code_value: 4086F-2P
+    display_title: 4086F-2P
+    description: Patient is excepted due to refusal
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: 4086F-2P"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: 4086F-2P'
+  - config_link_id: 4086F-3P
+    code_value: 4086F-3P
+    display_title: 4086F-3P
+    description: Patient excepted due to system reason
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: 4086-3P"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: 4086F-3P'
+performance_met:
+  description: 'Patients who were prescribed aspirin or clopidogrel'
+  reasons:
+  - config_link_id: 4086F
+    code_value: 4086F
+    display_title: 4086F
+    description: Patient was prescribed appropriate antiplatlet agent for coronary
+      artery disease
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: 4086F"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: 4086F'
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Aspirin or Clopidogrel
+        show_codes: false
+        records:
+        - model: Medication
+          value_set: Able; Aspirin and Clopidogrel
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: 4086F-8P
+    code_value: 4086F-8P
+    display_title: 4086F-8P
+    description: Patient was not prescribed an appropriate antiplatelet agent for
+      coronary artery disease (CAD)
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: 4086F-8P"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: 4086F-8P'

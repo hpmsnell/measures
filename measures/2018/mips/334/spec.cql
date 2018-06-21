@@ -37,7 +37,8 @@ define "Denominator Encounter":
     where E.relevantPeriod starts during "Chronic Sinusitis Interval"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
-      and not E.code.modifier in "MIPS; Telehealth Modifier"
+      and not E.code.modifier in {'GQ','GT','95'}
+      and not E.placeOfService in {'02'}
     with ["Diagnosis": "MIPS; Chronic Sinusitis"] D
       such that D.prevalencePeriod starts during E.relevantPeriod
 

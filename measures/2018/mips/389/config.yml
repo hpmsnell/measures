@@ -1,0 +1,76 @@
+---
+measure:
+  name: 18.MIPS.Mips389
+  required:
+    display_title: 'Cataract Surgery: Difference Between Planned and Final Refraction'
+    inverse: false
+    subject_type: Encounter
+    set: MIPS
+    external_id: 389
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older who had cataract
+      surgery performed and who achieved a final refraction within +/- 1.0 diopters
+      of their planned (target) refraction'
+    gap_resolution_action:
+    version: 2018
+    mips_measure_type: Outcome
+    mips_high_priority: true
+    mips_specialty_sets: 'Ophthalmology'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 years and older who had cataract surgery'
+  component_groups:
+  - validation_record_table_count: 10
+    components:
+    - display_title: Procedure
+      show_codes: true
+      annotation: 'Without modifier: 55, 56'
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 389 Procedure
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patients who achieved a final refraction (spherical equivalent) of
+    +/- 1.0 diopters of their planned (target) refraction (spherical equivalent) within
+    90 days following cataract surgery. The refraction planned and final refraction
+    values should correspond to the eye that underwent the cataract procedure'
+  reasons:
+  - config_link_id: G9519
+    code_value: G9519
+    display_title: G9519
+    description: Patient achieves final refraction (spherical equivalent) +/- 1.0
+      Diopters of their planned refraction within 90 days of surgery
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G9519'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9519'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9520
+    code_value: G9520
+    display_title: G9520
+    description: Patient does not achieve final refraction (spherical equivalent)
+      +/- 1.0 Diopters of their planned refraction within 90 days of surgery
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G9520'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9520'

@@ -1,0 +1,159 @@
+---
+measure:
+  name: 18.MIPS.Mips131
+  required:
+    display_title: Pain Assessment and Follow-Up
+    inverse: false
+    subject_type: Encounter
+    set: MIPS
+    external_id: 131
+    version:
+  optional:
+    description: 'Percentage of visits for patients aged 18 years and older with documentation
+      of a pain assessment using a standardized tool(s) on each visit AND documentation
+      of a follow-up plan when pain is present'
+    gap_resolution_action:
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Physical Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All visits for patients aged 18 years and older'
+  component_groups:
+  - validation_record_table_count: 20
+    components:
+    - display_title: Encounter
+      show_codes: true
+      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 131 Encounter
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: G8442
+    code_value: G8442
+    display_title: G8442
+    description: Pain assessment NOT documented as being performed, documentation
+      the patient is not eligible for a pain assessment using a standardized tool
+    component_groups:
+    - validation_record_table_count: 20
+      components:
+      - display_title: 'Quality Data Code: G8442'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G8442'
+  - config_link_id: G8939
+    code_value: G8939
+    display_title: G8939
+    description: 'Pain assessment documented as positive, follow-up plan not documented,
+      documentation the patient is not eligible '
+    component_groups:
+    - validation_record_table_count: 20
+      components:
+      - display_title: 'Quality Data Code: G8939'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G8939'
+performance_met:
+  description: 'Patient visits with a documented pain assessment using a standardized
+    tool(s) AND documentation of a follow-up plan when pain is present'
+  reasons:
+  - config_link_id: G8730
+    code_value: G8730
+    display_title: G8730
+    description: Pain assessment documented as positive using a standardized tool
+      AND a follow-up plan is documented
+    component_groups:
+    - validation_record_table_count: 20
+      components:
+      - display_title: 'Quality Data Code: G8730'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8730'
+    - validation_record_table_count: 20
+      logical_operator: OR
+      components:
+      - display_title: Positiive Standardized Pain Assessment
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: Able; Standardized Pain Assessment Tool
+      - display_title: Follow-up Plan
+        logical_operator: AND
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: Able; Pain Intervention
+        - model: Medication
+          value_set: Able; Opioids Used for Pain Control
+        - model: Medication
+          value_set: Able; Selected Non Opioids for Moderate to Severe Pain
+  - config_link_id: G8731
+    code_value: G8731
+    display_title: G8731
+    description: Pain assessment using a standardized tool is documented as negative,
+      no follow-up plan required
+    component_groups:
+    - validation_record_table_count: 20
+      components:
+      - display_title: 'Quality Data Code: G8731'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8731'
+    - validation_record_table_count: 20
+      logical_operator: OR
+      components:
+      - display_title: Negative Standardized Pain Assessment
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: Able; Standardized Pain Assessment Tool
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G8509
+    code_value: G8509
+    display_title: G8509
+    description: Pain assessment documented as positive using a standardized tool,
+      follow-up plan not documented, reason not given
+    component_groups:
+    - validation_record_table_count: 20
+      components:
+      - display_title: 'Quality Data Code: G8509'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G8509'
+    - validation_record_table_count: 20
+      logical_operator: OR
+      components:
+      - display_title: Positive Standardized Pain Assessment
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: Able; Standardized Pain Assessment Tool
+  - config_link_id: G8732
+    code_value: G8732
+    display_title: G8732
+    description: No documentation of pain assessment, reason not given
+    component_groups:
+    - validation_record_table_count: 20
+      components:
+      - display_title: 'Quality Data Code: G8732'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G8732'

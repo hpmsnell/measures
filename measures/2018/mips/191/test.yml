@@ -38,6 +38,12 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator:
+      - name: Denominator Encounter # Invalid Modifier
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
       - name: Excluded Diagnosis # Diagnosis exclusion before interval
         start_date: 2016-02-01
         denominator: 1
@@ -344,6 +350,12 @@ patients:
       code_value: 66840
       start_date: 2016-10-01
       provider: Rachel
+    - code_type: CPT
+      code_value: 66840
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+      code_modifiers: [’55’] #invalid modifier
 - name: Excluded Diagnosis
   attributes:
     date_of_birth: 1988-03-22
