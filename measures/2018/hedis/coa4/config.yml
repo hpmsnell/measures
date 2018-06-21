@@ -8,7 +8,8 @@ measure:
     set: HEDIS
     external_id: COA4
   optional:
-    description:
+    description: The percentage of adults 66 years and older who had a
+    pain assessment during the measurement year.
     gap_resolution_action: Patient is due for pain assessment
     version: 2018
     mips_measure_type:
@@ -20,8 +21,18 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description:
+  description: Patients 66 years and older as of December 31 of the measurement year.
   component_groups:
+  - validation_record_table_count: 10
+    logical_operator: NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
 exclusion:
   description:
   reasons:
@@ -33,13 +44,13 @@ performance_met:
   reasons:
   - config_link_id: performance_met
     code_value:
-    display_title: performance_met
+    display_title: Pain Assessment Performed
     description: Pain assessment performed during the measurement period
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title:
-        show_codes: true
+      - display_title: Pain Assessment
+        show_codes: false
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Pain Assessment
@@ -52,17 +63,6 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: performance_not_met
+    display_title: No Pain Assessment Found
     description: No pain assessment found during the measurement period
     component_groups:
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Pain Assessment
-        - model: ClinicalActivity
-          value_set: Able; Standardized Pain Assessment Tool
-        - model: ClinicalActivity
-          value_set: Able; Pain Assessments

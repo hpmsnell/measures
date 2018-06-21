@@ -29,6 +29,16 @@ denominator:
       records:
       - model: Medication
         value_set: VSAC; ACE Inhibitor/ARB
+  - validation_record_table_count: 10
+    logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
 exclusion:
   description:
   reasons:
@@ -54,7 +64,7 @@ performance_met:
   reasons:
   - config_link_id: performance_met
     code_value:
-    display_title: performance_met
+    display_title: Serum Potassium and Serum Creatinine Tests Received
     description: Patient received at least one serum potassium and a serum creatinine therapeutic monitoring test
     component_groups:
     - validation_record_table_count: 1
@@ -87,6 +97,6 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: performance_not_met
+    display_title: No Serum Potassium or Serum Creatinine Tests Found
     description: No serum potassium and/or serum creatinine therapeutic monitoring test found during the measurement period
     component_groups:

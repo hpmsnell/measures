@@ -8,7 +8,8 @@ measure:
     set: HEDIS
     external_id: CDC1
   optional:
-    description:
+    description: Patients 18–75 years of age with diabetes (type 1 and type 2)
+    who had an Hemoglobin A1c (HbA1c) test.
     gap_resolution_action: Patient is due for an HbA1c test
     version: 2018
     mips_measure_type:
@@ -20,35 +21,29 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description:
+  description: Patients 18–75 years as of December 31 with a diagnosis of
+  diabetes with two outpatient visits with different dates of service or one
+  nonacute inpatient discharge between during the measurement year and one year 
+  before the measurement year.
   component_groups:
-exclusion:
-  description:
-  reasons:
-  - config_link_id: exclusion_1
-    code_value:
-    display_title: exclusion_1
-    description: Patient excluded due to a diagnosis of gestational diabetes or steroid-induced
-      diabetes
-    component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Diabetes
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Diabetes
     - validation_record_table_count: 1
+      logical_operator: AND
       components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: HEDIS; Diabetes
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
+      - display_title: Acute Inpatient Encounter
+        show_codes: false
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Acute Inpatient
-    - validation_record_table_count: 2
-      components:
-      - display_title:
-        show_codes: true
+      - display_title: 2 Outpatient Visits
+        logical_operator: OR
+        show_codes: false
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Outpatient
@@ -58,18 +53,32 @@ exclusion:
           value_set: HEDIS; ED
         - model: ClinicalActivity
           value_set: HEDIS; Nonacute Inpatient
+    - validation_record_table_count: 10
+      logical_operator: AND NOT
+      components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: MIPS; MIPS Hospice Service
+        - model: ClinicalActivity
+          value_set: VSAC; Palliative Care
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Gestational or Steriod-Induced Diabetes
+    description: Patient excluded due to a diagnosis of gestational diabetes or steroid-induced
+      diabetes
+    component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title:
-        show_codes: true
+      - display_title: Gestational or Steriod-Induced Diabetes
+        show_codes: false
         records:
         - model: Medication
           value_set: HEDIS; Diabetes Medications
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
         - model: Diagnosis
           value_set: HEDIS; Diabetes Exclusions
 exception:
@@ -80,47 +89,13 @@ performance_met:
   reasons:
   - config_link_id: performance_met
     code_value:
-    display_title: performance_met
+    display_title: HbA1c Test
     description: Patient received an HbA1c test
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: HEDIS; Diabetes
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Acute Inpatient
-    - validation_record_table_count: 2
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Outpatient
-        - model: ClinicalActivity
-          value_set: HEDIS; Observation
-        - model: ClinicalActivity
-          value_set: HEDIS; ED
-        - model: ClinicalActivity
-          value_set: HEDIS; Nonacute Inpatient
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: Medication
-          value_set: HEDIS; Diabetes Medications
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
+      - display_title: HbA1c Test
+        show_codes: false
         records:
         - model: ClinicalActivity
           value_set: HEDIS; HbA1c Tests
@@ -133,51 +108,6 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: performance_not_met
+    display_title: No HbA1c Test Found
     description: No HbA1c test found in the appropriate timeframe
     component_groups:
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: HEDIS; Diabetes
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Acute Inpatient
-    - validation_record_table_count: 2
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Outpatient
-        - model: ClinicalActivity
-          value_set: HEDIS; Observation
-        - model: ClinicalActivity
-          value_set: HEDIS; ED
-        - model: ClinicalActivity
-          value_set: HEDIS; Nonacute Inpatient
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: Medication
-          value_set: HEDIS; Diabetes Medications
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; HbA1c Tests
-        - model: LaboratoryTestPerformed
-          value_set: HEDIS; HbA1c Tests
-        - model: LaboratoryTestPerformed
-          value_set: Able; HbA1c Laboratory Test

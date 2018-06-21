@@ -31,6 +31,16 @@ denominator:
         value_set: HEDIS; Deliveries
       - model: Diagnosis
         value_set: HEDIS; Non-live Births
+  - validation_record_table_count: 10
+    logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
 exclusion:
   description:
   reasons:
@@ -42,7 +52,7 @@ performance_met:
   reasons:
   - config_link_id: performance_met
     code_value:
-    display_title: performance_met
+    display_title: Postpartum Visit
     description: Patient received a postpartum visit
     component_groups:
     - validation_record_table_count: 5

@@ -24,7 +24,7 @@ denominator:
   component_groups:
   - validation_record_table_count: 5
     components:
-    - display_title: Visit or Discharge
+    - display_title: 2 Visits or Discharges
       show_codes: false
       records:
       - model: ClinicalActivity
@@ -34,12 +34,23 @@ denominator:
       - model: ClinicalActivity
         value_set: HEDIS; NonAcute Inpatient Stay
     - validation_record_table_count: 5
+      logical_operator: AND
       components:
       - display_title: Rheumatoid Arthritis
         show_codes: false
         records:
         - model: Diagnosis
           value_set: HEDIS; Rheumatoid Arthritis
+    - validation_record_table_count: 10
+      logical_operator: AND NOT
+      components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: MIPS; MIPS Hospice Service
+        - model: ClinicalActivity
+          value_set: VSAC; Palliative Care
 exclusion:
   description:
   reasons:
@@ -94,6 +105,6 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: performance_not_met
+    display_title: No Ambulatory Medication Dispensed for DMARD
     description: No ambulatory medication dispensed for DMARD during the measurement year
     component_groups:
