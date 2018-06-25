@@ -29,6 +29,12 @@ denominator:
       records:
       - model: ClinicalActivity
         value_set: HEDIS; Deliveries
+  - validation_record_table_count: 5
+    logical_operator: AND Not
+    components:
+    - display_title: Non-Live Births
+      show_codes: false
+      records:
       - model: Diagnosis
         value_set: HEDIS; Non-live Births
   - validation_record_table_count: 10
