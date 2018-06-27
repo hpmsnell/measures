@@ -31,7 +31,7 @@ denominator:
     components:
     - display_title: Encounter
       show_codes: true
-      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 180 Encounter
@@ -162,5 +162,3 @@ performance_not_met:
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Not Met: 0540F-8P'
-
-annotation: 'Without telehealth modifier: GQ, GT, POS 02'

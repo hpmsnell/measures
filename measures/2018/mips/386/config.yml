@@ -7,7 +7,6 @@ measure:
     subject_type: Patient
     set: MIPS
     external_id: 386
-    version:
   optional:
     description: 'Percentage of patients diagnosed with Amyotrophic Lateral Sclerosis
       (ALS) who were offered assistance in planning for end of life issues (e.g.,
@@ -30,7 +29,7 @@ denominator:
     components:
     - display_title: Encounter
       show_codes: true
-      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 386 Encounter

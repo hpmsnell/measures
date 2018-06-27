@@ -8,7 +8,6 @@ measure:
     subject_type: Patient
     set: MIPS
     external_id: 294
-    version:
   optional:
     description: 'All patients with a diagnosis of Parkinson’s disease (or caregiver(s),
       as appropriate) who had the Parkinson’s disease treatment options (e.g., non-pharmacological
@@ -32,7 +31,7 @@ denominator:
   - validation_record_table_count: 1
     components:
     - display_title: Encounter
-    annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
       show_codes: true
       records:
       - model: ClinicalActivity

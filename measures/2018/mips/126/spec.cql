@@ -36,7 +36,8 @@ context Patient
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 126 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
-      and not E.code.modifier in {'GQ', 'GT'}
+      and not E.code.modifier in {'GQ', 'GT', '95'}
+      and not E.placeOfService in {'02'}
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; MIPS 126 Diabetes"] D

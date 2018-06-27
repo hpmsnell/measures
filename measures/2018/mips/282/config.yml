@@ -7,7 +7,6 @@ measure:
     subject_type: Patient
     set: MIPS
     external_id: 282
-    version:
   optional:
     description: 'Percentage of patients with dementia for whom an assessment of functional
       status* was performed at least once in the last 12 months.'
@@ -28,7 +27,7 @@ denominator:
     components:
     - display_title: Encounter
       show_codes: true
-      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 282 Encounter

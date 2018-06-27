@@ -7,7 +7,6 @@ measure:
     subject_type: Encounter
     set: MIPS
     external_id: '418'
-    version:
   optional:
     description: 'The percentage of women age 50-85 who suffered a fracture and
       who either had a bone mineral density test or received a prescription for
@@ -32,6 +31,7 @@ denominator:
     components:
     - display_title: 'Encounter'
       show_codes: true
+      annotation: 'Without place of service: 32, 33, 34, 54, 56'
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 418 Encounter

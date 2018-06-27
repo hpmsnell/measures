@@ -39,14 +39,14 @@ denominator:
     components:
     - display_title: 2 Encounters
       show_codes: true
+      annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 226 Encounter
-  - validation_record_table_count: 1
-    logical_operator: OR
-    components:
     - display_title: Preventive Encounter
+      logical_operator: OR
       show_codes: true
+      annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 226 Preventive Encounter

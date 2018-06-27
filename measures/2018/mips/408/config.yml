@@ -7,7 +7,6 @@ measure:
     subject_type: Patient
     set: MIPS
     external_id: 408
-    version:
   optional:
     description: 'All patients 18 and older prescribed opiates for longer than six
       weeks duration who had a follow-up evaluation conducted at least every three
@@ -31,7 +30,7 @@ denominator:
     components:
     - display_title: Encounter
       show_codes: true
-      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 408 Encounter

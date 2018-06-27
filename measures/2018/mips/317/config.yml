@@ -8,7 +8,6 @@ measure:
     subject_type: Patient
     set: MIPS
     external_id: 317
-    version:
   optional:
     description: 'Percentage of patients aged 18 years and older seen during the submitting
       period who were screened for high blood pressure AND a recommended follow-up
@@ -36,7 +35,7 @@ denominator:
     components:
     - display_title: Encounter
       show_codes: true
-      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 317 Encounter

@@ -7,7 +7,6 @@ measure:
     subject_type: Patient
     set: MIPS
     external_id: 277
-    version:
   optional:
     description: 'Percentage of patients aged 18 years and older with a diagnosis
       of obstructive sleep apnea who had an apnea hypopnea index (AHI) or a respiratory
@@ -29,7 +28,7 @@ denominator:
     components:
     - display_title: Encounter
       show_codes: true
-      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 277 Encounter

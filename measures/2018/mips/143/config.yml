@@ -38,7 +38,7 @@ denominator:
     components:
     - display_title: Encounter
       show_codes: true
-      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 143 Encounter
@@ -84,14 +84,15 @@ performance_met:
     component_groups:
     - validation_record_table_count: 15
       components:
-      - display_title:
+      - display_title: 'Quality Data Code: 1126F'
         show_codes: true
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Met: 1126F'
     - validation_record_table_count: 15
+      logical_operator: OR
       components:
-      - display_title:
+      - display_title: 'Standardized Pain Assessment Tool'
         show_codes: true
         records:
         - model: ClinicalActivity

@@ -8,7 +8,6 @@ measure:
     subject_type: Encounter
     set: MIPS
     external_id: 334
-    version:
   optional:
     description: 'Percentage of patients aged 18 years and older with a diagnosis
       of chronic sinusitis who had more than one CT scan of the paranasal sinuses
@@ -31,7 +30,7 @@ denominator:
     components:
     - display_title: Encounter
       show_codes: true
-      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 334 Encounter

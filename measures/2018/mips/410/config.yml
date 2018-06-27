@@ -7,7 +7,6 @@ measure:
     subject_type: Patient
     set: MIPS
     external_id: 410
-    version:
   optional:
     description: 'Percentage of psoriasis vulgaris patients receiving oral systemic
       or biologic therapy who meet minimal physician-or patient- reported disease
@@ -32,7 +31,7 @@ denominator:
     components:
     - display_title: Encounter
       show_codes: true
-      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 410 Encounter

@@ -7,7 +7,6 @@ measure:
     subject_type: Patient
     set: MIPS
     external_id: '286'
-    version:
   optional:
     description: 'Percentage of patients with dementia or their caregiver(s) for whom
       there was a documented safety concerns screening in two domains of risk: 1)
@@ -33,7 +32,7 @@ denominator:
     components:
     - display_title: Encounter
       show_codes: true
-      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 286 Encounter

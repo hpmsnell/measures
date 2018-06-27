@@ -34,7 +34,7 @@ denominator:
     components:
     - display_title: Encounter
       show_codes: true
-      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 224 Encounter
@@ -121,7 +121,7 @@ performance_not_met:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Not Met: 3319F'
     - validation_record_table_count: 1
-      logical operator: OR
+      logical_operator: OR
       components:
       - display_title: Diagnostic Imaging Study
         show_codes: false
