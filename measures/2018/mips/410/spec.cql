@@ -69,7 +69,8 @@ define "Denominator Exception: G9765":
    * config_link_id: G9765
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: G9765"] P
-    where P.relevantPeriod starts during "Measurement Year")
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts during E.relevantPeriod)
 
 define "Numerator Performance Not Met: G9651":
   /*

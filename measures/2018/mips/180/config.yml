@@ -31,7 +31,6 @@ denominator:
     components:
     - display_title: Encounter
       show_codes: true
-      annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 180 Encounter
@@ -96,7 +95,7 @@ performance_met:
     description: Patient receiving < 10 mg daily prednisone (or equivalent), or RA
       activity is worsening, or glucocorticoid use is for less than 6 months
     component_groups:
-    - validation_record_table_count: 1]
+    - validation_record_table_count: 1
       components:
       - display_title: 'Quality Data Code: 4193F'
         show_codes: true

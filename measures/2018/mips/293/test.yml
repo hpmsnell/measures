@@ -2,16 +2,6 @@ measure_id: 18.MIPS.Mips293
 test_set_keys:
   organization_key:
     patients:
-    - name: Too Young # Patient is too young
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Age Lower # Patient is at lower age bound
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 4400F-8P
     - name: Encounter Before # Encounter before allowable period
       denominator:
       denominator_exclusion:
@@ -105,16 +95,6 @@ test_set_keys:
   providers_key:
   - name: Rachel
     patients:
-    - name: Too Young # Patient is too young
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Age Lower # Patient is at lower age bound
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 4400F-8P
     - name: Encounter Before # Encounter before allowable period
       denominator:
       denominator_exclusion:
@@ -430,7 +410,7 @@ patients:
       provider: Rachel
     - code_type: CPT
       code_value: 4400F # Performance Met
-      start_date: 2015-12-31 # Early
+      start_date: 2015-01-31 # Early
     diagnoses:
     - code_type: ICD10CM
       code_value: G20
@@ -450,7 +430,7 @@ patients:
       provider: Rachel
     - code_type: CPT
       code_value: 4400F # Performance Met
-      start_date: 2016-01-01 # Lower
+      start_date: 2015-02-01 # Lower
     diagnoses:
     - code_type: ICD10CM
       code_value: G20
@@ -466,11 +446,11 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-02-01
-      stop_date: 2016-02-02
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 4400F # Performance Met
-      start_date: 2016-12-31 # Upper
+      start_date: 2016-02-01 # Upper
     diagnoses:
     - code_type: ICD10CM
       code_value: G20
@@ -486,11 +466,11 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-02-01
-      stop_date: 2016-02-02
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: 4400F # Performance Met
-      start_date: 2017-01-01 # Late
+      start_date: 2016-02-02 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: G20
@@ -511,7 +491,7 @@ patients:
     - code_type: CPT
       code_value: 4400F # Exception
       code_modifiers: ['1P']
-      start_date: 2015-12-31 # Early
+      start_date: 2016-01-31 # Early
     diagnoses:
     - code_type: ICD10CM
       code_value: G20
@@ -532,7 +512,7 @@ patients:
     - code_type: CPT
       code_value: 4400F # Exception
       code_modifiers: ['1P']
-      start_date: 2016-01-01 # Lower
+      start_date: 2016-02-01 # Lower
     diagnoses:
     - code_type: ICD10CM
       code_value: G20
@@ -553,7 +533,7 @@ patients:
     - code_type: CPT
       code_value: 4400F # Exception
       code_modifiers: ['1P']
-      start_date: 2016-12-31 # Upper
+      start_date: 2016-02-02 # Upper
     diagnoses:
     - code_type: ICD10CM
       code_value: G20
@@ -574,7 +554,7 @@ patients:
     - code_type: CPT
       code_value: 4400F # Exception
       code_modifiers: ['1P']
-      start_date: 2017-01-01 # Late
+      start_date: 2016-02-03 # Late
     diagnoses:
     - code_type: ICD10CM
       code_value: G20
