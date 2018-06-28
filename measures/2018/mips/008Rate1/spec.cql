@@ -66,6 +66,8 @@ define "Medical Exception":
   union ["Diagnosis": "VSAC; Asthma"]
   union ["Diagnosis": "VSAC; Bradycardia"]
 
+/* Populations */
+
 define "Denominator":
   exists("Denominator Encounter with Diagnosis")
   and count("Denominator Encounter") >= 2
@@ -75,11 +77,11 @@ define "Numerator Performance Met: G8450":
    * config_link_id: G8450
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G8450"] P
-    where P.relevantPeriod starts during "Measurement Period")
-  or exists(["Medication, Order": "VSAC; Beta Blocker Therapy"] M
-    where M.relevantPeriod starts during "Measurement Period")
-  or exists(["Medication, Active": "VSAC; Beta Blocker Therapy"] M
-    where M.relevantPeriod overlaps "Measurement Period")
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts during E.relevantPeriod)
+  or exists(["Medication": "VSAC; Beta Blocker Therapy"] M
+    with "Denominator Encounter" E
+      such that M.relevantPeriod overlaps E.relevantPeriod)
 
 define "Denominator Exception: G8451":
   /*
@@ -87,9 +89,10 @@ define "Denominator Exception: G8451":
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: G8451"] P
     with "Denominator Encounter with Diagnosis" E
-      such that P.relevantPeriod starts during E.relevantPeriod
+      such that P.relevantPeriod starts during E.relevantPeriod)
   or exists("Medical Exception" D
-    where D.prevalencePeriod overlaps E.relevantPeriod)
+    with "Denominator Encounter with Diagnosis" E
+      such that D.prevalencePeriod overlaps E.relevantPeriod)
 
 define "Numerator Performance Not Met: G8452":
   /*

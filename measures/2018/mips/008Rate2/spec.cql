@@ -61,6 +61,8 @@ define "Medical Exception":
   union ["Diagnosis": "VSAC; Asthma"]
   union ["Diagnosis": "VSAC; Bradycardia"]
 
+/* Populations */
+
 define "Denominator":
   "Denominator Encounter"
 
