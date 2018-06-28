@@ -25,7 +25,7 @@ denominator:
   - validation_record_table_count: 5
     components:
     - display_title: 2 Visits or Discharges
-      show_codes: false
+      show_codes: true
       records:
       - model: ClinicalActivity
         value_set: HEDIS; Outpatient Visit
@@ -37,7 +37,7 @@ denominator:
       logical_operator: AND
       components:
       - display_title: Rheumatoid Arthritis
-        show_codes: false
+        show_codes: true
         records:
         - model: Diagnosis
           value_set: HEDIS; Rheumatoid Arthritis
@@ -62,7 +62,7 @@ exclusion:
     - validation_record_table_count: 5
       components:
       - display_title: HIV
-        show_codes: false
+        show_codes: true
         records:
         - model: Diagnosis
           value_set: HEDIS; HIV
@@ -76,7 +76,7 @@ exclusion:
       - validation_record_table_count: 5
         components:
         - display_title: Pregnancy
-          show_codes: false
+          show_codes: true
           records:
           - model: Diagnosis
             value_set: HEDIS; Pregnancy
@@ -88,13 +88,13 @@ performance_met:
   reasons:
   - config_link_id: performance_met
     code_value:
-    display_title:
+    display_title: DMARD
     description: Patient received an ambulatory prescription dispensed for DMARD
     component_groups:
     - validation_record_table_count: 5
       components:
       - display_title: DMARD
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; DMARD
@@ -105,6 +105,6 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: No Ambulatory Medication Dispensed for DMARD
+    display_title: No DMARD
     description: No ambulatory medication dispensed for DMARD during the measurement year
     component_groups:

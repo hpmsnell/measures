@@ -54,7 +54,7 @@ performance_met:
     - validation_record_table_count: 10
       components:
       - display_title: Medication Reconciliation
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Medication Reconciliation
@@ -65,7 +65,7 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: Medications Not Reconciled
+    display_title: No Medication Reconciliation
     description: Discharge medications not reconciled with the current medication
       list in outpatient medical record, reason not otherwise specified
     component_groups:

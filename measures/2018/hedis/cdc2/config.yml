@@ -35,13 +35,13 @@ denominator:
       logical_operator: AND
       components:
       - display_title: Acute Inpatient Encounter
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Acute Inpatient
       - display_title: 2 Outpatient Visits
         logical_operator: OR
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Outpatient
@@ -66,14 +66,14 @@ exclusion:
   reasons:
   - config_link_id: exclusion_1
     code_value:
-    display_title: Gestational Diabetes or Steriod-Induced Diabetes
+    display_title: Excluded Diabetes
     description: Patient excluded due to a diagnosis of gestational diabetes or steroid-induced
       diabetes
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title: Gestational Diabetes or Steriod-Induced Diabetes
-        show_codes: false
+      - display_title: Excluded Diabetes
+        show_codes: true
         records:
         - model: Medication
           value_set: HEDIS; Diabetes Medications
@@ -88,13 +88,13 @@ performance_met:
   - config_link_id: hba1c_high
     code_value:
     display_title: High HbA1c
-    description: Most recent hemoglobin A1c level > 9.0%
+    description: Most recent hemoglobin A1c level >9.0%
     component_groups:
     - validation_record_table_count: 5
       components:
-      - display_title: HbA1c > 9.0%
-        annotation: 'With Results: HbA1c > 9.0%'
-        show_codes: false
+      - display_title: HbA1c >9.0%
+        annotation: 'With result: HbA1c >9.0%'
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; HbA1c Tests
@@ -113,13 +113,13 @@ performance_not_met:
   - config_link_id: hba1c_controlled
     code_value:
     display_title: Controlled HbA1c
-    description: Most recent hemoglobin A1c level ≤ 9.0%
+    description: Most recent hemoglobin A1c level ≤9.0%
     component_groups:
     - validation_record_table_count: 5
       components:
-      - display_title: HbA1c ≤ 9.0%
-        annotation: 'With Results: HbA1c ≤ 9.0%'
-        show_codes: false
+      - display_title: HbA1c ≤9.0%
+        annotation: 'With result: HbA1c ≤9.0%'
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; HbA1c Tests

@@ -43,7 +43,7 @@ exclusion:
     - validation_record_table_count: 1
       components:
       - display_title:
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Absence of Cervix
@@ -63,24 +63,18 @@ performance_met:
     - validation_record_table_count: 5
       components:
       - display_title: Cervical Cytology
-        show_codes: false
+        show_codes: true
+        annotation: "Patient is 21-64 years in age"
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Cervical Cytology
         - model: LaboratoryTestPerformed
           value_set: HEDIS; Cervical Cytology
     - validation_record_table_count: 5
+      components:
+      - display_title: Cytology/HPV Co-testing
         logical_operator: OR
-        show_codes: false
-        annotation: "Patient is 34-64 years in age"
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Cervical Cytology
-        - model: LaboratoryTestPerformed
-          value_set: HEDIS; Cervical Cytology
-      - display_title:
-        logical_operator: AND
-        show_codes: false
+        show_codes: true
         annotation: "Patient is 34-64 years in age"
         records:
         - model: ClinicalActivity
@@ -92,7 +86,7 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: No Cervical Cancer Screening Found
+    display_title: No Cervical Cancer Screening
     description: No cervical cancer screening found within the appropriate
     timeframe
     component_groups:

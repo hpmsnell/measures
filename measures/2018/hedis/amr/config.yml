@@ -25,7 +25,7 @@ denominator:
   - validation_record_table_count: 5
     components:
     - display_title: Inpatient or ED Visit
-      show_codes: false
+      show_codes: true
       records:
       - model: ClinicalActivity
         value_set: HEDIS; ED
@@ -33,7 +33,7 @@ denominator:
         value_set: HEDIS; Acute Inpatient
     - display_title: Asthma
       logical_operator: 'AND'
-      show_codes: false
+      show_codes: true
       records:
       - model: Diagnosis
         value_set: HEDIS; Asthma
@@ -41,7 +41,7 @@ denominator:
     logical_operator: 'OR'
     components:
     - display_title: 4 Outpatient Visits
-      show_codes: false
+      show_codes: true
       records:
       - model: ClinicalActivity
         value_set: HEDIS; Outpatient
@@ -49,13 +49,13 @@ denominator:
         value_set: HEDIS; Observation
     - display_title: Asthma
       logical_operator: 'AND'
-      show_codes: false
+      show_codes: true
       records:
       - model: Diagnosis
         value_set: HEDIS; Asthma
     - display_title: Asthma Medication
       logical_operator: 'AND'
-      show_codes: false
+      show_codes: true
       records:
       - model: Medication
         value_set: HEDIS; Asthma Reliever Medications
@@ -66,7 +66,7 @@ denominator:
     components:
     - display_title: Asthma Medication
       logical_operator: 'AND'
-      show_codes: false
+      show_codes: true
       records:
       - model: Medication
         value_set: HEDIS; Asthma Reliever Medications
@@ -93,7 +93,7 @@ exclusion:
     - validation_record_table_count: 1
       components:
       - display_title: Excluded Condition
-        show_codes: false
+        show_codes: true
         records:
         - model: Diagnosis
           value_set: HEDIS; Emphysema
@@ -118,7 +118,7 @@ exclusion:
       logical_operator: 'NOT'
       components:
       - display_title: Asthma Medication
-        show_codes: false
+        show_codes: true
         records:
         - model: Medication
           value_set: HEDIS; Asthma Reliever Medications
@@ -132,13 +132,13 @@ performance_met:
   reasons:
   - config_link_id: performance_met
     code_value:
-    display_title: Ratio of Controller to Total Asthma Medications ≥0.50
+    display_title: Medication Ratio ≥0.50
     description: Patient has a ratio of controller medications to total asthma medications of ≥0.50
     component_groups:
     - validation_record_table_count: 10
       components:
       - display_title: Asthma Medication
-        show_codes: false
+        show_codes: true
         records:
         - model: Medication
           value_set: HEDIS; Asthma Reliever Medications
@@ -149,6 +149,6 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: Ratio of Controller to Total Asthma Medications <0.50
+    display_title: Medication Ratio <0.50
     description: Patient has a ratio of controller medications to total asthma medications of <0.50 during the measurement period
     component_groups:

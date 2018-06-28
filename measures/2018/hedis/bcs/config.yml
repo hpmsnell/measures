@@ -45,7 +45,7 @@ exclusion:
     - validation_record_table_count: 1
       components:
       - display_title: Bilateral Mastectomy
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Bilateral Mastectomy
@@ -55,32 +55,28 @@ exclusion:
       logical_operator: OR
       components:
       - display_title: 2 Unilateral Mastectomies
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Unilateral Mastectomy
     - validation_record_table_count: 1
       logical_operator: OR
       components:
-      - display_title: Absence of Left and Right Breast
-        show_codes: false
+      - display_title: Absence of Left Breast
+        show_codes: true
         records:
         - model: Diagnosis
           value_set: HEDIS; Absence of Left Breast
         - model: ClinicalActivity
           value_set: HEDIS; Unilateral Mastectomy Left
-      - display_title:
+      - display_title: Absence of Right Breast
         logical_operator: AND
-        show_codes: false
+        show_codes: true
         records:
         - model: Diagnosis
           value_set: HEDIS; Absence of Right Breast
         - model: ClinicalActivity
           value_set: HEDIS; Unilateral Mastectomy Right
-    - config_link_id: exclusion_2
-      code_value:
-      display_title: Hospice Service
-      description: Patient excluded due to hospice service
 exception:
   description:
   reasons:
@@ -96,8 +92,8 @@ performance_met:
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title:
-        show_codes: false
+      - display_title: Mammography
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Mammography
@@ -106,7 +102,7 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: No Breast Cancer Screening Found
+    display_title: No Breast Cancer Screening
     description: No breast cancer screening found within the appropriate
     timeframe
     component_groups:

@@ -50,21 +50,21 @@ performance_met:
     - validation_record_table_count: 5
       components:
       - display_title: Medication Review
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Medication Review
       - display_title: Medication List
         logical_operator: AND
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Medication List
     - validation_record_table_count: 1
       logical_operator: OR
       components:
-      - display_title: Transitional Care Management Services
-        show_codes: false
+      - display_title: Transitional Care Management
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Transitional Care Management Services
@@ -73,7 +73,7 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: Medication Review and/or List Not Found
+    display_title: Medications Not Reviewed
     description: No medication review and/or medication list found during the measurement
       period
     component_groups:

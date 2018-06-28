@@ -34,13 +34,13 @@ denominator:
       logical_operator: AND
       components:
       - display_title: Acute Inpatient Encounter
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Acute Inpatient
       - display_title: 2 Outpatient Visits
         logical_operator: OR
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Outpatient
@@ -65,14 +65,14 @@ exclusion:
   reasons:
   - config_link_id: exclusion_1
     code_value:
-    display_title: Gestational Diabetes or Steriod-Induced Diabetes
+    display_title: Excluded Diabetes
     description: Patient excluded due to a diagnosis of gestational diabetes or steroid-induced
       diabetes
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title: Gestational Diabetes or Steriod-Induced Diabetes
-        show_codes: false
+      - display_title: Excluded Diabetes
+        show_codes: true
         records:
         - model: Medication
           value_set: HEDIS; Diabetes Medications
@@ -86,18 +86,23 @@ performance_met:
   reasons:
   - config_link_id: performance_met
     code_value:
-    display_title: Screened or Monitored for Nephropathy
+    display_title: Attention for Nephropathy
     description: Patient received screening or monitoring for nephropathy
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title: Screening or Evidence of Nephropathy
-        show_codes: false
+      - display_title: Screening for Nephropathy
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Urine Protein Tests
         - model: LaboratoryTestPerformed
           value_set: HEDIS; Urine Protein Tests
+    - validation_record_table_count: 1
+      components:
+      - display_title: Monitoring of Nephropathy
+        show_codes: true
+        records:
         - model: ClinicalActivity
           value_set: HEDIS; Nephropathy Treatment
         - model: Diagnosis
@@ -116,3 +121,8 @@ performance_not_met:
   description:
   reasons:
   - config_link_id: performance_not_met
+    code_value:
+    display_title: No Screening or Monitoring of Nephropathy
+    description: No screening or monitoring of nephropathy found in the appropriate
+      timeframe
+    component_groups:

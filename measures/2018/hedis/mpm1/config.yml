@@ -25,7 +25,7 @@ denominator:
   - validation_record_table_count: 1
     components:
     - display_title: ACE Inhibitor or ARB
-      show_codes: false
+      show_codes: true
       records:
       - model: Medication
         value_set: VSAC; ACE Inhibitor/ARB
@@ -50,7 +50,7 @@ exclusion:
     - validation_record_table_count: 1
       components:
       - display_title: Inpatient Encounter
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Acute Inpatient
@@ -64,13 +64,13 @@ performance_met:
   reasons:
   - config_link_id: performance_met
     code_value:
-    display_title: Serum Potassium and Serum Creatinine Tests Received
+    display_title: Monitoring
     description: Patient received at least one serum potassium and a serum creatinine therapeutic monitoring test
     component_groups:
     - validation_record_table_count: 1
       components:
       - display_title: Lab Panel
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Lab Panel
@@ -78,7 +78,7 @@ performance_met:
       logical_operator: 'OR'
       components:
       - display_title: Serum Potassium Test
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Serum Potassium
@@ -86,7 +86,7 @@ performance_met:
           value_set: HEDIS; Serum Potassium
       - display_title: Serum Potassium Test
         logical_operator: 'AND'
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Serum Creatinine
@@ -97,6 +97,6 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: No Serum Potassium or Serum Creatinine Tests Found
+    display_title: No Monitoring
     description: No serum potassium and/or serum creatinine therapeutic monitoring test found during the measurement period
     component_groups:

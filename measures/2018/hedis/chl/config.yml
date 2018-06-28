@@ -26,8 +26,8 @@ denominator:
   component_groups:
   - validation_record_table_count: 1
     components:
-    - display_title: Sexually Active
-      show_codes: false
+    - display_title: Sexual Activity
+      show_codes: true
       records:
       - model: Diagnosis
         value_set: HEDIS; Pregnancy
@@ -70,7 +70,7 @@ exclusion:
     - validation_record_table_count: 1
       components:
       - display_title: Pregnancy Test
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Pregnancy Test Exclusion
@@ -79,14 +79,14 @@ exclusion:
     - validation_record_table_count: 1
       logical_operator AND
       components:
-      - display_title: Retinoid Medications
-        show_codes: false
+      - display_title: Retinoid Medication
+        show_codes: true
         records:
         - model: Medication
           value_set: HEDIS; Retinoid Medications
       - display_title: Diagnostic Radiology
         logical_operator: OR
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Diagnostic Radiology
@@ -103,8 +103,8 @@ performance_met:
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title: Chlamydia Tests
-        show_codes: false
+      - display_title: Chlamydia Test
+        show_codes: true
         records:
         - model: LaboratoryTestPerformed
           value_set: HEDIS; Chlamydia Tests
@@ -115,6 +115,6 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: No Chlamydia Screening Found
-    description: No chlamydia screening found during the measurement period
+    display_title: No Chlamydia Test Found
+    description: No chlamydia test found during the measurement period
     component_groups:

@@ -25,15 +25,15 @@ denominator:
   - validation_record_table_count: 5
     components:
     - display_title: Delivery
-      show_codes: false
+      show_codes: true
       records:
       - model: ClinicalActivity
         value_set: HEDIS; Deliveries
   - validation_record_table_count: 5
-    logical_operator: AND Not
+    logical_operator: AND NOT
     components:
     - display_title: Non-Live Births
-      show_codes: false
+      show_codes: true
       records:
       - model: Diagnosis
         value_set: HEDIS; Non-live Births
@@ -64,7 +64,7 @@ performance_met:
     - validation_record_table_count: 5
       components:
       - display_title: Postpartum Visit
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Postpartum Visits
@@ -72,7 +72,7 @@ performance_met:
       logical_operator: OR
       components:
       - display_title: Cervical Cytology
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Cervical Cytology
@@ -82,7 +82,7 @@ performance_met:
       logical_operator: OR
       components:
       - display_title: Postpartum Bundled Service
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Postpartum Bundled Services
@@ -91,6 +91,6 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: performance_not_met
+    display_title: No Postpartum Visit
     description: No postpartum visit found between 21 and 56 days after delivery
     component_groups:

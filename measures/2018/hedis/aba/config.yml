@@ -53,7 +53,7 @@ exclusion:
     - validation_record_table_count: 10
       components:
       - display_title: Pregnancy
-        show_codes: false
+        show_codes: true
         records:
         - model: Diagnosis
           value_set: HEDIS; Pregnancy
@@ -74,9 +74,9 @@ performance_met:
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title: BMI is Documented
+      - display_title: BMI
         show_codes: true
-        annotation: "Patient is ≥ 20 years in age"
+        annotation: "Patient is ≥20 years in age"
         records:
         - model: ClinicalActivity
           value_set: HEDIS; BMI
@@ -85,9 +85,9 @@ performance_met:
     - validation_record_table_count: 1
       logical_operator: OR
       components:
-      - display_title: BMI Percentile is Documented
+      - display_title: BMI Percentile
         show_codes: true
-        annotation: "Patient is < 20 years in age"
+        annotation: "Patient is <20 years in age"
         records:
         - model: ClinicalActivity
           value_set: HEDIS; BMI Percentile
@@ -98,6 +98,6 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: 'No BMI Found'
+    display_title: No BMI assessment found during the measurement period
     description: No BMI found during the measurement period
     component_groups:

@@ -49,7 +49,7 @@ exclusion:
     - validation_record_table_count: 1
       components:
       - display_title: Allergy to Vaccination
-        show_codes: false
+        show_codes: true
         records:
         - model: Diagnosis
           value_set: HEDIS; Anaphylactic Reaction Due to Vaccination
@@ -83,7 +83,7 @@ exclusion:
       logical_operator: OR
       components:
       - display_title: Encephalopathy Due To Vaccination
-        show_codes: false
+        show_codes: true
         records:
         - model: Diagnosis
           value_set: HEDIS; Encephalopathy Due To Vaccination
@@ -91,7 +91,7 @@ exclusion:
       logical_operator: OR
       components:
       - display_title: Vaccine Causing Adverse Effect
-        show_codes: false
+        show_codes: true
         records:
         - model: Diagnosis
           value_set: HEDIS; Vaccine Causing Adverse Effect
@@ -99,7 +99,7 @@ exclusion:
       logical_operator: OR
       components:
       - display_title: Disorders of the Immune System
-        show_codes: false
+        show_codes: true
         records:
         - model: Diagnosis
           value_set: HEDIS; Disorders of the Immune System
@@ -115,7 +115,7 @@ exclusion:
       logical_operator: OR
       components:
       - display_title: Intussusception
-        show_codes: false
+        show_codes: true
         records:
         - model: Diagnosis
           value_set: HEDIS; Intussusception
@@ -123,7 +123,7 @@ exclusion:
       logical_operator: OR
       components:
       - display_title: Anaphylactic Reaction to Vaccine Ingredient
-        show_codes: false
+        show_codes: true
         records:
         - model: Allergy
           value_set: Able; Streptomycin Ingredient
@@ -147,7 +147,7 @@ performance_met:
     - validation_record_table_count: 5
       components:
       - display_title: DTaP Vaccine Administered
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; DTaP Vaccine Administered
@@ -157,7 +157,7 @@ performance_met:
       logical_operator: AND
       components:
       - display_title: Inactivated Polio Vaccine (IPV) Administered
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Inactivated Polio Vaccine (IPV) Administered
@@ -167,7 +167,7 @@ performance_met:
       logical_operator: AND
       components:
       - display_title: MMR Vaccine Administered or History of Illness
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered
@@ -199,7 +199,7 @@ performance_met:
       logcial_operator: AND
       components:
       - display_title: Haemophilus Influenzae Type B (HiB) Vaccine Administered
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered
@@ -209,7 +209,7 @@ performance_met:
       logical_operator: AND
       components:
       - display_title: Hepatitis B Vaccine Administered or History of Illness
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Hepatitis B Vaccine Administered
@@ -221,7 +221,7 @@ performance_met:
       logical_operator: AND
       components:
       - display_title: VZV Vaccine Administered or History of Illness
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Varicella Zoster (VZV) Vaccine Administered
@@ -233,7 +233,7 @@ performance_met:
       logical_operator: AND
       components:
       - display_title: Pneumococcal Conjugate Vaccine Administered
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Pneumococcal Conjugate Vaccine Administered
@@ -243,14 +243,14 @@ performance_met:
       logical_operator: AND
       components:
       - display_title: Rotavirus Vaccine (3 Dose Schedule) Administered
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered
         - model: Medication
           value_set: HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered
       - display_title: Rotavirus Vaccine (2 Dose Schedule) Administered
-        show_codes: false
+        show_codes: true
         logical_operator: OR
         records:
         - model: ClinicalActivity

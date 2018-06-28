@@ -34,13 +34,13 @@ denominator:
       logical_operator: AND
       components:
       - display_title: Acute Inpatient Encounter
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Acute Inpatient
       - display_title: 2 Outpatient Visits
         logical_operator: OR
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Outpatient
@@ -65,14 +65,14 @@ exclusion:
   reasons:
   - config_link_id: exclusion_1
     code_value:
-    display_title: Gestational Diabetes or Steriod-Induced Diabetes
+    display_title: Excluded Diabetes
     description: Patient excluded due to a diagnosis of gestational diabetes or steroid-induced
       diabetes
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title: Gestational Diabetes or Steriod-Induced Diabetes
-        show_codes: false
+      - display_title: Excluded Diabetes
+        show_codes: true
         records:
         - model: Medication
           value_set: HEDIS; Diabetes Medications
@@ -86,13 +86,13 @@ performance_met:
   reasons:
   - config_link_id: performance_met
     code_value:
-    display_title: Diabetic Eye Exam Received
+    display_title: Diabetic Eye Exam
     description: Patient received a diabetic eye exam
     component_groups:
     - validation_record_table_count: 1
       components:
       - display_title: Dialated or Retinal Screening
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Diabetic Retinal Screening
@@ -106,7 +106,7 @@ performance_met:
       logical_operator: OR
       components:
       - display_title: 2 Unilateral Eye Enucleations
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Unilateral Eye Enucleation Left
@@ -115,9 +115,9 @@ performance_met:
     - validation_record_table_count: 2
       logical_operator: OR
       components:
-      - display_title: Unilateral Eye Enucleation with Bilateral Modifier
-        show_codes: false
-        annotation: 'With modifier: 50 or 09950'
+      - display_title: Unilateral Eye Enucleation
+        show_codes: true
+        annotation: 'With Bilateral Modifier'
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Unilateral Eye Enucleation

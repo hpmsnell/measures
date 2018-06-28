@@ -20,12 +20,12 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description:
+  description: Women 67–85 years of age who suffered a fracture
   component_groups:
   - validation_record_table_count: 5
     components:
       - display_title: Visit or Inpatient Stay
-        show_codes: false
+        show_codes: true
         records:
           - model: ClinicalActivity
             value_set: "HEDIS; Outpatient"
@@ -39,7 +39,7 @@ denominator:
     logical_operator: AND
     components:
       - display_title: Fracture
-        show_codes: false
+        show_codes: true
         records:
           - model: Diagnosis
             value_set: "HEDIS; Fractures"
@@ -63,8 +63,8 @@ exclusion:
     component_groups:
     - validation_record_table_count: 5
       components:
-        - display_title:
-          show_codes: false
+        - display_title: Osteoporosis Management
+          show_codes: true
           records:
             - model: ClinicalActivity
               value_set: "HEDIS; Bone Mineral Density Tests"
@@ -86,7 +86,7 @@ performance_met:
     - validation_record_table_count: 5
       components:
         - display_title: Bone Mineral Density Tests or Osteoporosis Medication
-          show_codes: false
+          show_codes: true
           records:
             - model: ClinicalActivity
               value_set: "HEDIS; Bone Mineral Density Tests"

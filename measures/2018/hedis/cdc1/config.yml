@@ -23,7 +23,7 @@ measure:
 denominator:
   description: Patients 18–75 years as of December 31 with a diagnosis of
   diabetes with two outpatient visits with different dates of service or one
-  nonacute inpatient discharge between during the measurement year and one year 
+  nonacute inpatient discharge between during the measurement year and one year
   before the measurement year.
   component_groups:
   - validation_record_table_count: 1
@@ -37,13 +37,13 @@ denominator:
       logical_operator: AND
       components:
       - display_title: Acute Inpatient Encounter
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Acute Inpatient
       - display_title: 2 Outpatient Visits
         logical_operator: OR
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Outpatient
@@ -68,14 +68,14 @@ exclusion:
   reasons:
   - config_link_id: exclusion_1
     code_value:
-    display_title: Gestational or Steriod-Induced Diabetes
+    display_title: Excluded Diabetes
     description: Patient excluded due to a diagnosis of gestational diabetes or steroid-induced
       diabetes
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title: Gestational or Steriod-Induced Diabetes
-        show_codes: false
+      - display_title: Excluded Diabetes
+        show_codes: true
         records:
         - model: Medication
           value_set: HEDIS; Diabetes Medications
@@ -95,7 +95,7 @@ performance_met:
     - validation_record_table_count: 1
       components:
       - display_title: HbA1c Test
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; HbA1c Tests
@@ -108,6 +108,6 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: No HbA1c Test Found
+    display_title: No HbA1c Test
     description: No HbA1c test found in the appropriate timeframe
     component_groups:
