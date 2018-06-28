@@ -109,6 +109,8 @@ define "High Risk Factors for Thromboembolism Exist"
   or "Patient Hypertensive with Diabetes, Heart Failure, or LVSD"
   or "Patient Diabetic with Heart Failure, or LVSD"
 
+/* Populations */
+
 define "Denominator":
   exists("Denominator Encounter")
   and "High Risk Factors for Thromboembolism Exist"

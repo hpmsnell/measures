@@ -99,16 +99,6 @@ test_set_keys:
       numerator: G9510
     - name: Exclusion DeathBefore # Death too early (not sure how this would happen...)
       denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: G9510
-    - name: Exclusion DeathLower # Death at start of allowable period
-      denominator: 1
-      denominator_exclusion: exclusion_1
-      denominator_exception:
-      numerator:
-    - name: Exclusion DeathUpper # Death at end of allowable period
-      denominator: 1
       denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
@@ -118,16 +108,6 @@ test_set_keys:
       denominator_exception:
       numerator: G9510
     - name: Exclusion BipolarBefore # Bipolar disorder too early
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: G9510
-    - name: Exclusion BipolarLower # Bipolar disorder at start of allowable period
-      denominator: 1
-      denominator_exclusion: exclusion_2
-      denominator_exception:
-      numerator:
-    - name: Exclusion BipolarUpper # Bipolar disorder at end of allowable period
       denominator: 1
       denominator_exclusion: exclusion_2
       denominator_exception:
@@ -282,16 +262,6 @@ test_set_keys:
       numerator: G9510
     - name: Exclusion DeathBefore # Death too early (not sure how this would happen...)
       denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: G9510
-    - name: Exclusion DeathLower # Death at start of allowable period
-      denominator: 1
-      denominator_exclusion: exclusion_1
-      denominator_exception:
-      numerator:
-    - name: Exclusion DeathUpper # Death at end of allowable period
-      denominator: 1
       denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
@@ -301,16 +271,6 @@ test_set_keys:
       denominator_exception:
       numerator: G9510
     - name: Exclusion BipolarBefore # Bipolar disorder too early
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: G9510
-    - name: Exclusion BipolarLower # Bipolar disorder at start of allowable period
-      denominator: 1
-      denominator_exclusion: exclusion_2
-      denominator_exception:
-      numerator:
-    - name: Exclusion BipolarUpper # Bipolar disorder at end of allowable period
       denominator: 1
       denominator_exclusion: exclusion_2
       denominator_exception:
@@ -910,7 +870,7 @@ patients:
       start_date: 2015-10-01
     - code_type: CPT
       code_value: G9509 # Performance Met
-      start_date: 2015-09-01 # Lower
+      start_date: 2016-09-01 # Lower
     diagnoses:
     - code_type: ICD10CM
       code_value: F32.0
