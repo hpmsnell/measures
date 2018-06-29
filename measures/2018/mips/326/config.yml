@@ -70,27 +70,82 @@ exclusion:
   reasons:
   - config_link_id: exclusion_1
     code_value:
-    display_title: G9746
-    description: Patient is excluded due to mitral stenosis, prosthetic heart valves,
-      or transient or reversible cause of atrial fibrillation
+    display_title: G9929
+    description: 'Patient is excluded due to transient or reversible cause of AF
+      (e.g., pneumonia, hyperthyroidism, pregnancy, cardiac surgery)'
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title: 'Quality Data Code: G9746'
+      - display_title: 'Quality Data Code: G9929'
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: MIPS; MIPS 326 Exclusion
-    - logical_operator: 'OR'
-      validation_record_table_count: 1
-      components:
-      - display_title: Mitral Stenosis or Prosthetic Heart Valve
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: Able; Mitral Stenosis
-        - model: ClinicalActivity
-          value_set: Able; Prosthetic Heart Valve
+          value_set: 'MIPS; Denominator Exclusion: G9929'
+    - config_link_id: exclusion_2
+      code_value:
+      display_title: G9930
+      description: 'Patient is excluded due to receiving comfort care only'
+      component_groups:
+      - validation_record_table_count: 1
+        components:
+        - display_title: 'Quality Data Code: G9930'
+          show_codes: true
+          records:
+          - model: ClinicalActivity
+            value_set: 'MIPS; Denominator Exclusion: G9930'
+    - config_link_id: exclusion_3
+      code_value:
+      display_title: G9931
+      description: 'Patient is excluded due to documentation of CHA2DS2-VASc
+        risk score of 0 or 1'
+      component_groups:
+      - validation_record_table_count: 1
+        components:
+        - display_title: 'Quality Data Code: G9931'
+          show_codes: true
+          records:
+          - model: ClinicalActivity
+            value_set: 'MIPS; Denominator Exclusion: G9931'
+      - validation_record_table_count: 1
+        logical_operator: 'OR NOT'
+        components:
+        - display_title: 'Age 75 and Above'
+          show_codes: false
+          records:
+        - display_title: 'Stoke, TIA, or TE'
+          logical_operator: 'OR'
+          show_codes: false
+          records:
+          - model: Diagnosis
+            value_set: "VSAC; Cerebrovascular disease, Stroke, TIA"
+      - validation_record_table_count: 1
+        logical_operator: 'OR NOT 2 OR MORE OF'
+        components:
+        - display_title: 'Age 64-74'
+          show_codes: false
+          records:
+        - display_title: 'Female'
+          logical_operator: 'OR'
+          show_codes: false
+          records:
+        - display_title: 'Hypertension'
+          logical_operator: 'OR'
+          show_codes: false
+          records:
+          - model: Diagnosis
+            value_set: "VSAC; Diagnosis of hypertension"
+        - display_title: 'Diabetes Mellitus'
+          logical_operator: 'OR'
+          show_codes: false
+          records:
+          - model: Diagnosis
+            value_set: "VSAC; Diabetes"
+        - display_title: 'Vascular Disease'
+          logical_operator: 'OR'
+          show_codes: false
+          records:
+          - model: Diagnosis
+            value_set: "VSAC; Atherosclerosis and Peripheral Arterial Disease"
 exception:
   description:
   reasons:
