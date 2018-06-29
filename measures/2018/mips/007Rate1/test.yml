@@ -167,11 +167,6 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: G9188
-    - name: PerformanceMetMedication Active # Active med overlapping
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: G9189
     - name: ExceptionG9190 Before # Early
       denominator: 1
       denominator_exclusion:
@@ -410,11 +405,6 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: G9188
-      - name: PerformanceMetMedication Active # Active med overlapping
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9189
       - name: ExceptionG9190 Before # Early
         denominator: 1
         denominator_exclusion:
@@ -1159,7 +1149,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: G9189
-      start_date: 2015-12-31 # Too early
+      start_date: 2016-01-31 # Too early
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0
@@ -1187,7 +1177,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: G9189
-      start_date: 2016-01-01 # Lower bound
+      start_date: 2016-02-01 # Lower bound
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0
@@ -1215,7 +1205,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: G9189
-      start_date: 2016-12-31 # Upper bound
+      start_date: 2016-02-02 # Upper bound
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0
@@ -1243,7 +1233,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: G9189
-      start_date: 2017-01-01 # Too late
+      start_date: 2016-02-03 # Too late
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0
@@ -1278,7 +1268,7 @@ patients:
       code_value: 1191185 # Beta-blocker
       method: E
       start_date: 2015-12-31
-      stop_date: 2015-12-31 # Too early
+      stop_date: 2016-01-31 # Too early
 - name: PerformanceMetMedication Lower
   attributes:
     date_of_birth: 1990-02-01
@@ -1308,7 +1298,8 @@ patients:
     - code_type: RXNORM
       code_value: 1191185 # Beta-blocker
       method: E
-      start_date: 2016-01-01 # Lower bound
+      start_date: 2016-01-01
+      stop_date: 2016-02-01 # Lower bound
 - name: PerformanceMetMedication Upper
   attributes:
     date_of_birth: 1990-02-01
@@ -1338,7 +1329,7 @@ patients:
     - code_type: RXNORM
       code_value: 1191185 # Beta-blocker
       method: E
-      start_date: 2016-12-31 # Upper bound
+      start_date: 2016-02-02 # Upper bound
 - name: PerformanceMetMedication After
   attributes:
     date_of_birth: 1990-02-01
@@ -1368,37 +1359,7 @@ patients:
     - code_type: RXNORM
       code_value: 1191185 # Beta-blocker
       method: E
-      start_date: 2017-01-01 # Too late
-- name: PerformanceMetMedication Active
-  attributes:
-    date_of_birth: 1990-02-01
-    given_name: PerformanceMetMedication
-    family_name: Active
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99201 # Denominator encounter
-      start_date: 2016-02-01
-      stop_date: 2016-02-02
-      provider: Rachel
-    - code_type: CPT
-      code_value: 99201
-      start_date: 2016-01-01
-      stop_date: 2016-01-01
-      provider: Rachel
-    - code_type: CPT
-      code_value: G8694 # LVEF < 40%
-      start_date: 2016-02-01
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: I20.0
-      start_date: 2016-02-01
-    medications:
-    - code_type: RXNORM
-      code_value: 1191185 # Beta-blocker
-      start_date: 2015-01-01
-      stop_date: 2016-01-01 # Overlapping
+      start_date: 2016-02-03 # Too late
 - name: ExceptionG9190 Before
   attributes:
     date_of_birth: 1990-02-01
@@ -1422,7 +1383,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: G9190
-      start_date: 2015-12-31 # Too early
+      start_date: 2016-01-31 # Too early
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0
@@ -1450,7 +1411,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: G9190
-      start_date: 2016-01-01 # Lower bound
+      start_date: 2016-02-01 # Lower bound
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0
@@ -1478,7 +1439,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: G9190
-      start_date: 2016-12-31 # Upper bound
+      start_date: 2016-02-02 # Upper bound
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0
@@ -1506,7 +1467,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: G9190
-      start_date: 2017-01-01 # Too late
+      start_date: 2016-02-03 # Too late
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0
@@ -1540,7 +1501,7 @@ patients:
     - code_type: RXNORM
       code_value: 10600 # Beta-blocker
       start_date: 2015-01-01
-      stop_date: 2015-12-31 # Too early
+      stop_date: 2016-01-31 # Too early
 - name: ExceptionAllergy Lower
   attributes:
     date_of_birth: 1990-02-01
@@ -1570,7 +1531,7 @@ patients:
     - code_type: RXNORM
       code_value: 10600 # Beta-blocker
       start_date: 2015-01-01
-      stop_date: 2016-01-01 # Lower bound
+      stop_date: 2016-02-01 # Lower bound
 - name: ExceptionAllergy Upper
   attributes:
     date_of_birth: 1990-02-01
@@ -1599,7 +1560,7 @@ patients:
     allergies:
     - code_type: RXNORM
       code_value: 10600 # Beta-blocker
-      start_date: 2016-12-31 # Upper bound
+      start_date: 2016-02-02 # Upper bound
 - name: ExceptionAllergy After
   attributes:
     date_of_birth: 1990-02-01
@@ -1628,7 +1589,7 @@ patients:
     allergies:
     - code_type: RXNORM
       code_value: 10600 # Beta-blocker
-      start_date: 2017-01-01 # Too late
+      start_date: 2016-02-03 # Too late
 - name: ExceptionG9191 Before
   attributes:
     date_of_birth: 1990-02-01
@@ -1652,7 +1613,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: G9191
-      start_date: 2015-12-31 # Too early
+      start_date: 2016-01-31 # Too early
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0
@@ -1680,7 +1641,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: G9191
-      start_date: 2016-01-01 # Lower bound
+      start_date: 2016-02-01 # Lower bound
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0
@@ -1708,7 +1669,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: G9191
-      start_date: 2016-12-31 # Upper bound
+      start_date: 2016-02-02 # Upper bound
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0
@@ -1736,7 +1697,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: G9191
-      start_date: 2017-01-01 # Too late
+      start_date: 2016-02-03 # Too late
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0
@@ -1764,7 +1725,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: G9192
-      start_date: 2015-12-31 # Too early
+      start_date: 2016-01-31 # Too early
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0
@@ -1792,7 +1753,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: G9192
-      start_date: 2016-01-01 # Lower bound
+      start_date: 2016-02-01 # Lower bound
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0
@@ -1820,7 +1781,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: G9192
-      start_date: 2016-12-31 # Upper bound
+      start_date: 2016-02-02 # Upper bound
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0
@@ -1848,7 +1809,7 @@ patients:
       start_date: 2016-02-01
     - code_type: CPT
       code_value: G9192
-      start_date: 2017-01-01 # Too late
+      start_date: 2016-02-03 # Too late
     diagnoses:
     - code_type: ICD10CM
       code_value: I20.0

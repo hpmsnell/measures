@@ -48,23 +48,17 @@ define "Denominator Encounter"
       and not E.code.modifier in {'GQ','GT','95'}
       and not E.placeOfService in {'02'}
 
-define "Denominator Encounter with Diagnosis":
+define "Denominator Encounter with Diagnosis or Surgery":
   "Denominator Encounter"
     with ["Diagnosis": "MIPS; MIPS 007 Coronary Artery Disease"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod
     with ["Diagnosis": "MIPS; Myocardial Infarction"] D
       such that D.prevalencePeriod starts on or 3 years or less before end of E.relevantPeriod
-
-define "Denominator Encounter with Surgery":
-  "Denominator Encounter"
+  union "Denominator Encounter"
     with ["Procedue, Performed": "MIPS; Cardiac Surgery"] D
       such that D.prevalencePeriod starts on or before end of E.relevantPeriod
     with ["Diagnosis": "MIPS; Myocardial Infarction"] D
       such that D.prevalencePeriod overlaps Interval[3 years before start of E.relevantPeriod, end of E.relevantPeriod]
-
-define "Denominator Encounter Exists":
-  exists("Denominator Encounter with Diagnosis")
-  or exists("Denominator Encounter with Surgery")
 
 define "Medical Exception":
   ["Allergy": "VSAC; Beta Blocker Therapy Ingredient"]
@@ -82,8 +76,10 @@ define "Denominator Encounter":
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {'GQ', 'GT'}
 
+/* Populations */
+
 define "Denominator":
-  "Denominator Encounter Exists"
+  exists("Denominator Encounter with Diagnosis or Surgery")
   and count("Denominator Encounter") >= 2
 
 define "Numerator Performance Met: 4008F":
@@ -91,28 +87,29 @@ define "Numerator Performance Met: 4008F":
    * config_link_id: 4008F
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G9189 or 4008F"] P
-    where P.relevantPeriod starts during "Measurement Period")
-  or exists(["Medication, Order": "VSAC; Beta Blocker Therapy"] M
-    where M.relevantPeriod starts during "Measurement Year")
+    with "Denominator Encounter with Diagnosis or Surgery" E
+      such that P.relevantPeriod starts during E.relevantPeriod)
   or exists(["Medication, Active": "VSAC; Beta Blocker Therapy"] M
-    where M.relevantPeriod overlaps "Measurement Year")
+    with "Denominator Encounter with Diagnosis or Surgery" E
+      such that M.relevantPeriod overlaps E.relevantPeriod)
 
 define "Denominator Exception: 4008F-1P":
   /*
    * config_link_id: 4008F-1P
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: G9190 or 4008F-1P"] P
-    with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod
+    with "Denominator Encounter with Diagnosis or Surgery" E
+      such that P.relevantPeriod starts during E.relevantPeriod)
   or exists("Medical Exception" D
-    where D.prevalencePeriod overlaps E.relevantPeriod)
+    with "Denominator Encounter with Diagnosis or Surgery" E
+      such that D.prevalencePeriod overlaps E.relevantPeriod)
 
 define "Denominator Exception: 4008F-2P":
   /*
    * config_link_id: 4008F-2P
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: G9191 or 4008F-2P"] P
-    with "Denominator Encounter" E
+    with "Denominator Encounter with Diagnosis or Surgery" E
       such that P.relevantPeriod starts during E.relevantPeriod)
 
 define "Denominator Exception: 4008F-3P":
@@ -120,7 +117,7 @@ define "Denominator Exception: 4008F-3P":
    * config_link_id: 4008F-3P
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: G9192 or 4008F-3P"] P
-    with "Denominator Encounter" E
+    with "Denominator Encounter with Diagnosis or Surgery" E
       such that P.relevantPeriod starts during E.relevantPeriod)
 
 define "Numerator Performance Not Met: 4008F-8P":
