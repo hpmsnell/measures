@@ -71,9 +71,9 @@ performance_met:
         - model: LaboratoryTestPerformed
           value_set: HEDIS; Cervical Cytology
     - validation_record_table_count: 5
+      logical_operator: OR
       components:
       - display_title: Cytology/HPV Co-testing
-        logical_operator: OR
         show_codes: true
         annotation: "Patient is 34-64 years in age"
         records:

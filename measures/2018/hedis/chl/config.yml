@@ -64,8 +64,10 @@ exclusion:
   reasons:
   - config_link_id: exclusion_1
     code_value:
-    display_title: Pregnancy with Isotretinoin or X-Ray
-    description: Patient excluded due to pregnancy testing with isotretinoin or x-ray
+    display_title: Isotretinoin or X-Ray
+    description: Patient excluded due to qualifying for the denominator based on a
+    pregnancy test alone and receiving a prescription for isotretinoin or an X-ray on or
+    within 6 days after the pregnancy test.
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -77,7 +79,7 @@ exclusion:
         - model: LaboratoryTestPerformed
           value_set: HEDIS; Pregnancy Test Exclusion
     - validation_record_table_count: 1
-      logical_operator AND
+      logical_operator: AND
       components:
       - display_title: Retinoid Medication
         show_codes: true

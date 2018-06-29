@@ -12,9 +12,7 @@ measure:
     diphtheria, tetanus and acellular pertussis (DTaP); three polio (IPV); one
     measles, mumps and rubella (MMR); three haemophilus influenza type B (HiB);
     three hepatitis B (HepB), one chicken pox (VZV); four pneumococcal
-    conjugate (PCV); one hepatitis A (HepA); two or three rotavirus (RV); and
-    two influenza (flu) vaccines by their second birthday. The measure
-    calculates a rate for each vaccine and nine separate combination rates.
+    conjugate (PCV); and two or three rotavirus (RV) vaccines by their second birthday.
     gap_resolution_action: Patient is missing one or more vaccines
     version: 2018
     mips_measure_type:
@@ -82,23 +80,25 @@ exclusion:
     - validation_record_table_count: 1
       logical_operator: OR
       components:
-      - display_title: Encephalopathy Due To Vaccination
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: HEDIS; Encephalopathy Due To Vaccination
-    - validation_record_table_count: 1
-      logical_operator: OR
-      components:
       - display_title: Vaccine Causing Adverse Effect
         show_codes: true
         records:
         - model: Diagnosis
           value_set: HEDIS; Vaccine Causing Adverse Effect
+        - model: Diagnosis
+          value_set: HEDIS; Encephalopathy Due To Vaccination
+        - model: Allergy
+          value_set: Able; Streptomycin Ingredient
+        - model: Allergy
+          value_set: Able; Neomycin Ingredient
+        - model: Allergy
+          value_set: Able; Polymyxin B Ingredient
+        - model: Allergy
+          value_set: Able; Baker's Yeast
     - validation_record_table_count: 1
       logical_operator: OR
       components:
-      - display_title: Disorders of the Immune System
+      - display_title: Disorder of the Immune System
         show_codes: true
         records:
         - model: Diagnosis
@@ -119,20 +119,6 @@ exclusion:
         records:
         - model: Diagnosis
           value_set: HEDIS; Intussusception
-    - validation_record_table_count: 1
-      logical_operator: OR
-      components:
-      - display_title: Anaphylactic Reaction to Vaccine Ingredient
-        show_codes: true
-        records:
-        - model: Allergy
-          value_set: Able; Streptomycin Ingredient
-        - model: Allergy
-          value_set: Able; Neomycin Ingredient
-        - model: Allergy
-          value_set: Able; Polymyxin B Ingredient
-        - model: Allergy
-          value_set: Able; Baker's Yeast
 exception:
   description:
   reasons:
@@ -146,7 +132,7 @@ performance_met:
     component_groups:
     - validation_record_table_count: 5
       components:
-      - display_title: DTaP Vaccine Administered
+      - display_title: 4 DTaP Vaccines
         show_codes: true
         records:
         - model: ClinicalActivity
@@ -156,7 +142,7 @@ performance_met:
     - validation_record_table_count: 4
       logical_operator: AND
       components:
-      - display_title: Inactivated Polio Vaccine (IPV) Administered
+      - display_title: Inactivated Polio Vaccine (IPV)
         show_codes: true
         records:
         - model: ClinicalActivity
@@ -166,7 +152,7 @@ performance_met:
     - validation_record_table_count: 1
       logical_operator: AND
       components:
-      - display_title: MMR Vaccine Administered or History of Illness
+      - display_title: MMR Vaccine
         show_codes: true
         records:
         - model: ClinicalActivity
@@ -181,24 +167,27 @@ performance_met:
           value_set: HEDIS; Mumps Vaccine Administered
         - model: Medication
           value_set: HEDIS; Mumps Vaccine Administered
-        - model: Diagnosis
+        - model: ClinicalActivity
+          value_set: HEDIS; Measles Vaccine Administered
+        - model: Medication
+          value_set: HEDIS; Measles Vaccine Administered
+        - model: ClinicalActivity
+          value_set: HEDIS; Rubella Vaccine Administered
+        - model: Medication
+          value_set: HEDIS; Rubella Vaccine Administered
+      - display_title: History of MMR
+        show_codes: true
+        logical_operator: OR
+        records:
+        - model: ClinicalActivity
           value_set: HEDIS; Mumps
-        - model: ClinicalActivity
-          value_set: HEDIS; Measles Vaccine Administered
-        - model: Medication
-          value_set: HEDIS; Measles Vaccine Administered
-        - model: Diagnosis
           value_set: HEDIS; Measles
-        - model: ClinicalActivity
-          value_set: HEDIS; Rubella Vaccine Administered
-        - model: Medication
-          value_set: HEDIS; Rubella Vaccine Administered
         - model: Diagnosis
           value_set: HEDIS; Rubella
     - validation_record_table_count: 4
       logcial_operator: AND
       components:
-      - display_title: Haemophilus Influenzae Type B (HiB) Vaccine Administered
+      - display_title: HiB Vaccine
         show_codes: true
         records:
         - model: ClinicalActivity
@@ -208,31 +197,38 @@ performance_met:
     - validation_record_table_count: 4
       logical_operator: AND
       components:
-      - display_title: Hepatitis B Vaccine Administered or History of Illness
+      - display_title: Hepatitis B Vaccine
         show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Hepatitis B Vaccine Administered
         - model: Medication
           value_set: HEDIS; Hepatitis B Vaccine Administered
+      - display_title: History of Hepatitis B
+        logical_operator: OR
+        show_codes: true
+        records:
         - model: Diagnosis
           value_set: HEDIS; Hepatitis B
     - validation_record_table_count: 1
       logical_operator: AND
       components:
-      - display_title: VZV Vaccine Administered or History of Illness
+      - display_title: VZV Vaccine
         show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Varicella Zoster (VZV) Vaccine Administered
         - model: Medication
           value_set: HEDIS; Varicella Zoster (VZV) Vaccine Administered
-        - model: Diagnosis
+      - display_title: History of VZV
+        logical_operator: OR
+        show_codes: true
+        records:
           value_set: HEDIS; Varicella Zoster
     - validation_record_table_count: 5
       logical_operator: AND
       components:
-      - display_title: Pneumococcal Conjugate Vaccine Administered
+      - display_title: Pneumococcal Conjugate Vaccine
         show_codes: true
         records:
         - model: ClinicalActivity
@@ -242,7 +238,7 @@ performance_met:
     - validation_record_table_count: 4
       logical_operator: AND
       components:
-      - display_title: Rotavirus Vaccine (3 Dose Schedule) Administered
+      - display_title: Rotavirus Vaccine (3 Dose Schedule)
         show_codes: true
         records:
         - model: ClinicalActivity
