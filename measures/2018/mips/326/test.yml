@@ -74,16 +74,16 @@ test_set_keys:
       numerator: G9928
     - name: G9929 Lower
       denominator: 1
-      denominator_exclusion: G9929
+      denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
     - name: G9929 Upper
       denominator: 1
-      denominator_exclusion: G9929
+      denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
     - name: G9929 After
-      denominator:
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9928
@@ -94,36 +94,36 @@ test_set_keys:
       numerator: G9928
     - name: G9930 Lower
       denominator: 1
-      denominator_exclusion: G9930
+      denominator_exclusion: exclusion_2
       denominator_exception:
       numerator:
     - name: G9930 Upper
       denominator: 1
-      denominator_exclusion: G9930
+      denominator_exclusion: exclusion_2
       denominator_exception:
       numerator:
     - name: G9930 After
-      denominator:
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9928
     - name: G9931 Before
-      denominator:
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9928
     - name: G9931 Lower
       denominator: 1
-      denominator_exclusion: G9931
+      denominator_exclusion: exclusion_3
       denominator_exception:
       numerator:
     - name: G9931 Upper
       denominator: 1
-      denominator_exclusion: G9931
+      denominator_exclusion: exclusion_3
       denominator_exception:
       numerator:
     - name: G9931 After
-      denominator:
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: G9928
@@ -139,7 +139,7 @@ test_set_keys:
       numerator: G9928
     - name: CHF Only
       denominator: 1
-      denominator_exclusion: G9931
+      denominator_exclusion: exclusion_3
       denominator_exception:
       numerator:
     - name: CHF Hypertension
@@ -169,7 +169,7 @@ test_set_keys:
       numerator: G9928
     - name: Hypertension Only
       denominator: 1
-      denominator_exclusion: G9931
+      denominator_exclusion: exclusion_3
       denominator_exception:
       numerator:
     - name: Hypertension Diabetes
@@ -194,14 +194,9 @@ test_set_keys:
       numerator: G9928
     - name: Diabetes Only
       denominator: 1
-      denominator_exclusion: G9931
+      denominator_exclusion: exclusion_3
       denominator_exception:
       numerator:
-    - name: Diabetes Diabetes
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: G9928
     - name: Diabetes Vascular
       denominator: 1
       denominator_exclusion:
@@ -219,7 +214,7 @@ test_set_keys:
       numerator: G9928
     - name: Vascular Only
       denominator: 1
-      denominator_exclusion: G9931
+      denominator_exclusion: exclusion_3
       denominator_exception:
       numerator:
     - name: Vascular 64
@@ -234,7 +229,7 @@ test_set_keys:
       numerator: G9928
     - name: 64 Only
       denominator: 1
-      denominator_exclusion: G9931
+      denominator_exclusion: exclusion_3
       denominator_exception:
       numerator:
     - name: 64 Female
@@ -244,7 +239,7 @@ test_set_keys:
       numerator: G9928
     - name: Female Only
       denominator: 1
-      denominator_exclusion: G9931
+      denominator_exclusion: exclusion_3
       denominator_exception:
       numerator:
     - name: G8967 Before
@@ -370,316 +365,366 @@ test_set_keys:
   providers_key:
     - name: Rachel
       patients:
-      - name: Too Young
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Age Lower
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: Encounter Before
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Encounter Lower
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: Encounter Upper
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: Encounter After
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Diagnosis Before
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Diagnosis Lower
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: Diagnosis Upper
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: Diagnosis After
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: G9931 Before
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: G9931 Lower
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: G9931 Upper
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: G9931 After
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Stroke Before
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: Stroke Lower
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: Stroke Upper
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: Stroke After
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Patient75 HypertensionBefore
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Patient75 HypertensionLower
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: Patient75 HypertensionUpper
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: Patient75 HypertensionAfter
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: PatientHypertensive DiabetesBefore
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: PatientHypertensive DiabetesLower
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: PatientHypertensive DiabetesUpper
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: PatientHypertensive DiabetesAfter
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: PatientDiabetic LVEFBefore
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: PatientDiabetic LVEFLower
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: PatientDiabetic LVEFUpper
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: PatientDiabetic LVEFAfter
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Exclusion Before
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: Exclusion Lower
-        denominator: 1
-        denominator_exclusion: exclusion_1
-        denominator_exception:
-        numerator:
-      - name: Exclusion Upper
-        denominator: 1
-        denominator_exclusion: exclusion_1
-        denominator_exception:
-        numerator:
-      - name: Exclusion After
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: Prosthesis Before
-        denominator: 1
-        denominator_exclusion: exclusion_1
-        denominator_exception:
-        numerator:
-      - name: Prosthesis Lower
-        denominator: 1
-        denominator_exclusion: exclusion_1
-        denominator_exception:
-        numerator:
-      - name: Prosthesis Upper
-        denominator: 1
-        denominator_exclusion: exclusion_1
-        denominator_exception:
-        numerator:
-      - name: Prosthesis After
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: G8967 Before
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: G8967 Lower
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G8967
-      - name: G8967 Upper
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G8967
-      - name: G8967 After
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: Anticoagulant Before
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: Anticoagulant Lower
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G8967
-      - name: Anticoagulant Upper
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G8967
-      - name: Anticoagulant After
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: G8968 Before
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: G8968 Lower
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception: G8968
-        numerator:
-      - name: G8968 Upper
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception: G8968
-        numerator:
-      - name: G8968 After
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: Allergy Before
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: Allergy Lower
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception: G8968
-        numerator:
-      - name: Allergy Upper
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception: G8968
-        numerator:
-      - name: Allergy After
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9928
-      - name: G8969 Before
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: G8969 Lower
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: G8969 Upper
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: G8969 After
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: G9927 Before
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: G9927 Lower
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: G9927 Upper
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: G9927 After
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
+        - name: Too Young
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Age Lower
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Encounter Before
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Lower
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Encounter Upper
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Encounter After
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: DenominatorEncounter InvalidModifier
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: DenominatorEncounter InvalidPOS
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: DenominatorEncounter DifferentProvider
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Diagnosis Before
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Diagnosis Lower
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Diagnosis Upper
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Diagnosis After
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: G9929 Before
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: G9929 Lower
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: G9929 Upper
+          denominator: 1
+          denominator_exclusion: exclusion_1
+          denominator_exception:
+          numerator:
+        - name: G9929 After
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: G9930 Before
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: G9930 Lower
+          denominator: 1
+          denominator_exclusion: exclusion_2
+          denominator_exception:
+          numerator:
+        - name: G9930 Upper
+          denominator: 1
+          denominator_exclusion: exclusion_2
+          denominator_exception:
+          numerator:
+        - name: G9930 After
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: G9931 Before
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: G9931 Lower
+          denominator: 1
+          denominator_exclusion: exclusion_3
+          denominator_exception:
+          numerator:
+        - name: G9931 Upper
+          denominator: 1
+          denominator_exclusion: exclusion_3
+          denominator_exception:
+          numerator:
+        - name: G9931 After
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: History Stroke
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Age 75
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: CHF Only
+          denominator: 1
+          denominator_exclusion: exclusion_3
+          denominator_exception:
+          numerator:
+        - name: CHF Hypertension
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: CHF Diabetes
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: CHF Vascular
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: CHF 64
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: CHF Female
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Hypertension Only
+          denominator: 1
+          denominator_exclusion: exclusion_3
+          denominator_exception:
+          numerator:
+        - name: Hypertension Diabetes
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Hypertension Vascular
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Hypertension 64
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Hypertension Female
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Diabetes Only
+          denominator: 1
+          denominator_exclusion: exclusion_3
+          denominator_exception:
+          numerator:
+        - name: Diabetes Vascular
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Diabetes 64
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Diabetes Female
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Vascular Only
+          denominator: 1
+          denominator_exclusion: exclusion_3
+          denominator_exception:
+          numerator:
+        - name: Vascular 64
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Vascular Female
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: 64 Only
+          denominator: 1
+          denominator_exclusion: exclusion_3
+          denominator_exception:
+          numerator:
+        - name: 64 Female
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Female Only
+          denominator: 1
+          denominator_exclusion: exclusion_3
+          denominator_exception:
+          numerator:
+        - name: G8967 Before
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: G8967 Lower
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8967
+        - name: G8967 Upper
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8967
+        - name: G8967 After
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Anticoagulant Before
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Anticoagulant Lower
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8967
+        - name: Anticoagulant Upper
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G8967
+        - name: Anticoagulant After
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: G8968 Before
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: G8968 Lower
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: G8968
+          numerator:
+        - name: G8968 Upper
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: G8968
+          numerator:
+        - name: G8968 After
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Allergy Before
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: Allergy Lower
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: G8968
+          numerator:
+        - name: Allergy Upper
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: G8968
+          numerator:
+        - name: Allergy After
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: G8969 Before
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: G8969 Lower
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: G8969
+          numerator:
+        - name: G8969 Upper
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: G8969
+          numerator:
+        - name: G8969 After
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: G9927 Before
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
+        - name: G9927 Lower
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: G9927
+          numerator:
+        - name: G9927 Upper
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: G9927
+          numerator:
+        - name: G9927 After
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: G9928
 providers:
 - given_name: Rachel
   family_name: Cats
@@ -879,6 +924,9 @@ patients:
       code_value: I48.0 # Atrial Fibrillation
       start_date: 2014-05-01
       stop_date: 2016-01-31 # Too early
+    - code_type: ICD10CM
+      code_value: G45.0 # Stroke
+      start_date: 2010-01-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
@@ -896,6 +944,9 @@ patients:
       code_value: I48.0 # Atrial Fibrillation
       start_date: 2014-05-01
       stop_date: 2016-02-01 # Lower bound
+    - code_type: ICD10CM
+      code_value: G45.0 # Stroke
+      start_date: 2010-01-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
@@ -912,6 +963,9 @@ patients:
     - code_type: ICD10CM
       code_value: I48.0 # Atrial Fibrillation
       start_date: 2016-02-02 # Upper bound
+    - code_type: ICD10CM
+      code_value: G45.0 # Stroke
+      start_date: 2010-01-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
@@ -929,6 +983,9 @@ patients:
     - code_type: ICD10CM
       code_value: I48.0 # Atrial Fibrillation
       start_date: 2017-02-03 # Too late
+    - code_type: ICD10CM
+      code_value: G45.0 # Stroke
+      start_date: 2010-01-01
     clinical_activities:
     - code_type: CPT
       code_value: 99201
@@ -1031,10 +1088,10 @@ patients:
     - code_type: ICD10CM
       code_value: G45.0 # Stroke
       start_date: 2010-01-01
-- name: G9933 Before
+- name: G9930 Before
   attributes:
     date_of_birth: 1980-06-01
-    given_name: G9933
+    given_name: G9930
     family_name: Before
     sex: Male
   clinical_models:
@@ -1045,7 +1102,7 @@ patients:
       stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
-      code_value: G9933 # Comfort care only
+      code_value: G9930 # Comfort care only
       start_date: 2015-12-31 # Too early
       start_date: 2015-12-31
     diagnoses:
@@ -1055,10 +1112,10 @@ patients:
     - code_type: ICD10CM
       code_value: G45.0 # Stroke
       start_date: 2010-01-01
-- name: G9933 Lower
+- name: G9930 Lower
   attributes:
     date_of_birth: 1980-06-01
-    given_name: G9933
+    given_name: G9930
     family_name: Lower
     sex: Male
   clinical_models:
@@ -1069,7 +1126,7 @@ patients:
       stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
-      code_value: G9933 # Comfort care only
+      code_value: G9930 # Comfort care only
       start_date: 2016-01-01 # Lower bound
       start_date: 2016-01-01
     diagnoses:
@@ -1079,10 +1136,10 @@ patients:
     - code_type: ICD10CM
       code_value: G45.0 # Stroke
       start_date: 2010-01-01
-- name: G9933 Upper
+- name: G9930 Upper
   attributes:
     date_of_birth: 1980-06-01
-    given_name: G9933
+    given_name: G9930
     family_name: Upper
     sex: Male
   clinical_models:
@@ -1093,7 +1150,7 @@ patients:
       stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
-      code_value: G9933 # Comfort care only
+      code_value: G9930 # Comfort care only
       start_date: 2016-12-31 # Upper bound
       start_date: 2016-12-31
     diagnoses:
@@ -1103,10 +1160,10 @@ patients:
     - code_type: ICD10CM
       code_value: G45.0 # Stroke
       start_date: 2010-01-01
-- name: G9933 After
+- name: G9930 After
   attributes:
     date_of_birth: 1980-06-01
-    given_name: G9933
+    given_name: G9930
     family_name: After
     sex: Male
   clinical_models:
@@ -1117,7 +1174,7 @@ patients:
       stop_date: 2016-02-02
       provider: Rachel
     - code_type: CPT
-      code_value: G9933 # Comfort care only
+      code_value: G9930 # Comfort care only
       start_date: 2017-01-01 # Too late
       start_date: 2017-01-01
     diagnoses:
@@ -1353,7 +1410,7 @@ patients:
       start_date: 2010-02-01
 - name: CHF 64
   attributes:
-    date_of_birth: 1962-02-01 # 64 years
+    date_of_birth: 1952-02-01 # 64 years
     given_name: CHF
     family_name: '64'
     sex: Male
@@ -1459,7 +1516,7 @@ patients:
       start_date: 2010-01-01
 - name: Hypertension 64
   attributes:
-    date_of_birth: 1962-02-01
+    date_of_birth: 1952-02-01 # 64 years
     given_name: Hypertension
     family_name: '64'
     sex: Male
@@ -1482,7 +1539,7 @@ patients:
     date_of_birth: 1980-06-01
     given_name: Hypertension
     family_name: Female
-    sex: Female
+    sex: Female # Female
   clinical_models:
     clinical_activities:
     - code_type: CPT
@@ -1494,7 +1551,7 @@ patients:
       code_value: I48.0 # Atrial Fibrillation
       start_date: 2010-01-01
     - code_type: ICD10CM
-      code_value: I10 Hypertension
+      code_value: I10 # Hypertension
       start_date: 2010-01-01
 - name: Diabetes Only
   attributes:
@@ -1539,7 +1596,7 @@ patients:
       start_date: 2010-01-01
 - name: Diabetes 64
   attributes:
-    date_of_birth: 1962-02-01 # 64 years
+    date_of_birth: 1952-02-01 # 64 years
     given_name: Diabetes
     family_name: '64'
     sex: Male
@@ -1578,7 +1635,7 @@ patients:
 - name: Vascular Only
   attributes:
     date_of_birth: 1980-06-01
-    given_name: Hypertension
+    given_name: Vascular
     family_name: Only
     sex: Male
   clinical_models:
@@ -1597,9 +1654,9 @@ patients:
       start_date: 2010-01-01
 - name: Vascular 64
   attributes:
-    date_of_birth: 1962-02-01 # 64 years
-    given_name: Hypertension
-    family_name: 64
+    date_of_birth: 1952-02-01 # 64 years
+    given_name: Vascular
+    family_name: '64'
     sex: Male
   clinical_models:
     clinical_activities:
@@ -1618,7 +1675,7 @@ patients:
 - name: Vascular Female
   attributes:
     date_of_birth: 1980-06-01
-    given_name: Hypertension
+    given_name: Vascular
     family_name: Female
     sex: Female # Female
   clinical_models:
@@ -1637,7 +1694,7 @@ patients:
       start_date: 2010-01-01
 - name: 64 Only
   attributes:
-    date_of_birth: 1962-02-01 # 64 years
+    date_of_birth: 1952-02-01 # 64 years
     given_name: '64'
     family_name: Only
     sex: Male
@@ -1653,7 +1710,7 @@ patients:
       start_date: 2010-01-01
 - name: 64 Female
   attributes:
-    date_of_birth: 1962-02-01 # 64 years
+    date_of_birth: 1952-02-01 # 64 years
     given_name: '64'
     family_name: Female
     sex: Female # Female
