@@ -25,12 +25,28 @@ denominator:
   - validation_record_table_count: 5
     components:
     - display_title: Delivery
-      show_codes: false
+      show_codes: true
       records:
       - model: ClinicalActivity
         value_set: HEDIS; Deliveries
+  - validation_record_table_count: 5
+    logical_operator: AND NOT
+    components:
+    - display_title: Non-Live Births
+      show_codes: true
+      records:
       - model: Diagnosis
         value_set: HEDIS; Non-live Births
+  - validation_record_table_count: 10
+    logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
 exclusion:
   description:
   reasons:
@@ -48,7 +64,7 @@ performance_met:
     - validation_record_table_count: 5
       components:
       - display_title: Complete Prenatal Service
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Prenatal Bundled Services
@@ -62,7 +78,7 @@ performance_met:
     - validation_record_table_count: 5
       components:
       - display_title: Prenatal Visit
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Prenatal Visits
@@ -70,25 +86,25 @@ performance_met:
       logical_operator: AND
       components:
       - display_title: Obstetric Panel
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Obstetric Panel
       - display_title: Prenatal Ultrasound
         logical_operator: OR
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Prenatal Ultrasound
       - display_title: Pregnancy
         logical_operator: OR
-        show_codes: false
+        show_codes: true
         records:
         - model: Diagnosis
           value_set: HEDIS; Pregnancy Diagnosis
       - display_title: Antibody Tests
         logical_operator: OR
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Toxoplasma Antibody
@@ -121,6 +137,6 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: performance_not_met
+    display_title: No Prenatal Care
     description: No prenatal visit found during the first trimester
     component_groups:

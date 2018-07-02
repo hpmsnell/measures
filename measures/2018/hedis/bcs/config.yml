@@ -8,7 +8,8 @@ measure:
     set: HEDIS
     external_id: BCS
   optional:
-    description:
+    description: The percentage of women 50–74 years of age who had a mammogram
+    to screen for breast cancer.
     gap_resolution_action: Patient is due for a breast cancer screening
     version: 2018
     mips_measure_type:
@@ -20,53 +21,56 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description:
+  description: Women 52–74 years as of December 31 of the measurement year.
   component_groups:
+  - validation_record_table_count: 10
+    logical_operator: NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
 exclusion:
-  description:
+  description: Bilateral mastectomy any time during the member’s history
+  through December 31 of the measurement year.
   reasons:
   - config_link_id: exclusion_1
     code_value:
-    display_title: exclusion_1
+    display_title: History of Mastectomy
     description: Patient excluded due to history of mastectomy
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title:
+      - display_title: Bilateral Mastectomy
         show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Bilateral Mastectomy
         - model: Diagnosis
           value_set: HEDIS; History of Bilateral Mastectomy
-    - validation_record_table_count: 1
-      components:
-      - display_title: Unilateral Mastectomy
-        show_codes: true
-        annotation: 'With bilateral modifier: 50 or 09950'
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Unilateral Mastectomy
     - validation_record_table_count: 2
+      logical_operator: OR
       components:
-      - display_title: Two Unilateral Mastectomies
+      - display_title: 2 Unilateral Mastectomies
         show_codes: true
-        annotation: 'At least 14 days apart'
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Unilateral Mastectomy
     - validation_record_table_count: 1
+      logical_operator: OR
       components:
-      - display_title:
+      - display_title: Absence of Left Breast
         show_codes: true
         records:
         - model: Diagnosis
           value_set: HEDIS; Absence of Left Breast
         - model: ClinicalActivity
           value_set: HEDIS; Unilateral Mastectomy Left
-    - validation_record_table_count: 1
-      components:
-      - display_title:
+      - display_title: Absence of Right Breast
+        logical_operator: AND
         show_codes: true
         records:
         - model: Diagnosis
@@ -77,16 +81,18 @@ exception:
   description:
   reasons:
 performance_met:
-  description:
+  description: One or more mammograms any time on or between October 1
+  two years prior to the measurement year and December 31 of the
+  measurement year.
   reasons:
   - config_link_id: performance_met
     code_value:
-    display_title: performance_met
+    display_title: Breast Cancer Screening
     description: Patient received a breast cancer screening
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title:
+      - display_title: Mammography
         show_codes: true
         records:
         - model: ClinicalActivity
@@ -96,13 +102,7 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: performance_not_met
-    description: No breast cancer screening found within the appropriate timeframe
+    display_title: No Breast Cancer Screening
+    description: No breast cancer screening found within the appropriate
+    timeframe
     component_groups:
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Mammography

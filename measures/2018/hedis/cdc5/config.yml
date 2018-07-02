@@ -8,7 +8,8 @@ measure:
     set: HEDIS
     external_id: CDC5
   optional:
-    description:
+    description: Patients 18–75 years of age with diabetes (type 1 and type 2)
+    who had an eye exam (retinal) performed.
     gap_resolution_action: Patient is due for an diabetic eye exam
     version: 2018
     mips_measure_type:
@@ -20,34 +21,25 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description:
+  description: Patients 18–75 years as of December 31 of the measurement year.
   component_groups:
-exclusion:
-  description:
-  reasons:
-  - config_link_id: exclusion_1
-    code_value:
-    display_title: exclusion_1
-    description: Patient excluded due to a diagnosis of gestational diabetes or steroid-induced
-      diabetes
-    component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Diabetes
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Diabetes
     - validation_record_table_count: 1
+      logical_operator: AND
       components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: HEDIS; Diabetes
-    - validation_record_table_count: 1
-      components:
-      - display_title:
+      - display_title: Acute Inpatient Encounter
         show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Acute Inpatient
-    - validation_record_table_count: 2
-      components:
-      - display_title:
+      - display_title: 2 Outpatient Visits
+        logical_operator: OR
         show_codes: true
         records:
         - model: ClinicalActivity
@@ -58,18 +50,32 @@ exclusion:
           value_set: HEDIS; ED
         - model: ClinicalActivity
           value_set: HEDIS; Nonacute Inpatient
+    - validation_record_table_count: 10
+      logical_operator: AND NOT
+      components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: MIPS; MIPS Hospice Service
+        - model: ClinicalActivity
+          value_set: VSAC; Palliative Care
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Excluded Diabetes
+    description: Patient excluded due to a diagnosis of gestational diabetes or steroid-induced
+      diabetes
+    component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title:
+      - display_title: Excluded Diabetes
         show_codes: true
         records:
         - model: Medication
           value_set: HEDIS; Diabetes Medications
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
         - model: Diagnosis
           value_set: HEDIS; Diabetes Exclusions
 exception:
@@ -80,46 +86,12 @@ performance_met:
   reasons:
   - config_link_id: performance_met
     code_value:
-    display_title: performance_met
+    display_title: Diabetic Eye Exam
     description: Patient received a diabetic eye exam
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: HEDIS; Diabetes
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Acute Inpatient
-    - validation_record_table_count: 2
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Outpatient
-        - model: ClinicalActivity
-          value_set: HEDIS; Observation
-        - model: ClinicalActivity
-          value_set: HEDIS; ED
-        - model: ClinicalActivity
-          value_set: HEDIS; Nonacute Inpatient
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: Medication
-          value_set: HEDIS; Diabetes Medications
-    - validation_record_table_count: 1
-      components:
-      - display_title:
+      - display_title: Dialated or Retinal Screening
         show_codes: true
         records:
         - model: ClinicalActivity
@@ -131,115 +103,30 @@ performance_met:
         - model: ClinicalActivity
           value_set: VSAC; Retinal or Dilated Eye Exam
     - validation_record_table_count: 1
+      logical_operator: OR
       components:
-      - display_title:
+      - display_title: 2 Unilateral Eye Enucleations
         show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Unilateral Eye Enucleation Left
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
         - model: ClinicalActivity
           value_set: HEDIS; Unilateral Eye Enucleation Right
     - validation_record_table_count: 2
+      logical_operator: OR
       components:
-      - display_title:
+      - display_title: Unilateral Eye Enucleation
         show_codes: true
-        annotation: 'With modifier: 50 or 09950'
+        annotation: 'With Bilateral Modifier'
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Unilateral Eye Enucleation
-    - validation_record_table_count: 5
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: HEDIS; Diabetes Mellitus Without Complications
 performance_not_met:
   description:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: performance_not_met
+    display_title: No Diabetic Eye Exam
     description: No diabetic eye exam by an eye care professional found in the appropriate
       timeframe
     component_groups:
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: HEDIS; Diabetes
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Acute Inpatient
-    - validation_record_table_count: 2
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Outpatient
-        - model: ClinicalActivity
-          value_set: HEDIS; Observation
-        - model: ClinicalActivity
-          value_set: HEDIS; ED
-        - model: ClinicalActivity
-          value_set: HEDIS; Nonacute Inpatient
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: Medication
-          value_set: HEDIS; Diabetes Medications
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Diabetic Retinal Screening
-        - model: ClinicalActivity
-          value_set: HEDIS; Diabetic Retinal Screening with Eye Care Professional
-        - model: ClinicalActivity
-          value_set: HEDIS; Diabetic Retinal Screening Negative
-        - model: ClinicalActivity
-          value_set: VSAC; Retinal or Dilated Eye Exam
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Unilateral Eye Enucleation Left
-    - validation_record_table_count: 1
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Unilateral Eye Enucleation Right
-    - validation_record_table_count: 2
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Unilateral Eye Enucleation
-    - validation_record_table_count: 5
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: HEDIS; Diabetes Mellitus Without Complications

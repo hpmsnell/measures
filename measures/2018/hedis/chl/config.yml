@@ -1,116 +1,122 @@
+---
 measure:
   name: 18.HEDIS.Chl
   required:
-    display_title: "Chlamydia Screening in Women"
-  optional:
-    gap_resolution_action: Patient is due for a chlamydia screening
+    display_title: Chlamydia Screening in Women
+    inverse: false
+    subject_type: Patient
     set: HEDIS
-    external_id: 'CHL'
+    external_id: CHL
+  optional:
+    description: The percentage of women 16–24 years of age who were identified
+    as sexually active and who had at least one test for chlamydia during the
+    measurement year.
+    gap_resolution_action: Patient is due for a chlamydia screening
     version: 2018
-exclusion_reasons:
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: Women 16–24 years as of December 31 of the measurement year.
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Sexual Activity
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Pregnancy
+      - model: ClinicalActivity
+        value_set: HEDIS; Pregnancy Tests
+      - model: Diagnosis
+        value_set: HEDIS; Sexual Activity
+      - model: ClinicalActivity
+        value_set: HEDIS; Sexual Activity
+      - model: Medication
+        value_set: VSAC; Contraceptive Medications
+      - model: LaboratoryTestPerformed
+        value_set: VSAC; Pregnancy Test
+      - model: LaboratoryTestPerformed
+        value_set: VSAC; Pap Test
+      - model: ClinicalActivity
+        value_set: VSAC; Delivery Live Births
+      - model: LaboratoryTestPerformed
+        value_set: VSAC; Lab Tests During Pregnancy
+      - model: LaboratoryTestPerformed
+        value_set: VSAC; Lab Tests for Sexually Transmitted Infections
+  - validation_record_table_count: 10
+    logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
+exclusion:
+  description:
+  reasons:
   - config_link_id: exclusion_1
-    required:
-      display_title: 'Patient excluded due to pregnancy testing with isotretinoin or x-ray'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Pregnancy"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Pregnancy Tests"
-            - model: Diagnosis
-              value_set: "HEDIS; Sexual Activity"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Sexual Activity"
-            - model: Medication
-              value_set: "VSAC; Contraceptive Medications"
-            - model: LaboratoryTestPerformed
-              value_set: "VSAC; Pregnancy Test"
-            - model: LaboratoryTestPerformed
-              value_set: "VSAC; Pap Test"
-            - model: LaboratoryTestPerformed
-              value_set: "VSAC; Lab Tests During Pregnancy"
-            - model: LaboratoryTestPerformed
-              value_set: "VSAC; Lab Tests for Sexually Transmitted Infections"
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Pregnancy Test Exclusion"
-            - model: LaboratoryTestPerformed
-              value_set: "HEDIS; Pregnancy Test Exclusion"
-        - count: 1
-          validation_records:
-            - model: Medication
-              value_set: "HEDIS; Retinoid Medications"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Diagnostic Radiology"
-performance_met_reasons:
+    code_value:
+    display_title: Isotretinoin or X-Ray
+    description: Patient excluded due to qualifying for the denominator based on a
+    pregnancy test alone and receiving a prescription for isotretinoin or an X-ray on or
+    within 6 days after the pregnancy test.
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Pregnancy Test
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Pregnancy Test Exclusion
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; Pregnancy Test Exclusion
+    - validation_record_table_count: 1
+      logical_operator: AND
+      components:
+      - display_title: Retinoid Medication
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: HEDIS; Retinoid Medications
+      - display_title: Diagnostic Radiology
+        logical_operator: OR
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Diagnostic Radiology
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
   - config_link_id: performance_met
-    required:
-      display_title: 'Patient received a chlamydia screening'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Pregnancy"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Pregnancy Tests"
-            - model: Diagnosis
-              value_set: "HEDIS; Sexual Activity"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Sexual Activity"
-            - model: Medication
-              value_set: "VSAC; Contraceptive Medications"
-            - model: LaboratoryTestPerformed
-              value_set: "VSAC; Pregnancy Test"
-            - model: LaboratoryTestPerformed
-              value_set: "VSAC; Pap Test"
-            - model: ClinicalActivity
-              value_set: "VSAC; Delivery Live Births"
-            - model: LaboratoryTestPerformed
-              value_set: "VSAC; Lab Tests During Pregnancy"
-            - model: LaboratoryTestPerformed
-              value_set: "VSAC; Lab Tests for Sexually Transmitted Infections"
-        - count: 1
-          validation_records:
-            - model: LaboratoryTestPerformed
-              value_set: "HEDIS; Chlamydia Tests"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Chlamydia Tests"
-exception_reasons:
-performance_not_met_reasons:
+    code_value:
+    display_title: Chlamydia Screening
+    description: Patient received a chlamydia screening
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Chlamydia Test
+        show_codes: true
+        records:
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; Chlamydia Tests
+        - model: ClinicalActivity
+          value_set: HEDIS; Chlamydia Tests
+performance_not_met:
+  description:
+  reasons:
   - config_link_id: performance_not_met
-    required:
-      display_title: 'No chlamydia screening found during the measurement period'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Pregnancy"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Pregnancy Tests"
-            - model: Diagnosis
-              value_set: "HEDIS; Sexual Activity"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Sexual Activity"
-            - model: Medication
-              value_set: "VSAC; Contraceptive Medications"
-            - model: LaboratoryTestPerformed
-              value_set: "VSAC; Pregnancy Test"
-            - model: LaboratoryTestPerformed
-              value_set: "VSAC; Pap Test"
-            - model: ClinicalActivity
-              value_set: "VSAC; Delivery Live Births"
-            - model: LaboratoryTestPerformed
-              value_set: "VSAC; Lab Tests During Pregnancy"
-            - model: LaboratoryTestPerformed
-              value_set: "VSAC; Lab Tests for Sexually Transmitted Infections"
-        - count: 1
-          validation_records:
-            - model: LaboratoryTestPerformed
-              value_set: "HEDIS; Chlamydia Tests"
-            - model: ClinicalActivity
-              value_set: "HEDIS; Chlamydia Tests"
+    code_value:
+    display_title: No Chlamydia Test
+    description: No chlamydia test found during the measurement period
+    component_groups:

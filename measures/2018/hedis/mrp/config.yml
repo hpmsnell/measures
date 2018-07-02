@@ -8,7 +8,7 @@ measure:
     set: HEDIS
     external_id: MRP
   optional:
-    description:
+    description: The percentage of discharges from January 1–December 1 of the measurement year for members 18 years of age and older for whom medications were reconciled the date of discharge through 30 days after discharge (31 total days).
     gap_resolution_action:
     version: 2018
     mips_measure_type:
@@ -20,8 +20,25 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description:
+  description: Medication reconciliation conducted within 30 days of discharge
   component_groups:
+  - validation_record_table_count: 10
+    components:
+    - display_title: Inpatient Stay
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Inpatient Stay
+  - validation_record_table_count: 10
+    logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
 exclusion:
   description:
   reasons:
@@ -33,19 +50,10 @@ performance_met:
   reasons:
   - config_link_id: performance_met
     code_value:
-    display_title: performance_met
-    description: Medication reconciliation conducted within 30 days of discharge
-    component_groups:
+    display_title: Medication Reconciliation
     - validation_record_table_count: 10
       components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Inpatient Stay
-    - validation_record_table_count: 10
-      components:
-      - display_title:
+      - display_title: Medication Reconciliation
         show_codes: true
         records:
         - model: ClinicalActivity
@@ -57,23 +65,7 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: performance_not_met
+    display_title: No Medication Reconciliation
     description: Discharge medications not reconciled with the current medication
       list in outpatient medical record, reason not otherwise specified
     component_groups:
-    - validation_record_table_count: 10
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Inpatient Stay
-    - validation_record_table_count: 10
-      components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Medication Reconciliation
-        - model: ClinicalActivity
-          value_set: Able; Medication Reconciliation
