@@ -8,8 +8,8 @@ measure:
     set: HEDIS
     external_id: COA4
   optional:
-    description: The percentage of adults 66 years and older who had a
-    pain assessment during the measurement year.
+    description: "The percentage of adults 66 years and older who had a
+    pain assessment during the measurement year."
     gap_resolution_action: Patient is due for pain assessment
     version: 2018
     mips_measure_type:
@@ -21,7 +21,7 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Patients 66 years and older as of December 31 of the measurement year.
+  description: "Patients 66 years and older as of December 31 of the measurement year."
   component_groups:
   - validation_record_table_count: 10
     logical_operator: NOT
@@ -45,7 +45,7 @@ performance_met:
   - config_link_id: performance_met
     code_value:
     display_title: Pain Assessment
-    description: Pain assessment performed during the measurement period
+    description: "At least one pain assessment during the measurement year."
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -64,5 +64,5 @@ performance_not_met:
   - config_link_id: performance_not_met
     code_value:
     display_title: No Pain Assessment
-    description: No pain assessment found during the measurement period
+    description: "No pain assessment found during the measurement period"
     component_groups:

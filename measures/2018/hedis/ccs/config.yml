@@ -8,8 +8,8 @@ measure:
     set: HEDIS
     external_id: CCS
   optional:
-    description: The percentage of women 21–64 years of age who were screened
-    for cervical cancer.
+    description: "The percentage of women 21–64 years of age who were screened
+    for cervical cancer."
     version: 2018
     mips_measure_type:
     mips_high_priority:
@@ -20,7 +20,7 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Women 24–64 years as of December 31 of the measurement year.
+  description: "Women 24–64 years as of December 31 of the measurement year."
   component_groups:
   - validation_record_table_count: 10
     logical_operator: NOT
@@ -38,11 +38,11 @@ exclusion:
   - config_link_id: exclusion_1
     code_value:
     display_title: Absence of Cervix
-    description: Patient excluded due to absence of cervix
+    description: "Patient excluded due to absence of cervix"
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title:
+      - display_title: Absence of Cervix
         show_codes: true
         records:
         - model: ClinicalActivity
@@ -58,7 +58,7 @@ performance_met:
   - config_link_id: performance_met
     code_value:
     display_title: Cervical Cancer Screening
-    description: Patient received a cervical cancer screening
+    description: "Patient received a cervical cancer screening"
     component_groups:
     - validation_record_table_count: 5
       components:
@@ -87,6 +87,6 @@ performance_not_met:
   - config_link_id: performance_not_met
     code_value:
     display_title: No Cervical Cancer Screening
-    description: No cervical cancer screening found within the appropriate
-    timeframe
+    description: "No cervical cancer screening found within the appropriate
+    timeframe"
     component_groups:

@@ -8,8 +8,8 @@ measure:
     set: HEDIS
     external_id: 'COL'
   optional:
-    description: The percentage of patients 50–75 years of age who had
-    appropriate screening for colorectal cancer.
+    description: "The percentage of patients 50–75 years of age who had
+    appropriate screening for colorectal cancer."
     gap_resolution_action: Patient is due for colorectal cancer screening
     version: 2018
     mips_measure_type:
@@ -21,7 +21,7 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Patients aged 51–75 years as of December 31 of the measurement year.
+  description: "Patients aged 51–75 years as of December 31 of the measurement year."
   component_groups:
   - validation_record_table_count: 10
     logical_operator: NOT
@@ -39,8 +39,8 @@ exclusion:
   - config_link_id: exclusion_1
     code_value:
     display_title: Colectomy or Cancer
-    description: Patient is excluded for this measure due to a history of total colectomy
-      or colorectal cancer
+    description: "Patient is excluded for this measure due to a history of total colectomy
+      or colorectal cancer"
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -68,7 +68,11 @@ performance_met:
   - config_link_id: performance_met
     code_value:
     display_title: Colorectal Cancer Screening
-    description: Patient screened for colorectal cancer
+    description: "Patient screened for colorectal cancer with a fecal occult
+      blood test during the measurement year, a FIT-DNA test during the measurement
+      year or two years before the measurement year, a flexible sigmoidoscopy or CT colonography
+      during the measurement year or four years before the measurement year, or a colonoscopy during
+      the measurement year or nine years before the measurement year."
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -95,5 +99,5 @@ performance_not_met:
   - config_link_id: performance_not_met
     code_value:
     display_title: No Colorectal Cancer Screening
-    description: No colorectal cancer screening found during the allowable period
+    description: "No colorectal cancer screening found during the allowable period"
     component_groups:

@@ -8,8 +8,8 @@ measure:
     set: HEDIS
     external_id: COA2
   optional:
-    description: The percentage of adults 66 years and older who had a
-    medication review during the measurement year.
+    description: "The percentage of adults 66 years and older who had a
+    medication review during the measurement year."
     gap_resolution_action: Patient is due for medication review
     version: 2018
     mips_measure_type:
@@ -21,7 +21,7 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Patients 66 years and older as of December 31 of the measurement year.
+  description: "Patients 66 years and older as of December 31 of the measurement year."
   component_groups:
   - validation_record_table_count: 10
     logical_operator: NOT
@@ -45,7 +45,7 @@ performance_met:
   - config_link_id: performance_met
     code_value:
     display_title: Medications Reviewed
-    description: Medications reviewed during the measurement period
+    description: "At least one medication review and presence of a medication list in the medical record during the measurement year or transitional care managment services during the measurement year"
     component_groups:
     - validation_record_table_count: 5
       components:
@@ -74,6 +74,6 @@ performance_not_met:
   - config_link_id: performance_not_met
     code_value:
     display_title: Medications Not Reviewed
-    description: No medication review and/or medication list found during the measurement
-      period
+    description: "No medication review and/or medication list found during the measurement
+      period"
     component_groups:

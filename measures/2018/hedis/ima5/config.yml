@@ -8,10 +8,10 @@ measure:
     set: HEDIS
     external_id: IMA Combination 2
   optional:
-    description: The percentage of adolescents 13 years of age who are compliant for
+    description: "The percentage of adolescents 13 years of age who are compliant for
     one meningococcal conjugate vaccine, one tetanus, diphtheria toxoids and
     acellular pertussis (Tdap) vaccine, and have completed the human
-    papillomavirus (HPV) vaccine series by their 13th birthday.
+    papillomavirus (HPV) vaccine series by their 13th birthday."
     gap_resolution_action: Patient is missing a meningococcal, Tdap, and/or HPV vaccine
     version: 2018
     mips_measure_type:
@@ -23,7 +23,7 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Adolescents who turn 13 years of age during the measurement year.
+  description: "Adolescents who turn 13 years of age during the measurement year"
   component_groups:
   - validation_record_table_count: 10
     logical_operator: NOT
@@ -41,11 +41,11 @@ exclusion:
   - config_link_id: exclusion_1
     code_value:
     display_title: Allergy to Vaccine
-    description: Patient excluded due to allergy to vaccine
+    description: "Patient excluded due to allergy to vaccine on or before 13th birthday"
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title:
+      - display_title: Allergy to Vaccine
         show_codes: true
         records:
         - model: Allergy
@@ -67,7 +67,10 @@ performance_met:
   - config_link_id: performance_met
     code_value:
     display_title: All Vaccines
-    description: Meningococcal and Tdap vacines administered
+    description: "Meningococcal vaccine administered between patient's 11th and 13th
+    birthdays, Tdap vaccine administered between the patient's 10th and 13th birthdays, and two HPV vaccines administered between a patient's 9th and 13th
+      birthdays with different dates of service that are at least 146 days apart or
+      three HPV vaccines administered between a patient's 9th and 13th birthdays with different dates of service"
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -103,7 +106,7 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: Missing One or More Vaccines
-    description: No meningococcal and/or Tdap vaccination found during the appropriate
-      period
+    display_title: Missing Vaccines
+    description: "No meningococcal, Tdap and/or HPV vaccination found during the appropriate
+      period"
     component_groups:

@@ -1,165 +1,131 @@
+---
 measure:
   name: 18.HEDIS.Cis3
   required:
-    display_title: "Childhood Immunization Status: MMR"
-  optional:
-    gap_resolution_action: Patient is missing a measles, mumps, and/or rubella vaccine
+    display_title: 'Childhood Immunization Status: MMR'
+    inverse: false
+    subject_type: Patient
     set: HEDIS
-    external_id: 'CIS MMR'
+    external_id: CIS MMR
+  optional:
+    description: "The percentage of children 2 years of age who had an
+    measles, mumps and rubella (MMR) vaccine by their second birthday."
+    gap_resolution_action: Patient is missing a measles, mumps, and/or rubella vaccine
     version: 2018
-exclusion_reasons:
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: "Children who turn 2 years of age during the measurement year."
+  component_groups:
+  - validation_record_table_count: 10
+    logical_operator: NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
+exclusion:
+  description:
+  reasons:
   - config_link_id: exclusion_1
-    required:
-      display_title: 'Patient excluded due to allergy to vaccine'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Anaphylactic Reaction Due to Vaccination"
-            - model: Allergy
-              value_set: "HEDIS; DTaP Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Inactivated Polio Vaccine (IPV) Administered"
-            - model: Allergy
-              value_set: "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Measles/Rubella Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Mumps Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Measles Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Rubella Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Hepatitis B Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Newborn Hepatitis B Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Varicella Zoster (VZV) Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered"
-            - model: Allergy
-              value_set: "HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered"
-            - model: Allergy
-              value_set: "HEDIS; Influenza Vaccine Administered"
-        - count: 1
-          validation_records:
-          - model: Diagnosis
-            value_set: "HEDIS; Encephalopathy Due To Vaccination"
-        - count: 1
-          validation_records:
-          - model: Diagnosis
-            value_set: "HEDIS; Vaccine Causing Adverse Effect"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Disorders of the Immune System"
-            - model: Diagnosis
-              value_set: "HEDIS; HIV"
-            - model: Diagnosis
-              value_set: "HEDIS; HIV Type 2"
-            - model: Diagnosis
-              value_set: "HEDIS; Malignant Neoplasm of Lymphatic Tissue"
-            - model: Allergy
-              value_set: "Able; Neomycin Ingredient"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Severe Combined Immunodeficiency"
-            - model: Diagnosis
-              value_set: "HEDIS; Intussusception"
-        - count: 1
-          validation_records:
-            - model: Allergy
-              value_set: "Able; Streptomycin Ingredient"
-            - model: Allergy
-              value_set: "Able; Neomycin Ingredient"
-            - model: Allergy
-              value_set: "Able; Polymyxin B Ingredient"
-        - count: 1
-          validation_records:
-            - model: Allergy
-              value_set: "Able; Baker's Yeast"
-performance_met_reasons:
+    code_value:
+    display_title: Allergy to Vaccination
+    description: "Patient excluded due to allergy to vaccine"
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Allergy to Vaccination
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Anaphylactic Reaction Due to Vaccination
+        - model: Allergy
+          value_set: HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered
+        - model: Allergy
+          value_set: HEDIS; Measles/Rubella Vaccine Administered
+        - model: Allergy
+          value_set: HEDIS; Mumps Vaccine Administered
+        - model: Allergy
+          value_set: HEDIS; Measles Vaccine Administered
+        - model: Allergy
+          value_set: HEDIS; Rubella Vaccine Administered
+        - model: Allergy
+          value_set: Able; Neomycin Ingredient
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Disorder of the Immune System
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Disorders of the Immune System
+        - model: Diagnosis
+          value_set: HEDIS; HIV
+        - model: Diagnosis
+          value_set: HEDIS; HIV Type 2
+        - model: Diagnosis
+          value_set: HEDIS; Malignant Neoplasm of Lymphatic Tissue
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
   - config_link_id: performance_met
-    required:
-      display_title: 'Measles, mumps, and rubella vaccinations administered'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Measles/Rubella Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Measles/Rubella Vaccine Administered"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Mumps Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Mumps Vaccine Administered"
-            - model: Diagnosis
-              value_set: "HEDIS; Mumps"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Measles Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Measles Vaccine Administered"
-            - model: Diagnosis
-              value_set: "HEDIS; Measles"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Rubella Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Rubella Vaccine Administered"
-            - model: Diagnosis
-              value_set: "HEDIS; Rubella"
-exception_reasons:
-performance_not_met_reasons:
+    code_value:
+    display_title: MMR Vaccine
+    description: "Measles, mumps, and rubella vaccinations administered between
+      42 days and 2 years of age"
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: MMR Vaccine
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered
+        - model: Medication
+          value_set: HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered
+        - model: ClinicalActivity
+          value_set: HEDIS; Measles/Rubella Vaccine Administered
+        - model: Medication
+          value_set: HEDIS; Measles/Rubella Vaccine Administered
+        - model: ClinicalActivity
+          value_set: HEDIS; Mumps Vaccine Administered
+        - model: Medication
+          value_set: HEDIS; Mumps Vaccine Administered
+        - model: ClinicalActivity
+          value_set: HEDIS; Measles Vaccine Administered
+        - model: Medication
+          value_set: HEDIS; Measles Vaccine Administered
+        - model: ClinicalActivity
+          value_set: HEDIS; Rubella Vaccine Administered
+        - model: Medication
+          value_set: HEDIS; Rubella Vaccine Administered
+      - display_title: History of MMR
+        show_codes: true
+        logical_operator: OR
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Mumps
+          value_set: HEDIS; Measles
+        - model: Diagnosis
+          value_set: HEDIS; Rubella
+performance_not_met:
+  description:
+  reasons:
   - config_link_id: performance_not_met
-    required:
-      display_title: 'No measles, mumps, and/or rubella vaccinations found between 42 days and 2 years of age'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Measles/Rubella Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Measles/Rubella Vaccine Administered"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Mumps Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Mumps Vaccine Administered"
-            - model: Diagnosis
-              value_set: "HEDIS; Mumps"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Measles Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Measles Vaccine Administered"
-            - model: Diagnosis
-              value_set: "HEDIS; Measles"
-        - count: 1
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Rubella Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Rubella Vaccine Administered"
-            - model: Diagnosis
-              value_set: "HEDIS; Rubella"
+    code_value:
+    display_title: Missing Vaccines
+    description: "No MMR vaccination found on between
+      42 days and 2 years of age"
+    component_groups:

@@ -8,8 +8,8 @@ measure:
     set: HEDIS
     external_id: CDC5
   optional:
-    description: Patients 18–75 years of age with diabetes (type 1 and type 2)
-    who had an eye exam (retinal) performed.
+    description: "Patients 18–75 years of age with diabetes (type 1 and type 2)
+    who had an eye exam (retinal) performed."
     gap_resolution_action: Patient is due for an diabetic eye exam
     version: 2018
     mips_measure_type:
@@ -21,7 +21,7 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Patients 18–75 years as of December 31 of the measurement year.
+  description: "Patients 18–75 years as of December 31 of the measurement year."
   component_groups:
   - validation_record_table_count: 1
     components:
@@ -30,44 +30,43 @@ denominator:
       records:
       - model: Diagnosis
         value_set: HEDIS; Diabetes
-    - validation_record_table_count: 1
-      logical_operator: AND
-      components:
-      - display_title: Acute Inpatient Encounter
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Acute Inpatient
-      - display_title: 2 Outpatient Visits
-        logical_operator: OR
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Outpatient
-        - model: ClinicalActivity
-          value_set: HEDIS; Observation
-        - model: ClinicalActivity
-          value_set: HEDIS; ED
-        - model: ClinicalActivity
-          value_set: HEDIS; Nonacute Inpatient
-    - validation_record_table_count: 10
-      logical_operator: AND NOT
-      components:
-      - display_title: Hospice Service
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: MIPS; MIPS Hospice Service
-        - model: ClinicalActivity
-          value_set: VSAC; Palliative Care
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: Acute Inpatient Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Acute Inpatient
+    - display_title: 2 Outpatient Visits
+      logical_operator: OR
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Outpatient
+      - model: ClinicalActivity
+        value_set: HEDIS; Observation
+      - model: ClinicalActivity
+        value_set: HEDIS; ED
+      - model: ClinicalActivity
+        value_set: HEDIS; Nonacute Inpatient
+  - validation_record_table_count: 10
+    logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
 exclusion:
   description:
   reasons:
   - config_link_id: exclusion_1
     code_value:
     display_title: Excluded Diabetes
-    description: Patient excluded due to a diagnosis of gestational diabetes or steroid-induced
-      diabetes
+    description:  "Patient excluded due to a diagnosis of gestational diabetes or steroid-induced diabetes during the measurement year or the year prior to the measurement year"
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -87,7 +86,10 @@ performance_met:
   - config_link_id: performance_met
     code_value:
     display_title: Diabetic Eye Exam
-    description: Patient received a diabetic eye exam
+    description: "Patient received dialated or retinal screening during the measurement
+      year, two unilateral eye enucleations no more than 14 days apart anytime before
+      December 31 of the measurement year, or a left and right unilateral eye
+      enucleation on the same or different dates of service."
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -127,6 +129,6 @@ performance_not_met:
   - config_link_id: performance_not_met
     code_value:
     display_title: No Diabetic Eye Exam
-    description: No diabetic eye exam by an eye care professional found in the appropriate
-      timeframe
+    description: "No diabetic eye exam by an eye care professional found in the appropriate
+      timeframe"
     component_groups:

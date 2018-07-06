@@ -1,105 +1,79 @@
+---
 measure:
   name: 18.HEDIS.Cis4
   required:
-    display_title: "Childhood Immunization Status: HiB"
-  optional:
-    gap_resolution_action: Patient is missing one or more HiB vaccines
+    display_title: 'Childhood Immunization Status: HiB'
+    inverse: false
+    subject_type: Patient
     set: HEDIS
-    external_id: 'CIS HiB'
+    external_id: CIS HiB
+  optional:
+    description: "The percentage of children 2 years of age who had three haemophilus influenza type B (HiB) vaccines by their second birthday."
+    gap_resolution_action: Patient is missing one or more HiB vaccines
     version: 2018
-exclusion_reasons:
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: "Children who turn 2 years of age during the measurement year."
+  component_groups:
+  - validation_record_table_count: 10
+    logical_operator: NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
+exclusion:
+  description:
+  reasons:
   - config_link_id: exclusion_1
-    required:
-      display_title: 'Patient excluded due to allergy to vaccine'
-      validation_record_groups:
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Anaphylactic Reaction Due to Vaccination"
-            - model: Allergy
-              value_set: "HEDIS; DTaP Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Inactivated Polio Vaccine (IPV) Administered"
-            - model: Allergy
-              value_set: "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Measles/Rubella Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Mumps Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Measles Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Rubella Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Hepatitis B Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Newborn Hepatitis B Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Varicella Zoster (VZV) Vaccine Administered"
-            - model: Allergy
-              value_set: "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered"
-            - model: Allergy
-              value_set: "HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered"
-            - model: Allergy
-              value_set: "HEDIS; Influenza Vaccine Administered"
-        - count: 1
-          validation_records:
-          - model: Diagnosis
-            value_set: "HEDIS; Encephalopathy Due To Vaccination"
-        - count: 1
-          validation_records:
-          - model: Diagnosis
-            value_set: "HEDIS; Vaccine Causing Adverse Effect"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Disorders of the Immune System"
-            - model: Diagnosis
-              value_set: "HEDIS; HIV"
-            - model: Diagnosis
-              value_set: "HEDIS; HIV Type 2"
-            - model: Diagnosis
-              value_set: "HEDIS; Malignant Neoplasm of Lymphatic Tissue"
-            - model: Allergy
-              value_set: "Able; Neomycin Ingredient"
-        - count: 1
-          validation_records:
-            - model: Diagnosis
-              value_set: "HEDIS; Severe Combined Immunodeficiency"
-            - model: Diagnosis
-              value_set: "HEDIS; Intussusception"
-        - count: 1
-          validation_records:
-            - model: Allergy
-              value_set: "Able; Streptomycin Ingredient"
-            - model: Allergy
-              value_set: "Able; Neomycin Ingredient"
-            - model: Allergy
-              value_set: "Able; Polymyxin B Ingredient"
-        - count: 1
-          validation_records:
-            - model: Allergy
-              value_set: "Able; Baker's Yeast"
-performance_met_reasons:
+    code_value:
+    display_title: Allergy to Vaccination
+    description: Patient excluded due to allergy to vaccine
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Allergy to Vaccination
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Anaphylactic Reaction Due to Vaccination
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
   - config_link_id: performance_met
-    required:
-      display_title: 'At least three HiB vaccinations administered'
-      validation_record_groups:
-        - count: 4
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered"
-exception_reasons:
-performance_not_met_reasons:
+    code_value:
+    display_title: 3 HiB Vaccines
+    description: "At least three HiB vaccinations administered between
+      42 days and 2 years of age"
+    component_groups:
+    - validation_record_table_count: 4
+      components:
+      - display_title: 3 HiB Vaccines
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered
+        - model: Medication
+          value_set: HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered
+performance_not_met:
+  description:
+  reasons:
   - config_link_id: performance_not_met
-    required:
-      display_title: 'Fewer than three HiB vaccinations found between 42 days and 2 years of age'
-      validation_record_groups:
-        - count: 4
-          validation_records:
-            - model: ClinicalActivity
-              value_set: "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered"
-            - model: Medication
-              value_set: "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered"
+    code_value:
+    display_title: Missing Vaccines
+    description: "Fewer than three HiB vaccinations found on between
+      42 days and 2 years of age"
+    component_groups:

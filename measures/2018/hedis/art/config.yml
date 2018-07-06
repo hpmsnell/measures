@@ -8,7 +8,7 @@ measure:
     set: HEDIS
     external_id: ART
   optional:
-    description: The percentage of patients 18 years of age and older who were diagnosed with rheumatoid arthritis and who were dispensed at least one ambulatory prescription for a disease-modifying anti-rheumatic drug (DMARD).
+    description: "The percentage of patients 18 years of age and older who were diagnosed with rheumatoid arthritis and who were dispensed at least one ambulatory prescription for a disease-modifying anti-rheumatic drug (DMARD)."
     gap_resolution_action:
     version: 2018
     mips_measure_type:
@@ -20,7 +20,8 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Patients 18 years and older as of December 31 of the measurement year with two outpatient visits and/or nonacute inpatient discharges with a diagnosis of rheumatoid arthritis on different dates of service on or between January 1 and November 30 of the measurement year.
+  description: "Patients 18 years and older as of December 31 of the measurement year with two outpatient visits and/or nonacute inpatient
+  discharges with a diagnosis of rheumatoid arthritis on different dates of service on or between January 1 and November 30 of the measurement year"
   component_groups:
   - validation_record_table_count: 5
     components:
@@ -28,36 +29,36 @@ denominator:
       show_codes: true
       records:
       - model: ClinicalActivity
-        value_set: HEDIS; Outpatient Visit
+        value_set: HEDIS; Outpatient
       - model: ClinicalActivity
         value_set: HEDIS; Inpatient Stay
       - model: ClinicalActivity
         value_set: HEDIS; NonAcute Inpatient Stay
-    - validation_record_table_count: 5
-      logical_operator: AND
-      components:
-      - display_title: Rheumatoid Arthritis
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: HEDIS; Rheumatoid Arthritis
-    - validation_record_table_count: 10
-      logical_operator: AND NOT
-      components:
-      - display_title: Hospice Service
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: MIPS; MIPS Hospice Service
-        - model: ClinicalActivity
-          value_set: VSAC; Palliative Care
+  - validation_record_table_count: 5
+    logical_operator: AND
+    components:
+    - display_title: Rheumatoid Arthritis
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Rheumatoid Arthritis
+  - validation_record_table_count: 10
+    logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
 exclusion:
   description:
   reasons:
   - config_link_id: exclusion_1
     code_value:
     display_title: HIV
-    description: Patient excluded due to a diagnosis of HIV
+    description: "Patient excluded due to a diagnosis of HIV during measurement year"
     component_groups:
     - validation_record_table_count: 5
       components:
@@ -68,28 +69,28 @@ exclusion:
           value_set: HEDIS; HIV
         - model: Diagnosis
           value_set: HEDIS; HIV Type 2
-    - config_link_id: exclusion_2
-      code_value:
-      display_title: Pregnancy
-      description: Patient excluded due to pregnancy
-      component_groups:
-      - validation_record_table_count: 5
-        components:
-        - display_title: Pregnancy
-          show_codes: true
-          records:
-          - model: Diagnosis
-            value_set: HEDIS; Pregnancy
+  - config_link_id: exclusion_2
+    code_value:
+    display_title: Pregnancy
+    description: "Patient excluded due to pregnancy"
+    component_groups:
+    - validation_record_table_count: 5
+      components:
+      - display_title: Pregnancy
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Pregnancy
 exception:
   description:
   reasons:
 performance_met:
-  description: Patients who had at least one ambulatory prescription dispensed for a DMARD during the measurement year.
+  description:
   reasons:
   - config_link_id: performance_met
     code_value:
     display_title: DMARD
-    description: Patient received an ambulatory prescription dispensed for DMARD
+    description: "Patients who had at least one ambulatory prescription dispensed for a DMARD during the measurement year."
     component_groups:
     - validation_record_table_count: 5
       components:
@@ -99,12 +100,12 @@ performance_met:
         - model: ClinicalActivity
           value_set: HEDIS; DMARD
         - model: Medication
-          value_set: HEDIS; DMARD Medication
+          value_set: Vsac; DMARD Medication
 performance_not_met:
   description:
   reasons:
   - config_link_id: performance_not_met
     code_value:
     display_title: No DMARD
-    description: No ambulatory medication dispensed for DMARD during the measurement year
+    description: "No ambulatory medication dispensed for DMARD during the measurement year"
     component_groups:

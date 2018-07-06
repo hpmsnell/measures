@@ -8,8 +8,9 @@ measure:
     set: HEDIS
     external_id: OMW
   optional:
-    description: The percentage of women 67–85 years of age who suffered a fracture and who had either a bone mineral density (BMD) test or prescription for a drug to treat osteoporosis in the six months after the fracture.
-    gap_resolution_action: Patient is due for osteoporosis management due to a fracture
+    description: "The percentage of women 67–85 years of age who suffered a fracture and who had either a bone mineral density (BMD) test or prescription
+    for a drug to treat osteoporosis in the six months after the fracture."
+    gap_resolution_action: "Patient is due for osteoporosis management due to a fracture"
     version: 2018
     mips_measure_type:
     mips_high_priority:
@@ -20,7 +21,9 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Women 67–85 years of age who suffered a fracture
+  description: "Women 67–85 years of age who had an outpatient or inpatient
+    visit with a fracture between July 1 of the year prior to the measurement
+    year to June 30 of the measurement year"
   component_groups:
   - validation_record_table_count: 5
     components:
@@ -59,7 +62,9 @@ exclusion:
   - config_link_id: exclusion_1
     code_value:
     display_title: Prior Osteoporosis Management
-    description: 'Patient excluded due to prior osteoporosis management'
+    description: "Patient excluded due to bone mineral density test within 24
+      months prior to the earliest denominator eligible encounter or osteoporosis
+      therapy or medication within 12 months prior to the earliest denominator eligible encounter."
     component_groups:
     - validation_record_table_count: 5
       components:
@@ -81,7 +86,7 @@ performance_met:
   - config_link_id: performance_met
     code_value:
     display_title: Osteoporosis Management
-    description: 'Patient received osteoporosis management'
+    description: 'Patient received osteoporosis management during the inpatient stay or within 180 days after the denominator eligible encounter'
     component_groups:
     - validation_record_table_count: 5
       components:
