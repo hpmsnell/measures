@@ -8,7 +8,7 @@ measure:
     set: HEDIS
     external_id: MPM1
   optional:
-    description: The percentage of patients 18 years of age and older who received at least 180 treatment days of ambulatory medication therapy for angiotensin converting enzyme (ACE) inhibitors or angiotensin receptor blockers (ARB) during the measurement year and at least one therapeutic monitoring event for the therapeutic agent in the measurement year.
+    description: "The percentage of patients 18 years of age and older who received at least 180 treatment days of ambulatory medication therapy for angiotensin converting enzyme (ACE) inhibitors or angiotensin receptor blockers (ARB) during the measurement year and at least one therapeutic monitoring event for the therapeutic agent in the measurement year."
     gap_resolution_action: Patient is due for monitoring for ACE inhibitors or ARBs
     version: 2018
     mips_measure_type:
@@ -20,7 +20,7 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Patients who received at least 180 treatment days of ACE inhibitors or ARBs during the measurement year
+  description: "Patients who received at least 180 treatment days of ACE inhibitors or ARBs during the measurement year"
   component_groups:
   - validation_record_table_count: 1
     components:
@@ -28,7 +28,7 @@ denominator:
       show_codes: true
       records:
       - model: Medication
-        value_set: VSAC; ACE Inhibitor/ARB
+        value_set: VSAC; ACE Inhibitor or ARB
   - validation_record_table_count: 10
     logical_operator: AND NOT
     components:
@@ -45,7 +45,7 @@ exclusion:
   - config_link_id: exclusion_1
     code_value:
     display_title: Inpatient Encounter
-    description: Patient excluded due to an inpatient encounter during the measurement period
+    description: "Patient excluded due to an inpatient encounter during the measurement period"
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -60,12 +60,12 @@ exception:
   description:
   reasons:
 performance_met:
-  description: At least one serum potassium and a serum creatinine therapeutic monitoring test in the measurement year
+  description:
   reasons:
   - config_link_id: performance_met
     code_value:
     display_title: Monitoring
-    description: Patient received at least one serum potassium and a serum creatinine therapeutic monitoring test
+    description: "At least one serum potassium and a serum creatinine therapeutic monitoring test in the measurement year"
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -84,7 +84,7 @@ performance_met:
           value_set: HEDIS; Serum Potassium
         - model: LaboratoryTestPerformed
           value_set: HEDIS; Serum Potassium
-      - display_title: Serum Potassium Test
+      - display_title: Serum Creatine Test
         logical_operator: 'AND'
         show_codes: true
         records:
@@ -98,5 +98,5 @@ performance_not_met:
   - config_link_id: performance_not_met
     code_value:
     display_title: No Monitoring
-    description: No serum potassium and/or serum creatinine therapeutic monitoring test found during the measurement period
+    description: "No serum potassium and/or serum creatinine therapeutic monitoring test found during the measurement period"
     component_groups:

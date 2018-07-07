@@ -8,8 +8,8 @@ measure:
     set: HEDIS
     external_id: CDC6
   optional:
-    description: The percentage of members 18–75 years of age with diabetes
-    (type 1 and type 2) who had medical attention for nephropathy.
+    description: "The percentage of members 18–75 years of age with diabetes
+    (type 1 and type 2) who had medical attention for nephropathy."
     gap_resolution_action: Patient is due for screening or monitoring for nephropathy
     version: 2018
     mips_measure_type:
@@ -21,7 +21,7 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Patients 18–75 years as of December 31 of the measurement year.
+  description: "Patients 18–75 years as of December 31 of the measurement year."
   component_groups:
   - validation_record_table_count: 1
     components:
@@ -30,44 +30,43 @@ denominator:
       records:
       - model: Diagnosis
         value_set: HEDIS; Diabetes
-    - validation_record_table_count: 1
-      logical_operator: AND
-      components:
-      - display_title: Acute Inpatient Encounter
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Acute Inpatient
-      - display_title: 2 Outpatient Visits
-        logical_operator: OR
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Outpatient
-        - model: ClinicalActivity
-          value_set: HEDIS; Observation
-        - model: ClinicalActivity
-          value_set: HEDIS; ED
-        - model: ClinicalActivity
-          value_set: HEDIS; Nonacute Inpatient
-    - validation_record_table_count: 10
-      logical_operator: AND NOT
-      components:
-      - display_title: Hospice Service
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: MIPS; MIPS Hospice Service
-        - model: ClinicalActivity
-          value_set: VSAC; Palliative Care
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: Acute Inpatient Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Acute Inpatient
+    - display_title: 2 Outpatient Visits
+      logical_operator: OR
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Outpatient
+      - model: ClinicalActivity
+        value_set: HEDIS; Observation
+      - model: ClinicalActivity
+        value_set: HEDIS; ED
+      - model: ClinicalActivity
+        value_set: HEDIS; Nonacute Inpatient
+  - validation_record_table_count: 10
+    logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
 exclusion:
   description:
   reasons:
   - config_link_id: exclusion_1
     code_value:
     display_title: Excluded Diabetes
-    description: Patient excluded due to a diagnosis of gestational diabetes or steroid-induced
-      diabetes
+    description: "Patient excluded due to a diagnosis of gestational diabetes or steroid-induced diabetes during the measurement year or the year prior to the measurement year"
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -87,7 +86,7 @@ performance_met:
   - config_link_id: performance_met
     code_value:
     display_title: Attention for Nephropathy
-    description: Patient received screening or monitoring for nephropathy
+    description: "Patient received screening or monitoring for nephropathy"
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -99,6 +98,7 @@ performance_met:
         - model: LaboratoryTestPerformed
           value_set: HEDIS; Urine Protein Tests
     - validation_record_table_count: 1
+      logical_operator: OR
       components:
       - display_title: Monitoring of Nephropathy
         show_codes: true
@@ -122,7 +122,7 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: No Screening or Monitoring of Nephropathy
-    description: No screening or monitoring of nephropathy found in the appropriate
-      timeframe
+    display_title: No Attention for Nephropathy
+    description: "No screening or monitoring of nephropathy found in the appropriate
+      timeframe"
     component_groups:

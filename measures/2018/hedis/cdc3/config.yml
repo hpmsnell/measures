@@ -8,8 +8,8 @@ measure:
     set: HEDIS
     external_id: CDC3
   optional:
-    description: Patients 18–75 years of age with diabetes (type 1 and type 2)
-    whose most recent HbA1c level is <8.0%.
+    description: "Patients 18–75 years of age with diabetes (type 1 and type 2)
+    whose most recent HbA1c level is <8.0%."
     gap_resolution_action: Patient is due for an HbA1c test or needs attention for
       an uncontrolled result
     version: 2018
@@ -22,7 +22,7 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Patients 18–75 years as of December 31 of the measurement year.
+  description: "Patients 18–75 years as of December 31 of the measurement year."
   component_groups:
   - validation_record_table_count: 1
     components:
@@ -31,44 +31,43 @@ denominator:
       records:
       - model: Diagnosis
         value_set: HEDIS; Diabetes
-    - validation_record_table_count: 1
-      logical_operator: AND
-      components:
-      - display_title: Acute Inpatient Encounter
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Acute Inpatient
-      - display_title: 2 Outpatient Visits
-        logical_operator: OR
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Outpatient
-        - model: ClinicalActivity
-          value_set: HEDIS; Observation
-        - model: ClinicalActivity
-          value_set: HEDIS; ED
-        - model: ClinicalActivity
-          value_set: HEDIS; Nonacute Inpatient
-    - validation_record_table_count: 10
-      logical_operator: AND NOT
-      components:
-      - display_title: Hospice Service
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: MIPS; MIPS Hospice Service
-        - model: ClinicalActivity
-          value_set: VSAC; Palliative Care
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: Acute Inpatient Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Acute Inpatient
+    - display_title: 2 Outpatient Visits
+      logical_operator: OR
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Outpatient
+      - model: ClinicalActivity
+        value_set: HEDIS; Observation
+      - model: ClinicalActivity
+        value_set: HEDIS; ED
+      - model: ClinicalActivity
+        value_set: HEDIS; Nonacute Inpatient
+  - validation_record_table_count: 10
+    logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
 exclusion:
   description:
   reasons:
   - config_link_id: exclusion_1
     code_value:
     display_title: Excluded Diabetes
-    description: Patient excluded due to a diagnosis of gestational diabetes or steroid-induced
-      diabetes
+    description:  "Patient excluded due to a diagnosis of gestational diabetes or steroid-induced diabetes during the measurement year or the year prior to the measurement year"
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -88,7 +87,7 @@ performance_met:
   - config_link_id: hba1c_controlled
     code_value:
     display_title: Controlled HbA1c
-    description: Most recent hemoglobin A1c level <8.0%
+    description: "Most recent hemoglobin A1c level during the measurement year <8.0%"
     component_groups:
     - validation_record_table_count: 5
       components:
@@ -108,7 +107,7 @@ performance_not_met:
   - config_link_id: hba1c_high
     code_value:
     display_title: High Hba1c
-    description: Most recent hemoglobin A1c level ≥8.0%
+    description: "Most recent hemoglobin A1c level ≥8.0%"
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -125,5 +124,5 @@ performance_not_met:
   - config_link_id: hba1c_none
     code_value:
     display_title: No HbA1c Result
-    description: No hemoglobin A1c result was found in the appropriate timeframe
+    description: "No hemoglobin A1c result was found in the appropriate timeframe"
     component_groups:

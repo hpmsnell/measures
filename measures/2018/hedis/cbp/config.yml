@@ -8,9 +8,9 @@ measure:
     set: HEDIS
     external_id: CBP
   optional:
-    description: The percentage of members 18–85 years of age who had a
+    description: "The percentage of members 18–85 years of age who had a
     diagnosis of hypertension (HTN) and whose BP was adequately controlled
-    during the measurement year.
+    during the measurement year."
     gap_resolution_action: Patient is due for blood pressure screening or attention
       for uncontrolled blood pressure
     version: 2018
@@ -23,10 +23,17 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: 18–85 years as of December 31 of the measurement year.
+  description: "Patients 18–85 years as of December 31 of the measurement year with a diagnosis of hypertension"
   component_groups:
   - validation_record_table_count: 10
-    logical_operator: NOT
+    components:
+    - display_title: Hypertension
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Essential Hypertension
+  - validation_record_table_count: 10
+    logical_operator: AND NOT
     components:
     - display_title: Hospice Service
       show_codes: true
@@ -41,7 +48,7 @@ exclusion:
   - config_link_id: exclusion_1
     code_value:
     display_title: ESRD
-    description: Patient excluded due to End Stage Renal Disease (ESRD)
+    description: "Patient excluded due to End Stage Renal Disease (ESRD) on or prior to the end of the measurement year"
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -59,7 +66,7 @@ exclusion:
   - config_link_id: exclusion_2
     code_value:
     display_title: Pregnancy
-    description: Patient excluded due to pregnancy
+    description: "Patient excluded due to pregnancy during the measurement year"
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -71,7 +78,7 @@ exclusion:
   - config_link_id: exclusion_3
     code_value:
     display_title: Inpatient Admission
-    description: Patient excluded due a nonacute inpatient admission
+    description: "Patient excluded due a nonacute inpatient admission during the measurement year"
     component_groups:
     - validation_record_table_count: 5
       components:
@@ -86,28 +93,28 @@ exception:
   description:
   reasons:
 performance_met:
-  description:
+  description: "Patients in the denominator whose most recent BP (both systolic and diastolic) is adequately controlled during the measurement year"
   reasons:
   - config_link_id: performance_met
     code_value:
     display_title: Blood Pressure Controlled
-    description: Most recent blood pressure within the allowable range
+    description: "Most recent blood pressure within the allowable range"
     component_groups:
     - validation_record_table_count: 1
-    components:
-    - display_title: Normal Systolic Blood Pressure
-      show_codes: true
-      annotation: Patient 18-59 with result: <140 mmHg
-      records:
-      - model: ClinicalActivity
-        value_set: VSAC; Systolic Blood Pressure
-    - display_title: Normal Diastolic Blood Pressure
-      logical_operator: AND
-      annotation: Patients 18-59 with result: <90 mmHg
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: VSAC; Diastolic Blood Pressure
+      components:
+      - display_title: Normal Systolic Blood Pressure
+        show_codes: true
+        annotation: "Patient 18-59 with result: <140 mmHg"
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Systolic Blood Pressure
+      - display_title: Normal Diastolic Blood Pressure
+        logical_operator: AND
+        annotation: "Patients 18-59 with result: <90 mmHg"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Diastolic Blood Pressure
     - validation_record_table_count: 1
       logical_operator: OR
       components:
@@ -119,95 +126,58 @@ performance_met:
       - display_title:  Normal Systolic Blood Pressure
         logical_operator: AND
         show_codes: true
-        annotation: Patient 60-85 with result: <140 mmHg
+        annotation: "Patient 60-85 with result: <140 mmHg"
         records:
         - model: ClinicalActivity
           value_set: VSAC; Systolic Blood Pressure
       - display_title:  Normal Diastolic Blood Pressure
         logical_operator: AND
-        annotation: Patients 60-85 with result: <90 mmHg
+        annotation: "Patients 60-85 with result: <90 mmHg"
         show_codes: true
         records:
         - model: ClinicalActivity
           value_set: VSAC; Diastolic Blood Pressure
     - validation_record_table_count: 1
-    components:
-    - display_title: Normal Systolic Blood Pressure
-      show_codes: true
-      annotation: Patient 60-85 with result: <150 mmHg
-      records:
-      - model: ClinicalActivity
-        value_set: VSAC; Systolic Blood Pressure
-    - display_title: Normal Diastolic Blood Pressure
-      logical_operator: AND
-      annotation: Patients 60-85 with result: <90 mmHg
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: VSAC; Diastolic Blood Pressure
+      logical_operator: OR
+      components:
+      - display_title: Normal Systolic Blood Pressure
+        show_codes: true
+        annotation: "Patient 60-85 with result: <150 mmHg"
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Systolic Blood Pressure
+      - display_title: Normal Diastolic Blood Pressure
+        logical_operator: AND
+        annotation: "Patients 60-85 with result: <90 mmHg"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Diastolic Blood Pressure
 performance_not_met:
   description:
   reasons:
   - config_link_id: out_of_range
     code_value:
     display_title: Blood Pressure Uncontrolled
-    description: Most recent blood pressure not within the allowable range
+    description: "Most recent blood pressure not within the allowable range"
     component_groups:
     - validation_record_table_count: 1
-    components:
-    - display_title: High Systolic Blood Pressure
-      show_codes: true
-      annotation: Patient 18-59 with result: ≥140 mmHg
-      records:
-      - model: ClinicalActivity
-        value_set: VSAC; Systolic Blood Pressure
-    - display_title: High Diastolic Blood Pressure
-      logical_operator: AND
-      annotation: Patients 18-59 with result: ≥90 mmHg
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: VSAC; Diastolic Blood Pressure
-    - validation_record_table_count: 1
-      logical_operator: OR
       components:
-      - display_title: Diabetes
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: HEDIS; Diabetes
       - display_title: High Systolic Blood Pressure
-        logical_operator: AND
         show_codes: true
-        annotation: Patient 60-85 with result: ≥140 mmHg
+        annotation: "Patient 18-59 with result: ≥140 mmHg"
         records:
         - model: ClinicalActivity
           value_set: VSAC; Systolic Blood Pressure
       - display_title: High Diastolic Blood Pressure
-        logical_operator: AND
-        annotation: Patients 60-85 with result: ≥90 mmHg
+        logical_operator: OR
+        annotation: "Patients 18-59 with result: ≥90 mmHg"
         show_codes: true
         records:
         - model: ClinicalActivity
           value_set: VSAC; Diastolic Blood Pressure
-    - validation_record_table_count: 1
-    logical_operator: OR
-    components:
-    - display_title: High Systolic Blood Pressure
-      show_codes: true
-      annotation: Patient 60-85 with result: ≥150 mmHg
-      records:
-      - model: ClinicalActivity
-        value_set: VSAC; Systolic Blood Pressure
-    - display_title: High Diastolic Blood Pressure
-      logical_operator: AND
-      annotation: Patients 60-85 with result: ≥90 mmHg
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: VSAC; Diastolic Blood Pressure
   - config_link_id: no_blood_pressure
     code_value:
     display_title: No Blood Pressure
-    description: No blood pressure found during the measurement period
+    description: "No blood pressure found during the measurement period"
     component_groups:

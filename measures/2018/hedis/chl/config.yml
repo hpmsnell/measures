@@ -8,9 +8,9 @@ measure:
     set: HEDIS
     external_id: CHL
   optional:
-    description: The percentage of women 16–24 years of age who were identified
+    description: "The percentage of women 16–24 years of age who were identified
     as sexually active and who had at least one test for chlamydia during the
-    measurement year.
+    measurement year."
     gap_resolution_action: Patient is due for a chlamydia screening
     version: 2018
     mips_measure_type:
@@ -22,7 +22,7 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Women 16–24 years as of December 31 of the measurement year.
+  description: "Women 16–24 years who were sexually active as of December 31 of the measurement year."
   component_groups:
   - validation_record_table_count: 1
     components:
@@ -65,9 +65,9 @@ exclusion:
   - config_link_id: exclusion_1
     code_value:
     display_title: Isotretinoin or X-Ray
-    description: Patient excluded due to qualifying for the denominator based on a
+    description: "Patient excluded due to qualifying for the denominator based on a
     pregnancy test alone and receiving a prescription for isotretinoin or an X-ray on or
-    within 6 days after the pregnancy test.
+    within 6 days after the pregnancy test."
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -101,7 +101,7 @@ performance_met:
   - config_link_id: performance_met
     code_value:
     display_title: Chlamydia Screening
-    description: Patient received a chlamydia screening
+    description: "Patient received a chlamydia screening during the measurement year"
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -118,5 +118,5 @@ performance_not_met:
   - config_link_id: performance_not_met
     code_value:
     display_title: No Chlamydia Test
-    description: No chlamydia test found during the measurement period
+    description: "No chlamydia test found during the measurement period"
     component_groups:

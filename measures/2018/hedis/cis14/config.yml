@@ -8,11 +8,11 @@ measure:
     set: HEDIS
     external_id: CIS Combination 5
   optional:
-    description: The percentage of children 2 years of age who had four
+    description: "The percentage of children 2 years of age who had four
     diphtheria, tetanus and acellular pertussis (DTaP); three polio (IPV); one
     measles, mumps and rubella (MMR); three haemophilus influenza type B (HiB);
     three hepatitis B (HepB), one chicken pox (VZV); four pneumococcal
-    conjugate (PCV); and two or three rotavirus (RV) vaccines by their second birthday.
+    conjugate (PCV); and two or three rotavirus (RV) vaccines by their second birthday."
     gap_resolution_action: Patient is missing one or more vaccines
     version: 2018
     mips_measure_type:
@@ -24,7 +24,7 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Children who turn 2 years of age during the measurement year.
+  description: "Children who turn 2 years of age during the measurement year."
   component_groups:
   - validation_record_table_count: 10
     logical_operator: NOT
@@ -42,7 +42,7 @@ exclusion:
   - config_link_id: exclusion_1
     code_value:
     display_title: Allergy to Vaccination
-    description: Patient excluded due to allergy to vaccine
+    description: "Patient excluded due to allergy to vaccine"
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -127,8 +127,8 @@ performance_met:
   reasons:
   - config_link_id: performance_met
     code_value:
-    display_title: All Vaccinations Administered
-    description: All vaccinations administered
+    display_title: "All vaccinations administered"
+    description: "All vaccinations administered on or before the child's second birthday. For DTap, IPV, HiB, Pneumococcal Conjugate, and Rotavirus do not count a vaccination administered prior to 42 days after birth."
     component_groups:
     - validation_record_table_count: 5
       components:
@@ -185,7 +185,7 @@ performance_met:
         - model: Diagnosis
           value_set: HEDIS; Rubella
     - validation_record_table_count: 4
-      logcial_operator: AND
+      logical_operator: AND
       components:
       - display_title: HiB Vaccine
         show_codes: true
@@ -224,6 +224,7 @@ performance_met:
         logical_operator: OR
         show_codes: true
         records:
+        - model: Diagnosis
           value_set: HEDIS; Varicella Zoster
     - validation_record_table_count: 5
       logical_operator: AND
@@ -245,7 +246,7 @@ performance_met:
           value_set: HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered
         - model: Medication
           value_set: HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered
-      - display_title: Rotavirus Vaccine (2 Dose Schedule) Administered
+      - display_title: Rotavirus Vaccine (2 Dose Schedule)
         show_codes: true
         logical_operator: OR
         records:
@@ -258,6 +259,6 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: Missing One or More Vaccines
-    description: Patient is missing one or more vaccines
+    display_title: Missing Vaccines
+    description: "Patient is missing one or more vaccines"
     component_groups:

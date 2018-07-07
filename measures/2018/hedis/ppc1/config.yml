@@ -8,7 +8,7 @@ measure:
     set: HEDIS
     external_id: PPC1
   optional:
-    description: The percentage of deliveries that received a prenatal care visit in the first trimester.
+    description: "The percentage of deliveries that received a prenatal care visit in the first trimester."
     gap_resolution_action:
     version: 2018
     mips_measure_type:
@@ -20,7 +20,7 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Delivered a live birth on or between November 6 of the year prior to the measurement year and November 5 of the measurement year. Patients who delivered in any setting should be included in this measure.
+  description: "Delivered a live birth on or between November 6 of the year prior to the measurement year and November 5 of the measurement year. Patients who delivered in any setting should be included in this measure."
   component_groups:
   - validation_record_table_count: 5
     components:
@@ -54,12 +54,12 @@ exception:
   description:
   reasons:
 performance_met:
-  description: A prenatal visit in the first trimester
+  description: "A prenatal visit in the first trimester"
   reasons:
   - config_link_id: single
     code_value:
     display_title: Single Service
-    description: Patient received a complete prenatal service
+    description: "Patient received a complete prenatal service"
     component_groups:
     - validation_record_table_count: 5
       components:
@@ -73,7 +73,7 @@ performance_met:
   - config_link_id: multiple
     code_value:
     display_title: Multiple Services
-    description: Patient received a prenatal visit with one or more additional eligible services
+    description: "Patient received a prenatal visit with one or more additional eligible services"
     component_groups:
     - validation_record_table_count: 5
       components:
@@ -96,12 +96,6 @@ performance_met:
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Prenatal Ultrasound
-      - display_title: Pregnancy
-        logical_operator: OR
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: HEDIS; Pregnancy Diagnosis
       - display_title: Antibody Tests
         logical_operator: OR
         show_codes: true
@@ -138,5 +132,5 @@ performance_not_met:
   - config_link_id: performance_not_met
     code_value:
     display_title: No Prenatal Care
-    description: No prenatal visit found during the first trimester
+    description: "No prenatal visit found during the first trimester"
     component_groups:
