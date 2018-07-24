@@ -1,9 +1,9 @@
-library HEDIS_MRP_2018 version '1'
+library HEDIS_TRC4_2018 version '1'
 
 /*
  *
  * Source: HEDIS
- * ID: MRP
+ * ID: TRC4
  * Year: 2018
  * Version: 1
  * Author: Steve Daniels
@@ -40,25 +40,16 @@ define "Hospice":
   ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
   union ["Intervention, Performed": "VSAC; Palliative Care"]
 
-/* Populations */
-
 define "Medication Reconciliation":
   ["Procedure, Performed": "HEDIS; Medication Reconciliation"]
   union ["Procedure, Performed": "Able; Medication Reconciliation"]
+
+/* Populations */
 
 define "Denominator":
   "Discharge"
   and not exists("Hospice" I
     where I.relevantPeriod starts during "Measurement Period")
-
-define "Denominator Exclusion":
-  /*
-   * config_link_id: exclusion_1
-   */
-  exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
-    where I.relevantPeriod starts during "Denominator Period")
-  or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Denominator Period")
 
 define "Numerator Performance Met":
   /*
