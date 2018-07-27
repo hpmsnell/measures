@@ -47,6 +47,11 @@ valueset "VSAC; Hepatitis B": '2.16.840.1.113883.3.67.1.101.1.269'
 
 valueset "Able; Allergy to Statin"
 
+// HEDIS value test_set_keys
+
+valueset "HEDIS; High and Moderate-Intensity Statin Medications"
+valueset "HEDIS; Low-Intensity Statin Medications"
+
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
@@ -85,6 +90,8 @@ define "Statin":
   ["Medication": "VSAC; Low intensity statin therapy"]
   union ["Medication": "VSAC; Moderate intensity statin therapy"]
   union ["Medication": "VSAC; High intensity statin therapy"]
+  union ["Medication": "HEDIS; High and Moderate-Intensity Statin Medications"]
+  union ["Medication": "HEDIS; Low-Intensity Statin Medications"]
 
 define "Exception Diagnosis":
   union ["Diagnosis": "VSAC; End Stage Renal Disease"]
