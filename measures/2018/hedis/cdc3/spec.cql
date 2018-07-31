@@ -58,7 +58,7 @@ define "Numerator Performance Met: Controlled HbA1c":
    */
   "Last HbA1c Result" < 8
 
-define "Numerator Performance Met: High HbA1c":
+define "Numerator Performance Not Met: High HbA1c":
   /*
    * config_link_id: hba1c_high
    */

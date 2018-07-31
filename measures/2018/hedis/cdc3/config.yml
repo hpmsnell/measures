@@ -32,18 +32,13 @@ denominator:
       records:
       - model: Diagnosis
         value_set: HEDIS; Diabetes
-  - validation_record_table_count: 1
-    logical_operator: AND
-    components:
-    - display_title: Acute Inpatient Encounter
+    - display_title: Encounter
+      logical_operator: AND
+      annotation: '2 outpatient visits or 1 acute inpatient encounter'
       show_codes: true
       records:
       - model: ClinicalActivity
         value_set: HEDIS; Acute Inpatient
-    - display_title: 2 Outpatient Visits
-      logical_operator: OR
-      show_codes: true
-      records:
       - model: ClinicalActivity
         value_set: HEDIS; Outpatient
       - model: ClinicalActivity
@@ -52,7 +47,15 @@ denominator:
         value_set: HEDIS; ED
       - model: ClinicalActivity
         value_set: HEDIS; Nonacute Inpatient
-  - validation_record_table_count: 10
+  - validation_record_table_count: 1
+    logical_operator: OR
+    components:
+    - display_title: Diabetes Medication
+      show_codes: true
+      records:
+      - model: Medication
+        value_set: HEDIS; Diabetes Medications
+  - validation_record_table_count: 1
     logical_operator: AND NOT
     components:
     - display_title: Hospice Service
