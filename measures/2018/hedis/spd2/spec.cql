@@ -1,9 +1,9 @@
-library HEDIS_SPD1_2018 version '1'
+library HEDIS_SPD2_2018 version '1'
 
 /*
  *
  * Source: HEDIS
- * ID: SPD1
+ * ID: SPD2
  * Year: 2018
  * Version: 1
  * Author: Steve Daniels
@@ -79,52 +79,63 @@ define "Statin":
   union ["Medication": "HEDIS; High and Moderate-Intensity Statin Medications"]
   union ["Medication": "HEDIS; Low-Intensity Statin Medications"]
 
+define "Statin in Measurement Period":
+  "Statin" M
+    where M.relevantPeriod starts during "Measurement Period"
+
+define "Prescription Start Date":
+  "Statin in Measurement Period" M
+    return start of M.relevantPeriod
+
+define "Prescription Stop Date":
+  "Statin in Measurement Period" M
+    return end of M.relevantPeriod
+
+define "Prescription Duration":
+  Min(
+    {
+      days between "Prescription Start Date" and "Prescription Stop Date",
+      days between "Prescription Start Date" and end of "Measurement Period" // Default to this if Stop Date is null
+    }
+  )
+
+define "Sum of Prescription Durations":
+  Sum("Prescription Duration")
+
+define "First Prescription Start Date":
+  First("Prescription Start Date")
+
+define "Treatment Period":
+  days between "First Prescription Start Date" and end of "Measurement Period"
+
 /* Populations */
 
 define "Denominator":
-  "HEDIS CDC1: Denominator"
-  and AgeInYearsAt(end of "Measurement Period") >= 40
-  and AgeInYearsAt(end of "Measurement Period") < 76
+  "HEDIS SPD1: Performance Met"
 
 define "Denominator Exclusion: Condition"
   /*
   * config_link_id: exclusion_1
   */
-  "IVD Exists During Measurement Year and Prior Year"
-  or exists(["Encounter, Performed": "HEDIS; Inpatient Stay"] E
-    where E.relevantPeriod starts during [12 months before start of "Measurement Period", start of "Measurement Period"]
-    with ["Diagnosis": "HEDIS; MI"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod)
-  or exists(["Diagnosis": "HEDIS; Muscular Pain and Disease"] D
-    where D.prevalencePeriod starts during "Measurement Period")
-  or exists("Cardiovascular Procedure" P
-    where P.relevantPeriod starts during [12 months before start of "Measurement Period", start of "Measurement Period"])
-  or exists("Kidney/Liver Disease" D
-    where D.prevalencePeriod starts during [12 months before start of "Measurement Period", end of "Measurement Period"])
+  "HEDIS SPD1: Denominator Exclusion: Condition"
 
 define "Denominator Exclusion: Pregnancy"
   /*
   * config_link_id: exclusion_2
   */
-  exists(["Diagnosis": "HEDIS; Pregnancy"] D
-    where D.prevalencePeriod starts during [12 months before start of "Measurement Period", end of "Measurement Period"])
-  or exists(["Procedure, Performed": "HEDIS; IVF"] P
-    where P.relevantPeriod starts during [12 months before start of "Measurement Period", end of "Measurement Period"])
-  or exists(["Medication, Order": "HEDIS; Estrogen Agonists Medications"] M
-    where M.relevantPeriod starts during [12 months before start of "Measurement Period", end of "Measurement Period"])
+  "HEDIS SPD1: Denominator Exclusion: Pregnancy"
 
 define "Denominator Exclusion: Diabetes"
   /*
   * config_link_id: exclusion_3
   */
-  "HEDIS CDC1: Denominator Exclusion: Diagnosis"
+  "HEDIS SPD1: Denominator Exclusion: Diabetes"
 
 define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists("Statin" M
-    where M.relevantPeriod starts during "Measurment Period")
+  "Sum of Prescription Durations" / "Treatment Period" >= 0.8
 
 define "Numerator Performance Not Met":
   /*
