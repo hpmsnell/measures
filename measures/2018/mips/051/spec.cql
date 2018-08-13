@@ -25,6 +25,10 @@ valueset "MIPS; Performance Not Met: 3023F-8P"
 
 valueset "Able; Spirometry"
 
+// HEDIS Value Sets
+
+valueset "HEDIS; Spirometry"
+
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
@@ -48,6 +52,8 @@ define "Numerator Performance Met: 3023F":
   exists(["Procedure, Performed": "MIPS; Performance Met: 3023F"] P
     where P.relevantPeriod starts before end of "Measurement Period")
   or exists(["Procedure, Performed": "Able; Spirometry"] P
+    where P.relevantPeriod starts before end of "Measurement Period")
+  or exists(["Procedure, Performed": "HEDIS; Spirometry"] P
     where P.relevantPeriod starts before end of "Measurement Period")
 
 define "Denominator Exception: 3023F-1P":

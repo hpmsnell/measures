@@ -1,0 +1,95 @@
+---
+measure:
+  name: 18.HEDIS.Spr
+  required:
+    display_title: "Use of Spirometry Testing in the Assessment and Diagnosis of COPD"
+    inverse: false
+    subject_type: Patient
+    set: HEDIS
+    external_id: SPR
+  optional:
+    description: "The percentage of patients 40 years of age and older during
+      the measurement year with a new diagnosis of or newly active chronic
+      obstructive pulmonary disease (COPD), who received appropriate spirometry
+      testing to confirm the diagnosis"
+    gap_resolution_action: "Patient is due for spirometry testing for COPD"
+    version: 2018
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: "Patients 40 years of age and older during the measurement year
+    with a new diagnosis of or newly active chronic obstructive pulmonary
+    disease during July 1 of the year prior to the measurement year and June
+    30 of the measurement year"
+  component_groups:
+  - validation_record_table_count: 10
+    components:
+      - display_title: Visit or Inpatient Stay
+        show_codes: true
+        records:
+          - model: ClinicalActivity
+            value_set: "HEDIS; Outpatient"
+          - model: ClinicalActivity
+            value_set: "HEDIS; Observation"
+          - model: ClinicalActivity
+            value_set: "HEDIS; ED"
+          - model: ClinicalActivity
+            value_set: "HEDIS; Inpatient Stay"
+  - validation_record_table_count: 10
+    logical_operator: AND
+    components:
+      - display_title: COPD
+        show_codes: true
+        records:
+          - model: Diagnosis
+            value_set: "HEDIS; COPD"
+          - model: Diagnosis
+            value_set: "HEDIS; Emphysema"
+          - model: Diagnosis
+            value_set: "HEDIS; Chronic Bronchitis"
+  - validation_record_table_count: 1
+    logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Spirometry
+    description: 'Patient received spirometry testing during the 2  years prior
+      to and 6 months after the first denominator-eligible encounter with COPD'
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+        - display_title: Spirometry
+          show_codes: true
+          records:
+            - model: ClinicalActivity
+              value_set: "HEDIS; Spirometry"
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Spirometry
+    description: 'No spirometry testing found during the appropriate timeframe'
+    component_groups:
