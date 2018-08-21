@@ -1,0 +1,1851 @@
+measure_id:
+groups:
+  - name: Medical Group
+    external_id: 1001
+    tin: 9000000001
+    primary_specialty: General Practice
+    location: Pleasantville
+providers:
+  - given_name: Brenda
+    family_name: Kohler
+    credential: MD
+    external_id: '1'
+    primary_specialty: General Practice
+  - given_name: Andrew
+    family_name: Vogel
+    credential: MD
+    external_id: '2'
+    primary_specialty: General Practice
+patients:
+  - name: Rose Odingo (Type A)
+    attributes:
+      date_of_birth: 1950-03-22
+      given_name: Rose
+      family_name: Odingo
+      sex: Female
+      provider: Rachel
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-09-01 10:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-04-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: E10.10 # Diabetes
+          start_date: 2010-01-01
+        - code_type: ICD10CM
+          code_value: I10 # Hypertension
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+        - code_type: ICD10CM
+          code_value: J44.0 # COPD
+          start_date: 2017-10-05
+          stop_date: 2017-10-05
+          claim_id: 38193000
+        - code_type: ICD10CM
+          code_value: E66.01 # Obesity
+          start_date: 2017-02-14
+          stop_date: 2017-02-14
+        - code_type: ICD10CM
+          code_value: I42.9 # Cardiomyopathy
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+      clinical_activities:
+        - code_type: CPT
+          code_value: 2022F # Diabetes eye exam
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 81000 # Nephropathy screening
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2016-07-01
+          stop_date: 2016-07-01
+        - code_type: CPT
+          code_value: 80047 # Med lab panel
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+      laboratory_test_performeds:
+        - code_type: LOINC
+          code_value: 17856-6 # HbA1c
+          result_as_decimal: 7.8
+          start_date: 2018-04-01
+      medications:
+        - code_type: RXNORM
+          code_value: 1000001 # ACE Inhibitor
+          start_date: 2017-11-01
+  - name: Simone Bella (Type B)
+    attributes:
+      date_of_birth: 1948-04-19
+      given_name: Simone
+      family_name: Bella
+      sex: Female
+      provider: Rachel
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-10-01 11:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-07-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: E10.10 # Diabetes
+          start_date: 2010-01-01
+        - code_type: ICD10CM
+          code_value: E10.21 # Diabetes
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+        - code_type: ICD10CM
+          code_value: E11.36 # Diabetic Cataract
+          claim_id: 174399000
+          start_date: 2018-03-01
+          stop_date: 2018-03-01
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+        - code_type: ICD10CM
+          code_value: E10.21 # Diabetes
+          claim_id: 149583000
+          start_date: 2017-09-20
+          stop_date: 2017-09-20
+        - code_type: ICD10CM
+          code_value: I10 # Hypertension
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+      clinical_activities:
+        - code_type: CPT
+          code_value: 2022F # Diabetes eye exam
+          start_date: 2016-11-01 # Too old
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 81000 # Nephropathy screening
+          start_date: 2016-11-01 # Too old
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2016-11-01 # Too old
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2016-11-01 # Too old
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2016-11-01
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2016-11-01
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2016-07-01
+          stop_date: 2016-07-01
+      laboratory_test_performeds:
+        - code_type: LOINC
+          code_value: 17856-6 # HbA1c
+          result_as_decimal: 9.2 # Too high
+          start_date: 2018-07-01
+  - name: Joel Charleston (Type C)
+    attributes:
+      date_of_birth: 1944-08-14
+      given_name: Joel
+      family_name: Charleston
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-11-01 13:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-06-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+      clinical_activities:
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2016-07-01
+          stop_date: 2016-07-01
+  - name: Bradley Moore (Type D)
+    attributes:
+      date_of_birth: 1951-01-28
+      given_name: Bradley
+      family_name: Moore
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-10-01 09:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-04-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: E10.10 # Diabetes
+          start_date: 2010-01-01
+        - code_type: ICD10CM
+          code_value: E10.21 # Diabetes
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+        - code_type: ICD10CM
+          code_value: E11.36 # Diabetic Cataract
+          claim_id: 174399000
+          start_date: 2018-03-01
+          stop_date: 2018-03-01
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+        - code_type: ICD10CM
+          code_value: E10.21 # Diabetes
+          claim_id: 149583000
+          start_date: 2017-09-20
+          stop_date: 2017-09-20
+        - code_type: ICD10CM
+          code_value: I10 # Hypertension
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+      clinical_activities:
+        - code_type: CPT
+          code_value: 2022F # Diabetes eye exam
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+        - code_type: CPT
+          code_value: 81000 # Nephropathy screening
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2004-07-01 # Too old
+          stop_date: 2004-07-01
+        - code_type: CPT
+          code_value: 80047 # Med lab panel
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+      laboratory_test_performeds:
+        - code_type: LOINC
+          code_value: 17856-6 # HbA1c
+          result_as_decimal: 7.8
+          start_date: 2017-08-01 # Too old
+      medications:
+        - code_type: RXNORM
+          code_value: 1000001 # ACE Inhibitor
+          start_date: 2017-11-01
+  - name: Jose Valdez (Type E)
+    attributes:
+      date_of_birth: 1974-03-14
+      given_name: Jose
+      family_name: Valdez
+      sex: Male
+      provider: Rachel
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-11-01 14:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-05-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: E10.10 # Diabetes
+          start_date: 2010-01-01
+        - code_type: ICD10CM
+          code_value: I10 # Hypertension
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+        - code_type: ICD10CM
+          code_value: J44.0 # COPD
+          start_date: 2017-10-05
+          stop_date: 2017-10-05
+          claim_id: 38193000
+        - code_type: ICD10CM
+          code_value: E66.01 # Obesity
+          start_date: 2017-02-14
+          stop_date: 2017-02-14
+        - code_type: ICD10CM
+          code_value: I42.9 # Cardiomyopathy
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+      clinical_activities:
+        - code_type: CPT
+          code_value: 2022F # Diabetes eye exam
+          start_date: 2018-05-01
+          stop_date: 2018-05-01
+        - code_type: CPT
+          code_value: 81000 # Nephropathy screening
+          start_date: 2018-05-01
+          stop_date: 2018-05-01
+      laboratory_test_performeds:
+        - code_type: LOINC
+          code_value: 17856-6 # HbA1c
+          result_as_decimal: 8.6 # Too high
+          start_date: 2018-05-01
+  - name: Manuel Rice (Type F)
+    attributes:
+      date_of_birth: 1948-05-27
+      given_name: Manuel
+      family_name: Rice
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-10-01 15:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-06-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+      clinical_activities:
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2004-01-20 # Too old
+          stop_date: 2004-01-20
+  - name: Benjamin Jones (Type G)
+    attributes:
+      date_of_birth: 1980-02-01
+      given_name: Benjamin
+      family_name: Jones
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-12-01 09:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2017-08-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+      clinical_activities:
+        - code_type: CPT
+          code_value: 80047 # Med lab panel
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+      medications:
+        - code_type: RXNORM
+          code_value: 1000001 # ACE Inhibitor
+          start_date: 2017-11-01
+  - name: Erica Ackerman (Type A)
+    attributes:
+      date_of_birth: 1950-03-22
+      given_name: Erica
+      family_name: Ackerman
+      sex: Female
+      provider: Rachel
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-09-01 10:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-04-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: E10.10 # Diabetes
+          start_date: 2010-01-01
+        - code_type: ICD10CM
+          code_value: I10 # Hypertension
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+        - code_type: ICD10CM
+          code_value: J44.0 # COPD
+          start_date: 2017-10-05
+          stop_date: 2017-10-05
+          claim_id: 38193000
+        - code_type: ICD10CM
+          code_value: E66.01 # Obesity
+          start_date: 2017-02-14
+          stop_date: 2017-02-14
+        - code_type: ICD10CM
+          code_value: I42.9 # Cardiomyopathy
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+      clinical_activities:
+        - code_type: CPT
+          code_value: 2022F # Diabetes eye exam
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 81000 # Nephropathy screening
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2016-07-01
+          stop_date: 2016-07-01
+        - code_type: CPT
+          code_value: 80047 # Med lab panel
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+      laboratory_test_performeds:
+        - code_type: LOINC
+          code_value: 17856-6 # HbA1c
+          result_as_decimal: 7.8
+          start_date: 2018-04-01
+      medications:
+        - code_type: RXNORM
+          code_value: 1000001 # ACE Inhibitor
+          start_date: 2017-11-01
+  - name: Theresa Reiner (Type B)
+    attributes:
+      date_of_birth: 1948-04-19
+      given_name: Theresa
+      family_name: Reiner
+      sex: Female
+      provider: Rachel
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-10-01 11:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-07-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: E10.10 # Diabetes
+          start_date: 2010-01-01
+        - code_type: ICD10CM
+          code_value: E10.21 # Diabetes
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+        - code_type: ICD10CM
+          code_value: E11.36 # Diabetic Cataract
+          claim_id: 174399000
+          start_date: 2018-03-01
+          stop_date: 2018-03-01
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+        - code_type: ICD10CM
+          code_value: E10.21 # Diabetes
+          claim_id: 149583000
+          start_date: 2017-09-20
+          stop_date: 2017-09-20
+        - code_type: ICD10CM
+          code_value: I10 # Hypertension
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+      clinical_activities:
+        - code_type: CPT
+          code_value: 2022F # Diabetes eye exam
+          start_date: 2016-11-01 # Too old
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 81000 # Nephropathy screening
+          start_date: 2016-11-01 # Too old
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2016-11-01 # Too old
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2016-11-01 # Too old
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2016-11-01
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2016-11-01
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2016-07-01
+          stop_date: 2016-07-01
+      laboratory_test_performeds:
+        - code_type: LOINC
+          code_value: 17856-6 # HbA1c
+          result_as_decimal: 9.2 # Too high
+          start_date: 2018-07-01
+  - name: Yvette Li (Type C)
+    attributes:
+      date_of_birth: 1944-08-14
+      given_name: Yvette
+      family_name: Li
+      sex: Female
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-11-01 13:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-06-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+      clinical_activities:
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2016-07-01
+          stop_date: 2016-07-01
+  - name: Amy Filbert (Type D)
+    attributes:
+      date_of_birth: 1951-01-28
+      given_name: Amy
+      family_name: Filbert
+      sex: Female
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-10-01 09:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-04-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: E10.10 # Diabetes
+          start_date: 2010-01-01
+        - code_type: ICD10CM
+          code_value: E10.21 # Diabetes
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+        - code_type: ICD10CM
+          code_value: E11.36 # Diabetic Cataract
+          claim_id: 174399000
+          start_date: 2018-03-01
+          stop_date: 2018-03-01
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+        - code_type: ICD10CM
+          code_value: E10.21 # Diabetes
+          claim_id: 149583000
+          start_date: 2017-09-20
+          stop_date: 2017-09-20
+        - code_type: ICD10CM
+          code_value: I10 # Hypertension
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+      clinical_activities:
+        - code_type: CPT
+          code_value: 2022F # Diabetes eye exam
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+        - code_type: CPT
+          code_value: 81000 # Nephropathy screening
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2004-07-01 # Too old
+          stop_date: 2004-07-01
+        - code_type: CPT
+          code_value: 80047 # Med lab panel
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+      laboratory_test_performeds:
+        - code_type: LOINC
+          code_value: 17856-6 # HbA1c
+          result_as_decimal: 7.8
+          start_date: 2017-08-01 # Too old
+      medications:
+        - code_type: RXNORM
+          code_value: 1000001 # ACE Inhibitor
+          start_date: 2017-11-01
+  - name: Coretta Smith (Type E)
+    attributes:
+      date_of_birth: 1974-03-14
+      given_name: Coretta
+      family_name: Smith
+      sex: Female
+      provider: Rachel
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-11-01 14:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-05-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: E10.10 # Diabetes
+          start_date: 2010-01-01
+        - code_type: ICD10CM
+          code_value: I10 # Hypertension
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+        - code_type: ICD10CM
+          code_value: J44.0 # COPD
+          start_date: 2017-10-05
+          stop_date: 2017-10-05
+          claim_id: 38193000
+        - code_type: ICD10CM
+          code_value: E66.01 # Obesity
+          start_date: 2017-02-14
+          stop_date: 2017-02-14
+        - code_type: ICD10CM
+          code_value: I42.9 # Cardiomyopathy
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+      clinical_activities:
+        - code_type: CPT
+          code_value: 2022F # Diabetes eye exam
+          start_date: 2018-05-01
+          stop_date: 2018-05-01
+        - code_type: CPT
+          code_value: 81000 # Nephropathy screening
+          start_date: 2018-05-01
+          stop_date: 2018-05-01
+      laboratory_test_performeds:
+        - code_type: LOINC
+          code_value: 17856-6 # HbA1c
+          result_as_decimal: 8.6 # Too high
+          start_date: 2018-05-01
+  - name: Richard Brown (Type F)
+    attributes:
+      date_of_birth: 1948-05-27
+      given_name: Richard
+      family_name: Brown
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-10-01 15:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-06-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+      clinical_activities:
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2004-01-20 # Too old
+          stop_date: 2004-01-20
+  - name: Duke Bradford (Type G)
+    attributes:
+      date_of_birth: 1980-02-01
+      given_name: Duke
+      family_name: Bradford
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-12-01 09:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2017-08-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+      clinical_activities:
+        - code_type: CPT
+          code_value: 80047 # Med lab panel
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+      medications:
+        - code_type: RXNORM
+          code_value: 1000001 # ACE Inhibitor
+          start_date: 2017-11-01
+  - name: Miguel Alvarez (Type A)
+    attributes:
+      date_of_birth: 1950-03-22
+      given_name: Miguel
+      family_name: Alvarez
+      sex: Male
+      provider: Rachel
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-09-01 10:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-04-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: E10.10 # Diabetes
+          start_date: 2010-01-01
+        - code_type: ICD10CM
+          code_value: I10 # Hypertension
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+        - code_type: ICD10CM
+          code_value: J44.0 # COPD
+          start_date: 2017-10-05
+          stop_date: 2017-10-05
+          claim_id: 38193000
+        - code_type: ICD10CM
+          code_value: E66.01 # Obesity
+          start_date: 2017-02-14
+          stop_date: 2017-02-14
+        - code_type: ICD10CM
+          code_value: I42.9 # Cardiomyopathy
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+      clinical_activities:
+        - code_type: CPT
+          code_value: 2022F # Diabetes eye exam
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 81000 # Nephropathy screening
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2016-07-01
+          stop_date: 2016-07-01
+        - code_type: CPT
+          code_value: 80047 # Med lab panel
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+      laboratory_test_performeds:
+        - code_type: LOINC
+          code_value: 17856-6 # HbA1c
+          result_as_decimal: 7.8
+          start_date: 2018-04-01
+      medications:
+        - code_type: RXNORM
+          code_value: 1000001 # ACE Inhibitor
+          start_date: 2017-11-01
+  - name: Lucas Wong (Type B)
+    attributes:
+      date_of_birth: 1948-04-19
+      given_name: Lucas
+      family_name: Wong
+      sex: Male
+      provider: Rachel
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-10-01 11:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-07-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: E10.10 # Diabetes
+          start_date: 2010-01-01
+        - code_type: ICD10CM
+          code_value: E10.21 # Diabetes
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+        - code_type: ICD10CM
+          code_value: E11.36 # Diabetic Cataract
+          claim_id: 174399000
+          start_date: 2018-03-01
+          stop_date: 2018-03-01
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+        - code_type: ICD10CM
+          code_value: E10.21 # Diabetes
+          claim_id: 149583000
+          start_date: 2017-09-20
+          stop_date: 2017-09-20
+        - code_type: ICD10CM
+          code_value: I10 # Hypertension
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+      clinical_activities:
+        - code_type: CPT
+          code_value: 2022F # Diabetes eye exam
+          start_date: 2016-11-01 # Too old
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 81000 # Nephropathy screening
+          start_date: 2016-11-01 # Too old
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2016-11-01 # Too old
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2016-11-01 # Too old
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2016-11-01
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2016-11-01
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2016-07-01
+          stop_date: 2016-07-01
+      laboratory_test_performeds:
+        - code_type: LOINC
+          code_value: 17856-6 # HbA1c
+          result_as_decimal: 9.2 # Too high
+          start_date: 2018-07-01
+  - name: Robert Wu (Type C)
+    attributes:
+      date_of_birth: 1944-08-14
+      given_name: Robert
+      family_name: Wu
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-11-01 13:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-06-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+      clinical_activities:
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2016-07-01
+          stop_date: 2016-07-01
+  - name: Lisa Ellis (Type D)
+    attributes:
+      date_of_birth: 1951-01-28
+      given_name: Lisa
+      family_name: Ellis
+      sex: Female
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-10-01 09:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-04-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: E10.10 # Diabetes
+          start_date: 2010-01-01
+        - code_type: ICD10CM
+          code_value: E10.21 # Diabetes
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+        - code_type: ICD10CM
+          code_value: E11.36 # Diabetic Cataract
+          claim_id: 174399000
+          start_date: 2018-03-01
+          stop_date: 2018-03-01
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+        - code_type: ICD10CM
+          code_value: E10.21 # Diabetes
+          claim_id: 149583000
+          start_date: 2017-09-20
+          stop_date: 2017-09-20
+        - code_type: ICD10CM
+          code_value: I10 # Hypertension
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+      clinical_activities:
+        - code_type: CPT
+          code_value: 2022F # Diabetes eye exam
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+        - code_type: CPT
+          code_value: 81000 # Nephropathy screening
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2004-07-01 # Too old
+          stop_date: 2004-07-01
+        - code_type: CPT
+          code_value: 80047 # Med lab panel
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+      laboratory_test_performeds:
+        - code_type: LOINC
+          code_value: 17856-6 # HbA1c
+          result_as_decimal: 7.8
+          start_date: 2017-08-01 # Too old
+      medications:
+        - code_type: RXNORM
+          code_value: 1000001 # ACE Inhibitor
+          start_date: 2017-11-01
+  - name: Maureen Sanders (Type E)
+    attributes:
+      date_of_birth: 1974-03-14
+      given_name: Maureen
+      family_name: Sanders
+      sex: Female
+      provider: Rachel
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-11-01 14:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-05-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: E10.10 # Diabetes
+          start_date: 2010-01-01
+        - code_type: ICD10CM
+          code_value: I10 # Hypertension
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+        - code_type: ICD10CM
+          code_value: J44.0 # COPD
+          start_date: 2017-10-05
+          stop_date: 2017-10-05
+          claim_id: 38193000
+        - code_type: ICD10CM
+          code_value: E66.01 # Obesity
+          start_date: 2017-02-14
+          stop_date: 2017-02-14
+        - code_type: ICD10CM
+          code_value: I42.9 # Cardiomyopathy
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+      clinical_activities:
+        - code_type: CPT
+          code_value: 2022F # Diabetes eye exam
+          start_date: 2018-05-01
+          stop_date: 2018-05-01
+        - code_type: CPT
+          code_value: 81000 # Nephropathy screening
+          start_date: 2018-05-01
+          stop_date: 2018-05-01
+      laboratory_test_performeds:
+        - code_type: LOINC
+          code_value: 17856-6 # HbA1c
+          result_as_decimal: 8.6 # Too high
+          start_date: 2018-05-01
+  - name: Mika Nichols (Type F)
+    attributes:
+      date_of_birth: 1948-05-27
+      given_name: Mika
+      family_name: Nichols
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-10-01 15:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-06-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+      clinical_activities:
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2004-01-20 # Too old
+          stop_date: 2004-01-20
+  - name: Minerva Ewing (Type G)
+    attributes:
+      date_of_birth: 1980-02-01
+      given_name: Minerva
+      family_name: Ewing
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-12-01 09:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2017-08-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+      clinical_activities:
+        - code_type: CPT
+          code_value: 80047 # Med lab panel
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+      medications:
+        - code_type: RXNORM
+          code_value: 1000001 # ACE Inhibitor
+          start_date: 2017-11-01
+  - name: Patricia Ender (Type A)
+    attributes:
+      date_of_birth: 1950-03-22
+      given_name: Patricia
+      family_name: Ender
+      sex: Female
+      provider: Rachel
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-09-01 10:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-04-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: E10.10 # Diabetes
+          start_date: 2010-01-01
+        - code_type: ICD10CM
+          code_value: I10 # Hypertension
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+        - code_type: ICD10CM
+          code_value: J44.0 # COPD
+          start_date: 2017-10-05
+          stop_date: 2017-10-05
+          claim_id: 38193000
+        - code_type: ICD10CM
+          code_value: E66.01 # Obesity
+          start_date: 2017-02-14
+          stop_date: 2017-02-14
+        - code_type: ICD10CM
+          code_value: I42.9 # Cardiomyopathy
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+      clinical_activities:
+        - code_type: CPT
+          code_value: 2022F # Diabetes eye exam
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 81000 # Nephropathy screening
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2016-07-01
+          stop_date: 2016-07-01
+        - code_type: CPT
+          code_value: 80047 # Med lab panel
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+      laboratory_test_performeds:
+        - code_type: LOINC
+          code_value: 17856-6 # HbA1c
+          result_as_decimal: 7.8
+          start_date: 2018-04-01
+      medications:
+        - code_type: RXNORM
+          code_value: 1000001 # ACE Inhibitor
+          start_date: 2017-11-01
+  - name: Alexander Pentall (Type B)
+    attributes:
+      date_of_birth: 1948-04-19
+      given_name: Alexander
+      family_name: Pentall
+      sex: Male
+      provider: Rachel
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-10-01 11:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-07-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: E10.10 # Diabetes
+          start_date: 2010-01-01
+        - code_type: ICD10CM
+          code_value: E10.21 # Diabetes
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+        - code_type: ICD10CM
+          code_value: E11.36 # Diabetic Cataract
+          claim_id: 174399000
+          start_date: 2018-03-01
+          stop_date: 2018-03-01
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+        - code_type: ICD10CM
+          code_value: E10.21 # Diabetes
+          claim_id: 149583000
+          start_date: 2017-09-20
+          stop_date: 2017-09-20
+        - code_type: ICD10CM
+          code_value: I10 # Hypertension
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+      clinical_activities:
+        - code_type: CPT
+          code_value: 2022F # Diabetes eye exam
+          start_date: 2016-11-01 # Too old
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 81000 # Nephropathy screening
+          start_date: 2016-11-01 # Too old
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2016-11-01 # Too old
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2016-11-01 # Too old
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2016-11-01
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2016-11-01
+          stop_date: 2016-11-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2016-07-01
+          stop_date: 2016-07-01
+      laboratory_test_performeds:
+        - code_type: LOINC
+          code_value: 17856-6 # HbA1c
+          result_as_decimal: 9.2 # Too high
+          start_date: 2018-07-01
+  - name: Brent Chang (Type C)
+    attributes:
+      date_of_birth: 1944-08-14
+      given_name: Brent
+      family_name: Chang
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-11-01 13:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-06-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+      clinical_activities:
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2016-07-01
+          stop_date: 2016-07-01
+  - name: Betsy Lewis (Type D)
+    attributes:
+      date_of_birth: 1951-01-28
+      given_name: Betsy
+      family_name: Lewis
+      sex: Female
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-10-01 09:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-04-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: E10.10 # Diabetes
+          start_date: 2010-01-01
+        - code_type: ICD10CM
+          code_value: E10.21 # Diabetes
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+        - code_type: ICD10CM
+          code_value: E11.36 # Diabetic Cataract
+          claim_id: 174399000
+          start_date: 2018-03-01
+          stop_date: 2018-03-01
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+        - code_type: ICD10CM
+          code_value: E10.21 # Diabetes
+          claim_id: 149583000
+          start_date: 2017-09-20
+          stop_date: 2017-09-20
+        - code_type: ICD10CM
+          code_value: I10 # Hypertension
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+      clinical_activities:
+        - code_type: CPT
+          code_value: 2022F # Diabetes eye exam
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+        - code_type: CPT
+          code_value: 81000 # Nephropathy screening
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2018-04-01
+          stop_date: 2018-04-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2004-07-01 # Too old
+          stop_date: 2004-07-01
+        - code_type: CPT
+          code_value: 80047 # Med lab panel
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+      laboratory_test_performeds:
+        - code_type: LOINC
+          code_value: 17856-6 # HbA1c
+          result_as_decimal: 7.8
+          start_date: 2017-08-01 # Too old
+      medications:
+        - code_type: RXNORM
+          code_value: 1000001 # ACE Inhibitor
+          start_date: 2017-11-01
+  - name: Angela Yu (Type E)
+    attributes:
+      date_of_birth: 1974-03-14
+      given_name: Angela
+      family_name: Yu
+      sex: Female
+      provider: Rachel
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-11-01 14:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Rachel'
+          start_datetime: '2018-05-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: E10.10 # Diabetes
+          start_date: 2010-01-01
+        - code_type: ICD10CM
+          code_value: I10 # Hypertension
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+        - code_type: ICD10CM
+          code_value: J44.0 # COPD
+          start_date: 2017-10-05
+          stop_date: 2017-10-05
+          claim_id: 38193000
+        - code_type: ICD10CM
+          code_value: E66.01 # Obesity
+          start_date: 2017-02-14
+          stop_date: 2017-02-14
+        - code_type: ICD10CM
+          code_value: I42.9 # Cardiomyopathy
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+          claim_id: 174399000
+      clinical_activities:
+        - code_type: CPT
+          code_value: 2022F # Diabetes eye exam
+          start_date: 2018-05-01
+          stop_date: 2018-05-01
+        - code_type: CPT
+          code_value: 81000 # Nephropathy screening
+          start_date: 2018-05-01
+          stop_date: 2018-05-01
+      laboratory_test_performeds:
+        - code_type: LOINC
+          code_value: 17856-6 # HbA1c
+          result_as_decimal: 8.6 # Too high
+          start_date: 2018-05-01
+  - name: Brady Anderson (Type F)
+    attributes:
+      date_of_birth: 1948-05-27
+      given_name: Brady
+      family_name: Anderson
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-10-01 15:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-06-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+      clinical_activities:
+        - code_type: CPT
+          code_value: 99497 # Care plan
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 90863 # Med review
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+        - code_type: CPT
+          code_value: 1159F # Med list
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1170F # Functional status assessment
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 1125F # Pain assessment
+          start_date: 2018-06-01
+          stop_date: 2018-06-01
+        - code_type: CPT
+          code_value: 44388 # Colonoscopy
+          start_date: 2004-01-20 # Too old
+          stop_date: 2004-01-20
+  - name: Michael Davis (Type G)
+    attributes:
+      date_of_birth: 1980-02-01
+      given_name: Michael
+      family_name: Davis
+      sex: Male
+      provider: Andrew
+      phone_number: (555) 555-5555
+    health_plan_id: Commercial Payer
+    clinical_models:
+      appointments:
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2018-12-01 09:00 PST'
+        - location: 'Main Office'
+          visit_type: 'Office Visit'
+          provider: 'Andrew'
+          start_datetime: '2017-08-01 13:00 PST'
+      diagnoses:
+        - code_type: ICD10CM
+          code_value: I27.20 # Pulmonary Hypertension
+          claim_id: 174399000
+          start_date: 2018-02-01
+          stop_date: 2018-02-01
+      clinical_activities:
+        - code_type: CPT
+          code_value: 80047 # Med lab panel
+          start_date: 2017-08-01 # Too old
+          stop_date: 2017-08-01
+      medications:
+        - code_type: RXNORM
+          code_value: 1000001 # ACE Inhibitor
+          start_date: 2017-11-01
