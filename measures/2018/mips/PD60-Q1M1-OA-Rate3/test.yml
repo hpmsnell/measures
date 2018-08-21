@@ -1,0 +1,989 @@
+measure_id: 18.MIPS.Mipspd60q1m1oaRate2
+test_set_keys:
+  organization_key:
+    episodes_of_care:
+    - name: Too Young
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: DenominatorEncounter Before # Early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter Lower # Lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: DenominatorEncounter Upper # Upper Bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: DenominatorEncounter After # Late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter DifferentProvider # Different denominator signing provider
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: DenominatorScreening Before # Early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorScreening During # During encounter
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: DenominatorScreening After # Late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: GPD60D1A Before # Early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD60D1A Lower # Lower bound
+      denominator: 1
+      denominator_exclusion: GPD60D1A
+      denominator_exception:
+      numerator:
+    - name: GPD60D1A Upper # Upper bound
+      denominator: 1
+      denominator_exclusion: GPD60D1A
+      denominator_exception:
+      numerator:
+    - name: GPD60D1A After # Late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD60N3A Before # Early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD60N3A Lower # Lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: GPD60N3A
+    - name: GPD60N3A Upper # Upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: GPD60N3A
+    - name: GPD60N3A After # Late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD60N3B Before # Early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD60N3B Lower # Lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: GPD60N3B
+    - name: GPD60N3B Upper # Upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: GPD60N3B
+    - name: GPD60N3B After # Late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD60N3C Before # Early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD60N3C Lower # Lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: GPD60N3C
+    - name: GPD60N3C Upper # Upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: GPD60N3C
+    - name: GPD60N3C After # Late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD60N3D Before # Early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD60N3D Lower # Lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: GPD60N3D
+    - name: GPD60N3D Upper # Upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: GPD60N3D
+    - name: GPD60N3D After # Late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD60N3E Before # Early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD60N3E Lower # Lower bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: GPD60N3E
+    - name: GPD60N3E Upper # Upper bound
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: GPD60N3E
+    - name: GPD60N3E After # Late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+  providers_key:
+    - name: Rachel
+      episodes_of_care:
+      - name: Too Young
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: DenominatorEncounter Before # Early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorEncounter Lower # Lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: DenominatorEncounter Upper # Upper Bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: DenominatorEncounter After # Late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorEncounter DifferentProvider # Different denominator signing provider
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: DenominatorScreening Before # Early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorScreening During # During encounter
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: DenominatorScreening After # Late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: GPD60D1A Before # Early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD60D1A Lower # Lower bound
+        denominator: 1
+        denominator_exclusion: GPD60D1A
+        denominator_exception:
+        numerator:
+      - name: GPD60D1A Upper # Upper bound
+        denominator: 1
+        denominator_exclusion: GPD60D1A
+        denominator_exception:
+        numerator:
+      - name: GPD60D1A After # Late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD60N3A Before # Early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD60N3A Lower # Lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: GPD60N3A
+      - name: GPD60N3A Upper # Upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: GPD60N3A
+      - name: GPD60N3A After # Late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: incomplete Before # Early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: incomplete Lower # Lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: incomplete Upper # Upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: incomplete After # Late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD60N3C Before # Early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD60N3C Lower # Lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: GPD60N3C
+      - name: GPD60N3C Upper # Upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: GPD60N3C
+      - name: GPD60N3C After # Late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD60N3D Before # Early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD60N3D Lower # Lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: GPD60N3D
+      - name: GPD60N3D Upper # Upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: GPD60N3D
+      - name: GPD60N3D After # Late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD60N3E Before # Early
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD60N3E Lower # Lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: GPD60N3E
+      - name: GPD60N3E Upper # Upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: GPD60N3E
+      - name: GPD60N3E After # Late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+providers:
+- given_name: Rachel
+  family_name:  Katz
+  credential: DO
+  primary_specialty:  Family Medicine
+  external_id: '111-111'
+- given_name: Patty
+  family_name:  Smith
+  credential: MD
+  primary_specialty:  Family Medicine
+  external_id: '222-222'
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1998-02-02 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+- name: Age Lower
+  attributes:
+    date_of_birth: 1998-02-01 # Lower bound
+    given_name: Age
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+- name: DenominatorEncounter Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2015-12-31 # Too early
+      stop_datetime: 2015-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+- name: DenominatorEncounter Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-01-01 # Lower bound
+      stop_datetime: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+- name: DenominatorEncounter Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-12-31 # Upper bound
+      stop_datetime: 2016-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+- name: DenominatorEncounter After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2017-01-01 # Too late
+      stop_datetime: 2017-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+- name: DenominatorEncounter DifferentProvider
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: DifferentProvider
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Patty # Different signing provider
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+- name: DenominatorScreening Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorScreening
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-01-31 # Too early
+      stop_datetime: 2016-01-31
+- name: DenominatorScreening During
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorScreening
+    family_name: During
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01 # During encounter
+      stop_datetime: 2016-02-01
+- name: DenominatorScreening After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorScreening
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-02 # Too late
+      stop_datetime: 2016-02-02
+- name: GPD60D1A Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60D1A
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60D1A
+      start_datetime: 2016-12-31 # Too early
+- name: GPD60D1A Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60D1A
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60D1A
+      start_datetime: 2016-01-01 # Lower bound
+- name: GPD60D1A Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60D1A
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60D1A
+      start_datetime: 2016-12-31 # Upper bound
+- name: GPD60D1A After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60D1A
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60D1A
+      start_datetime: 2017-01-01 # Too late
+- name: GPD60N3A Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3A
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3A
+      start_datetime: 2016-01-31 # Too early
+- name: GPD60N3A Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3A
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3A
+      start_datetime: 2016-02-01 # Lower bound
+- name: GPD60N3A Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3A
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3A
+      start_datetime: 2016-03-02 # Upper bound
+- name: GPD60N3A After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3A
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3A
+      start_datetime: 2016-03-03 # Too late
+- name: GPD60N3B Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3B
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3B
+      start_datetime: 2016-01-31 # Too early
+- name: GPD60N3B Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3B
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3B
+      start_datetime: 2016-02-01 # Lower bound
+- name: GPD60N3B Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3B
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3B
+      start_datetime: 2016-03-02 # Upper bound
+- name: GPD60N3B After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3B
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3B
+      start_datetime: 2016-03-03 # Too late
+- name: GPD60N3C Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3C
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3C
+      start_datetime: 2016-01-31 # Too early
+- name: GPD60N3C Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3C
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3C
+      start_datetime: 2016-02-01 # Lower bound
+- name: GPD60N3C Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3C
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3C
+      start_datetime: 2016-03-02 # Upper bound
+- name: GPD60N3C After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3C
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3C
+      start_datetime: 2016-03-03 # Too late
+- name: GPD60N3D Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3D
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3D
+      start_datetime: 2016-01-31 # Too early
+- name: GPD60N3D Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3D
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3D
+      start_datetime: 2016-02-01 # Lower bound
+- name: GPD60N3D Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3D
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3D
+      start_datetime: 2016-03-02 # Upper bound
+- name: GPD60N3D After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3D
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3D
+      start_datetime: 2016-03-03 # Too late
+- name: GPD60N3E Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3E
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3E
+      start_datetime: 2016-01-31 # Too early
+- name: GPD60N3E Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3E
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3E
+      start_datetime: 2016-02-01 # Lower bound
+- name: GPD60N3E Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3E
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3E
+      start_datetime: 2016-03-02 # Upper bound
+- name: GPD60N3E After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3E
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N2A # Positive screening
+      start_datetime: 2016-02-01
+      stop_datetime: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3E
+      start_datetime: 2016-03-03 # Too late

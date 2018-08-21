@@ -1,0 +1,106 @@
+---
+measure:
+  name: 18.MIPS.Mipspd20q1m1oaRate3
+  required:
+    display_title: 'Advanced Image Testing Psychological Distress Symptom Reduction: Follow-Up, Reduction in Symptoms, and Image Testing'
+    inverse: false
+    subject_type: Encounter
+    set: RadNet
+    external_id: PD20-Q1M1-OA
+    rate_id: 3
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older who report symptoms of psychological distress prior to
+      advanced image testing procedure, follow-up intervention is provided and a reduction of symptoms of
+      psychological distress is reported, and advanced image testing is completed'
+    gap_resolution_action:
+    version: 2018
+    mips_measure_type: 'Patient-Reported Outcome'
+    mips_high_priority: true
+    mips_specialty_sets:
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    - 18.MIPS.Mipspd20q1m1oaRate1
+    - 18.MIPS.Mipspd20q1m1oaRate2
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'Patients aged 18 years and older who report symptoms of psychological distress prior to advanced image
+    testing procedure(s) during the performance period, follow-up intervention is provided, and a reduction of
+    symptoms is reported'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: 'Advanced Image Testing'
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: 'Able; RadNet PD20-Q1M1-OA Procedure'
+  - validation_record_table_count: 1
+    logical_operator: 'AND'
+    components:
+    - display_title: 'Quality Data Code: GPD20N3A'
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: 'Able; Performance Met: GPD20N3A'
+exclusion:
+  description:
+  reasons:
+  - config_link_id: GPD20D1B
+    code_value: GPD20D1B
+    display_title: GPD20D1B
+    description: 'Patients aged 18 years and older who report symptoms of psychological distress prior to advanced image
+      testing procedure, follow-up intervention is provided and a reduction in symptoms of psychological distress
+      is reported'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Patient Exclusion'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; RadNet Patient Exclusion'
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patients aged 18 years and older who report symptoms of psychological distress prior to advanced image
+    testing procedure, follow-up intervention is provided and a reduction of symptoms of psychological distress
+    is reported, and advanced image testing is completed'
+  reasons:
+  - config_link_id: GPD20N3A
+    code_value: GPD20N3A
+    display_title: GPD20N3A
+    description: 'Patient reports symptoms of psychological distress, follow-up intervention is provided, a
+      reduction of psychological distress symptoms is reported, AND advanced image testing is completed'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD20N3A'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Performance Met: GPD20N3A'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: GPD20N3B
+    code_value: GPD20N3B
+    display_title: GPD20N3B
+    description: 'Patient reports symptoms of psychological distress, follow-up intervention is provided, a
+      reduction of psychological distress symptoms is reported, AND advanced image testing is not completed'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD20N3B'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Performance Not Met: GPD20N3B'
+  - config_link_id: incomplete
+    code_value:
+    display_title: Data Incomplete
+    description: 'Numerator data not found in the appropriate timeframe'
+    component_groups:

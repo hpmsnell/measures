@@ -1,0 +1,107 @@
+---
+measure:
+  name: 18.MIPS.Mipspd60q1m1oaRate2
+  required:
+    display_title: 'Advanced Image Testing: Results-Related Psychological Distress: Screening and Follow-Up'
+    inverse: false
+    subject_type: Encounter
+    set: RadNet
+    external_id: PD60-Q1M1-OA
+    rate_id: 2
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older screened for risk of psychological distress symptoms related to
+      advanced image testing results during the performance period, and if screened positive then patient will report
+      the severity of symptoms of psychological distress using a standardized tool, and follow-up intervention is
+      provided'
+    gap_resolution_action:
+    version: 2018
+    mips_measure_type: Patient-Reported Outcome
+    mips_high_priority: true
+    mips_specialty_sets:
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'Patients aged 18 years and older screened for risk of non-adherence due to medical diagnosis, physical
+    limitations, and psychological distress prior to advanced image testing procedure during the performance
+    period, AND screened positive'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: 'Advanced Image Testing'
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: 'Able; RadNet PD60-Q1M1-OA Procedure'
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: 'Able; Quality Data Code: GPD60N1B'
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: 'Able; Quality Data Code: GPD60N1B'
+exclusion:
+  description:
+  reasons:
+  - config_link_id: GPD60D1A
+    code_value: GPD60D1A
+    display_title: GPD60D1A
+    description: 'Patient’s clinical situation is or becomes urgent or emergent during the imaging encounter; patient
+      is receiving hospice, comfort care only or end of life palliative care; or patient is unable to self-
+      report symptoms of psychological distress due to being nonverbal, diminished capacity or severe
+      dementia'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Patient Exclusion'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; RadNet Patient Exclusion'
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Percentage of patients aged 18 years and older who reported increased results-related psychological distress
+    following completed advanced image testing procedure(s) during the performance period, and are provided
+    psychological distress -related intervention(s)'
+  reasons:
+  - config_link_id: GPD60N2A
+    code_value: GPD60N2A
+    display_title: GPD60N2A
+    description: 'Patient screened positive for results-related psychological distress that are provided psychological
+      distress-related intervention(s) during the performance period'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD60N2A'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Performance Met: GPD60N2A'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: GPD60N2B
+    code_value: GPD60N2B
+    display_title: GPD60N2B
+    description: 'Patient screened positive for results-related psychological distress that are not provided
+      psychological distress intervention(s) during the performance period OR psychological distress-related
+      intervention(s) status is unknown, reason not given'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD60N2B'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Performance Not Met: GPD60N2B'
+  - config_link_id: incomplete
+    code_value:
+    display_title: Data Incomplete
+    description: 'Numerator data not found in the appropriate timeframe'
+    component_groups:
