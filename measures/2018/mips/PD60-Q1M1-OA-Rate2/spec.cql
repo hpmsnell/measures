@@ -15,7 +15,7 @@ using QDM
 
 // Custom value sets (Able)
 
-valueset "Able; RadNet PD60-Q1M1-OA Procedure"
+valueset "Able; RadNet Advanced Image Testing Procedure"
 valueset "Able; RadNet Patient Exclusion"
 valueset "Able; Performance Not Met: GPD60N2B"
 
@@ -27,7 +27,7 @@ define "Positive Screening":
   ["Procedure, Performed": "Able; Performance Met: GPD60N1B"]
 
 define "Denominator Procedure":
-  ["Procedure, Performed": "Able; RadNet PD60-Q1M1-OA Procedure"] P1
+  ["Procedure, Performed": "Able; RadNet Advanced Image Testing Procedure"] P1
     where P1.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of P1.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true

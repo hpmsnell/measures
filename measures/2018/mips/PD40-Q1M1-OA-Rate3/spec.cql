@@ -15,7 +15,7 @@ using QDM
 
 // Custom value sets (Able)
 
-valueset "Able; RadNet PD10-Q1M1-OA Procedure"
+valueset "Able; RadNet Advanced Image Testing Procedure"
 valueset "Able; Performance Met: GPD40N2A"
 valueset "Able; RadNet Patient Exclusion"
 valueset "Able; Performance Met: GPD40N3A"
@@ -26,7 +26,7 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Denominator Procedure":
-  ["Procedure, Performed": "Able; RadNet PD40-Q1M1-OA Procedure"] P1
+  ["Procedure, Performed": "Able; RadNet Advanced Image Testing Procedure"] P1
     where P1.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of P1.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
@@ -48,14 +48,14 @@ define "Numerator Performance Met: GPD40N3A":
   exists("Denominator Procedure" P1
     with ["Procedure, Performed": "Able; Performance Met: GPD40N3A"] P2
       such that P2.relevantPeriod starts during [start of P1.relevantPeriod, 30 days after start of P1.relevantPeriod]
-        and P2.relevantPeriod starts during "Measurement Period)
+        and P2.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met: GPD40N3B":
   // config_link_id: GPD40N3B
   exists("Denominator Procedure" P1
     with ["Procedure, Performed": "Able; Performance Met: GPD40N3B"] P2
       such that P2.relevantPeriod starts during [start of P1.relevantPeriod, 30 days after start of P1.relevantPeriod]
-        and P2.relevantPeriod starts during "Measurement Period)
+        and P2.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Data Incomplete":
   // config_link_id: incomplete

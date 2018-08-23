@@ -1,178 +1,207 @@
-measure_id: 18.MIPS.Mipspd10q1m1oaRate2
+measure_id: 18.MIPS.Mipspd10q1m1oaRate3
 test_set_keys:
   organization_key:
     episodes_of_care:
     - name: Too Young
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: Age Lower
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
     - name: DenominatorEncounter Before # Early
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: DenominatorEncounter Lower # Lower bound
+      start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
     - name: DenominatorEncounter Upper # Upper Bound
+      start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
     - name: DenominatorEncounter After # Late
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: DenominatorEncounter DifferentProvider # Different denominator signing provider
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
     - name: DenominatorScreening Before # Early
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: DenominatorScreening Lower # Lower bound
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: incomplete
-    - name: DenominatorScreening Upper # Upper bound
+    - name: DenominatorScreening During # During encounter
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
     - name: DenominatorScreening After # Late
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
     - name: GPD10D1A Before # Early
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
     - name: GPD10D1A Lower # Lower bound
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion: GPD10D1A
       denominator_exception:
       numerator:
     - name: GPD10D1A Upper # Upper bound
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion: GPD10D1A
       denominator_exception:
       numerator:
     - name: GPD10D1A After # Late
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
     - name: GPD10N3A Before # Early
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
     - name: GPD10N3A Lower # Lower bound
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: GPD10N3A
     - name: GPD10N3A Upper # Upper bound
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: GPD10N3A
     - name: GPD10N3A After # Late
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
     - name: GPD10N3B Before # Early
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
     - name: GPD10N3B Lower # Lower bound
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: GPD10N3B
     - name: GPD10N3B Upper # Upper bound
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: GPD10N3B
     - name: GPD10N3B After # Late
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
     - name: GPD10N3C Before # Early
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
     - name: GPD10N3C Lower # Lower bound
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: GPD10N3C
     - name: GPD10N3C Upper # Upper bound
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: GPD10N3C
     - name: GPD10N3C After # Late
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
     - name: GPD10N3D Before # Early
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
     - name: GPD10N3D Lower # Lower bound
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: GPD10N3D
     - name: GPD10N3D Upper # Upper bound
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: GPD10N3D
     - name: GPD10N3D After # Late
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
     - name: GPD10N3E Before # Early
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
     - name: GPD10N3E Lower # Lower bound
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: GPD10N3E
     - name: GPD10N3E Upper # Upper bound
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: GPD10N3E
     - name: GPD10N3E After # Late
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -181,171 +210,205 @@ test_set_keys:
     - name: Rachel
       episodes_of_care:
       - name: Too Young
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: Age Lower
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: incomplete
       - name: DenominatorEncounter Before # Early
+        start_date: 2015-12-31
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: DenominatorEncounter Lower # Lower bound
+        start_date: 2016-01-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: incomplete
       - name: DenominatorEncounter Upper # Upper Bound
+        start_date: 2016-12-31
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: incomplete
       - name: DenominatorEncounter After # Late
+        start_date: 2017-01-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: DenominatorEncounter DifferentProvider # Different denominator signing provider
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: DenominatorScreening Before # Early
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: DenominatorScreening During # During encounter
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: incomplete
       - name: DenominatorScreening After # Late
+        start_date: 2016-02-01
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
       - name: GPD10D1A Before # Early
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: incomplete
       - name: GPD10D1A Lower # Lower bound
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion: GPD10D1A
         denominator_exception:
         numerator:
       - name: GPD10D1A Upper # Upper bound
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion: GPD10D1A
         denominator_exception:
         numerator:
       - name: GPD10D1A After # Late
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: incomplete
       - name: GPD10N3A Before # Early
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: incomplete
       - name: GPD10N3A Lower # Lower bound
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: GPD10N3A
       - name: GPD10N3A Upper # Upper bound
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: GPD10N3A
       - name: GPD10N3A After # Late
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: incomplete
       - name: GPD10N3B Before # Early
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: incomplete
       - name: GPD10N3B Lower # Lower bound
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: GPD10N3B
       - name: GPD10N3B Upper # Upper bound
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: GPD10N3B
       - name: GPD10N3B After # Late
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: incomplete
       - name: GPD10N3C Before # Early
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: incomplete
       - name: GPD10N3C Lower # Lower bound
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: GPD10N3C
       - name: GPD10N3C Upper # Upper bound
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: GPD10N3C
       - name: GPD10N3C After # Late
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: incomplete
       - name: GPD10N3D Before # Early
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: incomplete
       - name: GPD10N3D Lower # Lower bound
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: GPD10N3D
       - name: GPD10N3D Upper # Upper bound
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: GPD10N3D
       - name: GPD10N3D After # Late
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: incomplete
       - name: GPD10N3E Before # Early
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: incomplete
       - name: GPD10N3E Lower # Lower bound
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: GPD10N3E
       - name: GPD10N3E Upper # Upper bound
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: GPD10N3E
       - name: GPD10N3E After # Late
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -372,13 +435,13 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
 - name: Age Lower
   attributes:
     date_of_birth: 1998-02-01 # Lower bound
@@ -389,9 +452,13 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
+    - code_type: CPT
+      code_value: GPD10N2B # Positive screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
 - name: DenominatorEncounter Before
   attributes:
     date_of_birth: 1990-01-01
@@ -402,13 +469,13 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2015-12-31 # Too early
-      stop_datetime: 2015-12-31
+      start_date: 2015-12-31 # Too early
+      stop_date: 2015-12-31
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2015-12-31
+      stop_date: 2015-12-31
 - name: DenominatorEncounter Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -419,13 +486,13 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-01-01 # Lower bound
-      stop_datetime: 2016-01-01
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
 - name: DenominatorEncounter Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -436,13 +503,13 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-12-31 # Upper bound
-      stop_datetime: 2016-12-31
+      start_date: 2016-12-31 # Upper bound
+      stop_date: 2016-12-31
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-12-31
+      stop_date: 2016-12-31
 - name: DenominatorEncounter After
   attributes:
     date_of_birth: 1990-01-01
@@ -453,13 +520,13 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2017-01-01 # Too late
-      stop_datetime: 2017-01-01
+      start_date: 2017-01-01 # Too late
+      stop_date: 2017-01-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2017-01-01
+      stop_date: 2017-01-01
 - name: DenominatorEncounter DifferentProvider
   attributes:
     date_of_birth: 1990-01-01
@@ -470,13 +537,13 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Patty # Different signing provider
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
 - name: DenominatorScreening Before
   attributes:
     date_of_birth: 1990-01-01
@@ -487,13 +554,13 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-01-31 # Too early
-      stop_datetime: 2016-01-31
+      start_date: 2016-01-31 # Too early
+      stop_date: 2016-01-31
 - name: DenominatorScreening During
   attributes:
     date_of_birth: 1990-01-01
@@ -504,13 +571,13 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01 # Lower bound
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01 # Lower bound
+      stop_date: 2016-02-01
 - name: DenominatorScreening After
   attributes:
     date_of_birth: 1990-01-01
@@ -521,77 +588,93 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-02 # Too late
-      stop_datetime: 2016-02-02
-- name: GPD10N1A Before
+      start_date: 2016-02-02 # Too late
+      stop_date: 2016-02-02
+- name: GPD10D1A Before
   attributes:
     date_of_birth: 1990-01-01
-    given_name: GPD10N1A
+    given_name: GPD10D1A
     family_name: Before
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD10N1A
-      start_datetime: 2015-12-31 # Too early
-- name: GPD10N1A Lower
+      code_value: GPD10N2B # Positive screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10D1A
+      start_date: 2015-12-31 # Too early
+- name: GPD10D1A Lower
   attributes:
     date_of_birth: 1990-01-01
-    given_name: GPD10N1A
+    given_name: GPD10D1A
     family_name: Lower
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD10N1A
-      start_datetime: 2016-01-01 # Lower bound
-- name: GPD10N1A Upper
+      code_value: GPD10N2B # Positive screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10D1A
+      start_date: 2016-01-01 # Lower bound
+- name: GPD10D1A Upper
   attributes:
     date_of_birth: 1990-01-01
-    given_name: GPD10N1A
+    given_name: GPD10D1A
     family_name: Upper
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD10N1A
-      start_datetime: 2016-12-31 # Upper bound
-- name: GPD10N1A After
+      code_value: GPD10N2B # Positive screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10D1A
+      start_date: 2016-12-31 # Upper bound
+- name: GPD10D1A After
   attributes:
     date_of_birth: 1990-01-01
-    given_name: GPD10N1A
+    given_name: GPD10D1A
     family_name: After
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD10N1A
-      start_datetime: 2017-01-01 # Too late
+      code_value: GPD10N2B # Positive screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10D1A
+      start_date: 2017-01-01 # Too late
 - name: GPD10N3A Before
   attributes:
     date_of_birth: 1990-01-01
@@ -602,16 +685,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3A
-      start_datetime: 2016-01-31 # Too early
+      start_date: 2016-01-31 # Too early
 - name: GPD10N3A Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -622,16 +705,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3A
-      start_datetime: 2016-02-01 # Lower bound
+      start_date: 2016-02-01 # Lower bound
 - name: GPD10N3A Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -642,16 +725,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3A
-      start_datetime: 2016-02-01 # Upper bound
+      start_date: 2016-02-01 # Upper bound
 - name: GPD10N3A After
   attributes:
     date_of_birth: 1990-01-01
@@ -662,16 +745,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3A
-      start_datetime: 2016-02-02 # Too late
+      start_date: 2016-02-02 # Too late
 - name: GPD10N3B Before
   attributes:
     date_of_birth: 1990-01-01
@@ -682,16 +765,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3B
-      start_datetime: 2016-01-31 # Too early
+      start_date: 2016-01-31 # Too early
 - name: GPD10N3B Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -702,16 +785,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3B
-      start_datetime: 2016-02-01 # Lower bound
+      start_date: 2016-02-01 # Lower bound
 - name: GPD10N3B Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -722,16 +805,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3B
-      start_datetime: 2016-02-01 # Upper bound
+      start_date: 2016-02-01 # Upper bound
 - name: GPD10N3B After
   attributes:
     date_of_birth: 1990-01-01
@@ -742,16 +825,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3B
-      start_datetime: 2016-02-02 # Too late
+      start_date: 2016-02-02 # Too late
 - name: GPD10N3C Before
   attributes:
     date_of_birth: 1990-01-01
@@ -762,16 +845,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3C
-      start_datetime: 2016-01-31 # Too early
+      start_date: 2016-01-31 # Too early
 - name: GPD10N3C Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -782,16 +865,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3C
-      start_datetime: 2016-02-01 # Lower bound
+      start_date: 2016-02-01 # Lower bound
 - name: GPD10N3C Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -802,16 +885,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3C
-      start_datetime: 2016-02-01 # Upper bound
+      start_date: 2016-02-01 # Upper bound
 - name: GPD10N3C After
   attributes:
     date_of_birth: 1990-01-01
@@ -822,16 +905,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3C
-      start_datetime: 2016-02-02 # Too late
+      start_date: 2016-02-02 # Too late
 - name: GPD10N3D Before
   attributes:
     date_of_birth: 1990-01-01
@@ -842,16 +925,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3D
-      start_datetime: 2016-01-31 # Too early
+      start_date: 2016-01-31 # Too early
 - name: GPD10N3D Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -862,16 +945,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3D
-      start_datetime: 2016-02-01 # Lower bound
+      start_date: 2016-02-01 # Lower bound
 - name: GPD10N3D Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -882,16 +965,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3D
-      start_datetime: 2016-02-01 # Upper bound
+      start_date: 2016-02-01 # Upper bound
 - name: GPD10N3D After
   attributes:
     date_of_birth: 1990-01-01
@@ -902,16 +985,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3D
-      start_datetime: 2016-02-02 # Too late
+      start_date: 2016-02-02 # Too late
 - name: GPD10N3E Before
   attributes:
     date_of_birth: 1990-01-01
@@ -922,16 +1005,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3E
-      start_datetime: 2016-01-31 # Too early
+      start_date: 2016-01-31 # Too early
 - name: GPD10N3E Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -942,16 +1025,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3E
-      start_datetime: 2016-02-01 # Lower bound
+      start_date: 2016-02-01 # Lower bound
 - name: GPD10N3E Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -962,16 +1045,16 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3E
-      start_datetime: 2016-02-01 # Upper bound
+      start_date: 2016-02-01 # Upper bound
 - name: GPD10N3E After
   attributes:
     date_of_birth: 1990-01-01
@@ -982,13 +1065,13 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 70450 # Advanced image testing
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
       code_value: GPD10N2B # Positive screening
-      start_datetime: 2016-02-01
-      stop_datetime: 2016-02-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N3E
-      start_datetime: 2016-02-02 # Too late
+      start_date: 2016-02-02 # Too late

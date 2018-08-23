@@ -37,33 +37,33 @@ denominator:
       show_codes: true
       records:
       - model: ClinicalActivity
-        value_set: 'Able; RadNet PD10-Q1M1-OA Procedure'
+        value_set: 'Able; RadNet Advanced Image Testing Procedure'
   - validation_record_table_count: 1
     logical_operator: AND
     components:
-    - display_title: 'Able; Quality Data Code: GPD10N2A'
+    - display_title: 'Quality Data Code: GPD10N2A'
       show_codes: true
       records:
       - model: ClinicalActivity
-        value_set: 'Able; Quality Data Code: GPD10N2A'
-    - display_title: 'Able; Quality Data Code: GPD10N2B'
+        value_set: 'Able; Performance Met: GPD10N2A'
+    - display_title: 'Quality Data Code: GPD10N2B'
       logical_operator: OR
       show_codes: true
       records:
       - model: ClinicalActivity
-        value_set: 'Able; Quality Data Code: GPD10N2B'
-    - display_title: 'Able; Quality Data Code: GPD10N2C'
+        value_set: 'Able; Performance Met: GPD10N2B'
+    - display_title: 'Quality Data Code: GPD10N2C'
       logical_operator: 'OR'
       show_codes: true
       records:
       - model: ClinicalActivity
-        value_set: 'Able; Quality Data Code: GPD10N2C'
-    - display_title: 'Able; Quality Data Code: GPD10N2D'
+        value_set: 'Able; Performance Met: GPD10N2C'
+    - display_title: 'Quality Data Code: GPD10N2D'
       logical_operator: 'OR'
       show_codes: true
       records:
       - model: ClinicalActivity
-        value_set: 'Able; Quality Data Code: GPD10N2D'
+        value_set: 'Able; Performance Met: GPD10N2D'
 exclusion:
   description:
   reasons:
