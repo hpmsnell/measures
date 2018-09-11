@@ -1,8 +1,8 @@
-library RADNET_255_Rate_1_2018 version '1'
+library MIPS_255_2018 version '1'
 
 /*
  *
- * Source: RadNet
+ * Source: MIPS
  * ID: 255
  * Rate: 1
  * Year: 2018
@@ -49,7 +49,7 @@ define "Numerator Performance Met: G8809":
     with ["Procedure, Performed": "MIPS; Performance Met: G8809"] P
       such that P.relevantPeriod starts during E.relevantPeriod)
 
-define "Denominator Exception: G8809":
+define "Denominator Exception: G8810":
   // config_link_id: G8810
   exists("Denominator Encounter" E
     with ["Procedure, Performed": "MIPS; Denominator Exception: G8810"] P
