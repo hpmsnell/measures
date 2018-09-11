@@ -63,13 +63,13 @@ exception:
       clinician (e.g., patient had prior documented receipt of Rhogam within 12
       weeks, patient refusal)'
     component_groups:
-    - validation_record_table_count: 1
+    - validation_record_table_count: 10
       components:
       - display_title: 'Quality Data Code: G8810'
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: 'Able; Denominator Exception: G8810'
+          value_set: 'MIPS; Denominator Exception: G8810'
 performance_met:
   description: 'Patients who receive an order for Rh-Immunoglobulin (Rhogam) in
     the ED'
@@ -79,13 +79,13 @@ performance_met:
     display_title: G8809
     description: 'Rh-immunoglobulin (Rhogam) ordered'
     component_groups:
-    - validation_record_table_count: 1
+    - validation_record_table_count: 10
       components:
       - display_title: 'Quality Data Code: G8809'
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: 'Able; Performance Met: G8809'
+          value_set: 'MIPS; Performance Met: G8809'
 performance_not_met:
   description:
   reasons:
@@ -95,10 +95,10 @@ performance_not_met:
     description: 'Documentation Rh-immunoglobulin (Rhogam) was not ordered, reason
       not given'
     component_groups:
-    - validation_record_table_count: 1
+    - validation_record_table_count: 10
       components:
       - display_title: 'Quality Data Code: G8811'
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: 'Able; Performance Not Met: G8811'
+          value_set: 'MIPS; Performance Not Met: G8811'
