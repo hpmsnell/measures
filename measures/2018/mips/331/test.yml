@@ -1,4 +1,4 @@
-measure_id: 18.MIPS.Mips331
+measure_id: measure.Mips.2018.Mips331
 test_set_keys:
   organization_key:
     episodes_of_care:
@@ -128,6 +128,12 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: G9287
+    - name: PerformanceMet Antibiotic # Different provider
+      start_date: 2016-07-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9286
     - name: MedicalReason Exception # Early
       start_date: 2016-02-01
       denominator: 1
@@ -183,152 +189,158 @@ test_set_keys:
       denominator_exception:
       numerator: G9286
   providers_key:
-    - name: Rachel
-      episodes_of_care:
-      - name: Too Young
-        start_date: 2016-02-01
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Age Lower
-        start_date: 2016-02-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9287
-      - name: Denominator Encounter # Early
-        start_date: 2015-12-31
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Denominator Encounter # Lower bound
-        start_date: 2016-01-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9287
-      - name: Denominator Encounter # Upper Bound
-        start_date: 2016-12-31
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9287
-      - name: Denominator Encounter # Late
-        start_date: 2017-01-01
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Denominator Diagnosis # Early
-        start_date: 2016-02-01
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: Denominator Diagnosis # Lower bound
-        start_date: 2016-03-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9287
-      - name: Denominator Diagnosis # Upper bound
-        start_date: 2016-04-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9287
-      - name: Denominator Diagnosis # Late
-        start_date: 2016-05-01
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: PerformanceMet G9286 # Early
-        start_date: 2016-02-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9287
-      - name: PerformanceMet G9286 # Lower bound
-        start_date: 2016-03-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9286
-      - name: PerformanceMet G9286 # Upper bound
-        start_date: 2016-04-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9286
-      - name: PerformanceMet G9286 # Late
-        start_date: 2016-05-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9287
-      - name: PerformanceMet Antibiotic # Early
-        start_date: 2016-02-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9287
-      - name: PerformanceMet Antibiotic # Lower bound
-        start_date: 2016-03-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9286
-      - name: PerformanceMet Antibiotic # Upper bound
-        start_date: 2016-04-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9286
-      - name: PerformanceMet Antibiotic # Late
-        start_date: 2016-05-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9287
-      - name: PerformanceMet Antibiotic # Medication, Active
-        start_date: 2016-06-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: G9287
-      - name: MedicalReason Exception # Early
-        start_date: 2016-02-01
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: MedicalReason Exception # Lower bound
-        start_date: 2016-03-01
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: MedicalReason Exception # Upper bound
-        start_date: 2016-04-01
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: MedicalReason Exception # Late
-        start_date: 2016-05-01
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: MedicalReason Exception # Diagnosis code
-        start_date: 2016-06-01
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
+  - name: Rachel
+    episodes_of_care:
+    - name: Too Young
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9287
+    - name: Denominator Encounter # Early
+      start_date: 2015-12-31
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Encounter # Lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9287
+    - name: Denominator Encounter # Upper Bound
+      start_date: 2016-12-31
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9287
+    - name: Denominator Encounter # Late
+      start_date: 2017-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Diagnosis # Early
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator Diagnosis # Lower bound
+      start_date: 2016-03-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9287
+    - name: Denominator Diagnosis # Upper bound
+      start_date: 2016-04-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9287
+    - name: Denominator Diagnosis # Late
+      start_date: 2016-05-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: PerformanceMet G9286 # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9287
+    - name: PerformanceMet G9286 # Lower bound
+      start_date: 2016-03-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9286
+    - name: PerformanceMet G9286 # Upper bound
+      start_date: 2016-04-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9286
+    - name: PerformanceMet G9286 # Late
+      start_date: 2016-05-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9287
+    - name: PerformanceMet Antibiotic # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9287
+    - name: PerformanceMet Antibiotic # Lower bound
+      start_date: 2016-03-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9286
+    - name: PerformanceMet Antibiotic # Upper bound
+      start_date: 2016-04-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9286
+    - name: PerformanceMet Antibiotic # Late
+      start_date: 2016-05-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9287
+    - name: PerformanceMet Antibiotic # Medication, Active
+      start_date: 2016-06-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9287
+    - name: PerformanceMet Antibiotic # Different provider
+      start_date: 2016-07-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9287
+    - name: MedicalReason Exception # Early
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: MedicalReason Exception # Lower bound
+      start_date: 2016-03-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: MedicalReason Exception # Upper bound
+      start_date: 2016-04-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: MedicalReason Exception # Late
+      start_date: 2016-05-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: MedicalReason Exception # Diagnosis code
+      start_date: 2016-06-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
 providers:
 - given_name: Rachel
   family_name:  Katz
@@ -555,6 +567,11 @@ patients:
       start_date: 2016-06-01
       stop_date: 2016-06-01
       provider: Rachel
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-07-01
+      stop_date: 2016-07-01
+      provider: Rachel
     diagnoses:
     - code_type: ICD10CM
       code_value: J01.00
@@ -571,6 +588,9 @@ patients:
     - code_type: ICD10CM
       code_value: J01.00
       start_date: 2016-06-01
+    - code_type: ICD10CM
+      code_value: J01.00
+      start_date: 2016-07-01
     medications:
     - code_type: RXNORM
       code_value: 1013659
@@ -594,8 +614,14 @@ patients:
       provider: Rachel
     - code_type: RXNORM
       code_value: 1013659
-      start_date: 2016-02-04 # Active
+      start_date: 2016-06-01 # Active
       provider: Rachel
+      provider: Rachel
+    - code_type: RXNORM
+      code_value: 1013659
+      start_date: 2016-07-01
+      method: E
+      provider: Patty
 - name: MedicalReason Exception
   attributes:
     date_of_birth: 1990-01-01

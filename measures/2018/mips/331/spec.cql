@@ -55,7 +55,7 @@ define "Denominator Exception Exists":
       such that P.relevantPeriod starts on or 10 days or less after start of E.relevantPeriod)
   or exists(["Diagnosis": "Able; Competing Conditions for Sinusitis"] D
     with "Denominator Encounter" E
-      such that D.prevalencePeriod overlaps Interval[start of E.relevantPeriod, E.relevantPeriod + 10 days])
+      such that D.prevalencePeriod overlaps Interval[start of E.relevantPeriod, 10 days after start of E.relevantPeriod])
 
 define "Denominator":
   "Denominator Encounter"
