@@ -1,0 +1,161 @@
+---
+measure:
+  name: 18.MIPS.Mips116
+  required:
+    display_title: 'Adult Sinusitis: Antibiotic Prescribed for Acute Sinusitis (Overuse)'
+    inverse: false
+    subject_type: Encounter
+    set: MIPS
+    external_id: 116
+  optional:
+    description: 'The percentage of adults 18–64 years of age with a diagnosis
+      of acute bronchitis who were not prescribed or dispensed an antibiotic
+      prescription'
+    gap_resolution_action:
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Internal Medicine, Emergency Medicine, General
+      Practice/Family Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 through 64 years of age with an outpatient,
+    observation or emergency department (ED) visit with a diagnosis of acute
+    bronchitis during the measurement period'
+  component_groups:
+  - validation_record_table_count: 10
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 116 Encounter
+  - logical_operator: AND
+    validation_record_table_count: 10
+    components:
+    - display_title: Acute Bronchitis
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; Acute Bronchitis
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Inpatient Admission
+    description: 'Patient excluded due to observation or ED visit that results
+     in an inpatient admission'
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: Inpatient Stay
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: 'HEDIS; Inpatient Stay'
+  - config_link_id: exclusion_2
+    code_value:
+    display_title: Competing Condition
+    description: 'Patient excluded due to medical reason(s) for prescribing or
+      dispensing antibiotic (e.g., intestinal infection, pertussis, bacterial
+      infection, Lyme disease, otitis media, acute sinusitis, acute pharyngitis,
+      acute tonsillitis, chronic sinusitis, infection of the pharynx/larynx/tonsils/adenoids,
+      prostatitis, cellulitis/ mastoiditis/bone infections, acute lymphadenitis,
+      impetigo, skin staph infections, pneumonia, gonococcal infections/venereal
+      disease (syphilis, chlamydia, inflammatory diseases [female reproductive organs]),
+      infections of the kidney, cystitis/UTI, acne, HIV disease/asymptomatic HIV,
+      cystic fibrosis, disorders of the immune system, malignancy neoplasms, chronic
+      bronchitis, emphysema, bronchiectasis, extrinsic allergic alveolitis, chronic
+      airway obstruction, chronic obstructive asthma, pneumoconiosis and other lung
+      disease due to external agents, other diseases of the respiratory system, and
+      tuberculosis'
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G9712'
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exclusion: G9712'
+    - validation_record_table_count: 10
+      logical_operator: OR
+      components:
+      - display_title: 'Competing Condition'
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: 'HEDIS; HIV'
+        - model: Diagnosis
+          value_set: 'HEDIS; HIV Type 2'
+        - model: Diagnosis
+          value_set: 'HEDIS; Malignant Neoplasms'
+        - model: Diagnosis
+          value_set: 'HEDIS; Emphysema'
+        - model: Diagnosis
+          value_set: 'HEDIS; COPD'
+        - model: Diagnosis
+          value_set: 'HEDIS; Cystic Fibrosis'
+        - model: Diagnosis
+          value_set: 'HEDIS; Comorbid Conditions'
+        - model: Diagnosis
+          value_set: 'HEDIS; Disorders of the Immune System'
+        - model: Diagnosis
+          value_set: 'HEDIS; Other Malignant Neoplasm of Skin'
+        - model: Diagnosis
+          value_set: 'HEDIS; Pharyngitis'
+        - model: Diagnosis
+          value_set: 'HEDIS; Competing Diagnosis'
+  - config_link_id: exclusion_3
+    code_value:
+    display_title: Hospice Service
+    description: 'Patient excluded due to hospice services any time during the
+      measurement period'
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: Hospice Service
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; MIPS Hospice Service'
+        - model: ClinicalActivity
+          value_set: 'VSAC; Palliative Care'
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patients who were not prescribed or dispensed antibiotics on or
+    within 3 days of the initial date of service'
+  reasons:
+  - config_link_id: 4124F
+    code_value: 4124F
+    display_title: 4124F
+    description: 'Antibiotic neither prescribed nor dispensed'
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: 4124F'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: 4124F'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: 4120F
+    code_value: 4120F
+    display_title: 4120F
+    description: 'Antibiotic prescribed or dispensed'
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: 4120F'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: 4120F'
