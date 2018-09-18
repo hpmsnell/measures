@@ -1,0 +1,108 @@
+---
+measure:
+  name: 18.MIPS.Mips187
+  required:
+    display_title: 'Stroke and Stroke Rehabilitation: Thrombolytic Therapy'
+    inverse: false
+    subject_type: Encounter
+    set: MIPS
+    external_id: 187
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older with a diagnosis
+      of acute ischemic stroke who arrive at the hospital within two hours of time
+      last known well and for whom IV t-PA was initiated within three hours of
+      time last known well'
+    gap_resolution_action:
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets:
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 years and older with a diagnosis of acute
+    ischemic stroke whose time of arrival is withintwo hours (≤ 120 minutes) of
+    time last known well'
+  component_groups:
+  - validation_record_table_count: 10
+    components:
+    - display_title: 'Encounter'
+      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 187 Encounter
+  - validation_record_table_count: 10
+    logical_operator: 'AND'
+    components:
+    - display_title: 'Ischemic Stroke'
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; MIPS 187 Ischemic Stroke
+  - validation_record_table_count: 10
+    logical_operator: 'AND NOT'
+    components:
+    - display_title: 'Last Known Well > 120 Minutes'
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: 'Able; Last Known Well > 120 Minutes'
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: G8601
+    code_value: G8601
+    display_title: G8601
+    description: 'IV t-PA not initiated within three hours (≤ 180 minutes) of time
+      last known well for reasons documented by clinician (e.g., patient enrolled
+      in clinical trial for stroke, patient admitted for elective carotid
+      intervention)'
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G8601'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G8601'
+performance_met:
+  description: 'Patients for whom IV thrombolytic therapy was initiated at the
+    hospital within three hours (≤ 180 minutes) of time last known well'
+  reasons:
+  - config_link_id: G8600
+    code_value: G8600
+    display_title: G8600
+    description: 'IV t-PA initiated within three hours (≤ 180 minutes) of time
+      last known well'
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G8600'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8600'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G8602
+    code_value: G8602
+    display_title: G8602
+    description: 'IV t-PA not initiated within three hours (≤ 180 minutes) of
+      time last known well, reason not given'
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G8602'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G8602'
