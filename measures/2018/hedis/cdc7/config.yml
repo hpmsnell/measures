@@ -22,8 +22,10 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: "Patients 18–75 years as of December 31 of the measurement year
-    with type 1 or type 2 diabetes"
+  description: "Patients 18–75 years as of December 31 with a diagnosis of
+  diabetes who met any of the following criteria during the measurement year
+  or the year prior to the measurement year: Two outpatient, ED, observation, or non-acute inpatient visits
+  with different dates of service; or one acute inpatient discharge."
   component_groups:
   - validation_record_table_count: 1
     components:
@@ -34,7 +36,7 @@ denominator:
         value_set: HEDIS; Diabetes
     - display_title: Encounter
       logical_operator: AND
-      annotation: '2 outpatient visits or 1 acute inpatient encounter'
+      annotation: '2 non-acute visits or 1 acute inpatient encounter'
       show_codes: true
       records:
       - model: ClinicalActivity
