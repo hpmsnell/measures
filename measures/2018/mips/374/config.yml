@@ -1,0 +1,89 @@
+---
+measure:
+  name: 18.MIPS.Mips374
+  required:
+    display_title: 'Closing the Referral Loop: Receipt of Specialist Report'
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: '374'
+    version:
+  optional:
+    description: 'Percentage of patients with referrals, regardless of age, for
+      which the referring provider receives a report from the provider to whom
+      the patient was referred'
+    gap_resolution_action: Patient requires documentation of receipt of specialist report following referral
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Allergy/Immunology, Cardiology, Dermatology, Emergency Medicine,
+      Gastroenterology, General Surgery, General Oncology, Hospitalists, Neurology,
+      Obstetrics/Gynecology, Ophthalmology, Orthopedic Surgery, Otolaryngology,
+      Physical Medicine, Preventive Medicine, Rheumatology, Thoracic Surgery, Urology,
+      Vascular Surgery, Mental/Behavioral Health, Plastic Surgery'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'Number of patients, regardless of age, who were referred by one
+    provider to another provider, and who had a visit during the measurement period'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 374 Encounter
+  - logical_operator: 'AND'
+    validation_record_table_count: 1
+    components:
+    - display_title: Referral
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; Referral
+      - model: ClinicalActivity
+        value_set: VSAC; Referral
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Number of patients with a referral, for which the referring
+    provider received a report from the provider to whom the patient was referred'
+  reasons:
+  - config_link_id: G9969
+    code_value: G9969
+    display_title: G9969
+    description: 'Provider who referred the patient to another provider received
+      a report from the provider to whom the patient was referred'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9969'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9969'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9970
+    code_value: G9970
+    display_title: G9970
+    description: 'Provider who referred the patient to another provider did not
+      receive a report from the provider to whom the patient was referred'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9970'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9970'

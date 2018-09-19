@@ -1,0 +1,417 @@
+measure_id: measure.Mips.2018.Mips374
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Encounter Before # Encounter before allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Lower # Encounter is at lower bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9970
+    - name: Encounter Upper # Encounter is at upper bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9970
+    - name: Encounter After  # Encounter is after allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter InvalidModifier
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter InvalidPOS
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter DifferentProviders # Encounters have different signing providers
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9970
+    - name: Referral Before # Patient has a Referral that is early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Referral Lower # Patient has a Referral at lower bound of period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9970
+    - name: Referral Upper # Patient has a Referral at upper bound of period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9970
+    - name: Referral After  # Patient has a Referral that is late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: G9969 Before # G9969 too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9970
+    - name: G9969 Lower # G9969 at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9969
+    - name: G9969 Upper # G9969 at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9969
+    - name: G9969 After # G9969 too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9970
+  providers_key:
+  - name: Rachel
+    patients:
+    - name: Encounter Before # Encounter before allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Lower # Encounter is at lower bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9970
+    - name: Encounter Upper # Encounter is at upper bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9970
+    - name: Encounter After  # Encounter is after allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter DifferentProviders # Encounters have different signing providers
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Referral Before # Patient has a Referral that is early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Referral Lower # Patient has a Referral at lower bound of period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9970
+    - name: Referral Upper # Patient has a Referral at upper bound of period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9970
+    - name: Referral After  # Patient has a Referral that is late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: G9969 Before # G9969 too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9970
+    - name: G9969 Lower # G9969 at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9969
+    - name: G9969 Upper # G9969 at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9969
+    - name: G9969 After # G9969 too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9970
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  external_id: '111-111'
+  credential: DO
+  primary_specialty: Family Medicine
+- given_name: Patty
+  family_name: PrimaryCare
+  external_id: '222-222'
+  credential: MD
+  primary_specialty: Family Medicine
+patients:
+- name: Encounter Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2015-12-31 # Too early
+      stop_date: 2015-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9968
+      start_date: 2016-02-01
+- name: Encounter Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01 # Too early
+      stop_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9968
+      start_date: 2016-02-01
+- name: Encounter Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-12-31 # Too early
+      stop_date: 2016-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9968
+      start_date: 2016-02-01
+- name: Encounter After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2017-01-01 # Too early
+      stop_date: 2017-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9968
+      start_date: 2016-02-01
+- name: DenominatorEncounter InvalidModifier
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: DenominatorEncounter
+    family_name: InvalidModifier
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-12-31
+      stop_date: 2016-12-31
+      provider: Rachel
+      code_modifiers: ['GQ']
+    - code_type: CPT
+      code_value: G9968
+      start_date: 2016-02-01
+- name: DenominatorEncounter InvalidPOS
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: DenominatorEncounter
+    family_name: InvalidPOS
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+      provider: Rachel
+      place_of_service: '02'
+    - code_type: CPT
+      code_value: G9968
+      start_date: 2016-02-01
+- name: Encounter DifferentProviders
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: DifferentProviders
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+      provider: Patty # Different provider
+    - code_type: CPT
+      code_value: G9968
+      start_date: 2016-02-01
+- name: Referral Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Referral
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 103696004
+      start_date: 2015-12-31
+      stop_date: 2015-12-31 # Too early
+- name: Referral Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Referral
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 103696004
+      start_date: 2016-01-01
+      stop_date: 2016-01-01 # Lower bound
+- name: Referral Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Referral
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 103696004
+      start_date: 2016-12-31
+      stop_date: 2016-12-31
+- name: Referral After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Referral
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 103696004
+      start_date: 2017-01-01 # Too late
+      stop_date: 2017-01-01
+- name: G9969 Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: G9969
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9969 # Performance Met
+      start_date: 2015-12-31 # Early
+    - code_type: CPT
+      code_value: G9968
+      start_date: 2016-02-01
+- name: G9969 Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: G9969
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9969 # Performance Met
+      start_date: 2016-01-01 # Lower
+    - code_type: CPT
+      code_value: G9968
+      start_date: 2016-02-01
+- name: G9969 Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: G9969
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9969 # Performance Met
+      start_date: 2016-12-31 # Upper
+    - code_type: CPT
+      code_value: G9968
+      start_date: 2016-02-01
+- name: G9969 After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: G9969
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9969 # Performance Met
+      start_date: 2017-01-01 # Late
+    - code_type: CPT
+      code_value: G9968
+      start_date: 2016-02-01
