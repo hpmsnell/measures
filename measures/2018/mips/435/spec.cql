@@ -58,5 +58,5 @@ define "Numerator Performance Not Met: G9636":
   /*
    * config_link_id: G9636
    */
-  and "Numerator Performance Met: G9634"
+  not "Numerator Performance Met: G9634"
   and not "Denominator Exception: G9635"

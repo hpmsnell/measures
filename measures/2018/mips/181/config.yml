@@ -1,0 +1,131 @@
+---
+measure:
+  name: 18.MIPS.Mips181
+  required:
+    display_title: 'Elder Maltreatment Screen and Follow-Up Plan'
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: '181'
+    version:
+  optional:
+    description: 'Percentage of patients aged 65 years and older with a documented
+      elder maltreatment screen using an Elder Maltreatment Screening tool on the
+      date of encounter AND a documented follow-up plan on the date of the positive
+      screen'
+    gap_resolution_action: 'Patient requires an elder maltreatment screening or
+      follow-up for a positive screening'
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Internal Medicine, Mental/Behavioral Health, General
+      Practice/Family Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 65 years and older'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 181 Encounter
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: G8941
+    code_value: G8941
+    display_title: G8941
+    description: 'Elder maltreatment screen documented as positive, follow- up
+      plan not documented, documentation the patient is not eligible for follow-up
+      plan at the time of the encounter'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8941'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G8941'
+  - config_link_id: G8535
+    code_value: G8535
+    display_title: G8535
+    description: 'Elder maltreatment screen not documented; documentation that
+      patient is not eligible for the elder maltreatment screen at the time of
+      the encounter'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8535'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G8535'
+performance_met:
+  description: 'Patients with a documented elder maltreatment screen using an
+    Elder Maltreatment Screening tool on the date of the encounter and follow-up
+    plan documented on the date of the positive screen'
+  reasons:
+  - config_link_id: G8734
+    code_value: G8734
+    display_title: G8734
+    description: 'Elder maltreatment screen documented as negative, follow-up is
+      not required'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8734'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8734'
+  - config_link_id: G8733
+    code_value: G8733
+    display_title: G8733
+    description: 'Elder maltreatment screen documented as positive AND a follow-up
+      plan is documented'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8733'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8733'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G8735
+    code_value: G8735
+    display_title: G8735
+    description: 'Elder maltreatment screen documented as positive, follow-up
+      plan not documented, reason not given'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8735'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G8735'
+  - config_link_id: G8736
+    code_value: G8736
+    display_title: G8736
+    description: 'No documentation of an elder maltreatment screen, reason not given'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G8736'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G8736'
