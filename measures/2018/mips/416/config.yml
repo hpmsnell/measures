@@ -53,7 +53,7 @@ denominator:
     - display_title: 'GCS of 15 and CT Ordered'
       show_codes: true
       records:
-      - model: Diagnosis
+      - model: ClinicalActivity
         value_set: 'MIPS; GCS of 15 and CT Ordered'
 exclusion:
   description:
@@ -102,19 +102,19 @@ performance_met:
   description: 'Emergency department visits for patients who have an indication
     for a head CT'
   reasons:
-  - config_link_id: G9595
-    code_value: G9595
-    display_title: G9595
+  - config_link_id: G9593
+    code_value: G9593
+    display_title: G9593
     description: 'Patient with minor blunt head trauma had an appropriate indication(s)
       for a head CT'
     component_groups:
     - validation_record_table_count: 10
       components:
-      - display_title: 'Quality Data Code: G9595'
+      - display_title: 'Quality Data Code: G9593'
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: 'MIPS; Performance Met: G9595'
+          value_set: 'MIPS; Performance Met: G9593'
 performance_not_met:
   description:
   reasons:
