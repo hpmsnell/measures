@@ -43,9 +43,7 @@ define "Nonacute Visit":
   union ["Encounter, Performed": "HEDIS; Nonacute Inpatient"]
 
 define "Patient Has Diabetes":
-  exists(["Diagnosis": "HEDIS; Diabetes"] D
-    where D.prevalencePeriod overlaps end of "Measurement Year")
-  or exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
+  exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
     where E.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"]
     with ["Diagnosis": "HEDIS; Diabetes"] D
       such that D.prevalencePeriod starts during E.relevantPeriod)

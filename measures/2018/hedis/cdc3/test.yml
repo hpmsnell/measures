@@ -82,26 +82,6 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Diagnosis Before
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Diagnosis Lower
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: hba1c_none
-    - name: Diagnosis Upper
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: hba1c_none
-    - name: Diagnosis After
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
     - name: Medication Before
       denominator:
       denominator_exclusion:
@@ -216,10 +196,16 @@ patients:
     family_name: Young
     sex: Male
   clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99221 # Acute inpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
-      start_date: 2010-01-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
 - name: Age Lower
   attributes:
     date_of_birth: 1998-12-31 # Lower bound
@@ -227,10 +213,16 @@ patients:
     family_name: Lower
     sex: Male
   clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99221 # Acute inpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
-      start_date: 2010-01-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
 - name: Age Upper
   attributes:
     date_of_birth: 1941-01-01 # Upper bound
@@ -238,10 +230,16 @@ patients:
     family_name: Upper
     sex: Male
   clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99221 # Acute inpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
-      start_date: 2010-01-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
 - name: Too Old
   attributes:
     date_of_birth: 1940-12-31 # Too early
@@ -249,10 +247,16 @@ patients:
     family_name: Old
     sex: Male
   clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99221 # Acute inpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
-      start_date: 2010-01-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
 - name: AcuteEncounter Before
   attributes:
     date_of_birth: 1970-01-01
@@ -262,7 +266,7 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 99221
+      code_value: 99221 # Acute inpatient
       start_date: 2014-12-31 # Too early
     diagnoses:
     - code_type: ICD10CM
@@ -278,7 +282,7 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 99221
+      code_value: 99221 # Acute inpatient
       start_date: 2015-01-01 # Lower bound
     diagnoses:
     - code_type: ICD10CM
@@ -294,7 +298,7 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 99221
+      code_value: 99221 # Acute inpatient
       start_date: 2016-12-31 # Upper bound
     diagnoses:
     - code_type: ICD10CM
@@ -310,7 +314,7 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 99221
+      code_value: 99221 # Acute inpatient
       start_date: 2017-01-01 # Too late
     diagnoses:
     - code_type: ICD10CM
@@ -418,7 +422,7 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 99221
+      code_value: 99221 # Acute inpatient
       start_date: 2016-01-01
       stop_date: 2016-01-02
     diagnoses:
@@ -435,7 +439,7 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 99221
+      code_value: 99221 # Acute inpatient
       start_date: 2016-01-01
       stop_date: 2016-01-02
     diagnoses:
@@ -452,7 +456,7 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 99221
+      code_value: 99221 # Acute inpatient
       start_date: 2016-01-01
       stop_date: 2016-01-02
     diagnoses:
@@ -469,7 +473,7 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 99221
+      code_value: 99221 # Acute inpatient
       start_date: 2016-01-01
       stop_date: 2016-01-02
     diagnoses:
@@ -477,52 +481,6 @@ patients:
       code_value: E13.49
       start_date: 2016-01-03 # Too late
       stop_date: 2016-01-03
-- name: Diagnosis Before
-  attributes:
-    date_of_birth: 1970-01-01
-    given_name: Diagnosis
-    family_name: Before
-    sex: Male
-  clinical_models:
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: E13.49
-      start_date: 2010-01-01
-      stop_date: 2016-12-30 # Too early
-- name: Diagnosis Lower
-  attributes:
-    date_of_birth: 1970-01-01
-    given_name: Diagnosis
-    family_name: Lower
-    sex: Male
-  clinical_models:
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: E13.49
-      start_date: 2010-01-01
-      stop_date: 2017-01-01  # Lower bound
-- name: Diagnosis Upper
-  attributes:
-    date_of_birth: 1970-01-01
-    given_name: Diagnosis
-    family_name: Upper
-    sex: Male
-  clinical_models:
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: E13.49
-      start_date: 2016-12-31 # Upper bound
-- name: Diagnosis After
-  attributes:
-    date_of_birth: 1970-01-01
-    given_name: Diagnosis
-    family_name: After
-    sex: Male
-  clinical_models:
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: E13.49
-      start_date: 2017-01-01
 - name: Medication Before
   attributes:
     date_of_birth: 1970-01-01
@@ -699,10 +657,16 @@ patients:
       code_value: 4548-4
       start_date: 2015-12-31 # Too early
       result_as_decimal: 7
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99221 # Acute inpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
-      start_date: 2010-01-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
 - name: HbA1cControlled Lower
   attributes:
     date_of_birth: 1970-01-01
@@ -715,10 +679,16 @@ patients:
       code_value: 4548-4
       start_date: 2016-01-01 # Lower bound
       result_as_decimal: 7
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99221 # Acute inpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
-      start_date: 2010-01-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
 - name: HbA1cControlled Upper
   attributes:
     date_of_birth: 1970-01-01
@@ -731,10 +701,16 @@ patients:
       code_value: 4548-4
       start_date: 2016-12-31 # Upper bound
       result_as_decimal: 7
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99221 # Acute inpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
-      start_date: 2010-01-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
 - name: HbA1cControlled After
   attributes:
     date_of_birth: 1970-01-01
@@ -747,10 +723,16 @@ patients:
       code_value: 4548-4
       start_date: 2017-01-01 # Too late
       result_as_decimal: 7
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99221 # Acute inpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
-      start_date: 2010-01-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
 - name: HbA1c ResultUpper
   attributes:
     date_of_birth: 1970-01-01
@@ -770,10 +752,16 @@ patients:
     - code_type: LOINC
       code_value: 4548-4
       start_date: 2016-03-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99221 # Acute inpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
-      start_date: 2010-01-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
 - name: HbA1c ResultHigh
   attributes:
     date_of_birth: 1970-01-01
@@ -793,10 +781,16 @@ patients:
     - code_type: LOINC
       code_value: 4548-4
       start_date: 2016-03-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99221 # Acute inpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
-      start_date: 2010-01-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
 - name: HbA1c ResultNone
   attributes:
     date_of_birth: 1970-01-01
@@ -808,7 +802,13 @@ patients:
     - code_type: LOINC
       code_value: 4548-4
       start_date: 2016-01-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99221 # Acute inpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
-      start_date: 2010-01-01
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
