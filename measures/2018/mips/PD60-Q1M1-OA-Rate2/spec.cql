@@ -16,22 +16,21 @@ using QDM
 // Custom value sets (Able)
 
 valueset "Able; RadNet Advanced Image Testing Procedure"
+valueset "Able; Performance Met: GPD60N1A"
 valueset "Able; RadNet Patient Exclusion"
+valueset "Able; Performance Met: GPD60N2A"
 valueset "Able; Performance Not Met: GPD60N2B"
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Positive Screening":
-  ["Procedure, Performed": "Able; Performance Met: GPD60N1B"]
-
 define "Denominator Procedure":
   ["Procedure, Performed": "Able; RadNet Advanced Image Testing Procedure"] P1
     where P1.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of P1.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
-    with "Positive Screening" P2
+    with ["Procedure, Performed": "Able; Performance Met: GPD60N1A"] P2
       such that P2.relevantPeriod starts during P1.relevantPeriod
 
 // Populations

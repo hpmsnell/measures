@@ -41,21 +41,21 @@ denominator:
   - validation_record_table_count: 1
     logical_operator: AND
     components:
-    - display_title: 'Quality Data Code: GPD60N2A'
+    - display_title: 'Quality Data Code: GPD60N1A'
       show_codes: true
       records:
       - model: ClinicalActivity
-        value_set: 'Able; Performance Met: GPD60N2A'
+        value_set: 'Able; Performance Met: GPD60N1A'
 exclusion:
   description:
   reasons:
   - config_link_id: GPD60D1A
     code_value: GPD60D1A
     display_title: GPD60D1A
-    description: 'Patient’s clinical situation is or becomes urgent or emergent during the imaging encounter; patient
-      is receiving hospice, comfort care only or end of life palliative care; or patient is unable to self-
-      report symptoms of psychological distress due to being nonverbal, diminished capacity or severe
-      dementia'
+    description: 'Patient’s clinical situation is or becomes urgent or emergent during the
+      imaging encounter; or patient is receiving hospice, comfort care only or end of life
+      palliative care; or patient is unable to self-report symptoms of psychological distress
+      due to being nonverbal, diminished capacity or severe dementia'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -64,6 +64,20 @@ exclusion:
         records:
         - model: ClinicalActivity
           value_set: 'Able; RadNet Patient Exclusion'
+  - config_link_id: GPD20N1X
+    code_value: GPD20N1X
+    display_title: GPD20N1X
+    description: 'Patient does not report results related psychological distress symptom(s) after
+      completing an advanced image testing procedure AND preintervention score and postintervention
+      scores obtained are zero, no intervention is required'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD20N1X'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Denominator Exception: GPD20N1X'
 exception:
   description:
   reasons:
@@ -75,8 +89,7 @@ performance_met:
   - config_link_id: GPD60N3A
     code_value: GPD60N3A
     display_title: GPD60N3A
-    description: 'Patients re-screened for results-related psychological distress and reports a decrease in psychological
-      distress during the performance period while waiting for the procedure results'
+    description: 'Patient reports a reduction of results relates psychological distress symptom(s)'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -88,12 +101,25 @@ performance_met:
 performance_not_met:
   description:
   reasons:
+  - config_link_id: GPD60N3C
+    code_value: GPD60N3C
+    display_title: GPD60N3C
+    description: 'Patient reports a reduction of results relates psychological distress symptom(s)
+      AND follow-up psychological distress intervention is not provided. OR results psychological
+      distress-related intervention(s) status is unknown, reason not given'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD60N3C'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Performance Not Met: GPD60N3C'
   - config_link_id: GPD60N3B
     code_value: GPD60N3B
     display_title: GPD60N3B
-    description: 'Patient not re-screened positive for results-related psychological distress OR patient re-screened positive
-      for results-related psychological distress patient does not report a decrease in results-related psychological
-      distress status unknown, reason not given'
+    description: 'Patient does not report a reduction of results related psychological distress
+      symptom(s) OR results-related psychological distress status is unknown, reason not given'
     component_groups:
     - validation_record_table_count: 1
       components:

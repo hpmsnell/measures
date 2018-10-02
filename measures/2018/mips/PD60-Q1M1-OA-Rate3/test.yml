@@ -307,7 +307,7 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-01
       stop_date: 2016-02-01
 - name: Age Lower
@@ -324,7 +324,7 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-01
       stop_date: 2016-02-01
 - name: DenominatorEncounter Before
@@ -341,7 +341,7 @@ patients:
       stop_date: 2015-12-31
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2015-12-31
       stop_date: 2015-12-31
 - name: DenominatorEncounter Lower
@@ -358,7 +358,7 @@ patients:
       stop_date: 2016-01-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-01-01
       stop_date: 2016-01-01
 - name: DenominatorEncounter Upper
@@ -375,7 +375,7 @@ patients:
       stop_date: 2016-12-31
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-12-31
       stop_date: 2016-12-31
 - name: DenominatorEncounter After
@@ -392,7 +392,7 @@ patients:
       stop_date: 2017-01-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2017-01-01
       stop_date: 2017-01-01
 - name: DenominatorEncounter DifferentProvider
@@ -409,7 +409,7 @@ patients:
       stop_date: 2016-02-01
       provider: Patty # Different signing provider
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-01
       stop_date: 2016-02-01
 - name: DenominatorScreening Before
@@ -426,7 +426,7 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-01-31 # Too early
       stop_date: 2016-01-31
 - name: DenominatorScreening Lower
@@ -443,7 +443,7 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-01 # Lower bound
       stop_date: 2016-02-01
 - name: DenominatorScreening Upper
@@ -460,7 +460,7 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-01 # Upper bound
       stop_date: 2016-02-01
 - name: DenominatorScreening After
@@ -477,7 +477,7 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-02 # Too late
       stop_date: 2016-02-02
 - name: GPD60D1A Before
@@ -494,7 +494,7 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: CPT
@@ -514,7 +514,7 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: CPT
@@ -534,7 +534,7 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: CPT
@@ -554,12 +554,92 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD60D1A
       start_date: 2017-01-01 # Too late
+- name: GPD20N1X Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1X
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N1A # Denominator screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD20N1X
+      start_date: 2016-01-31 # Too early
+- name: GPD20N1X Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1X
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N1A # Denominator screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD20N1X
+      start_date: 2016-02-01 # Lower bound
+- name: GPD20N1X Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1X
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N1A # Denominator screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD20N1X
+      start_date: 2016-03-02 # Upper bound
+- name: GPD20N1X After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1X
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N1A # Denominator screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD20N1X
+      start_date: 2016-03-03 # Too late
 - name: GPD60N3A Before
   attributes:
     date_of_birth: 1990-01-01
@@ -574,7 +654,7 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: CPT
@@ -594,7 +674,7 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: CPT
@@ -614,7 +694,7 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: CPT
@@ -634,11 +714,91 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD60N3A
+      start_date: 2016-03-03 # Too late
+- name: GPD60N3C Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3C
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N1A # Denominator screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3C
+      start_date: 2016-01-31 # Too early
+- name: GPD60N3C Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3C
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N1A # Denominator screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3C
+      start_date: 2016-02-01 # Lower bound
+- name: GPD60N3C Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3C
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N1A # Denominator screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3C
+      start_date: 2016-03-02 # Upper bound
+- name: GPD60N3C After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD60N3C
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD60N1A # Denominator screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD60N3C
       start_date: 2016-03-03 # Too late
 - name: GPD60N3B Before
   attributes:
@@ -654,7 +814,7 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: CPT
@@ -674,7 +834,7 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: CPT
@@ -694,7 +854,7 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: CPT
@@ -714,7 +874,7 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD60N2A # Denominator screening
+      code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: CPT

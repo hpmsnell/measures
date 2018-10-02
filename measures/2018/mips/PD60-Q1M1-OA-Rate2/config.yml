@@ -39,21 +39,21 @@ denominator:
   - validation_record_table_count: 1
     logical_operator: AND
     components:
-    - display_title: 'Quality Data Code: GPD60N1B'
+    - display_title: 'Quality Data Code: GPD60N1A'
       show_codes: true
       records:
       - model: ClinicalActivity
-        value_set: 'Able; Performance Met: GPD60N1B'
+        value_set: 'Able; Performance Met: GPD60N1A'
 exclusion:
   description:
   reasons:
   - config_link_id: GPD60D1A
     code_value: GPD60D1A
     display_title: GPD60D1A
-    description: 'Patient’s clinical situation is or becomes urgent or emergent during the imaging encounter; patient
-      is receiving hospice, comfort care only or end of life palliative care; or patient is unable to self-
-      report symptoms of psychological distress due to being nonverbal, diminished capacity or severe
-      dementia'
+    description: 'Patient’s clinical situation is or becomes urgent or emergent during the
+      imaging encounter; or patient is receiving hospice, comfort care only or end of life
+      palliative care; or patient is unable to self-report symptoms of psychological distress
+      due to being nonverbal, diminished capacity or severe dementia'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -73,8 +73,8 @@ performance_met:
   - config_link_id: GPD60N2A
     code_value: GPD60N2A
     display_title: GPD60N2A
-    description: 'Patient screened positive for results-related psychological distress that are provided psychological
-      distress-related intervention(s) during the performance period'
+    description: 'Patient reports results related psychological distress symptom(s) AND
+      follow-up psychological distress intervention is provided'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -89,8 +89,8 @@ performance_not_met:
   - config_link_id: GPD60N2B
     code_value: GPD60N2B
     display_title: GPD60N2B
-    description: 'Patient screened positive for results-related psychological distress that are not provided
-      psychological distress intervention(s) during the performance period OR psychological distress-related
+    description: 'Patient reports results related psychological distress symptom(s) AND follow-up
+      psychological distress intervention is not provided. OR results psychological distress-related
       intervention(s) status is unknown, reason not given'
     component_groups:
     - validation_record_table_count: 1
