@@ -12,6 +12,10 @@ library MIPS_119_2017 version '1'
 
 using QDM
 
+// Able Custom Value Sets
+
+valueset "ABLE; Microalbumin Test": '2.16.840.1.113883.3.464.1003.109.12.1005'
+
 // MIPS Value Sets
 
 valueset "MIPS; MIPS 119 Encounter"
@@ -29,7 +33,6 @@ valueset "MIPS; Performance Not Met: 3062F-8P"
 // VSAC Value Sets
 
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
-valueset "VSAC; Microalbumin Test": '2.16.840.1.113883.3.464.1003.109.12.1005'
 valueset "VSAC; Urine Protein Tests": '2.16.840.1.113883.3.464.1003.109.12.1024'
 valueset "VSAC; Macroalbumin Test": '2.16.840.1.113883.3.464.1003.109.12.1019'
 valueset "VSAC; ESRD Monthly Outpatient Services": '2.16.840.1.113883.3.464.1003.109.12.1014'
@@ -72,7 +75,7 @@ define "Denominator Exclusion":
     where I.relevantPeriod overlaps "Denominator Period")
 
 define "Microalbumin Tests":
-  ["Laboratory Test, Performed": "VSAC; Microalbumin Test"]
+  ["Laboratory Test, Performed": "ABLE; Microalbumin Test"]
   union ["Laboratory Test, Performed": "VSAC; Urine Protein Tests"]
 
 define "Eligible Nephropathy Treatments":
