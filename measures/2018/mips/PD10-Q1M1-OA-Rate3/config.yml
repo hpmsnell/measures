@@ -8,7 +8,7 @@ measure:
     set: RadNet
     external_id: PD10-Q1M1-OA
     rate_id: 3
-    version:
+    version: 2
   optional:
     description: 'Percentage of patients aged 18 years and older screened for risk of non-adherence due to medical
       condition(s), physical condition(s), and psychological distress prior to advanced image testing
@@ -38,42 +38,16 @@ denominator:
       records:
       - model: ClinicalActivity
         value_set: 'Able; RadNet Advanced Image Testing Procedure'
-  - validation_record_table_count: 1
-    logical_operator: AND
-    components:
-    - display_title: 'Quality Data Code: GPD10N2A'
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: 'Able; Performance Met: GPD10N2A'
-    - display_title: 'Quality Data Code: GPD10N2B'
-      logical_operator: OR
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: 'Able; Performance Met: GPD10N2B'
-    - display_title: 'Quality Data Code: GPD10N2C'
-      logical_operator: 'OR'
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: 'Able; Performance Met: GPD10N2C'
-    - display_title: 'Quality Data Code: GPD10N2D'
-      logical_operator: 'OR'
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: 'Able; Performance Met: GPD10N2D'
 exclusion:
   description:
   reasons:
   - config_link_id: GPD10D1A
     code_value: GPD10D1A
     display_title: GPD10D1A
-    description: 'Patient’s clinical situation is or becomes urgent or emergent during the imaging encounter; patient
-      is receiving hospice, comfort care only or end of life palliative care; or patient is unable to self-
-      report symptoms of psychological distress due to being nonverbal, diminished capacity or severe
-      dementia'
+    description: 'Patient’s clinical situation is or becomes urgent or emergent during the
+      imaging encounter, patient is receiving hospice, comfort care only or end of life
+      palliative care or patient is unable to self-report symptoms of psychological
+      distress due to being nonverbal, diminished capacity or severe dementia'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -143,6 +117,33 @@ performance_met:
         records:
         - model: ClinicalActivity
           value_set: 'Able; Performance Met: GPD10N3D'
+  - config_link_id: GPD10N3F
+    code_value: GPD10N3F
+    display_title: GPD10N3F
+    description: 'Patient screened negative for risk of non-adherence due to
+      medical condition(s) AND advanced image testing is completed'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD10N3F'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Performance Met: GPD10N3F'
+  - config_link_id: GPD10N3G
+    code_value: GPD10N3G
+    display_title: GPD10N3G
+    description: 'Patient screened positive for risk of non-adherence due to
+      medical condition(s), physical condition(s), and/or psychological distress,
+      follow up intervention is not provided, AND advanced image testing is completed'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD10N3G'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Performance Met: GPD10N3G'
 performance_not_met:
   description:
   reasons:
@@ -161,6 +162,37 @@ performance_not_met:
         records:
         - model: ClinicalActivity
           value_set: 'Able; Performance Not Met: GPD10N3E'
+  - config_link_id: GPD10N3H
+    code_value: GPD10N3H
+    display_title: GPD10N3H
+    description: 'Patient screened negative for risk of non-adherence due to
+      medical condition(s), physical condition(s), and/or psychological distress,
+      AND advanced image testing is not completed. OR advanced image testing
+      completion status is unknown, reason not given'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD10N3H'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Performance Not Met: GPD10N3H'
+  - config_link_id: GPD10N3I
+    code_value: GPD10N3I
+    display_title: GPD10N3I
+    description: 'Patient screened positive for risk of non-adherence due to
+      medical condition(s), physical condition(s), and/or psychological distress,
+      follow up intervention is not provided, and advanced image testing is not
+      completed. Or advanced image testing completion status is unknown, reason
+      not given.'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD10N3I'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Performance Not Met: GPD10N3I'
   - config_link_id: incomplete
     code_value:
     display_title: Data Incomplete

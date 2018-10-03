@@ -33,24 +33,16 @@ denominator:
       records:
       - model: ClinicalActivity
         value_set: 'Able; RadNet Advanced Image Testing Procedure'
-  - validation_record_table_count: 1
-    logical_operator: 'AND'
-    components:
-    - display_title: 'Quality Data Code: GPD20D1A'
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: 'Able; Denominator: GPD20D1A'
 exclusion:
   description:
   reasons:
   - config_link_id: GPD20D1B
     code_value: GPD20D1B
     display_title: GPD20D1B
-    description: 'Patient’s clinical situation is or becomes urgent or emergent during the imaging encounter; or
-      patient is receiving hospice, comfort care only or end of life palliative care; or patient is unable to
-      self-report symptoms of psychological distress due to being nonverbal, diminished capacity or
-      severe dementia'
+    description: 'Patient’s clinical situation is or becomes urgent or emergent during
+      the imaging encounter, patient is receiving hospice, comfort care only or end of
+      life palliative care or patient is unable to self-report symptoms of psychological
+      distress due to being nonverbal, diminished capacity or severe dementia'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -62,6 +54,20 @@ exclusion:
 exception:
   description:
   reasons:
+  - config_link_id: GPD20N1X
+    code_value: GPD20N1X
+    display_title: GPD20N1X
+    description: 'Patient does not report psychological distress symptom(s) related to
+      advanced image testing procedure AND preintervention score and postintervention
+      scores obtained are zero, no intervention is required'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD20N1X'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Denominator Exception: GPD20N1X'
 performance_met:
   description: 'Patients aged 18 years and older screened for risk of non-adherence due to medical condition(s), physical
     condition(s), and psychological distress prior to advanced image testing procedure during the performance
@@ -70,7 +76,10 @@ performance_met:
   - config_link_id: GPD20N1A
     code_value: GPD20N1A
     display_title: GPD20N1A
-    description: 'Patient reports symptoms of psychological distress AND follow-up intervention is provided'
+    description: 'Patient reports psychological distress symptom(s) before advanced
+      imaging testing procedure, psychological distress symptom preintervention score
+      and postintervention scores are obtained AND follow-up psychological distress
+      intervention is provided'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -95,6 +104,23 @@ performance_not_met:
         records:
         - model: ClinicalActivity
           value_set: 'Able; Performance Not Met: GPD20N1B'
+  - config_link_id: GPD20N1C
+    code_value: GPD20N1C
+    display_title: GPD20N1C
+    description: 'Patient reported psychological distress symptom preintervention
+      score and/or psychological distress symptom postintervention score is not
+      obtained OR Patient reported psychological distress symptom preintervention
+      score or postintervention score are obtained, but not utilizing a standardized
+      tool OR psychological distress symptom preintervention or postintervention score
+      status is unknown, reason not given'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD20N1C'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Performance Not Met: GPD20N1C'
   - config_link_id: incomplete
     code_value:
     display_title: Data Incomplete

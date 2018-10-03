@@ -44,30 +44,6 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
-    - name: DenominatorScreening Before # Early
-      start_date: 2016-02-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: DenominatorScreening Lower # Lower bound
-      start_date: 2016-02-01
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: incomplete
-    - name: DenominatorScreening Upper # Upper bound
-      start_date: 2016-02-01
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: incomplete
-    - name: DenominatorScreening After # Late
-      start_date: 2016-02-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
     - name: GPD20D1B Before # Early
       start_date: 2016-02-01
       denominator: 1
@@ -110,6 +86,24 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
+    - name: GPD20N1X Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD20N1X During # During encounter
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: GPD20N1X
+      numerator:
+    - name: GPD20N1X After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
     - name: GPD20N1B Before # Early
       start_date: 2016-02-01
       denominator: 1
@@ -123,6 +117,24 @@ test_set_keys:
       denominator_exception:
       numerator: GPD20N1B
     - name: GPD20N1B After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD20N1C Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD20N1C During # During encounter
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: GPD20N1C
+    - name: GPD20N1C After # Late
       start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
@@ -173,30 +185,6 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator:
-      - name: DenominatorScreening Before # Early
-        start_date: 2016-02-01
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: DenominatorScreening Lower # Lower bound
-        start_date: 2016-02-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: incomplete
-      - name: DenominatorScreening Upper # Upper bound
-        start_date: 2016-02-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: incomplete
-      - name: DenominatorScreening After # Late
-        start_date: 2016-02-01
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
       - name: GPD20D1B Before # Early
         start_date: 2016-02-01
         denominator: 1
@@ -239,6 +227,24 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: incomplete
+      - name: GPD20N1X Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD20N1X During # During encounter
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: GPD20N1X
+        numerator:
+      - name: GPD20N1X After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
       - name: GPD20N1B Before # Early
         start_date: 2016-02-01
         denominator: 1
@@ -252,6 +258,24 @@ test_set_keys:
         denominator_exception:
         numerator: GPD20N1B
       - name: GPD20N1B After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD20N1C Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD20N1C During # During encounter
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: GPD20N1C
+      - name: GPD20N1C After # Late
         start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
@@ -282,10 +306,6 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: CPT
-      code_value: GPD20D1A # Denominator screening
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
 - name: Age Lower
   attributes:
     date_of_birth: 1998-02-01 # Lower bound
@@ -299,10 +319,6 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: CPT
-      code_value: GPD20D1A # Denominator screening
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
 - name: DenominatorEncounter Before
   attributes:
     date_of_birth: 1990-01-01
@@ -384,78 +400,6 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Patty # Different signing provider
-    - code_type: CPT
-      code_value: GPD20D1A # Denominator screening
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-- name: DenominatorScreening Before
-  attributes:
-    date_of_birth: 1990-01-01
-    given_name: DenominatorScreening
-    family_name: Before
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 70450 # Advanced image testing
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-      provider: Rachel
-    - code_type: CPT
-      code_value: GPD20D1A # Denominator screening
-      start_date: 2016-01-31 # Too early
-      stop_date: 2016-01-31
-- name: DenominatorScreening Lower
-  attributes:
-    date_of_birth: 1990-01-01
-    given_name: DenominatorScreening
-    family_name: Lower
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 70450 # Advanced image testing
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-      provider: Rachel
-    - code_type: CPT
-      code_value: GPD20D1A # Denominator screening
-      start_date: 2016-02-01 # Lower bound
-      stop_date: 2016-02-01
-- name: DenominatorScreening Upper
-  attributes:
-    date_of_birth: 1990-01-01
-    given_name: DenominatorScreening
-    family_name: Upper
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 70450 # Advanced image testing
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-      provider: Rachel
-    - code_type: CPT
-      code_value: GPD20D1A # Denominator screening
-      start_date: 2016-02-01 # Upper bound
-      stop_date: 2016-02-01
-- name: DenominatorScreening After
-  attributes:
-    date_of_birth: 1990-01-01
-    given_name: DenominatorScreening
-    family_name: After
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 70450 # Advanced image testing
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-      provider: Rachel
-    - code_type: CPT
-      code_value: GPD20D1A # Denominator screening
-      start_date: 2016-02-02 # Too late
-      stop_date: 2016-02-02
 - name: GPD20D1B Before
   attributes:
     date_of_birth: 1990-01-01
@@ -469,10 +413,6 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: CPT
-      code_value: GPD20D1A # Denominator screening
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD20D1B
       start_date: 2015-12-31 # Too early
@@ -490,10 +430,6 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD20D1A # Denominator screening
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-    - code_type: CPT
       code_value: GPD20D1B
       start_date: 2016-01-01 # Lower bound
 - name: GPD20D1B Upper
@@ -509,10 +445,6 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: CPT
-      code_value: GPD20D1A # Denominator screening
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD20D1B
       start_date: 2016-12-31 # Upper bound
@@ -530,10 +462,6 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD20D1A # Denominator screening
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-    - code_type: CPT
       code_value: GPD20D1B
       start_date: 2017-01-01 # Too late
 - name: GPD20N1A Before
@@ -549,10 +477,6 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: CPT
-      code_value: GPD20D1A # Denominator screening
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD20N1A
       start_date: 2016-01-31 # Too early
@@ -570,10 +494,6 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD20D1A # Denominator screening
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-    - code_type: CPT
       code_value: GPD20N1A
       start_date: 2016-02-01 # During encounter
 - name: GPD20N1A After
@@ -590,11 +510,55 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD20D1A # Denominator screening
+      code_value: GPD20N1A
+      start_date: 2016-02-02 # Too late
+- name: GPD20N1X Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1X
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      provider: Rachel
     - code_type: CPT
-      code_value: GPD20N1A
+      code_value: GPD20N1X
+      start_date: 2016-01-31 # Too early
+- name: GPD20N1X During
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1X
+    family_name: During
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD20N1X
+      start_date: 2016-02-01 # During encounter
+- name: GPD20N1X After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1X
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD20N1X
       start_date: 2016-02-02 # Too late
 - name: GPD20N1B Before
   attributes:
@@ -609,10 +573,6 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
-    - code_type: CPT
-      code_value: GPD20D1A # Denominator screening
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD20N1B
       start_date: 2016-01-31 # Too early
@@ -630,10 +590,6 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD20D1A # Denominator screening
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-    - code_type: CPT
       code_value: GPD20N1B
       start_date: 2016-02-01 # During encounter
 - name: GPD20N1B After
@@ -650,9 +606,53 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
-      code_value: GPD20D1A # Denominator screening
+      code_value: GPD20N1B
+      start_date: 2016-02-02 # Too late
+- name: GPD20N1C Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1C
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      provider: Rachel
     - code_type: CPT
-      code_value: GPD20N1B
+      code_value: GPD20N1C
+      start_date: 2016-01-31 # Too early
+- name: GPD20N1C During
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1C
+    family_name: During
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD20N1C
+      start_date: 2016-02-01 # During encounter
+- name: GPD20N1C After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1C
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD20N1C
       start_date: 2016-02-02 # Too late

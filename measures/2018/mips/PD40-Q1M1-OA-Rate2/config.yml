@@ -48,9 +48,10 @@ exclusion:
   - config_link_id: GPD40D1B
     code_value: GPD40D1B
     display_title: GPD40D1B
-    description: 'Patients aged 18 years and older who report symptoms of physical distress prior to advanced image
-      testing procedure, follow-up intervention is provided and a reduction in symptoms of physical distress
-      is reported'
+    description: 'Patient’s clinical situation is or becomes urgent or emergent during the
+      imaging encounter; or patient is receiving hospice, comfort care only or end of life
+      palliative care; or patient is unable to self-report symptoms of psychological distress
+      due to being nonverbal, diminished capacity or severe dementia'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -70,8 +71,8 @@ performance_met:
   - config_link_id: GPD40N2A
     code_value: GPD40N2A
     display_title: GPD40N2A
-    description: 'Patient reports symptoms of physical distress, follow-up intervention is provided,
-      AND a reduction of physical distress symptoms is reported'
+    description: 'Patient reports symptoms of physical distress, follow-up intervention is
+      provided, AND a reduction of physical distress symptoms is reported'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -86,8 +87,9 @@ performance_not_met:
   - config_link_id: GPD40N2B
     code_value: GPD40N2B
     display_title: GPD40N2B
-    description: 'Patient reports symptoms of physical distress, follow-up intervention is provided,
-      AND a reduction of physical distress symptoms is not reported'
+    description: 'Patient reports symptoms of physical distress, follow-up intervention is
+      provided, AND a reduction of physical distress symptoms is not reported OR physical
+      distress symptom status is unknown, reason not given'
     component_groups:
     - validation_record_table_count: 1
       components:

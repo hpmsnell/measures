@@ -38,10 +38,10 @@ exclusion:
   - config_link_id: GPD60D1A
     code_value: GPD60D1A
     display_title: GPD60D1A
-    description: 'Patient’s clinical situation is or becomes urgent or emergent during the imaging encounter; patient
-      is receiving hospice, comfort care only or end of life palliative care; or patient is unable to self-
-      report symptoms of psychological distress due to being nonverbal, diminished capacity or severe
-      dementia'
+    description: 'Patient’s clinical situation is or becomes urgent or emergent during the
+      imaging encounter; or patient is receiving hospice, comfort care only or end of life
+      palliative care; or patient is unable to self-report symptoms of psychological distress
+      due to being nonverbal, diminished capacity or severe dementia'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -53,6 +53,20 @@ exclusion:
 exception:
   description:
   reasons:
+  - config_link_id: GPD20N1X
+    code_value: GPD20N1X
+    display_title: GPD20N1X
+    description: 'Patient does not report results related psychological distress symptom(s)
+      after completing an advanced image testing procedure AND preintervention score and
+      postintervention scores obtained are zero, no intervention is required'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD20N1X'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Performance Met: GPD20N1X'
 performance_met:
   description: 'Percentage of patients aged 18 years and older screened for risk of psychological distress symptoms related to
     advanced image testing results'
@@ -60,9 +74,9 @@ performance_met:
   - config_link_id: GPD60N1A
     code_value: GPD60N1A
     display_title: GPD60N1A
-    description: 'Patients aged 18 years and older who were screened for results-related psychological distress following
-      completed advanced image testing during the performance period AND screened negative for results-
-      related psychological distress following completed advanced image procedure(s)'
+    description: 'Patient reports results related psychological distress symptom(s) after completing
+      an advanced imaging testing procedure during the performance period AND psychological distress
+      symptom(s) preintervention score and postintervention scores are obtained'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -71,28 +85,17 @@ performance_met:
         records:
         - model: ClinicalActivity
           value_set: 'Able; Performance Met: GPD60N1A'
-  - config_link_id: GPD60N1B
-    code_value: GPD60N1B
-    display_title: GPD60N1B
-    description: 'Patients aged 18 years and older who were screened for results-related psychological distress following
-      completed advanced image testing during the performance period AND screened positive for results-related psychological distress
-      following completed advanced image procedure(s)'
-    component_groups:
-    - validation_record_table_count: 1
-      components:
-      - display_title: 'Quality Data Code: GPD60N1B'
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: 'Able; Performance Met: GPD60N1B'
 performance_not_met:
   description:
   reasons:
   - config_link_id: GPD60N1C
     code_value: GPD60N1C
     display_title: GPD60N1C
-    description: 'Patients aged 18 years and older who were not screened for results-related psychological distress
-      following completed advanced image testing during the performance period OR screening status is unknown, reason not given'
+    description: 'Patient reported results related psychological distress symptom(s) preintervention
+      score and/or psychological distress symptom(s) postintervention score is not obtained OR Patient
+      reported results related psychological distress symptom(s) preintervention score or postintervention
+      score are obtained, but not utilizing a standardized tool OR results related psychological distress
+      symptom(s) preintervention or postintervention score status is unknown, reason not given'
     component_groups:
     - validation_record_table_count: 1
       components:

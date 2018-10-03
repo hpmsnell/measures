@@ -33,24 +33,16 @@ denominator:
       records:
       - model: ClinicalActivity
         value_set: 'Able; RadNet Advanced Image Testing Procedure'
-  - validation_record_table_count: 1
-    logical_operator: 'AND'
-    components:
-    - display_title: 'Quality Data Code: GPD40D1A'
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: 'Able; Denominator: GPD40D1A'
 exclusion:
   description:
   reasons:
   - config_link_id: GPD40D1B
     code_value: GPD40D1B
     display_title: GPD40D1B
-    description: 'Patient’s clinical situation is or becomes urgent or emergent during the imaging encounter; or
-      patient is receiving hospice, comfort care only or end of life palliative care; or patient is unable to
-      self-report symptoms of physical distress due to being nonverbal, diminished capacity or
-      severe dementia'
+    description: 'Patient’s clinical situation is or becomes urgent or emergent during the
+      imaging encounter; or patient is receiving hospice, comfort care only or end of life
+      palliative care; or patient is unable to self-report symptoms of psychological distress
+      due to being nonverbal, diminished capacity or severe dementia'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -62,6 +54,20 @@ exclusion:
 exception:
   description:
   reasons:
+  - config_link_id: GPD40N1X
+    code_value: GPD40N1X
+    display_title: GPD40N1X
+    description: 'Patient does not report physical distress symptom(s) related to advanced image
+      testing procedure AND preintervention score and postintervention scores obtained are zero,
+      no intervention is required'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD40N1X'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Denominator Exception: GPD40N1X'
 performance_met:
   description: 'Patients aged 18 years and older screened for risk of non-adherence due to medical condition(s), physical
     condition(s), and physical distress prior to advanced image testing procedure during the performance
@@ -70,7 +76,9 @@ performance_met:
   - config_link_id: GPD40N1A
     code_value: GPD40N1A
     display_title: GPD40N1A
-    description: 'Patient reports symptoms of physical distress AND follow-up intervention is provided'
+    description: 'Patient reports symptoms of physical distress symptom(s) before advanced imaging
+      testing procedure, physical distress symptom preintervention score and postintervention scores
+      are obtained AND follow-up intervention is provided'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -85,8 +93,9 @@ performance_not_met:
   - config_link_id: GPD40N1B
     code_value: GPD40N1B
     display_title: GPD40N1B
-    description: 'Patient reports symptoms of physical distress AND follow-up intervention is not
-      provided prior to advanced image testing procedure OR follow-up intervention status is unknown, reason not given'
+    description: 'Patient reports symptoms of physical distress before advanced image testing
+      procedure AND follow-up intervention is not provided OR follow-up intervention status is
+      unknown, reason not given'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -95,6 +104,22 @@ performance_not_met:
         records:
         - model: ClinicalActivity
           value_set: 'Able; Performance Not Met: GPD40N1B'
+  - config_link_id: GPD40N1C
+    code_value: GPD40N1C
+    display_title: GPD40N1C
+    description: 'Patient reported physical distress symptom preintervention score and/or physical
+      distress symptom postintervention score is not obtained OR Patient reported physical distress
+      symptom preintervention score or postintervention score are obtained, but not utilizing a
+      standardized tool OR physical distress symptom preintervention or postintervention score status
+      is unknown, reason not given'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD40N1C'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Performance Not Met: GPD40N1C'
   - config_link_id: incomplete
     code_value:
     display_title: Data Incomplete

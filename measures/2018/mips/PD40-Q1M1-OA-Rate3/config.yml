@@ -37,23 +37,16 @@ denominator:
       records:
       - model: ClinicalActivity
         value_set: 'Able; RadNet Advanced Image Testing Procedure'
-  - validation_record_table_count: 1
-    logical_operator: 'AND'
-    components:
-    - display_title: 'Quality Data Code: GPD40N3A'
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: 'Able; Performance Met: GPD40N3A'
 exclusion:
   description:
   reasons:
   - config_link_id: GPD40D1B
     code_value: GPD40D1B
     display_title: GPD40D1B
-    description: 'Patients aged 18 years and older who report symptoms of physical distress prior to advanced image
-      testing procedure, follow-up intervention is provided and a reduction in symptoms of physical distress
-      is reported'
+    description: 'Patient’s clinical situation is or becomes urgent or emergent during the
+      imaging encounter; or patient is receiving hospice, comfort care only or end of life
+      palliative care; or patient is unable to self-report symptoms of psychological distress
+      due to being nonverbal, diminished capacity or severe dementia'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -62,6 +55,20 @@ exclusion:
         records:
         - model: ClinicalActivity
           value_set: 'Able; RadNet Patient Exclusion'
+  - config_link_id: GPD40N1X
+    code_value: GPD40N1X
+    display_title: GPD40N1X
+    description: 'Patient does not report physical distress symptom(s) related to advanced
+      image testing procedure AND preintervention score and postintervention scores obtained
+      are zero, no intervention is required'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD40N1X'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Denominator Exclusion: GPD40N1X'
 exception:
   description:
   reasons:
@@ -73,8 +80,9 @@ performance_met:
   - config_link_id: GPD40N3A
     code_value: GPD40N3A
     display_title: GPD40N3A
-    description: 'Patient reports symptoms of physical distress, follow-up intervention is provided, a
-      reduction of physical distress symptoms is reported, AND advanced image testing is completed'
+    description: 'Patient reports symptoms of physical distress, prior to advanced image testing, follow-up
+      intervention(s) is provided, a reduction of physical distress symptoms is reported AND advanced image
+      testing is completed'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -86,11 +94,26 @@ performance_met:
 performance_not_met:
   description:
   reasons:
+  - config_link_id: GPD40N3C
+    code_value: GPD40N3C
+    display_title: GPD40N3C
+    description: 'Patient reported symptoms of physical distress prior to advanced image testing procedure,
+      follow-up intervention is not provided and/or a reduction of symptoms of psychological distress is not
+      reported, and advanced image testing is completed'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD40N3C'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Performance Not Met: GPD40N3C'
   - config_link_id: GPD40N3B
     code_value: GPD40N3B
     display_title: GPD40N3B
-    description: 'Patient reports symptoms of physical distress, follow-up intervention is provided, a
-      reduction of physical distress symptoms is reported, AND advanced image testing is not completed'
+    description: 'Patient reports symptoms of physical distress, follow-up intervention is provided, a reduction
+      of physical distress symptoms is reported, AND advanced image testing is not completed OR advanced image
+      testing status is unknown, reason not given'
     component_groups:
     - validation_record_table_count: 1
       components:
