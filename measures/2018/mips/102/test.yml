@@ -80,6 +80,18 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
+    - name: DenominatorPSAResult <10 # PSA < 10
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 3270F
+    - name: DenominatorPSAResult >=10 # PSA >= 10
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
     - name: Denominator SecondEncounter # Before
       start_date: 2016-02-01
       denominator: 1
@@ -663,6 +675,52 @@ patients:
     - code_type: CPT
       code_value: G9706 # Low risk
       start_date: 2017-01-01 # Late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_date: 2016-01-30
+- name: DenominatorPSAResult <10
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: DenominatorPSAResult
+    family_name: <10
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    laboratory_test_performed:
+    - code_type: LOINC
+      code_value: 10886-0
+      start_date: 2016-02-01
+      result: 9.0
+      result_as_decimal: 9.0 #PSA Test < 10
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C61
+      start_date: 2016-01-30
+- name: DenominatorPSAResult >=10
+  attributes:
+    date_of_birth: 2000-01-01
+    given_name: DenominatorPSAResult
+    family_name: >=10
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 55810
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    laboratory_test_performed:
+    - code_type: LOINC
+      code_value: 10886-0
+      start_date: 2016-02-01
+      result: 10.0
+      result_as_decimal: 10.0 #PSA Test >= 10
     diagnoses:
     - code_type: ICD10CM
       code_value: C61

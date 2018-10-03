@@ -53,8 +53,19 @@ denominator:
       records:
       - model: ClinicalActivity
         value_set: MIPS; Low Risk of Recurrence of Prostate Cancer
+    - display_title: Gleason Score < 7
+      logical_operator: OR
+      show_codes: true
+      records:
       - model: ClinicalActivity
-        value_set: Able; Low Risk of Recurrence of Prostate Cancer
+        value_set: Able; Gleason Score Below 7
+    - display_title: PSA < 10 ng/mL
+      logical_operator: OR
+      show_codes: true
+      annotation: 'With result: < 10 ng/mL'
+      records:
+        - model: LaboratoryTestPerformed
+        value_set: Able; PSA Serum Test
 exclusion:
   description:
   reasons:

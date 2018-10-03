@@ -33,7 +33,8 @@ valueset "VSAC; Salvage Therapy": '2.16.840.1.113883.3.526.3.399'
 
 valueset "Able; Bone Health Assessment": '2.16.840.1.113762.1.4.1047.234'
 valueset "Able; Pain Assessments": '2.16.840.1.113762.1.4.1047.152'
-valueset "Able; Low Risk of Recurrence of Prostate Cancer"
+valueset "Able; Gleason Score Below 7"
+valueset "Able; PSA Serum Test"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -49,9 +50,15 @@ define "Denominator Encounter":
     without ["Encounter, Performed": "MIPS; MIPS 102 Encounter"] E2 // Without an additional occurrence of the same encounter
       such that E2.relevantPeriod starts 56 days or less before start of E1.relevantPeriod
 
+define "PSA Serum Test < 10":
+  ["Laboratory Test, Performed": "Able; PSA Serum Test"] L
+    where L.resultDateTime during "Measurement Period"
+    where L.result < 10
+
 define "Low Risk of Recurrence of Prostate Cancer":
   ["Procedure, Performed": "MIPS; Low Risk of Recurrence of Prostate Cancer"]
-  union ["Procedure, Performed": "Able; Low Risk of Recurrence of Prostate Cancer"]
+  union ["Procedure, Performed": "Able; Gleason Score Below 7"]
+  union "PSA Serum Test < 10"
 
 define "Start of Denominator Encounter":
   "Denominator Encounter" E
