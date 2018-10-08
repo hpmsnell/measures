@@ -33,6 +33,7 @@ denominator:
     components:
     - display_title: 'Advanced Image Testing'
       show_codes: true
+      annotation: 'Status must indicate procedure was completed'
       records:
       - model: ClinicalActivity
         value_set: 'Able; RadNet Advanced Image Testing Procedure'
@@ -103,5 +104,5 @@ performance_not_met:
   - config_link_id: incomplete
     code_value:
     display_title: Data Incomplete
-    description: 'Numerator data not found in the appropriate timeframe'
+    description: 'No numerator data found in the appropriate timeframe'
     component_groups:

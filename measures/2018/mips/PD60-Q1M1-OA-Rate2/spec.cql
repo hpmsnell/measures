@@ -30,6 +30,7 @@ define "Denominator Procedure":
     where P1.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of P1.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
+      and P.status not in ["Void","OrderCancelled","PendingCancellation","Cancelled","Discontinued"]
     with ["Procedure, Performed": "Able; Performance Met: GPD60N1A"] P2
       such that P2.relevantPeriod starts during P1.relevantPeriod
 

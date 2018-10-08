@@ -180,9 +180,9 @@ performance_not_met:
   - config_link_id: GPD10N3I
     code_value: GPD10N3I
     display_title: GPD10N3I
-    description: 'Patient screened positive for risk of non-adherence due to
-      medical condition(s), physical condition(s), and/or psychological distress,
-      follow up intervention is not provided, and advanced image testing is not
+    description: 'Patient not screened for risk of non-adherence due to medical
+      condition(s), physical condition(s), and/or psychological distress, and/or
+      follow up intervention is not provided, and/or advanced image testing is not
       completed. Or advanced image testing completion status is unknown, reason
       not given.'
     component_groups:
@@ -193,8 +193,14 @@ performance_not_met:
         records:
         - model: ClinicalActivity
           value_set: 'Able; Performance Not Met: GPD10N3I'
+  - config_link_id: not_completed
+    code_value:
+    display_title: Procedure Not Completed
+    description: 'The denominator-eligible procedure has a status indicating it
+      was not completed'
+    component_groups:
   - config_link_id: incomplete
     code_value:
     display_title: Data Incomplete
-    description: 'Numerator data not found in the appropriate timeframe'
+    description: 'No numerator data found in the appropriate timeframe'
     component_groups:

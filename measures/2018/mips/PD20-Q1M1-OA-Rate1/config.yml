@@ -91,6 +91,12 @@ performance_met:
 performance_not_met:
   description:
   reasons:
+  - config_link_id: not_completed
+    code_value:
+    display_title: Procedure Not Completed
+    description: 'The denominator-eligible procedure has a status indicating it
+      was not completed'
+    component_groups:
   - config_link_id: GPD20N1B
     code_value: GPD20N1B
     display_title: GPD20N1B
@@ -124,5 +130,5 @@ performance_not_met:
   - config_link_id: incomplete
     code_value:
     display_title: Data Incomplete
-    description: 'Numerator data not found in the appropriate timeframe'
+    description: 'No numerator data found in the appropriate timeframe'
     component_groups:

@@ -18,7 +18,7 @@ using QDM
 valueset "Able; RadNet Advanced Image Testing Procedure"
 valueset "Able; RadNet Patient Exclusion"
 valueset "Able; Performance Met: GPD60N1A"
-valueset "Able; Denominator Exception: GPD20N1X"
+valueset "Able; Denominator Exception: GPD60N1X"
 valueset "Able; Performance Not Met: GPD60N1C"
 
 parameter "Measurement Period" Interval<DateTime>
@@ -30,6 +30,7 @@ define "Denominator Procedure":
     where P.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of P.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
+      and P.status not in ["Void","OrderCancelled","PendingCancellation","Cancelled","Discontinued"]
 
 // Populations
 
@@ -47,10 +48,10 @@ define "Numerator Performance Met: GPD60N1A":
     with ["Procedure, Performed": "Able; Performance Met: GPD60N1A"] P2
       such that P2.relevantPeriod starts during P1.relevantPeriod)
 
-define "Denominator Exception: GPD20N1X":
-  // config_link_id: GPD20N1X
+define "Denominator Exception: GPD60N1X":
+  // config_link_id: GPD60N1X
   exists("Denominator Procedure" P1
-    with ["Procedure, Performed": "Able; Denominator Exception: GPD20N1X"] P2
+    with ["Procedure, Performed": "Able; Denominator Exception: GPD60N1X"] P2
       such that P2.relevantPeriod starts during P1.relevantPeriod)
 
 define "Numerator Performance Not Met: GPD60N1C":

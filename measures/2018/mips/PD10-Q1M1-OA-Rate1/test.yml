@@ -44,6 +44,12 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
+    - name: DenominatorEncounter Incomplete # Status of cancelled
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: not_completed
     - name: GPD10D1A Before # Early
       start_date: 2016-02-01
       denominator: 1
@@ -257,6 +263,12 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator:
+      - name: DenominatorEncounter Incomplete # Status of cancelled
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: not_completed
       - name: GPD10D1A Before # Early
         start_date: 2016-02-01
         denominator: 1
@@ -528,6 +540,20 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Patty # Different signing provider
+- name: DenominatorEncounter Incomplete
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: Incomplete
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+      status: "Cancelled"
 - name: GPD10D1A Before
   attributes:
     date_of_birth: 1990-01-01

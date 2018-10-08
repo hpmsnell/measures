@@ -55,6 +55,11 @@ define "Denominator Exception: GPD40N1X":
     with ["Procedure, Performed": "Able; Performance Met: GPD40N1X"] P2
       such that P.relevantPeriod starts during P1.relevantPeriod)
 
+define "Numerator Performance Not Met: Procedure Not Completed":
+  // config_link_id: not_completed
+  exists("Denominator Procedure" P
+    where P.status not in ["Cancelled","Discontinued"])
+
 define "Numerator Performance Not Met: GPD40N1B":
   // config_link_id: GPD40N1B
   exists("Denominator Procedure" P1
@@ -72,5 +77,6 @@ define "Numerator Data Incomplete":
   not "Denominator Exclusion: GPD40D1B"
   and not "Numerator Performance Met: GPD40N1A"
   and not "Denominator Exception: GPD40N1X"
+  and not "Numerator Performance Not Met: Procedure Not Completed"
   and not "Numerator Performance Not Met: GPD40N1B"
   and not "Numerator Performance Not Met: GPD40N1C"

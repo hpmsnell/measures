@@ -44,6 +44,12 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
+    - name: DenominatorEncounter Incomplete # Status of cancelled
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
     - name: DenominatorScreening Before # Early
       start_date: 2016-02-01
       denominator:
@@ -168,6 +174,12 @@ test_set_keys:
         denominator_exception:
         numerator:
       - name: DenominatorEncounter DifferentProvider # Different denominator signing provider
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorEncounter Incomplete # Status of cancelled
         start_date: 2016-02-01
         denominator:
         denominator_exclusion:
@@ -388,6 +400,20 @@ patients:
       code_value: GPD60N1A # Denominator screening
       start_date: 2016-02-01
       stop_date: 2016-02-01
+- name: DenominatorEncounter Incomplete
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: Incomplete
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+      status: "Cancelled"
 - name: DenominatorScreening Before
   attributes:
     date_of_birth: 1990-01-01

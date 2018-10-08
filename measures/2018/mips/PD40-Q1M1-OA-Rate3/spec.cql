@@ -70,6 +70,11 @@ define "Numerator Performance Not Met: GPD40N3B":
       such that P2.relevantPeriod starts during [start of P1.relevantPeriod, 30 days after start of P1.relevantPeriod]
         and P2.relevantPeriod starts during "Measurement Period")
 
+define "Numerator Performance Not Met: Procedure Not Completed":
+  // config_link_id: not_completed
+  exists("Denominator Procedure" P
+    where P.status not in ["Cancelled","Discontinued"])
+
 define "Numerator Data Incomplete":
   // config_link_id: incomplete
   not "Denominator Exclusion: GPD40D1B"
@@ -77,3 +82,4 @@ define "Numerator Data Incomplete":
   and not "Numerator Performance Met: GPD40N3A"
   and not "Numerator Performance Not Met: GPD40N3C"
   and not "Numerator Performance Not Met: GPD40N3B"
+  and not "Numerator Performance Not Met: Procedure Not Completed"

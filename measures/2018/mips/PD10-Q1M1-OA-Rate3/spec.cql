@@ -101,6 +101,11 @@ define "Numerator Performance Not Met: GPD10N3I":
     with ["Procedure, Performed": "Able; Performance Met: GPD10N3I"] P2
       such that P2.relevantPeriod starts during P1.relevantPeriod)
 
+define "Numerator Performance Not Met: Procedure Not Completed":
+  // config_link_id: not_completed
+  exists("Denominator Procedure" P
+    where P.status not in ["Void","OrderCancelled","PendingCancellation","Cancelled","Discontinued"])
+
 define "Numerator Data Incomplete":
   // config_link_id: incomplete
   not "Denominator Exclusion: GPD10D1A"
@@ -113,3 +118,4 @@ define "Numerator Data Incomplete":
   and not "Numerator Performance Not Met: GPD10N3E"
   and not "Numerator Performance Not Met: GPD10N3H"
   and not "Numerator Performance Not Met: GPD10N3I"
+  and not "Numerator Performance Not Met: Procedure Not Completed"

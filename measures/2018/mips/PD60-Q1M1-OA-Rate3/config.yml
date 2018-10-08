@@ -35,6 +35,7 @@ denominator:
     components:
     - display_title: 'Advanced Image Testing'
       show_codes: true
+      annotation: 'Status must indicate procedure was completed'
       records:
       - model: ClinicalActivity
         value_set: 'Able; RadNet Advanced Image Testing Procedure'
@@ -64,20 +65,20 @@ exclusion:
         records:
         - model: ClinicalActivity
           value_set: 'Able; RadNet Patient Exclusion'
-  - config_link_id: GPD20N1X
-    code_value: GPD20N1X
-    display_title: GPD20N1X
+  - config_link_id: GPD60N1X
+    code_value: GPD60N1X
+    display_title: GPD60N1X
     description: 'Patient does not report results related psychological distress symptom(s) after
       completing an advanced image testing procedure AND preintervention score and postintervention
       scores obtained are zero, no intervention is required'
     component_groups:
     - validation_record_table_count: 1
       components:
-      - display_title: 'Quality Data Code: GPD20N1X'
+      - display_title: 'Quality Data Code: GPD60N1X'
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: 'Able; Denominator Exception: GPD20N1X'
+          value_set: 'Able; Denominator Exception: GPD60N1X'
 exception:
   description:
   reasons:
@@ -131,5 +132,5 @@ performance_not_met:
   - config_link_id: incomplete
     code_value:
     display_title: Data Incomplete
-    description: 'Numerator data not found in the appropriate timeframe'
+    description: 'No numerator data found in the appropriate timeframe'
     component_groups:
