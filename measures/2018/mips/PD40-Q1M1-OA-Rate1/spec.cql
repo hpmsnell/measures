@@ -43,6 +43,11 @@ define "Denominator Exclusion: GPD40D1B":
     with ["Procedure, Performed": "Able; RadNet Patient Exclusion"] P2
       such that P.relevantPeriod starts during P1.relevantPeriod)
 
+define "Numerator Performance Not Met: Procedure Not Completed":
+  // config_link_id: not_completed
+  exists("Denominator Procedure" P
+    where P.status not in ["Cancelled","Discontinued"])
+
 define "Numerator Performance Met: GPD40N1A":
   // config_link_id: GPD40N1A
   exists("Denominator Procedure" P1
@@ -54,11 +59,6 @@ define "Denominator Exception: GPD40N1X":
   exists("Denominator Procedure" P1
     with ["Procedure, Performed": "Able; Performance Met: GPD40N1X"] P2
       such that P.relevantPeriod starts during P1.relevantPeriod)
-
-define "Numerator Performance Not Met: Procedure Not Completed":
-  // config_link_id: not_completed
-  exists("Denominator Procedure" P
-    where P.status not in ["Cancelled","Discontinued"])
 
 define "Numerator Performance Not Met: GPD40N1B":
   // config_link_id: GPD40N1B
