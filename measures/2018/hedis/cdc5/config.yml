@@ -93,13 +93,27 @@ performance_met:
     code_value:
     display_title: Diabetic Eye Exam
     description: "Patient received dialated or retinal screening during the measurement
-      year, two unilateral eye enucleations no more than 14 days apart anytime before
+      year, a negative dialated or retinal screening during the year prior to the measurement year, two unilateral eye enucleations no more than 14 days apart anytime before
       December 31 of the measurement year, or a left and right unilateral eye
       enucleation on the same or different dates of service."
     component_groups:
     - validation_record_table_count: 1
       components:
       - display_title: Dialated or Retinal Screening
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Diabetic Retinal Screening
+        - model: ClinicalActivity
+          value_set: HEDIS; Diabetic Retinal Screening with Eye Care Professional
+        - model: ClinicalActivity
+          value_set: HEDIS; Diabetic Retinal Screening Negative
+        - model: ClinicalActivity
+          value_set: VSAC; Retinal or Dilated Eye Exam
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Negative Dialated or Retinal Screening
         show_codes: true
         records:
         - model: ClinicalActivity
