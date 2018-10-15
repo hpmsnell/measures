@@ -18,6 +18,8 @@ valueset "MIPS; Dementia"
 valueset "MIPS; Performance Met: G9916"
 valueset "MIPS; Denominator Exception: G9917"
 valueset "MIPS; Performance Not Met: G9918"
+valueset "MIPS; Performance Met: 1175F"
+valueset "MIPS; Performance Not Met: 1175F-8P"
 
 // VSAC Value Sets
 
@@ -43,6 +45,7 @@ define "Denominator Encounter":
 
 define "Functional Status Assessment":
   ["Procedure, Performed": "MIPS; Performance Met: G9916"]
+  union ["Procedure, Performed": "MIPS; Performance Met: 1175F"]
   union ["Assessment, Performed": "Able; Functional Status Assessment"]
   union ["Assessment, Performed": "Able; Activities of Daily Living Assessment"]
 

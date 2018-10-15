@@ -81,6 +81,8 @@ performance_met:
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Met: G9916'
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: 1175F'
     - validation_record_table_count: 1
       logical_operator: OR
       components:
@@ -106,3 +108,5 @@ performance_not_met:
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Not Met: G9918'
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: 1175F-8P'
