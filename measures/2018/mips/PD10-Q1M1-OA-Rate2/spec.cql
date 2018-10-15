@@ -38,7 +38,7 @@ define "Positive Screening":
   union ["Procedure, Performed": "Able; Performance Met: GPD10N1E"]
 
 define "Denominator Procedure":
-  ["Procedure, Performed": "Able; RadNet Advanced Image Testing Procedure"] P1
+  ["Procedure, Ordered": "Able; RadNet Advanced Image Testing Procedure"] P1
     where P1.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of P1.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
@@ -54,6 +54,11 @@ define "Denominator Exclusion: GPD10D1A":
   // config_link_id: GPD10D1A
   exists(["Procedure, Performed": "Able; RadNet Patient Exclusion"] P
     where P.relevantPeriod starts during "Measurement Period")
+
+define "Numerator Performance Not Met: Procedure Not Completed":
+  // config_link_id: not_completed
+  exists("Denominator Procedure" P
+    where P.status not in ["Void","OrderCancelled","PendingCancellation","Cancelled","Discontinued"])
 
 define "Numerator Performance Met: GPD10N2A":
   // config_link_id: GPD10N2A

@@ -26,11 +26,11 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Denominator Procedure":
-  ["Procedure, Performed": "Able; RadNet Advanced Image Testing Procedure"] P1
+  ["Procedure, Ordered": "Able; RadNet Advanced Image Testing Procedure"] P1
     where P1.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of P1.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
-    with ["Procedure, Performed": "Able; Denominator: GPD40N1A"] P1 P2
+    with ["Procedure, Performed": "Able; Performance Met: GPD40N1A"] P1 P2
       such that P2.relevantPeriod starts during P1.relevantPeriod
 
 // Populations
@@ -43,16 +43,21 @@ define "Denominator Exclusion: GPD40D1B":
   exists(["Procedure, Performed": "Able; RadNet Patient Exclusion"] P
     where P.relevantPeriod starts during "Measurement Period")
 
+define "Numerator Performance Not Met: Procedure Not Completed":
+  // config_link_id: not_completed
+  exists("Denominator Procedure" P
+    where P.status not in ["Cancelled","Discontinued"])
+
 define "Numerator Performance Met: GPD40N2A":
   // config_link_id: GPD40N2A
   exists("Denominator Procedure" P1
     with ["Procedure, Performed": "Able; Performance Met: GPD40N2A"] P2
       such that P2.relevantPeriod starts during P1.relevantPeriod)
 
-define "Numerator Performance Not Met: GPD40N1B":
-  // config_link_id: GPD40N1B
+define "Numerator Performance Not Met: GPD40N2B":
+  // config_link_id: GPD40N2B
   exists("Denominator Procedure" P1
-    with ["Procedure, Performed": "Able; Performance Met: GPD40N1B"] P2
+    with ["Procedure, Performed": "Able; Performance Met: GPD40N2B"] P2
       such that P2.relevantPeriod starts during P1.relevantPeriod)
 
 define "Numerator Data Incomplete":

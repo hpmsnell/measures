@@ -49,8 +49,7 @@ define "Denominator Exclusion: GPD60N1X":
   // config_link_id: GPD60N1X
   exists("Denominator Procedure" P1
     with ["Procedure, Performed": "Able; Denominator Exception: GPD60N1X"] P2
-      such that P2.relevantPeriod starts during [start of P1.relevantPeriod, 30 days after start of P1.relevantPeriod
-        and P2.relevantPeriod starts during "Measurement Period")
+      such that P2.relevantPeriod starts during P1.relevantPeriod)
 
 define "Numerator Performance Met: GPD60N3A":
   // config_link_id: GPD60N3A
