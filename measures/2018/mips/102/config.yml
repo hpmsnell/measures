@@ -8,7 +8,6 @@ measure:
     subject_type: Encounter
     set: MIPS
     external_id: 102
-    version:
   optional:
     description: 'Percentage of patients, regardless of age, with a diagnosis of prostate
       cancer at low (or very low) risk of recurrence receiving interstitial prostate
@@ -64,7 +63,7 @@ denominator:
       show_codes: true
       annotation: 'With result: < 10 ng/mL'
       records:
-        - model: LaboratoryTestPerformed
+      - model: LaboratoryTestPerformed
         value_set: Able; PSA Serum Test
 exclusion:
   description:
@@ -85,6 +84,7 @@ exception:
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Denominator Exception: 3269F-1P'
+          modifier: '1P'
     - validation_record_table_count: 10
       logical_operator: OR
       components:
@@ -110,6 +110,7 @@ exception:
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Denominator Exception: 3269F-3P'
+          modifier: '3P'
 performance_met:
   description: 'Patients who did not have a bone scan performed at any time since
     diagnosis of prostate cancer'
@@ -127,6 +128,7 @@ performance_met:
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Met: 3270F'
+          modifier: 'None'
     - validation_record_table_count: 10
       logical_operator: OR
       components:
@@ -153,3 +155,4 @@ performance_not_met:
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Not Met: 3269F'
+          modifier: 'None'

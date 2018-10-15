@@ -80,13 +80,13 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: DenominatorPSAResult <10 # PSA < 10
+    - name: DenominatorPSAResult 9 # PSA < 10
       start_date: 2016-02-01
-      denominator:
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 3270F
-    - name: DenominatorPSAResult >=10 # PSA >= 10
+    - name: DenominatorPSAResult 10 # PSA >= 10
       start_date: 2016-02-01
       denominator:
       denominator_exclusion:
@@ -679,11 +679,11 @@ patients:
     - code_type: ICD10CM
       code_value: C61
       start_date: 2016-01-30
-- name: DenominatorPSAResult <10
+- name: DenominatorPSAResult 9
   attributes:
     date_of_birth: 2000-01-01
     given_name: DenominatorPSAResult
-    family_name: <10
+    family_name: '9'
     sex: Male
   clinical_models:
     clinical_activities:
@@ -702,11 +702,11 @@ patients:
     - code_type: ICD10CM
       code_value: C61
       start_date: 2016-01-30
-- name: DenominatorPSAResult >=10
+- name: DenominatorPSAResult 10
   attributes:
     date_of_birth: 2000-01-01
     given_name: DenominatorPSAResult
-    family_name: >=10
+    family_name: '10'
     sex: Male
   clinical_models:
     clinical_activities:
