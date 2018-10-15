@@ -1,4 +1,4 @@
-measure_id: 18.HEDIS.DdeRate1
+measure_id: measure.Hedis.2018.DdeRate1
 test_set_keys:
   organization_key:
     patients:
@@ -98,13 +98,13 @@ test_set_keys:
       denominator_exception:
       numerator: performance_not_met
     - name: ExclusionCondition Lower
-      denominator:
-      denominator_exclusion:
+      denominator: 1
+      denominator_exclusion: exlusion_1
       denominator_exception:
       numerator:
     - name: ExclusionCondition Upper
-      denominator:
-      denominator_exclusion:
+      denominator: 1
+      denominator_exclusion: exlusion_1
       denominator_exception:
       numerator:
     - name: ExclusionCondition After
@@ -128,11 +128,6 @@ test_set_keys:
       denominator_exception:
       numerator: performance_met
     - name: Medication After
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: Medication AfterFirstFracture
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -419,97 +414,6 @@ patients:
       code_value: G9687 # Hospice
       start_date: 2016-12-31 # Upper bound
 - name: ExclusionHospice After
-  attributes:
-    date_of_birth: 1940-01-01
-    given_name: ExclusionHospice
-    family_name: After
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99201 # Outpatient encounter
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-    - code_type: CPT
-      code_value: 27230 # Fracture
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-    - code_type: CPT
-      code_value: G9687 # Hospice
-      start_date: 2017-01-01 # Too late
-- name: ExclusionPriorEncounter Before
-  attributes:
-    date_of_birth: 1940-01-01
-    given_name: ExclusionPriorEncounter
-    family_name: Before
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99201 # Outpatient encounter
-      start_date: 2015-07-01
-      stop_date: 2015-07-01
-    - code_type: CPT
-      code_value: 27230 # Fracture
-      start_date: 2015-07-01
-      stop_date: 2015-07-01
-    - code_type: CPT
-      code_value: 99201 # Outpatient encounter
-      start_date: 2015-05-01 # Before 60 days prior to encounter
-      stop_date: 2015-05-01
-    - code_type: CPT
-      code_value: 27230 # Fracture
-      start_date: 2015-05-01
-      stop_date: 2015-05-01
-- name: ExclusionPriorEncounter Lower
-  attributes:
-    date_of_birth: 1940-01-01
-    given_name: ExclusionPriorEncounter
-    family_name: Lower
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99201 # Outpatient encounter
-      start_date: 2015-07-01
-      stop_date: 2015-07-01
-    - code_type: CPT
-      code_value: 27230 # Fracture
-      start_date: 2015-07-01
-      stop_date: 2015-07-01
-    - code_type: CPT
-      code_value: 99201 # Outpatient encounter
-      start_date: 2015-05-02 # 60 days prior to encounter
-      stop_date: 2015-05-02
-    - code_type: CPT
-      code_value: 27230 # Fracture
-      start_date: 2015-05-02
-      stop_date: 2015-05-02
-- name: ExclusionPriorEncounter Upper
-  attributes:
-    date_of_birth: 1940-01-01
-    given_name: ExclusionPriorEncounter
-    family_name: Upper
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99201 # Outpatient encounter
-      start_date: 2015-07-01
-      stop_date: 2015-07-01
-    - code_type: CPT
-      code_value: 27230 # Fracture
-      start_date: 2015-07-01
-      stop_date: 2015-07-01
-    - code_type: CPT
-      code_value: 99201 # Outpatient encounter
-      start_date: 2015-06-30 # Day before encounter
-      stop_date: 2015-06-30
-    - code_type: CPT
-      code_value: 27230 # Fracture
-      start_date: 2015-06-30
-      stop_date: 2015-06-30
-- name: ExclusionPriorEncounter After
   attributes:
     date_of_birth: 1940-01-01
     given_name: ExclusionPriorEncounter
