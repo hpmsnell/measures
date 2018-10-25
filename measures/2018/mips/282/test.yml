@@ -77,6 +77,11 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: G9918
+    - name: PerformanceMet 1175F
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9916
     - name: PerformanceMetAssessment Before
       denominator: 1
       denominator_exclusion:
@@ -497,6 +502,26 @@ patients:
     - code_type: CPT
       code_value: G9916 # Performance met
       start_date: 2016-02-02 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: A52.17 # Dementia
+      start_date: 2015-01-01
+- name: PerformanceMet 1175F
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: PerformanceMet
+    family_name: 1175F
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: 1175F # Performance met
+      start_date: 2016-02-01
     diagnoses:
     - code_type: ICD10CM
       code_value: A52.17 # Dementia
