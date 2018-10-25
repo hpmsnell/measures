@@ -17,6 +17,7 @@ using QDM
 
 valueset "Able; RadNet Advanced Image Testing Procedure"
 valueset "Able; Performance Met: GPD60N1A"
+valueset "Able; Performance Met: GPD60N2A"
 valueset "Able; RadNet Patient Exclusion"
 valueset "Able; Denominator Exception: GPD60N1X"
 valueset "Able; Performance Met: GPD60N2A"
@@ -34,6 +35,14 @@ define "Denominator Procedure":
       and P.status not in ["Void","OrderCancelled","PendingCancellation","Cancelled","Discontinued"]
     with ["Procedure, Performed": "Able; Performance Met: GPD60N1A"] P2
       such that P2.relevantPeriod starts during P1.relevantPeriod
+
+define "Rate 2 Performance Met":
+  ["Procedure, Performed": "Able; Performance Met: GPD60N2A"]
+
+define "Rate 2 Performance Met Exists":
+  exists("Denominator Procedure" P1
+    with "Rate 1 Performance Met" P2
+      such that P2.relevantPeriod starts during P1.relevantPeriod)
 
 // Populations
 
@@ -57,6 +66,7 @@ define "Numerator Performance Met: GPD60N3A":
     with ["Procedure, Performed": "Able; Performance Met: GPD60N3A"] P2
       such that P2.relevantPeriod starts during [start of P1.relevantPeriod, 30 days after start of P1.relevantPeriod
         and P2.relevantPeriod starts during "Measurement Period")
+  and "Rate 2 Performance Met Exists"
 
 define "Numerator Performance Not Met: GPD60N3C":
   // config_link_id: GPD60N3C

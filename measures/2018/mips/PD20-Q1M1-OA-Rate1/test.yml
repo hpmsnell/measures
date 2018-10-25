@@ -110,6 +110,60 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
+    - name: GPD20N1Y Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD20N1Y During # During encounter
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: GPD20N1Y
+      numerator:
+    - name: GPD20N1Y After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD20N1Z Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD20N1Z During # During encounter
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: GPD20N1Z
+      numerator:
+    - name: GPD20N1Z After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD20N1D Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD20N1D During # During encounter
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: GPD20N1D
+    - name: GPD20N1D After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
     - name: GPD20N1B Before # Early
       start_date: 2016-02-01
       denominator: 1
@@ -252,6 +306,60 @@ test_set_keys:
         denominator_exception: GPD20N1X
         numerator:
       - name: GPD20N1X After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD20N1Y Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD20N1Y During # During encounter
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: GPD20N1Y
+        numerator:
+      - name: GPD20N1Y After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD20N1Z Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD20N1Z During # During encounter
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: GPD20N1Z
+        numerator:
+      - name: GPD20N1Z After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD20N1D Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD20N1D During # During encounter
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: GPD20N1D
+      - name: GPD20N1D After # Late
         start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
@@ -585,6 +693,150 @@ patients:
       provider: Rachel
     - code_type: CPT
       code_value: GPD20N1X
+      start_date: 2016-02-02 # Too late
+- name: GPD20N1Y Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1Y
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD20N1Y
+      start_date: 2016-01-31 # Too early
+- name: GPD20N1Y During
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1Y
+    family_name: During
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD20N1Y
+      start_date: 2016-02-01 # During encounter
+- name: GPD20N1Y After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1Y
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD20N1Y
+      start_date: 2016-02-02 # Too late
+- name: GPD20N1Z Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1Z
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD20N1Z
+      start_date: 2016-01-31 # Too early
+- name: GPD20N1Z During
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1Z
+    family_name: During
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD20N1Z
+      start_date: 2016-02-01 # During encounter
+- name: GPD20N1Z After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1Z
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD20N1Z
+      start_date: 2016-02-02 # Too late
+- name: GPD20N1D Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1D
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD20N1D
+      start_date: 2016-01-31 # Too early
+- name: GPD20N1D During
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1D
+    family_name: During
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD20N1D
+      start_date: 2016-02-01 # During encounter
+- name: GPD20N1D After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD20N1D
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD20N1D
       start_date: 2016-02-02 # Too late
 - name: GPD20N1B Before
   attributes:

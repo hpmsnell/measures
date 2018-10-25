@@ -19,8 +19,11 @@ valueset "Able; RadNet Advanced Image Testing Procedure"
 valueset "Able; RadNet Patient Exclusion"
 valueset "Able; Performance Met: GPD20N1A"
 valueset "Able; Denominator Exception: GPD20N1X"
+valueset "Able; Denominator Exception: GPD20N1Y"
+valueset "Able; Denominator Exception: GPD20N1Z"
 valueset "Able; Performance Not Met: GPD20N1B"
 valueset "Able; Performance Not Met: GPD20N1C"
+valueset "Able; Performance Not Met: GPD20N1D"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -54,6 +57,28 @@ define "Denominator Exception: GPD20N1X":
     with ["Procedure, Performed": "Able; Denominator Exception: GPD20N1X"] P2
       such that P.relevantPeriod starts during P1.relevantPeriod)
 
+define "Denominator Exception: GPD20N1Y":
+  // config_link_id: GPD20N1Y
+  exists("Denominator Procedure" P1
+    with ["Procedure, Performed": "Able; Denominator Exception: GPD20N1Y"] P2
+      such that P.relevantPeriod starts during P1.relevantPeriod)
+  or exists("Denominator Procedure" P
+    where P.statusReason in ["ACEXEL","ACFINC","ACINPREP","ACINSDENIE","ACLAB","ACNORESPONSE","ACNOSHOW","ACNOTRANS","ACPCMKR","ACPOSPREG","ACPTWK","ACREFABN","ACWGHT","APATRESCH","BREASTHOLD","BRST US NOT NEED","CONTRAINDICATED","LABSOUT","LOSTINFLWUP","METALIMPLANT","MIMMAMMO","NOINVITEUSED","NOLABS","NOPHONE","NOPREP","PORTAL","UNCONTPT"])
+
+define "Denominator Exception: GPD20N1Z":
+  // config_link_id: GPD20N1Z
+  exists("Denominator Procedure" P1
+    with ["Procedure, Performed": "Able; Denominator Exception: GPD20N1Z"] P2
+      such that P.relevantPeriod starts during P1.relevantPeriod)
+  or exists("Denominator Procedure" P
+    where P.statusReason in ["ACCLOSE","ACDOWN","ACEMPER","ACEXELINT","ACNONPAR","ACNOPREAUT","ACREFER","ACWEATH","ADWEATH","AUTOCONFIR","DUP","EMR ORDER","EORDER EXPIRED","EORDER INCORRECT","EQUIP","EQUIPDOWN","NOREF","ORDERNOTUSED","OTCCC","OTCD","OTCSP","P4P","REFCNX","SYSTEST","TESTING","UMREVIEW"])
+
+define "Numerator Performance Not Met: GPD20N1D":
+  // config_link_id: GPD20N1D
+  exists("Denominator Procedure" P1
+    with ["Procedure, Performed": "Able; Performance Met: GPD20N1D"] P2
+      such that P.relevantPeriod starts during P1.relevantPeriod)
+
 define "Numerator Performance Not Met: GPD20N1B":
   // config_link_id: GPD20N1B
   exists("Denominator Procedure" P1
@@ -65,6 +90,8 @@ define "Numerator Performance Not Met: GPD20N1C":
   exists("Denominator Procedure" P1
     with ["Procedure, Performed": "Able; Performance Met: GPD20N1C"] P2
       such that P.relevantPeriod starts during P1.relevantPeriod)
+  or exists("Denominator Procedure" P
+    where P.statusReason in ["ACOTHR","ACPTSCK","ACRADCX","ACWLKDOUT","CLAUS","CLAUSTRO","PTLATE","PTREF"])
 
 define "Numerator Performance Not Met: Procedure Not Completed":
   // config_link_id: not_completed
@@ -76,6 +103,9 @@ define "Numerator Data Incomplete":
   not "Denominator Exclusion: GPD20D1B"
   and not "Numerator Performance Met: GPD20N1A"
   and not "Denominator Exception: GPD20N1X"
-  and not "Numerator Performance Not Met: Procedure Not Completed"
+  and not "Denominator Exception: GPD20N1Y"
+  and not "Denominator Exception: GPD20N1Z"
+  and not "Numerator Performance Not Met: GPD20N1D"
   and not "Numerator Performance Not Met: GPD20N1B"
   and not "Numerator Performance Not Met: GPD20N1C"
+  and not "Numerator Performance Not Met: Procedure Not Completed"

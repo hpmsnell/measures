@@ -22,6 +22,8 @@ valueset "Able; Performance Met: GPD10N1B"
 valueset "Able; Performance Met: GPD10N1C"
 valueset "Able; Performance Met: GPD10N1D"
 valueset "Able; Performance Met: GPD10N1E"
+valueset "Able; Denominator Exception: GPD10N1X"
+valueset "Able; Denominator Exception: GPD10N1Z"
 valueset "Able; Performance Not Met: GPD10N1F"
 
 parameter "Measurement Period" Interval<DateTime>
@@ -74,11 +76,29 @@ define "Numerator Performance Met: GPD10N1E":
     with ["Procedure, Performed": "Able; Performance Met: GPD10N1E"] P2
       such that P2.relevantPeriod starts during P1.relevantPeriod)
 
+define "Denominator Exception: GPD10N1X":
+  // config_link_id: GPD10N1X
+  exists("Denominator Procedure" P1
+    with ["Procedure, Performed": "Able; Denominator Exception: GPD10N1X"] P2
+      such that P2.relevantPeriod starts during P1.relevantPeriod)
+  or exists("Denominator Procedure" P
+    where P.statusReason in ["ACEXEL","ACFINC","ACINPREP","ACINSDENIE","ACLAB","ACNOTRANS","ACPCMKR","ACPOSPREG","ACPTWK","ACREFABN","ACWGHT","APATRESCH","BREASTHOLD","BRST US NOT NEED","CONTRAINDICATED","LABSOUT","LOSTINFLWUP","METALIMPLANT","MIMMAMMO","NOINVITEUSED","NOLABS","NOPHONE","NOPREP","PORTAL","UNCONTPT"])
+
+define "Denominator Exception: GPD10N1Z":
+  // config_link_id: GPD10N1Z
+  exists("Denominator Procedure" P1
+    with ["Procedure, Performed": "Able; Denominator Exception: GPD10N1Z"] P2
+      such that P2.relevantPeriod starts during P1.relevantPeriod)
+  or exists("Denominator Procedure" P
+    where P.statusReason in ["ACCLOSE","ACDOWN","ACEMPER","ACEXELINT","ACNONPAR","ACNOPREAUT","ACREFER","ACWEATH","ADWEATHAUTOCONFIR","DUP","EMR ORDER","EORDER","EXPIRED","EORDER INCORRECT","EQUIP. EQUIPDOWN","NOREF","ORDERNOTUSED","OTCCC","OTCD","OTCSP","P4P","REFCNX","SYSTEST","TESTING","UMREVIEW"])
+
 define "Numerator Performance Not Met: GPD10N1F":
   // config_link_id: GPD10N1F
   exists("Denominator Procedure" P1
     with ["Procedure, Performed": "Able; Performance Not Met: GPD10N1F"] P2
       such that P2.relevantPeriod starts during P1.relevantPeriod)
+  or exists("Denominator Procedure" P
+    where P.statusReason in ["ACNORESPONSE","ACNOSHOW","ACOTHR","ACPTSCK","ACRADCX","ACWLKDOUT","CLAUS","CLAUSTRO","PTLATE","PTREF"])
 
 define "Numerator Performance Not Met: Procedure Not Completed":
   // config_link_id: not_completed
@@ -93,5 +113,7 @@ define "Numerator Data Incomplete":
   and not "Numerator Performance Met: GPD10N1C"
   and not "Numerator Performance Met: GPD10N1D"
   and not "Numerator Performance Met: GPD10N1E"
-  and not "Numerator Performance Not Met: Procedure Not Completed"
+  and not "Denominator Exception: GPD10N1X"
+  and not "Denominator Exception: GPD10N1Z"
   and not "Numerator Performance Not Met: GPD10N1F"
+  and not "Numerator Performance Not Met: Procedure Not Completed"

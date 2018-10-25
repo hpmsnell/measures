@@ -17,6 +17,8 @@ using QDM
 
 valueset "Able; RadNet Advanced Image Testing Procedure"
 valueset "Able; RadNet Patient Exclusion"
+valueset "Able; Denominator Exception: GPD10N1X"
+valueset "Able; Denominator Exception: GPD10N1Z"
 valueset "Able; Performance Met: GPD10N1B"
 valueset "Able; Performance Met: GPD10N1C"
 valueset "Able; Performance Met: GPD10N1D"
@@ -55,10 +57,21 @@ define "Denominator Exclusion: GPD10D1A":
   exists(["Procedure, Performed": "Able; RadNet Patient Exclusion"] P
     where P.relevantPeriod starts during "Measurement Period")
 
-define "Numerator Performance Not Met: Procedure Not Completed":
-  // config_link_id: not_completed
-  exists("Denominator Procedure" P
-    where P.status not in ["Void","OrderCancelled","PendingCancellation","Cancelled","Discontinued"])
+define "Denominator Exclusion: GPD10N1X":
+  // config_link_id: GPD10N1X
+  exists("Denominator Procedure" P1
+    with ["Procedure, Performed": "Able; Denominator Exception: GPD10N1X"] P2
+      such that P2.relevantPeriod starts during P1.relevantPeriod)
+  or exists("Denominator Procedure" P
+    where P.statusReason in ["ACEXEL","ACFINC","ACINPREP","ACINSDENIE","ACLAB","ACNOTRANS","ACPCMKR","ACPOSPREG","ACPTWK","ACREFABN","ACWGHT","APATRESCH","BREASTHOLD","BRST US NOT NEED","CONTRAINDICATED","LABSOUT","LOSTINFLWUP","METALIMPLANT","MIMMAMMO","NOINVITEUSED","NOLABS","NOPHONE","NOPREP","PORTAL","UNCONTPT"])
+
+define "Denominator Exclusion: GPD10N1Z":
+  // config_link_id: GPD10N1Z
+  exists("Denominator Procedure" P1
+    with ["Procedure, Performed": "Able; Denominator Exception: GPD10N1Z"] P2
+      such that P2.relevantPeriod starts during P1.relevantPeriod)
+  or exists("Denominator Procedure" P
+    where P.statusReason in ["ACCLOSE","ACDOWN","ACEMPER","ACEXELINT","ACNONPAR","ACNOPREAUT","ACREFER","ACWEATH","ADWEATHAUTOCONFIR","DUP","EMR ORDER","EORDER","EXPIRED","EORDER INCORRECT","EQUIP. EQUIPDOWN","NOREF","ORDERNOTUSED","OTCCC","OTCD","OTCSP","P4P","REFCNX","SYSTEST","TESTING","UMREVIEW"])
 
 define "Numerator Performance Met: GPD10N2A":
   // config_link_id: GPD10N2A
@@ -90,11 +103,19 @@ define "Numerator Performance Not Met: GPD10N2E":
     with ["Procedure, Performed": "Able; Performance Met: GPD10N2E"] P2
       such that P2.relevantPeriod starts during P1.relevantPeriod)
 
+define "Numerator Performance Not Met: Procedure Not Completed":
+  // config_link_id: not_completed
+  exists("Denominator Procedure" P
+    where P.status not in ["Void","OrderCancelled","PendingCancellation","Cancelled","Discontinued"])
+
 define "Numerator Data Incomplete":
   // config_link_id: incomplete
   not "Denominator Exclusion: GPD10D1A"
+  not "Denominator Exclusion: GPD10N1X"
+  not "Denominator Exclusion: GPD10N1Z"
   and not "Numerator Performance Met: GPD10N2A"
   and not "Numerator Performance Met: GPD10N2B"
   and not "Numerator Performance Met: GPD10N2C"
   and not "Numerator Performance Met: GPD10N2D"
   and not "Numerator Performance Not Met: GPD10N2E"
+  and not "Numerator Performance Not Met: Procedure Not Completed"

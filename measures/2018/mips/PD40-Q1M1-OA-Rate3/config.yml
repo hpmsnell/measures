@@ -10,9 +10,11 @@ measure:
     rate_id: 3
     version:
   optional:
-    description: 'Percentage of patients aged 18 years and older who report symptoms of physical distress prior to
-      advanced image testing procedure, follow-up intervention is provided and a reduction of symptoms of
-      physical distress is reported, and advanced image testing is completed'
+    description: 'Percentage of patients aged 18 years and older who report symptom(s)
+      of physical distress related to physical or medical condition(s) prior to
+      advanced image testing procedure, PCAICP with follow-up intervention is provided,
+      a reduction of symptom(s)of physical distress is reported, and advanced image
+      testing is completed'
     gap_resolution_action:
     version: 2018
     mips_measure_type: Patient-Reported Outcome
@@ -26,9 +28,9 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: 'Patients aged 18 years and older who report symptoms of physical distress prior to advanced image
-    testing procedure(s) during the performance period, follow-up intervention is provided, and a reduction of
-    symptoms is reported'
+  description: 'Patients aged 18 years and older withan advanced image testing procedure
+    ordered for completion during the performance period who report symptoms of physical
+    distress prior to advanced image testing procedure'
   component_groups:
   - validation_record_table_count: 1
     components:
@@ -45,7 +47,7 @@ exclusion:
     display_title: GPD40D1B
     description: 'Patient’s clinical situation is or becomes urgent or emergent during the
       imaging encounter; or patient is receiving hospice, comfort care only or end of life
-      palliative care; or patient is unable to self-report symptoms of psychological distress
+      palliative care; or patient is unable to self-report symptoms of physical distress
       due to being nonverbal, diminished capacity or severe dementia'
     component_groups:
     - validation_record_table_count: 1
@@ -59,12 +61,48 @@ exclusion:
     code_value: GPD40N1X
     display_title: GPD40N1X
     description: 'Patient does not report physical distress symptom(s) related to advanced
-      image testing procedure AND preintervention score and postintervention scores obtained
-      are zero, no intervention is required'
+      image testing procedure AND pre-imaging score and post-imaging scores obtained are
+      zero, no PCAICP with follow up intervention is required'
     component_groups:
     - validation_record_table_count: 1
       components:
       - display_title: 'Quality Data Code: GPD40N1X'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Denominator Exception: GPD40N1X'
+  - config_link_id: GPD40N1Y
+    code_value: GPD40N1Y
+    display_title: GPD40N1Y
+      description: 'Documentation of patient reason(s) for patients who screened positive
+      for physical distress or report symptoms of physical distress before an advanced
+      image testing procedure during the performance period for which either the preintervention
+      score, postintervention score and/or PCAICP with follow up intervention is unable to be
+      completed'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD40N1Y'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Denominator Exception: GPD40N1Y'
+  - config_link_id: GPD40N1Z
+    code_value: GPD40N1Z
+    display_title: GPD40N1Z
+      description: 'Documentation of system reason(s) for patients who screened positive
+        for physical distress or report symptoms of physical distress before an advanced
+        image testing procedure during the performance period for which either the
+        preintervention score, postintervention score and/or PCAICP with follow up
+        interventionis unable to be completed'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD40N1Z'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Denominator Exception: GPD20N1Z'le: 'Quality Data Code: GPD40N1X'
         show_codes: true
         records:
         - model: ClinicalActivity
@@ -74,14 +112,14 @@ exception:
   reasons:
 performance_met:
   description: 'Patients aged 18 years and older who report symptoms of physical distress prior to advanced image
-    testing procedure, follow-up intervention is provided and a reduction of symptoms of physical distress
+    testing procedure, PCAICP with follow-up intervention is provided and a reduction of symptoms of physical distress
     is reported, and advanced image testing is completed'
   reasons:
   - config_link_id: GPD40N3A
     code_value: GPD40N3A
     display_title: GPD40N3A
-    description: 'Patient reports symptoms of physical distress, prior to advanced image testing, follow-up
-      intervention(s) is provided, a reduction of physical distress symptoms is reported AND advanced image
+    description: 'Patient reports symptoms of physical distress, prior to advanced image testing, PCAICP with follow-up
+      intervention(s) is provided, a reduction of physical distress symptoms is reported, AND advanced image
       testing is completed'
     component_groups:
     - validation_record_table_count: 1
@@ -98,7 +136,7 @@ performance_not_met:
     code_value: GPD40N3C
     display_title: GPD40N3C
     description: 'Patient reported symptoms of physical distress prior to advanced image testing procedure,
-      follow-up intervention is not provided and/or a reduction of symptoms of psychological distress is not
+      PCAICP with follow-up intervention is not provided and/or a reduction of symptoms of physical distress is not
       reported, and advanced image testing is completed'
     component_groups:
     - validation_record_table_count: 1
@@ -111,8 +149,8 @@ performance_not_met:
   - config_link_id: GPD40N3B
     code_value: GPD40N3B
     display_title: GPD40N3B
-    description: 'Patient reports symptoms of physical distress, follow-up intervention is provided, a reduction
-      of physical distress symptoms is reported, AND advanced image testing is not completed OR advanced image
+    description: 'Patient reports symptoms of physical distress, PCAICP with follow-up intervention is provided, a reduction
+      of physical distress symptoms is reported, AND advanced image testing is not completed, OR advanced image
       testing status is unknown, reason not given'
     component_groups:
     - validation_record_table_count: 1

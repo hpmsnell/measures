@@ -10,10 +10,13 @@ measure:
     rate_id: 3
     version: 2
   optional:
-    description: 'Percentage of patients aged 18 years and older screened for risk of non-adherence due to medical
-      condition(s), physical condition(s), and psychological distress prior to advanced image testing
-      procedure during the performance period, and if screened positive, follow-up intervention is provided,
-      and advanced image testing is completed'
+    description: 'Percentage of patients aged 18 years and older with an order for
+      advanced image testing to be completed during the performance period who are
+      screened for risk of non-adherence utilizing patient reported medical condition(s),
+      physical symptom(s), and psychological distress symptoms prior to the advanced
+      image testing procedure, and if screened positive, Patient-Centered Advanced
+      Imaging Care Plan (PCAICP) with follow-up intervention is provided, and advanced
+      image testing is completed'
     gap_resolution_action:
     version: 2018
     mips_measure_type: Patient-Reported Outcome
@@ -60,15 +63,19 @@ exception:
   description:
   reasons:
 performance_met:
-  description: 'Patients aged 18 years and older screened for risk of non-adherence due to medical condition(s), physical
-    condition(s), and psychological distress prior to advanced image testing procedure during the performance
-    period, if screened positive, follow-up intervention is provided, and advanced image testing is completed'
+  description: 'Patients aged 18 years and older with an order for advanced image testing
+    to be completed during the performance period who are screened for risk of non-adherence
+    utilizing patient reported medical condition(s), physical symptom(s), and psychological
+    distress symptoms prior to the advanced image testing procedure, and if screened positive,
+    Patient-Centered Advanced Imaging Care Plan (PCAICP) with follow-up intervention is
+    provided, and advanced image testing is completed'
   reasons:
   - config_link_id: GPD10N3A
     code_value: GPD10N3A
     display_title: GPD10N3A
-    description: 'Patient screened positive for risk of non-adherence due to medical condition(s), follow
-      up intervention is provided, AND advanced image testing is completed'
+    description: 'Met:Patient screened positive for risk of non-adherence due to medical
+      condition(s), PCAICP with follow up intervention is provided, AND advanced image
+      testing is completed'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -80,8 +87,9 @@ performance_met:
   - config_link_id: GPD10N3B
     code_value: GPD10N3B
     display_title: GPD10N3B
-    description: 'Patient screened positive for risk of non-adherence due to medical condition(s), follow
-      up intervention is provided, AND advanced image testing is completed'
+    description: 'Patient screened positive for risk ofnon-adherence due to physical
+      symptom(s), PCAICP with follow up intervention is provided, AND advanced image
+      testing is completed'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -93,8 +101,8 @@ performance_met:
   - config_link_id: GPD10N3C
     code_value: GPD10N3C
     display_title: GPD10N3C
-    description: 'Patient screened positive for risk of non-adherence due to psychological distress, follow
-      up intervention is provided, AND advanced image testing is completed'
+    description: 'Patient screened positive for risk of non-adherence due to psychological distress,
+      PCAICP with follow up intervention is provided, AND advanced image testing is completed'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -107,7 +115,7 @@ performance_met:
     code_value: GPD10N3D
     display_title: GPD10N3D
     description: 'Patient screened positive for risk of non-adherence due to medical condition(s),
-      physical condition(s), and/or psychological distress, follow up intervention is provided,
+      physical symptom(s), and/or psychological distress, fPCAICP with ollow up intervention is provided,
       AND advanced image testing is completed'
     component_groups:
     - validation_record_table_count: 1
@@ -121,7 +129,8 @@ performance_met:
     code_value: GPD10N3F
     display_title: GPD10N3F
     description: 'Patient screened negative for risk of non-adherence due to
-      medical condition(s) AND advanced image testing is completed'
+      medical condition(s), physical symptom(s), and/or psychological distress AND advanced image
+      testing is completed'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -134,8 +143,8 @@ performance_met:
     code_value: GPD10N3G
     display_title: GPD10N3G
     description: 'Patient screened positive for risk of non-adherence due to
-      medical condition(s), physical condition(s), and/or psychological distress,
-      follow up intervention is not provided, AND advanced image testing is completed'
+      medical condition(s), physical symptom(s), and/or psychological distress,
+      PCAICP with follow up intervention is not provided, AND advanced image testing is completed'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -151,7 +160,7 @@ performance_not_met:
     code_value: GPD10N3E
     display_title: GPD10N3E
     description: 'Patient screened positive for risk of non-adherence due to medical condition(s),
-      physical condition(s), and/or psychological distress, follow up intervention is provided,
+      physical symptom(s), and/or psychological distress, PCAICP with follow up intervention is provided,
       AND advanced image testing is not completed, OR advanced image testing completion status
       is unknown, reason not given'
     component_groups:
@@ -166,7 +175,7 @@ performance_not_met:
     code_value: GPD10N3H
     display_title: GPD10N3H
     description: 'Patient screened negative for risk of non-adherence due to
-      medical condition(s), physical condition(s), and/or psychological distress,
+      medical condition(s), physical symptom(s), and/or psychological distress,
       AND advanced image testing is not completed. OR advanced image testing
       completion status is unknown, reason not given'
     component_groups:
@@ -181,7 +190,7 @@ performance_not_met:
     code_value: GPD10N3I
     display_title: GPD10N3I
     description: 'Patient not screened for risk of non-adherence due to medical
-      condition(s), physical condition(s), and/or psychological distress, and/or
+      condition(s), physical symptom(s), and/or psychological distress, and/or PCAICP with
       follow up intervention is not provided, and/or advanced image testing is not
       completed. Or advanced image testing completion status is unknown, reason
       not given.'

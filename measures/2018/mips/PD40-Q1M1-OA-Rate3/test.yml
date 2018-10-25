@@ -80,19 +80,49 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
-    - name: GPD40N1X Lower # Lower bound
-      start_date: 2016-02-01
-      denominator: 1
-      denominator_exclusion: GPD40N1X
-      denominator_exception:
-      numerator:
-    - name: GPD40N1X Upper # Upper bound
+    - name: GPD40N1X During # During encounter
       start_date: 2016-02-01
       denominator: 1
       denominator_exclusion: GPD40N1X
       denominator_exception:
       numerator:
     - name: GPD40N1X After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD40N1Y Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD40N1Y During # During encounter
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion: GPD40N1Y
+      denominator_exception:
+      numerator:
+    - name: GPD40N1Y After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD40N1Z Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: incomplete
+    - name: GPD40N1Z During # During encounter
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion: GPD40N1Z
+      denominator_exception:
+      numerator:
+    - name: GPD40N1Z After # Late
       start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
@@ -251,19 +281,49 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: incomplete
-      - name: GPD40N1X Lower # Lower bound
-        start_date: 2016-02-01
-        denominator: 1
-        denominator_exclusion: GPD40N1X
-        denominator_exception:
-        numerator:
-      - name: GPD40N1X Upper # Upper bound
+      - name: GPD40N1X During # During encounter
         start_date: 2016-02-01
         denominator: 1
         denominator_exclusion: GPD40N1X
         denominator_exception:
         numerator:
       - name: GPD40N1X After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD40N1Y Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD40N1Y During # During encounter
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion: GPD40N1Y
+        denominator_exception:
+        numerator:
+      - name: GPD40N1Y After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD40N1Z Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: incomplete
+      - name: GPD40N1Z During # During encounter
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion: GPD40N1Z
+        denominator_exception:
+        numerator:
+      - name: GPD40N1Z After # Late
         start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
@@ -554,11 +614,11 @@ patients:
     - code_type: CPT
       code_value: GPD40N1X
       start_date: 2016-01-31 # Too early
-- name: GPD40N1X Lower
+- name: GPD40N1X During
   attributes:
     date_of_birth: 1990-01-01
     given_name: GPD40N1X
-    family_name: Lower
+    family_name: During
     sex: Male
   clinical_models:
     clinical_activities:
@@ -569,23 +629,7 @@ patients:
       provider: Rachel
     - code_type: CPT
       code_value: GPD40N1X
-      start_date: 2016-02-01 # Lower bound
-- name: GPD40N1X Upper
-  attributes:
-    date_of_birth: 1990-01-01
-    given_name: GPD40N1X
-    family_name: Upper
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 70450 # Advanced image testing
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-      provider: Rachel
-    - code_type: CPT
-      code_value: GPD40N1X
-      start_date: 2016-02-01 # Upper bound
+      start_date: 2016-02-01 # During encounter
 - name: GPD40N1X After
   attributes:
     date_of_birth: 1990-01-01
@@ -601,6 +645,102 @@ patients:
       provider: Rachel
     - code_type: CPT
       code_value: GPD40N1X
+      start_date: 2016-02-02 # Too late
+- name: GPD40N1Y Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD40N1Y
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD40N1Y
+      start_date: 2016-01-31 # Too early
+- name: GPD40N1Y During
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD40N1Y
+    family_name: During
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD40N1Y
+      start_date: 2016-02-01 # During encounter
+- name: GPD40N1Y After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD40N1Y
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD40N1Y
+      start_date: 2016-02-02 # Too late
+- name: GPD40N1Z Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD40N1Z
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD40N1Z
+      start_date: 2016-01-31 # Too early
+- name: GPD40N1Z During
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD40N1Z
+    family_name: During
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD40N1Z
+      start_date: 2016-02-01 # During encounter
+- name: GPD40N1Z After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD40N1Z
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: GPD40N1Z
       start_date: 2016-02-02 # Too late
 - name: GPD40N3A Before
   attributes:

@@ -11,7 +11,7 @@ measure:
     version:
   optional:
     description: 'Percentage of patients aged 18 years and older who report symptoms of psychological distress prior to
-      advanced image testing procedure and follow-up intervention is provided'
+      advanced image testing procedure and PCAICP with follow-up intervention is provided'
     gap_resolution_action:
     version: 2018
     mips_measure_type: Patient-Reported Outcome
@@ -23,8 +23,8 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: 'Patients aged 18 years and older who have an advanced image testing procedure during the performance period
-    who report symptoms of psychological distress'
+  description: 'Patients aged 18 years and older who have an advanced image testing
+    procedure ordered for completion during the performance period'
   component_groups:
   - validation_record_table_count: 1
     components:
@@ -58,8 +58,8 @@ exception:
     code_value: GPD20N1X
     display_title: GPD20N1X
     description: 'Patient does not report psychological distress symptom(s) related to
-      advanced image testing procedure AND preintervention score and postintervention
-      scores obtained are zero, no intervention is required'
+      advanced image testing procedureAND pre-imaging score and post-imaging scores
+      obtained are zero, no PCAICP with follow upintervention is required'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -68,17 +68,49 @@ exception:
         records:
         - model: ClinicalActivity
           value_set: 'Able; Denominator Exception: GPD20N1X'
+  - config_link_id: GPD20N1Y
+    code_value: GPD20N1Y
+    display_title: GPD20N1Y
+      description: 'Documentation of patient reason(s) for patients who screened positive
+        for psychological distress or report symptoms of psychological distress before an
+        advanced image testing procedure during the performance periodfor which either the
+        preintervention score, postintervention score and/or PCAICP with follow up
+        intervention is unable to be completed'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD20N1Y'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Denominator Exception: GPD20N1Y'
+  - config_link_id: GPD20N1Z
+    code_value: GPD20N1Z
+    display_title: GPD20N1Z
+      description: 'Documentation of systemreason(s) for patientswho screened positive for
+        psychological distress or report symptoms of psychological distress before an advanced
+        image testing procedure during the performance period for which either the
+        preintervention score, postintervention score and/or PCAICP with follow up
+        intervention is unable to be completed'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD20N1Z'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Denominator Exception: GPD20N1Z'
 performance_met:
-  description: 'Patients aged 18 years and older screened for risk of non-adherence due to medical condition(s), physical
-    condition(s), and psychological distress prior to advanced image testing procedure during the performance
-    period'
+  description: 'Patients aged 18 years and older with patient reported symptoms of
+    psychological distress related to advanced image testing procedure and PCAICP
+    with follow-up intervention is provided'
   reasons:
   - config_link_id: GPD20N1A
     code_value: GPD20N1A
     display_title: GPD20N1A
     description: 'Patient reports psychological distress symptom(s) before advanced
       imaging testing procedure, psychological distress symptom preintervention score
-      and postintervention scores are obtained AND follow-up psychological distress
+      and postintervention scores are obtained AND PCAICP with follow-up psychological distress
       intervention is provided'
     component_groups:
     - validation_record_table_count: 1
@@ -97,11 +129,26 @@ performance_not_met:
     description: 'The denominator-eligible procedure has a status indicating it
       was not completed'
     component_groups:
+  - config_link_id: GPD20N1D
+    code_value: GPD20N1D
+    display_title: GPD20N1D
+    description: 'Patient reports symptoms of psychological distress before advanced
+      imaging procedure AND PCAICP is not provided OR PCAICP status is unknown, reason
+      not given'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD20N1D'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Performance Not Met: GPD20N1D'
   - config_link_id: GPD20N1B
     code_value: GPD20N1B
     display_title: GPD20N1B
-    description: 'Patient reports symptoms of psychological distress AND follow-up intervention is not
-      provided prior to advanced image testing procedure OR follow-up intervention status is unknown, reason not given'
+    description: 'Patient reports symptoms of psychological distress before advanced imaging procedure,
+      PCAICP completed AND follow-up intervention is not provided, OR follow-up intervention status is
+      unknown, reason not given'
     component_groups:
     - validation_record_table_count: 1
       components:

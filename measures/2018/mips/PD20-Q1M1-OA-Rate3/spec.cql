@@ -16,9 +16,12 @@ using QDM
 // Custom value sets (Able)
 
 valueset "Able; RadNet Advanced Image Testing Procedure"
+valueset "Able; Performance Met: GPD20N1A"
 valueset "Able; Performance Met: GPD20N2A"
 valueset "Able; RadNet Patient Exclusion"
-valueset "Able; Denominator Exclusion: GPD20N1X"
+valueset "Able; Denominator Exception: GPD20N1X"
+valueset "Able; Denominator Exception: GPD20N1Y"
+valueset "Able; Denominator Exception: GPD20N1Z"
 valueset "Able; Performance Met: GPD20N3A"
 valueset "Able; Performance Not Met: GPD20N3C"
 valueset "Able; Performance Not Met: GPD20N3B"
@@ -33,6 +36,22 @@ define "Denominator Procedure":
       and AgeInYearsAt(start of P1.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
 
+define "Rate 1 Performance Met":
+  ["Procedure, Performed": "Able; Performance Met: GPD20N1A"]
+
+define "Rate 1 Performance Met Exists":
+  exists("Denominator Procedure" P1
+    with "Rate 1 Performance Met" P2
+      such that P2.relevantPeriod starts during P1.relevantPeriod)
+
+define "Rate 2 Performance Met":
+  ["Procedure, Performed": "Able; Performance Met: GPD20N2A"]
+
+define "Rate 2 Performance Met Exists":
+  exists("Denominator Procedure" P1
+    with "Rate 1 Performance Met" P2
+      such that P2.relevantPeriod starts during P1.relevantPeriod)
+
 // Populations
 
 define "Denominator":
@@ -44,21 +63,34 @@ define "Denominator Exclusion: GPD20D1B":
     where P.relevantPeriod starts during "Measurement Period")
 
 define "Denominator Exclusion: GPD20N1X":
-  // config_link_id: GPD20N1X
-  exists("Denominator Procedure" P1
-    with ["Procedure, Performed": "Able; Denominator Exception: GPD20N1X"] P2
-      such that P.relevantPeriod starts during P1.relevantPeriod)
+// config_link_id: GPD20N1X
+exists("Denominator Procedure" P1
+  with ["Procedure, Performed": "Able; Denominator Exception: GPD20N1X"] P2
+    such that P.relevantPeriod starts during P1.relevantPeriod)
 
-define "Numerator Performance Not Met: Procedure Not Completed":
-  // config_link_id: not_completed
-  exists("Denominator Procedure" P
-    where P.status not in ["Cancelled","Discontinued"])
+define "Denominator Exclusion: GPD20N1Y":
+// config_link_id: GPD20N1Y
+exists("Denominator Procedure" P1
+  with ["Procedure, Performed": "Able; Denominator Exception: GPD20N1Y"] P2
+    such that P.relevantPeriod starts during P1.relevantPeriod)
+or exists("Denominator Procedure" P
+  where P.statusReason in ["ACEXEL","ACFINC","ACINPREP","ACINSDENIE","ACLAB","ACNORESPONSE","ACNOSHOW","ACNOTRANS","ACPCMKR","ACPOSPREG","ACPTWK","ACREFABN","ACWGHT","APATRESCH","BREASTHOLD","BRST US NOT NEED","CONTRAINDICATED","LABSOUT","LOSTINFLWUP","METALIMPLANT","MIMMAMMO","NOINVITEUSED","NOLABS","NOPHONE","NOPREP","PORTAL","UNCONTPT"])
+
+define "Denominator Exclusion: GPD20N1Z":
+// config_link_id: GPD20N1Z
+exists("Denominator Procedure" P1
+  with ["Procedure, Performed": "Able; Denominator Exception: GPD20N1Z"] P2
+    such that P.relevantPeriod starts during P1.relevantPeriod)
+or exists("Denominator Procedure" P
+  where P.statusReason in ["ACCLOSE","ACDOWN","ACEMPER","ACEXELINT","ACNONPAR","ACNOPREAUT","ACREFER","ACWEATH","ADWEATH","AUTOCONFIR","DUP","EMR ORDER","EORDER EXPIRED","EORDER INCORRECT","EQUIP","EQUIPDOWN","NOREF","ORDERNOTUSED","OTCCC","OTCD","OTCSP","P4P","REFCNX","SYSTEST","TESTING","UMREVIEW"])
 
 define "Numerator Performance Met: GPD20N3A":
   // config_link_id: GPD20N3A
   exists("Denominator Procedure" P1
     with ["Procedure, Performed": "Able; Performance Met: GPD20N3A"] P2
       such that P2.relevantPeriod starts during P1.relevantPeriod)
+  and "Rate 1 Performance Met Exists"
+  and "Rate 2 Performance Met Exists"
 
 define "Numerator Performance Not Met: GPD20N3C":
   // config_link_id: GPD20N3C
@@ -71,6 +103,13 @@ define "Numerator Performance Not Met: GPD20N3B":
   exists("Denominator Procedure" P1
     with ["Procedure, Performed": "Able; Performance Met: GPD20N3B"] P2
       such that P2.relevantPeriod starts during P1.relevantPeriod)
+  or exists("Denominator Procedure" P
+    where P.statusReason in ["ACOTHR","ACPTSCK","ACRADCX","ACWLKDOUT","CLAUS","CLAUSTRO","PTLATE","PTREF"])
+
+define "Numerator Performance Not Met: Procedure Not Completed":
+  // config_link_id: not_completed
+  exists("Denominator Procedure" P
+    where P.status not in ["Cancelled","Discontinued"])
 
 define "Numerator Data Incomplete":
   // config_link_id: incomplete

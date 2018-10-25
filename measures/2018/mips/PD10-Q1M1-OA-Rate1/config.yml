@@ -11,7 +11,7 @@ measure:
     version:
   optional:
     description: 'Percentage of patients aged 18 years and older screened for risk of non-adherence due to medical
-      condition(s), physical condition(s), and psychological distress prior to advanced image testing
+      condition(s), physical symptom(s), and psychological distress prior to advanced image testing
       procedure during the performance period'
     gap_resolution_action:
     version: 2018
@@ -54,6 +54,36 @@ exclusion:
 exception:
   description:
   reasons:
+  - config_link_id: GPD10N1X
+    code_value: GPD10N1X
+    display_title: GPD10N1X
+    description: 'Documentation of patient reason(s) for patient not being screened
+      for risk of non-adherence due to medical condition(s), physical symptom(s), and
+      psychological distress prior to advanced image testing procedure during the
+      performance period'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD10N1X'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Denominator Exception: GPD10N1X'
+  - config_link_id: GPD10N1Z
+    code_value: GPD10N1Z
+    display_title: GPD10N1Z
+    description: 'Documentation of systemreason(s) for patient not being screened for
+      risk of non-adherence due to medical condition(s), physical symptom(s), and
+      psychological distress prior to advanced image testing procedure during the
+      performance period'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD10N1Z'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Denominator Exception: GPD10N1Z'
 performance_met:
   description: 'Patients aged 18 years and older screened for risk of non-adherence due to medical condition(s), physical
     condition(s), and psychological distress prior to advanced image testing procedure during the performance
@@ -62,10 +92,10 @@ performance_met:
   - config_link_id: GPD10N1A
     code_value: GPD10N1A
     display_title: GPD10N1A
-    description: 'Patient screened for risk of non-adherence due to medical condition(s), physical condition(s),
+    description: 'Patient screened for risk of non-adherence due to medical condition(s), physical symptom(s),
       and psychological distress prior to advanced image testing procedure during the
       performance period AND screened negative for risk of non-adherence due to medical
-      condition(s), physical condition(s) and psychological distress'
+      condition(s), physical symptom(s) and psychological distress'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -77,7 +107,7 @@ performance_met:
   - config_link_id: GPD10N1B
     code_value: GPD10N1B
     display_title: GPD10N1B
-    description: 'Patient screened for risk of non-adherence due to medical condition(s), physical condition(s),
+    description: 'Patient screened for risk of non-adherence due to medical condition(s), physical symptom(s),
       and psychological distress prior to advanced image testing procedure during the
       performance period AND screened positive for medical condition(s) risk for non-adherence'
     component_groups:
@@ -91,9 +121,9 @@ performance_met:
   - config_link_id: GPD10N1C
     code_value: GPD10N1C
     display_title: GPD10N1C
-    description: 'Patient screened for risk of non-adherence due to medical condition(s), physical condition(s),
+    description: 'Patient screened for risk of non-adherence due to medical condition(s), physical symptom(s),
       and psychological distress prior to advanced image testing procedure during the
-      performance period AND screened positive for physical condition(s) risk for non-adherence'
+      performance period AND screened positive for physical symptom(s) risk for non-adherence'
     component_groups:
     - validation_record_table_count: 1
       components:
@@ -105,7 +135,7 @@ performance_met:
   - config_link_id: GPD10N1D
     code_value: GPD10N1D
     display_title: GPD10N1D
-    description: 'Patient screened for risk of non-adherence due to medical condition(s), physical condition(s),
+    description: 'Patient screened for risk of non-adherence due to medical condition(s), physical symptom(s),
       and psychological distress prior to advanced image testing procedure during the
       performance period AND screened positive for psychological distress risk for non-adherence'
     component_groups:
@@ -119,10 +149,10 @@ performance_met:
   - config_link_id: GPD10N1E
     code_value: GPD10N1E
     display_title: GPD10N1E
-    description: 'Patient screened for risk of non-adherence due to medical condition(s), physical condition(s),
+    description: 'Patient screened for risk of non-adherence due to medical condition(s), physical symptom(s),
       and psychological distress prior to advanced image testing procedure during the
       performance period AND screened positive for multiple risk factors of non-adherence based
-      upon any combination of medical condition(s), physical condition(s) and/or psychological
+      upon any combination of medical condition(s), physical symptom(s) and/or psychological
       distress risk for non-adherence'
     component_groups:
     - validation_record_table_count: 1
