@@ -33,7 +33,7 @@ denominator:
   description: 'All patients aged 18 and older on the date of the encounter with at
     least one eligible encounter during the measurement period'
   component_groups:
-  - validation_record_table_count: 1
+  - validation_record_table_count: 3
     components:
     - display_title: Encounter
       show_codes: true
@@ -49,14 +49,14 @@ exclusion:
     display_title: G8422 or G8938
     description: Patient is not eligible for BMI calculation
     component_groups:
-    - validation_record_table_count: 1
+    - validation_record_table_count: 3
       components:
       - display_title: 'Quality Data Code: G8422'
         show_codes: true
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Patient Not Eligible: G8422'
-    - validation_record_table_count: 1
+    - validation_record_table_count: 3
       logical_operator: OR
       components:
       - display_title: 'Quality Data Code: G8938'
@@ -64,7 +64,7 @@ exclusion:
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Patient Not Eligible: G8938'
-    - validation_record_table_count: 1
+    - validation_record_table_count: 3
       logical_operator: OR
       components:
       - display_title: Patient Not Eligible For BMI Calculation
@@ -83,7 +83,7 @@ exception:
     description: BMI is documented as being outside of normal limits, follow-up plan
       is not completed for documented reason
     component_groups:
-    - validation_record_table_count: 1
+    - validation_record_table_count: 3
       components:
       - display_title: 'Quality Data Code: G9716'
         show_codes: true
@@ -102,14 +102,14 @@ performance_met:
     description: BMI is documented within normal parameters and no follow-up plan
       is required
     component_groups:
-    - validation_record_table_count: 1
+    - validation_record_table_count: 3
       components:
       - display_title: 'Quality Data Code: G8420'
         show_codes: true
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Met: G8420'
-    - validation_record_table_count: 1
+    - validation_record_table_count: 3
       logical_operator: OR
       components:
       - display_title: Normal BMI
@@ -124,14 +124,14 @@ performance_met:
     description: BMI is documented above normal parameters and a follow-up plan is
       documented
     component_groups:
-    - validation_record_table_count: 1
+    - validation_record_table_count: 3
       components:
       - display_title: 'Quality Data Code: G8417'
         show_codes: true
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Met: G8417'
-    - validation_record_table_count: 1
+    - validation_record_table_count: 3
       logical_operator: OR
       components:
       - display_title: Above Normal BMI
@@ -152,14 +152,14 @@ performance_met:
     description: BMI is documented below normal parameters and a follow-up plan is
       documented
     component_groups:
-    - validation_record_table_count: 1
+    - validation_record_table_count: 3
       components:
       - display_title: 'Quality Data Code: G8418'
         show_codes: true
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Met: G8418'
-    - validation_record_table_count: 1
+    - validation_record_table_count: 3
       logical_operator: OR
       components:
       - display_title: Below Normal BMI
@@ -183,14 +183,14 @@ performance_not_met:
     description: BMI documented outside normal parameters, no follow-up plan documented,
       no reason given
     component_groups:
-    - validation_record_table_count: 1
+    - validation_record_table_count: 3
       components:
       - display_title: 'Quality Data Code: G8419'
         show_codes: true
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Not Met: G8419'
-    - validation_record_table_count: 1
+    - validation_record_table_count: 3
       logical_operator: OR
       components:
       - display_title: Abnormal BMI
@@ -204,7 +204,7 @@ performance_not_met:
     display_title: G8421
     description: BMI not documented and no reason is given
     component_groups:
-    - validation_record_table_count: 1
+    - validation_record_table_count: 3
       components:
       - display_title: 'Quality Data Code: G8421'
         show_codes: true
