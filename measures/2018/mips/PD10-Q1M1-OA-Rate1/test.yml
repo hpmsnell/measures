@@ -242,6 +242,12 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: incomplete
+    - name: GPD10N1X StatusReason # Exception due to status reason
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: GPD10N1X
+      numerator:
     - name: GPD10N1Z Before # Early
       start_date: 2016-02-01
       denominator: 1
@@ -509,6 +515,12 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: incomplete
+      - name: GPD10N1X StatusReason # Exception due to status reason
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: GPD10N1X
+        numerator:
       - name: GPD10N1Z Before # Early
         start_date: 2016-02-01
         denominator: 1
@@ -1162,6 +1174,20 @@ patients:
     - code_type: CPT
       code_value: GPD10N1X
       start_date: 2016-02-02 # Too late
+- name: GPD10N1X StatusReason
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: GPD10N1X
+    family_name: StatusReason
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 70450 # Advanced image testing
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+      status_reason: 'ACEXEL'
 - name: GPD10N1Z Before
   attributes:
     date_of_birth: 1990-01-01

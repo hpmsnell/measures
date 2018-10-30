@@ -58,6 +58,36 @@ exclusion:
         records:
         - model: ClinicalActivity
           value_set: 'Able; RadNet Patient Exclusion'
+  - config_link_id: GPD10N1X
+    code_value: GPD10N1X
+    display_title: GPD10N1X
+    description: 'Documentation of patient reason(s) for patient not being screened
+      for risk of non-adherence due to medical condition(s), physical symptom(s), and
+      psychological distress prior to advanced image testing procedure during the
+      performance period'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD10N1X'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Denominator Exception: GPD10N1X'
+  - config_link_id: GPD10N1Z
+    code_value: GPD10N1Z
+    display_title: GPD10N1Z
+    description: 'Documentation of systemreason(s) for patient not being screened for
+      risk of non-adherence due to medical condition(s), physical symptom(s), and
+      psychological distress prior to advanced image testing procedure during the
+      performance period'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: GPD10N1Z'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'Able; Denominator Exception: GPD10N1Z'
 exception:
   description:
   reasons:

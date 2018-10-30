@@ -107,14 +107,14 @@ test_set_keys:
     - name: GPD10N1X Lower # Lower bound
       start_date: 2016-02-01
       denominator: 1
-      denominator_exclusion:
-      denominator_exception: GPD10N1X
+      denominator_exclusion: GPD10N1X
+      denominator_exception:
       numerator:
     - name: GPD10N1X Upper # Upper bound
       start_date: 2016-02-01
       denominator: 1
-      denominator_exclusion:
-      denominator_exception: GPD10N1X
+      denominator_exclusion: GPD10N1X
+      denominator_exception:
       numerator:
     - name: GPD10N1X After # Late
       start_date: 2016-02-01
@@ -344,14 +344,14 @@ test_set_keys:
       - name: GPD10N1X Lower # Lower bound
         start_date: 2016-02-01
         denominator: 1
-        denominator_exclusion:
-        denominator_exception: GPD10N1X
+        denominator_exclusion: GPD10N1X
+        denominator_exception:
         numerator:
       - name: GPD10N1X Upper # Upper bound
         start_date: 2016-02-01
         denominator: 1
-        denominator_exclusion:
-        denominator_exception: GPD10N1X
+        denominator_exclusion: GPD10N1X
+        denominator_exception:
         numerator:
       - name: GPD10N1X After # Late
         start_date: 2016-02-01
@@ -784,6 +784,10 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
+      code_value: GPD10N1B # Positive screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
       code_value: GPD10N1X
       start_date: 2016-01-31 # Too early
 - name: GPD10N1X Lower
@@ -799,6 +803,10 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
+    - code_type: CPT
+      code_value: GPD10N1B # Positive screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N1X
       start_date: 2016-02-01 # Lower bound
@@ -816,6 +824,10 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
+      code_value: GPD10N1B # Positive screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
       code_value: GPD10N1X
       start_date: 2016-02-01 # Upper bound
 - name: GPD10N1X After
@@ -831,6 +843,10 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
+    - code_type: CPT
+      code_value: GPD10N1B # Positive screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N1X
       start_date: 2016-02-02 # Too late
@@ -848,6 +864,10 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
+      code_value: GPD10N1B # Positive screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
       code_value: GPD10N1Z
       start_date: 2016-01-31 # Too early
 - name: GPD10N1Z Lower
@@ -863,6 +883,10 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
+    - code_type: CPT
+      code_value: GPD10N1B # Positive screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N1Z
       start_date: 2016-02-01 # Lower bound
@@ -880,6 +904,10 @@ patients:
       stop_date: 2016-02-01
       provider: Rachel
     - code_type: CPT
+      code_value: GPD10N1B # Positive screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
       code_value: GPD10N1Z
       start_date: 2016-02-01 # Upper bound
 - name: GPD10N1Z After
@@ -895,6 +923,10 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
+    - code_type: CPT
+      code_value: GPD10N1B # Positive screening
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: GPD10N1Z
       start_date: 2016-02-02 # Too late

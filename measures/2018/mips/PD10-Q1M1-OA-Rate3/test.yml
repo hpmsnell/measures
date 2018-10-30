@@ -83,14 +83,14 @@ test_set_keys:
     - name: GPD10N1X Lower # Lower bound
       start_date: 2016-02-01
       denominator: 1
-      denominator_exclusion:
-      denominator_exception: GPD10N1X
+      denominator_exclusion: GPD10N1X
+      denominator_exception:
       numerator:
     - name: GPD10N1X Upper # Upper bound
       start_date: 2016-02-01
       denominator: 1
-      denominator_exclusion:
-      denominator_exception: GPD10N1X
+      denominator_exclusion: GPD10N1X
+      denominator_exception:
       numerator:
     - name: GPD10N1X After # Late
       start_date: 2016-02-01
@@ -422,14 +422,14 @@ test_set_keys:
       - name: GPD10N1X Lower # Lower bound
         start_date: 2016-02-01
         denominator: 1
-        denominator_exclusion:
-        denominator_exception: GPD10N1X
+        denominator_exclusion: GPD10N1X
+        denominator_exception:
         numerator:
       - name: GPD10N1X Upper # Upper bound
         start_date: 2016-02-01
         denominator: 1
-        denominator_exclusion:
-        denominator_exception: GPD10N1X
+        denominator_exclusion: GPD10N1X
+        denominator_exception:
         numerator:
       - name: GPD10N1X After # Late
         start_date: 2016-02-01
@@ -1018,6 +1018,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3A
       start_date: 2016-01-31 # Too early
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3A Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -1034,6 +1040,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3A
       start_date: 2016-02-01 # Lower bound
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3A Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -1050,6 +1062,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3A
       start_date: 2016-02-01 # Upper bound
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3A After
   attributes:
     date_of_birth: 1990-01-01
@@ -1066,6 +1084,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3A
       start_date: 2016-02-02 # Too late
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3B Before
   attributes:
     date_of_birth: 1990-01-01
@@ -1082,6 +1106,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3B
       start_date: 2016-01-31 # Too early
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3B Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -1098,6 +1128,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3B
       start_date: 2016-02-01 # Lower bound
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3B Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -1114,6 +1150,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3B
       start_date: 2016-02-01 # Upper bound
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3B After
   attributes:
     date_of_birth: 1990-01-01
@@ -1130,6 +1172,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3B
       start_date: 2016-02-02 # Too late
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3C Before
   attributes:
     date_of_birth: 1990-01-01
@@ -1146,6 +1194,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3C
       start_date: 2016-01-31 # Too early
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3C Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -1162,6 +1216,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3C
       start_date: 2016-02-01 # Lower bound
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3C Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -1178,6 +1238,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3C
       start_date: 2016-02-01 # Upper bound
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3C After
   attributes:
     date_of_birth: 1990-01-01
@@ -1194,6 +1260,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3C
       start_date: 2016-02-02 # Too late
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3D Before
   attributes:
     date_of_birth: 1990-01-01
@@ -1210,6 +1282,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3D
       start_date: 2016-01-31 # Too early
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3D Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -1226,6 +1304,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3D
       start_date: 2016-02-01 # Lower bound
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3D Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -1242,6 +1326,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3D
       start_date: 2016-02-01 # Upper bound
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3D After
   attributes:
     date_of_birth: 1990-01-01
@@ -1258,6 +1348,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3D
       start_date: 2016-02-02 # Too late
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3E Before
   attributes:
     date_of_birth: 1990-01-01
@@ -1274,6 +1370,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3E
       start_date: 2016-01-31 # Too early
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3E Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -1290,6 +1392,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3E
       start_date: 2016-02-01 # Lower bound
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3E Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -1306,6 +1414,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3E
       start_date: 2016-02-01 # Upper bound
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3E After
   attributes:
     date_of_birth: 1990-01-01
@@ -1322,6 +1436,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3E
       start_date: 2016-02-02 # Too late
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3F Before
   attributes:
     date_of_birth: 1990-01-01
@@ -1338,6 +1458,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3F
       start_date: 2016-01-31 # Too early
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3F Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -1354,6 +1480,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3F
       start_date: 2016-02-01 # Lower bound
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3F Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -1370,6 +1502,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3F
       start_date: 2016-02-01 # Upper bound
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3F After
   attributes:
     date_of_birth: 1990-01-01
@@ -1386,6 +1524,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3F
       start_date: 2016-02-02 # Too late
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3G Before
   attributes:
     date_of_birth: 1990-01-01
@@ -1402,6 +1546,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3G
       start_date: 2016-01-31 # Too early
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3G Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -1418,6 +1568,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3G
       start_date: 2016-02-01 # Lower bound
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3G Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -1434,6 +1590,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3G
       start_date: 2016-02-01 # Upper bound
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3G After
   attributes:
     date_of_birth: 1990-01-01
@@ -1450,6 +1612,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3G
       start_date: 2016-02-02 # Too late
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3H Before
   attributes:
     date_of_birth: 1990-01-01
@@ -1466,6 +1634,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3H
       start_date: 2016-01-31 # Too early
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3H Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -1482,6 +1656,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3H
       start_date: 2016-02-01 # Lower bound
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3H Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -1498,6 +1678,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3H
       start_date: 2016-02-01 # Upper bound
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3H After
   attributes:
     date_of_birth: 1990-01-01
@@ -1514,6 +1700,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3H
       start_date: 2016-02-02 # Too late
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3I Before
   attributes:
     date_of_birth: 1990-01-01
@@ -1530,6 +1722,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3I
       start_date: 2016-01-31 # Too early
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3I Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -1546,6 +1744,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3I
       start_date: 2016-02-01 # Lower bound
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3I Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -1562,6 +1766,12 @@ patients:
     - code_type: CPT
       code_value: GPD10N3I
       start_date: 2016-02-01 # Upper bound
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
 - name: GPD10N3I After
   attributes:
     date_of_birth: 1990-01-01
@@ -1578,3 +1788,9 @@ patients:
     - code_type: CPT
       code_value: GPD10N3I
       start_date: 2016-02-02 # Too late
+    - code_type: CPT
+      code_value: GPD10N1A # Rate 1 performance met
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: GPD10N2A # Rate 2 performance met
+      start_date: 2016-02-01
