@@ -91,6 +91,8 @@ define "Denominator Exclusion":
     where P.relevantPeriod starts during "Measurement Period")
   or exists(["Procedure, Performed": "MIPS; Patient Not Eligible: G8938"] P
     where P.relevantPeriod starts during "Measurement Period")
+  or exists(["Procedure, Performed": "MIPS; MIPS Hospice Service"] P
+    where P.relevantPeriod starts during "Measurement Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
     where I.relevantPeriod starts during "Measurement Period")
   or exists(["Diagnosis": "VSAC; Pregnancy"] D
