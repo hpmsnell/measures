@@ -78,7 +78,7 @@ define "Last BMI Before Encounter Is High With Follow-Up":
     with "Last BMI Before Encounter" A
       such that A.result >= 25
         and A.authorDateTime on or 12 months or less before start of E.relevantPeriod
-    with ["Above Normal BMI Follow Up"] P
+    with "Above Normal BMI Follow Up" P
       such that P.relevantPeriod starts on or 12 months or less before start of E.relevantPeriod)
 
 define "Last BMI Before Encounter Is Low With Follow-Up":
@@ -86,7 +86,7 @@ define "Last BMI Before Encounter Is Low With Follow-Up":
     with "Last BMI Before Encounter" A
       such that A.result < 18.5
         and A.authorDateTime on or 12 months or less before start of E.relevantPeriod
-    with ["Below Normal BMI Follow Up"] P
+    with "Below Normal BMI Follow Up" P
       such that P.relevantPeriod starts on or 12 months or less before start of E.relevantPeriod)
 
 // Measure statuses
