@@ -11,7 +11,10 @@ library MIPS_128_2018 version '1'
 using QDM
 
 // Able Custom Value Sets
+valueset "ABLE; Above Normal BMI Follow-up"
+valueset "ABLE; Below Normal BMI Follow up"
 
+// MIPS Value Sets
 valueset "MIPS; MIPS 128 Encounter"
 valueset "MIPS; Patient Not Eligible: G8422"
 valueset "MIPS; Patient Not Eligible: G8938"
@@ -62,12 +65,20 @@ define "Last BMI Before Encounter Is Abnormal":
   "Last BMI Before Encounter Result" >= 25
   or "Last BMI Before Encounter Result" < 18.5
 
+define "Above Normal BMI Follow Up":
+  ["Procedure, Performed": "ABLE; Above Normal BMI Follow up"]
+  union ["Procedure, Performed": "VSAC; Above Normal Follow-up"]
+
+define "Below Normal BMI Follow Up":
+  ["Procedure, Performed": "ABLE; Below Normal BMI Follow up"]
+  union ["Procedure, Performed": "VSAC; Below Normal Follow up"]
+
 define "Last BMI Before Encounter Is High With Follow-Up":
   exists("Denominator Encounter" E
     with "Last BMI Before Encounter" A
       such that A.result >= 25
         and A.authorDateTime on or 12 months or less before start of E.relevantPeriod
-    with ["Procedure, Performed": "VSAC; Above Normal Follow-Up"] P
+    with ["Above Normal BMI Follow Up"] P
       such that P.relevantPeriod starts on or 12 months or less before start of E.relevantPeriod)
 
 define "Last BMI Before Encounter Is Low With Follow-Up":
@@ -75,7 +86,7 @@ define "Last BMI Before Encounter Is Low With Follow-Up":
     with "Last BMI Before Encounter" A
       such that A.result < 18.5
         and A.authorDateTime on or 12 months or less before start of E.relevantPeriod
-    with ["Procedure, Performed": "VSAC; Below Normal Follow-Up"] P
+    with ["Below Normal BMI Follow Up"] P
       such that P.relevantPeriod starts on or 12 months or less before start of E.relevantPeriod)
 
 // Measure statuses
