@@ -1,0 +1,70 @@
+---
+measure:
+  name: 18.MIPS.Mips164
+  required:
+    display_title: 'Coronary Artery Bypass Graft (CABG): Prolonged Intubation'
+    inverse: true
+    subject_type: Encounter
+    set: MIPS
+    external_id: 164
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older undergoing
+      isolated CABG surgery who require postoperative intubation > 24 hours'
+    gap_resolution_action:
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Thoracic Surgery'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients undergoing isolated CABG surgery'
+  component_groups:
+  - validation_record_table_count: 10
+    components:
+    - display_title: 'Procedure'
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 164 Procedure
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patients undergoing isolated CABG who require intubation > 24 hours
+    following exit from the operating room'
+  reasons:
+  - config_link_id: G8569
+    code_value: G8569
+    display_title: G8569
+    description: 'Prolonged postoperative intubation (> 24 hrs.) required'
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G8569'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8569'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G8570
+    code_value: G8570
+    display_title: G8570
+    description: 'Prolonged postoperative intubation (> 24 hrs.) not required'
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G8570'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G8570'
