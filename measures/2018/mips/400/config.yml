@@ -1,0 +1,175 @@
+---
+measure:
+  name: 18.MIPS.Mips400
+  required:
+    display_title: 'One-Time Screening for Hepatitis C Virus (HCV) for Patients at Risk'
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: '400'
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older with one or more of
+      the following: a history of injection drug use, receipt of a blood transfusion
+      prior to 1992, receiving maintenance hemodialysis, OR birthdate in the years
+      1945-1965 who received one-time screening for hepatitis C virus (HCV) infection'
+    gap_resolution_action: Patient is due for screening for HCV infection
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'General Practice/Family Medicine, Internal Medicine, Nephrology, Infectious Disease'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 years and older who were seen twice for any visit
+    or who had at least one preventive visit within the 12 month reporting period with
+    one or more of the following: a history of injection drug use, receipt of a blood
+    transfusion prior to 1992, receiving maintenance hemodialysis, OR birthdate in
+    the years 1945–1965'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Peventive Encounters
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 400 Preventive Encounter
+    - logical_operator: OR
+      display_title: 2 Encounters
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 400 Encounter
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: Born 1945-1965
+      annotation: 'Date of birth is used to determine eligibility'
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: 'MIPS; Born 1945 to 1965'
+    - logical_operator: 'OR'
+      display_title: Blood Transfusions Before 1992
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: 'MIPS; Blood Transfusions Before 1992'
+    - logical_operator: 'OR'
+      display_title: Maintenance Hemodialysis
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: 'MIPS; Maintenance Hemodialysis'
+    - logical_operator: 'OR'
+      display_title: Injection Drug Use
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: 'MIPS; History of Injection Drug Use'
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Hepatitis C
+    description: 'Patient excluded due to diagnosis for Chronic Hepatitis C'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Chronic Hepatitis C"
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: 'MIPS; Chronic Hepatitis C'
+exception:
+  description:
+  reasons:
+  - config_link_id: G9452
+    code_value: G9452
+    display_title: G9452
+    description: 'Documentation of medical reason(s) for not receiving one-time screening
+      for HCV infection (e.g., decompensated cirrhosis indicating advanced disease [i.e.,
+      ascites, esophageal variceal bleeding, hepatic encephalopathy], hepatocellular
+      carcinoma, waitlist for organ transplant, limited life expectancy, other medical
+      reasons)'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G9452"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G9452'
+  - config_link_id: G9453
+    code_value: G9453
+    display_title: G9453
+    description: 'Documentation of patient reason(s) for not receiving one-time screening
+      for HCV infection (e.g., patient declined, other patient reasons)'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G9453"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G9453'
+performance_met:
+  description: 'Patients who received one-time screening for HCV infection'
+  reasons:
+  - config_link_id: G9451
+    code_value: G9451
+    display_title: G9451
+    description: 'Patient received one-time screening for HCV infection'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G9451"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9451'
+    - logical_operator: OR
+      validation_record_table_count: 1
+      components:
+      - display_title: "HCV Antibody Test"
+        show_codes: true
+        records:
+        - model: LaboratoryTestPerformed
+          value_set: 'VSAC; HCV Antibody Test'
+    - logical_operator: OR
+      validation_record_table_count: 1
+      components:
+      - display_title: "HCV RNA Test"
+        show_codes: true
+        records:
+        - model: LaboratoryTestPerformed
+          value_set: 'VSAC; HCV RNA Test'
+    - logical_operator: OR
+      validation_record_table_count: 1
+      components:
+      - display_title: "HCV RIBA Test"
+        show_codes: true
+        records:
+        - model: LaboratoryTestPerformed
+          value_set: 'VSAC; HCV RIBA Test'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9454
+    code_value: G9454
+    display_title: G9454
+    description: 'One-time screening for HCV infection not received within 12 month
+      reporting period and no documentation of prior screening for HCV infection,
+      reason not given'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G9454"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9454'

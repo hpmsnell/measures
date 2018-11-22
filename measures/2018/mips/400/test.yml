@@ -1,0 +1,1012 @@
+measure_id: measure.Mips.2018.Mips400
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Too Young
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: PreventiveEncounter Before # PreventiveEncounter before allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: PreventiveEncounter Lower # PreventiveEncounter is at lower bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: PreventiveEncounter Upper # PreventiveEncounter is at upper bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: PreventiveEncounter After  # PreventiveEncounter is after allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: PreventiveEncounter DifferentProvider  # PreventiveEncounter is with a different provider
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: Encounter Before # Encounter before allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Lower # Encounter is at lower bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: Encounter Upper # Encounter is at upper bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: Encounter After  # Encounter is after allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter DifferentProvider  # Encounter is with a different provider
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: Option DOB1945 # Patient is born in 1945
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: Option DOB1965 # Patient is born in 1965
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: Option Transfusion # Patient has a history of blood transfusion
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: Option Injection # Patient has a history of injection drug use
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: Option HemodialysisBefore # Patient has a hemodialysis before the measurement period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Option HemodialysisDuring # Patient has a hemodialysis during the measurement period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: Exclusion Before # Patient has an excluded diagnosis that is early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: Exclusion Lower # Patient has an excluded diagnosis at lower bound of period
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: Exclusion Upper # Patient has an excluded diagnosis at upper bound of period
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: Exclusion After  # Patient has an excluded diagnosis that is late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: G9451 Before # G9451 before measurement period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9451
+    - name: G9451 Lower # G9451 at start of measurement period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9451
+    - name: G9451 Upper # G9451 at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9451
+    - name: G9451 After # G9451 too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: HCVTest Before # HCV test before measurement
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9451
+    - name: HCVTest Lower # HCV test at start of measurement period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9451
+    - name: HCVTest Upper # HCV test at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9451
+    - name: HCVTest After # HCV test too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: G9452 Before # G9452 too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: G9452 Lower # G9452 at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9452
+      numerator:
+    - name: G9452 Upper # G9452 at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9452
+      numerator:
+    - name: G9452 After # G9452 too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: G9453 Before # G9453 too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: G9453 Lower # G9453 at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9453
+      numerator:
+    - name: G9453 Upper # G9453 at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9453
+      numerator:
+    - name: G9453 After # G9453 too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+  providers_key:
+  - name: Rachel
+    patients:
+    - name: Too Young
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: PreventiveEncounter Before # PreventiveEncounter before allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: PreventiveEncounter Lower # PreventiveEncounter is at lower bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: PreventiveEncounter Upper # PreventiveEncounter is at upper bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: PreventiveEncounter After  # PreventiveEncounter is after allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: PreventiveEncounter DifferentProvider  # PreventiveEncounter is with a different provider
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Before # Encounter before allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Lower # Encounter is at lower bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: Encounter Upper # Encounter is at upper bound of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: Encounter After  # Encounter is after allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter DifferentProvider  # Encounter is with a different provider
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Option DOB1945 # Patient is born in 1945
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: Option DOB1965 # Patient is born in 1965
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: Option Transfusion # Patient has a history of blood transfusion
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: Option Injection # Patient has a history of injection drug use
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: Option HemodialysisBefore # Patient has a hemodialysis before the measurement period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Option HemodialysisDuring # Patient has a hemodialysis during the measurement period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: Exclusion Before # Patient has an excluded diagnosis that is early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: Exclusion Lower # Patient has an excluded diagnosis at lower bound of period
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: Exclusion Upper # Patient has an excluded diagnosis at upper bound of period
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: Exclusion After  # Patient has an excluded diagnosis that is late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: G9451 Before # G9451 before measurement period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9451
+    - name: G9451 Lower # G9451 at start of measurement period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9451
+    - name: G9451 Upper # G9451 at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9451
+    - name: G9451 After # G9451 too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: HCVTest Before # HCV test before measurement period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9451
+    - name: HCVTest Lower # HCV test at start of measurement period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9451
+    - name: HCVTest Upper # HCV test at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9451
+    - name: HCVTest After # HCV test too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: G9452 Before # G9452 too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: G9452 Lower # G9452 at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9452
+      numerator:
+    - name: G9452 Upper # G9452 at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9452
+      numerator:
+    - name: G9452 After # G9452 too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: G9453 Before # G9453 too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+    - name: G9453 Lower # G9453 at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9453
+      numerator:
+    - name: G9453 Upper # G9453 at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9453
+      numerator:
+    - name: G9453 After # G9453 too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9454
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  external_id: '111-111'
+  credential: DO
+  primary_specialty: Family Medicine
+- given_name: Patty
+  family_name: PrimaryCare
+  external_id: '222-222'
+  credential: MD
+  primary_specialty: Family Medicine
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1998-02-02 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9450 # Injection drug use
+      start_date: 2010-01-01
+      stop_date: 2010-01-01
+- name: Age Lower
+  attributes:
+    date_of_birth: 1998-02-01 # Lower bound
+    given_name: Age
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9450 # Injection drug use
+      start_date: 2010-01-01
+      stop_date: 2010-01-01
+- name: PreventiveEncounter Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: PreventiveEncounter
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2015-12-31 # Too early
+      stop_date: 2015-12-31
+      provider: Rachel
+- name: PreventiveEncounter Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: PreventiveEncounter
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+      provider: Rachel
+- name: PreventiveEncounter Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: PreventiveEncounter
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-12-31 # Upper bound
+      stop_date: 2016-12-31
+      provider: Rachel
+- name: PreventiveEncounter After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: PreventiveEncounter
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2017-01-01 # Too late
+      stop_date: 2017-01-01
+      provider: Rachel
+- name: PreventiveEncounter DifferentProvider
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: PreventiveEncounter
+    family_name: DifferentProvider
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Patty # Different provider
+- name: Encounter Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_date: 2015-12-31 # Too early
+      stop_date: 2015-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+- name: Encounter Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+- name: Encounter Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_date: 2016-12-31 # Upper bound
+      stop_date: 2016-12-31
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+- name: Encounter After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_date: 2017-01-01 # Too late
+      stop_date: 2017-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+- name: Encounter DifferentProvider
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: DifferentProvider
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Patty # Different provider
+    - code_type: CPT
+      code_value: 99201 # Encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+- name: Option DOB1945
+  attributes:
+    date_of_birth: 1945-01-01
+    given_name: Option
+    family_name: 'DOB1945'
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+      provider: Rachel
+- name: Option DOB1965
+  attributes:
+    date_of_birth: 1965-12-31
+    given_name: Option
+    family_name: 'DOB1965'
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+      provider: Rachel
+- name: Option Transfusion
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: Option
+    family_name: Transfusion
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9449 # Blood transfusion
+      start_date: 2010-01-01
+      stop_date: 2010-01-01
+- name: Option Injection
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: Option
+    family_name: Injection
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9450 # Injection drug use
+      start_date: 2010-01-01
+      stop_date: 2010-01-01
+- name: Option HemodialysisBefore
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: Option
+    family_name: HemodialysisBefore
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 90951 # Hemodialysis
+      start_date: 2015-12-31 # Too early
+      stop_date: 2015-12-31
+- name: Option HemodialysisDuring
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: Option
+    family_name: HemodialysisDuring
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: 90951 # Hemodialysis
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+- name: Exclusion Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: B18.2 # Hepatitis C
+      start_date: 2010-01-01
+      stop_date: 2015-12-31 # Too early
+- name: Exclusion Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: B18.2 # Hepatitis C
+      start_date: 2010-01-01
+      stop_date: 2016-01-01 # Lower bound
+- name: Exclusion Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: B18.2 # Hepatitis C
+      start_date: 2016-12-31 # Upper bound
+- name: Exclusion After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: B18.2 # Hepatitis C
+      start_date: 2017-01-01 # Too late
+- name: G9451 Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: G9451
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9451 # Performance Met
+      start_date: 2015-12-31 # Early
+- name: G9451 Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: G9451
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9451 # Performance Met
+      start_date: 2016-01-01 # Lower
+- name: G9451 Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: G9451
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9451 # Performance Met
+      start_date: 2016-12-31 # Upper
+- name: G9451 After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: G9451
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9451 # Performance Met
+      start_date: 2017-01-01 # Late
+- name: HCVTest Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: HCVTest
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 11076-7 # HCV test
+      start_date: 2015-12-31 # Early
+- name: HCVTest Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: HCVTest
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 11076-7 # HCV test
+      start_date: 2016-01-01 # Lower
+- name: HCVTest Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: HCVTest
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 11076-7 # HCV test
+      start_date: 2016-12-31 # Upper
+- name: HCVTest After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: HCVTest
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 11076-7 # HCV test
+      start_date: 2017-01-01 # Late
+- name: G9452 Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: G9452
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9452 # Exception
+      start_date: 2016-01-31 # Early
+- name: G9452 Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: G9452
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9452 # Exception
+      start_date: 2016-02-01 # Lower
+- name: G9452 Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: G9452
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9452 # Exception
+      start_date: 2016-02-02 # Upper
+- name: G9452 After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: G9452
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9452 # Exception
+      start_date: 2016-02-03 # Late
+- name: G9453 Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: G9453
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9453 # Exception
+      start_date: 2016-01-31 # Early
+- name: G9453 Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: G9453
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9453 # Exception
+      start_date: 2016-02-01 # Lower
+- name: G9453 Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: G9453
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9453 # Exception
+      start_date: 2016-02-02 # Upper
+- name: G9453 After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: G9453
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99385 # Preventive encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: G9453 # Exception
+      start_date: 2016-02-03 # Late
