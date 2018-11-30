@@ -1,0 +1,149 @@
+---
+measure:
+  name: 18.MIPS.Mips182
+  required:
+    display_title: 'Functional Outcome Assessment'
+    inverse: false
+    subject_type: Encounter
+    set: MIPS
+    external_id: 182
+    version:
+  optional:
+    description: 'Percentage of visits for patients aged 18 years and older with
+      documentation of a current functional outcome assessment using a standardized
+      functional outcome assessment tool on the date of the encounter AND documentation
+      of a care plan based on identified functional outcome deficiencies on the date
+      of the identified deficiencies'
+    gap_resolution_action:
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Physical Medicine, Nephropathy'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All visits for patients aged 18 years and older'
+  component_groups:
+  - validation_record_table_count: 10
+    components:
+    - display_title: 'Encounter'
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 182 Encounter
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: G8540
+    code_value: G8540
+    display_title: G8540
+    description: 'Functional outcome assessment documented, care plan not documented,
+      documentation the patient is not eligible for a care plan at the time of the
+      encounter'
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G8540'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8540'
+    - validation_record_table_count: 10
+      logical_operator: OR
+      components:
+      - display_title: 'Seizure'
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: 'VSAC; Seizure'
+    - validation_record_table_count: 10
+      logical_operator: OR
+      components:
+      - display_title: 'Anticoagulant or Antiplatelet'
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: 'VSAC; Anticoagulant Medications'
+        - model: Medication
+          value_set: 'VSAC; Aspirin and Other Antiplatelets'
+  - config_link_id: G9227
+    code_value: G9227
+    display_title: G9227
+    description: 'Functional outcome assessment NOT documented as being performed,
+      documentation the patient is not eligible for a functional outcome assessment
+      using a standardized tool at the time of the encounter'
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G9227'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9227'
+performance_met:
+  description: 'Patients with a documented current functional outcome assessment
+    using a standardized tool AND a documented care plan based on the identified
+    functional outcome deficiencies'
+  reasons:
+  - config_link_id: G8542
+    code_value: G8542
+    display_title: G8542
+    description: 'Functional outcome assessment using a standardized tool is
+      documented; no functional deficiencies identified, care plan not required'
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G8542'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8542'
+  - config_link_id: G8539
+    code_value: G8539
+    display_title: G8539
+    description: 'Functional outcome assessment documented as positive using a
+      standardized tool AND a care plan based, on identified deficiencies on the
+      date of the functional outcome assessment, is documented'
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G8539'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8539'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G8543
+    code_value: G8543
+    display_title: G8543
+    description: 'Documentation of a positive functional outcome assessment using
+      a standardized tool; care plan not documented, reason not given'
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G8543'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G8543'
+  - config_link_id: G8541
+    code_value: G8541
+    display_title: G8541
+    description: 'Functional outcome assessment using a standardized tool not
+      documented, reason not given'
+    component_groups:
+    - validation_record_table_count: 10
+      components:
+      - display_title: 'Quality Data Code: G8541'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G8541'
