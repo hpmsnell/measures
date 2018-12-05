@@ -51,6 +51,14 @@ denominator:
       records:
       - model: ClinicalActivity
         value_set: MIPS; First-Time Anti-Rheumatic Drug Therapy
+    - display_title: Anti-Rheumatic Drug Therapy
+      logical_operator: 'OR'
+      show_codes: true
+      records:
+      - model: Medication
+        value_set: VSAC; DMARD Medication
+      - model: Medication
+        value_set: HEDIS; DMARD
 exclusion:
   description:
   reasons:
@@ -71,6 +79,7 @@ exception:
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Denominator Exception: 3455F-1P'
+          modifier: '1P'
 performance_met:
   description: 'Patients for whom a TB screening was performed and results interpreted
     within 6 months prior to receiving a first course of therapy using a biologic
@@ -90,6 +99,7 @@ performance_met:
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Met: 3455F'
+          modifier: 'None'
 performance_not_met:
   description:
   reasons:
@@ -106,3 +116,4 @@ performance_not_met:
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Not Met: 3455F-8P'
+          modifier: '8P'
