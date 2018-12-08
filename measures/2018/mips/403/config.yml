@@ -1,0 +1,110 @@
+---
+measure:
+  name: 18.MIPS.Mips403
+  required:
+    display_title: 'Adult Kidney Disease: Referral to Hospice'
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: '403'
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older with a diagnosis of ESRD
+      who withdraw from hemodialysis or peritoneal dialysis who are referred to hospice care'
+    gap_resolution_action: Patient requires evaluation for referral to hospice care
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Nephrology'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 years and older with a diagnosis of ESRD who
+    withdraw from hemodialysis or peritoneal dialysis'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 403 Encounter
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: ESRD
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; ESRD
+  - validation_record_table_count: 1
+    logical_operator: AND
+    components:
+    - display_title: Discontinued Dialysis
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: 'MIPS; Patient Discontinued Dialysis'
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: G9525
+    code_value: G9525
+    display_title: G9525
+    description: 'Documentation of patient reason(s) for not referring to
+      hospice care (e.g., patient declined, other patient reasons)'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G9525"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G9525'
+performance_met:
+  description: 'Patients who are referred to hospice care'
+  reasons:
+  - config_link_id: G9524
+    code_value: G9524
+    display_title: G9524
+    description: 'Patient was referred to hospice care'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G9524"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9524'
+    - validation_record_table_count: 1
+      logical_operator: 'OR'
+      components:
+      - display_title: "Hospice Service"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; MIPS Hospice Service'
+        - model: ClinicalActivity
+          value_set: 'VSAC; Palliative Care'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9526
+    code_value: G9526
+    display_title: G9526
+    description: 'Patient was not referred to hospice care, reason not given'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: "Quality Data Code: G9526"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9526'
