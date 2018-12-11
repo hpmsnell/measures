@@ -4,7 +4,7 @@ library MIPS_138Rate2_2018 version '1'
  * Source: MIPS
  * ID: 138 Rate 2
  * Year: 2018
- * Version: 1
+ * Version: 2
  * Author: Steve Daniels
  *
   */
@@ -26,7 +26,7 @@ context Patient
 
 define "Denominator Encounter":
   ["Procedure, Performed": "MIPS; MIPS 138 Excision of Malignant Melanoma"] P
-    where P.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during [start of "Measurement Period", 3 months before end of "Measurement Period"]
       and P.signingProvider.pqrsProvider = true
     with ["Diagnosis": "MIPS; MIPS 138 Melanoma"] D
       such that D.prevalencePeriod during P.relevantPeriod

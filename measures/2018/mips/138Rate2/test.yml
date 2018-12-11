@@ -15,13 +15,13 @@ test_set_keys:
       denominator_exception:
       numerator: 5050F-8P
     - name: Denominator Encounter # Encounter at upper bound
-      start_date: 2016-12-31
+      start_date: 2016-09-30
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Denominator Encounter  # Encounter too late
-      start_date: 2017-01-01
+      start_date: 2016-10-01
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -138,13 +138,13 @@ test_set_keys:
       denominator_exception:
       numerator: 5050F-8P
     - name: Denominator Encounter # Encounter at upper bound
-      start_date: 2016-12-31
+      start_date: 2016-09-30
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 5050F-8P
     - name: Denominator Encounter  # Encounter too late
-      start_date: 2017-01-01
+      start_date: 2016-10-01
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -277,26 +277,14 @@ patients:
         provider: Rachel
       - code_type: CPT
         code_value: 11600
-        start_date: 2016-12-31 # Upper bound
-        stop_date: 2016-12-31
+        start_date: 2016-09-30 # Upper bound
+        stop_date: 2016-09-30
         provider: Rachel
       - code_type: CPT
         code_value: 11600
-        start_date: 2017-01-01 # Too late
-        stop_date: 2017-01-01
+        start_date: 2016-10-01 # Too late
+        stop_date: 2016-10-01
         provider: Rachel
-      - code_type: CPT
-        code_value: 99201
-        start_date: 2016-02-01
-        stop_date: 2016-02-01
-        provider: Rachel
-        code_modifiers: ['GQ'] #invalid modifier
-      - code_type: CPT
-        code_value: 99201
-        start_date: 2016-02-02
-        stop_date: 2016-02-02
-        provider: Rachel
-        place_of_service: '02' #invalid POS
     diagnoses:
       - code_type: ICD10CM
         code_value: C43.0
@@ -306,10 +294,10 @@ patients:
         start_date: 2016-01-01
       - code_type: ICD10CM
         code_value: C43.0
-        start_date: 2016-12-31
+        start_date: 2016-09-30
       - code_type: ICD10CM
         code_value: C43.0
-        start_date: 2016-01-01
+        start_date: 2016-10-01
 - name: Melanoma Diagnosis
   attributes:
     date_of_birth: 1950-01-01

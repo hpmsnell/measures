@@ -26,7 +26,7 @@ context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 137 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during [start of "Measurement Period", 3 months before end of "Measurement Period"]
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {'GQ','GT','95'}
       and not E.placeOfService in {'02'}
