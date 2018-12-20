@@ -55,12 +55,12 @@ define "Encounter with Depression Prior to First Medication in Index Period":
     with ["Diagnosis": "HEDIS; Major Depression"] D
       such that D.prevalencePeriod starts during E.relevantPeriod
     with "First Medication in Index Period" M
-      such that E.relevantPeriod starts 105 days or less before before start of M.relevantPeriod
+      such that E.relevantPeriod starts during [60 days before start of M.relevantPeriod, 60 days after start of M.relevantPeriod]
 
 define "Medication Prior to First Medication in Index Period":
   ["Medication, Dispensed": "HEDIS; Antidepressant Medications"] M1
     with "First Medication in Index Period" M2
-      such that M1.relevantPeriod starts 05 days or less before before start of M.relevantPeriod
+      such that M1.relevantPeriod starts 105 days or less before before start of M.relevantPeriod
 
 define "First Medication Start Date":
   "First Medication in Index Period" M
