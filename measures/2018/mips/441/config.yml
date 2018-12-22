@@ -208,6 +208,8 @@ performance_met:
         logical_operator: OR
         show_codes: false
         records:
+        - model: Diagnosis
+          value_set: "MIPS; ESRD"
         - model: ClinicalActivity
           value_set: "VSAC; ESRD Monthly Outpatient Services"
         - model: ClinicalActivity

@@ -17,6 +17,7 @@ valueset "MIPS; MIPS 441 CAD"
 valueset "MIPS; MIPS 441 AMI"
 valueset "MIPS; MIPS 441 PCI"
 valueset "MIPS; MIPS 441 CABG"
+valueset "MIPS; ESRD"
 valueset "MIPS; Performance Met: G9788"
 valueset "MIPS; Performance Met: G9791"
 valueset "MIPS; Performance Met: G9793"
@@ -131,6 +132,8 @@ define "Numerator Component 4":
   or exists("Statin" M
     where M.relevantPeriod overlaps "Measurement Period")
   or exists(["Diagnosis": "VSAC; Pregnancy Dx"] D
+    where D.prevalencePeriod overlaps [24 months before end of "Measurement Period", end of "Measurement Period"])
+  or exists(["Diagnosis": "MIPS; ESRD"] D
     where D.prevalencePeriod overlaps [24 months before end of "Measurement Period", end of "Measurement Period"])
   or exists(["Procedure, Performed": "VSAC; ESRD Monthly Outpatient Services"] P
     where P.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
