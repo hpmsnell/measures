@@ -36,7 +36,6 @@ context Patient
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 419 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
-      and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Primary Headache"] D
       such that D.prevalencePeriod starts during E.relevantPeriod
