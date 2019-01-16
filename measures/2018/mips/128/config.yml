@@ -112,7 +112,7 @@ performance_met:
     - validation_record_table_count: 1
       logical_operator: OR
       components:
-      - display_title: Normal BMI
+      - display_title: BMI
         show_codes: true
         annotation: "With result: ≥ 18.5 and < 25"
         records:
@@ -134,7 +134,7 @@ performance_met:
     - validation_record_table_count: 1
       logical_operator: OR
       components:
-      - display_title: Above Normal BMI
+      - display_title: BMI
         show_codes: true
         annotation: "With result: ≥ 25"
         records:
@@ -164,7 +164,7 @@ performance_met:
     - validation_record_table_count: 1
       logical_operator: OR
       components:
-      - display_title: Below Normal BMI
+      - display_title: BMI
         show_codes: true
         annotation: "With result: < 18.5"
         records:
@@ -197,7 +197,7 @@ performance_not_met:
     - validation_record_table_count: 1
       logical_operator: OR
       components:
-      - display_title: Abnormal BMI
+      - display_title: BMI
         show_codes: true
         annotation: "With result: < 18.5 and ≥ 25"
         records:
