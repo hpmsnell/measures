@@ -28,7 +28,7 @@ measure:
 denominator:
   description: 'All Patients aged 50 years and older with a diagnosis of AMD'
   component_groups:
-  - validation_record_table_count: 1
+  - validation_record_table_count: 5
     components:
     - display_title: Encounter
       show_codes: true
@@ -36,7 +36,7 @@ denominator:
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 140 Encounter
-  - validation_record_table_count: 1
+  - validation_record_table_count: 5
     logical_operator: AND
     components:
     - display_title: Age-Related Macular Degeneration
@@ -62,7 +62,7 @@ performance_met:
       Disease Study (AREDS) formulation for preventing progression of age-related
       macular degeneration (AMD) provided to patient and/or caregiver(s)
     component_groups:
-    - validation_record_table_count: 1
+    - validation_record_table_count: 5
       components:
       - display_title: "Quality Data Code: 4177F"
         show_codes: true
@@ -77,7 +77,7 @@ performance_not_met:
     display_title: 4177F-8P
     description: AREDS counseling not performed, reason not otherwise Specified
     component_groups:
-    - validation_record_table_count: 1
+    - validation_record_table_count: 5
       components:
       - display_title: "Quality Data Code: 4177F-8P"
         show_codes: true
