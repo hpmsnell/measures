@@ -41,7 +41,9 @@ define "Denominator Encounter":
 // Populations
 
 define "Denominator":
-  "Denominator Encounter"
+  "Denominator Encounter" E1
+    without "Denominator Encounter" E2
+      such that E2.relevantPeriod starts 1 day before start of E1.relevantPeriod
 
 define "Numerator Performance Met: G8600":
   // config_link_id: G8600
