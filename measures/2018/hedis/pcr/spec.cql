@@ -46,6 +46,8 @@ define "Discharge":
       such that E2.relevantPeriod starts during E1.relevantPeriod
     without ["Encounter, Performed": "HEDIS; Inpatient Stay"] E3 // Ensure this is the last one in a series and no direct transfers
       such that E3.relevantPeriod starts 1 day after start of E1.relevantPeriod
+    with ["Encounter, Performed": "HEDIS; Inpatient Stay"] E4 // Ensure this is a multi-day stay
+      such that E4.relevantPeriod starts 1 day before start of E1.relevantPeriod
     without "Pregnancy" D // No pregnancy or perinatal condition
       such that D.prevalencePeriod starts during E1.relevantPeriod
 

@@ -44,6 +44,12 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator:
+      - name: DenominatorDischarge OneDay
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
       - name: DenominatorDischarge Transfer
         start_date: 2016-02-01
         denominator:
@@ -144,6 +150,10 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
+      start_date: 2016-01-31
+      stop_date: 2016-01-31
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-02-01
       stop_date: 2016-02-01
 - name: Age Lower
@@ -154,6 +164,10 @@ patients:
     sex: Male
   clinical_models:
     clinical_activities:
+    - code_type: UB
+      code_value: '0100'  # Discharge
+      start_date: 2016-01-31
+      stop_date: 2016-01-31
     - code_type: UB
       code_value: '0100'  # Discharge
       start_date: 2016-02-01
@@ -168,6 +182,10 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
+      start_date: 2015-12-30
+      stop_date: 2015-12-30
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2015-12-31
       stop_date: 2015-12-31  # Too early
 - name: DenominatorDischarge Lower
@@ -178,6 +196,10 @@ patients:
     sex: Male
   clinical_models:
     clinical_activities:
+    - code_type: UB
+      code_value: '0100'  # Discharge
+      start_date: 2015-12-31
+      stop_date: 2015-12-31
     - code_type: UB
       code_value: '0100'  # Discharge
       start_date: 2016-01-01
@@ -192,6 +214,10 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
+      start_date: 2016-11-30
+      stop_date: 2016-11-30
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-12-01
       stop_date: 2016-12-01  # Upper bound
 - name: DenominatorDischarge After
@@ -202,6 +228,10 @@ patients:
     sex: Male
   clinical_models:
     clinical_activities:
+    - code_type: UB
+      code_value: '0100'  # Discharge
+      start_date: 2016-12-01
+      stop_date: 2016-12-01
     - code_type: UB
       code_value: '0100'  # Discharge
       start_date: 2016-12-02
@@ -216,10 +246,26 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
+      start_date: 2016-01-31
+      stop_date: 2016-01-31
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: UB
       code_value: '1000'  # Nonacute
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: DenominatorDischarge OneDay
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorDischarge
+    family_name: OneDay
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-02-01
       stop_date: 2016-02-01
 - name: DenominatorDischarge Transfer
@@ -230,6 +276,10 @@ patients:
     sex: Male
   clinical_models:
     clinical_activities:
+    - code_type: UB
+      code_value: '0100'  # Discharge
+      start_date: 2016-01-31
+      stop_date: 2016-01-31
     - code_type: UB
       code_value: '0100'  # Discharge
       start_date: 2016-02-01
@@ -248,6 +298,10 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
+      start_date: 2016-01-31
+      stop_date: 2016-01-31
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-02-01
       stop_date: 2016-02-01
     diagnoses:
@@ -263,6 +317,10 @@ patients:
     sex: Male
   clinical_models:
     clinical_activities:
+    - code_type: UB
+      code_value: '0100'  # Discharge
+      start_date: 2016-01-31
+      stop_date: 2016-01-31
     - code_type: UB
       code_value: '0100'  # Discharge
       start_date: 2016-02-01
@@ -289,6 +347,10 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
+      start_date: 2016-01-31
+      stop_date: 2016-01-31
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: UB
@@ -313,6 +375,10 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
+      start_date: 2016-01-31
+      stop_date: 2016-01-31
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: UB
@@ -333,6 +399,10 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
+      start_date: 2016-01-31
+      stop_date: 2016-01-31
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-02-01
       stop_date: 2016-02-01
       provider: Rachel
@@ -347,6 +417,10 @@ patients:
     sex: Male
   clinical_models:
     clinical_activities:
+    - code_type: UB
+      code_value: '0100'  # Discharge
+      start_date: 2016-01-31
+      stop_date: 2016-01-31
     - code_type: UB
       code_value: '0100'  # Discharge
       start_date: 2016-02-01
@@ -364,6 +438,10 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
+      start_date: 2016-01-31
+      stop_date: 2016-01-31
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: CPT
@@ -379,6 +457,10 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'
+      start_date: 2016-01-31
+      stop_date: 2016-01-31
+    - code_type: UB
+      code_value: '0100'
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: CPT
@@ -392,6 +474,10 @@ patients:
     sex: Male
   clinical_models:
     clinical_activities:
+    - code_type: UB
+      code_value: '0100'  # Discharge
+      start_date: 2016-01-31
+      stop_date: 2016-01-31
     - code_type: UB
       code_value: '0100'  # Discharge
       start_date: 2016-02-01
@@ -410,6 +496,10 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
+      start_date: 2016-01-31
+      stop_date: 2016-01-31
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: UB
@@ -426,6 +516,10 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
+      start_date: 2016-01-31
+      stop_date: 2016-01-31
+    - code_type: UB
+      code_value: '0100'  # Discharge
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: UB
@@ -440,6 +534,10 @@ patients:
     sex: Male
   clinical_models:
     clinical_activities:
+    - code_type: UB
+      code_value: '0100'  # Discharge
+      start_date: 2016-01-31
+      stop_date: 2016-01-31
     - code_type: UB
       code_value: '0100'  # Discharge
       start_date: 2016-02-01
