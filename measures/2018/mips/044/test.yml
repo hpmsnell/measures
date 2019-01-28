@@ -1,0 +1,864 @@
+measure_id: measure.Mips.2018.Mips044
+test_set_keys:
+  organization_key:
+    episodes_of_care:
+    - name: Too Young
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4115F-8P
+    - name: DenominatorEncounter Before # Early
+      start_date: 2015-12-31
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter Lower # Lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4115F-8P
+    - name: DenominatorEncounter Upper # Upper Bound
+      start_date: 2016-12-31
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4115F-8P
+    - name: DenominatorEncounter After # Late
+      start_date: 2017-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter DifferentProvider # Different denominator signing provider
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4115F-8P
+    - name: DenominatorAnesthesia Before # Early
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorAnesthesia Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4115F-8P
+    - name: DenominatorAnesthesia Upper # Upper Bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4115F-8P
+    - name: DenominatorAnesthesia After # Late
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: 4115F Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4115F-8P
+    - name: 4115F Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4115F
+    - name: 4115F Upper # Upper bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4115F
+    - name: 4115F After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4115F-8P
+    - name: BetaBlocker Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4115F-8P
+    - name: BetaBlocker Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4115F
+    - name: BetaBlocker Upper # Upper bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4115F
+    - name: BetaBlocker After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4115F-8P
+    - name: Exception4115F-1P Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4115F-8P
+    - name: Exception4115F-1P Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4115F-1P
+      numerator:
+    - name: Exception4115F-1P Upper # Upper Bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4115F-1P
+      numerator:
+    - name: Exception4115F-1P After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4115F-8P
+    - name: ExceptionAllergy Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4115F-8P
+    - name: ExceptionAllergy Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion: 4115F-1P
+      denominator_exception:
+      numerator:
+    - name: ExceptionAllergy Upper # Upper Bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion: 4115F-1P
+      denominator_exception:
+      numerator:
+    - name: ExceptionAllergy After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4115F-8P
+  providers_key:
+    - name: Rachel
+      episodes_of_care:
+      - name: Too Young
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4115F-8P
+      - name: DenominatorEncounter Before # Early
+        start_date: 2015-12-31
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorEncounter Lower # Lower bound
+        start_date: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4115F-8P
+      - name: DenominatorEncounter Upper # Upper Bound
+        start_date: 2016-12-31
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4115F-8P
+      - name: DenominatorEncounter After # Late
+        start_date: 2017-01-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorEncounter DifferentProvider # Different denominator signing provider
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorAnesthesia Before # Early
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorAnesthesia Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4115F-8P
+      - name: DenominatorAnesthesia Upper # Upper Bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4115F-8P
+      - name: DenominatorAnesthesia After # Late
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: 4115F Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4115F-8P
+      - name: 4115F Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4115F
+      - name: 4115F Upper # Upper bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4115F
+      - name: 4115F After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4115F-8P
+      - name: BetaBlocker Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4115F-8P
+      - name: BetaBlocker Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4115F
+      - name: BetaBlocker Upper # Upper bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4115F
+      - name: BetaBlocker After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4115F-8P
+      - name: Exception4115F-1P Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4115F-8P
+      - name: Exception4115F-1P Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: 4115F-1P
+        numerator:
+      - name: Exception4115F-1P Upper # Upper Bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: 4115F-1P
+        numerator:
+      - name: Exception4115F-1P After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4115F-8P
+      - name: ExceptionAllergy Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4115F-8P
+      - name: ExceptionAllergy Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion: 4115F-1P
+        denominator_exception:
+        numerator:
+      - name: ExceptionAllergy Upper # Upper Bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion: 4115F-1P
+        denominator_exception:
+        numerator:
+      - name: ExceptionAllergy After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: 4115F-8P
+providers:
+  - given_name: Rachel
+    family_name:  Katz
+    credential: DO
+    primary_specialty:  Family Medicine
+    external_id: '111-111'
+  - given_name: Patty
+    family_name:  Smith
+    credential: MD
+    primary_specialty:  Family Medicine
+    external_id: '222-222'
+patients:
+  - name: Too Young
+    attributes:
+      date_of_birth: 1998-02-02 # Too late
+      given_name: Too
+      family_name: Young
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+  - name: Age Lower
+    attributes:
+      date_of_birth: 1998-02-01 # Lower bound
+      given_name: Age
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+  - name: DenominatorEncounter Before
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: DenominatorEncounter
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2015-12-31 # Too early
+        stop_date: 2015-12-31
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2015-12-31
+        stop_date: 2015-12-31
+  - name: DenominatorEncounter Lower
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: DenominatorEncounter
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-01-01 # Lower bound
+        stop_date: 2016-01-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-01-01
+        stop_date: 2016-01-01
+  - name: DenominatorEncounter Upper
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: DenominatorEncounter
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-12-31 # Upper bound
+        stop_date: 2016-12-31
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-12-31
+        stop_date: 2016-12-31
+  - name: DenominatorEncounter After
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: DenominatorEncounter
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2017-01-01 # Too late
+        stop_date: 2017-01-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2017-01-01
+        stop_date: 2017-01-01
+  - name: DenominatorEncounter DifferentProvider
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: DenominatorEncounter
+      family_name: DifferentProvider
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Patty # Different signing provider
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+  - name: DenominatorAnesthesia Before
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: DenominatorAnesthesia
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-01-31 # Too early
+        stop_date: 2016-01-31
+  - name: DenominatorAnesthesia Lower
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: DenominatorAnesthesia
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01 # Lower bound
+        stop_date: 2016-02-01
+  - name: DenominatorAnesthesia Upper
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: DenominatorAnesthesia
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-02 # Upper bound
+        stop_date: 2016-02-02
+  - name: DenominatorAnesthesia After
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: DenominatorAnesthesia
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-03
+        stop_date: 2016-02-03
+  - name: 4115F Before
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: 4115F
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: 4115F
+        start_date: 2016-01-30 # Too early
+  - name: 4115F Lower
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: 4115F
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: 4115F
+        start_date: 2016-01-31 # Lower bound
+  - name: 4115F Upper
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: 4115F
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: 4115F
+        start_date: 2016-02-01 # Upper bound
+  - name: 4115F After
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: 4115F
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: 4115F
+        start_date: 2016-02-02 # Too late
+  - name: BetaBlocker Before
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: BetaBlocker
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      medications:
+      - code_type: RXNORM
+        code_value: 1191185 # Beta-blocker
+        start_date: 2016-01-30 # Too early
+  - name: BetaBlocker Lower
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: BetaBlocker
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      medications:
+      - code_type: RXNORM
+        code_value: 1191185 # Beta-blocker
+        start_date: 2016-01-31 # Lower bound
+  - name: BetaBlocker Upper
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: BetaBlocker
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      medications:
+      - code_type: RXNORM
+        code_value: 1191185 # Beta-blocker
+        start_date: 2016-02-01 # Upper bound
+  - name: BetaBlocker After
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: BetaBlocker
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      medications:
+      - code_type: RXNORM
+        code_value: 1191185 # Beta-blocker
+        start_date: 2016-02-02 # Too late
+  - name: Exception4115F-1P Before
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: Exception4115F-1P
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: 4115F
+        code_modifiers: ['1P']
+        start_date: 2016-01-30 # Too early
+  - name: Exception4115F-1P Lower
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: Exception4115F-1P
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: 4115F
+        code_modifiers: ['1P']
+        start_date: 2016-01-31 # Lower bound
+  - name: Exception4115F-1P Upper
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: Exception4115F-1P
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: 4115F
+        code_modifiers: ['1P']
+        start_date: 2016-02-01 # Upper bound
+  - name: Exception4115F-1P After
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: Exception4115F-1P
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: 4115F
+        code_modifiers: ['1P']
+        start_date: 2016-02-02 # Too late
+  - name: ExceptionAllergy Before
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: ExceptionAllergy
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      allergies:
+      - code_type: RXNORM
+        code_value: 1191185 # Beta-blocker
+        start_date: 2010-01-01
+        stop_date: 2016-01-31 # Too early
+  - name: ExceptionAllergy Lower
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: ExceptionAllergy
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      allergies:
+      - code_type: RXNORM
+        code_value: 1191185 # Beta-blocker
+        start_date: 2010-01-01
+        stop_date: 2016-02-01 # Lower bound
+  - name: ExceptionAllergy Upper
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: ExceptionAllergy
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      allergies:
+      - code_type: RXNORM
+        code_value: 1191185 # Beta-blocker
+        start_date: 2016-02-01 # Upper bound
+  - name: ExceptionAllergy After
+    attributes:
+      date_of_birth: 1990-01-01
+      given_name: ExceptionAllergy
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 33510 # CABG
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: '00562' # Anesthesia
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      allergies:
+      - code_type: RXNORM
+        code_value: 1191185 # Beta-blocker
+        start_date: 2016-02-02 # Too late
