@@ -1,0 +1,123 @@
+---
+measure:
+  name: 18.MIPS.Mips402
+  required:
+    display_title: Tobacco Use and Help with Quitting Among Adolescents
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: 402
+  optional:
+    description: 'The percentage of adolescents 12 to 20 years of age with a primary
+      care visit during the measurement year for whom tobacco use status was documented
+      and received help with quitting if identified as a tobacco user'
+    gap_resolution_action: Patient is due for a tobacco screening or cessation intervention
+    version: 2018
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'Allergy/Immunology, Internal Medicine, Cardiology, Dermatology,
+      Emergency Medicine, Gastroenterology, General Surgery, General Oncology, Hospitalists,
+      Neurology, Obstetrics/Gynecology, Ophthalmology, Orthopedic Surgery, Otolaryngology,
+      Physical Medicine, Preventive Medicine, Rheumatology, Thoracic Surgery, Urology,
+      Vascular Surgery, Mental/Behavioral Health, Plastic Surgery, General Practice/Family
+      Medicine, Pediatrics'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 12-20 years with a visit during the measurement
+    period'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 402 Encounter
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patients who were screened for tobacco use at least once within 18
+    months (during the measurement period or the six months prior to the measurement
+    period) AND who received tobacco cessation counseling intervention if identified
+    as a tobacco user'
+  reasons:
+  - config_link_id: G9458
+    code_value: G9458
+    display_title: G9458
+    description: Patient identified as a tobacco user and received tobacco cessation
+      intervention
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9458'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9458'
+          modifier: 'None'
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: Tobacco User
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Tobacco User
+        - model: Diagnosis
+          value_set: VSAC; Tobacco User
+      - logical_operator: 'AND'
+        display_title: Tobacco Cessation Counseling
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: Able; Tobacco Use Cessation Counseling
+        - model: Diagnosis
+          value_set: Able; Tobacco Use Cessation Intervention Diagnoses
+  - config_link_id: G9459
+    code_value: G9459
+    display_title: G9459
+    description: Patient identified as a tobacco non-user
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9459'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9459'
+          modifier: 'None'
+    - logical_operator: 'OR'
+      validation_record_table_count: 1
+      components:
+      - display_title: Tobacco Non-User
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: Able; Tobacco Non-User
+        - model: Diagnosis
+          value_set: Able; Tobacco Non-User
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9460
+    code_value: G9460
+    display_title: G9460
+    description: Tobacco screening or tobacco cessation intervention not performed,
+      reason not otherwise specified
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9460'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9460'
+          modifier: 'None'

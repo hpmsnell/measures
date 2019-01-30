@@ -34,6 +34,7 @@ valueset "VSAC; Tobacco Use Cessation Pharmacotherapy": '2.16.840.1.113883.3.526
 // Able value Sets
 
 valueset "Able; Never Tobacco User"
+valueset "Able; Tobacco Use Cessation Intervention Diagnoses"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -121,6 +122,8 @@ define "Numerator Performance Met: 4004F":
         where I.relevantPeriod starts during "Tobacco Interval")
       or exists(["Medication": "VSAC; Tobacco Use Cessation Pharmacotherapy"] M
         where M.relevantPeriod overlaps "Tobacco Interval")
+      or exists(["Diagnosis": "Able; Tobacco Use Cessation Intervention Diagnoses"] D
+        where D.prevalencePeriod starts during "Tobacco Interval")
     )
   )
 
