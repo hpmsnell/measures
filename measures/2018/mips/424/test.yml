@@ -1,0 +1,792 @@
+measure_id: measure.Mips.2018.Mips424
+test_set_keys:
+  organization_key:
+    episodes_of_care:
+    - name: DenominatorEncounter Before # Early
+      start_date: 2015-12-31
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter Lower # Lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9773
+    - name: DenominatorEncounter Upper # Upper Bound
+      start_date: 2016-12-31
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9773
+    - name: DenominatorEncounter After # Late
+      start_date: 2017-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter DifferentProvider # Different denominator signing provider
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9773
+    - name: Denominator60Minutes Before # Early
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Denominator60Minutes Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9773
+    - name: Denominator60Minutes Upper # Upper Bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9773
+    - name: Denominator60Minutes After # Late
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionG9654 Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9773
+    - name: ExclusionG9654 Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion: G9654
+      denominator_exception:
+      numerator:
+    - name: ExclusionG9654 Upper # Upper bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion: G9654
+      denominator_exception:
+      numerator:
+    - name: ExclusionG9654 After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9773
+    - name: ExclusionG9770 Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9773
+    - name: ExclusionG9770 Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion: G9770
+      denominator_exception:
+      numerator:
+    - name: ExclusionG9770 Upper # Upper bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion: G9770
+      denominator_exception:
+      numerator:
+    - name: ExclusionG9770 After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9773
+    - name: G9771 Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9773
+    - name: G9771 Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9771
+    - name: G9771 Upper # Upper bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9771
+    - name: G9771 After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9773
+    - name: G9772 Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9773
+    - name: G9772 Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9772
+      numerator:
+    - name: G9772 Upper # Upper bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9772
+      numerator:
+    - name: G9772 After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9773
+  providers_key:
+    - name: Rachel
+      episodes_of_care:
+      - name: DenominatorEncounter Before # Early
+        start_date: 2015-12-31
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorEncounter Lower # Lower bound
+        start_date: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9773
+      - name: DenominatorEncounter Upper # Upper Bound
+        start_date: 2016-12-31
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9773
+      - name: DenominatorEncounter After # Late
+        start_date: 2017-01-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorEncounter DifferentProvider # Different denominator signing provider
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator60Minutes Before # Early
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Denominator60Minutes Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9773
+      - name: Denominator60Minutes Upper # Upper Bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9773
+      - name: Denominator60Minutes After # Late
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: ExclusionG9654 Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9773
+      - name: ExclusionG9654 Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion: G9654
+        denominator_exception:
+        numerator:
+      - name: ExclusionG9654 Upper # Upper bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion: G9654
+        denominator_exception:
+        numerator:
+      - name: ExclusionG9654 After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9773
+      - name: ExclusionG9770 Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9773
+      - name: ExclusionG9770 Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion: G9770
+        denominator_exception:
+        numerator:
+      - name: ExclusionG9770 Upper # Upper bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion: G9770
+        denominator_exception:
+        numerator:
+      - name: ExclusionG9770 After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9773
+      - name: G9771 Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9773
+      - name: G9771 Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9771
+      - name: G9771 Upper # Upper bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9771
+      - name: G9771 After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9773
+      - name: G9772 Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9773
+      - name: G9772 Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G9772
+        numerator:
+      - name: G9772 Upper # Upper bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: G9772
+        numerator:
+      - name: G9772 After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: G9773
+providers:
+  - given_name: Rachel
+    family_name:  Katz
+    credential: DO
+    primary_specialty:  Family Medicine
+    external_id: '111-111'
+  - given_name: Patty
+    family_name:  Smith
+    credential: MD
+    primary_specialty:  Family Medicine
+    external_id: '222-222'
+patients:
+  - name: DenominatorEncounter Before
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorEncounter
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2015-12-31 # Too early
+        stop_date: 2015-12-31
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2015-12-31
+        stop_date: 2015-12-31
+  - name: DenominatorEncounter Lower
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorEncounter
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-01-01 # Lower bound
+        stop_date: 2016-01-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-01-01
+        stop_date: 2016-01-01
+  - name: DenominatorEncounter Upper
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorEncounter
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-12-31 # Upper bound
+        stop_date: 2016-12-31
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-12-31
+        stop_date: 2016-12-31
+  - name: DenominatorEncounter After
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorEncounter
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2017-01-01 # Too late
+        stop_date: 2017-01-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2017-01-01
+        stop_date: 2017-01-01
+  - name: DenominatorEncounter DifferentProvider
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorEncounter
+      family_name: DifferentProvider
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Patty # Different signing provider
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+  - name: Denominator60Minutes Before
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: Denominator60Minutes
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-01-31 # Too early
+        stop_date: 2016-01-31
+  - name: Denominator60Minutes Lower
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: Denominator60Minutes
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-01 # Lower bound
+        stop_date: 2016-02-01
+  - name: Denominator60Minutes Upper
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: Denominator60Minutes
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-02 # Upper bound
+        stop_date: 2016-02-02
+  - name: Denominator60Minutes After
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: Denominator60Minutes
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-03 # Too late
+        stop_date: 2016-02-03
+  - name: ExclusionG9654 Before
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: ExclusionG9654
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: G9654
+        start_date: 2016-01-31 # Too early
+  - name: ExclusionG9654 Lower
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: ExclusionG9654
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: G9654
+        start_date: 2016-02-01 # Lower bound
+  - name: ExclusionG9654 Upper
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: ExclusionG9654
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: G9654
+        start_date: 2016-02-02 # Upper bound
+  - name: ExclusionG9654 After
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: ExclusionG9654
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: G9654
+        start_date: 2016-02-03 # Too late
+  - name: ExclusionG9770 Before
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: ExclusionG9770
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: G9770
+        start_date: 2016-01-31 # Too early
+  - name: ExclusionG9770 Lower
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: ExclusionG9770
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: G9770
+        start_date: 2016-02-01 # Lower bound
+  - name: ExclusionG9770 Upper
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: ExclusionG9770
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: G9770
+        start_date: 2016-02-02 # Upper bound
+  - name: ExclusionG9770 After
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: ExclusionG9770
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: G9770
+        start_date: 2016-02-03 # Too late
+  - name: G9771 Before
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: G9771
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: G9771
+        start_date: 2016-01-31 # Too early
+  - name: G9771 Lower
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: G9771
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: G9771
+        start_date: 2016-02-01 # Lower bound
+  - name: G9771 Upper
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: G9771
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: G9771
+        start_date: 2016-02-02 # Upper bound
+  - name: G9771 After
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: G9771
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: G9771
+        start_date: 2016-02-03 # Too late
+  - name: G9772 Before
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: G9772
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: G9772
+        start_date: 2016-01-31 # Too early
+  - name: G9772 Lower
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: G9772
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: G9772
+        start_date: 2016-02-01 # Lower bound
+  - name: G9772 Upper
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: G9772
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: G9772
+        start_date: 2016-02-02 # Upper bound
+  - name: G9772 After
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: G9772
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: '00100' # Anesthesia procedure
+        start_date: 2016-02-01
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: 4255F # 60 minutes
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_type: CPT
+        code_value: G9772
+        start_date: 2016-02-03 # Too late
