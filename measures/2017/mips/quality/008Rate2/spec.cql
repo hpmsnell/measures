@@ -12,6 +12,10 @@ library MIPS_008Rate2_2017 version '1'
 
 using QDM
 
+// Able value sets
+
+valueset "ABLE; Moderate or Severe LVSD"
+
 // MIPS value sets
 
 valueset "MIPS; MIPS 008 Discharge"
@@ -42,6 +46,7 @@ context Patient
 define "LVEF <40%":
     ["Assessment, Performed": "MIPS; LVEF <40%"]
     union ["Diagnosis": "VSAC; Moderate or Severe LVSD"]
+    union ["Assessment, Performed": "ABLE; Moderate or Severe LVSD"]
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 008 Discharge"] E
