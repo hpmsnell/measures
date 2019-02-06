@@ -12,6 +12,10 @@ library MIPS_005Rate2_2018 version '1'
 
 using QDM
 
+// ABLE value sets
+
+valueset "ABLE; Moderate or Severe LVSD"
+
 // MIPS value sets
 
 valueset "MIPS; MIPS 005 Discharge"
@@ -35,6 +39,11 @@ parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
+define "Depressed Left Ventricular Systolic Function":
+    ["Assessment, Performed": "MIPS; Depressed Left Ventricular Systolic Function"]
+    union ["Diagnosis": "VSAC; Moderate or Severe LVSD"]
+    union ["Assessment, Performed": "ABLE; Moderate or Severe LVSD"]
+
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 005 Discharge"] E
     where E.relevantPeriod starts during "Denominator Period"
@@ -42,7 +51,7 @@ define "Denominator Encounter":
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Heart Failure"] D
       such that D.prevalencePeriod starts during E.relevantPeriod
-    with ["Assessment, Performed": "MIPS; Depressed Left Ventricular Systolic Function"] P
+    with "Depressed Left Ventricular Systolic Function" P
       such that P.relevantPeriod starts during D.prevalencePeriod
 
 define "Denominator":
