@@ -11,6 +11,11 @@ library MIPS_238Rate2_2017 version '1'
 
 using QDM
 
+// ABLE value sets
+
+valueset "ABLE; Methocarbamol":
+valueset "ABLE; Estradiol":
+
 // MIPS value sets
 
 valueset "MIPS; MIPS 238 Encounter"
