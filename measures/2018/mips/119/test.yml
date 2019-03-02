@@ -1,4 +1,4 @@
-measure_id: 17.Mips.Mips119
+measure_id: 18.MIPS.Mips119
 test_set_keys:
   organization_key:
     patients:
@@ -1002,7 +1002,7 @@ patients:
       - code_type: LOINC
         code_value: 50949-7
         start_date: 2016-01-01
-        result: 3 mg
+        result_as_decimal: 29.9
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
@@ -1023,7 +1023,6 @@ patients:
       - code_type: LOINC
         code_value: 50949-7
         start_date: 2016-01-01
-        result: ""
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
@@ -1120,7 +1119,7 @@ patients:
       - code_type: LOINC
         code_value: 50949-7
         start_date: 2016-01-01
-        result: 100 mg
+        result_as_decimal: 30
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
@@ -1217,7 +1216,7 @@ patients:
       - code_type: LOINC
         code_value: 24357-6
         start_date: 2016-01-01
-        result: 400 mg
+        result_as_decimal: 30
       diagnoses:
       - code_type: ICD10CM
         code_value: E13.3522
@@ -1585,7 +1584,8 @@ patients:
         start_date: 2016-02-01
         provider: Patty
       - code_type: CPT
-        code_value: 3060F-8P
+        code_value: 3060F
+        code_modifiers: ['8P']
         start_date: 2016-03-01
       diagnoses:
       - code_type: ICD10CM
@@ -1604,7 +1604,8 @@ patients:
         start_date: 2016-02-01
         provider: Patty
       - code_type: CPT
-        code_value: 3061F-8P
+        code_value: 3061F
+        code_modifiers: ['8P']
         start_date: 2016-03-01
       diagnoses:
       - code_type: ICD10CM
@@ -1623,7 +1624,8 @@ patients:
         start_date: 2016-02-01
         provider: Patty
       - code_type: CPT
-        code_value: 3062F-8P
+        code_value: 3062F
+        code_modifiers: ['8P']
         start_date: 2016-03-01
       diagnoses:
       - code_type: ICD10CM
