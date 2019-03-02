@@ -113,7 +113,7 @@ define "Numerator Performance Met: 3061F":
   or exists("Microalbumin Tests" L
     where L.resultDateTime during "Measurement Period"
       and L.result >= 30
-      and L.result >= 300)
+      and L.result <= 300)
 
 define "Numerator Performance Met: 3062F":
   /*
