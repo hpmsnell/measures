@@ -48,7 +48,6 @@ define "Denominator":
   and exists(["Encounter, Performed": "MIPS; MIPS 112 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period")
     and E.signingProvider.hasMeasureMembership = true
-    and not E.placeOfService in {'32','33','34','54','56'}
 
 define "Denominator Exclusion 1":
   /*
@@ -88,8 +87,13 @@ define "Denominator Exclusion 3":
  /*
   * config_link_id: exclusion_3
   */
- exists(["Procedure, Performed": "MIPS; Denominator Exclusion: G9898"] P
-   where P.relevantPeriod starts during "Measurement Period")
+ exists(["Procedure, Performed": "MIPS; Institutional Exclusion"] P
+   where P.relevantPeriod starts during "Measurement Period"
+     and AgeInyearsAt(start of P.relevantPeriod) >= 65)
+ or exists(["Procedure, Performed": "VSAC; Care Services in Long-Term Residential Facility"] P
+   where P.relevantPeriod starts during "Measurement Period"
+     and P.placeOfService in {'32', '33', '34', '54', '56'}
+     and AgeInyearsAt(start of P.relevantPeriod) >= 65)
 
 define "Numerator Performance Met: G9899":
   /*

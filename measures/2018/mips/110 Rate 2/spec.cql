@@ -62,7 +62,7 @@ define "Numerator Performance Met: G8482":
   /*
   * config_link_id: G8482
   */
-  exists(["Procedure, Performed": "MIPS; Performance Met: G8482"] P
+  exists("Influenza Vaccine" P
     where P.relevantPeriod during [5 months before end of "Measurement Period", end of "Measurement Period"])
 
 define "Denominator Exception: G8483":

@@ -49,7 +49,6 @@ define "Denominator Encounter":
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and AgeInYearsAt(start of E.relevantPeriod) < 85
       and E.signingProvider.hasMeasureMembership = true
-      and not E.placeOfService in {'32','33','34','54','56'}
 
 define "Excluded Diagnoses":
   ["Diagnosis": "VSAC; End Stage Renal Disease"]
@@ -84,7 +83,7 @@ define "Good Most Recent Systolic Blood Pressure":
     where E.relevantPeriod starts during "Measurement Period"
     with ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] S
       such that
-        S.relevantPeriod starts during E.relevantPeriod
+        S.relevantPeriod starts same day as start of E.relevantPeriod
         and S.result < 140
 
 define "Bad Most Recent Systolic Blood Pressure":
@@ -92,7 +91,7 @@ define "Bad Most Recent Systolic Blood Pressure":
     where E.relevantPeriod starts during "Measurement Period"
     with ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] S
       such that
-        S.relevantPeriod starts during E.relevantPeriod
+        S.relevantPeriod starts same day as start of E.relevantPeriod
         and S.result >= 140
 
 /* Populations */
@@ -131,7 +130,7 @@ define "Denominator Exclusion 3":
   exists(["Procedure, Performed": "MIPS; Institutional Exclusion"] P
     where P.relevantPeriod starts during "Measurement Period"
       and AgeInyearsAt(start of P.relevantPeriod) >= 65)
-  exists(["Procedure, Performed": "VSAC; Care Services in Long-Term Residential Facility"] P
+  or exists(["Procedure, Performed": "VSAC; Care Services in Long-Term Residential Facility"] P
     where P.relevantPeriod starts during "Measurement Period"
       and P.placeOfService in {'32', '33', '34', '54', '56'}
       and AgeInyearsAt(start of P.relevantPeriod) >= 65)

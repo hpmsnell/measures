@@ -38,6 +38,8 @@ define "Denominator Encounter":
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and AgeInYearsAt(start of E.relevantPeriod) < 75
       and E.signingProvider.hasMeasureMembership = true
+    with ["Diagnosis": "MIPS; Diabetes"] D
+      such that D.prevalencePeriod overlaps E.relevantPeriod
 
 define "Ordered HbA1c Tests":
   ["Laboratory Test, Performed": "VSAC; HbA1c Laboratory Test"] L
@@ -46,8 +48,6 @@ define "Ordered HbA1c Tests":
 
 define "Denominator":
   exists("Denominator Encounter")
-  and exists(["Diagnosis": "MIPS; Diabetes"] D
-    where D.prevalencePeriod overlaps "Denominator Period")
 
 define "Denominator Exclusion":
   /*
@@ -71,7 +71,7 @@ define "Numerator Performance Met: 3046F-8P":
    * config_link_id: 3046F-8P
    */
   not exists("Ordered HbA1c Tests")
-  or Last("Ordered HbA1c Tests").result is not Decimal
+  or Last("Ordered HbA1c Tests").result = null
   or exists([Procedure, Performed: "MIPS; Performance Met: 3046F-8P"] P
     where P.relevantPeriod starts during "Measurement Period")
 
