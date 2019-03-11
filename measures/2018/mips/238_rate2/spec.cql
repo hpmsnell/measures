@@ -15,6 +15,7 @@ using QDM
 
 valueset "ABLE; Methocarbamol":
 valueset "ABLE; Estradiol":
+valueset "ABLE; Nortiptyline":
 
 // MIPS value sets
 
@@ -95,7 +96,6 @@ valueset "VSAC; Drospirenone / Estradiol": 'urn:oid:2.16.840.1.113883.3.464.1003
 valueset "VSAC; Esterified Estrogens": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1419'
 valueset "VSAC; Esterified Estrogens / Methyltestosterone": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1320'
 valueset "VSAC; Estradiol": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1365'
-valueset "ABLE; Estradiol"
 valueset "VSAC; Estradiol / Norethindrone": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1323'
 valueset "VSAC; Estropipate": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1319'
 valueset "VSAC; Glyburide": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1368'
@@ -115,7 +115,6 @@ valueset "VSAC; Meperidine": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1351'
 valueset "VSAC; Meprobamate": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1284'
 valueset "VSAC; Metaxalone": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1358'
 valueset "VSAC; Methocarbamol": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1370'
-valueset "ABLE; Methocarbamol"
 valueset "VSAC; Methyldopa": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1331'
 valueset "VSAC; Nifedipine": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1353'
 valueset "VSAC; Nonbenzodiazepine hypnotics": 'urn:oid:2.16.840.1.113883.3.464.1003.196.12.1480'
@@ -278,6 +277,9 @@ define "Medication List":
 		or "More than 1 Of"(["Medication, Order": "VSAC; Trihexyphenidyl"])
 		or "More than 1 Of"(["Medication, Order": "VSAC; Trimipramine"])
 		or "More than 1 Of"(["Medication, Order": "VSAC; Triprolidine"])
+		or "More than 1 Of"(["Medication, Order": "ABLE; Methocarbamol"])
+		or "More than 1 Of"(["Medication, Order": "ABLE; Estradiol"])
+		or "More than 1 Of"(["Medication, Order": "ABLE; Nortiptyline"])
 
 define "Nonbenzodiazepine_Hypnotics":
 	//Nonbenzodiazepine hypnotics

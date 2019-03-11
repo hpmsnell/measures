@@ -43,10 +43,10 @@ define "Hospice":
   union ["Intervention, Performed": "VSAC; Palliative Care"]
 
 define "Order For High Risk Medication":
-	["Medication, Order": "VSAC; High Risk Medications for the Elderly"]
-		where HighRiskMedicationOrder.authorDatetime during "Measurement Period"
-  union ["Medication, Order": "ABLE; High Risk Medications for the Elderly"]
-		where HighRiskMedicationOrder.authorDatetime during "Measurement Period"
+  ["Medication, Order": "VSAC; High Risk Medications for the Elderly"] HighRiskMedicationOrder
+    where HighRiskMedicationOrder.authorDatetime during "Measurement Period"
+  union ["Medication, Order": "ABLE; High Risk Medications for the Elderly"] HighRiskMedicationOrder
+    where HighRiskMedicationOrder.authorDatetime during "Measurement Period"
 
 define "High Risk Medications With Prolonged Duration":
 	["Medication, Order": "VSAC; High-Risk Medications With Days Supply Criteria"] HighRiskMedicationOrder
