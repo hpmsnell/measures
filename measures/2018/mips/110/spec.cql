@@ -1,8 +1,8 @@
-library MIPS_110_Rate1_2018 version '1'
+library MIPS_110_2018 version '2'
 
 /*
  * Source: MIPS
- * ID: 110 Rate 1
+ * ID: 110
  * Year: 2018
  * Written By: Steve Daniels
  */
@@ -31,17 +31,28 @@ context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; 110 Encounter"] E
-    where E.relevantPeriod starts during [start of "Measurement Period", 3 months after start of "Measurement Period"]
-      and AgeInYearsAt(start of E.relevantPeriod) >= 6 months
+    where AgeInYearsAt(start of E.relevantPeriod) >= 6 months
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {'GQ','GT','95'}
       and not E.placeOfService in {'02'}
 
+define "Denominator Encounter During Any Flu Season":
+  "Denominator Encounter"
+    where E.relevantPeriod starts during [start of "Measurement Period", 3 months after start of "Measurement Period"] or during [3 months before end of "Measurement Period", end of "Measurement Period"]
+
+define "Denominator Encounter During First Flu Season":
+  "Denominator Encounter"
+    where E.relevantPeriod starts during [start of "Measurement Period", 3 months after start of "Measurement Period"]
+
+define "Denominator Encounter During Second Flu Season":
+  "Denominator Encounter"
+    where E.relevantPeriod starts during [3 months before end of "Measurement Period", end of "Measurement Period"]
+
 define "Influenza Vaccine":
   ["Procedure, Performed": "MIPS; Performance Met: G8482"]
-  union ["Medication, Administered": "Influenza Vaccine"]
-  union ["Procedure, Performed": "Influenza Vaccination"]
-  union ["Communication: From Patient to Provider": "Previous Receipt of Influenza Vaccine"]
+  union ["Medication, Administered": "VSAC; Influenza Vaccine"]
+  union ["Procedure, Performed": "VSAC; Influenza Vaccination"]
+  union ["Communication: From Patient to Provider": "VSAC; Previous Receipt of Influenza Vaccine"]
 
 define "Exception Allergy":
   ["Diagnosis": "VSAC; Allergy to Influenza Vaccine"]
@@ -56,23 +67,31 @@ define "Exception Procedure":
 /* Populations */
 
 define "Denominator":
-  exists("Denominator Encounter")
+  exists("Denominator Encounter During Any Flu Season")
 
 define "Numerator Performance Met: G8482":
   /*
   * config_link_id: G8482
   */
-  exists(["Procedure, Performed": "MIPS; Performance Met: G8482"] P
-    where P.relevantPeriod during [5 months before start of "Measurement Period", 3 months after start of "Measurement Period"])
+  (
+    exists("Denominator Encounter During First Flu Season")
+    and exists("Influenza Vaccine" P
+      where P.relevantPeriod during [5 months before start of "Measurement Period", 3 months after start of "Measurement Period"])
+  )
+  or (
+    exists("Denominator Encounter During Second Flu Season")
+    and exists("Influenza Vaccine" P
+      where P.relevantPeriod during [5 months before end of "Measurement Period", end of "Measurement Period"]))
+  )
 
 define "Denominator Exception: G8483":
   /*
   * config_link_id: G8483
   */
-  exists("Denominator Encounter" E
+  exists("Denominator Encounter During Any Flu Season" E
     with "Exception Allergy" A
       such that A.prevalencePeriod overlaps E.relevantPeriod)
-  or exists("Denominator Encounter" E
+  or exists("Denominator Encounter During Any Flu Season" E
     with "Exception Procedure" P
       such that P.relevantPeriod starts during E.relevantPeriod)
 

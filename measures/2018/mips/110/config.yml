@@ -1,8 +1,8 @@
 ---
 measure:
-  name: 18.MIPS.Mips110Rate1
+  name: 18.MIPS.Mips110
   required:
-    display_title: 'Preventative Care and Screening: Influenza Immunization: January - March'
+    display_title: 'Preventative Care and Screening: Influenza Immunization'
     inverse: false
     subject_type: Patient
     set: MIPS
@@ -11,8 +11,8 @@ measure:
     version:
   optional:
     description: 'Percentage of patients aged 6 months and older seen for a visit
-      between January 1 and March 31 who received an influenza immunization OR who
-      reported previous receipt of an influenza immunization'
+      between January 1 and March 31 or between October 1 and December 31 who received
+      an influenza immunization OR who reported previous receipt of an influenza immunization'
     gap_resolution_action: Patient is due for influenza vaccination or missed one
       last influenza season
     version: 2018
@@ -26,7 +26,8 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: 'All patients aged 6 months and older seen for a visit during January 1 and March 31'
+  description: 'All patients aged 6 months and older seen for a visit during January 1 and March 31
+    or during October 1 and December 31'
   component_groups:
   - validation_record_table_count: 10
     components:
