@@ -1,4 +1,4 @@
-library MIPS_338_2018 version '1'
+library MIPS_340_2018 version '1'
 
 /*
  * Source: MIPS
