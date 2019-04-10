@@ -31,6 +31,8 @@ valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 // MIPS value sets
 
 valueset "MIPS; MIPS Hospice Service"
+valueset "MIPS; Performance Not Met: 3044F" //HbA1c <7
+
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -57,6 +59,8 @@ define "Numerator Performance Met: Controlled HbA1c":
    * config_link_id: hba1c_controlled
    */
   "Last HbA1c Result" < 8
+  or exists([Procedure, Performed: "MIPS; Performance Not Met: 3044F"] P
+    where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met: High HbA1c":
   /*

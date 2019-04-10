@@ -15,6 +15,7 @@ using QDM
 // MIPS value sets
 
 valueset "MIPS; MIPS Hospice Service"
+valueset "MIPS; Performance Met: G9820" //Chlamydia Screening
 
 // HEDIS value sets
 
@@ -93,6 +94,7 @@ define "Retinoid or Diagnostic Radiology":
 define "Chlamydia Tests":
   ["Procedure, Performed": "HEDIS; Chlamydia Tests"]
   union ["Laboratory Test, Performed": "HEDIS; Chlamydia Tests"]
+  union ["Procedure, Performed": "MIPS; Performance Met: G9820"]
 
 // Populations
 

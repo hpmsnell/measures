@@ -15,6 +15,8 @@ using QDM
 // MIPS value sets
 
 valueset "MIPS; MIPS Hospice Service"
+valueset "MIPS; Performance Met: 3095F" //Bone Mineral Density Tests
+valueset "MIPS; Performance Met: G8633" //Osteoporosis Medication
 
 // HEDIS value sets
 
@@ -71,6 +73,10 @@ define "First Fracture During Index Period Has Prior Diagnosis":
     with "Encounter With Fracture" E2
       such that E2.relevantPeriod starts 60 days or less before start of E1.relevantPeriod
 
+define "Bone Density Tests":
+  ["Assessment, Performed": "HEDIS; Bone Mineral Density Tests"]
+  union ["Procedure, Performed": "MIPS; Performance Met: 3095F"]
+
 /* Populations */
 
 define "Denominator":
@@ -87,8 +93,11 @@ define "Denominator Exclusion: Prior Treatment":
    * config_link_id: exclusion_1
    */
    exists("First Fracture During Index Period" E
-     with ["Assessment, Performed": "HEDIS; Bone Mineral Density Tests"] A
-       such that A.authorDateTime 730 days or less before start of E.relevantPeriod)
+     with "Bone Density Tests" T
+       such that T.authorDateTime 730 days or less before start of E.relevantPeriod)
+   or exists("First Fracture During Index Period" E
+     with ["Procedure, Performed": "MIPS; Performance Met: G8633"] P
+       such that P.relevantPeriod starts 365 days or less before start of E.relevantPeriod)
    or exists("First Fracture During Index Period" E
      with ["Medication": "HEDIS; Osteoporosis Medications"] M
        such that M.relevantPeriod starts 365 days or less before start of E.relevantPeriod)
@@ -101,8 +110,11 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
    exists("First Fracture During Index Period" E
-     with ["Assessment, Performed": "HEDIS; Bone Mineral Density Tests"] A
-       such that A.authorDateTime on or 180 days or less after start of E.relevantPeriod)
+     with "Bone Density Tests" T
+       such that T.authorDateTime on or 180 days or less after start of E.relevantPeriod)
+   or exists("First Fracture During Index Period" E
+     with ["Procedure, Performed": "MIPS; Performance Met: G8633"] P
+       such that P.relevantPeriod starts on or 180 days after start of E.relevantPeriod)
    or exists("First Fracture During Index Period" E
      with ["Medication": "HEDIS; Osteoporosis Medications"] M
        such that M.relevantPeriod starts on or 180 days after start of E.relevantPeriod)

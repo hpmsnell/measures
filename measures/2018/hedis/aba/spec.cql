@@ -15,6 +15,11 @@ using QDM
 // MIPS value sets
 
 valueset "MIPS; MIPS Hospice Service"
+valueset "MIPS; Performance Met: G8420"
+valueset "MIPS; Performance Met: G8417"
+valueset "MIPS; Performance Met: G8418"
+valueset "MIPS; Denominator Exception: G8416"
+valueset "MIPS; Performance Not Met: G8419"
 
 // HEDIS value sets
 
@@ -47,6 +52,16 @@ define "BMI and Weight Exists":
 define "BMI Exists":
   exists(["Diagnosis": "HEDIS; BMI"] D
     where D.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
+  or exists(["Procedure, Performed": "MIPS; Performance Met: G8420"] P
+      where P.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
+  or exists(["Procedure, Performed": "MIPS; Performance Met: G8417"] P
+      where P.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
+  or exists(["Procedure, Performed": "MIPS; Performance Met: G8418"] P
+      where P.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
+  or exists(["Procedure, Performed": "MIPS; Denominator Exception: G8416"] P
+      where P.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
+  or exists(["Procedure, Performed": "MIPS; Performance Not Met: G8419"] P
+      where P.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
   or "Patient has BMI and Weight"
 
 define "Patient 20+ with BMI":

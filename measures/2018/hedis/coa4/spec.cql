@@ -15,6 +15,8 @@ using QDM
 // MIPS value sets
 
 valueset "MIPS; MIPS Hospice Service"
+valueset "MIPS; Performance Met: G8730" //Pain Assessment
+valueset "MIPS; Performance Met: G8731" //Pain Assessment
 
 // HEDIS value sets
 
@@ -33,6 +35,8 @@ define "Pain Assessment":
   ["Procedure, Performed": "HEDIS; Pain Assessment"]
   union ["Procedure, Performed": "Able; Pain Assessments"]
   union ["Procedure, Performed": "Able; Standardized Pain Assessment Tool"]
+  union ["MIPS; Performance Met: G8730"]
+  union ["MIPS; Performance Met: G8731"]
 
 define "Hospice":
   ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
