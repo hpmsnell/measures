@@ -1,9 +1,9 @@
-library MIPS_137_2018 version '1'
+library MIPS_137_2019 version '1'
 
 /*
  * Source: MIPS
  * ID: 137
- * Year: 2018
+ * Year: 2019
  * Version: 1
  * Author: Steve Daniels
  *
@@ -26,7 +26,7 @@ context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 137 Encounter"] E
-    where E.relevantPeriod starts during [start of "Measurement Period", 3 months before end of "Measurement Period"]
+    where E.relevantPeriod starts during "Measurement Period"
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {'GQ','GT','95'}
       and not E.placeOfService in {'02'}
