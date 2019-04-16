@@ -15,6 +15,8 @@ using QDM
 // MIPS value sets
 
 valueset "MIPS; MIPS Hospice Service"
+valueset "MIPS; History of Total Colectomy or Colorectal Cancer"
+valueset "MIPS; Performance Met: 3017F"
 
 // HEDIS value sets
 
@@ -54,6 +56,8 @@ define "Denominator Exclusion":
     where P.prevalencePeriod starts before end of "Measurement Period")
   or exists(["Procedure, Performed": "HEDIS; Total Colectomy"] P
     where P.relevantPeriod starts before end of "Measurement Period")
+  or exists(["Procedure, Performed": "MIPS; History of Total Colectomy or Colorectal Cancer"] P
+    where P.relevantPeriod starts before end of "Measurement Period")
 
 define "Numerator Performance Met":
   /*
@@ -66,6 +70,7 @@ define "Numerator Performance Met":
   or exists(["Laboratory Test, Performed": "HEDIS; FIT-DNA"] L where L.resultDateTime 3 years or less before end of "Measurement Period")
   or exists(["Procedure, Performed": "HEDIS; FIT-DNA"] L where L.relevantPeriod starts 3 years or less before end of "Measurement Period")
   or exists(["Procedure, Performed": "HEDIS; CT Colonography"] L where L.relevantPeriod starts 5 years or less before end of "Measurement Period")
+  or exists(["Procedure, Performed": "Performance Met: 3017F"] P where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met":
   /*
