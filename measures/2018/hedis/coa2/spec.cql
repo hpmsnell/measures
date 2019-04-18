@@ -30,7 +30,7 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Medication List Exists":
+define "Medication List":
   ["Procedure, Performed": "HEDIS; Medication List"]
   union ["Procedure, Performed": "VSAC; Current Medications Documented SNMD"]
 

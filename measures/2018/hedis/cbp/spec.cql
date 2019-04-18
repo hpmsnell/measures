@@ -18,7 +18,6 @@ valueset "MIPS; MIPS Hospice Service"
 valueset "MIPS; Performance Met: G8752" //Systolic BP <140
 valueset "MIPS; Performance Met: G8754" //Diastolic BP <90
 valueset "MIPS; Performance Met: G8783" //Normal BP
-valueset "MIPS; Performance Met: G8950" //Pre-hypertensive BP
 
 // HEDIS value sets
 
