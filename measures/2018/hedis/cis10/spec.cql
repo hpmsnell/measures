@@ -1,4 +1,4 @@
-library HEDIS_CIS5_2018 version '1'
+library HEDIS_CIS10_2018 version '1'
 
 /*
  *
@@ -54,14 +54,17 @@ valueset "Able; Neomycin Ingredient"
 valueset "Able; Polymyxin B Ingredient"
 valueset "Able; Streptomycin Ingredient"
 valueset "Able; Baker's Yeast"
+valueset "Able; Influenza Vaccine"
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 define "Influenza Procedure":
-  ["Procedure, Performed": "HEDIS; Influenza Vaccine Administered"] P
-    where P.relevantPeriod starts during ["Patient Characteristic Birthdate" + 180 days, "Patient Characteristic Birthdate" + 2 years]
+  exists(["Procedure, Performed": "HEDIS; Influenza Vaccine Administered"] P
+    where P.relevantPeriod starts during ["Patient Characteristic Birthdate" + 180 days, "Patient Characteristic Birthdate" + 2 years])
+  or exists(["Procedure, Performed": "Able; Influenza Vaccine"] P
+    where P.relevantPeriod starts during ["Patient Characteristic Birthdate" + 180 days, "Patient Characteristic Birthdate" + 2 years])
 
 define "Influenza Medication":
   ["Medication, Administered": "HEDIS; Influenza Vaccine Administered"] M

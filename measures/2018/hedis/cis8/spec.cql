@@ -1,4 +1,4 @@
-library HEDIS_CIS6_2018 version '1'
+library HEDIS_CIS8_2018 version '1'
 
 /*
  *
@@ -55,12 +55,17 @@ valueset "Able; Neomycin Ingredient"
 valueset "Able; Polymyxin B Ingredient"
 valueset "Able; Streptomycin Ingredient"
 valueset "Able; Baker's Yeast"
+valueset "Able; Hepatitis A Vaccine"
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 // Populations
+
+define "Hepatitis A Vaccine Administered"
+  ["Procedure, Performed": "HEDIS; Hepatitis A Vaccine Administered"]
+  union ["Procedure, Performed": "Able; Hepatitis A Vaccine"]
 
 define "Denominator":
   "CIS1 Denominator"
@@ -75,7 +80,7 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists(["Procedure, Performed": "HEDIS; Hepatitis A Vaccine Administered"] P
+  exists("Hepatitis A Vaccine Administered" P
     where P.relevantPeriod starts on or before "Patient Characteristic Birthdate" + 2 years)
   or exists(["Medication, Administered": "HEDIS; Hepatitis A Vaccine Administered"] M
     where M.authorDateTime on or before "Patient Characteristic Birthdate" + 2 years)

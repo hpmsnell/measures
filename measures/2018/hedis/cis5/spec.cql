@@ -55,14 +55,19 @@ valueset "Able; Neomycin Ingredient"
 valueset "Able; Polymyxin B Ingredient"
 valueset "Able; Streptomycin Ingredient"
 valueset "Able; Baker's Yeast"
+valueset "Able; Hepatitis B Vaccine"
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
+define "Hepatitis B Vaccine Administered"
+  ["Procedure, Performed": "HEDIS; Hepatitis B Vaccine Administered"]
+  union ["Procedure, Performed": "Able; Hepatitis B Vaccine"]
+
 define "Hepatitis B Procedure":
-  ["Procedure, Performed": "HEDIS; Hepatitis B Vaccine Administered"] P
-    where P.relevantPeriod starts on or before "Patient Characteristic Birthdate" + 2 years
+  exists("Hepatitis B Vaccine Administered") P
+    where P.relevantPeriod starts on or before "Patient Characteristic Birthdate" + 2 years)
 
 define "Hepatitis B Medication":
   ["Medication, Administered": "HEDIS; Hepatitis B Vaccine Administered"] M
