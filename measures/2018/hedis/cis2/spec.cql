@@ -54,14 +54,17 @@ valueset "Able; Neomycin Ingredient"
 valueset "Able; Polymyxin B Ingredient"
 valueset "Able; Streptomycin Ingredient"
 valueset "Able; Baker's Yeast"
+valueset "Able; IPV Vaccine"
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 define "IPV Procedure":
-  ["Procedure, Performed": "HEDIS; Inactivated Polio Vaccine (IPV) Vaccine Administered"] P
-    where P.relevantPeriod starts during ["Patient Characteristic Birthdate" + 42 days, "Patient Characteristic Birthdate" + 2 years]
+  exists(["Procedure, Performed": "HEDIS; Inactivated Polio Vaccine (IPV) Vaccine Administered"] P
+    where P.relevantPeriod starts during ["Patient Characteristic Birthdate" + 42 days, "Patient Characteristic Birthdate" + 2 years])
+  or exists(["Procedure, Performed": "ABLE; IPV Vaccine"] P
+    where P.relevantPeriod starts during ["Patient Characteristic Birthdate" + 42 days, "Patient Characteristic Birthdate" + 2 years])
 
 define "IPV Medication":
   ["Medication, Administered": "HEDIS; Inactivated Polio Vaccine (IPV) Vaccine Administered"] M

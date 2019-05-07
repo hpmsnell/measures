@@ -54,6 +54,7 @@ valueset "Able; Neomycin Ingredient"
 valueset "Able; Polymyxin B Ingredient"
 valueset "Able; Streptomycin Ingredient"
 valueset "Able; Baker's Yeast"
+valueset "Able; DTAP Vaccine"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -177,8 +178,10 @@ define "Exclusion for Hepatitis B":
   amnd not "CIS5 Performance Met"
 
 define "DTaP Procedure":
-  ["Procedure, Performed": "HEDIS; DTaP Vaccine Administered"] P
-    where P.relevantPeriod starts during ["Patient Characteristic Birthdate" + 42 days, "Patient Characteristic Birthdate" + 2 years]
+  exists(["Procedure, Performed": "HEDIS; DTaP Vaccine Administered"] P
+    where P.relevantPeriod starts during ["Patient Characteristic Birthdate" + 42 days, "Patient Characteristic Birthdate" + 2 years])
+  or exists(["Procedure, Performed": "ABLE; DTAP Vaccine"] P
+    where P.relevantPeriod starts during ["Patient Characteristic Birthdate" + 42 days, "Patient Characteristic Birthdate" + 2 years])
 
 define "DTaP Medication":
   ["Medication, Administered": "HEDIS; DTaP Vaccine Administered"] M
