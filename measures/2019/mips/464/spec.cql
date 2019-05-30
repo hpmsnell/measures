@@ -30,8 +30,8 @@ define "Denominator Encounter":
       and AgeInMonthsAt(start of E.relevantPeriod) >= 2
       and AgeInYearsAt(start of E.relevantPeriod) < 12
       and E.signingProvider.hasMeasureMembership = true
-        and not E.code.modifier in ['GQ', 'GT', '95']
-        and not E.placeOfService = '02'
+      and not E.code.modifier in ['GQ', 'GT', '95']
+      and not E.placeOfService = '02'
     with ["Diagnosis": "MIPS; OME"] D
       such that D.prevalencePeriod starts during E.relevantPeriod
 
