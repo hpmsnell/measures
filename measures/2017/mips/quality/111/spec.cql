@@ -33,7 +33,7 @@ context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 111 Encounter"] E
-    where E.relevantPeriod starts during "E.relevantPeriod starts during "Denominator Period" Period"
+    where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 65
       and E.signingProvider.hasMeasureMembership = true
 
@@ -54,7 +54,8 @@ define "Numerator Performance Met: 4040F":
    * config_link_id: 4040F
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 4040F"] P
-    where P.relevantPeriod starts before end of "Measurement Period")
+    where P.relevantPeriod starts before end of "Measurement Period"
+      and not P.code.modifier = null)
   or exists(["Immunization, Administered": "VSAC; Pneumococcal Vaccine"] I
     where I.authorDateTime before end of "Measurement Period")
   or exists(["Procedure, Performed": "VSAC; Pneumococcal Vaccine Administered"] P
