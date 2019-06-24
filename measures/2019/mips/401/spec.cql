@@ -1,9 +1,9 @@
-library MIPS_401_2018 version '1'
+library MIPS_401_2019 version '1'
 
 /*
  * Source: MIPS
  * ID: 401
- * Year: 2018
+ * Year: 2019
  * Version: 1
  * Author: Steve Daniels
  *

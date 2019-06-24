@@ -1,9 +1,9 @@
-library MIPS_390_2018 version '1'
+library MIPS_390_2019 version '1'
 
 /*
  * Source: MIPS
  * ID: 390
- * Year: 2018
+ * Year: 2019
  * Version: 1
  * Author: Steve Daniels
  *

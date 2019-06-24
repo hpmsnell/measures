@@ -31,6 +31,7 @@ valueset "HEDIS; FIT-DNA": '2.16.840.1.113883.3.464.1004.1420'
 // VSAC value sets
 
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
+valueset "VSAC; Colonoscopy": '2.16.840.1.113883.3.464.1003.108.12.1020'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -64,6 +65,7 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   exists(["Procedure, Performed": "HEDIS; Colonoscopy"] P where P.relevantPeriod starts 10 years or less before end of "Measurement Period")
+  or exists(["Procedure, Performed": "VSAC; Colonoscopy"] P where P.relevantPeriod starts 10 years or less before end of "Measurement Period")
   or exists(["Procedure, Performed": "HEDIS; Flexible Sigmoidoscopy"] P where P.relevantPeriod starts 5 years or less before end of "Measurement Period")
   or exists(["Laboratory Test, Performed": "HEDIS; FOBT"] L where L.resultDateTime during "Measurement Period")
   or exists(["Procedure, Performed": "HEDIS; FOBT"] L where L.relevantPeriod starts during "Measurement Period")
