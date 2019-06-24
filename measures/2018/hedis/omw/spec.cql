@@ -17,6 +17,7 @@ using QDM
 valueset "MIPS; MIPS Hospice Service"
 valueset "MIPS; Performance Met: 3095F" //Bone Mineral Density Tests
 valueset "MIPS; Performance Met: G8633" //Osteoporosis Medication
+valueset "MIPS; Performance Met: G8399" //DXA
 
 // HEDIS value sets
 
@@ -76,6 +77,7 @@ define "First Fracture During Index Period Has Prior Diagnosis":
 define "Bone Density Tests":
   ["Assessment, Performed": "HEDIS; Bone Mineral Density Tests"]
   union ["Procedure, Performed": "MIPS; Performance Met: 3095F"]
+  union ["Procedure, Performed": "MIPS; Performance Met: G8399"]
 
 /* Populations */
 

@@ -12,6 +12,10 @@ library HEDIS_CDC6_2018 version '1'
 
 using QDM
 
+// MIPS value sets
+
+valueset "MIPS; Performance Met: G8506" //ACE Inhibitor
+
 // HEDIS value sets
 
 valueset "HEDIS; Diabetes": '2.16.840.1.113883.3.464.1004.1077'
@@ -73,6 +77,8 @@ define "Numerator Performance Met":
     where D.prevalencePeriod overlaps "Measurement Year")
   or exists(["Medication": "VSAC; ACE Inhibitor or ARB"] M
     where M.relevantPeriod starts during "Measurement Year")
+  or exists(["Procedure": "MIPS; Performance Met: G8506"] P
+    where P.relevantPeriod starts during "Measurement Year")
 
 define "Numerator Performance Not Met":
   /*

@@ -17,6 +17,7 @@ using QDM
 valueset "MIPS; MIPS Hospice Service"
 valueset "MIPS; Performance Met: G8752" //Systolic BP <140
 valueset "MIPS; Performance Met: G8754" //Diastolic BP <90
+valueset "MIPS; Performance Met: G8783" //Normal BP
 
 // HEDIS value sets
 
@@ -150,6 +151,10 @@ define "Numerator Performance Met":
    */
   "Blood Pressure < 140/90"
   or "Blood Pressure < 150/90"
+  or exists(["Procedure": "MIPS; Performance Met: G8783"] P
+    where P.relevantPeriod starts during "Measurement Year")
+  or exists(["Procedure": "MIPS; Performance Met: G8950"] P
+    where P.relevantPeriod starts during "Measurement Year")
 
 define "Numerator Performance Not Met: Out of Range":
   /*
