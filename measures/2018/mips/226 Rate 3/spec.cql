@@ -35,6 +35,8 @@ valueset "VSAC; Tobacco Use Cessation Pharmacotherapy": '2.16.840.1.113883.3.526
 
 valueset "Able; Never Tobacco User"
 valueset "Able; Tobacco Use Cessation Intervention Diagnoses"
+valueset "Able; MEDCIN Non-Smoker" //Required for ShoreHeart Group because on hosted Intergy
+valueset "Able; MEDCIN Smoker" //Required for ShoreHeart Group because on hosted Intergy
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -58,15 +60,29 @@ define "226 Preventive Encounter"
       and not E.code.modifier in {'GQ','GT','95'}
       and not E.placeOfService in {'02'}
 
+define "Smoker": //Required for ShoreHeart Group because on hosted Intergy
+  ["Assessment, Performed": "Able; MEDCIN Smoker"] A
+    where A.result = "Y")
+  union ["Assessment, Performed": "Able; MEDCIN Non-smoker"] A
+    where A.result = "N")
+
+define "Non-Smoker": //Required for ShoreHeart Group because on hosted Intergy
+  ["Assessment, Performed": "Able; MEDCIN Smoker"] A
+    where A.result = "N")
+  union ["Assessment, Performed": "Able; MEDCIN Non-smoker"] A
+    where A.result = "Y")
+
 define "Tobacco User":
   ["Diagnosis": "VSAC; Tobacco User"]
   union ["Assessment, Performed": "VSAC; Tobacco User"]
+  union "Smoker"
 
 define "Tobacco Non-User":
   ["Diagnosis": "VSAC; Tobacco Non-User"]
   union ["Assessment, Performed": "VSAC; Tobacco Non-User"]
   union ["Diagnosis": "Able; Never Tobacco User"]
   union ["Assessment, Performed": "Able; Never Tobacco User"]
+  union "Non-Smoker"
 
 define "Screening"
   "Tobacco User"
