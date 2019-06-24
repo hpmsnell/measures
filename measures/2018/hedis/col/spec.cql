@@ -65,14 +65,13 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   exists(["Procedure, Performed": "HEDIS; Colonoscopy"] P where P.relevantPeriod starts 10 years or less before end of "Measurement Period")
-  or exists(["Procedure, Performed": "VSAC; Colonoscopy"] P where P.relevantPeriod starts 10 years or less before end of "Measurement Period")
   or exists(["Procedure, Performed": "HEDIS; Flexible Sigmoidoscopy"] P where P.relevantPeriod starts 5 years or less before end of "Measurement Period")
   or exists(["Laboratory Test, Performed": "HEDIS; FOBT"] L where L.resultDateTime during "Measurement Period")
   or exists(["Procedure, Performed": "HEDIS; FOBT"] L where L.relevantPeriod starts during "Measurement Period")
   or exists(["Laboratory Test, Performed": "HEDIS; FIT-DNA"] L where L.resultDateTime 3 years or less before end of "Measurement Period")
   or exists(["Procedure, Performed": "HEDIS; FIT-DNA"] L where L.relevantPeriod starts 3 years or less before end of "Measurement Period")
   or exists(["Procedure, Performed": "HEDIS; CT Colonography"] L where L.relevantPeriod starts 5 years or less before end of "Measurement Period")
-  or exists(["Procedure, Performed": "Performance Met: 3017F"] P where P.relevantPeriod starts during "Measurement Period")
+  or exists(["Procedure, Performed": "MIPS; Performance Met: 3017F"] P where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met":
   /*
