@@ -4,7 +4,7 @@ library MIPS_117_2017 version '1'
  * Source: MIPS
  * ID: 117
  * Year: 2017
- * Version: 1
+ * Version: 2
  * Written By: Steve Daniels
  * Reviewed By: Rachel Katz
  *
@@ -39,7 +39,7 @@ define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 117 Encounter"] E
     where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
-      and AgeInYearsAt(start of E.relevantPeriod) < 65
+      and AgeInYearsAt(start of E.relevantPeriod) < 75
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Diabetes"] D
       where D.prevalencePeriod overlaps E.relevantPeriod)
