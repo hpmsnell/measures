@@ -93,14 +93,14 @@ define "Numerator Performance Not Met: 2022F-8P":
   /*
    * config_link_id: 2022F-8P
    */
-  exists(["Procedure, Performed": "MIPS; Performance Met: 2022F-8P"] P
+  exists(["Procedure, Performed": "MIPS; Performance Not Met: 2022F-8P"] P
     where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met: 2024F-8P":
  /*
   * config_link_id: 2024F-8P
   */
-  exists(["Procedure, Performed": "MIPS; Performance Met: 2024F-8P"] P
+  exists(["Procedure, Performed": "MIPS; Performance Not Met: 2024F-8P"] P
     where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met: 2026F-8P":
@@ -112,5 +112,5 @@ define "Numerator Performance Not Met: 2026F-8P":
    and not "Numerator Performance Met: 2024F"
    and not "Numerator Performance Met: 2026F"
    and not "Numerator Performance Met: 3072F"
-   and not "Numerator Performance Not Met: 2022F"
-   and not "Numerator Performance Not Met: 2024F"
+   and not "Numerator Performance Not Met: 2022F-8P"
+   and not "Numerator Performance Not Met: 2024F-8P"
