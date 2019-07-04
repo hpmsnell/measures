@@ -5,7 +5,7 @@ library HEDIS_OMW_2018 version '1'
  * Source: HEDIS
  * ID: OMW
  * Year: 2018
- * Version: 1
+ * Version: 2
  * Author: Steve Daniels
  *
   */
@@ -101,7 +101,7 @@ define "Denominator Exclusion: Prior Treatment":
      with ["Procedure, Performed": "MIPS; Performance Met: G8633"] P
        such that P.relevantPeriod starts 365 days or less before start of E.relevantPeriod)
    or exists("First Fracture During Index Period" E
-     with ["Medication": "HEDIS; Osteoporosis Medications"] M
+     with ["Procedure, Performed": "HEDIS; Osteoporosis Medications"] M
        such that M.relevantPeriod starts 365 days or less before start of E.relevantPeriod)
    or exists("First Fracture During Index Period" E
      with ["Medication": "HEDIS; Osteoporosis Medications List"] M
