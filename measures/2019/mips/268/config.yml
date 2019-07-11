@@ -1,6 +1,6 @@
 ---
 measure:
-  name: 18.MIPS.Mips268
+  name: 19.MIPS.Mips268
   required:
     display_title: 'Epilepsy: Counseling for Women of Childbearing Potential with
       Epilepsy'
@@ -29,16 +29,14 @@ denominator:
   description: 'All females of childbearing potential (12-44 years old) with a diagnosis
     of epilepsy'
   component_groups:
-  - validation_record_table_count: 1
-    components:
+  - components:
     - display_title: Encounter
       show_codes: true
       annotation: 'Without telehealth modifier: GQ, GT, 95, POS 02'
       records:
       - model: ClinicalActivity
         value_set: MIPS; MIPS 268 Encounter
-  - validation_record_table_count: 1
-    logical_operator: AND
+  - logical_operator: AND
     components:
     - display_title: Epilepsy
       show_codes: true
@@ -48,6 +46,43 @@ denominator:
 exclusion:
   description:
   reasons:
+  - config_link_id: M1016
+    code_value: M1016
+    display_title: M1016
+    description: 'Female patients unable to bear children (includes patients who are pre-menstrual,
+      post-menopausal, surgically sterile, or have reproductive organs absent)'
+    component_groups:
+    - components:
+      - display_title: "Quality Data Code: M1016"
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exclusion: M1016'
+    - logical_operator: 'OR'
+      components:
+      - display_title: "Post-Menopausal"
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: 'Able; Post-Menopausal'
+    - logical_operator: 'OR'
+      components:
+      - display_title: "Surgically Sterile"
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: 'Able; Female Surgical Sterilization'
+        - model: ClinicalActivity
+          value_set: 'Able; Female Surgical Sterilization'
+    - logical_operator: 'OR'
+      components:
+      - display_title: "Reproductive Organs Absent"
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: 'VSAC; Absence of Cervix'
+        - model: ClinicalActivity
+          value_set: 'VSAC; Absence of Cervix'
 exception:
   description:
   reasons:
@@ -57,13 +92,42 @@ exception:
     description: 'Exception: Documentation of medical reason(s) why counseling was
       not performed for women of childbearing potential with epilepsy'
     component_groups:
-    - validation_record_table_count: 1
-      components:
+    - components:
       - display_title: "Quality Data Code: 4340F-1P"
         show_codes: true
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Denominator Exception: 4340F-1P'
+          modifier: '1P'
+    - logical_operator: 'OR'
+      components:
+      - display_title: "Neurological Disorder"
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: 'VSAC; ADHD'
+        - model: Diagnosis
+          value_set: 'VSAC; Autism Spectrum and Related Disorders'
+        - model: Diagnosis
+          value_set: 'Able; Dyslexia'
+        - model: Diagnosis
+          value_set: 'VSAC; Intellectual Disabilities'
+        - model: Diagnosis
+          value_set: "VSAC; Tourette's Syndrome"
+        - model: Diagnosis
+          value_set: 'Able; Genetic Neurodevelopmental Disorder'
+        - model: Diagnosis
+          value_set: 'VSAC; Schizophrenia or Psychotic Disorder'
+        - model: Diagnosis
+          value_set: 'VSAC; Neonatal Severe Neurological Complications'
+        - model: Diagnosis
+          value_set: 'Able; Encephalopathy'
+        - model: Diagnosis
+          value_set: 'VSAC; Cerebral Palsy'
+        - model: Diagnosis
+          value_set: 'VSAC; Brain Injury'
+        - model: Diagnosis
+          value_set: 'VSAC; Dementia & Mental Degenerations'
 performance_met:
   description: 'Female patients or caregivers counseled at least once a year about
     how epilepsy and its treatment may affect contraception OR pregnancy'
@@ -73,13 +137,13 @@ performance_met:
     display_title: 4340F
     description: Counseling for women of childbearing potential with epilepsy
     component_groups:
-    - validation_record_table_count: 1
-      components:
+    - components:
       - display_title: "Quality Data Code: 4340F"
         show_codes: true
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Met: 4340F'
+          modifier: 'None'
 performance_not_met:
   description:
   reasons:
@@ -89,10 +153,10 @@ performance_not_met:
     description: Counseling about epilepsy specific safety issues provided to patient
       or caregiver was not performed, reason not otherwise specified
     component_groups:
-    - validation_record_table_count: 1
-      components:
+    - components:
       - display_title: "Quality Data Code: 4340F-8P"
         show_codes: true
         records:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Not Met: 4340F-8P'
+          modifier: '8P'
