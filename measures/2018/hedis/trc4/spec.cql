@@ -24,16 +24,22 @@ valueset "HEDIS; Medication Reconciliation": '2.16.840.1.113883.3.464.1004.1174'
 // Able value sets
 
 valueset "Able; Medication Reconiliation"
+valueset "Able; Able Discharge"
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
+
 define "Discharge":
-  ["Encounter, Performed": "HEDIS; Inpatient Stay"] E1
+  ["Encounter, Performed": "HEDIS; Inpatient Stay"]
+  union ["Encounter, Performed": "Able; Able Discharge"]
+
+define "Denominator Discharge":
+  "Discharge" E1
     where E1.relevantPeriod starts during [start of "Measurement Period", 30 days before end of "Measurement Period"]
       and AgeInYearsAt(end of "Measurement Period") >= 18
-    without ["Encounter, Performed": "HEDIS; Inpatient Stay"] E2
+    without "Discharge" E2
       such that E2.relevantPeriod starts 30 days or less after start of E1.relevantPeriod
 
 define "Hospice":
@@ -47,7 +53,7 @@ define "Medication Reconciliation":
 /* Populations */
 
 define "Denominator":
-  "Discharge"
+  "Denominator Discharge"
   and not exists("Hospice" I
     where I.relevantPeriod starts during "Measurement Period")
 
