@@ -27,22 +27,22 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Encounter Before # Encounter before allowable period
+    - name: DenominatorEncounter Before # Encounter before allowable period
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Encounter Lower # Encounter is at lower bound of allowable period
+    - name: DenominatorEncounter Lower # Encounter is at lower bound of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4340F-8P
-    - name: Encounter Upper # Encounter is at upper bound of allowable period
+    - name: DenominatorEncounter Upper # Encounter is at upper bound of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4340F-8P
-    - name: Encounter After  # Encounter is after allowable period
+    - name: DenominatorEncounter After  # Encounter is after allowable period
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -57,62 +57,127 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Diagnosis Before # Patient has a diagnosis that is early
+    - name: DenominatorEncounter DifferentProvider # Encounter is with a different provider
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4340F-8P
+    - name: DenominatorDiagnosis Before # Patient has a diagnosis that is early
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Diagnosis Lower # Patient has a diagnosis at lower bound of period
+    - name: DenominatorDiagnosis Lower # Patient has a diagnosis at lower bound of period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4340F-8P
-    - name: Diagnosis Upper # Patient has a diagnosis at upper bound of period
+    - name: DenominatorDiagnosis Upper # Patient has a diagnosis at upper bound of period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4340F-8P
-    - name: Diagnosis After  # Patient has a diagnosis that is late
+    - name: DenominatorDiagnosis After  # Patient has a diagnosis that is late
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: 4340F Before # 4340F too early
+    - name: ExclusionM1016 Before  # Patient has a M1016 exclusion that is early
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4340F-8P
-    - name: 4340F Lower # 4340F at start of allowable period
+    - name: ExclusionM1016 Lower  # Patient has a M1016 exclusion at lower date boundary
+      denominator: 1
+      denominator_exclusion: M1016
+      denominator_exception:
+      numerator:
+    - name: ExclusionM1016 Upper  # Patient has a M1016 exclusion at upper date boundary
+      denominator: 1
+      denominator_exclusion: M1016
+      denominator_exception:
+      numerator:
+    - name: ExclusionM1016 After  # Patient has a M1016 exclusion that is late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4340F-8P
+    - name: ExclusionDiagnosis Before  # Patient has a diagnosis exclusion that is before end of allowable period
+      denominator: 1
+      denominator_exclusion: M1016
+      denominator_exception:
+      numerator:
+    - name: ExclusionDiagnosis After  # Patient has a diagnosis exclusion that is after end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4340F-8P
+    - name: ExclusionProcedure Before  # Patient has a procedure exclusion that is before end of allowable period
+      denominator: 1
+      denominator_exclusion: M1016
+      denominator_exception:
+      numerator:
+    - name: ExclusionProcedure After  # Patient has a procedure exclusion that is after end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4340F-8P
+    - name: PerformanceMet4340F Before # 4340F too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4340F-8P
+    - name: PerformanceMet4340F Lower # 4340F at start of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4340F
-    - name: 4340F Upper # 4340F at end of allowable period
+    - name: PerformanceMet4340F Upper # 4340F at end of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4340F
-    - name: 4340F After # 4340F too late
+    - name: PerformanceMet4340F After # 4340F too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4340F-8P
-    - name: 4340F-1P Before # 4340F-1P too early
+    - name: Exception4340F-1P Before # 4340F-1P too early
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4340F-8P
-    - name: 4340F-1P Lower # 4340F-1P at start of allowable period
+    - name: Exception4340F-1P Lower # 4340F-1P at start of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception: 4340F-1P
       numerator:
-    - name: 4340F-1P Upper # 4340F-1P at end of allowable period
+    - name: Exception4340F-1P Upper # 4340F-1P at end of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception: 4340F-1P
       numerator:
-    - name: 4340F-1P After # 4340F-1P too late
+    - name: Exception4340F-1P After # 4340F-1P too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4340F-8P
+    - name: ExceptionDiagnosis Before # Diagnosis exception too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4340F-8P
+    - name: ExceptionDiagnosis Lower # Diagnosis exception at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4340F-1P
+      numerator:
+    - name: ExceptionDiagnosis Upper # Diagnosis exception at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4340F-1P
+      numerator:
+    - name: ExceptionDiagnosis After # Diagnosis exception too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -145,86 +210,151 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Encounter Before # Encounter before allowable period
+    - name: DenominatorEncounter Before # Encounter before allowable period
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Encounter Lower # Encounter is at lower bound of allowable period
+    - name: DenominatorEncounter Lower # Encounter is at lower bound of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4340F-8P
-    - name: Encounter Upper # Encounter is at upper bound of allowable period
+    - name: DenominatorEncounter Upper # Encounter is at upper bound of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4340F-8P
-    - name: Encounter After  # Encounter is after allowable period
+    - name: DenominatorEncounter After  # Encounter is after allowable period
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Diagnosis Before # Patient has a diagnosis that is early
+    - name: DenominatorEncounter DifferentProvider # Encounter is with a different provider
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Diagnosis Lower # Patient has a diagnosis at lower bound of period
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 4340F-8P
-    - name: Diagnosis Upper # Patient has a diagnosis at upper bound of period
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: 4340F-8P
-    - name: Diagnosis After  # Patient has a diagnosis that is late
+    - name: DenominatorDiagnosis Before # Patient has a diagnosis that is early
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: 4340F Before # 4340F too early
+    - name: DenominatorDiagnosis Lower # Patient has a diagnosis at lower bound of period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4340F-8P
-    - name: 4340F Lower # 4340F at start of allowable period
+    - name: DenominatorDiagnosis Upper # Patient has a diagnosis at upper bound of period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4340F-8P
+    - name: DenominatorDiagnosis After  # Patient has a diagnosis that is late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionM1016 Before  # Patient has a M1016 exclusion that is early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4340F-8P
+    - name: ExclusionM1016 Lower  # Patient has a M1016 exclusion at lower date boundary
+      denominator: 1
+      denominator_exclusion: M1016
+      denominator_exception:
+      numerator:
+    - name: ExclusionM1016 Upper  # Patient has a M1016 exclusion at upper date boundary
+      denominator: 1
+      denominator_exclusion: M1016
+      denominator_exception:
+      numerator:
+    - name: ExclusionM1016 After  # Patient has a M1016 exclusion that is late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4340F-8P
+    - name: ExclusionDiagnosis Before  # Patient has a diagnosis exclusion that is before end of allowable period
+      denominator: 1
+      denominator_exclusion: M1016
+      denominator_exception:
+      numerator:
+    - name: ExclusionDiagnosis After  # Patient has a diagnosis exclusion that is after end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4340F-8P
+    - name: ExclusionProcedure Before  # Patient has a procedure exclusion that is before end of allowable period
+      denominator: 1
+      denominator_exclusion: M1016
+      denominator_exception:
+      numerator:
+    - name: ExclusionProcedure After  # Patient has a procedure exclusion that is after end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4340F-8P
+    - name: PerformanceMet4340F Before # 4340F too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4340F-8P
+    - name: PerformanceMet4340F Lower # 4340F at start of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4340F
-    - name: 4340F Upper # 4340F at end of allowable period
+    - name: PerformanceMet4340F Upper # 4340F at end of allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4340F
-    - name: 4340F After # 4340F too late
+    - name: PerformanceMet4340F After # 4340F too late
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: 4340F-8P
-    - name: 4340F-1P Before # 4340F-1P too early
+    - name: Exception4340F-1P Before # 4340F-1P too early
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: 4340F-1P Lower # 4340F-1P at start of allowable period
+    - name: Exception4340F-1P Lower # 4340F-1P at start of allowable period
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: 4340F-1P Upper # 4340F-1P at end of allowable period
+    - name: Exception4340F-1P Upper # 4340F-1P at end of allowable period
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: 4340F-1P After # 4340F-1P too late
+    - name: Exception4340F-1P After # 4340F-1P too late
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
+    - name: ExceptionDiagnosis Before # Diagnosis exception too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4340F-8P
+    - name: ExceptionDiagnosis Lower # Diagnosis exception at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4340F-1P
+      numerator:
+    - name: ExceptionDiagnosis Upper # Diagnosis exception at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: 4340F-1P
+      numerator:
+    - name: ExceptionDiagnosis After # Diagnosis exception too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: 4340F-8P
 providers:
 - given_name: Rachel
   family_name: Kohler
@@ -322,10 +452,10 @@ patients:
     - code_type: ICD10CM
       code_value: G40.A09
       start_date: 2010-01-01
-- name: Encounter Before
+- name: DenominatorEncounter Before
   attributes:
     date_of_birth: 1980-01-01
-    given_name: Encounter
+    given_name: DenominatorEncounter
     family_name: Before
     sex: Female
   clinical_models:
@@ -339,10 +469,10 @@ patients:
     - code_type: ICD10CM
       code_value: G40.A09
       start_date: 2010-01-01
-- name: Encounter Lower
+- name: DenominatorEncounter Lower
   attributes:
     date_of_birth: 1980-01-01
-    given_name: Encounter
+    given_name: DenominatorEncounter
     family_name: Lower
     sex: Female
   clinical_models:
@@ -356,10 +486,10 @@ patients:
     - code_type: ICD10CM
       code_value: G40.A09
       start_date: 2010-01-01
-- name: Encounter Upper
+- name: DenominatorEncounter Upper
   attributes:
     date_of_birth: 1980-01-01
-    given_name: Encounter
+    given_name: DenominatorEncounter
     family_name: Upper
     sex: Female
   clinical_models:
@@ -373,10 +503,10 @@ patients:
     - code_type: ICD10CM
       code_value: G40.A09
       start_date: 2010-01-01
-- name: Encounter After
+- name: DenominatorEncounter After
   attributes:
     date_of_birth: 1980-01-01
-    given_name: Encounter
+    given_name: DenominatorEncounter
     family_name: After
     sex: Female
   clinical_models:
@@ -426,10 +556,27 @@ patients:
     - code_type: ICD10CM
       code_value: G40.A09
       start_date: 2010-01-01
-- name: Diagnosis Before
+- name: DenominatorEncounter DifferentProvider
   attributes:
     date_of_birth: 1980-01-01
-    given_name: Diagnosis
+    given_name: DenominatorEncounter
+    family_name: DifferentProvider
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+      provider: Patty # Different provider
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G40.A09
+      start_date: 2010-01-01
+- name: DenominatorDiagnosis Before
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: DenominatorDiagnosis
     family_name: Before
     sex: Female
   clinical_models:
@@ -444,10 +591,10 @@ patients:
       code_value: G40.A09
       start_date: 2010-01-01
       stop_date: 2016-01-31 # Too early
-- name: Diagnosis Lower
+- name: DenominatorDiagnosis Lower
   attributes:
     date_of_birth: 1980-01-01
-    given_name: Diagnosis
+    given_name: DenominatorDiagnosis
     family_name: Lower
     sex: Female
   clinical_models:
@@ -462,10 +609,10 @@ patients:
       code_value: G40.A09
       start_date: 2016-01-01
       stop_date: 2016-02-01 # Lower bound
-- name: Diagnosis Upper
+- name: DenominatorDiagnosis Upper
   attributes:
     date_of_birth: 1980-01-01
-    given_name: Diagnosis
+    given_name: DenominatorDiagnosis
     family_name: Upper
     sex: Female
   clinical_models:
@@ -479,10 +626,10 @@ patients:
     - code_type: ICD10CM
       code_value: G40.A09
       start_date: 2016-02-02 # Upper bound
-- name: Diagnosis After
+- name: DenominatorDiagnosis After
   attributes:
     date_of_birth: 1980-01-01
-    given_name: Diagnosis
+    given_name: DenominatorDiagnosis
     family_name: After
     sex: Female
   clinical_models:
@@ -496,10 +643,174 @@ patients:
     - code_type: ICD10CM
       code_value: G40.A09
       start_date: 2016-02-03
-- name: 4340F Before
+- name: ExclusionM1016 Before
   attributes:
     date_of_birth: 1980-01-01
-    given_name: 4340F
+    given_name: ExclusionM1016
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: M1016 # Exclusion
+      start_date: 2015-12-31 # Before
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G40.A09
+      start_date: 2010-01-01
+- name: ExclusionM1016 Lower
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionM1016
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: M1016 # Exclusion
+      start_date: 2016-01-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G40.A09
+      start_date: 2010-01-01
+- name: ExclusionM1016 Upper
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionM1016
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: M1016 # Exclusion
+      start_date: 2016-12-31 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G40.A09
+      start_date: 2010-01-01
+- name: ExclusionM1016 After
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionM1016
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: CPT
+      code_value: M1016 # Exclusion
+      start_date: 2017-01-01 # Late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G40.A09
+      start_date: 2010-01-01
+- name: ExclusionDiagnosis Before
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionDiagnosis
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G40.A09
+      start_date: 2010-01-01
+    - code_type: ICD10CM
+      code_value: Q51.5 # Absence of cervix
+      start_date: 2015-12-31 # Before
+      stop_date: 2015-12-31
+- name: ExclusionDiagnosis After
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionDiagnosis
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G40.A09
+      start_date: 2010-01-01
+    - code_type: ICD10CM
+      code_value: Q51.5 # Absence of cervix
+      start_date: 2017-01-01 # After
+      stop_date: 2017-01-01
+- name: ExclusionProcedure Before
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionProcedure
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 116140006 # Absence of cervix
+      start_date: 2015-12-31 # Before
+      stop_date: 2015-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G40.A09
+      start_date: 2010-01-01
+- name: ExclusionProcedure After
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionProcedure
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 116140006 # Absence of cervix
+      start_date: 2017-01-01 # After
+      stop_date: 2017-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G40.A09
+      start_date: 2010-01-01
+- name: PerformanceMet4340F Before
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: PerformanceMet4340F
     family_name: Before
     sex: Female
   clinical_models:
@@ -516,10 +827,10 @@ patients:
     - code_type: ICD10CM
       code_value: G40.A09
       start_date: 2010-01-01
-- name: 4340F Lower
+- name: PerformanceMet4340F Lower
   attributes:
     date_of_birth: 1980-01-01
-    given_name: 4340F
+    given_name: PerformanceMet4340F
     family_name: Lower
     sex: Female
   clinical_models:
@@ -536,10 +847,10 @@ patients:
     - code_type: ICD10CM
       code_value: G40.A09
       start_date: 2010-01-01
-- name: 4340F Upper
+- name: PerformanceMet4340F Upper
   attributes:
     date_of_birth: 1980-01-01
-    given_name: 4340F
+    given_name: PerformanceMet4340F
     family_name: Upper
     sex: Female
   clinical_models:
@@ -556,10 +867,10 @@ patients:
     - code_type: ICD10CM
       code_value: G40.A09
       start_date: 2010-01-01
-- name: 4340F After
+- name: PerformanceMet4340F After
   attributes:
     date_of_birth: 1980-01-01
-    given_name: 4340F
+    given_name: PerformanceMet4340F
     family_name: After
     sex: Female
   clinical_models:
@@ -576,10 +887,10 @@ patients:
     - code_type: ICD10CM
       code_value: G40.A09
       start_date: 2010-01-01
-- name: 4340F-1P Before
+- name: Exception4340F-1P Before
   attributes:
     date_of_birth: 1980-01-01
-    given_name: 4340F-1P
+    given_name: Exception4340F-1P
     family_name: Before
     sex: Female
   clinical_models:
@@ -597,10 +908,10 @@ patients:
     - code_type: ICD10CM
       code_value: G40.A09
       start_date: 2010-01-01
-- name: 4340F-1P Lower
+- name: Exception4340F-1P Lower
   attributes:
     date_of_birth: 1980-01-01
-    given_name: 4340F-1P
+    given_name: Exception4340F-1P
     family_name: Lower
     sex: Female
   clinical_models:
@@ -618,10 +929,10 @@ patients:
     - code_type: ICD10CM
       code_value: G40.A09
       start_date: 2010-01-01
-- name: 4340F-1P Upper
+- name: Exception4340F-1P Upper
   attributes:
     date_of_birth: 1980-01-01
-    given_name: 4340F-1P
+    given_name: Exception4340F-1P
     family_name: Upper
     sex: Female
   clinical_models:
@@ -639,10 +950,10 @@ patients:
     - code_type: ICD10CM
       code_value: G40.A09
       start_date: 2010-01-01
-- name: 4340F-1P After
+- name: Exception4340F-1P After
   attributes:
     date_of_birth: 1980-01-01
-    given_name: 4340F-1P
+    given_name: Exception4340F-1P
     family_name: After
     sex: Female
   clinical_models:
@@ -660,3 +971,85 @@ patients:
     - code_type: ICD10CM
       code_value: G40.A09
       start_date: 2010-01-01
+- name: ExceptionDiagnosis Before
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExceptionDiagnosis
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G40.A09
+      start_date: 2010-01-01
+    - code_type: SNOMEDCT
+      code_value: 192127007 # ADHD
+      start_date: 2016-01-31
+      stop_date: 2016-01-31 # Early
+- name: ExceptionDiagnosis Lower
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExceptionDiagnosis
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G40.A09
+      start_date: 2010-01-01
+    - code_type: SNOMEDCT
+      code_value: 192127007 # ADHD
+      start_date: 2016-01-31
+      stop_date: 2016-02-01 # Lower bound
+- name: ExceptionDiagnosis Upper
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExceptionDiagnosis
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G40.A09
+      start_date: 2010-01-01
+    - code_type: SNOMEDCT
+      code_value: 192127007 # ADHD
+      start_date: 2016-02-02 # Upper bound
+- name: ExceptionDiagnosis After
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExceptionDiagnosis
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      provider: Patty
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G40.A09
+      start_date: 2010-01-01
+    - code_type: SNOMEDCT
+      code_value: 192127007 # ADHD
+      start_date: 2016-02-03 # Late

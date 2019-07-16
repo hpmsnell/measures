@@ -104,8 +104,10 @@ define "Denominator Exception: 4340F-1P":
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exception: 4340F-1P"] P
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod
-  // Additional value sets
+      such that P.relevantPeriod starts during E.relevantPeriod)
+  or exists("Neurological Disorder" D
+    with "Denominator Encounter" E
+      such that D.prevalencePeriod overlaps E.relevantPeriod)
 
 define "Numerator Performance Not Met: 4340F-8P":
  /*
