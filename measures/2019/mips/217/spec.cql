@@ -21,7 +21,7 @@ valueset "MIPS; MIPS 217-223 Physical Therapy Discharge Encounter"
 valueset "MIPS; MIPS 217-223 Occupational Therapy Discharge Encounter"
 valueset "MIPS; MIPS 217-223 Physician Encounter"
 valueset "MIPS; MIPS 217-223 Chiropractic Encounter"
-valueset "MIPS; MIPS 217-223 Pain Treatment Complete"
+valueset "MIPS; MIPS 217-223 Treatment Complete"
 valueset "MIPS; MIPS 217-223 Patient Refused"
 valueset "MIPS; MIPS 217-223 Patient Inability"
 valueset "MIPS; Performance Met: G8647"
@@ -61,11 +61,33 @@ define "Occupational Therapy Denominator Encounter":
     with "Functional Deficit" P
       such that P.relevantPeriod starts during E1.relevantPeriod // Assuming G-code is documented at discharge
 
+define "Physician Denominator Encounter":
+  ["Encounter, Performed": "MIPS; MIPS 217-223 Physician Encounter"] E1 // Assuming every discharge indicates an episode, and that there cannot be multiple discharges in an episode
+    where E1.relevantPeriod starts during "Measurement Period"
+      and AgeInYearsAt(start of E1.relevantPeriod) >= 14
+      and E1.signingProvider.hasMeasureMembership = true
+    with ["Encounter, Performed": "MIPS; MIPS 217-223 Treatment Complete"] E2
+      such that E2.relevantPeriod starts on or before before start of E1.relevantPeriod // Assuming episode must end during MP but can start earlier. Also assuming patient can have eval + discharge on same day.
+    with "Functional Deficit" P
+      such that P.relevantPeriod starts during E1.relevantPeriod // Assuming G-code is documented at discharge
+
+define "Chiropractic Denominator Encounter":
+  ["Encounter, Performed": "MIPS; MIPS 217-223 Chiropractic Encounter"] E1 // Assuming every discharge indicates an episode, and that there cannot be multiple discharges in an episode
+    where E1.relevantPeriod starts during "Measurement Period"
+      and AgeInYearsAt(start of E1.relevantPeriod) >= 14
+      and E1.signingProvider.hasMeasureMembership = true
+    with ["Encounter, Performed": "MIPS; MIPS 217-223 Treatment Complete"] E2
+      such that E2.relevantPeriod starts on or before before start of E1.relevantPeriod // Assuming episode must end during MP but can start earlier. Also assuming patient can have eval + discharge on same day.
+    with "Functional Deficit" P
+      such that P.relevantPeriod starts during E1.relevantPeriod // Assuming G-code is documented at discharge
+
 // Populations
 
 define "Denominator":
   "Physical Therapy Denominator Encounter"
   union "Occupational Therapy Denominator Encounter"
+  union "Physician Therapy Denominator Encounter"
+  union "Chiropractic Therapy Denominator Encounter"
 
 define "Denominator Exclusion: Patient Refused":
   // config_link_id: exclusion_1
