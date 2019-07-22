@@ -1,0 +1,52 @@
+---
+measure:
+  name: 19.PI.Stage3sm
+  required:
+    display_title: 'Secure Message'
+    inverse: false
+    subject_type: Patient
+    set: Stage 3
+    external_id: 'SM'
+    version:
+  optional:
+    description: 'For more than 5 percent of all unique patients seen by the EP during the EHR
+      reporting period, a secure message was sent using the electronic messaging function of CEHRT
+      to the patient (or the patient-authorized representative), or in response to a secure message
+      sent by the patient or their authorized representative.'
+    gap_resolution_action:
+    version: 2019
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective: 'Coordination of Care through Patient Engagement'
+denominator:
+  description: 'Number of unique patients seen by the EP during the EHR reporting period.'
+  component_groups:
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'The number of patients in the denominator for whom a secure electronic message
+    is sent to the patient (or patient-authorized representative) or in response to a secure message
+    sent by the patient (or patient-authorized representative), during the EHR reporting period.'
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Secure Message
+    description: 'Secure message sent'
+    component_groups:
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Secure Message
+    description: 'No secure message sent'
+    component_groups:
