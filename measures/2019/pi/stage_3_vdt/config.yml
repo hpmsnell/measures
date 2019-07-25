@@ -1,0 +1,54 @@
+---
+measure:
+  name: 19.PI.Stage3vdt
+  required:
+    display_title: 'View Download Transmit'
+    inverse: false
+    subject_type: Patient
+    set: Stage 3
+    external_id: 'VDT'
+    version:
+  optional:
+    description: 'More than 5 percent of all unique patients (or their authorized representatives) seen by
+      the eligible professional (EP) actively engage with the EHR made accessible by the EP and either—(1) View,
+      download, or transmit to a third party their health information; or (2) Access their health information through
+      the use of an Application Programming Interface (API) that can be used by applications chosen by the patient and
+      configured to the API in the EP’s CEHRT; or (3) A combination of (1) and (2)'
+    gap_resolution_action:
+    version: 2019
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective: 'Coordination of Care through Patient Engagement'
+denominator:
+  description: 'Number of unique patients seen by the EP during the EHR reporting period.'
+  component_groups:
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'The number of unique patients (or their authorized representatives) in the denominator who
+    have viewed online, downloaded, or transmitted to a third party the patient’s health information during
+    the EHR reporting period and the number of unique patients (or their authorized representatives) in the
+    denominator who have accessed their health information through the use of an API during the EHR reporting period.'
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: VDT
+    description: 'Patient health information viewed, downloaded, and transmitted, or accessed through the use of an API'
+    component_groups:
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: VDT
+    description: 'Patient health information not viewed, downloaded, and transmitted, or accessed through the use of an API'
+    component_groups:
