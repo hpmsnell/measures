@@ -1,9 +1,9 @@
-library HEDIS_AWV1_2019 version '1'
+library HEDIS_AWV2_2019 version '1'
 
 /*
  *
  * Source: Able
- * ID: AWV1
+ * ID: AWV2
  * Year: 2019
  * Version: 1
  * Author: Steve Daniels
@@ -28,7 +28,7 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists(["Encounter, Performed": "Able; Annual Wellness Visit - Medicare"] P
+  exists(["Encounter, Performed": "Able; Annual Wellness Visit - Commercial/Medicaid"] P
     where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met":
