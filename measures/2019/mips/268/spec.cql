@@ -35,7 +35,7 @@ valueset "VSAC; Dementia & Mental Degenerations"
 
 // Able value sets
 
-valueset "Able; Postmenopausal"
+valueset "Able; Post-Menopausal"
 valueset "Able; Female Surgical Sterilization"
 valueset "Able; Dyslexia"
 valueset "Able; Genetic Neurodevelopmental Disorder"
@@ -84,7 +84,7 @@ define "Denominator Exclusion: M1016":
     where D.prevalencePeriod starts before end of "Measurement Period")
   or exists(["Procedure, Performed": "VSAC; Absence of Cervix"] P
     where P.relevantPeriod starts before end of "Measurement Period")
-  or exists(["Diagnosis": "Able; Postmenopausal"] D
+  or exists(["Diagnosis": "Able; Post-Menopausal"] D
     where D.prevalencePeriod starts before end of "Measurement Period")
   or exists(["Procedure, Performed": "VSAC; Female Surgical Sterilization"] P
     where P.relevantPeriod starts before end of "Measurement Period")
