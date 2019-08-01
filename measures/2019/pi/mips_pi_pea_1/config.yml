@@ -1,18 +1,22 @@
 ---
 measure:
-  name: 19.PI.Mipspihie1
+  name: 19.PI.Mipspipea1
   required:
-    display_title: 'Support Electronic Referral Loops by Sending Health Information'
+    display_title: 'Provide Patients Electronic Access to Their Health Information'
     inverse: false
-    subject_type: Encounter
+    subject_type: Patient
     set: MIPS
-    external_id: 'PI_HIE_1'
+    external_id: 'PI_PEA_1'
     version:
   optional:
-    description: 'For at least one transition of care or referral, the MIPS eligible
-      clinician that transitions or refers their patient to another setting of care
-      or health care provider — (1) creates a summary of care record using certified electronic
-      health record technology (CEHRT); and (2) electronically exchanges the summary of care record.'
+    description: 'For at least one unique patient seen by the MIPS eligible clinician: (1) The
+      patient (or the patient-authorized representative) is provided timely access to
+      view online, download, and transmit his or her health information; and (2) The
+      MIPS eligible clinician ensures the patient's health information is available for
+      the patient (or patient-authorized representative) to access using any
+      application of their choice that is configured to meet the technical specifications
+      of the Application Programming Interface (API) in the MIPS eligible clinician's
+      certified electronic health record technology (CEHRT).'
     gap_resolution_action:
     version: 2019
     mips_measure_type:
@@ -22,10 +26,10 @@ measure:
     source_specification_url:
     measure_children_names:
     mips_stratum:
-    mips_objective: 'Health Information Exchange'
+    mips_objective: 'Provider to Patient Exchange'
 denominator:
-  description: 'Number of transitions of care and referrals during the performance period
-    for which the MIPS eligible clinician was the transferring or referring clinician.'
+  description: 'The number of unique patients seen by the MIPS eligible clinician during
+    the performance period.'
   component_groups:
 exclusion:
   description:
@@ -34,19 +38,21 @@ exception:
   description:
   reasons:
 performance_met:
-  description: 'The number of transitions of care and referrals in the denominator where a
-    summary of care record was created using CEHRT and exchanged electronically.'
+  description: 'The number of patients in the denominator (or patient authorized
+    representative) who are provided timely access to health information to view online, download,
+    and transmit to a third party and to access using an application of their choice that is
+    configured meet the technical specifications of the API in the MIPS eligible clinician's CEHRT.'
   reasons:
   - config_link_id: performance_met
     code_value:
-    display_title: Summary of Care
-    description: 'Summary of care record created and exchanged'
+    display_title: Patient Access
+    description: 'Patient provided timely access to health information'
     component_groups:
 performance_not_met:
   description:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: No Summary of Care
-    description: 'No summary of care record created and exchanged'
+    display_title: No Patient Access
+    description: 'Patient not provided timely access to health information'
     component_groups:
