@@ -287,36 +287,6 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator:
-      - name: SOCUnavailable Before # Early
-        start_date: 2015-12-31
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_not_met
-      - name: SOCUnavailable Lower # Lower bound
-        start_date: 2016-01-01
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: SOCUnavailable Upper # Upper Bound
-        start_date: 2016-12-31
-        denominator:
-        denominator_exclusion:
-        denominator_exception:
-        numerator:
-      - name: SOCUnavailable After # Late
-        start_date: 2017-01-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_not_met
-      - name: SOCUnavailable WrongEncounter # Encounter ID does not match encounter
-        start_date: 2016-02-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_not_met
       - name: DenominatorTOC Before # Early
         start_date: 2015-12-31
         denominator:
@@ -402,6 +372,36 @@ test_set_keys:
         denominator_exception:
         numerator: performance_not_met
       - name: DenominatorTOC WrongEncounter # Different Encounter ID
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: SOCIncorporation Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: SOCIncorporation Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
+      - name: SOCIncorporation Upper # Upper bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
+      - name: SOCIncorporation After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: SOCIncorporation WrongEncounter # Different Encounter ID
         start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
@@ -521,6 +521,8 @@ patients:
         type: "New"
         start_date: 2015-12-31 # Too early
         stop_date: 2015-12-31
+        start_datetime: 2015-12-31 12:00:00
+        stop_datetime: 2015-12-31 13:00:00
         provider: Rachel
   - name: DenominatorEncounter Lower
     attributes:
@@ -534,6 +536,8 @@ patients:
         type: "New"
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
+        start_datetime: 2016-01-01 12:00:00
+        stop_datetime: 2016-01-01 13:00:00
         provider: Rachel
   - name: DenominatorEncounter Upper
     attributes:
@@ -547,6 +551,8 @@ patients:
         type: "New"
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
+        start_datetime: 2016-12-31 12:00:00
+        stop_datetime: 2016-12-31 13:00:00
         provider: Rachel
   - name: DenominatorEncounter After
     attributes:
@@ -560,6 +566,8 @@ patients:
         type: "New"
         start_date: 2017-01-01 # Too late
         stop_date: 2017-01-01
+        start_datetime: 2017-01-01 12:00:00
+        stop_datetime: 2017-01-01 13:00:00
         provider: Rachel
   - name: DenominatorEncounter DifferentProvider
     attributes:
@@ -573,6 +581,8 @@ patients:
         type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Patty # Different provider
   - name: DenominatorTOC Before
     attributes:
@@ -585,11 +595,15 @@ patients:
       - external_id: 1
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: INBOUND_TRANSITION_OF_CARE
         start_date: 2015-12-31 # Early
         stop_date: 2015-12-31
+        start_datetime: 2015-12-31 12:00:00
+        stop_datetime: 2015-12-31 13:00:00
         encounter_id: 1
   - name: DenominatorTOC Lower
     attributes:
@@ -602,11 +616,15 @@ patients:
       - external_id: 1
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: INBOUND_TRANSITION_OF_CARE
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
+        start_datetime: 2016-01-01 12:00:00
+        stop_datetime: 2016-01-01 13:00:00
         encounter_id: 1
   - name: DenominatorTOC Upper
     attributes:
@@ -619,6 +637,8 @@ patients:
       - external_id: 1
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: INBOUND_TRANSITION_OF_CARE
@@ -636,6 +656,8 @@ patients:
       - external_id: 1
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: INBOUND_TRANSITION_OF_CARE
@@ -653,10 +675,14 @@ patients:
       - external_id: 1
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       - external_id: 2
         start_date: 2016-03-01
         stop_date: 2016-03-01
+        start_datetime: 2016-03-01 12:00:00
+        stop_datetime: 2016-03-01 13:00:00
         provider: Rachel
       system_events:
       - type: INBOUND_TRANSITION_OF_CARE
@@ -674,11 +700,15 @@ patients:
       - external_id: 1
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: INBOUND_SUMMARY_OF_CARE
         start_date: 2015-12-31 # Early
         stop_date: 2015-12-31
+        start_datetime: 2015-12-31 12:00:00
+        stop_datetime: 2015-12-31 12:00:00
         encounter_id: 1
   - name: DenominatorSOC Lower
     attributes:
@@ -691,11 +721,15 @@ patients:
       - external_id: 1
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: INBOUND_SUMMARY_OF_CARE
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
+        start_datetime: 2016-01-01 12:00:00
+        stop_datetime: 2016-01-01 12:00:00
         encounter_id: 1
   - name: DenominatorSOC Upper
     attributes:
@@ -708,11 +742,15 @@ patients:
       - external_id: 1
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: INBOUND_SUMMARY_OF_CARE
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
+        start_datetime: 2016-12:31 12:00:00
+        stop_datetime: 2016-12:31 12:00:00
         encounter_id: 1
   - name: DenominatorSOC After
     attributes:
@@ -725,11 +763,15 @@ patients:
       - external_id: 1
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: INBOUND_SUMMARY_OF_CARE
         start_date: 2017-01-01 # Late
         stop_date: 2017-01-01
+        start_datetime: 2017-01-01 12:00:00
+        stop_datetime: 2017-01-01 12:00:00
         encounter_id: 1
   - name: DenominatorSOC WrongEncounter
     attributes:
@@ -742,15 +784,21 @@ patients:
       - external_id: 1
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       - external_id: 2
         start_date: 2016-03-01
         stop_date: 2016-03-01
+        start_datetime: 2016-03-01 12:00:00
+        stop_datetime: 2016-03-01 13:00:00
         provider: Rachel
       system_events:
       - type: INBOUND_SUMMARY_OF_CARE
         start_date: 2016-03-01
         stop_date: 2016-03-01
+        start_datetime: 2016-03-01 12:00:00
+        stop_datetime: 2016-03-01 12:00:00
         encounter_id: 2 # Wrong Encounter
   - name: SOCIncorporation Before
     attributes:
@@ -763,11 +811,33 @@ patients:
       - external_id: 1
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2015-12-31 # Early
         stop_date: 2015-12-31
+        start_datetime: 2015-12-31 12:00:00
+        stop_datetime: 2015-12-31 12:00:00
+        encounter_id: 1
+      - type: MEDICATION_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: ALLERGY_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: PROBLEM_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
   - name: SOCIncorporation Lower
     attributes:
@@ -781,11 +851,33 @@ patients:
         type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
+        start_datetime: 2015-12-31 12:00:00
+        stop_datetime: 2015-12-31 12:00:00
+        encounter_id: 1
+      - type: MEDICATION_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: ALLERGY_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: PROBLEM_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
   - name: SOCIncorporation Upper
     attributes:
@@ -799,11 +891,33 @@ patients:
         type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
+        start_datetime: 2016-12-31 12:00:00
+        stop_datetime: 2016-12-31 12:00:00
+        encounter_id: 1
+      - type: MEDICATION_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: ALLERGY_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: PROBLEM_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
   - name: SOCIncorporation After
     attributes:
@@ -817,11 +931,33 @@ patients:
         type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2017-01-01 # Late
         stop_date: 2017-01-01
+        start_datetime: 2017-12-31 12:00:00
+        stop_datetime: 2017-12-31 12:00:00
+        encounter_id: 1
+      - type: MEDICATION_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: ALLERGY_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: PROBLEM_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
   - name: SOCIncorporation WrongEncounter
     attributes:
@@ -835,17 +971,41 @@ patients:
         type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       - external_id: 2
         type: "New"
         start_date: 2016-03-01
         stop_date: 2016-03-01
+        start_datetime: 2016-03-01 12:00:00
+        stop_datetime: 2016-03-01 12:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-03-01
         stop_date: 2016-03-01
+        start_datetime: 2016-03-01 12:00:00
+        stop_datetime: 2016-03-01 12:00:00
         encounter_id: 2 # Wrong Encounter
+      - type: MEDICATION_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: ALLERGY_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: PROBLEM_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
   - name: ReconciliationMedication Before
     attributes:
       date_of_birth: 2000-01-01
@@ -857,15 +1017,33 @@ patients:
       - external_id: 1
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
       - type: MEDICATION_LIST_RECONCILIATION
-        start_date: 2015-12-31 # Early
-        stop_date: 2015-12-31
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 11:59:00 # Early
+        stop_datetime: 2016-02-01 11:59:00
+        encounter_id: 1
+      - type: ALLERGY_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: PROBLEM_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
   - name: ReconciliationMedication Lower
     attributes:
@@ -879,15 +1057,33 @@ patients:
         type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
       - type: MEDICATION_LIST_RECONCILIATION
-        start_date: 2016-01-01 # Lower bound
-        stop_date: 2016-01-01
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00 # Lower bound
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: ALLERGY_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: PROBLEM_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
   - name: ReconciliationMedication Upper
     attributes:
@@ -901,15 +1097,33 @@ patients:
         type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
       - type: MEDICATION_LIST_RECONCILIATION
-        start_date: 2016-12-31 # Upper bound
-        stop_date: 2016-12-31
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 13:00:00 # Upper bound
+        stop_datetime: 2016-02-01 13:00:00
+        encounter_id: 1
+      - type: ALLERGY_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: PROBLEM_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
   - name: ReconciliationMedication After
     attributes:
@@ -923,15 +1137,33 @@ patients:
         type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
       - type: MEDICATION_LIST_RECONCILIATION
-        start_date: 2017-01-01 # Late
-        stop_date: 2017-01-01
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 13:01:00 # Late
+        stop_datetime: 2016-02-01 13:01:00
+        encounter_id: 1
+      - type: ALLERGY_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: PROBLEM_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
   - name: ReconciliationMedication WrongEncounter
     attributes:
@@ -945,21 +1177,41 @@ patients:
         type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       - external_id: 2
         type: "New"
         start_date: 2016-03-01
         stop_date: 2016-03-01
+        start_datetime: 2016-03-01 12:00:00
+        stop_datetime: 2016-03-01 12:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
       - type: MEDICATION_LIST_RECONCILIATION
         start_date: 2016-03-01
         stop_date: 2016-03-01
+        start_datetime: 2016-03-01 12:00:00
+        stop_datetime: 2016-03-01 12:00:00
         encounter_id: 2 # Wrong Encounter
+      - type: ALLERGY_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: PROBLEM_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
   - name: ReconciliationAllergy Before
     attributes:
       date_of_birth: 2000-01-01
@@ -971,15 +1223,33 @@ patients:
       - external_id: 1
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: MEDICATION_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
       - type: ALLERGY_LIST_RECONCILIATION
-        start_date: 2015-12-31 # Early
-        stop_date: 2015-12-31
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 11:59:00 # Early
+        stop_datetime: 2016-02-01 11:59:00
+        encounter_id: 1
+      - type: PROBLEM_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
   - name: ReconciliationAllergy Lower
     attributes:
@@ -993,15 +1263,33 @@ patients:
         type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: MEDICATION_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         encounter_id: 1
       - type: ALLERGY_LIST_RECONCILIATION
-        start_date: 2016-01-01 # Lower bound
-        stop_date: 2016-01-01
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00 # Lower bound
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: PROBLEM_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
   - name: ReconciliationAllergy Upper
     attributes:
@@ -1015,15 +1303,33 @@ patients:
         type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: MEDICATION_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
       - type: ALLERGY_LIST_RECONCILIATION
-        start_date: 2016-12-31 # Upper bound
-        stop_date: 2016-12-31
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 13:00:00 # Upper bound
+        stop_datetime: 2016-02-01 13:00:00
+        encounter_id: 1
+      - type: PROBLEM_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
   - name: ReconciliationAllergy After
     attributes:
@@ -1037,15 +1343,33 @@ patients:
         type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: MEDICATION_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
       - type: ALLERGY_LIST_RECONCILIATION
-        start_date: 2017-01-01 # Late
-        stop_date: 2017-01-01
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 13:01:00 # Late
+        stop_datetime: 2016-02-01 13:01:00
+        encounter_id: 1
+      - type: PROBLEM_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
   - name: ReconciliationAllergy WrongEncounter
     attributes:
@@ -1059,21 +1383,41 @@ patients:
         type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       - external_id: 2
         type: "New"
         start_date: 2016-03-01
         stop_date: 2016-03-01
+        start_datetime: 2016-03-01 12:00:00
+        stop_datetime: 2016-03-01 12:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
-      - type: ALLERGY_LIST_RECONCILIATION
+      - type: MEDICATION_LIST_RECONCILIATION
         start_date: 2016-03-01
         stop_date: 2016-03-01
+        start_datetime: 2016-03-01 12:00:00
+        stop_datetime: 2016-03-01 12:00:00
+        encounter_id: 1
+      - type: ALLERGY_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 2 # Wrong Encounter
+      - type: PROBLEM_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
   - name: ReconciliationProblem Before
     attributes:
       date_of_birth: 2000-01-01
@@ -1085,15 +1429,33 @@ patients:
       - external_id: 1
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: MEDICATION_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: ALLERGY_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
       - type: PROBLEM_LIST_RECONCILIATION
-        start_date: 2015-12-31 # Early
-        stop_date: 2015-12-31
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 11:59:00 # Early
+        stop_datetime: 2016-02-01 11:59:00
         encounter_id: 1
   - name: ReconciliationProblem Lower
     attributes:
@@ -1107,15 +1469,33 @@ patients:
         type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: MEDICATION_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: ALLERGY_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
       - type: PROBLEM_LIST_RECONCILIATION
-        start_date: 2016-01-01 # Lower bound
-        stop_date: 2016-01-01
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00 # Lower bound
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
   - name: ReconciliationProblem Upper
     attributes:
@@ -1129,15 +1509,33 @@ patients:
         type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: MEDICATION_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: ALLERGY_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
       - type: PROBLEM_LIST_RECONCILIATION
-        start_date: 2016-12-31 # Upper bound
-        stop_date: 2016-12-31
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 13:00:00 # Upper bound
+        stop_datetime: 2016-02-01 13:00:00
         encounter_id: 1
   - name: ReconciliationProblem After
     attributes:
@@ -1151,15 +1549,33 @@ patients:
         type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: MEDICATION_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: ALLERGY_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
       - type: PROBLEM_LIST_RECONCILIATION
-        start_date: 2017-01-01 # Late
-        stop_date: 2017-01-01
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 13:01:00 # Late
+        stop_datetime: 2016-02-01 13:01:00
         encounter_id: 1
   - name: ReconciliationProblem WrongEncounter
     attributes:
@@ -1173,18 +1589,38 @@ patients:
         type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       - external_id: 2
         type: "New"
         start_date: 2016-03-01
         stop_date: 2016-03-01
+        start_datetime: 2016-03-01 12:00:00
+        stop_datetime: 2016-03-01 12:00:00
         provider: Rachel
       system_events:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 1
-      - type: PROBLEM_LIST_RECONCILIATION
+      - type: MEDICATION_LIST_RECONCILIATION
         start_date: 2016-03-01
         stop_date: 2016-03-01
+        start_datetime: 2016-03-01 12:00:00
+        stop_datetime: 2016-03-01 12:00:00
+        encounter_id: 1
+      - type: ALLERGY_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_id: 1
+      - type: PROBLEM_LIST_RECONCILIATION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_id: 2 # Wrong Encounter
