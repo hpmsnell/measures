@@ -358,7 +358,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-12-31 # Early
         stop_date: 2016-12-31
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
       - type: PORTAL_ACCESS
@@ -379,7 +379,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
       - type: PORTAL_ACCESS
@@ -400,7 +400,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
       - type: PORTAL_ACCESS
@@ -421,7 +421,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2017-01-01 # Late
         stop_date: 2017-01-01
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
       - type: PORTAL_ACCESS
@@ -442,7 +442,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-05 # Friday
         stop_date: 2016-02-11 # 4 business days
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
       - type: PORTAL_ACCESS
@@ -463,12 +463,12 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-05 # Friday
         stop_date: 2016-02-12 # 5 business days
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
       - type: PORTAL_ACCESS
         start_date: 2010-01-01 2016-02-11 # 4 business days
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
       - type: PORTAL_ACCESS
@@ -489,7 +489,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01 # Monday
         stop_date: 2016-02-08 # 4 business days if Tues 2/2 is a holiday
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
       - type: PORTAL_ACCESS
@@ -514,7 +514,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-03-01
         stop_date: 2016-03-01
-        encounter_id: 2 # Wrong Encounter
+        encounter_external_id: 2 # Wrong Encounter
       - type: API_ACCESS
         start_date: 2010-01-01
       - type: PORTAL_ACCESS
@@ -522,7 +522,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-03-01
         stop_date: 2016-03-10 # Too late
-        encounter_id: 1
+        encounter_external_id: 1
   - name: Provisioning None
     attributes:
       date_of_birth: 2000-01-01
@@ -552,7 +552,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
       - type: PORTAL_ACCESS
@@ -574,7 +574,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
       - type: PORTAL_ACCESS
@@ -596,7 +596,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
       - type: PORTAL_ACCESS
@@ -617,7 +617,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
       - type: PORTAL_ACCESS
@@ -638,7 +638,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PORTAL_ACCESS
         start_date: 2010-01-01
       - type: API_ACCESS
@@ -660,7 +660,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PORTAL_ACCESS
         start_date: 2010-01-01
       - type: API_ACCESS
@@ -682,7 +682,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PORTAL_ACCESS
         start_date: 2010-01-01
       - type: API_ACCESS
@@ -703,7 +703,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PORTAL_ACCESS
         start_date: 2010-01-01
       - type: API_ACCESS
@@ -724,7 +724,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PORTAL_ACCESS
         start_date: 2010-01-01
       - type: API_OPT_OUT
@@ -746,7 +746,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PORTAL_ACCESS
         start_date: 2010-01-01
       - type: API_OPT_OUT
@@ -771,7 +771,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-01
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
       - type: PORTAL_ACCESS
@@ -795,7 +795,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-08 # 5 business days
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
       - type: PORTAL_ACCESS
@@ -819,7 +819,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-02
         stop_date: 2016-02-02 # After portal stop date
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
       - type: PORTAL_ACCESS
@@ -844,7 +844,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-02
         stop_date: 2016-02-02 # After API stop date
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
         stop_date: 2016-02-01

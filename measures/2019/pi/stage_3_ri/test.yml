@@ -470,7 +470,7 @@ patients:
       - type: SUMMARY_OF_CARE_UNAVAILABLE
         start_date: 2015-12-31 # Early
         stop_date: 2015-12-31
-        encounter_id: 1
+        encounter_external_id: 1
   - name: SOCUnavailable Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -487,7 +487,7 @@ patients:
       - type: SUMMARY_OF_CARE_UNAVAILABLE
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
-        encounter_id: 1
+        encounter_external_id: 1
   - name: SOCUnavailable Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -504,7 +504,7 @@ patients:
       - type: SUMMARY_OF_CARE_UNAVAILABLE
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
-        encounter_id: 1
+        encounter_external_id: 1
   - name: SOCUnavailable After
     attributes:
       date_of_birth: 2000-01-01
@@ -521,7 +521,7 @@ patients:
       - type: SUMMARY_OF_CARE_UNAVAILABLE
         start_date: 2017-01-01 # Late
         stop_date: 2017-01-01
-        encounter_id: 1
+        encounter_external_id: 1
   - name: SOCUnavailable WrongEncounter
     attributes:
       date_of_birth: 2000-01-01
@@ -542,7 +542,7 @@ patients:
       - type: SUMMARY_OF_CARE_UNAVAILABLE
         start_date: 2016-03-01
         stop_date: 2016-03-01
-        encounter_id: 2 # Wrong Encounter
+        encounter_external_id: 2 # Wrong Encounter
   - name: DenominatorTOC Before
     attributes:
       date_of_birth: 2000-01-01
@@ -559,7 +559,7 @@ patients:
       - type: INBOUND_TRANSITION_OF_CARE
         start_date: 2015-12-31 # Early
         stop_date: 2015-12-31
-        encounter_id: 1
+        encounter_external_id: 1
   - name: DenominatorTOC Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -576,7 +576,7 @@ patients:
       - type: INBOUND_TRANSITION_OF_CARE
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
-        encounter_id: 1
+        encounter_external_id: 1
   - name: DenominatorTOC Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -593,7 +593,7 @@ patients:
       - type: INBOUND_TRANSITION_OF_CARE
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
-        encounter_id: 1
+        encounter_external_id: 1
   - name: DenominatorTOC After
     attributes:
       date_of_birth: 2000-01-01
@@ -610,7 +610,7 @@ patients:
       - type: INBOUND_TRANSITION_OF_CARE
         start_date: 2017-01-01 # Late
         stop_date: 2017-01-01
-        encounter_id: 1
+        encounter_external_id: 1
   - name: DenominatorTOC WrongEncounter
     attributes:
       date_of_birth: 2000-01-01
@@ -631,7 +631,7 @@ patients:
       - type: INBOUND_TRANSITION_OF_CARE
         start_date: 2016-03-01
         stop_date: 2016-03-01
-        encounter_id: 2 # Wrong Encounter
+        encounter_external_id: 2 # Wrong Encounter
   - name: DenominatorSOC Before
     attributes:
       date_of_birth: 2000-01-01
@@ -648,7 +648,7 @@ patients:
       - type: INBOUND_SUMMARY_OF_CARE
         start_date: 2015-12-31 # Early
         stop_date: 2015-12-31
-        encounter_id: 1
+        encounter_external_id: 1
   - name: DenominatorSOC Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -665,7 +665,7 @@ patients:
       - type: INBOUND_SUMMARY_OF_CARE
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
-        encounter_id: 1
+        encounter_external_id: 1
   - name: DenominatorSOC Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -682,7 +682,7 @@ patients:
       - type: INBOUND_SUMMARY_OF_CARE
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
-        encounter_id: 1
+        encounter_external_id: 1
   - name: DenominatorSOC After
     attributes:
       date_of_birth: 2000-01-01
@@ -699,7 +699,7 @@ patients:
       - type: INBOUND_SUMMARY_OF_CARE
         start_date: 2017-01-01 # Late
         stop_date: 2017-01-01
-        encounter_id: 1
+        encounter_external_id: 1
   - name: DenominatorSOC WrongEncounter
     attributes:
       date_of_birth: 2000-01-01
@@ -720,7 +720,7 @@ patients:
       - type: INBOUND_SUMMARY_OF_CARE
         start_date: 2016-03-01
         stop_date: 2016-03-01
-        encounter_id: 2 # Wrong Encounter
+        encounter_external_id: 2 # Wrong Encounter
   - name: SOCIncorporation Before
     attributes:
       date_of_birth: 2000-01-01
@@ -737,7 +737,7 @@ patients:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2015-12-31 # Early
         stop_date: 2015-12-31
-        encounter_id: 1
+        encounter_external_id: 1
   - name: SOCIncorporation Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -755,7 +755,7 @@ patients:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
-        encounter_id: 1
+        encounter_external_id: 1
   - name: SOCIncorporation Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -773,7 +773,7 @@ patients:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
-        encounter_id: 1
+        encounter_external_id: 1
   - name: SOCIncorporation After
     attributes:
       date_of_birth: 2000-01-01
@@ -791,7 +791,7 @@ patients:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2017-01-01 # Late
         stop_date: 2017-01-01
-        encounter_id: 1
+        encounter_external_id: 1
   - name: SOCIncorporation WrongEncounter
     attributes:
       date_of_birth: 2000-01-01
@@ -814,4 +814,4 @@ patients:
       - type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-03-01
         stop_date: 2016-03-01
-        encounter_id: 2 # Wrong Encounter
+        encounter_external_id: 2 # Wrong Encounter

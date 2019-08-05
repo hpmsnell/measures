@@ -574,7 +574,7 @@ patients:
         stop_date: 2015-12-31
         start_datetime: 2015-12-31 12:00:00
         stop_datetime: 2015-12-31 13:00:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: DenominatorTOC Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -595,7 +595,7 @@ patients:
         stop_date: 2016-01-01
         start_datetime: 2016-01-01 12:00:00
         stop_datetime: 2016-01-01 13:00:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: DenominatorTOC Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -614,7 +614,7 @@ patients:
       - type: INBOUND_TRANSITION_OF_CARE
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
-        encounter_id: 1
+        encounter_external_id: 1
   - name: DenominatorTOC After
     attributes:
       date_of_birth: 2000-01-01
@@ -633,7 +633,7 @@ patients:
       - type: INBOUND_TRANSITION_OF_CARE
         start_date: 2017-01-01 # Late
         stop_date: 2017-01-01
-        encounter_id: 1
+        encounter_external_id: 1
   - name: DenominatorTOC WrongEncounter
     attributes:
       date_of_birth: 2000-01-01
@@ -658,7 +658,7 @@ patients:
       - type: INBOUND_TRANSITION_OF_CARE
         start_date: 2016-03-01
         stop_date: 2016-03-01
-        encounter_id: 2 # Wrong Encounter
+        encounter_external_id: 2 # Wrong Encounter
   - name: DenominatorSOC Before
     attributes:
       date_of_birth: 2000-01-01
@@ -679,7 +679,7 @@ patients:
         stop_date: 2015-12-31
         start_datetime: 2015-12-31 12:00:00
         stop_datetime: 2015-12-31 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: DenominatorSOC Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -700,7 +700,7 @@ patients:
         stop_date: 2016-01-01
         start_datetime: 2016-01-01 12:00:00
         stop_datetime: 2016-01-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: DenominatorSOC Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -721,7 +721,7 @@ patients:
         stop_date: 2016-12-31
         start_datetime: 2016-12:31 12:00:00
         stop_datetime: 2016-12:31 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: DenominatorSOC After
     attributes:
       date_of_birth: 2000-01-01
@@ -742,7 +742,7 @@ patients:
         stop_date: 2017-01-01
         start_datetime: 2017-01-01 12:00:00
         stop_datetime: 2017-01-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: DenominatorSOC WrongEncounter
     attributes:
       date_of_birth: 2000-01-01
@@ -769,7 +769,7 @@ patients:
         stop_date: 2016-03-01
         start_datetime: 2016-03-01 12:00:00
         stop_datetime: 2016-03-01 12:00:00
-        encounter_id: 2 # Wrong Encounter
+        encounter_external_id: 2 # Wrong Encounter
   - name: ReconciliationMedication Before
     attributes:
       date_of_birth: 2000-01-01
@@ -790,19 +790,19 @@ patients:
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 11:59:00 # Early
         stop_datetime: 2016-02-01 11:59:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: ALLERGY_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PROBLEM_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: ReconciliationMedication Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -824,19 +824,19 @@ patients:
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00 # Lower bound
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: ALLERGY_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PROBLEM_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: ReconciliationMedication Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -858,19 +858,19 @@ patients:
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 13:00:00 # Upper bound
         stop_datetime: 2016-02-01 13:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: ALLERGY_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PROBLEM_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: ReconciliationMedication After
     attributes:
       date_of_birth: 2000-01-01
@@ -892,19 +892,19 @@ patients:
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 13:01:00 # Late
         stop_datetime: 2016-02-01 13:01:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: ALLERGY_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PROBLEM_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: ReconciliationMedication WrongEncounter
     attributes:
       date_of_birth: 2000-01-01
@@ -933,19 +933,19 @@ patients:
         stop_date: 2016-03-01
         start_datetime: 2016-03-01 12:00:00
         stop_datetime: 2016-03-01 12:00:00
-        encounter_id: 2 # Wrong Encounter
+        encounter_external_id: 2 # Wrong Encounter
       - type: ALLERGY_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PROBLEM_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: ReconciliationAllergy Before
     attributes:
       date_of_birth: 2000-01-01
@@ -966,19 +966,19 @@ patients:
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: ALLERGY_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 11:59:00 # Early
         stop_datetime: 2016-02-01 11:59:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PROBLEM_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: ReconciliationAllergy Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -1000,19 +1000,19 @@ patients:
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 13:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: ALLERGY_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00 # Lower bound
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PROBLEM_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: ReconciliationAllergy Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -1034,19 +1034,19 @@ patients:
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: ALLERGY_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 13:00:00 # Upper bound
         stop_datetime: 2016-02-01 13:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PROBLEM_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: ReconciliationAllergy After
     attributes:
       date_of_birth: 2000-01-01
@@ -1068,19 +1068,19 @@ patients:
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: ALLERGY_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 13:01:00 # Late
         stop_datetime: 2016-02-01 13:01:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PROBLEM_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: ReconciliationAllergy WrongEncounter
     attributes:
       date_of_birth: 2000-01-01
@@ -1109,19 +1109,19 @@ patients:
         stop_date: 2016-03-01
         start_datetime: 2016-03-01 12:00:00
         stop_datetime: 2016-03-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: ALLERGY_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 2 # Wrong Encounter
+        encounter_external_id: 2 # Wrong Encounter
       - type: PROBLEM_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: ReconciliationProblem Before
     attributes:
       date_of_birth: 2000-01-01
@@ -1142,19 +1142,19 @@ patients:
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: ALLERGY_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PROBLEM_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 11:59:00 # Early
         stop_datetime: 2016-02-01 11:59:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: ReconciliationProblem Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -1176,19 +1176,19 @@ patients:
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: ALLERGY_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PROBLEM_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00 # Lower bound
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: ReconciliationProblem Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -1210,19 +1210,19 @@ patients:
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: ALLERGY_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PROBLEM_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 13:00:00 # Upper bound
         stop_datetime: 2016-02-01 13:00:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: ReconciliationProblem After
     attributes:
       date_of_birth: 2000-01-01
@@ -1244,19 +1244,19 @@ patients:
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: ALLERGY_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PROBLEM_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 13:01:00 # Late
         stop_datetime: 2016-02-01 13:01:00
-        encounter_id: 1
+        encounter_external_id: 1
   - name: ReconciliationProblem WrongEncounter
     attributes:
       date_of_birth: 2000-01-01
@@ -1285,16 +1285,16 @@ patients:
         stop_date: 2016-03-01
         start_datetime: 2016-03-01 12:00:00
         stop_datetime: 2016-03-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: ALLERGY_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PROBLEM_LIST_RECONCILIATION
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 2 # Wrong Encounter
+        encounter_external_id: 2 # Wrong Encounter
