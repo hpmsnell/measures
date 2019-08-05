@@ -182,6 +182,23 @@ patients:
         prescribed: true
         prescription_method: 'paper'
         controlled_substance: false
+        patients:
+  - name: DenominatorMedication NotPrescribed
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorMedication
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      medications:
+      - code_type: RXNORM
+        code_value: 1191 # Medication
+        start_date: 2016-01-01 # Lower bound
+        stop_date: 2016-01-01
+        provider: Rachel
+        prescribed: false
+        prescription_method: 'paper'
+        controlled_substance: false
   - name: Prescription Electronic
     attributes:
       date_of_birth: 2000-01-01

@@ -181,6 +181,22 @@ patients:
         prescribed: true
         prescription_method: 'electronic'
         cpoe: false
+  - name: DenominatorMedication NotPrescribed
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorMedication
+      family_name: NotPrescribed
+      sex: Male
+    clinical_models:
+      medications:
+      - code_type: RXNORM
+        code_value: 1191 # Medication
+        start_date: 2016-12-31 # Upper bound
+        stop_date: 2016-12-31
+        provider: Rachel
+        prescribed: false
+        prescription_method: 'electronic'
+        cpoe: false
   - name: Order CPOE
     attributes:
       date_of_birth: 2000-01-01

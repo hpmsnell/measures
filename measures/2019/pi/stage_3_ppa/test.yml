@@ -185,6 +185,26 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
+      - name: Provisioning 48Hours # Provisioning duration is 48 hours
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
+      - name: Provisioning 49Hours # Provisioning duration is 49 hours
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Provisioning WrongEncounter # Provisioning not linked to denominator encounter
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Provisioning None # Encounter has no associated provisioning event
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
       - name: PortalAccess Before # Early
         denominator: 1
         denominator_exclusion:

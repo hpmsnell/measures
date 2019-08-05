@@ -128,36 +128,6 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: DenominatorTOC Before # Early
-      start_date: 2016-02-01
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: DenominatorTOC Lower # Lower bound
-      start_date: 2016-02-01
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_met
-    - name: DenominatorTOC Upper # Upper bound
-      start_date: 2016-02-01
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_met
-    - name: DenominatorTOC After # Late
-      start_date: 2016-02-01
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: DenominatorTOC WrongEncounter # Different Encounter ID
-      start_date: 2016-02-01
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
     - name: SOCIncorporation Before # Early
       start_date: 2016-02-01
       denominator: 1
@@ -454,6 +424,19 @@ patients:
         start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Patty # Different provider
+  - name: DenominatorEncounter NotNew
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorEncounter
+      family_name: NotNew
+      sex: Male
+    clinical_models:
+      encounters:
+      - external_id: 1
+        type: "Old"
+        start_date: 2016-12-31 # Upper bound
+        stop_date: 2016-12-31
+        provider: Rachel
   - name: SOCUnavailable Before
     attributes:
       date_of_birth: 2000-01-01

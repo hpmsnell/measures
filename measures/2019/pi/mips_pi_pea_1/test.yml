@@ -190,7 +190,27 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
+      - name: Provisioning 4Days # Provisioning duration is 4 business days
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
+      - name: Provisioning 5Days # Provisioning duration is 5 business days
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
       - name: Provisioning Holiday # Within range if a holiday date is included
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
+      - name: Provisioning WrongEncounter # Provisioning not linked to denominator encounter
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Provisioning None # Encounter has no associated provisioning event
         denominator: 1
         denominator_exclusion:
         denominator_exception:
