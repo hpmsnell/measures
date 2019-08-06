@@ -31,7 +31,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_not_met
     - name: SecureMessage Lower # Lower bound
       denominator: 1
       denominator_exclusion:
@@ -41,7 +41,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: SecureMessage After # Late
       denominator: 1
       denominator_exclusion:
@@ -84,7 +84,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_met
+        numerator: performance_not_met
       - name: SecureMessage Lower # Lower bound
         denominator: 1
         denominator_exclusion:
@@ -94,7 +94,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: SecureMessage After # Late
         denominator: 1
         denominator_exclusion:
@@ -124,9 +124,9 @@ patients:
       family_name: Before
       sex: Male
     clinical_models:
-      encounters: 
-      - code_type: CPT
-        code_value: 015-12-31
+      encounters:
+      - start_date: 2015-12-31
+        stop_date: 2015-12-31
         provider: Rachel
         prescribed: true
   - name: DenominatorEncounter Lower
@@ -184,9 +184,9 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
+      system_events:
       - code_type: AUTOMATION
-        code_value: SECURE_MESSAGE
+        event_type: SECURE_MESSAGE
         start_date: 2015-12-31 # Before
         stop_date: 2015-12-31
         provider: Rachel
@@ -201,9 +201,9 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
+      system_events:
       - code_type: AUTOMATION
-        code_value: SECURE_MESSAGE
+        event_type: SECURE_MESSAGE
         start_date: 2016-01-01 # Lower
         stop_date: 2016-01-01
         provider: Rachel
@@ -218,9 +218,9 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
+      system_events:
       - code_type: AUTOMATION
-        code_value: SECURE_MESSAGE
+        event_type: SECURE_MESSAGE
         start_date: 2016-12-31 # Upper
         stop_date: 2016-12-31
         provider: Rachel
@@ -235,9 +235,9 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
+      system_events:
       - code_type: AUTOMATION
-        code_value: SECURE_MESSAGE
+        event_type: SECURE_MESSAGE
         start_date: 2017-01-01 # After
         stop_date: 2017-01-01
         provider: Rachel
@@ -251,10 +251,10 @@ patients:
       encounters:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
-        provider: Patty
-      clinical_activities:
+        provider: Rachel
+      system_events:
       - code_type: AUTOMATION
-        code_value: SECURE_MESSAGE
+        event_type: SECURE_MESSAGE
         start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Patty # Different provider
