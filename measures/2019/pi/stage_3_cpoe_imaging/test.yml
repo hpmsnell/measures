@@ -1,4 +1,4 @@
-measure_id: measure.PI.2019.Stage3cpoeimaging
+measure_id: measure.Pi.2019.Stage3cpoeimaging
 test_set_keys:
   organization_key:
     episodes_of_care:
@@ -95,7 +95,8 @@ patients:
       family_name: Before
       sex: Male
     clinical_models:
-      medicationsorders- code_type: CPT
+      orders:
+      - code_type: CPT
         code_value: 70000 # Order
         start_date: 2015-12-31 # Too early
         stop_date: 2015-12-31

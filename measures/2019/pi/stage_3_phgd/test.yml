@@ -1,4 +1,4 @@
-measure_id: measure.PI.2019.Stage3pghd
+measure_id: measure.Pi.2019.Stage3pghd
 test_set_keys:
   organization_key:
     patients:
@@ -31,7 +31,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_not_met
     - name: PGHD Lower # Lower bound
       denominator: 1
       denominator_exclusion:
@@ -41,7 +41,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: PGHD After # Late
       denominator: 1
       denominator_exclusion:
@@ -79,7 +79,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_met
+        numerator: performance_not_met
       - name: PGHD Lower # Lower bound
         denominator: 1
         denominator_exclusion:
@@ -89,7 +89,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: PGHD After # Late
         denominator: 1
         denominator_exclusion:
@@ -99,7 +99,7 @@ providers:
   - given_name: Rachel
     family_name:  Katz
     credential: DO
-    primary_specialty:  Family Medicine
+    primary_specialty: Family Medicine
     external_id: '111-111'
   - given_name: Patty
     family_name:  Smith
@@ -114,10 +114,13 @@ patients:
       family_name: Before
       sex: Male
     clinical_models:
-      medicationsencounters- code_type: CPT
+      encounters:
+      - code_type: CPT
         code_value: 015-12-31
         provider: Rachel
-        prescribed: trueounter Lower
+        prescribed: true
+        start_date: 2015-12-31
+  - name: DenominatorEncounter Lower
     attributes:
       date_of_birth: 2000-01-01
       given_name: DenominatorEncounter
@@ -172,9 +175,9 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
+      system_events:
       - code_type: AUTOMATION
-        code_value: PGHD_INCORPORATION
+        event_type: PGHD_INCORPORATION
         start_date: 2015-12-31 # Before
         stop_date: 2015-12-31
   - name: PGHD Lower
@@ -188,9 +191,9 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
+      system_events:
       - code_type: AUTOMATION
-        code_value: PGHD_INCORPORATION
+        event_type: PGHD_INCORPORATION
         start_date: 2016-01-01 # Lower
         stop_date: 2016-01-01
   - name: PGHD Upper
@@ -204,9 +207,9 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
+      system_events:
       - code_type: AUTOMATION
-        code_value: PGHD_INCORPORATION
+        event_type: PGHD_INCORPORATION
         start_date: 2016-12-31 # Upper
         stop_date: 2016-12-31
   - name: PGHD After
@@ -220,8 +223,8 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
+      system_events:
       - code_type: AUTOMATION
-        code_value: PGHD_INCORPORATION
+        event_type: PGHD_INCORPORATION
         start_date: 2017-01-01 # After
         stop_date: 2017-01-01

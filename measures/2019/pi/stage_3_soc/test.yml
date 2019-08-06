@@ -1,4 +1,4 @@
-measure_id: measure.PI.2019.Mipspihie1
+measure_id: measure.Pi.2019.Stage3soc
 test_set_keys:
   organization_key:
     episodes_of_care:
@@ -273,11 +273,11 @@ patients:
       - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
         start_date: 2015-12-31 # Early
         stop_date: 2015-12-31
-        referral_id: 1
+        referral_external_id: 1
       - type: SUMMARY_OF_CARE_RECEIPT
         start_date: 2016-02-01
         stop_date: 2016-02-01
-        referral_id: 1
+        referral_external_id: 1
   - name: SOCExchange Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -294,11 +294,11 @@ patients:
       - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
-        referral_id: 1
+        referral_external_id: 1
       - type: SUMMARY_OF_CARE_RECEIPT
         start_date: 2016-02-01
         stop_date: 2016-02-01
-        referral_id: 1
+        referral_external_id: 1
   - name: SOCExchange Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -315,11 +315,11 @@ patients:
       - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
-        referral_id: 1
+        referral_external_id: 1
       - type: SUMMARY_OF_CARE_RECEIPT
         start_date: 2016-02-01
         stop_date: 2016-02-01
-        referral_id: 1
+        referral_external_id: 1
   - name: SOCExchange After
     attributes:
       date_of_birth: 2000-01-01
@@ -336,11 +336,11 @@ patients:
       - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
         start_date: 2017-01-01 # Late
         stop_date: 2017-01-01
-        referral_id: 1
+        referral_external_id: 1
       - type: SUMMARY_OF_CARE_RECEIPT
         start_date: 2016-02-01
         stop_date: 2016-02-01
-        referral_id: 1
+        referral_external_id: 1
   - name: SOCExchange WrongReferral
     attributes:
       date_of_birth: 2000-01-01
@@ -361,11 +361,11 @@ patients:
       - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
         start_date: 2016-03-01
         stop_date: 2016-03-01
-        referral_id: 2 # Wrong referral
+        referral_external_id: 2 # Wrong referral
       - type: SUMMARY_OF_CARE_RECEIPT
         start_date: 2016-02-01
         stop_date: 2016-02-01
-        referral_id: 1
+        referral_external_id: 1
   - name: SOCReceipt Before
     attributes:
       date_of_birth: 2000-01-01
@@ -382,11 +382,11 @@ patients:
       - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
         start_date: 2016-02-01
         stop_date: 2016-02-01
-        referral_id: 1
+        referral_external_id: 1
       - type: SUMMARY_OF_CARE_RECEIPT
         start_date: 2015-12-31 # Early
         stop_date: 2015-12-31
-        referral_id: 1
+        referral_external_id: 1
   - name: SOCReceipt Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -403,11 +403,11 @@ patients:
       - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
         start_date: 2016-02-01
         stop_date: 2016-02-01
-        referral_id: 1
+        referral_external_id: 1
       - type: SUMMARY_OF_CARE_RECEIPT
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
-        referral_id: 1
+        referral_external_id: 1
   - name: SOCReceipt Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -424,11 +424,11 @@ patients:
       - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
         start_date: 2016-02-01
         stop_date: 2016-02-01
-        referral_id: 1
+        referral_external_id: 1
       - type: SUMMARY_OF_CARE_RECEIPT
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
-        referral_id: 1
+        referral_external_id: 1
   - name: SOCReceipt After
     attributes:
       date_of_birth: 2000-01-01
@@ -445,15 +445,15 @@ patients:
       - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
         start_date: 2016-02-01
         stop_date: 2016-02-01
-        referral_id: 1
+        referral_external_id: 1
       - type: SUMMARY_OF_CARE_RECEIPT
         start_date: 2017-01-01 # Late
         stop_date: 2017-01-01
-        referral_id: 1
-  - name: SOCExchange WrongReferral
+        referral_external_id: 1
+  - name: SOCReceipt WrongReferral
     attributes:
       date_of_birth: 2000-01-01
-      given_name: SOCExchange
+      given_name: SOCReceipt
       family_name: WrongReferral
       sex: Male
     clinical_models:
@@ -470,8 +470,8 @@ patients:
       - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
         start_date: 2016-03-01
         stop_date: 2016-03-01
-        referral_id: 1
+        referral_external_id: 1
       - type: SUMMARY_OF_CARE_RECEIPT
         start_date: 2016-02-01
         stop_date: 2016-02-01
-        referral_id: 2 # Wrong referral
+        referral_external_id: 2 # Wrong referral

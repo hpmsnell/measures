@@ -1,4 +1,4 @@
-measure_id: measure.PI.2019.Stage3vdt
+measure_id: measure.Pi.2019.Stage3vdt
 test_set_keys:
   organization_key:
     patients:
@@ -214,10 +214,12 @@ patients:
       family_name: Before
       sex: Male
     clinical_models:
-      medicationsencounters- code_type: CPT
+      encounters: 
+      - code_type: CPT
         code_value: 015-12-31
         provider: Rachel
-        prescribed: trueounter Lower
+        prescribed: true
+  - name: DenominatorEncounter Lower
     attributes:
       date_of_birth: 2000-01-01
       given_name: DenominatorEncounter

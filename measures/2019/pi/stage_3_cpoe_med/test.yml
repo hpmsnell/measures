@@ -1,4 +1,4 @@
-measure_id: measure.PI.2019.Stage3cpoemedication
+measure_id: measure.Pi.2019.Stage3cpoemedication
 test_set_keys:
   organization_key:
     episodes_of_care:
@@ -180,6 +180,21 @@ patients:
         provider: Patty # Different provider
         prescribed: true
         prescription_method: 'electronic'
+        cpoe: false
+  - name: DenominatorMedication NotPrescribed
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorMedication
+      family_name: NotPrescribed
+      sex: Male
+    clinical_models:
+      medications:
+      - code_type: RXNORM
+        code_value: 1191 # Medication
+        start_date: 2016-12-31 # Upper bound
+        stop_date: 2016-12-31
+        provider: Rachel
+        prescribed: false
         cpoe: false
   - name: Order CPOE
     attributes:

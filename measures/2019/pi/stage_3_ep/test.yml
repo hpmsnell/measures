@@ -1,4 +1,4 @@
-measure_id: measure.PI.2019.Mipspiep1
+measure_id: measure.Pi.2019.Stage3ep
 test_set_keys:
   organization_key:
     episodes_of_care:
@@ -176,6 +176,20 @@ patients:
         provider: Rachel
         prescribed: true
         prescription_method: 'paper'
+  - name: DenominatorMedication NotPrescribed
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorMedication
+      family_name: NotPrescribed
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: RXNORM
+        code_value: 1191 # Medication
+        start_date: 2016-12-31 # Upper bound
+        stop_date: 2016-12-31
+        provider: Rachel
+        prescribed: false
   - name: Prescription Electronic
     attributes:
       date_of_birth: 2000-01-01
