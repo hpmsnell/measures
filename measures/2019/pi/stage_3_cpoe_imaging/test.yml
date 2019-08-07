@@ -68,8 +68,8 @@ test_set_keys:
       - name: DenominatorOrder DifferentProvider # Different denominator provider
         start_date: 2016-02-01
         denominator:
-        denominator_exclusion:
-        denominato
+        denominator_exception:
+        numerator:
       - name: Order CPOE # Order used CPOE
         start_date: 2016-02-01
         denominator: 1
@@ -101,7 +101,6 @@ patients:
         start_date: 2015-12-31 # Too early
         stop_date: 2015-12-31
         provider: Rachel
-        prescribed: true
   - name: DenominatorOrder Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -115,7 +114,7 @@ patients:
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
         provider: Rachel
-        cpoe: false
+        computerized_physician_order_entry: false
   - name: DenominatorOrder Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -129,7 +128,7 @@ patients:
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
         provider: Rachel
-        cpoe: false
+        computerized_physician_order_entry: false
   - name: DenominatorOrder After
     attributes:
       date_of_birth: 2000-01-01
@@ -143,7 +142,7 @@ patients:
         start_date: 2017-01-01 # Too late
         stop_date: 2017-01-01
         provider: Rachel
-        cpoe: false
+        computerized_physician_order_entry: false
   - name: DenominatorOrder DifferentProvider
     attributes:
       date_of_birth: 2000-01-01
@@ -157,7 +156,7 @@ patients:
         start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Patty
-        cpoe: false
+        computerized_physician_order_entry: false
   - name: Order CPOE
     attributes:
       date_of_birth: 2000-01-01
@@ -171,4 +170,4 @@ patients:
         start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-        cpoe: true # CPOE
+        computerized_physician_order_entry: true # CPOE
