@@ -1,4 +1,4 @@
-measure_id: measure.PI.2019.Stage3ppa
+measure_id: measure.Pi.2019.Stage3ppa
 test_set_keys:
   organization_key:
     patients:
@@ -185,6 +185,26 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
+      - name: Provisioning 48Hours # Provisioning duration is 48 hours
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
+      - name: Provisioning 49Hours # Provisioning duration is 49 hours
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Provisioning WrongEncounter # Provisioning not linked to denominator encounter
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Provisioning None # Encounter has no associated provisioning event
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
       - name: PortalAccess Before # Early
         denominator: 1
         denominator_exclusion:
@@ -362,7 +382,7 @@ patients:
         stop_date: 2016-12-31
         start_datetime: 2015-12-31 12:00:00
         stop_datetime: 2015-12-31 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -389,7 +409,7 @@ patients:
         stop_date: 2016-01-01
         start_datetime: 2016-01-01 12:00:00
         stop_datetime: 2016-01-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -416,7 +436,7 @@ patients:
         stop_date: 2016-12-31
         start_datetime: 2016-12-31 12:00:00
         stop_datetime: 2016-12-31 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -443,7 +463,7 @@ patients:
         stop_date: 2017-01-01
         start_datetime: 2017-01-01 12:00:00
         stop_datetime: 2017-01-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -470,7 +490,7 @@ patients:
         stop_date: 2016-02-07
         start_datetime: 2016-02-05 12:00:00
         stop_datetime: 2016-02-07 12:00:00 # 48 hours
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -497,7 +517,7 @@ patients:
         stop_date: 2016-02-07
         start_datetime: 2016-02-05 12:00:00
         stop_datetime: 2016-02-07 13:00:00 # 48 hours
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -530,7 +550,7 @@ patients:
         stop_date: 2016-03-01
         start_datetime: 2016-03-01 12:00:00
         stop_datetime: 2016-03-01 12:00:00
-        encounter_id: 2 # Wrong Encounter
+        encounter_external_id: 2 # Wrong Encounter
       - type: API_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -542,7 +562,7 @@ patients:
         stop_date: 2016-03-10
         start_datetime: 2016-03-01 12:00:00
         stop_datetime: 2016-03-10 12:00:00 # Too late
-        encounter_id: 1
+        encounter_external_id: 1
   - name: Provisioning None
     attributes:
       date_of_birth: 2000-01-01
@@ -578,7 +598,7 @@ patients:
         stop_date: 2016-02-02
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-02 12:00:00 # Patient access date
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -607,7 +627,7 @@ patients:
         stop_date: 2016-02-02
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-02 12:00:00 # Patient access date
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -636,7 +656,7 @@ patients:
         stop_date: 2016-02-02
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-02 12:00:00 # Patient access date
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -663,7 +683,7 @@ patients:
         stop_date: 2016-02-02
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-02 12:00:00 # Patient access date
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -690,7 +710,7 @@ patients:
         stop_date: 2016-02-02
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-02 12:00:00 # Patient access date
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PORTAL_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -717,7 +737,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PORTAL_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -744,7 +764,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PORTAL_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -769,7 +789,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PORTAL_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -794,7 +814,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PORTAL_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -821,7 +841,7 @@ patients:
       - type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02
-        encounter_id: 1
+        encounter_external_id: 1
       - type: PORTAL_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -855,7 +875,7 @@ patients:
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -887,7 +907,7 @@ patients:
         stop_date: 2016-02-03
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-03 13:00:00 # 49 hours
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -919,7 +939,7 @@ patients:
         stop_date: 2016-02-02 # After portal stop date
         start_datetime: 2016-02-02 12:00:00
         stop_datetime: 2016-02-02 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
         start_datetime: 2010-01-01 12:00:00
@@ -953,7 +973,7 @@ patients:
         stop_date: 2016-02-02 # After API stop date
         start_datetime: 2016-02-02 12:00:00
         stop_datetime: 2016-02-02 12:00:00
-        encounter_id: 1
+        encounter_external_id: 1
       - type: API_ACCESS
         start_date: 2010-01-01
         stop_date: 2016-02-01
