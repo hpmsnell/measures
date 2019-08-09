@@ -662,7 +662,7 @@ patients:
         start_datetime: 2010-01-01 12:00:00
       - type: PORTAL_ACCESS
         start_date: 2016-01-02
-        start_datetime: 2016-01-02 12:00:00 # Upper bound
+        start_datetime: 2016-02-03 12:00:00 # Upper bound
   - name: PortalAccess After
     attributes:
       date_of_birth: 2000-01-01
@@ -689,7 +689,7 @@ patients:
         start_datetime: 2010-01-01 12:00:00
       - type: PORTAL_ACCESS
         start_date: 2016-01-02
-        start_datetime: 2016-01-02 12:01:00 # Too late
+        start_datetime: 2016-02-03 12:01:00 # Too late
   - name: APIAccess Before
     attributes:
       date_of_birth: 2000-01-01
@@ -770,7 +770,7 @@ patients:
         start_datetime: 2010-01-01 12:00:00
       - type: API_ACCESS
         start_date: 2016-01-02
-        start_datetime: 2016-01-02 12:00:00 # Upper bound
+        start_datetime: 2016-01-03 12:00:00 # Upper bound
   - name: APIAccess After
     attributes:
       date_of_birth: 2000-01-01
@@ -795,7 +795,7 @@ patients:
         start_datetime: 2010-01-01 12:00:00
       - type: API_ACCESS
         start_date: 2010-01-02
-        start_datetime: 2016-01-02 12:01:00 # Too late
+        start_datetime: 2016-01-03 12:01:00 # Too late
   - name: APIOptOut Before
     attributes:
       date_of_birth: 2000-01-01
