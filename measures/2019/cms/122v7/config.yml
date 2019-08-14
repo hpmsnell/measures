@@ -10,7 +10,7 @@ measure:
   optional:
     description: 'Percentage of patients 18-75 years of age with diabetes who had
       hemoglobin A1c > 9.0% during the measurement period'
-    end_to_end_bonus_disabled: true
+    end_to_end_bonus_disabled: false
     gap_resolution_action: Patient is due for an HbA1c test or needs attention for
       an uncontrolled lab result
     mips_measure_type: Intermediate Outcome
@@ -62,14 +62,8 @@ exclusion:
          records:
          - model: ClinicalActivity
            value_set: "VSAC; Hospice care ambulatory"
-    - logical_operator: 'OR'
-      components:
-       - display_title: Inpatient Encounter
-         show_codes: true
-         annotation: 'With discharge disposition: SNOMEDCT 428361000124107 or 428371000124100'
-         records:
-         - model: ClinicalActivity
-           value_set: "VSAC; Encounter Inpatient"
+         - model: Order
+           value_set: "VSAC; Hospice care ambulatory"
 exception:
   description:
   reasons:
@@ -99,7 +93,7 @@ performance_met:
 performance_not_met:
   description:
   reasons:
-  - config_link_id:
+  - config_link_id: performance_not_met
     code_value:
     display_title: No Poor Control
     description: Most recent hemoglobin A1c (HbA1c) level < 9.0%
