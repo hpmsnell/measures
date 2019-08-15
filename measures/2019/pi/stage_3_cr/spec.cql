@@ -25,13 +25,13 @@ define "Denominator Transfer of Care":
   "Denominator Encounter" E
     where E.type = "new"
   union "Denominator Encounter" E
-    with ["Clinical Activity"] C
+    with ["System Event"] C
       such that C.start_datetime during "Measurement Period"
         and C.code_type = "AUTOMATION"
         and C.code_value = "INBOUND_TRANSITION_OF_CARE"
         and C.encounter_id = E.external_id
   union "Denominator Encounter" E
-    with ["Clinical Activity"] C
+    with ["System Event"] C
       such that C.start_datetime during "Measurement Period"
         and C.code_type = "AUTOMATION"
         and C.code_value = "INBOUND_SUMMARY_OF_CARE"
