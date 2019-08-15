@@ -50,7 +50,7 @@ exclusion:
     - validation_record_table_count: 1
       components:
       - display_title: Total Colectomy or Colorectal Cancer
-        show_codes: false
+        show_codes: true
         records:
         - model: Diagnosis
           value_set: "VSAC; Malignant Neoplasm of Colon"
@@ -74,17 +74,22 @@ exception:
   reasons:
 performance_met:
   description: 'Patients with one or more screenings for colorectal cancer. Appropriate
-    screenings are defined by any one of the following criteria:'
+    screenings are defined by any one of the following criteria:
+    - Fecal occult blood test (FOBT) during the measurement period
+    - Flexible sigmoidoscopy during the measurement period or the four years prior to the measurement period
+    - Colonoscopy during the measurement period or the nine years prior to the measurement period
+    - FIT-DNA during the measurement period or the two years prior to the measurement period 
+    - CT Colonography during the measurement period or the four years prior to the measurement period'
   reasons:
   - config_link_id: performance_met
     code_value:
     display_title: Screening for Colorectal Cancer
-    description: Colorectal cancer screening results documented and reviewed
+    description: Colorectal cancer screening results performed
     component_groups:
     - validation_record_table_count: 1
       components:
       - display_title: Screening for Colorectal Cancer
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: "VSAC; Colonoscopy"
@@ -102,10 +107,10 @@ performance_not_met:
   - config_link_id: performance_not_met
     code_value:
     display_title: No Screening for Colorectal Cancer
-    description: Colorectal cancer screening results were not documented and reviewed,
+    description: Colorectal cancer screening not found
       reason not otherwise specified
     component_groups:
     - validation_record_table_count: 1
       components:
       - display_title: "No Screening for Colorectal Cancer"
-        show_codes: false
+        show_codes: true
