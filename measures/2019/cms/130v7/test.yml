@@ -38,19 +38,15 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       numerator: performance_not_met
-    - name: MIPSExclusion Colectomy # Patient has a MIPS history of colectomy or colorectal cancer screening
+    - name: Exclusion Colectomy # Patient has a history of colectomy or colorectal cancer screening
       denominator: 1
       denominator_exclusion: exclusion_1
       numerator:
-    - name: MIPSExclusion Hospice # Patient has a MIPS hospice service
+    - name: Exclusion Hospice # Patient has a hospice service
       denominator: 1
       denominator_exclusion: exclusion_hospice
       numerator:
-    - name: MIPSExclusion Late # Patient has a MIPS exclusion but it is too late
-      denominator: 1
-      denominator_exclusion:
-      numerator: performance_not_met
-    - name: MIPSExclusion Early # Patient has a MIPS exclusion but it is too early
+    - name: Exclusion Early # Patient has a exclusion but it is too early
       denominator: 1
       denominator_exclusion:
       numerator: performance_not_met
@@ -173,19 +169,15 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         numerator: performance_not_met
-      - name: MIPSExclusion Colectomy # Patient has a MIPS history of colectomy or colorectal cancer screening
+      - name: Exclusion Colectomy # Patient has a  history of colectomy or colorectal cancer screening
         denominator: 1
         denominator_exclusion: exclusion_1
         numerator:
-      - name: MIPSExclusion Hospice # Patient has a MIPS hospice service
+      - name: Exclusion Hospice # Patient has a hospice service
         denominator: 1
         denominator_exclusion: exclusion_hospice
         numerator:
-      - name: MIPSExclusion Late # Patient has a MIPS exclusion but it is too late
-        denominator: 1
-        denominator_exclusion:
-        numerator: performance_not_met
-      - name: MIPSExclusion Early # Patient has a MIPS exclusion but it is too early
+      - name: Exclusion Early # Patient has a exclusion but it is too early
         denominator: 1
         denominator_exclusion:
         numerator: performance_not_met
@@ -391,10 +383,10 @@ patients:
     - code_type: ICD10CM
       code_value: C18.0
       start_date: 2017-01-01
-- name: MIPSExclusion Colectomy
+- name: Exclusion Colectomy
   attributes:
     date_of_birth: 1947-01-01
-    given_name: MIPSExclusion
+    given_name: Exclusion
     family_name: Colectomy
     sex: Male
   clinical_models:
@@ -404,12 +396,12 @@ patients:
       start_date: 2016-01-01
       provider: Rachel
     - code_type: CPT
-      code_value: G9711
+      code_value: 44152
       start_date: 2010-01-01
-- name: MIPSExclusion Hospice
+- name: Exclusion Hospice
   attributes:
     date_of_birth: 1947-01-01
-    given_name: MIPSExclusion
+    given_name: Exclusion
     family_name: Hospice
     sex: Male
   clinical_models:
@@ -421,25 +413,10 @@ patients:
     - code_type: SNOMEDCT
       code_value: 385763009
       start_date: 2016-01-01
-- name: MIPSExclusion Late
+- name: Exclusion Early
   attributes:
     date_of_birth: 1947-01-01
-    given_name: MIPSExclusion
-    family_name: Late
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99201
-      start_date: 2016-01-01
-      provider: Rachel
-    - code_type: SNOMEDCT
-      code_value: 385763009
-      start_date: 2017-01-01
-- name: MIPSExclusion Early
-  attributes:
-    date_of_birth: 1947-01-01
-    given_name: MIPSExclusion
+    given_name: Exclusion
     family_name: Early
     sex: Male
   clinical_models:

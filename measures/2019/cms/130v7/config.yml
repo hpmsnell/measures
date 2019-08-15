@@ -33,11 +33,11 @@ denominator:
       - model: ClinicalActivity
         value_set: "VSAC; Annual Wellness Visit"
       - model: ClinicalActivity
-        value_set: "Preventive Care Services - Established Office Visit, 18 and Up"
+        value_set: "VSAC; Preventive Care Services - Established Office Visit, 18 and Up"
       - model: ClinicalActivity
-        value_set: "Preventive Care Services-Initial Office Visit, 18 and Up"
+        value_set: "VSAC; Preventive Care Services-Initial Office Visit, 18 and Up"
       - model: ClinicalActivity
-        value_set: "Home Healthcare Services"
+        value_set: "VSAC; Home Healthcare Services"
 exclusion:
   description:
   reasons:
@@ -88,8 +88,8 @@ performance_met:
         records:
         - model: ClinicalActivity
           value_set: "VSAC; Colonoscopy"
-          - model: ClinicalActivity
-            value_set: "VSAC; CT Colonography"
+        - model: ClinicalActivity
+          value_set: "VSAC; CT Colonography"
         - model: ClinicalActivity
           value_set: "VSAC; Flexible Sigmoidoscopy"
         - model: LaboratoryTestPerformed
