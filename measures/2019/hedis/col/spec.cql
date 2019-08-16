@@ -96,9 +96,9 @@ define "Denominator Exclusion: Frailty or Advanced Illness":
   AgeInYearsAt(end of "Measurement Period") >= 66
   and (
     exists(["Diagnosis": "HEDIS; Frailty"] D
-      where D.prevalencePeriod overlaps "Measurement Period")
+      where D.prevalencePeriod starts during "Measurement Period")
     or exists(["Procedure, Performed": "HEDIS; Frailty"] D
-      where D.prevalencePeriod overlaps "Measurement Period")
+      where D.prevalencePeriod starts during "Measurement Period")
   )
   and "Advanced Illness Exists"
 

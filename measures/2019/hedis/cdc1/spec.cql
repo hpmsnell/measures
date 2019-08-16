@@ -118,16 +118,16 @@ define "Denominator":
    and exists(["Diagnosis": "HEDIS; Diabetes Exclusions"] D
     where D.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
 
-define "Denominator Exclusion: Frailty or Advanced Illness":
+define "Denominator Exclusion: Frailty and Advanced Illness":
   /*
    * config_link_id: exclusion_2
    */
   AgeInYearsAt(end of "Measurement Period") >= 66
   and (
     exists(["Diagnosis": "HEDIS; Frailty"] D
-      where D.prevalencePeriod overlaps "Measurement Period")
+      where D.prevalencePeriod starts during "Measurement Period")
     or exists(["Procedure, Performed": "HEDIS; Frailty"] D
-      where D.prevalencePeriod overlaps "Measurement Period")
+      where D.prevalencePeriod starts during "Measurement Period")
   )
   and "Advanced Illness Exists"
 

@@ -26,8 +26,7 @@ valueset "HEDIS; Absence of Right Breast": '2.16.840.1.113883.3.464.1004.1330'
 valueset "HEDIS; Unilateral Mastectomy Left": '2.16.840.1.113883.3.464.1004.1334'
 valueset "HEDIS; Unilateral Mastectomy Right": '2.16.840.1.113883.3.464.1004.1335'
 valueset "HEDIS; Mammography": '2.16.840.1.113883.3.464.1004.1168'
-valueset "HEDIS; Frailty"
-valueset "HEDIS; Advanced Illness"
+valueset "HEDIS; Frailty"and "HEDIS; Advanced Illness"
 valueset "HEDIS; Outpatient"
 valueset "HEDIS; Observation"
 valueset "HEDIS; ED"
@@ -115,16 +114,16 @@ define "Denominator Exclusion: Mastectomy":
         and P1.code.modifier != P2.code.modifier)
   or "Absence of Left and Right Breast Exists"
 
-define "Denominator Exclusion: Frailty or Advanced Illness":
+define "Denominator Exclusion: Frailty and Advanced Illness":
   /*
    * config_link_id: exclusion_2
    */
   AgeInYearsAt(end of "Measurement Period") >= 66
   and (
     exists(["Diagnosis": "HEDIS; Frailty"] D
-      where D.prevalencePeriod overlaps "Measurement Period")
+      where D.prevalencePeriod starts during "Measurement Period")
     or exists(["Procedure, Performed": "HEDIS; Frailty"] D
-      where D.prevalencePeriod overlaps "Measurement Period")
+      where D.prevalencePeriod starts during "Measurement Period")
   )
   and "Advanced Illness Exists"
 
