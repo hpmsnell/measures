@@ -1,4 +1,4 @@
-measure_id: 19.CMS.122
+measure_id: measure.Cms.2019.Cms122v7
 test_set_keys:
   organization_key:
     patients:
@@ -11,12 +11,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: Age Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: Too Old
       denominator:
       denominator_exclusion:
@@ -31,22 +31,17 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: Encounter Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: Encounter After
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Encounter DifferentProvider
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
     - name: Diagnosis Before
       denominator:
       denominator_exclusion:
@@ -56,12 +51,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: Diagnosis Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: Diagnosis After
       denominator:
       denominator_exclusion:
@@ -71,7 +66,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: Hospice Lower
       denominator: 1
       denominator_exclusion: exclusion_hospice
@@ -86,52 +81,37 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
-    - name: HospiceEncounter WithDischargeDisposition
-      denominator: 1
-      denominator_exclusion: exclusion_hospice
-      denominator_exception:
-      numerator:
-    - name: HospiceEncounter WithoutDischargeDisposition
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: A1c Under7
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
       numerator: performance_met
     - name: A1c 7
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_not_met
     - name: A1c 9
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_not_met
     - name: A1c Above9
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: A1c Before
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: A1c After
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: A1c NoResult
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
   providers_key:
     - name: Rachel
       patients:
@@ -144,12 +124,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: Age Upper
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: Too Old
         denominator:
         denominator_exclusion:
@@ -164,22 +144,17 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: Encounter Upper
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: Encounter After
         denominator:
         denominator_exclusion:
         denominator_exception:
         numerator:
-      - name: Encounter DifferentProvider
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_not_met
       - name: Diagnosis Before
         denominator:
         denominator_exclusion:
@@ -189,12 +164,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: Diagnosis Upper
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: Diagnosis After
         denominator:
         denominator_exclusion:
@@ -204,7 +179,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: Hospice Lower
         denominator: 1
         denominator_exclusion: exclusion_hospice
@@ -219,52 +194,37 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
-      - name: HospiceEncounter WithDischargeDisposition
-        denominator: 1
-        denominator_exclusion: exclusion_hospice
-        denominator_exception:
-        numerator:
-      - name: HospiceEncounter WithoutDischargeDisposition
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_not_met
-      - name: A1c Under7
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
         numerator: performance_met
       - name: A1c 7
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_met
+        numerator: performance_not_met
       - name: A1c 9
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_met
+        numerator: performance_not_met
       - name: A1c Above9
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: A1c Before
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: A1c After
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: A1c NoResult
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
 providers:
   - given_name: Rachel
     family_name: Katz
@@ -286,7 +246,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99203 # Denominator encounter
         start_date: 2016-02-01
         provider: Rachel
       diagnoses:
@@ -302,7 +262,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99203 # Denominator encounter
         start_date: 2016-02-01
         provider: Rachel
       diagnoses:
@@ -318,7 +278,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99203 # Denominator encounter
         start_date: 2016-02-01
         provider: Rachel
       diagnoses:
@@ -334,7 +294,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99203 # Denominator encounter
         start_date: 2016-02-01
         provider: Rachel
       diagnoses:
@@ -350,7 +310,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99341 # Denominator encounter
         start_date: 2015-12-31 # Too early
         provider: Rachel
       diagnoses:
@@ -366,7 +326,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99341 # Denominator encounter
         start_date: 2016-01-01 # Lower bound
         provider: Rachel
       diagnoses:
@@ -382,7 +342,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99341 # Denominator encounter
         start_date: 2016-12-31 # Upper bound
         provider: Rachel
       diagnoses:
@@ -398,7 +358,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99341 # Denominator encounter
         start_date: 2017-01-01 # Too late
         provider: Rachel
       diagnoses:
@@ -414,7 +374,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: G0438 # Denominator encounter
         start_date: 2016-02-01
         stop_date: 2016-02-02
         provider: Rachel
@@ -432,7 +392,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: G0438 # Denominator encounter
         start_date: 2016-02-01
         stop_date: 2016-02-02
         provider: Rachel
@@ -450,7 +410,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: G0438 # Denominator encounter
         start_date: 2016-02-01
         stop_date: 2016-02-02
         provider: Rachel
@@ -467,7 +427,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: G0438 # Denominator encounter
         start_date: 2016-02-01
         stop_date: 2016-02-02
         provider: Rachel
@@ -484,7 +444,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: G0438 # Denominator encounter
         start_date: 2016-02-01
         provider: Rachel
       orders:
@@ -504,7 +464,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99385 # Denominator encounter
         start_date: 2016-02-01
         provider: Rachel
       orders:
@@ -524,7 +484,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99385 # Denominator encounter
         start_date: 2016-02-01
         provider: Rachel
       orders:
@@ -544,7 +504,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99385 # Denominator encounter
         start_date: 2016-02-01
         provider: Rachel
       orders:
@@ -564,7 +524,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99385 # Denominator encounter
         start_date: 2016-02-01
         provider: Rachel
       clinical_activities:
@@ -586,7 +546,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99385 # Denominator encounter
         start_date: 2016-02-01
         provider: Rachel
       clinical_activities:
@@ -608,7 +568,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99385 # Denominator encounter
         start_date: 2016-02-01
         provider: Rachel
       clinical_activities:
@@ -630,7 +590,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99385 # Denominator encounter
         start_date: 2016-02-01
         provider: Rachel
       clinical_activities:
@@ -643,33 +603,6 @@ patients:
       - code_type: ICD10CM
         code_value: E13.49 # Diabetes
         start_date: 2010-01-01
-  - name: A1c Under7
-    attributes:
-      date_of_birth: 1970-01-01
-      given_name: A1c
-      family_name: Under7
-      sex: Male
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99219 # Denominator encounter
-        start_date: 2016-02-01
-        provider: Rachel
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: E13.49 # Diabetes
-        start_date: 2010-01-01
-      laboratory_test_performeds:
-      - code_type: LOINC
-        code_value: 4548-4 # HbA1c test
-        start_date: 2016-02-01
-        result: 6.9
-        result_as_decimal: 6.9
-      - code_type: LOINC
-        code_value: 4548-4 # HbA1c test
-        start_date: 2016-01-01
-        result: 10.0
-        result_as_decimal: 10.0
   - name: A1c 7
     attributes:
       date_of_birth: 1970-01-01
@@ -679,7 +612,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99396 # Denominator encounter
         start_date: 2016-02-01
         provider: Rachel
       diagnoses:
@@ -706,7 +639,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99396 # Denominator encounter
         start_date: 2016-02-01
         provider: Rachel
       diagnoses:
@@ -733,7 +666,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99396 # Denominator encounter
         start_date: 2016-02-01
         provider: Rachel
       diagnoses:
@@ -755,7 +688,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99396 # Denominator encounter
         start_date: 2016-02-01
         provider: Rachel
       diagnoses:
@@ -777,7 +710,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99396 # Denominator encounter
         start_date: 2016-02-01
         provider: Rachel
       diagnoses:
@@ -804,7 +737,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99219 # Denominator encounter
+        code_value: 99396 # Denominator encounter
         start_date: 2016-02-01
         provider: Rachel
       diagnoses:

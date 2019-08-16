@@ -31,7 +31,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_not_met
     - name: Education Lower # Lower bound
       denominator: 1
       denominator_exclusion:
@@ -41,7 +41,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: Education After # Late
       denominator: 1
       denominator_exclusion:
@@ -79,7 +79,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_met
+        numerator: performance_not_met
       - name: Education Lower # Lower bound
         denominator: 1
         denominator_exclusion:
@@ -89,7 +89,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: Education After # Late
         denominator: 1
         denominator_exclusion:
@@ -115,9 +115,14 @@ patients:
       sex: Male
     clinical_models:
       encounters:
-      - code_value: 015-12-31
+      - start_date: 2015-12-31 # Before
+        stop_date: 2015-12-31
         provider: Rachel
-        prescribed: true
+      system_events:
+      - code_type: AUTOMATION
+        event_type: EDUCATION_PROVISION
+        start_date: 2015-12-31 # Before
+        stop_date: 2015-12-31
   - name: DenominatorEncounter Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -129,6 +134,11 @@ patients:
       - start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
         provider: Rachel
+      system_events:
+      - code_type: AUTOMATION
+        event_type: EDUCATION_PROVISION
+        start_date: 2015-12-31 # Before
+        stop_date: 2015-12-31
   - name: DenominatorEncounter Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -140,6 +150,11 @@ patients:
       - start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
         provider: Rachel
+      system_events:
+      - code_type: AUTOMATION
+        event_type: EDUCATION_PROVISION
+        start_date: 2015-12-31 # Before
+        stop_date: 2015-12-31
   - name: DenominatorEncounter After
     attributes:
       date_of_birth: 2000-01-01
@@ -151,6 +166,11 @@ patients:
       - start_date: 2017-01-01 # Too late
         stop_date: 2017-01-01
         provider: Rachel
+      system_events:
+      - code_type: AUTOMATION
+        event_type: EDUCATION_PROVISION
+        start_date: 2015-12-31 # Before
+        stop_date: 2015-12-31
   - name: DenominatorEncounter DifferentProvider
     attributes:
       date_of_birth: 2000-01-01
@@ -162,6 +182,11 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Patty
+      system_events:
+      - code_type: AUTOMATION
+        event_type: EDUCATION_PROVISION
+        start_date: 2015-12-31 # Before
+        stop_date: 2015-12-31
   - name: Education Before
     attributes:
       date_of_birth: 2000-01-01
@@ -173,8 +198,8 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
-      - code_value: EDUCATION_PROVISION
+      system_events:
+      - event_type: EDUCATION_PROVISION
         start_date: 2015-12-31 # Before
         stop_date: 2015-12-31
   - name: Education Lower
@@ -188,8 +213,8 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
-      - code_value: EDUCATION_PROVISION
+      system_events:
+      - event_type: EDUCATION_PROVISION
         start_date: 2016-01-01 # Lower
         stop_date: 2016-01-01
   - name: Education Upper
@@ -203,8 +228,8 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
-      - code_value: EDUCATION_PROVISION
+      system_events:
+      - event_type: EDUCATION_PROVISION
         start_date: 2016-12-31 # Upper
         stop_date: 2016-12-31
   - name: Education After
@@ -218,7 +243,7 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
-      - code_value: EDUCATION_PROVISION
+      system_events:
+      - event_type: EDUCATION_PROVISION
         start_date: 2017-01-01 # After
         stop_date: 2017-01-01
