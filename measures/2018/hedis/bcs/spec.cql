@@ -59,6 +59,7 @@ define "Absence of Left and Right Breast Exists":
 // Populations
 
 define "Denominator":
+  "Patient Characteristic Sex" = 'Female'
   AgeInYearsAt(end of "Measurement Period") >= 52
   and AgeInYearsAt(end of "Measurement Period") < 75
   and not exists("Hospice" I
