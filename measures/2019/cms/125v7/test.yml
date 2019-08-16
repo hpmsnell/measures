@@ -1,0 +1,510 @@
+measure_id: 19.CMS.125
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Too Old # Patient is too Old for the denominator but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age LowerBound # Patient is at lower age bound and otherwise meets the denominator
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Age UpperBound # Patient is upper age bound and otherwise meets the denominator
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Patient Male # Patient is a Male but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter None # Patient has no denominator eligible encounters but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Early # Patient has an encounter that is early but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Late  # Patient has an encounter that is late but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exclusion BilateralMastectomy # Patient has an exclusion for bilateral mastectomy
+      denominator: 1
+      denominator_exclusion: exclusion_mastectomy
+      denominator_exception:
+      numerator:
+    - name: Exclusion BilateralMastectomyLate  # Patient has an exclusion for bilateral mastectomy but it is too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Exclusion UnilateralMastectomy  # Patient has an exclusion for unilateral mastectomies
+      denominator: 1
+      denominator_exclusion: exclusion_mastectomy
+      denominator_exception:
+      numerator:
+    - name: Exclusion UnilateralMastectomyLate  # Patient has an exclusion for unilateral mastectomies but it is too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Exclusion HospiceService # Patient has an exclusion for hospice service
+      denominator: 1
+      denominator_exclusion: exclusion_hospice
+      denominator_exception:
+      numerator:
+    - name: Exclusion HospiceServiceEarly # Patient has an exclusion for hospice service but it is too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Exclusion HospiceServiceLate # Patient has an exclusion for hospice service but it is too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:  performance_not_met
+    - name: Exclusion HospiceServiceLate # Patient has an exclusion for hospice service but it is too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:  performance_not_met
+    - name: Screened Start # Patient screened at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Screened End # Patient screened at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Screened Early # Patient screened too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Screened Late # Patient screened too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Screened Lab # Patient screened with a lab
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+  providers_key:
+  - name: Rachel
+    patients:
+    - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Too Old # Patient is too Old for the denominator but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age LowerBound # Patient is at lower age bound and otherwise meets the denominator
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Age UpperBound # Patient is upper age bound and otherwise meets the denominator
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Patient Male # Patient is a Male but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter None # Patient has no denominator eligible encounters but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Early # Patient has an encounter that is early but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Late  # Patient has an encounter that is late but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exclusion BilateralMastectomy # Patient has an exclusion for bilateral mastectomy
+      denominator: 1
+      denominator_exclusion: exclusion_mastectomy
+      denominator_exception:
+      numerator:
+    - name: Exclusion BilateralMastectomyLate  # Patient has an exclusion for bilateral mastectomies but it is too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Exclusion UnilateralMastectomy  # Patient has an exclusion for unilateral mastectomies
+      denominator: 1
+      denominator_exclusion: exclusion_mastectomy
+      denominator_exception:
+      numerator:
+    - name: Exclusion UnilateralMastectomyLate  # Patient has an exclusion for unilateral mastectomy but it is too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Exclusion HospiceService #Patient has an exclusion for hospice service
+      denominator: 1
+      denominator_exclusion: exclusion_hospice
+      denominator_exception:
+      numerator:
+    - name: Exclusion HospiceServiceEarly # Patient has an exclusion for hospice service but it is too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Exclusion HospiceServiceLate # Patient has an exclusion for hospice service but it is too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:  performance_not_met
+    - name: Screened Start # Patient screened at start of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Screened End # Patient screened at end of allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Screened Early # Patient screened too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Screened Late # Patient screened too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Screened Lab # Patient screened with a lab
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  external_id: '111-111'
+  credential: DO
+  primary_specialty: Family Medicine
+- given_name: Patty
+  family_name: PrimaryCare
+  external_id: '222-222'
+  credential: MD
+  primary_specialty: Family Medicine
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1965-01-02 # Too late
+    given_name: Too
+    family_name: Young
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+- name: Too Old
+  attributes:
+    date_of_birth: 1942-01-01 # Too early
+    given_name: Too
+    family_name: Old
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+- name: Age LowerBound
+  attributes:
+    date_of_birth: 1965-01-01
+    given_name: Age
+    family_name: LowerBound
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+- name: Age UpperBound
+  attributes:
+    date_of_birth: 1942-01-02
+    given_name: Age
+    family_name: UpperBound
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+- name: Patient Male
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Patient
+    family_name: Male
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+- name: Encounter None
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: None
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 11111 # Fake encounter code
+      start_date: 2016-01-01
+      provider: Rachel
+- name: Encounter Early
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: Early
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2015-12-31 # Too early
+      provider: Rachel
+- name: Encounter Late
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: Late
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2017-01-01 # Too late
+      provider: Rachel
+- name: Exclusion BilateralMastectomy
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: BilateralMastectomy
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 428529004 # G-code for bilateral mastectomy
+      start_date: 2010-01-01
+- name: Exclusion BilateralMastectomyLate
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: BilateralMastectomyLate
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 428529004 # G-code for bilateral mastectomy
+      start_date: 2017-01-01 # Too late
+- name: Exclusion UnilateralMastectomy
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: UnilateralMastectomy
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 429242008 # Right mastectomy
+      start_date: 2016-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: Z90.12 # Left mastectomy
+      start_date: 2010-01-01
+- name: Exclusion UnilateralMastectomyLate
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: UnilateralMastectomyLate
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 429242008 # Right mastectomy
+      start_date: 2015-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: Z90.12 # Left mastectomy
+      start_date: 2017-01-01 # Too late
+- name: Exclusion HospiceService
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: HospiceService
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 385763009
+      start_date: 2016-01-01
+- name: Exclusion HospiceServiceEarly
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: HospiceServiceEarly
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 385763009
+      start_date: 2015-12-31 # Too early
+- name: Exclusion HospiceServiceLate
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: HospiceServiceLate
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 385763009
+      start_date: 2017-01-01 # Too late
+- name: Screened Start
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Screened
+    family_name: Start
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 24604-1 # Mammogram
+      start_date: 2014-10-01
+- name: Screened End
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Screened
+    family_name: End
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 24604-1 # Mammogram
+      start_date: 2016-12-31
+- name: Screened Early
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Screened
+    family_name: Early
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 24604-1 # Mammogram
+      start_date: 2014-09-30 # Too early
+- name: Screened Late
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Screened
+    family_name: Late
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 24604-1 # Mammogram
+      start_date: 2017-01-01
+- name: Screened Lab
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Screened
+    family_name: Lab
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 24604-1 # Mammogram
+      start_date: 2014-10-01
+      result: Negative
