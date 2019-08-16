@@ -130,10 +130,10 @@ test_set_keys:
       numerator:
     - name: SOCIncorporation Before # Early
       start_date: 2016-02-01
-      denominator:
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator:
+      numerator: performance_not_met
     - name: SOCIncorporation Lower # Lower bound
       start_date: 2016-02-01
       denominator: 1
@@ -289,10 +289,10 @@ test_set_keys:
         numerator:
       - name: SOCIncorporation Before # Early
         start_date: 2016-02-01
-        denominator:
+        denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator:
+        numerator: performance_not_met
       - name: SOCIncorporation Lower # Lower bound
         start_date: 2016-02-01
         denominator: 1
@@ -687,6 +687,7 @@ patients:
     clinical_models:
       encounters:
       - external_id: 1
+        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
