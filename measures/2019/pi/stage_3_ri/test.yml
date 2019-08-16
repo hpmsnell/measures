@@ -39,7 +39,7 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: SOCUnavailable Before # Early
-      start_date: 2015-12-31
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -57,7 +57,7 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: SOCUnavailable After # Late
-      start_date: 2017-01-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -75,13 +75,13 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: DenominatorTOC Lower # Lower bound
-      start_date: 2016-01-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
     - name: DenominatorTOC Upper # Upper Bound
-      start_date: 2016-12-31
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -105,13 +105,13 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: DenominatorSOC Lower # Lower bound
-      start_date: 2016-01-01
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
     - name: DenominatorSOC Upper # Upper Bound
-      start_date: 2016-12-31
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -198,7 +198,7 @@ test_set_keys:
         denominator_exception:
         numerator:
       - name: SOCUnavailable Before # Early
-        start_date: 2015-12-31
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -216,7 +216,7 @@ test_set_keys:
         denominator_exception:
         numerator:
       - name: SOCUnavailable After # Late
-        start_date: 2017-01-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -234,13 +234,13 @@ test_set_keys:
         denominator_exception:
         numerator:
       - name: DenominatorTOC Lower # Lower bound
-        start_date: 2016-01-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: DenominatorTOC Upper # Upper Bound
-        start_date: 2016-12-31
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -264,13 +264,13 @@ test_set_keys:
         denominator_exception:
         numerator:
       - name: DenominatorSOC Lower # Lower bound
-        start_date: 2016-01-01
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
       - name: DenominatorSOC Upper # Upper Bound
-        start_date: 2016-12-31
+        start_date: 2016-02-01
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -287,36 +287,6 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator:
-      - name: DenominatorTOC Before # Early
-        start_date: 2016-02-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_not_met
-      - name: DenominatorTOC Lower # Lower bound
-        start_date: 2016-02-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_met
-      - name: DenominatorTOC Upper # Upper bound
-        start_date: 2016-02-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_met
-      - name: DenominatorTOC After # Late
-        start_date: 2016-02-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_not_met
-      - name: DenominatorTOC WrongEncounter # Different Encounter ID
-        start_date: 2016-02-01
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_not_met
       - name: SOCIncorporation Before # Early
         start_date: 2016-02-01
         denominator: 1
@@ -368,7 +338,7 @@ patients:
     clinical_models:
       encounters:
       - external_id: 1
-        type: "New"
+        encounter_type: "New"
         start_date: 2015-12-31 # Too early
         stop_date: 2015-12-31
         provider: Rachel
@@ -381,7 +351,7 @@ patients:
     clinical_models:
       encounters:
       - external_id: 1
-        type: "New"
+        encounter_type: "New"
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
         provider: Rachel
@@ -394,7 +364,7 @@ patients:
     clinical_models:
       encounters:
       - external_id: 1
-        type: "New"
+        encounter_type: "New"
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
         provider: Rachel
@@ -407,7 +377,7 @@ patients:
     clinical_models:
       encounters:
       - external_id: 1
-        type: "New"
+        encounter_type: "New"
         start_date: 2017-01-01 # Too late
         stop_date: 2017-01-01
         provider: Rachel
@@ -420,7 +390,7 @@ patients:
     clinical_models:
       encounters:
       - external_id: 1
-        type: "New"
+        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Patty # Different provider
@@ -433,7 +403,7 @@ patients:
     clinical_models:
       encounters:
       - external_id: 1
-        type: "Old"
+        encounter_type: "Old"
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
         provider: Rachel
@@ -449,8 +419,9 @@ patients:
         start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
+        encounter_type: "New"
       system_events:
-      - type: SUMMARY_OF_CARE_UNAVAILABLE
+      - event_type: SUMMARY_OF_CARE_UNAVAILABLE
         start_date: 2015-12-31 # Early
         stop_date: 2015-12-31
         encounter_external_id: 1
@@ -467,7 +438,7 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: SUMMARY_OF_CARE_UNAVAILABLE
+      - event_type: SUMMARY_OF_CARE_UNAVAILABLE
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
         encounter_external_id: 1
@@ -484,7 +455,7 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: SUMMARY_OF_CARE_UNAVAILABLE
+      - event_type: SUMMARY_OF_CARE_UNAVAILABLE
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
         encounter_external_id: 1
@@ -500,8 +471,9 @@ patients:
         start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
+        encounter_type: "New"
       system_events:
-      - type: SUMMARY_OF_CARE_UNAVAILABLE
+      - event_type: SUMMARY_OF_CARE_UNAVAILABLE
         start_date: 2017-01-01 # Late
         stop_date: 2017-01-01
         encounter_external_id: 1
@@ -517,12 +489,14 @@ patients:
         start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
+        encounter_type: "New"
       - external_id: 2
         start_date: 2016-03-01
         stop_date: 2016-03-01
         provider: Rachel
+        encounter_type: "New"
       system_events:
-      - type: SUMMARY_OF_CARE_UNAVAILABLE
+      - event_type: SUMMARY_OF_CARE_UNAVAILABLE
         start_date: 2016-03-01
         stop_date: 2016-03-01
         encounter_external_id: 2 # Wrong Encounter
@@ -539,7 +513,7 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: INBOUND_TRANSITION_OF_CARE
+      - event_type: INBOUND_TRANSITION_OF_CARE
         start_date: 2015-12-31 # Early
         stop_date: 2015-12-31
         encounter_external_id: 1
@@ -556,7 +530,7 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: INBOUND_TRANSITION_OF_CARE
+      - event_type: INBOUND_TRANSITION_OF_CARE
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
         encounter_external_id: 1
@@ -573,7 +547,7 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: INBOUND_TRANSITION_OF_CARE
+      - event_type: INBOUND_TRANSITION_OF_CARE
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
         encounter_external_id: 1
@@ -590,7 +564,7 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: INBOUND_TRANSITION_OF_CARE
+      - event_type: INBOUND_TRANSITION_OF_CARE
         start_date: 2017-01-01 # Late
         stop_date: 2017-01-01
         encounter_external_id: 1
@@ -611,7 +585,7 @@ patients:
         stop_date: 2016-03-01
         provider: Rachel
       system_events:
-      - type: INBOUND_TRANSITION_OF_CARE
+      - event_type: INBOUND_TRANSITION_OF_CARE
         start_date: 2016-03-01
         stop_date: 2016-03-01
         encounter_external_id: 2 # Wrong Encounter
@@ -628,7 +602,7 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: INBOUND_SUMMARY_OF_CARE
+      - event_type: INBOUND_SUMMARY_OF_CARE
         start_date: 2015-12-31 # Early
         stop_date: 2015-12-31
         encounter_external_id: 1
@@ -645,7 +619,7 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: INBOUND_SUMMARY_OF_CARE
+      - event_type: INBOUND_SUMMARY_OF_CARE
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
         encounter_external_id: 1
@@ -662,7 +636,7 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: INBOUND_SUMMARY_OF_CARE
+      - event_type: INBOUND_SUMMARY_OF_CARE
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
         encounter_external_id: 1
@@ -679,7 +653,7 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: INBOUND_SUMMARY_OF_CARE
+      - event_type: INBOUND_SUMMARY_OF_CARE
         start_date: 2017-01-01 # Late
         stop_date: 2017-01-01
         encounter_external_id: 1
@@ -700,7 +674,7 @@ patients:
         stop_date: 2016-03-01
         provider: Rachel
       system_events:
-      - type: INBOUND_SUMMARY_OF_CARE
+      - event_type: INBOUND_SUMMARY_OF_CARE
         start_date: 2016-03-01
         stop_date: 2016-03-01
         encounter_external_id: 2 # Wrong Encounter
@@ -713,11 +687,12 @@ patients:
     clinical_models:
       encounters:
       - external_id: 1
+        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: SUMMARY_OF_CARE_INCORPORATION
+      - event_type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2015-12-31 # Early
         stop_date: 2015-12-31
         encounter_external_id: 1
@@ -730,12 +705,12 @@ patients:
     clinical_models:
       encounters:
       - external_id: 1
-        type: "New"
+        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: SUMMARY_OF_CARE_INCORPORATION
+      - event_type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
         encounter_external_id: 1
@@ -748,14 +723,14 @@ patients:
     clinical_models:
       encounters:
       - external_id: 1
-        type: "New"
+        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: SUMMARY_OF_CARE_INCORPORATION
-        start_date: 2016-12-31 # Upper bound
-        stop_date: 2016-12-31
+      - event_type: SUMMARY_OF_CARE_INCORPORATION
+        start_date: 2016-02-01 # Upper bound
+        stop_date: 2016-02-01
         encounter_external_id: 1
   - name: SOCIncorporation After
     attributes:
@@ -766,12 +741,12 @@ patients:
     clinical_models:
       encounters:
       - external_id: 1
-        type: "New"
+        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: SUMMARY_OF_CARE_INCORPORATION
+      - event_type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2017-01-01 # Late
         stop_date: 2017-01-01
         encounter_external_id: 1
@@ -784,17 +759,17 @@ patients:
     clinical_models:
       encounters:
       - external_id: 1
-        type: "New"
+        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
       - external_id: 2
-        type: "New"
+        encounter_type: "New"
         start_date: 2016-03-01
         stop_date: 2016-03-01
         provider: Rachel
       system_events:
-      - type: SUMMARY_OF_CARE_INCORPORATION
+      - event_type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-03-01
         stop_date: 2016-03-01
         encounter_external_id: 2 # Wrong Encounter
