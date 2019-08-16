@@ -114,9 +114,8 @@ patients:
       family_name: Before
       sex: Male
     clinical_models:
-      encounters: 
-      - code_type: CPT
-        code_value: 015-12-31
+      encounters:
+      - code_value: 015-12-31
         provider: Rachel
         prescribed: true
   - name: DenominatorEncounter Lower
@@ -175,8 +174,7 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       clinical_activities:
-      - code_type: AUTOMATION
-        code_value: EDUCATION_PROVISION
+      - code_value: EDUCATION_PROVISION
         start_date: 2015-12-31 # Before
         stop_date: 2015-12-31
   - name: Education Lower
@@ -191,8 +189,7 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       clinical_activities:
-      - code_type: AUTOMATION
-        code_value: EDUCATION_PROVISION
+      - code_value: EDUCATION_PROVISION
         start_date: 2016-01-01 # Lower
         stop_date: 2016-01-01
   - name: Education Upper
@@ -207,8 +204,7 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       clinical_activities:
-      - code_type: AUTOMATION
-        code_value: EDUCATION_PROVISION
+      - code_value: EDUCATION_PROVISION
         start_date: 2016-12-31 # Upper
         stop_date: 2016-12-31
   - name: Education After
@@ -223,7 +219,6 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       clinical_activities:
-      - code_type: AUTOMATION
-        code_value: EDUCATION_PROVISION
+      - code_value: EDUCATION_PROVISION
         start_date: 2017-01-01 # After
         stop_date: 2017-01-01

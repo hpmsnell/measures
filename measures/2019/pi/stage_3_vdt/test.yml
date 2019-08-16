@@ -214,9 +214,8 @@ patients:
       family_name: Before
       sex: Male
     clinical_models:
-      encounters: 
-      - code_type: CPT
-        code_value: 015-12-31
+      encounters:
+      - code_value: 015-12-31
         provider: Rachel
         prescribed: true
   - name: DenominatorEncounter Lower
@@ -275,16 +274,13 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       clinical_activities:
-      - code_type: AUTOMATION
-        code_value: VDT_VIEW
+      - code_value: VDT_VIEW
         start_date: 2015-12-31 # Before
         stop_date: 2015-12-31
-      - code_type: AUTOMATION
-        code_value: VDT_DOWNLOAD
+      - code_value: VDT_DOWNLOAD
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_type: AUTOMATION
-        code_value: VDT_TRANSMISSION
+      - code_value: VDT_TRANSMISSION
         start_date: 2016-02-01
         stop_date: 2016-02-01
   - name: View Lower
@@ -299,16 +295,13 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       clinical_activities:
-      - code_type: AUTOMATION
-        code_value: VDT_VIEW
+      - code_value: VDT_VIEW
         start_date: 2016-01-01 # Lower
         stop_date: 2016-01-01
-      - code_type: AUTOMATION
-        code_value: VDT_DOWNLOAD
+      - code_value: VDT_DOWNLOAD
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_type: AUTOMATION
-        code_value: VDT_TRANSMISSION
+      - code_value: VDT_TRANSMISSION
         start_date: 2016-02-01
         stop_date: 2016-02-01
   - name: View Upper
@@ -323,16 +316,13 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       clinical_activities:
-      - code_type: AUTOMATION
-        code_value: VDT_VIEW
+      - code_value: VDT_VIEW
         start_date: 2016-12-31 # Upper
         stop_date: 2016-12-31
-      - code_type: AUTOMATION
-        code_value: VDT_DOWNLOAD
+      - code_value: VDT_DOWNLOAD
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_type: AUTOMATION
-        code_value: VDT_TRANSMISSION
+      - code_value: VDT_TRANSMISSION
         start_date: 2016-02-01
         stop_date: 2016-02-01
   - name: View After
@@ -347,16 +337,13 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       clinical_activities:
-      - code_type: AUTOMATION
-        code_value: VDT_VIEW
+      - code_value: VDT_VIEW
         start_date: 2017-01-01 # After
         stop_date: 2017-01-01
-      - code_type: AUTOMATION
-        code_value: VDT_DOWNLOAD
+      - code_value: VDT_DOWNLOAD
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_type: AUTOMATION
-        code_value: VDT_TRANSMISSION
+      - code_value: VDT_TRANSMISSION
         start_date: 2016-02-01
         stop_date: 2016-02-01
   - name: Download Before
@@ -371,16 +358,13 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       clinical_activities:
-      - code_type: AUTOMATION
-        code_value: VDT_VIEW
+      - code_value: VDT_VIEW
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_type: AUTOMATION
-        code_value: VDT_DOWNLOAD
+      - code_value: VDT_DOWNLOAD
         start_date: 2015-12-31 # Before
         stop_date: 2015-12-31
-      - code_type: AUTOMATION
-        code_value: VDT_TRANSMISSION
+      - code_value: VDT_TRANSMISSION
         start_date: 2016-02-01
         stop_date: 2016-02-01
   - name: Download Lower
@@ -395,16 +379,13 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       clinical_activities:
-      - code_type: AUTOMATION
-        code_value: VDT_VIEW
+      - code_value: VDT_VIEW
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_type: AUTOMATION
-        code_value: VDT_DOWNLOAD
+      - code_value: VDT_DOWNLOAD
         start_date: 2016-01-01 # Lower
         stop_date: 2016-01-01
-      - code_type: AUTOMATION
-        code_value: VDT_TRANSMISSION
+      - code_value: VDT_TRANSMISSION
         start_date: 2016-02-01
         stop_date: 2016-02-01
   - name: Download Upper
@@ -419,16 +400,13 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       clinical_activities:
-      - code_type: AUTOMATION
-        code_value: VDT_VIEW
+      - code_value: VDT_VIEW
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_type: AUTOMATION
-        code_value: VDT_DOWNLOAD
+      - code_value: VDT_DOWNLOAD
         start_date: 2016-12-31 # Upper
         stop_date: 2016-12-31
-      - code_type: AUTOMATION
-        code_value: VDT_TRANSMISSION
+      - code_value: VDT_TRANSMISSION
         start_date: 2016-02-01
         stop_date: 2016-02-01
   - name: Download After
@@ -443,16 +421,13 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       clinical_activities:
-      - code_type: AUTOMATION
-        code_value: VDT_VIEW
+      - code_value: VDT_VIEW
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_type: AUTOMATION
-        code_value: VDT_DOWNLOAD
+      - code_value: VDT_DOWNLOAD
         start_date: 2017-01-01 # After
         stop_date: 2017-01-01
-      - code_type: AUTOMATION
-        code_value: VDT_TRANSMISSION
+      - code_value: VDT_TRANSMISSION
         start_date: 2016-02-01
         stop_date: 2016-02-01
   - name: Transmit Before
@@ -467,16 +442,13 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       clinical_activities:
-      - code_type: AUTOMATION
-        code_value: VDT_VIEW
+      - code_value: VDT_VIEW
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_type: AUTOMATION
-        code_value: VDT_DOWNLOAD
+      - code_value: VDT_DOWNLOAD
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_type: AUTOMATION
-        code_value: VDT_TRANSMISSION
+      - code_value: VDT_TRANSMISSION
         start_date: 2015-12-31 # Before
         stop_date: 2015-12-31
   - name: Transmit Lower
@@ -491,16 +463,13 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       clinical_activities:
-      - code_type: AUTOMATION
-        code_value: VDT_VIEW
+      - code_value: VDT_VIEW
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_type: AUTOMATION
-        code_value: VDT_DOWNLOAD
+      - code_value: VDT_DOWNLOAD
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_type: AUTOMATION
-        code_value: VDT_TRANSMISSION
+      - code_value: VDT_TRANSMISSION
         start_date: 2016-01-01 # Lower
         stop_date: 2016-01-01
   - name: Transmit Upper
@@ -515,16 +484,13 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       clinical_activities:
-      - code_type: AUTOMATION
-        code_value: VDT_VIEW
+      - code_value: VDT_VIEW
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_type: AUTOMATION
-        code_value: VDT_DOWNLOAD
+      - code_value: VDT_DOWNLOAD
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_type: AUTOMATION
-        code_value: VDT_TRANSMISSION
+      - code_value: VDT_TRANSMISSION
         start_date: 2016-12-31 # Upper
         stop_date: 2016-12-31
   - name: Transmit After
@@ -539,15 +505,12 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       clinical_activities:
-      - code_type: AUTOMATION
-        code_value: VDT_VIEW
+      - code_value: VDT_VIEW
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_type: AUTOMATION
-        code_value: VDT_DOWNLOAD
+      - code_value: VDT_DOWNLOAD
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_type: AUTOMATION
-        code_value: VDT_TRANSMISSION
+      - code_value: VDT_TRANSMISSION
         start_date: 2017-01-01 # After
         stop_date: 2017-01-01
