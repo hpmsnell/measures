@@ -39,9 +39,9 @@ define "Denominator Encounter":
 
 define "Influenza Vaccine":
   ["Procedure, Performed": "MIPS; Performance Met: G8482"]
-  union ["Medication, Administered": "Influenza Vaccine"]
-  union ["Procedure, Performed": "Influenza Vaccination"]
-  union ["Communication: From Patient to Provider": "Previous Receipt of Influenza Vaccine"]
+  union ["Immunization, Administered": "VSAC; Influenza Vaccine"]
+  union ["Procedure, Performed": "VSAC; Influenza Vaccination"]
+  union ["Communication: From Patient to Provider": "VSAC; Previous Receipt of Influenza Vaccine"]
 
 define "Exception Allergy":
   ["Diagnosis": "VSAC; Allergy to Influenza Vaccine"]

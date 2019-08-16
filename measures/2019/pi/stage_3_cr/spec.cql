@@ -25,17 +25,15 @@ define "Denominator Transfer of Care":
   "Denominator Encounter" E
     where E.type = "new"
   union "Denominator Encounter" E
-    with ["Clinical Activity"] C
-      such that C.start_datetime during "Measurement Period"
-        and C.code_type = "AUTOMATION"
-        and C.code_value = "INBOUND_TRANSITION_OF_CARE"
-        and C.encounter_id = E.external_id
+    with ["System Event"] S
+      such that S.start_datetime during "Measurement Period"
+        and S.event_type = "INBOUND_TRANSITION_OF_CARE"
+        and S.encounter_id = E.external_id
   union "Denominator Encounter" E
-    with ["Clinical Activity"] C
-      such that C.start_datetime during "Measurement Period"
-        and C.code_type = "AUTOMATION"
-        and C.code_value = "INBOUND_SUMMARY_OF_CARE"
-        and C.encounter_id = E.external_id
+    with ["System Event"] S
+      such that S.start_datetime during "Measurement Period"
+        and S.event_type = "INBOUND_SUMMARY_OF_CARE"
+        and S.encounter_id = E.external_id
 
 /* Populations */
 
@@ -53,12 +51,10 @@ define "Numerator Performance Met":
         and S1.encounter_id = E.external_id
     with ["System Event"] S2
       such that S2.start_datetime during [E.start_datetime, E.stop_datetime]
-        and S2.code_type = "AUTOMATION"
         and S2.type = "ALLERGY_LIST_RECONCILIATION"
         and S2.encounter_id = E.external_id
     with ["System Event"] S3
       such that S3.start_datetime during [E.start_datetime, E.stop_datetime]
-        and S3.code_type = "AUTOMATION"
         and S3.type = "PROBLEM_LIST_RECONCILIATION"
         and S3.encounter_id = E.external_id
 

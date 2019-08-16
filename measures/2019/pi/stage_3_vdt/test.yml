@@ -258,6 +258,12 @@ patients:
       - event_type: VDT_VIEW
         start_date: 2015-12-31 # Before
         stop_date: 2015-12-31
+      - code_value: VDT_DOWNLOAD
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_value: VDT_TRANSMISSION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
   - name: View Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -315,6 +321,12 @@ patients:
       - code_value: VDT_VIEW
         start_date: 2017-01-01 # After
         stop_date: 2017-01-01
+      - code_value: VDT_DOWNLOAD
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_value: VDT_TRANSMISSION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
   - name: Download Before
     attributes:
       date_of_birth: 2000-01-01
@@ -330,6 +342,12 @@ patients:
       - event_type: VDT_DOWNLOAD
         start_date: 2015-12-31 # Before
         stop_date: 2015-12-31
+      - code_value: VDT_VIEW
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_value: VDT_TRANSMISSION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
   - name: Download Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -345,6 +363,12 @@ patients:
       - event_type: VDT_DOWNLOAD
         start_date: 2016-01-01 # Lower
         stop_date: 2016-01-01
+      - code_value: VDT_VIEW
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_value: VDT_TRANSMISSION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
   - name: Download Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -360,6 +384,12 @@ patients:
       - event_type: VDT_DOWNLOAD
         start_date: 2016-12-31 # Upper
         stop_date: 2016-12-31
+      - code_value: VDT_VIEW
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_value: VDT_TRANSMISSION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
   - name: Download After
     attributes:
       date_of_birth: 2000-01-01
@@ -375,6 +405,12 @@ patients:
       - event_type: VDT_DOWNLOAD
         start_date: 2017-01-01 # After
         stop_date: 2017-01-01
+      - code_value: VDT_VIEW
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_value: VDT_TRANSMISSION
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
   - name: Transmit Before
     attributes:
       date_of_birth: 2000-01-01
@@ -390,6 +426,12 @@ patients:
       - event_type: VDT_TRANSMISSION
         start_date: 2015-12-31 # Before
         stop_date: 2015-12-31
+      - code_value: VDT_VIEW
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_value: VDT_DOWNLOAD
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
   - name: Transmit Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -405,6 +447,12 @@ patients:
       - event_type: VDT_TRANSMISSION
         start_date: 2016-01-01 # Lower
         stop_date: 2016-01-01
+      - code_value: VDT_VIEW
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_value: VDT_DOWNLOAD
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
   - name: Transmit Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -420,6 +468,14 @@ patients:
       - event_type: VDT_TRANSMISSION
         start_date: 2016-12-31 # Upper
         stop_date: 2016-12-31
+      clinical_activities:
+      - code_value: VDT_VIEW
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_value: VDT_DOWNLOAD
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_value: VDT_TRANSMISSION
   - name: Transmit After
     attributes:
       date_of_birth: 2000-01-01
@@ -435,3 +491,11 @@ patients:
       - event_type: VDT_TRANSMISSION
         start_date: 2017-01-01 # After
         stop_date: 2017-01-01
+      clinical_activities:
+      - code_value: VDT_VIEW
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_value: VDT_DOWNLOAD
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+      - code_value: VDT_TRANSMISSION

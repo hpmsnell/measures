@@ -4,7 +4,7 @@ library MIPS_356_2019 version '1'
  * Source: MIPS
  * ID: 356
  * Year: 2019
- * Version: 1
+ * Version: 2
  * Written By: Steve Daniels
  *
   */
@@ -23,7 +23,6 @@ valueset "VSAC; Hospital Inpatient Visit - Initial": '2.16.840.1.113883.3.464.10
 valueset "VSAC; Hospital Inpatient Visit - Subsequent": '2.16.840.1.113883.3.464.1003.101.11.1025'
 
 parameter "Measurement Period" Interval<DateTime>
-parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
@@ -33,7 +32,7 @@ define "Encounter Interval":
 define "Denominator Procedure":
   ["Procedure, Performed": "MIPS; MIPS 356 Procedure"] P
     where P.relevantPeriod starts during "Encounter Interval"
-      and P.relevantPeriod starts during "Denominator Period"
+      and P.code.modifier not in ['51', '80']
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
 
@@ -50,7 +49,7 @@ define "Numerator Performance Met: G9310":
    * config_link_id: G9310
    */
   exists("Readmission" E
-    where not E.code.modifier in ['24']
+    where not E.code.modifier in ['24','57']
     with "Denominator Procedure" P
       where E.relevantPeriod starts during [2 days after start of P.relevantPeriod, 30 days after start of P.relevantPeriod])
 

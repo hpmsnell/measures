@@ -44,7 +44,10 @@ define "Valid Health Information Provisioning With Portal Access":
   "Health Information Provisioning" S1
     where S1.stop_datetime 48 hours or less after S1.start_datetime
     with "Portal Access" S2
-      such that S1.stop_datetime during [S2.start_datetime, S2.stop_datetime]
+      such that (
+        S1.stop_date during [S2.start_datetime, S2.stop_datetime]
+        or 48 hours after S1.start_date during [S2.start_datetime, S2.stop_datetime]
+      )
 
 /* Populations */
 
@@ -64,7 +67,11 @@ define "Numerator Performance Met":
     (
       exists("Valid Health Information Provisioning With Portal Access" S1
         with "API Access" S2
-          such that S1.stop_datetime during [S2.start_datetime, S2.stop_datetime])
+          such that (
+            S1.stop_date during [S2.start_datetime, S2.stop_datetime]
+            or 48 hours after S1.start_date during [S2.start_datetime, S2.stop_datetime]
+          )
+      )
       or (
         exists("Valid Health Information Provisioning With Portal Access")
         and exists("API Opt Out" S
@@ -79,13 +86,21 @@ define "Numerator Performance Met":
     // have no patient portal access at the time that information is made available to the patient
     and not exists("Health Information Provisioning" S1
       without "Portal Access" S2
-        such that S1.stop_datetime during [S2.start_datetime, S2.stop_datetime])
+        such that (
+          S1.stop_date during [S2.start_datetime, S2.stop_datetime]
+          or 48 hours after S1.start_date during [S2.start_datetime, S2.stop_datetime]
+        )
+      )
     // ...AND none of the other health information provisioning events for the encounter
     // have no API access at the time that information is made available to the patient
     and (
       not exists("Health Information Provisioning" S1
         without "API" S2
-          such that S1.stop_datetime during [S2.start_datetime, S2.stop_datetime])
+          such that (
+            S1.stop_date during [S2.start_datetime, S2.stop_datetime]
+            or 48 hours after S1.start_date during [S2.start_datetime, S2.stop_datetime]
+          )
+      )
       or exists("API Opt Out" S
         where S.start_datetime starts before end of "Measurement Period")
     )

@@ -1,0 +1,111 @@
+---
+measure:
+  name: 19.CMS.130
+  required:
+    display_title: Colorectal Cancer Screening
+    inverse: false
+    subject_type: Patient
+    set: CMS
+    external_id: '130'
+    version:
+  optional:
+    description: 'Percentage of patients 50-75 years of age who had appropriate screening
+      for colorectal cancer'
+    gap_resolution_action: Patient is due for a colorectal cancer screening
+    version: 2019
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'Internal Medicine, General Practice/Family Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'Patients 50-75 years of age with a visit during the measurement period'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: 'Encounter'
+      show_codes: true
+      annotation:
+      records:
+      - model: ClinicalActivity
+        value_set: "VSAC; Annual Wellness Visit"
+      - model: ClinicalActivity
+        value_set: "VSAC; Preventive Care Services - Established Office Visit, 18 and Up"
+      - model: ClinicalActivity
+        value_set: "VSAC; Preventive Care Services-Initial Office Visit, 18 and Up"
+      - model: ClinicalActivity
+        value_set: "VSAC; Home Healthcare Services"
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: 'Colectomy or Cancer'
+    description: Patient is excluded for this measure due to a history of total colectomy
+      or colorectal cancer
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Total Colectomy or Colorectal Cancer
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "VSAC; Malignant Neoplasm of Colon"
+        - model: ClinicalActivity
+          value_set: "VSAC; Total Colectomy"
+  - config_link_id: exclusion_hospice
+    code_value:
+    display_title: Hospice Service
+    description: Patient excluded due to hospice service
+    component_groups:
+    - components:
+       - display_title: Hospice Service
+         show_codes: true
+         records:
+         - model: ClinicalActivity
+           value_set: "VSAC; Hospice care ambulatory"
+         - model: Order
+           value_set: "VSAC; Hospice care ambulatory"
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patients with one or more screenings for colorectal cancer. Appropriate
+    screenings are defined by any one of the following criteria:
+    - Fecal occult blood test (FOBT) during the measurement period
+    - Flexible sigmoidoscopy during the measurement period or the four years prior to the measurement period
+    - Colonoscopy during the measurement period or the nine years prior to the measurement period
+    - FIT-DNA during the measurement period or the two years prior to the measurement period
+    - CT Colonography during the measurement period or the four years prior to the measurement period'
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Screening for Colorectal Cancer
+    description: Colorectal cancer screening performed
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Screening for Colorectal Cancer
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: "VSAC; Colonoscopy"
+        - model: ClinicalActivity
+          value_set: "VSAC; CT Colonography"
+        - model: ClinicalActivity
+          value_set: "VSAC; Flexible Sigmoidoscopy"
+        - model: LaboratoryTestPerformed
+          value_set: "VSAC; Fecal Occult Blood Test (FOBT)"
+        - model: LaboratoryTestPerformed
+          value_set: "VSAC; FIT DNA"
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Screening for Colorectal Cancer
+    description: Colorectal cancer screening not found
+    component_groups:
