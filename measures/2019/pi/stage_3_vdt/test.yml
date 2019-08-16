@@ -31,7 +31,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_not_met
     - name: View Lower # Lower bound
       denominator: 1
       denominator_exclusion:
@@ -41,7 +41,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: View After # Late
       denominator: 1
       denominator_exclusion:
@@ -51,7 +51,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_not_met
     - name: Download Lower # Lower bound
       denominator: 1
       denominator_exclusion:
@@ -61,7 +61,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: Download After # Late
       denominator: 1
       denominator_exclusion:
@@ -71,7 +71,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_not_met
     - name: Transmit Lower # Lower bound
       denominator: 1
       denominator_exclusion:
@@ -81,7 +81,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: Transmit After # Late
       denominator: 1
       denominator_exclusion:
@@ -119,7 +119,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_met
+        numerator: performance_not_met
       - name: View Lower # Lower bound
         denominator: 1
         denominator_exclusion:
@@ -129,27 +129,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
-      - name: View After # Late
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_not_met
-      - name: View Before # Early
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
         numerator: performance_met
-      - name: View Lower # Lower bound
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_met
-      - name: View Upper # Upper Bound
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_not_met
       - name: View After # Late
         denominator: 1
         denominator_exclusion:
@@ -159,7 +139,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_met
+        numerator: performance_not_met
       - name: Download Lower # Lower bound
         denominator: 1
         denominator_exclusion:
@@ -169,7 +149,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: Download After # Late
         denominator: 1
         denominator_exclusion:
@@ -179,7 +159,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_met
+        numerator: performance_not_met
       - name: Transmit Lower # Lower bound
         denominator: 1
         denominator_exclusion:
@@ -189,7 +169,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: Transmit After # Late
         denominator: 1
         denominator_exclusion:
@@ -215,7 +195,8 @@ patients:
       sex: Male
     clinical_models:
       encounters:
-      - code_value: 015-12-31
+      - start_date: 2015-12-31
+        stop_date: 2015-12-31
         provider: Rachel
         prescribed: true
   - name: DenominatorEncounter Lower
@@ -273,8 +254,8 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
-      - code_value: VDT_VIEW
+      system_events:
+      - event_type: VDT_VIEW
         start_date: 2015-12-31 # Before
         stop_date: 2015-12-31
       - code_value: VDT_DOWNLOAD
@@ -294,14 +275,14 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
-      - code_value: VDT_VIEW
+      system_events:
+      - event_type: VDT_VIEW
         start_date: 2016-01-01 # Lower
         stop_date: 2016-01-01
-      - code_value: VDT_DOWNLOAD
+      - event_type: VDT_DOWNLOAD
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_value: VDT_TRANSMISSION
+      - event_type: VDT_TRANSMISSION
         start_date: 2016-02-01
         stop_date: 2016-02-01
   - name: View Upper
@@ -315,14 +296,14 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
-      - code_value: VDT_VIEW
+      system_events:
+      - event_type: VDT_VIEW
         start_date: 2016-12-31 # Upper
         stop_date: 2016-12-31
-      - code_value: VDT_DOWNLOAD
+      - event_type: VDT_DOWNLOAD
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_value: VDT_TRANSMISSION
+      - event_type: VDT_TRANSMISSION
         start_date: 2016-02-01
         stop_date: 2016-02-01
   - name: View After
@@ -336,7 +317,7 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
+      system_events:
       - code_value: VDT_VIEW
         start_date: 2017-01-01 # After
         stop_date: 2017-01-01
@@ -357,13 +338,13 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
+      system_events:
+      - event_type: VDT_DOWNLOAD
+        start_date: 2015-12-31 # Before
+        stop_date: 2015-12-31
       - code_value: VDT_VIEW
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_value: VDT_DOWNLOAD
-        start_date: 2015-12-31 # Before
-        stop_date: 2015-12-31
       - code_value: VDT_TRANSMISSION
         start_date: 2016-02-01
         stop_date: 2016-02-01
@@ -378,13 +359,13 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
+      system_events:
+      - event_type: VDT_DOWNLOAD
+        start_date: 2016-01-01 # Lower
+        stop_date: 2016-01-01
       - code_value: VDT_VIEW
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_value: VDT_DOWNLOAD
-        start_date: 2016-01-01 # Lower
-        stop_date: 2016-01-01
       - code_value: VDT_TRANSMISSION
         start_date: 2016-02-01
         stop_date: 2016-02-01
@@ -399,13 +380,13 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
+      system_events:
+      - event_type: VDT_DOWNLOAD
+        start_date: 2016-12-31 # Upper
+        stop_date: 2016-12-31
       - code_value: VDT_VIEW
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_value: VDT_DOWNLOAD
-        start_date: 2016-12-31 # Upper
-        stop_date: 2016-12-31
       - code_value: VDT_TRANSMISSION
         start_date: 2016-02-01
         stop_date: 2016-02-01
@@ -420,13 +401,13 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
+      system_events:
+      - event_type: VDT_DOWNLOAD
+        start_date: 2017-01-01 # After
+        stop_date: 2017-01-01
       - code_value: VDT_VIEW
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_value: VDT_DOWNLOAD
-        start_date: 2017-01-01 # After
-        stop_date: 2017-01-01
       - code_value: VDT_TRANSMISSION
         start_date: 2016-02-01
         stop_date: 2016-02-01
@@ -441,16 +422,16 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
+      system_events:
+      - event_type: VDT_TRANSMISSION
+        start_date: 2015-12-31 # Before
+        stop_date: 2015-12-31
       - code_value: VDT_VIEW
         start_date: 2016-02-01
         stop_date: 2016-02-01
       - code_value: VDT_DOWNLOAD
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_value: VDT_TRANSMISSION
-        start_date: 2015-12-31 # Before
-        stop_date: 2015-12-31
   - name: Transmit Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -462,16 +443,16 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
-      clinical_activities:
+      system_events:
+      - event_type: VDT_TRANSMISSION
+        start_date: 2016-01-01 # Lower
+        stop_date: 2016-01-01
       - code_value: VDT_VIEW
         start_date: 2016-02-01
         stop_date: 2016-02-01
       - code_value: VDT_DOWNLOAD
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - code_value: VDT_TRANSMISSION
-        start_date: 2016-01-01 # Lower
-        stop_date: 2016-01-01
   - name: Transmit Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -483,6 +464,10 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
+      system_events:
+      - event_type: VDT_TRANSMISSION
+        start_date: 2016-12-31 # Upper
+        stop_date: 2016-12-31
       clinical_activities:
       - code_value: VDT_VIEW
         start_date: 2016-02-01
@@ -491,8 +476,6 @@ patients:
         start_date: 2016-02-01
         stop_date: 2016-02-01
       - code_value: VDT_TRANSMISSION
-        start_date: 2016-12-31 # Upper
-        stop_date: 2016-12-31
   - name: Transmit After
     attributes:
       date_of_birth: 2000-01-01
@@ -504,6 +487,10 @@ patients:
       - start_date: 2016-02-01
         stop_date: 2016-02-01
         provider: Rachel
+      system_events:
+      - event_type: VDT_TRANSMISSION
+        start_date: 2017-01-01 # After
+        stop_date: 2017-01-01
       clinical_activities:
       - code_value: VDT_VIEW
         start_date: 2016-02-01
@@ -512,5 +499,3 @@ patients:
         start_date: 2016-02-01
         stop_date: 2016-02-01
       - code_value: VDT_TRANSMISSION
-        start_date: 2017-01-01 # After
-        stop_date: 2017-01-01
