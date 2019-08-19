@@ -1,0 +1,886 @@
+measure_id: measure.Mips.2019.Mips226Rate1
+test_set_keys:
+  organization_key:
+    patients:
+      - name: Too Young # Below age range
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Age Lower # Lower bound of age range
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Encounter Early # Encounter too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter Lower # Encounter at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Encounter Upper # Encounter at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Encounter Late # Encounter too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: Encounter DifferentProviders # Encounters with different providers
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: PreventiveEncounter Early # Encounter too early
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: PreventiveEncounter Lower # Encounter at lower bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: PreventiveEncounter Upper # Encounter at upper bound
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: PreventiveEncounter Late # Encounter too late
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: TobaccoUser Early # Performance met before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: TobaccoUser Lower # Performance met TobaccoUser lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met_user
+      - name: TobaccoUser Upper # Performance met TobaccoUser upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met_user
+      - name: TobaccoUser Late # Performance met TobaccoUser after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: TobaccoUser NotMostRecent # Performance met within 2 years of earlier encounter
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: TobaccoNonUser Early # Performance met TobaccoNonUser before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: TobaccoNonUser Lower # Performance met TobaccoNonUser lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met_nonuser
+      - name: TobaccoNonUser Upper # Performance met TobaccoNonUser upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met_nonuser
+      - name: TobaccoNonUser Late # Performance met TobaccoNonUser after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Exception Early # Exception before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Exception Lower # Exception lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: exception_medicalreason
+        numerator:
+      - name: Exception Upper # Exception upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: exception_medicalreason
+        numerator:
+      - name: Exception Late # Exception after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: Exception PriorEncounter # Exception not on most recent encounter
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: LimitedLife Early # Limited life expectancy ends before interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: LimitedLife Lower # Limited life expectancy ends lower bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: exception_medicalreason
+        numerator:
+      - name: LimitedLife Upper # Limited life expectancy starts upper bound interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception: exception_medicalreason
+        numerator:
+      - name: LimitedLife Late # Limited life expectancy starts after interval
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: LimitedLife PriorEncounter # Limited life expectancy not on most recent encounter
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+  providers_key:
+    - name: Rachel
+      patients:
+        - name: Too Young # Below age range
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Age Lower # Lower bound of age range
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: Encounter Early # Encounter too early
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter Lower # Encounter at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: Encounter Upper # Encounter at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: Encounter Late # Encounter too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: Encounter DifferentProviders # Encounters with different providers
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: PreventiveEncounter Early # Encounter too early
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: PreventiveEncounter Lower # Encounter at lower bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: PreventiveEncounter Upper # Encounter at upper bound
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: PreventiveEncounter Late # Encounter too late
+          denominator:
+          denominator_exclusion:
+          denominator_exception:
+          numerator:
+        - name: TobaccoUser Early # Performance met TobaccoUser before interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: TobaccoUser Lower # Performance met TobaccoUser lower bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met_user
+        - name: TobaccoUser Upper # Performance met TobaccoUser upper bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met_user
+        - name: TobaccoUser Late # Performance met TobaccoUser after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: TobaccoNonUser Early # Performance met TobaccoNonUser before interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: TobaccoNonUser Lower # Performance met TobaccoNonUser lower bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met_nonuser
+        - name: TobaccoNonUser Upper # Performance met TobaccoNonUser upper bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_met_nonuser
+        - name: TobaccoNonUser Late # Performance met TobaccoNonUser after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: Exception Early # Exception before interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: Exception Lower # Exception lower bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: exception_medicalreason
+          numerator:
+        - name: Exception Upper # Exception upper bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: exception_medicalreason
+          numerator:
+        - name: Exception Late # Exception after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: Exception PriorEncounter # Exception not on most recent encounter
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: LimitedLife Early # Limited life expectancy ends before interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: LimitedLife Lower # Limited life expectancy ends lower bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: exception_medicalreason
+          numerator:
+        - name: LimitedLife Upper # Limited life expectancy starts upper bound interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception: exception_medicalreason
+          numerator:
+        - name: LimitedLife Late # Limited life expectancy starts after interval
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+        - name: LimitedLife PriorEncounter # Limited life expectancy not on most recent encounter
+          denominator: 1
+          denominator_exclusion:
+          denominator_exception:
+          numerator: performance_not_met
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  external_id: '111-111'
+  credential: DO
+  primary_specialty: Family Medicine
+- given_name: Patty
+  family_name: PrimaryCare
+  external_id: '222-222'
+  credential: MD
+  primary_specialty: Family Medicine
+patients:
+  - name: Too Young
+    attributes:
+      date_of_birth: 1998-02-02
+      given_name: Too
+      family_name: Young
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        provider: Rachel
+  - name: Age Lower
+    attributes:
+      date_of_birth: 1998-02-01
+      given_name: Age
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        provider: Rachel
+  - name: Encounter Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Early
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90791
+        start_date: 2015-12-31
+        stop_date: 2015-12-31
+        start_date: 2015-12-31 23:59:00 # Too early
+        stop_date: 2015-12-31 23:59:00
+        provider: Rachel
+      - code_type: CPT
+        code_value: 90792
+        start_date: 2016-01-01
+        stop_date: 2016-01-01
+        start_date: 2016-01-01 00:00:00
+        stop_date: 2016-01-01 00:00:00
+        provider: Rachel
+  - name: Encounter Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90791 # ENCOUNTER
+        start_date: 2016-01-01
+        stop_date: 2016-01-01
+        start_date: 2016-01-01 00:00:00
+        stop_date: 2016-01-01 00:00:00
+        provider: Rachel
+      - code_type: CPT
+        code_value: 90792 # ENCOUNTER
+        start_date: 2016-01-01
+        stop_date: 2016-01-01
+        start_date: 2016-01-01 00:00:00
+        stop_date: 2016-01-01 00:00:00
+        provider: Rachel
+  - name: Encounter Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90791
+        start_date: 2016-12-31
+        stop_date: 2016-12-31
+        start_date: 2016-12-31 23:59:00
+        stop_date: 2016-12-31 23:59:00
+        provider: Rachel
+      - code_type: CPT
+        code_value: 90792
+        start_date: 2016-01-01
+        stop_date: 2016-01-01
+        start_date: 2016-01-01 00:00:00
+        stop_date: 2016-01-01 00:00:00
+        provider: Rachel
+  - name: Encounter Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: Late
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90791
+        start_date: 2017-01-01
+        stop_date: 2017-01-01
+        start_date: 2017-01-01 00:00:00
+        stop_date: 2017-01-01 00:00:00
+        provider: Rachel
+      - code_type: CPT
+        code_value: 90792
+        start_date: 2016-01-01
+        provider: Rachel
+  - name: Encounter DifferentProviders
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Encounter
+      family_name: DifferentProviders
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90791
+        start_date: 2016-01-01
+        stop_date: 2016-01-01
+        start_date: 2016-01-01 00:00:00
+        stop_date: 2016-01-01 00:00:00
+        provider: Rachel
+      - code_type: CPT
+        code_value: 90792
+        start_date: 2016-01-01
+        stop_date: 2016-01-01
+        start_date: 2016-01-01 00:00:00
+        stop_date: 2016-01-01 00:00:00
+        provider: Patty
+  - name: PreventiveEncounter Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: PreventiveEncounter
+      family_name: Early
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2015-12-31
+        stop_date: 2015-12-31
+        start_date: 2015-12-31 23:59:00 # Too early
+        stop_date: 2015-12-31 23:59:00
+        provider: Rachel
+  - name: PreventiveEncounter Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: PreventiveEncounter
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-01-01
+        stop_date: 2016-01-01
+        start_date: 2016-01-01 00:00:00
+        stop_date: 2016-01-01 00:00:00
+        provider: Rachel
+  - name: PreventiveEncounter Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: PreventiveEncounter
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-12-31
+        stop_date: 2016-12-31
+        start_date: 2016-12-31 23:59:00
+        stop_date: 2016-12-31 23:59:00
+        provider: Rachel
+  - name: PreventiveEncounter Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: PreventiveEncounter
+      family_name: Late
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2017-01-01
+        stop_date: 2017-01-01
+        start_date: 2017-01-01 00:00:00
+        stop_date: 2017-01-01 00:00:00
+  - name: TobaccoUser Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: TobaccoUser
+      family_name: Early
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2 # Tobacco user
+        start_date: 2014-01-31 # Too early
+  - name: TobaccoUser Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: TobaccoUser
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2 # Tobacco user
+        start_date: 2014-02-01 # Lower bound
+  - name: TobaccoUser Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: TobaccoUser
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2 # Tobacco user
+        start_date: 2016-02-01 # Upper bound
+  - name: TobaccoUser Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: TobaccoUser
+      family_name: Late
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2 # Tobacco user
+        start_date: 2016-02-02 # Too late
+  - name: TobaccoUser NotMostRecent
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: TobaccoUser
+      family_name: NotMostRecent
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        provider: Rachel
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-10-01
+        stop_date: 2016-10-01
+        start_datetime: 2016-10-01 12:00:00
+        stop_datetime: 2016-10-01 13:00:00
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2
+        start_date: 2014-02-01 # Within 2 years of 2/1 encounter
+  - name: TobaccoNonUser Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: TobaccoNonUser
+      family_name: Early
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2
+        start_date: 2014-01-31 # Too early
+  - name: TobaccoNonUser Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: TobaccoNonUser
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2
+        start_date: 2014-02-01 # Lower bound
+  - name: TobaccoNonUser Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: TobaccoNonUser
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2
+        start_date: 2016-02-01 # Upper bound
+  - name: TobaccoNonUser Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: TobaccoNonUser
+      family_name: Late
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2
+        start_date: 2016-02-02 # Too late
+  - name: Exception Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Exception
+      family_name: Early
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 72166-2
+        start_date: 2016-01-31 # Too early
+  - name: Exception Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Exception
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2014-02-01
+        stop_date: 2014-02-01
+        start_datetime: 2014-02-01 12:00:00
+        stop_datetime: 2014-02-01 13:00:00
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2
+        start_date: 2016-02-01 # Lower bound
+  - name: Exception Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Exception
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2
+        start_date: 2016-02-02 # Upper bound
+  - name: Exception Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Exception
+      family_name: Late
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2
+        start_date: 2016-02-03 # Too late
+  - name: Exception PriorEncounter
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: Exception
+      family_name: PriorEncounter
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-03-01
+        stop_date: 2016-03-01
+        start_datetime: 2016-03-01 12:00:00
+        stop_datetime: 2016-03-01 13:00:00
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+  - name: LimitedLife Early
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: LimitedLife
+      family_name: Early
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        stop_date: 2016-02-02
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 162607003
+        start_date: 2015-01-01
+        stop_date: 2016-01-31 # Too early
+  - name: LimitedLife Lower
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: LimitedLife
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        stop_date: 2016-02-02
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 162607003
+        start_date: 2016-02-01 # Lower bound
+  - name: LimitedLife Upper
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: LimitedLife
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        stop_date: 2016-02-02
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 162607003
+        start_date: 2016-02-02 # Upper bound
+  - name: LimitedLife Late
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: LimitedLife
+      family_name: Late
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        stop_date: 2016-02-02
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 162607003
+        start_date: 2016-02-03 # Too late
+  - name: LimitedLife PriorEncounter
+    attributes:
+      date_of_birth: 1988-03-22
+      given_name: LimitedLife
+      family_name: PriorEncounter
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        stop_date: 2016-02-02
+        provider: Rachel
+      - code_type: CPT
+        code_value: 99385
+        start_date: 2016-03-01
+        stop_date: 2016-03-02
+        provider: Rachel
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 162607003
+        start_date: 2016-02-01 # Overlaps encounter that is not the most recent
+        stop_date: 2016-02-01
