@@ -23,7 +23,9 @@ define "Denominator Encounter":
 
 define "Denominator Transfer of Care":
   "Denominator Encounter" E
-    where E.type = "new"
+    with ["Clinical Activity": "Able; New Encounter"] C
+      such that C.relevantPeriod starts during "Measurement Period"
+        and C.encounter_id = E.encounter_id
   union "Denominator Encounter" E
     with ["System Event"] S
       such that S.start_datetime during "Measurement Period"

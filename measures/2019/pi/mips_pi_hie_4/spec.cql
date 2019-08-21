@@ -4,7 +4,7 @@ library MIPS_PI_HIE_4_2019 version '1'
  * Source: MIPS
  * ID: PI_HIE_4
  * Year: 2019
- * Version: 1
+ * Version: 2
  * Author: Steve Daniels
  *
   */
@@ -23,7 +23,9 @@ define "Denominator Encounter":
 
 define "Denominator Transfer of Care":
   "Denominator Encounter" E
-    where E.type = "new"
+    with ["Clinical Activity": "Able; New Encounter"] C
+      such that C.relevantPeriod starts during "Measurement Period"
+        and C.encounter_id = E.encounter_id
   union "Denominator Encounter" E
     with ["System Event"] S
       such that C.start_datetime during "Measurement Period"

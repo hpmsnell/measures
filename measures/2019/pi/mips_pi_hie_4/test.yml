@@ -1,3 +1,4 @@
+---
 measure_id: measure.Pi.2019.Mipspihie4
 test_set_keys:
   organization_key:
@@ -456,9 +457,16 @@ patients:
       family_name: Before
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2015-12-31 # Too early
         stop_date: 2015-12-31
         start_datetime: 2015-12-31 12:00:00
@@ -471,9 +479,16 @@ patients:
       family_name: Lower
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
         start_datetime: 2016-01-01 12:00:00
@@ -486,9 +501,16 @@ patients:
       family_name: Upper
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
         start_datetime: 2016-12-31 12:00:00
@@ -501,9 +523,16 @@ patients:
       family_name: After
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2017-01-01 # Too late
         stop_date: 2017-01-01
         start_datetime: 2017-01-01 12:00:00
@@ -516,14 +545,43 @@ patients:
       family_name: DifferentProvider
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 13:00:00
         provider: Patty # Different provider
+  - name: DenominatorEncounter NotNew
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorEncounter
+      family_name: NotNew
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: 'NOTNEW' # Not a new encounter
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
+      encounters:
+      - external_id: 1
+        start_date: 2016-01-01 # Lower bound
+        stop_date: 2016-01-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
+        provider: Rachel
   - name: DenominatorTOC Before
     attributes:
       date_of_birth: 2000-01-01
@@ -752,14 +810,21 @@ patients:
       given_name: SOCIncorporation
       family_name: Before
       sex: Male
+      clinical_activities:
+        - code_type: 'CPT'
+          code_value: '99201'
+          start_date: 2016-02-01
+          stop_date: 2016-02-01
+          start_datetime: 2016-02-01 12:00:00
+          stop_datetime: 2016-02-01 12:00:00
+          encounter_external_id: 1
     clinical_models:
       encounters:
       - external_id: 1
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
-        encounter_type: "New"
+        stop_datetime: 2016-0
         provider: Rachel
       system_events:
       - event_type: SUMMARY_OF_CARE_INCORPORATION
@@ -793,9 +858,16 @@ patients:
       family_name: Lower
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -833,9 +905,16 @@ patients:
       family_name: Upper
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -873,9 +952,16 @@ patients:
       family_name: After
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -913,16 +999,29 @@ patients:
       family_name: WrongEncounter
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-03-01
+        stop_date: 2016-03-01
+        start_datetime: 2016-03-01 12:00:00
+        stop_datetime: 2016-03-01 12:00:00
+        encounter_external_id: 2
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       - external_id: 2
-        encounter_type: "New"
         start_date: 2016-03-01
         stop_date: 2016-03-01
         start_datetime: 2016-03-01 12:00:00
@@ -960,6 +1059,14 @@ patients:
       family_name: Before
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
         start_date: 2016-02-01
@@ -967,7 +1074,6 @@ patients:
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
-        encounter_type: "New"
       system_events:
       - event_type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2014-02-01
@@ -1000,9 +1106,16 @@ patients:
       family_name: Lower
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -1040,9 +1153,16 @@ patients:
       family_name: Upper
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -1080,9 +1200,16 @@ patients:
       family_name: After
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -1120,16 +1247,29 @@ patients:
       family_name: WrongEncounter
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-03-01
+        stop_date: 2016-03-01
+        start_datetime: 2016-03-01 12:00:00
+        stop_datetime: 2016-03-01 12:00:00
+        encounter_external_id: 2
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       - external_id: 2
-        encounter_type: "New"
         start_date: 2016-03-01
         stop_date: 2016-03-01
         start_datetime: 2016-03-01 12:00:00
@@ -1167,6 +1307,14 @@ patients:
       family_name: Before
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
         start_date: 2016-02-01
@@ -1174,7 +1322,6 @@ patients:
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
-        encounter_type: "New"
       system_events:
       - event_type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-02-01
@@ -1208,9 +1355,16 @@ patients:
       family_name: Lower
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -1248,9 +1402,16 @@ patients:
       family_name: Upper
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -1288,9 +1449,16 @@ patients:
       family_name: After
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -1328,16 +1496,29 @@ patients:
       family_name: WrongEncounter
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-03-01
+        stop_date: 2016-03-01
+        start_datetime: 2016-03-01 12:00:00
+        stop_datetime: 2016-03-01 12:00:00
+        encounter_external_id: 2
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       - external_id: 2
-        encounter_type: "New"
         start_date: 2016-03-01
         stop_date: 2016-03-01
         start_datetime: 2016-03-01 12:00:00
@@ -1375,6 +1556,14 @@ patients:
       family_name: Before
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
         start_date: 2016-02-01
@@ -1382,7 +1571,6 @@ patients:
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
-        encounter_type: "New"
       system_events:
       - event_type: SUMMARY_OF_CARE_INCORPORATION
         start_date: 2016-02-01
@@ -1415,9 +1603,16 @@ patients:
       family_name: Lower
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -1455,9 +1650,16 @@ patients:
       family_name: Upper
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -1495,9 +1697,16 @@ patients:
       family_name: After
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -1535,16 +1744,29 @@ patients:
       family_name: WrongEncounter
       sex: Male
     clinical_models:
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-03-01
+        stop_date: 2016-03-01
+        start_datetime: 2016-03-01 12:00:00
+        stop_datetime: 2016-03-01 12:00:00
+        encounter_external_id: 2
       encounters:
       - external_id: 1
-        encounter_type: "New"
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       - external_id: 2
-        encounter_type: "New"
         start_date: 2016-03-01
         stop_date: 2016-03-01
         start_datetime: 2016-03-01 12:00:00
