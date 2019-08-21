@@ -1,4 +1,4 @@
-library MIPS_PI_EP_1_2019 version '1'
+library STAGE_3_CONTROLLED_2019 version '1'
 
 /*
  * Source: MIPS
@@ -20,7 +20,6 @@ define "Denominator Medication":
   ["Medication"] M
     where M.start_datetime during "Measurement Period"
       and M.prescribed = true
-      and M.controlled_substance = false // Is this different for Medicaid
       and M.provider_id = "Reporting Provider ID"
 
 /* Populations */

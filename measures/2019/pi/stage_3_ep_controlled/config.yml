@@ -1,8 +1,8 @@
 ---
 measure:
-  name: 19.PI.Stage3ep
+  name: 19.PI.Stage3epcontrolled
   required:
-    display_title: 'e-Prescribing'
+    display_title: 'e-Prescribing: With Controlled Substances'
     inverse: false
     subject_type: Encounter
     set: Stage 3
@@ -24,9 +24,7 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: 'Number of prescriptions written for drugs requiring a prescription in order
-    to be dispensed other than controlled substances during the EHR reporting period; or number
-    of prescriptions written for drugs requiring a prescription in order to be dispensed during the
+  description: 'Number of prescriptions written for drugs requiring a prescription in order to be dispensed during the
     EHR reporting period.'
   component_groups:
 exclusion:
@@ -36,7 +34,7 @@ exception:
   description:
   reasons:
 performance_met:
-  description: 'The number of prescriptions in the denominator that are generated, queried 
+  description: 'The number of prescriptions in the denominator that are generated, queried
     for a drug formulary, and transmitted electronically using CEHRT.'
   reasons:
   - config_link_id: performance_met

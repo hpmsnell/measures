@@ -1,4 +1,4 @@
-measure_id: measure.Pi.2019.Stage3ep
+measure_id: measure.Pi.2019.Stage3epuncontrolled
 test_set_keys:
   organization_key:
     episodes_of_care:
@@ -116,6 +116,7 @@ patients:
         provider: Rachel
         prescribed: true
         prescription_method: 'paper'
+        controlled_substance: true
   - name: DenominatorMedication Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -131,7 +132,7 @@ patients:
         provider: Rachel
         prescribed: true
         prescription_method: 'paper'
-        controlled_substance: false
+        controlled_substance: true
   - name: DenominatorMedication Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -147,7 +148,7 @@ patients:
         provider: Rachel
         prescribed: true
         prescription_method: 'paper'
-        controlled_substance: false
+        controlled_substance: true
   - name: DenominatorMedication After
     attributes:
       date_of_birth: 2000-01-01
@@ -163,7 +164,7 @@ patients:
         provider: Rachel
         prescribed: true
         prescription_method: 'paper'
-        controlled_substance: false
+        controlled_substance: true
   - name: DenominatorMedication DifferentProvider
     attributes:
       date_of_birth: 2000-01-01
@@ -176,25 +177,10 @@ patients:
         code_value: 1191 # Medication
         start_date: 2016-02-01
         stop_date: 2016-02-01
-        provider: Patty
+        provider: Patty # Different signing provider
         prescribed: true
         prescription_method: 'paper'
-        controlled_substance: false
-  - name: DenominatorMedication NotPrescribed
-    attributes:
-      date_of_birth: 2000-01-01
-      given_name: DenominatorMedication
-      family_name: NotPrescribed
-      sex: Male
-    clinical_models:
-      medications:
-      - code_type: RXNORM
-        code_value: 1191 # Medication
-        start_date: 2016-12-31 # Upper bound
-        stop_date: 2016-12-31
-        provider: Rachel
-        prescribed: false
-        controlled_substance: false
+        controlled_substance: true
   - name: Prescription Electronic
     attributes:
       date_of_birth: 2000-01-01
@@ -207,7 +193,7 @@ patients:
         code_value: 1191 # Medication
         start_date: 2016-02-01
         stop_date: 2016-02-01
-        provider: Rachel 
+        provider: Rachel
         prescribed: true
         prescription_method: 'electronic'
-        controlled_substance: false
+        controlled_substance: true

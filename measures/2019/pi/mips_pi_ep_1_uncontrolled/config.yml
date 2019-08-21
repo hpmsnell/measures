@@ -1,8 +1,8 @@
 ---
 measure:
-  name: 19.PI.Mipspiep1
+  name: 19.PI.Mipspiep1uncontrolled
   required:
-    display_title: 'e-Prescribing'
+    display_title: 'e-Prescribing: Without Uncontrolled Substances'
     inverse: false
     subject_type: Encounter
     set: MIPS
@@ -23,9 +23,7 @@ measure:
     mips_objective:
 denominator:
   description: 'Number of prescriptions written for drugs requiring a prescription in order to
-    be dispensed other than controlled substances during the performance period; or number of
-    prescriptions written for drugs requiring a prescription in order to be dispensed during the
-    performance period.'
+    be dispensed other than controlled substances during the performance period.'
   component_groups:
 exclusion:
   description:
