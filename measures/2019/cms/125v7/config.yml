@@ -1,0 +1,124 @@
+---
+measure:
+  name: 19.CMS.125
+  required:
+    display_title: Breast Cancer Screening
+    inverse: false
+    subject_type: Patient
+    set: CMS
+    external_id: '125'
+    version:
+  optional:
+    description: 'Percentage of women 50 - 74 years of age who had a mammogram to
+      screen for breast cancer'
+    gap_resolution_action: Patient is due for breast cancer screening
+    version: 2019
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'Internal Medicine, Obstetrics/Gynecology, Preventive Medicine,
+      General Practice/Family Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'Women 51 - 74 years of age with a visit during the measurement period'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: "VSAC; Office Visit"
+      - model: ClinicalActivity
+        value_set: "VSAC; Annual Wellness Visit"
+        - model: ClinicalActivity
+          value_set: "VSAC; Preventive Care Services - Established Office Visit, 18 and Up"
+        - model: ClinicalActivity
+          value_set: "VSAC; Preventive Care Services-Initial Office Visit, 18 and Up"
+        - model: ClinicalActivity
+          value_set: "VSAC; Home Healthcare Services"
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_mastectomy
+    code_value:
+    display_title: Mastectomy
+    description: Patient excluded due to history of bilateral mastectomy or left and
+      right mastectomy
+    component_groups:
+    - validation_record_table_count: 5
+      components:
+      - display_title: Bilateral Mastectomy
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: VSAC; History of bilateral mastectomy
+    - validation_record_table_count: 5
+      logical_operator: OR
+      components:
+      - display_title: Two Unilateral Mastectomies
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Unilateral Mastectomy
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Left Mastectomy
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: VSAC; Status Post Left Mastectomy
+        - model: Diagnosis
+          value_set: VSAC; Unilateral Mastectomy, Unspecified Laterality
+      - display_title: Right Mastectomy
+        logical_operator: AND
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: VSAC; Status Post Right Mastectomy
+        - model: Diagnosis
+          value_set: VSAC; Unilateral Mastectomy, Unspecified Laterality
+  - config_link_id: exclusion_hospice
+    code_value:
+    display_title: Hospice Service
+    description: Patient excluded due to hospice service
+    component_groups:
+    - components:
+       - display_title: Hospice Service
+         show_codes: true
+         records:
+         - model: ClinicalActivity
+           value_set: "VSAC; Hospice care ambulatory"
+         - model: Order
+           value_set: "VSAC; Hospice care ambulatory"
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Women with one or more mammograms during the measurement period or
+    the 15 months prior to the measurement period'
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Mammogram Performed
+    description: Mammogram performed during the measurement period or the 15 months prior to the measurement period
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Mammography
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Mammography
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Mammogram Performed
+    description: Mammogram not found
+    component_groups:
