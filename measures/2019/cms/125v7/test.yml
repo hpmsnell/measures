@@ -426,9 +426,8 @@ patients:
     - code_type: SNOMEDCT
       code_value: 429242008 # Right mastectomy
       start_date: 2016-12-31
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: V45.71 # Unilateral mastectomy
+    - code_type: SNOMEDCT
+      code_value: 248802009 # Unilateral mastectomy
       start_date: 2010-01-01
       child_code_value: 7771000 # Left
 - name: Exclusion UnilateralMastectomyNoAnatomicalSite
@@ -446,9 +445,8 @@ patients:
     - code_type: SNOMEDCT
       code_value: 429242008 # Right mastectomy
       start_date: 2016-12-31
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: V45.71 # Unilateral mastectomy
+    - code_type: SNOMEDCT
+      code_value: 248802009 # Unilateral mastectomy
       start_date: 2010-01-01
 - name: Exclusion HospiceService
   attributes:
