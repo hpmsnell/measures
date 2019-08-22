@@ -70,6 +70,14 @@ exclusion:
            value_set: "VSAC; Hospice care ambulatory"
          - model: Order
            value_set: "VSAC; Hospice care ambulatory"
+     - logical_operator: 'OR'
+       components:
+        - display_title: Inpatient Encounter
+          show_codes: true
+          annotation: 'Discharge disposition: Discharge to home for hospice care'
+          records:
+          - model: ClinicalActivity
+            value_set: "VSAC; Encounter Inpatient"
 exception:
   description:
   reasons:

@@ -62,6 +62,21 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
+    - name: Exclusion UnilateralMastectomyAnatomicalSite  # Patient has an exclusion for unilateral mastectomies with anatomical location site
+      denominator: 1
+      denominator_exclusion: exclusion_mastectomy
+      denominator_exception:
+      numerator:
+    - name: Exclusion UnilateralMastectomyAnatomicalSite  # Patient has an exclusion for unilateral mastectomies with anatomical location site
+      denominator: 1
+      denominator_exclusion: exclusion_mastectomy
+      denominator_exception:
+      numerator:
+    - name: Exclusion UnilateralMastectomyNoAnatomicalSite  # Patient has an exclusion for unilateral mastectomies with anatomical location site
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
     - name: Exclusion HospiceService # Patient has an exclusion for hospice service
       denominator: 1
       denominator_exclusion: exclusion_hospice
@@ -166,6 +181,16 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: Exclusion UnilateralMastectomyLate  # Patient has an exclusion for unilateral mastectomy but it is too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Exclusion UnilateralMastectomyAnatomicalSite  # Patient has an exclusion for unilateral mastectomies with anatomical location site
+      denominator: 1
+      denominator_exclusion: exclusion_mastectomy
+      denominator_exception:
+      numerator:
+    - name: Exclusion UnilateralMastectomyNoAnatomicalSite  # Patient has an exclusion for unilateral mastectomies with anatomical location site
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -386,6 +411,45 @@ patients:
     - code_type: ICD10CM
       code_value: Z90.12 # Left mastectomy
       start_date: 2017-01-01 # Too late
+- name: Exclusion UnilateralMastectomyAnatomicalSite
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: UnilateralMastectomyAnatomicalSite
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 429242008 # Right mastectomy
+      start_date: 2016-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: V45.71 # Unilateral mastectomy
+      start_date: 2010-01-01
+      child_code_value: 7771000 # Left
+- name: Exclusion UnilateralMastectomyNoAnatomicalSite
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: UnilateralMastectomyNoAnatomicalSite
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 429242008 # Right mastectomy
+      start_date: 2016-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: V45.71 # Unilateral mastectomy
+      start_date: 2010-01-01
 - name: Exclusion HospiceService
   attributes:
     date_of_birth: 1950-01-01
