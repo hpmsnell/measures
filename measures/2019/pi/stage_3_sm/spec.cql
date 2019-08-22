@@ -28,7 +28,7 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   exists(["System Event"] S
-    where S.start_datetime during "Measurement Period"
+    where S.start_datetime same year as start of "Measurement Period"
       and S.type = "SECURE_MESSAGE"
       and S.provider_id = "Reporting Provider ID")
 

@@ -35,7 +35,7 @@ define "API Opt Out":
 
 define "Health Information Provisioning":
   ["System Event"] S
-    where S.start_datetime during "Measurement Period"
+    where S.start_datetime same year as start of "Measurement Period"
       and S.type = "HEALTH_INFORMATION_PROVISIONING"
     with "Denominator Encounter" E
       such that S.encounter_id = E.external_id
@@ -108,7 +108,7 @@ define "Numerator Performance Met":
   // OR patient has no health information provisioning events for any encounter
   // during the measurement period
   or not exists(["System Event"] S
-    where S.start_datetime during "Measurement Period"
+    where S.start_datetime same year as start of "Measurement Period"
       and S.type = "HEALTH_INFORMATION_PROVISIONING"
     with ["Encounter"] E
       where S.encounter_id = E.external_id
