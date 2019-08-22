@@ -4,7 +4,7 @@ library STAGE_3_PSE_2019 version '1'
  * Source: Stage 3
  * ID: PSE
  * Year: 2019
- * Version: 1
+ * Version: 2
  * Author: Steve Daniels
  *
   */
@@ -28,7 +28,7 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   exists(["System Event"] S
-    where S.start_datetime during "Measurement Period"
+    where S.start_datetime same year as start of "Measurement Period"
       and S.code_value = "EDUCATION_PROVISION")
 
 define "Numerator Performance Not Met":
