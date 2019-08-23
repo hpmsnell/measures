@@ -91,6 +91,7 @@ exception:
       components:
       - display_title: Medical Reason For Not Screening
         show_codes: true
+        annotation: 'Reason for Not Screening: Medical Reason'
         records:
         - model: Diagnosis
           value_set: VSAC; Tobacco Use Screening
@@ -99,7 +100,6 @@ exception:
       components:
       - display_title: Limited Life Expectancy
         show_codes: true
-        annotation: 'Reason for Not Screening: Medical Reason'
         records:
         - model: Diagnosis
           value_set: VSAC; Limited Life Expectancy

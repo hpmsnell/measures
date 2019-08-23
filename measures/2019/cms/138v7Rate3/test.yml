@@ -137,7 +137,6 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
-      - name: LimitedLife PriorEncounter # Limited life expectancy not on most recent encounter
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -276,36 +275,6 @@ test_set_keys:
           denominator_exception: exception_medicalreason
           numerator:
         - name: LimitedLife Late # Limited life expectancy starts after interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: performance_not_met
-        - name: LimitedLife PriorEncounter # Limited life expectancy not on most recent encounter
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: performance_not_met
-        - name: PositiveScreeningLimitedLife Early # Limited life expectancy ends before interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: performance_not_met
-        - name: PositiveScreeningLimitedLife Lower # Limited life expectancy ends lower bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception: exception_medicalreason
-          numerator:
-        - name: PositiveScreeningLimitedLife Upper # Limited life expectancy starts upper bound interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception: exception_medicalreason
-          numerator:
-        - name: PositiveScreeningLimitedLife Late # Limited life expectancy starts after interval
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: performance_not_met
-        - name: PositiveScreeningLimitedLife PriorEncounter # Limited life expectancy not on most recent encounter
           denominator: 1
           denominator_exclusion:
           denominator_exception:
@@ -969,12 +938,6 @@ patients:
       - code_type: SNOMEDCT
         code_value: 162607003
         start_date: 2016-02-03 # Too late
-  - name: LimitedLife PriorEncounter
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: LimitedLife
-      family_name: PriorEncounter
-      sex: Female
     clinical_models:
       clinical_activities:
       - code_type: CPT

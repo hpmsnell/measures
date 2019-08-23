@@ -77,11 +77,6 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
-      - name: TobaccoUser NotMostRecent # Performance met within 2 years of earlier encounter
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_not_met
       - name: TobaccoNonUser Early # Performance met TobaccoNonUser before interval
         denominator: 1
         denominator_exclusion:
@@ -122,11 +117,6 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
-      - name: Exception PriorEncounter # Exception not on most recent encounter
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_not_met
       - name: LimitedLife Early # Limited life expectancy ends before interval
         denominator: 1
         denominator_exclusion:
@@ -143,11 +133,6 @@ test_set_keys:
         denominator_exception: exception_medicalreason
         numerator:
       - name: LimitedLife Late # Limited life expectancy starts after interval
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_not_met
-      - name: LimitedLife PriorEncounter # Limited life expectancy not on most recent encounter
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -270,11 +255,6 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
-        - name: Exception PriorEncounter # Exception not on most recent encounter
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: performance_not_met
         - name: LimitedLife Early # Limited life expectancy ends before interval
           denominator: 1
           denominator_exclusion:
@@ -295,7 +275,6 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
-        - name: LimitedLife PriorEncounter # Limited life expectancy not on most recent encounter
           denominator: 1
           denominator_exclusion:
           denominator_exception:
@@ -584,32 +563,6 @@ patients:
         code_value: 72166-2 # Tobacco screening
         start_date: 2016-02-02 # Too late
         child_code_value: 160603005 # TobaccoUser
-  - name: TobaccoUser NotMostRecent
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: TobaccoUser
-      family_name: NotMostRecent
-      sex: Female
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99385
-        start_date: 2016-02-01
-        stop_date: 2016-02-01
-        start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
-        provider: Rachel
-      - code_type: CPT
-        code_value: 99385
-        start_date: 2016-10-01
-        stop_date: 2016-10-01
-        start_datetime: 2016-10-01 12:00:00
-        stop_datetime: 2016-10-01 13:00:00
-        provider: Rachel
-      - code_type: LOINC
-        code_value: 72166-2
-        start_date: 2014-02-01 # Within 2 years of 2/1 encounter
-        child_code_value: 160603005 # TobaccoUser
   - name: TobaccoNonUser Early
     attributes:
       date_of_birth: 1988-03-22
@@ -764,11 +717,10 @@ patients:
         code_value: 72166-2
         start_date: 2016-02-03 # Too late
         child_code_value: 183964008 # MedicalReason
-  - name: Exception PriorEncounter
     attributes:
       date_of_birth: 1988-03-22
       given_name: Exception
-      family_name: PriorEncounter
+      family_name: Late
       sex: Female
     clinical_models:
       clinical_activities:
@@ -789,8 +741,8 @@ patients:
         provider: Rachel
       - code_type: LOINC
         code_value: 72166-2
-        start_date: 2016-02-01
-        stop_date: 2016-02-01
+        start_date: 2016-02-03
+        stop_date: 2016-02-03
         child_code_value: 183964008 # MedicalReason
   - name: LimitedLife Early
     attributes:
@@ -873,29 +825,3 @@ patients:
       - code_type: SNOMEDCT
         code_value: 162607003
         start_date: 2016-02-03 # Too late
-  - name: LimitedLife PriorEncounter
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: LimitedLife
-      family_name: PriorEncounter
-      sex: Female
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99385
-        start_date: 2016-02-01
-        stop_date: 2016-02-01
-        start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
-        stop_date: 2016-02-02
-        provider: Rachel
-      - code_type: CPT
-        code_value: 99385
-        start_date: 2016-03-01
-        stop_date: 2016-03-02
-        provider: Rachel
-      diagnoses:
-      - code_type: SNOMEDCT
-        code_value: 162607003
-        start_date: 2016-02-01 # Overlaps encounter that is not the most recent
-        stop_date: 2016-02-01
