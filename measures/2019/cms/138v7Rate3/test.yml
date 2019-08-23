@@ -1,4 +1,4 @@
-measure_id: measure.Mips.2019.Mips226Rate3
+measure_id: measure.Cms.2019.Cms138v7Rate3
 test_set_keys:
   organization_key:
     patients:
@@ -138,31 +138,6 @@ test_set_keys:
         denominator_exception:
         numerator: performance_not_met
       - name: LimitedLife PriorEncounter # Limited life expectancy not on most recent encounter
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_not_met
-      - name: PositiveScreeningLimitedLife Early # Limited life expectancy ends before interval
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_not_met
-      - name: PositiveScreeningLimitedLife Lower # Limited life expectancy ends lower bound interval
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception: exception_medicalreason
-        numerator:
-      - name: PositiveScreeningLimitedLife Upper # Limited life expectancy starts upper bound interval
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception: exception_medicalreason
-        numerator:
-      - name: PositiveScreeningLimitedLife Late # Limited life expectancy starts after interval
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_not_met
-      - name: PositiveScreeningLimitedLife PriorEncounter # Limited life expectancy not on most recent encounter
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -559,8 +534,9 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       - code_type: LOINC
-        code_value: 72166-2 # Tobacco user
+        code_value: 72166-2 # Tobacco screening
         start_date: 2014-01-31 # Too early
+        child_code_value: 160603005 # TobaccoUser
   - name: TobaccoUser Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -577,8 +553,9 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       - code_type: LOINC
-        code_value: 72166-2 # Tobacco user
+        code_value: 72166-2 # Tobacco screening
         start_date: 2014-02-01 # Lower bound
+        child_code_value: 160603005 # TobaccoUser
   - name: TobaccoUser Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -595,8 +572,9 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       - code_type: LOINC
-        code_value: 72166-2 # Tobacco user
+        code_value: 72166-2 # Tobacco screening
         start_date: 2016-02-01 # Upper bound
+        child_code_value: 160603005 # TobaccoUser
   - name: TobaccoUser Late
     attributes:
       date_of_birth: 1988-03-22
@@ -613,8 +591,9 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       - code_type: LOINC
-        code_value: 72166-2 # Tobacco user
+        code_value: 72166-2 # Tobacco screening
         start_date: 2016-02-02 # Too late
+        child_code_value: 160603005 # TobaccoUser
   - name: Counseling Early
     attributes:
       date_of_birth: 1988-03-22
@@ -628,15 +607,11 @@ patients:
         start_date: 2016-02-01
         provider: Rachel
       - code_type: LOINC
-        code_value: 72166-2 # Tobacco user
+        code_value: 72166-2 # Tobacco screening
         start_date: 2016-02-01
-      - code_type: CPT
-        code_value: 99406
-        start_date: 2014-01-31
-      diagnoses:
+        child_code_value: 160603005 # TobaccoUser
       - code_type: SNOMEDCT
-        code_value: 160603005
-        start_date: 2016-01-01
+        code_value: 711028002 # Cessation Counseling
   - name: Counseling Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -653,18 +628,15 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       - code_type: LOINC
-        code_value: 72166-2 # Tobacco user
+        code_value: 72166-2 # Tobacco screening
         start_date: 2016-02-01
-      - code_type: CPT
-        code_value: 99406
+        child_code_value: 160603005 # TobaccoUser
+      - code_type: SNOMEDCT
+        code_value: 711028002 # Cessation Counseling
         start_date: 2014-02-01
         stop_date: 2014-02-01
         start_datetime: 2014-02-01 12:00:00
         stop_datetime: 2014-02-01 13:00:00
-      diagnoses:
-      - code_type: SNOMEDCT
-        code_value: 160603005
-        start_date: 2016-01-01
   - name: Counseling Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -842,6 +814,7 @@ patients:
       - code_type: LOINC
         code_value: 72166-2
         start_date: 2014-01-31 # Too early
+        child_code_value: 160618006 # TobaccoUser
   - name: NonUser Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -860,6 +833,7 @@ patients:
       - code_type: LOINC
         code_value: 72166-2
         start_date: 2014-02-01 # Lower bound
+        child_code_value: 160618006 # TobaccoUser
   - name: NonUser Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -878,6 +852,7 @@ patients:
       - code_type: LOINC
         code_value: 72166-2
         start_date: 2016-02-01 # Upper bound
+        child_code_value: 160618006 # TobaccoUser
   - name: NonUser Late
     attributes:
       date_of_birth: 1988-03-22
@@ -896,6 +871,7 @@ patients:
       - code_type: LOINC
         code_value: 72166-2
         start_date: 2016-02-02 # Too late
+        child_code_value: 160618006 # TobaccoUser
   - name: LimitedLife Early
     attributes:
       date_of_birth: 1988-03-22
@@ -912,6 +888,10 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         stop_date: 2016-02-02
         provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2 # Tobacco screening
+        start_date: 2016-02-01
+        child_code_value: 160603005 # TobaccoUser
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 162607003
@@ -933,10 +913,14 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         stop_date: 2016-02-02
         provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2 # Tobacco screening
+        start_date: 2016-02-01
+        child_code_value: 160603005 # TobaccoUser
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 162607003
-        start_date: 2016-02-01 # Lower bound
+        start_date: 2016-01-01 # Lower bound
   - name: LimitedLife Upper
     attributes:
       date_of_birth: 1988-03-22
@@ -953,6 +937,10 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         stop_date: 2016-02-02
         provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2 # Tobacco screening
+        start_date: 2016-02-01
+        child_code_value: 160603005 # TobaccoUser
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 162607003
@@ -973,6 +961,10 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         stop_date: 2016-02-02
         provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2 # Tobacco screening
+        start_date: 2016-02-01
+        child_code_value: 160603005 # TobaccoUser
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 162607003
@@ -993,132 +985,21 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         stop_date: 2016-02-02
         provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2 # Tobacco screening
+        start_date: 2016-02-01
+        child_code_value: 160603005 # TobaccoUser
       - code_type: CPT
         code_value: 99385
         start_date: 2016-03-01
         stop_date: 2016-03-02
         provider: Rachel
+      - code_type: LOINC
+        code_value: 72166-2 # Tobacco screening
+        start_date: 2016-02-01
+        child_code_value: 160603005 # TobaccoUser
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 162607003
         start_date: 2016-02-01 # Overlaps encounter that is not the most recent
         stop_date: 2016-02-01
-  - name: PositiveScreeningLimitedLife Early
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: PositiveScreeningLimitedLife
-      family_name: Early
-      sex: Female
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99385
-        start_date: 2016-02-01
-        stop_date: 2016-02-01
-        start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
-        provider: Rachel
-      diagnoses:
-      - code_type: SNOMEDCT
-        code_value: 162607003
-        start_date: 2014-02-01
-        stop_date: 2016-01-31 # Too early
-      - code_type: SNOMEDCT
-        code_value: 160603005 # Tobacco user
-        start_date: 2016-01-01
-  - name: PositiveScreeningLimitedLife Lower
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: PositiveScreeningLimitedLife
-      family_name: Lower
-      sex: Female
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99385
-        start_date: 2016-02-01
-        stop_date: 2016-02-01
-        start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
-        provider: Rachel
-      diagnoses:
-      - code_type: SNOMEDCT
-        code_value: 162607003
-        start_date: 2016-02-01 # Lower bound
-      - code_type: SNOMEDCT
-        code_value: 160603005 # Tobacco user
-        start_date: 2016-01-01
-  - name: PositiveScreeningLimitedLife Upper
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: PositiveScreeningLimitedLife
-      family_name: Upper
-      sex: Female
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99385
-        start_date: 2016-02-01
-        stop_date: 2016-02-01
-        start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
-        provider: Rachel
-      diagnoses:
-      - code_type: SNOMEDCT
-        code_value: 162607003
-        start_date: 2016-02-02 # Upper bound
-      - code_type: SNOMEDCT
-        code_value: 160603005 # Tobacco user
-        start_date: 2016-01-01
-  - name: PositiveScreeningLimitedLife Late
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: PositiveScreeningLimitedLife
-      family_name: Late
-      sex: Female
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99385
-        start_date: 2016-02-01
-        stop_date: 2016-02-01
-        start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
-        provider: Rachel
-      diagnoses:
-      - code_type: SNOMEDCT
-        code_value: 162607003
-        start_date: 2016-02-03 # Too late
-      - code_type: SNOMEDCT
-        code_value: 160603005 # Tobacco user
-        start_date: 2016-01-01
-  - name: PositiveScreeningLimitedLife PriorEncounter
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: PositiveScreeningLimitedLife
-      family_name: PriorEncounter
-      sex: Female
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99385
-        start_date: 2016-02-01
-        stop_date: 2016-02-01
-        start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
-        provider: Rachel
-      - code_type: CPT
-        code_value: 99385
-        start_date: 2016-03-01
-        stop_date: 2016-03-01
-        start_datetime: 2016-03-01 12:00:00
-        stop_datetime: 2016-03-01 13:00:00
-        provider: Rachel
-      diagnoses:
-      - code_type: SNOMEDCT
-        code_value: 162607003
-        start_date: 2016-02-01 # Overlaps encounter that is not the most recent
-        stop_date: 2016-02-01
-      - code_type: SNOMEDCT
-        code_value: 160603005 # Tobacco user
-        start_date: 2016-01-01

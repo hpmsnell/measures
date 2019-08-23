@@ -27,6 +27,8 @@ measure:
     mips_seven_point_max: false
     source_specification_url:
     measure_children_names:
+    - 19.CMS.138Rate1
+    - 19.CMS.138Rate3
     mips_stratum: 'overall'
     mips_objective:
 denominator:
@@ -80,6 +82,7 @@ denominator:
     components:
     - display_title: Tobacco User
       show_codes: true
+      annotation: 'Tobacco Use Screening Result: User'
       records:
       - model: ClinicalActivity
         value_set: VSAC; Tobacco Use Screening
@@ -99,6 +102,7 @@ exception:
       components:
       - display_title: Medical Reason For Not Counseling
         show_codes: true
+        annotation: 'Reason for Not Counseling: Medical Reason'
         records:
         - model: ClinicalActivity
           value_set: VSAC; Tobacco Use Cessation Counseling
@@ -107,6 +111,7 @@ exception:
       components:
       - display_title: Medical Reason For Not Ordering Pharmacotherapy
         show_codes: true
+        annotation: 'Reason for Not Ordering Pharmacotherapy: Medical Reason'
         records:
         - model: Medication
           value_set: VSAC; Tobacco Use Cessation Pharmacotherapy

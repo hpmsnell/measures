@@ -27,8 +27,6 @@ measure:
     mips_seven_point_max: false
     source_specification_url:
     measure_children_names:
-    - 19.CMS.138Rate1
-    - 19.CMS.138Rate2
     mips_stratum: 'tobacco'
     mips_objective:
 denominator:
@@ -93,6 +91,7 @@ exception:
       components:
       - display_title: Medical Reason For Not Counseling
         show_codes: true
+        annotation: 'Reason for Not Counseling: Medical Reason'
         records:
         - model: ClinicalActivity
           value_set: VSAC; Tobacco Use Cessation Counseling
@@ -101,6 +100,7 @@ exception:
       components:
       - display_title: Medical Reason For Not Ordering Pharmacotherapy
         show_codes: true
+        annotation: 'Reason for Not Ordering Pharmacotherapy: Medical Reason'
         records:
         - model: Medication
           value_set: VSAC; Tobacco Use Cessation Pharmacotherapy
@@ -108,6 +108,7 @@ exception:
       components:
       - display_title: Medical Reason For Not Screening
         show_codes: true
+        annotation: 'Reason for Not Screening: Medical Reason'
         records:
         - model: Diagnosis
           value_set: VSAC; Tobacco Use Screening
@@ -130,12 +131,11 @@ performance_met:
     description: Patient identified as a tobacco user and received tobacco cessation
       intervention
     component_groups:
-    - validation_record_table_count: 1
-      components:
       - validation_record_table_count: 1
         components:
         - display_title: Tobacco User
           show_codes: true
+          annotation: 'Tobacco Use Screening Result: User'
           records:
           - model: ClinicalActivity
             value_set: VSAC; Tobacco Use Screening
@@ -156,6 +156,7 @@ performance_met:
       components:
       - display_title: Tobacco Non-User
         show_codes: true
+        annotation: 'Tobacco Use Screening Result: Non-user'
         records:
         - model: ClinicalActivity
           value_set: VSAC; Tobacco Use Screening

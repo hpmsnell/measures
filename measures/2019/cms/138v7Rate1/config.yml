@@ -1,6 +1,6 @@
 ---
 measure:
-  name: 18.MIPS.Mips226Rate1
+  name: 19.CMS.138Rate1
   required:
     display_title: 'Preventive Care and Screening: Tobacco Use: Screening and Cessation
       Intervention: Screened for Tobacco Use'
@@ -99,6 +99,7 @@ exception:
       components:
       - display_title: Limited Life Expectancy
         show_codes: true
+        annotation: 'Reason for Not Screening: Medical Reason'
         records:
         - model: Diagnosis
           value_set: VSAC; Limited Life Expectancy
@@ -115,6 +116,7 @@ performance_met:
       components:
       - display_title: Tobacco User
         show_codes: true
+        annotation: 'Tobacco Use Screening Result: User'
         records:
         - model: ClinicalActivity
           value_set: VSAC; Tobacco Use Screening
@@ -127,6 +129,7 @@ performance_met:
       components:
       - display_title: Tobacco Non-User
         show_codes: true
+        annotation: 'Tobacco Use Screening Result: Non-User'
         records:
         - model: ClinicalActivity
           value_set: VSAC; Tobacco Use Screening
