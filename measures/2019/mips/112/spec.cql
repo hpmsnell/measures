@@ -42,6 +42,7 @@ define "Mammography":
   union ["Diagnostic Study, Performed": "Able; Mammogram"]
   union ["Laboratory Test, Performed": "VSAC; Mammography"]
   union ["Laboratory Test, Performed": "Able; Mammogram"]
+  union ["Procedure, Performed": "Able; Mammogram"]
 
 define "Denominator":
   AgeInYearsAt(start of "Measurement Period") >= 51
