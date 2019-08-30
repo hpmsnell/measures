@@ -1,3 +1,4 @@
+---
 measure_id: measure.Pi.2019.Mipspipea1
 test_set_keys:
   organization_key:
@@ -11,12 +12,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: DenominatorEncounter Upper # Upper Bound
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: DenominatorEncounter After # Late
       denominator:
       denominator_exclusion:
@@ -26,12 +27,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: Provisioning Before # Early
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: Provisioning Lower # Lower bound
       denominator: 1
       denominator_exclusion:
@@ -46,7 +47,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: Provisioning 4Days # Provisioning duration is 4 business days
       denominator: 1
       denominator_exclusion:
@@ -154,12 +155,12 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: DenominatorEncounter Upper # Upper Bound
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: DenominatorEncounter After # Late
         denominator:
         denominator_exclusion:
@@ -174,7 +175,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: Provisioning Lower # Lower bound
         denominator: 1
         denominator_exclusion:
@@ -189,7 +190,7 @@ test_set_keys:
         denominator: 1
         denominator_exclusion:
         denominator_exception:
-        numerator: performance_not_met
+        numerator: performance_met
       - name: Provisioning 4Days # Provisioning duration is 4 business days
         denominator: 1
         denominator_exclusion:
@@ -270,7 +271,7 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: performance_met
-      - name: SecondProvisioning After # Additional provisioning too late
+      - name: SecondProvisioning 5Days # Additional provisioning too late
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -285,11 +286,6 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
-      - name: No Provisioning # Encounter has no associated provisioning event
-        denominator: 1
-        denominator_exclusion:
-        denominator_exception:
-        numerator: performance_met
 providers:
   - given_name: Rachel
     family_name:  Katz
@@ -375,14 +371,15 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
-        start_date: 2016-12-31 # Early
-        stop_date: 2016-12-31
+      - event_type: HEALTH_INFORMATION_PROVISIONING
+        start_date: 2015-12-31 # Early
+        stop_date: 2015-12-31
+        start_datetime: 2015-12-31 12:00:00 # Early
         encounter_external_id: 1
-      - type: API_ACCESS
-        start_date: 2010-01-01
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-01-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
   - name: Provisioning Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -396,14 +393,15 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
+        start_datetime: 2016-01-01 12:00:00 # Lower bound
         encounter_external_id: 1
-      - type: API_ACCESS
-        start_date: 2010-01-01
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-01-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
   - name: Provisioning Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -417,14 +415,15 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
+        start_datetime: 2016-12-31 12:00:00 # Upper bound
         encounter_external_id: 1
-      - type: API_ACCESS
-        start_date: 2010-01-01
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-01-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
   - name: Provisioning After
     attributes:
       date_of_birth: 2000-01-01
@@ -438,14 +437,15 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2017-01-01 # Late
         stop_date: 2017-01-01
+        start_datetime: 2017-01-01 12:00:00 # Late
         encounter_external_id: 1
-      - type: API_ACCESS
-        start_date: 2010-01-01
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-01-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
   - name: Provisioning 4Days
     attributes:
       date_of_birth: 2000-01-01
@@ -459,14 +459,15 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-05 # Friday
         stop_date: 2016-02-11 # 4 business days
+        start_datetime: 2016-02-05 12:00:00 # Friday
         encounter_external_id: 1
-      - type: API_ACCESS
-        start_date: 2010-01-01
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-01-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
   - name: Provisioning 5Days
     attributes:
       date_of_birth: 2000-01-01
@@ -480,19 +481,20 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-05 # Friday
         stop_date: 2016-02-12 # 5 business days
+        start_datetime: 2016-02-05 12:00:00 # Friday
         encounter_external_id: 1
-      - type: API_ACCESS
-        start_date: 2010-01-01
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01 2016-02-11 # 4 business days
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-01-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-02-11 # 4 business days
         encounter_external_id: 1
-      - type: API_ACCESS
-        start_date: 2010-01-01
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-01-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
   - name: Provisioning Holiday
     attributes:
       date_of_birth: 2000-01-01
@@ -506,14 +508,15 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01 # Monday
         stop_date: 2016-02-08 # 4 business days if Tues 2/2 is a holiday
+        start_datetime: 2016-02-01 12:00:00 # Monday
         encounter_external_id: 1
-      - type: API_ACCESS
-        start_date: 2010-01-01
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-01-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
   - name: Provisioning WrongEncounter
     attributes:
       date_of_birth: 2000-01-01
@@ -527,21 +530,23 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       - external_id: 2
-        start_date: 2016-03-01
-        stop_date: 2016-03-01
+        start_date: 2017-03-01
+        stop_date: 2017-03-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-03-01
         stop_date: 2016-03-01
+        start_datetime: 2016-03-01 12:00:00
         encounter_external_id: 2 # Wrong Encounter
-      - type: API_ACCESS
-        start_date: 2010-01-01
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-01-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-03-01
         stop_date: 2016-03-10 # Too late
+        start_datetime: 2016-03-01 12:00:00
         encounter_external_id: 1
   - name: Provisioning None
     attributes:
@@ -569,14 +574,15 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
+        start_datetime: 2016-02-01 12:00:00
         encounter_external_id: 1
-      - type: API_ACCESS
-        start_date: 2010-01-01
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-01-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
         stop_date: 2016-02-01 # Too early
   - name: PortalAccess Lower
     attributes:
@@ -591,14 +597,15 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
+        start_datetime: 2016-02-01 12:00:00
         encounter_external_id: 1
-      - type: API_ACCESS
-        start_date: 2010-01-01
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-01-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
         stop_date: 2016-02-02 # Lower bound
   - name: PortalAccess Upper
     attributes:
@@ -613,14 +620,15 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
+        start_datetime: 2016-02-01 12:00:00
         encounter_external_id: 1
-      - type: API_ACCESS
-        start_date: 2010-01-01
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-08 # Upper bound
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-02-08
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-02-08 # Upper bound
   - name: PortalAccess After
     attributes:
       date_of_birth: 2000-01-01
@@ -634,14 +642,15 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
+        start_datetime: 2016-02-01 12:00:00
         encounter_external_id: 1
-      - type: API_ACCESS
-        start_date: 2010-01-01
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-09 # Too late
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-02-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-02-09 # Too late
   - name: APIAccess Before
     attributes:
       date_of_birth: 2000-01-01
@@ -655,14 +664,15 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
+        start_datetime: 2016-02-01 12:00:00
         encounter_external_id: 1
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
-      - type: API_ACCESS
-        start_date: 2010-01-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-01-01
         stop_date: 2016-02-01 # Too early
   - name: APIAccess Lower
     attributes:
@@ -677,14 +687,15 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
+        start_datetime: 2016-02-01 12:00:00
         encounter_external_id: 1
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
-      - type: API_ACCESS
-        start_date: 2010-01-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-01-01
         stop_date: 2016-02-02 # Lower bound
   - name: APIAccess Upper
     attributes:
@@ -699,14 +710,15 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
+        start_datetime: 2016-02-01 12:00:00
         encounter_external_id: 1
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
-      - type: API_ACCESS
-        start_date: 2010-01-08 # Upper bound
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-01-08 # Upper bound
   - name: APIAccess After
     attributes:
       date_of_birth: 2000-01-01
@@ -720,14 +732,15 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02 # Patient access date
+        start_datetime: 2016-02-01 12:00:00
         encounter_external_id: 1
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
-      - type: API_ACCESS
-        start_date: 2010-01-0- # Too late
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-02-01
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-02-09 # Too late
   - name: APIOptOut Before
     attributes:
       date_of_birth: 2000-01-01
@@ -741,15 +754,16 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02
+        start_datetime: 2016-02-01 12:00:00
         encounter_external_id: 1
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
-      - type: API_OPT_OUT
-        start_date: 2010-01-01 # Before measurement period
-        stop_date: 2010-01-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
+      - event_type: API_ACCESS_OPT_OUT
+        start_date: 2016-01-01 # Before measurement period
+        stop_date: 2016-01-01
   - name: APIOptOut After
     attributes:
       date_of_birth: 2000-01-01
@@ -763,13 +777,14 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-02
+        start_datetime: 2016-02-01 12:00:00
         encounter_external_id: 1
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
-      - type: API_OPT_OUT
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
+      - event_type: API_ACCESS_OPT_OUT
         start_date: 2017-01-01 # After measurement period
         stop_date: 2017-01-01
   - name: SecondProvisioning Success
@@ -785,17 +800,19 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - type: HEALTH_INFORMATION_PROVISIONING
+        start_datetime: 2016-02-01 12:00:00
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
         encounter_external_id: 1
-      - type: API_ACCESS
-        start_date: 2010-01-01
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-01-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
   - name: SecondProvisioning 5Days
     attributes:
       date_of_birth: 2000-01-01
@@ -809,17 +826,19 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - type: HEALTH_INFORMATION_PROVISIONING
+        start_datetime: 2016-02-01 12:00:00
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
-        stop_date: 2016-02-08 # 5 business days
+        stop_date: 2016-02-09 # 5 business days
+        start_datetime: 2016-02-01 12:00:00
         encounter_external_id: 1
-      - type: API_ACCESS
-        start_date: 2010-01-01
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-01-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
   - name: SecondProvisioning NoPortal
     attributes:
       date_of_birth: 2000-01-01
@@ -833,17 +852,19 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - type: HEALTH_INFORMATION_PROVISIONING
+        start_datetime: 2016-02-01 12:00:00
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-02
         stop_date: 2016-02-02 # After portal stop date
+        start_datetime: 2016-02-02 12:00:00
         encounter_external_id: 1
-      - type: API_ACCESS
-        start_date: 2010-01-01
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-01-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
         stop_date: 2016-02-01
   - name: SecondProvisioning NoAPI
     attributes:
@@ -858,15 +879,17 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - type: HEALTH_INFORMATION_PROVISIONING
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-01
         stop_date: 2016-02-01
-      - type: HEALTH_INFORMATION_PROVISIONING
+        start_datetime: 2016-02-01 12:00:00
+      - event_type: HEALTH_INFORMATION_PROVISIONING
         start_date: 2016-02-02
         stop_date: 2016-02-02 # After API stop date
+        start_datetime: 2016-02-02 12:00:00
         encounter_external_id: 1
-      - type: API_ACCESS
-        start_date: 2010-01-01
+      - event_type: API_ACCESS_OPT_IN
+        start_date: 2016-01-01
         stop_date: 2016-02-01
-      - type: PORTAL_ACCESS
-        start_date: 2010-01-01
+      - event_type: PORTAL_ACCESS
+        start_date: 2016-01-01
