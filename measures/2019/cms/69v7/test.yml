@@ -1,0 +1,926 @@
+measure_id: measure.Cms.2019.Cms69v7
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age LowerBound # Patient is at lower age bound and otherwise meets the denominator
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: "No Encounter" # Patient has no denominator eligible encounters but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Early # Patient has an encounter that is early but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Late  # Patient has an encounter that is late but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter InvalidModifier
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter InvalidPOS
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exclusion Start # Patient has an exclusion
+      denominator: 1
+      denominator_exclusion: exclusion_noneligible
+      denominator_exception:
+      numerator:
+    - name: Exclusion End # Patient has an exclusion
+      denominator: 1
+      denominator_exclusion: exclusion_noneligible
+      denominator_exception:
+      numerator:
+    - name: Exclusion Late  # Patient has an exclusion but it is too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Exclusion Early  # Patient has an exclusion but it is too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Exclusion Pregnant  # Patient has an exclusion but it is too late
+      denominator: 1
+      denominator_exclusion: exclusion_noneligible
+      denominator_exception:
+      numerator:
+    - name: Exclusion PregnantLate  # Patient has an exclusion but it is too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: BMI NormalStart # Patient has a normal BMI at the start of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: BMI NormalEnd # Patient has a normal BMI at the end of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: BMI NormalEarly # Patient screened too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: BMI NormalLate # Patient screened too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: BMI RecentHigh # Patient has multiple BMIs with most recent high
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: BMI HighFollowUpStart # Patient has a high BMI and follow-up at the start of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: BMI HighFollowUpEnd # Patient has a high BMI and follow-up at the end of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: BMI HighFollowUpEarly # Patient has a high BMI and follow-up before the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: BMI HighFollowUpLate # Patient has a high BMI and follow-up after the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: BMI LowFollowUpStart # Patient has a low BMI and follow-up at the start of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: BMI LowFollowUpEnd # Patient has a low BMI and follow-up at the end of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: BMI LowFollowUpEarly # Patient has a low BMI and follow-up before the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: BMI LowFollowUpLate # Patient has a low BMI and follow-up after the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Exception Start # Patient has a denominator exception at the start of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: G9716
+      numerator:
+    - name: Exception End # Patient has a denominator exception at the end of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: exclusion_noneligible
+      numerator:
+    - name: Exception Early # Patient has a denominator exception but it is too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Exception Late # Patient has a denominator exception but it is too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+  providers_key:
+  - name: Rachel
+    patients:
+    - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age LowerBound # Patient is at lower age bound and otherwise meets the denominator
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: "No Encounter" # Patient has "No" denominator eligible encounters but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Early # Patient has an encounter that is early but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Late  # Patient has an encounter that is late but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exclusion Start # Patient has an exclusion
+      denominator: 1
+      denominator_exclusion: exclusion_noneligible
+      denominator_exception:
+      numerator:
+    - name: Exclusion End # Patient has an exclusion
+      denominator: 1
+      denominator_exclusion: exclusion_noneligible
+      denominator_exception:
+      numerator:
+    - name: Exclusion Late  # Patient has an exclusion but it is too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Exclusion Early  # Patient has an exclusion but it is too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Exclusion Pregnant  # Patient has an exclusion but it is too late
+      denominator: 1
+      denominator_exclusion: exclusion_noneligible
+      denominator_exception:
+      numerator:
+    - name: Exclusion PregnantLate  # Patient has an exclusion but it is too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: BMI NormalStart # Patient has a normal BMI at the start of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: BMI NormalEnd # Patient has a normal BMI at the end of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: BMI NormalEarly # Patient screened too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: BMI NormalLate # Patient screened too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: BMI RecentHigh # Patient has multiple BMIs with most recent high
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: BMI HighFollowUpStart # Patient has a high BMI and follow-up at the start of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: BMI HighFollowUpEnd # Patient has a high BMI and follow-up at the end of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: BMI HighFollowUpEarly # Patient has a high BMI and follow-up before the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: BMI HighFollowUpLate # Patient has a high BMI and follow-up after the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: BMI LowFollowUpStart # Patient has a low BMI and follow-up at the start of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: BMI LowFollowUpEnd # Patient has a low BMI and follow-up at the end of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: BMI LowFollowUpEarly # Patient has a low BMI and follow-up before the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: BMI LowFollowUpLate # Patient has a low BMI and follow-up after the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Exception Start # Patient has a denominator exception at the start of the allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exception End # Patient has a denominator exception at the end of the allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exception Early # Patient has a denominator exception but it is too early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exception Late # Patient has a denominator exception but it is too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+  - name: Patty
+    patients:
+    - name: Too Young # Patient is too young for the denominator but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age LowerBound # Patient is at lower age bound and otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: "No Encounter" # Patient has "No" denominator eligible encounters but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Early # Patient has an encounter that is early but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Late  # Patient has an encounter that is late but otherwise meets the denominator
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exclusion Start # Patient has an exclusion
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exclusion End # Patient has an exclusion
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exclusion Late  # Patient has an exclusion but it is too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exclusion Early  # Patient has an exclusion but it is too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exclusion Pregnant  # Patient has an exclusion but it is too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exclusion PregnantLate  # Patient has an exclusion but it is too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: BMI NormalStart # Patient has a normal BMI at the start of the allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: BMI NormalEnd # Patient has a normal BMI at the end of the allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: BMI NormalEarly # Patient screened too early
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: BMI NormalLate # Patient screened too late
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: BMI HighFollowUpStart # Patient has a high BMI and follow-up at the start of the allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: BMI HighFollowUpEnd # Patient has a high BMI and follow-up at the end of the allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: BMI HighFollowUpEarly # Patient has a high BMI and follow-up before the allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: BMI HighFollowUpLate # Patient has a high BMI and follow-up after the allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: BMI LowFollowUpStart # Patient has a low BMI and follow-up at the start of the allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: BMI LowFollowUpEnd # Patient has a low BMI and follow-up at the end of the allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: BMI LowFollowUpEarly # Patient has a low BMI and follow-up before the allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: BMI LowFollowUpLate # Patient has a low BMI and follow-up after the allowable period
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exception Start # Patient has a denominator exception at the start of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: exclusion_noneligible
+      numerator:
+    - name: Exception End # Patient has a denominator exception at the end of the allowable period
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: exclusion_noneligible
+      numerator:
+    - name: Exception Early # Patient has a denominator exception but it is too early
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Exception Late # Patient has a denominator exception but it is too late
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+providers:
+- given_name: Rachel
+  family_name: Kohler
+  external_id: '111-111'
+  credential: DO
+  primary_specialty: Family Medicine
+- given_name: Patty
+  family_name: PrimaryCare
+  external_id: '222-222'
+  credential: MD
+  primary_specialty: Family Medicine
+patients:
+- name: Patient is too young for the denominator but otherwise meets the denominator
+  attributes:
+    date_of_birth: 1998-02-02 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+- name: Patient is at lower age bound and otherwise meets the denominator
+  attributes:
+    date_of_birth: 1998-02-01
+    given_name: Age
+    family_name: LowerBound
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+- name: Patient has no denominator eligible encounters but otherwise meets the denominator
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: "No"
+    family_name: Encounter
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 11111 # Fake encounter code
+      start_date: 2016-01-01
+      provider: Rachel
+- name: DenominatorEncounter InvalidModifier
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: DenominatorEncounter
+    family_name: InvalidModifier
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-12-31
+      provider: Rachel
+      code_modifiers: ['GQ']
+- name: DenominatorEncounter InvalidPOS
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: DenominatorEncounter
+    family_name: InvalidPOS
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-12-31
+      provider: Rachel
+      place_of_service: '02'
+- name: Patient has an encounter that is early but otherwise meets the denominator
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: Early
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2015-12-31 # Too early
+      provider: Rachel
+- name: Patient has an encounter that is late but otherwise meets the denominator
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: Late
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2017-01-01 # Too late
+      provider: Rachel
+- name: Patient has an exclusion at the start of the allowable period
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: Start
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8422 # G-code for not eligible
+      start_date: 2016-01-01
+- name: Patient has an exclusion at the end of the allowable period
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: End
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8422 # G-code for not eligible
+      start_date: 2016-12-31
+- name: Patient has an exclusion but it is too late
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: Late
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8422 # G-code for not eligible
+      start_date: 2017-01-01
+- name: Patient has an exclusion but it is too early
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: Early
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: CPT
+      code_value: G8422 # G-code for not eligible
+      start_date: 2015-03-01
+      stop_date: 2015-12-31
+- name: Patient has an exclusion for pregnancy
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: Pregnant
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    diagnoses:
+    - code_type: SNOMEDCT
+      code_value: 102872000 # Pregnant
+      start_date: 2010-01-01
+- name: Patient has an exclusion for pregnancy but it is too late
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exclusion
+    family_name: PregnantLate
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    diagnoses:
+    - code_type: SNOMEDCT
+      code_value: 102872000 # Pregnant
+      start_date: 2017-01-01
+- name: Patient has a normal BMI at the start of the allowable period
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: BMI
+    family_name: NormalStart
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2015-02-01
+      result_as_decimal: 20.0
+- name: Patient has a normal BMI at the end of the allowable period
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: BMI
+    family_name: NormalEnd
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2016-01-01
+      result_as_decimal: 20.0
+- name: Patient has a normal BMI before the allowable period
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: BMI
+    family_name: NormalEarly
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2015-01-31
+      result_as_decimal: 20.0
+- name: Patient has a normal BMI after the allowable period
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: BMI
+    family_name: NormalLate
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2016-01-02
+      result_as_decimal: 20.0
+- name: Patient has multiple BMIs with most recent high
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: BMI
+    family_name: RecentHigh
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2016-01-01
+      result_as_decimal: 20.0
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2016-01-02
+      result_as_decimal: 30.0
+- name: Patient has a high BMI and follow-up at the start of the allowable period
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: BMI
+    family_name: HighFollowUpStart
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2016-02-01
+      result_as_decimal: 25.0
+    - code_type: SNOMEDCT
+      code_value: 386464006 # Diet education
+      start_date: 2015-02-01
+- name: Patient has a high BMI and follow-up at the end of the allowable period
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: BMI
+    family_name: HighFollowUpEnd
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+      result_as_decimal: 25.0
+    - code_type: SNOMEDCT
+      code_value: 304549008 # Encouragement to exercise
+      start_date: 2016-01-01
+- name: Patient has a high BMI and follow-up before the allowable period
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: BMI
+    family_name: HighFollowUpEarly
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2016-02-01
+      result_as_decimal: 25.0
+    - code_type: SNOMEDCT
+      code_value: 304549008 # Encouragement to exercise
+      start_date: 2015-01-31
+- name: Patient has a high BMI and follow-up after the allowable period
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: BMI
+    family_name: HighFollowUpLate
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2016-01-01
+      result_as_decimal: 25.0
+    - code_type: SNOMEDCT
+      code_value: 304549008 # Encouragement to exercise
+      start_date: 2016-01-02
+- name: Patient has a low BMI and follow-up at the start of the allowable period
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: BMI
+    family_name: LowFollowUpStart
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2016-02-01
+      result_as_decimal: 18.4
+    - code_type: SNOMEDCT
+      code_value: 386464006 # Diet education
+      start_date: 2015-02-01
+- name: Patient has a low BMI and follow-up at the end of the allowable period
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: BMI
+    family_name: LowFollowUpEnd
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2016-01-01
+      result_as_decimal: 18.4
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2015-12-01
+      result_as_decimal: 30
+    - code_type: SNOMEDCT
+      code_value: 386464006 # Diet education
+      start_date: 2016-01-01
+- name: Patient has a low BMI and follow-up before the allowable period
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: BMI
+    family_name: LowFollowUpEarly
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2016-02-01
+      result_as_decimal: 18.4
+    - code_type: SNOMEDCT
+      code_value: 386464006 # Diet education
+      start_date: 2015-01-31
+- name: Patient has a low BMI and follow-up after the allowable period
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: BMI
+    family_name: LowFollowUpLate
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+    - code_type: LOINC
+      code_value: 39156-5 # BMI
+      start_date: 2016-01-01
+      result_as_decimal: 18.4
+    - code_type: SNOMEDCT
+      code_value: 386464006 # Diet education
+      start_date: 2016-01-02
+- name: Patient has a denominator exception at the start of the allowable period
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exception
+    family_name: Start
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Patty
+    - code_type: CPT
+      code_value: G9716 # G-code for exception
+      start_date: 2016-01-01
+- name: Patient has a denominator exception at the end of the allowable period
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exception
+    family_name: End
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Patty
+    - code_type: CPT
+      code_value: G9716 # G-code for exception
+      start_date: 2016-12-31
+- name: Patient has a denominator exception but it is too late
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exception
+    family_name: Late
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Patty
+    - code_type: CPT
+      code_value: G9716 # G-code for exception
+      start_date: 2017-01-01
+- name: Patient has a denominator exception but it is too early
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Exception
+    family_name: Early
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Patty
+    - code_type: CPT
+      code_value: G9716 # G-code for exception
+      start_date: 2015-12-31
