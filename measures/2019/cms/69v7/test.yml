@@ -17,6 +17,16 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
+    - name: Encounter UpperBound # Patient has an encounter that is on the upper bound as what is acceptable
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter LowerBound # Patient has an encounter that is on the lower bound of what is acceptable
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
     - name: Encounter Early # Patient has an encounter that is early but otherwise meets the denominator
       denominator:
       denominator_exclusion:
@@ -27,24 +37,14 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: DenominatorEncounter InvalidModifier
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: DenominatorEncounter InvalidPOS
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
     - name: Exclusion Start # Patient has an exclusion
       denominator: 1
-      denominator_exclusion: exclusion_noneligible
+      denominator_exclusion: exclusion_noteligible
       denominator_exception:
       numerator:
     - name: Exclusion End # Patient has an exclusion
       denominator: 1
-      denominator_exclusion: exclusion_noneligible
+      denominator_exclusion: exclusion_noteligible
       denominator_exception:
       numerator:
     - name: Exclusion Late  # Patient has an exclusion but it is too late
@@ -59,7 +59,7 @@ test_set_keys:
       numerator: performance_not_met
     - name: Exclusion Pregnant  # Patient has an exclusion but it is too late
       denominator: 1
-      denominator_exclusion: exclusion_noneligible
+      denominator_exclusion: exclusion_noteligible
       denominator_exception:
       numerator:
     - name: Exclusion PregnantLate  # Patient has an exclusion but it is too late
@@ -170,6 +170,16 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
+    - name: Encounter UpperBound # Patient has an encounter that is on the upper bound as what is acceptable
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter LowerBound # Patient has an encounter that is on the lower bound of what is acceptable
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
     - name: Encounter Early # Patient has an encounter that is early but otherwise meets the denominator
       denominator:
       denominator_exclusion:
@@ -182,12 +192,12 @@ test_set_keys:
       numerator:
     - name: Exclusion Start # Patient has an exclusion
       denominator: 1
-      denominator_exclusion: exclusion_noneligible
+      denominator_exclusion: exclusion_noteligible
       denominator_exception:
       numerator:
     - name: Exclusion End # Patient has an exclusion
       denominator: 1
-      denominator_exclusion: exclusion_noneligible
+      denominator_exclusion: exclusion_noteligible
       denominator_exception:
       numerator:
     - name: Exclusion Late  # Patient has an exclusion but it is too late
@@ -202,7 +212,7 @@ test_set_keys:
       numerator: performance_not_met
     - name: Exclusion Pregnant  # Patient has an exclusion but it is too late
       denominator: 1
-      denominator_exclusion: exclusion_noneligible
+      denominator_exclusion: exclusion_noteligible
       denominator_exception:
       numerator:
     - name: Exclusion PregnantLate  # Patient has an exclusion but it is too late
@@ -276,14 +286,14 @@ test_set_keys:
       denominator_exception:
       numerator: performance_not_met
     - name: Exception Start # Patient has a denominator exception at the start of the allowable period
-      denominator:
+      denominator: 1
       denominator_exclusion:
-      denominator_exception:
+      denominator_exception: exception_1
       numerator:
     - name: Exception End # Patient has a denominator exception at the end of the allowable period
-      denominator:
+      denominator: 1
       denominator_exclusion:
-      denominator_exception:
+      denominator_exception: exception_1
       numerator:
     - name: Exception Early # Patient has a denominator exception but it is too early
       denominator:
@@ -415,12 +425,12 @@ test_set_keys:
     - name: Exception Start # Patient has a denominator exception at the start of the allowable period
       denominator: 1
       denominator_exclusion:
-      denominator_exception: exclusion_noneligible
+      denominator_exception: exclusion_noteligible
       numerator:
     - name: Exception End # Patient has a denominator exception at the end of the allowable period
       denominator: 1
       denominator_exclusion:
-      denominator_exception: exclusion_noneligible
+      denominator_exception: exclusion_noteligible
       numerator:
     - name: Exception Early # Patient has a denominator exception but it is too early
       denominator: 1
@@ -480,11 +490,23 @@ patients:
       code_value: 11111 # Fake encounter code
       start_date: 2016-01-01
       provider: Rachel
-- name: DenominatorEncounter InvalidModifier
+- name: Patient has an encounter that is on the upper bound as what is acceptable
   attributes:
     date_of_birth: 1950-01-01
-    given_name: DenominatorEncounter
-    family_name: InvalidModifier
+    given_name: Encounter
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      provider: Rachel
+- name: Patient has an encounter that is on the lower bound as what is acceptable
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: Encounter
+    family_name: Early
     sex: Female
   clinical_models:
     clinical_activities:
@@ -492,20 +514,6 @@ patients:
       code_value: 99201
       start_date: 2016-12-31
       provider: Rachel
-      code_modifiers: ['GQ']
-- name: DenominatorEncounter InvalidPOS
-  attributes:
-    date_of_birth: 1950-01-01
-    given_name: DenominatorEncounter
-    family_name: InvalidPOS
-    sex: Female
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 99201
-      start_date: 2016-12-31
-      provider: Rachel
-      place_of_service: '02'
 - name: Patient has an encounter that is early but otherwise meets the denominator
   attributes:
     date_of_birth: 1950-01-01
@@ -542,9 +550,10 @@ patients:
       code_value: 99201
       start_date: 2016-01-01
       provider: Rachel
-    - code_type: CPT
-      code_value: G8422 # G-code for not eligible
-      start_date: 2016-01-01
+    - code_type: SNOMEDCT
+      code_value: 133918004
+      start_date: 2015-01-01
+      stop_date: 2015-01-01
 - name: Patient has an exclusion at the end of the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -557,9 +566,10 @@ patients:
       code_value: 99201
       start_date: 2016-01-01
       provider: Rachel
-    - code_type: CPT
-      code_value: G8422 # G-code for not eligible
-      start_date: 2016-12-31
+    - code_type: SNOMEDCT
+      code_value: 133918004
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
 - name: Patient has an exclusion but it is too late
   attributes:
     date_of_birth: 1950-01-01
@@ -572,9 +582,10 @@ patients:
       code_value: 99201
       start_date: 2016-01-01
       provider: Rachel
-    - code_type: CPT
-      code_value: G8422 # G-code for not eligible
-      start_date: 2017-01-01
+    - code_type: SNOMEDCT
+      code_value: 133918004
+      start_date: 2016-01-02
+      stop_date: 2016-01-02
 - name: Patient has an exclusion but it is too early
   attributes:
     date_of_birth: 1950-01-01
@@ -587,10 +598,10 @@ patients:
       code_value: 99201
       start_date: 2016-01-01
       provider: Rachel
-    - code_type: CPT
-      code_value: G8422 # G-code for not eligible
-      start_date: 2015-03-01
-      stop_date: 2015-12-31
+    - code_type: SNOMEDCT
+      code_value: 133918004
+      start_date: 2014-12-31
+      stop_date: 2014-12-31
 - name: Patient has an exclusion for pregnancy
   attributes:
     date_of_birth: 1950-01-01
@@ -819,10 +830,6 @@ patients:
       code_value: 39156-5 # BMI
       start_date: 2016-01-01
       result_as_decimal: 18.4
-    - code_type: LOINC
-      code_value: 39156-5 # BMI
-      start_date: 2015-12-01
-      result_as_decimal: 30
     - code_type: SNOMEDCT
       code_value: 386464006 # Diet education
       start_date: 2016-01-01
@@ -876,9 +883,10 @@ patients:
       code_value: 99201
       start_date: 2016-01-01
       provider: Patty
-    - code_type: CPT
-      code_value: G9716 # G-code for exception
-      start_date: 2016-01-01
+    - code_type: LOINC
+      code_value: 39156-5
+      child_code_value: 183932001
+      start_date: 2015-01-01
 - name: Patient has a denominator exception at the end of the allowable period
   attributes:
     date_of_birth: 1950-01-01
@@ -891,8 +899,9 @@ patients:
       code_value: 99201
       start_date: 2016-01-01
       provider: Patty
-    - code_type: CPT
-      code_value: G9716 # G-code for exception
+    - code_type: LOINC
+      code_value: 39156-5
+      child_code_value: 183932001
       start_date: 2016-12-31
 - name: Patient has a denominator exception but it is too late
   attributes:
@@ -906,8 +915,9 @@ patients:
       code_value: 99201
       start_date: 2016-01-01
       provider: Patty
-    - code_type: CPT
-      code_value: G9716 # G-code for exception
+    - code_type: LOINC
+      code_value: 39156-5
+      child_code_value: 183932001
       start_date: 2017-01-01
 - name: Patient has a denominator exception but it is too early
   attributes:
@@ -921,6 +931,7 @@ patients:
       code_value: 99201
       start_date: 2016-01-01
       provider: Patty
-    - code_type: CPT
-      code_value: G9716 # G-code for exception
+    - code_type: LOINC
+      code_value: 39156-5
+      child_code_value: 183932001
       start_date: 2015-12-31
