@@ -20,6 +20,10 @@ define "Denominator Encounter":
   ["Encounter"] E
     where E.start_datetime during "Measurement Period"
       and R.provider_id = "Reporting Provider ID"
+    with ["System Event"] S
+      such that S.start_datetime during [2 years before E.start_datetime, E.start_datetime]
+        and S.type = "INBOUND_SUMMARY_OF_CARE"
+        and S.encounter_id = E.external_id
 
 define "Denominator Transfer of Care":
   "Denominator Encounter" E
@@ -29,12 +33,7 @@ define "Denominator Transfer of Care":
   union "Denominator Encounter" E
     with ["System Event"] S
       such that S.start_datetime during "Measurement Period"
-        and S.event_type = "INBOUND_TRANSITION_OF_CARE"
-        and S.encounter_id = E.external_id
-  union "Denominator Encounter" E
-    with ["System Event"] S
-      such that S.start_datetime during "Measurement Period"
-        and S.event_type = "INBOUND_SUMMARY_OF_CARE"
+        and S.type = "INBOUND_TRANSITION_OF_CARE"
         and S.encounter_id = E.external_id
 
 /* Populations */
