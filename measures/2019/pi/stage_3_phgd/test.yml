@@ -47,6 +47,11 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
+    - name: PGHD DifferentProvider # Different provider
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
   providers_key:
     - name: Rachel
       patients:
@@ -91,6 +96,11 @@ test_set_keys:
         denominator_exception:
         numerator: performance_met
       - name: PGHD After # Late
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: PGHD DifferentProvider # Different provider
         denominator: 1
         denominator_exclusion:
         denominator_exception:
@@ -178,6 +188,7 @@ patients:
       system_events:
       - code_type: AUTOMATION
         event_type: PGHD_INCORPORATION
+        provider: Rachel
         start_date: 2015-12-31 # Before
         stop_date: 2015-12-31
   - name: PGHD Lower
@@ -194,6 +205,7 @@ patients:
       system_events:
       - code_type: AUTOMATION
         event_type: PGHD_INCORPORATION
+        provider: Rachel
         start_date: 2016-01-01 # Lower
         stop_date: 2016-01-01
   - name: PGHD Upper
@@ -210,6 +222,7 @@ patients:
       system_events:
       - code_type: AUTOMATION
         event_type: PGHD_INCORPORATION
+        provider: Rachel
         start_date: 2016-12-31 # Upper
         stop_date: 2016-12-31
   - name: PGHD After
@@ -226,5 +239,23 @@ patients:
       system_events:
       - code_type: AUTOMATION
         event_type: PGHD_INCORPORATION
+        provider: Rachel
         start_date: 2017-01-01 # After
         stop_date: 2017-01-01
+  - name: PGHD DifferentProvider
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: PGHD
+      family_name: DifferentProvider
+      sex: Male
+    clinical_models:
+      encounters:
+      - start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      system_events:
+      - code_type: AUTOMATION
+        event_type: PGHD_INCORPORATION
+        provider: Patty # Different provider
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
