@@ -4,7 +4,7 @@ library MIPS_PI_HIE_4_2019 version '1'
  * Source: MIPS
  * ID: PI_HIE_4
  * Year: 2019
- * Version: 2
+ * Version: 3
  * Author: Steve Daniels
  *
   */
