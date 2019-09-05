@@ -7,7 +7,7 @@ measure:
     inverse: false
     subject_type: Patient
     set: CMS
-    external_id: 69v7
+    external_id: '69'
     version:
   optional:
     description: 'Percentage of patients aged 18 years and older with a BMI documented
@@ -52,7 +52,7 @@ exclusion:
     - validation_record_table_count: 5
       components:
       - display_title: Patient Not Eligible For BMI Calculation
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: VSAC; Palliative Care
@@ -94,9 +94,9 @@ performance_met:
     plan is documented during the encounter or during the previous twelve months of
     the current encounter'
   reasons:
-  - config_link_id: performance_met
+  - config_link_id: performance_met_normal
     code_value:
-    display_title: performance_met
+    display_title: performance_met_normal
     description: BMI is documented within normal parameters and no follow-up plan
       is required
     component_groups:
@@ -108,9 +108,9 @@ performance_met:
         records:
         - model: ClinicalActivity
           value_set: VSAC; BMI LOINC Value
-  - config_link_id: performance_met
+  - config_link_id: performance_met_above
     code_value:
-    display_title: performance_met
+    display_title: performance_met_above
     description: BMI is documented above normal parameters and a follow-up plan is
       documented
     component_groups:
@@ -124,13 +124,13 @@ performance_met:
           value_set: VSAC; BMI LOINC Value
       - display_title: Documented Follow-up Plan
         logical_operator: AND
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: VSAC; Above Normal Follow-Up
-  - config_link_id: performance_met
+  - config_link_id: performance_met_below
     code_value:
-    display_title: performance_met
+    display_title: performance_met_below
     description: BMI is documented below normal parameters and a follow-up plan is
       documented
     component_groups:
@@ -144,7 +144,7 @@ performance_met:
           value_set: VSAC; BMI LOINC Value
       - display_title: Documented Follow-up Plan
         logical_operator: AND
-        show_codes: false
+        show_codes: true
         records:
         - model: ClinicalActivity
           value_set: VSAC; Below Normal Follow up

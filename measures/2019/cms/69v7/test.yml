@@ -71,12 +71,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_met_normal
     - name: BMI NormalEnd # Patient has a normal BMI at the end of the allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_met_normal
     - name: BMI NormalEarly # Patient screened too early
       denominator: 1
       denominator_exclusion:
@@ -96,12 +96,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_met_above
     - name: BMI HighFollowUpEnd # Patient has a high BMI and follow-up at the end of the allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_met_above
     - name: BMI HighFollowUpEarly # Patient has a high BMI and follow-up before the allowable period
       denominator: 1
       denominator_exclusion:
@@ -116,12 +116,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_met_below
     - name: BMI LowFollowUpEnd # Patient has a low BMI and follow-up at the end of the allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_met_below
     - name: BMI LowFollowUpEarly # Patient has a low BMI and follow-up before the allowable period
       denominator: 1
       denominator_exclusion:
@@ -135,12 +135,12 @@ test_set_keys:
     - name: Exception Start # Patient has a denominator exception at the start of the allowable period
       denominator: 1
       denominator_exclusion:
-      denominator_exception: G9716
+      denominator_exception: exception_1
       numerator:
     - name: Exception End # Patient has a denominator exception at the end of the allowable period
       denominator: 1
       denominator_exclusion:
-      denominator_exception: exclusion_noneligible
+      denominator_exception: exception_1
       numerator:
     - name: Exception Early # Patient has a denominator exception but it is too early
       denominator: 1
@@ -214,12 +214,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_met_normal
     - name: BMI NormalEnd # Patient has a normal BMI at the end of the allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_met_normal
     - name: BMI NormalEarly # Patient screened too early
       denominator: 1
       denominator_exclusion:
@@ -239,12 +239,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_met_above
     - name: BMI HighFollowUpEnd # Patient has a high BMI and follow-up at the end of the allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_met_above
     - name: BMI HighFollowUpEarly # Patient has a high BMI and follow-up before the allowable period
       denominator: 1
       denominator_exclusion:
@@ -259,12 +259,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_met_below
     - name: BMI LowFollowUpEnd # Patient has a low BMI and follow-up at the end of the allowable period
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_met_below
     - name: BMI LowFollowUpEarly # Patient has a low BMI and follow-up before the allowable period
       denominator: 1
       denominator_exclusion:
