@@ -57,14 +57,14 @@ define "Nonacute Visit":
 define "Nonacute Visit with Diabetes":
   "Nonacute Visit" E
     where E.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"]
-      and not E.code.modifier in {'GT','95'}
-      and not E.placeOfService in {'02'})
     with ["Diagnosis": "HEDIS; Diabetes"] D
       such that D.prevalencePeriod starts during E.relevantPeriod
 
 define "Patient Has Diabetes":
   exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
     where E.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"]
+      and not E.code.modifier in {'GT','95'}
+      and not E.placeOfService in {'02'})
     with ["Diagnosis": "HEDIS; Diabetes"] D
       such that D.prevalencePeriod starts during E.relevantPeriod)
   or exists("Nonacute Visit with Diabetes" E1
