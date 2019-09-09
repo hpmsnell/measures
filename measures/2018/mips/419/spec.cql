@@ -23,12 +23,6 @@ valueset "MIPS; Denominator Exception: G9536"
 valueset "MIPS; Denominator Exception: G9537"
 valueset "MIPS; Performance Not Met: G9538"
 
-// VSAC value sets
-
-valueset "VSAC; Seizure"
-valueset "VSAC; Anticoagulant Medications"
-valueset "VSAC; Aspirin and Other Antiplatelets"
-
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
@@ -41,10 +35,6 @@ define "Denominator Encounter":
       such that D.prevalencePeriod starts during E.relevantPeriod
     with ["Procedure, Performed": "MIPS; Normal Neurological Examination"] P
       such that P.relevantPeriod starts during E.relevantPeriod
-
-define "Excluded Medication":
-  ["Medication": "VSAC; Anticoagulant Medications"]
-  union ["Medication": "VSAC; Aspirin and Other Antiplatelets"]
 
 // Populations
 
@@ -62,12 +52,6 @@ define "Denominator Exception: G9536":
   exists("Denominator Encounter" E
     with ["Procedure, Performed": "MIPS; Denominator Exception: G9536"] P
       such that P.relevantPeriod starts during E.relevantPeriod)
-  or exists("Denominator Encounter" E
-    with ["Diagnosis": "VSAC; Seizure"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod)
-  or exists("Denominator Encounter" E
-    with "Excluded Medication" M
-      such that M.relevantPeriod overlaps E.relevantPeriod)
 
 define "Denominator Exception: G9537":
   // config_link_id: G9537

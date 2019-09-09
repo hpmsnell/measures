@@ -1,10 +1,10 @@
-library MIPS_176_2018 version '1'
+library MIPS_176_2019 version '1'
 
 /*
  *
  * Source: MIPS
  * ID: 176
- * Year: 2018
+ * Year: 2019
  * Version: 1
  * Written by: Steve Daniels
  *
@@ -17,23 +17,35 @@ using QDM
 valueset "MIPS; MIPS 176 Encounter"
 valueset "MIPS; Rheumatoid Arthritis"
 valueset "MIPS; First-Time Anti-Rheumatic Drug Therapy"
-valueset "MIPS; Performance Met: 3455F"
-valueset "MIPS; Denominator Exception: 3455F-1P"
-valueset "MIPS; Performance Not Met: 3455F-8P"
+valueset "MIPS; Performance Met: M1003"
+valueset "MIPS; Denominator Exception: M1004"
+valueset "MIPS; Performance Not Met: M1005"
 
 // Able value sets
 
-valueset "Able; Functional Status Assessment"
 valueset "Able; Anti-Rheumatic Drug Therapy"
+
+// NCQA value sets
+
+valueset "NCQA; DMARD Medications"
+
+// HEDIS value sets
+
+valueset "HEDIS; DMARD"
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
+define "Medication":
+  ["Medication": "Able; Anti-Rheumatic Drug Therapy"]
+  union ["Medication": "NCQA; DMARD Medications"]
+  union ["Procedure, Performed": "HEDIS; DMARD"]
+
 define "First Course of Anti-Rheumatic Drug Therapy":
-  ["Medication": "Able; Anti-Rheumatic Drug Therapy"] M1
+  "Medication" M1
     where M1.relevantPeriod starts during "Measurement Period"
-    without ["Medication": "Able; Anti-Rheumatic Drug Therapy"] M2
+    without "Medication" M2
       such that M2.relevantPeriod starts before start of M1.relevantPeriod
 
 define "Medication Exists"
@@ -54,23 +66,23 @@ define "Denominator":
   exists("Denominator Encounter")
   and "Medication Exists"
 
-define "Numerator Performance Met: 3455F":
+define "Numerator Performance Met: M1003":
   /*
-   * config_link_id: 3455F
+   * config_link_id: M1003
    */
-  exists(["Procedure, Performed": "MIPS; Performance Met: 3455F"] P
+  exists(["Procedure, Performed": "MIPS; Performance Met: M1003"] P
     where P.relevantPeriod starts during "Measurement Period")
 
-define "Denominator Exception: 3455F-1P":
+define "Denominator Exception: M1004":
   /*
-   * config_link_id: 3455F-1P
+   * config_link_id: M1004
    */
-  exists(["Procedure, Performed": "MIPS; Denominator Exception: 3455F-1P"] P
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: M1004"] P
     where P.relevantPeriod starts during "Measurement Period")
 
-define "Numerator Performance Not Met: 3455F-8P":
+define "Numerator Performance Not Met: M1005":
   /*
-   * config_link_id: 3455F-8P
+   * config_link_id: M1005
    */
-  not "Numerator Performance Met: 3455F"
-  and not "Denominator Exception: 3455F-1P"
+  not "Numerator Performance Met: M1003"
+  and not "Denominator Exception: M1004"

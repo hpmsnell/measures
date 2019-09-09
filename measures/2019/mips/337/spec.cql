@@ -1,10 +1,10 @@
-library MIPS_337_2018 version '1'
+library MIPS_337_2019 version '1'
 
 /*
  *
  * Source: MIPS
  * ID: 337
- * Year: 2018
+ * Year: 2019
  * Version: 1
  * Written by: Steve Daniels
  *
@@ -25,12 +25,15 @@ valueset "MIPS; Performance Not Met: G9360"
 
 // Able value sets
 
-valueset "Able; Functional Status Assessment"
+valueset "Able; Biologic Immune Response Modifier"
 
 parameter "Measurement Period" Interval<DateTime>
-parameter "Denominator Period" Interval<DateTime>
 
 context Patient
+
+define "Biologic Immune Response Modifier":
+  ["Procedure, Performed": "MIPS; Biologic Immune Response Modifier"]
+  union ["Medication, Order": "Able; Biologic Immune Response Modifier"]
 
 define "Denominator Diagnosis":
   ["Diagnosis": "MIPS; MIPS 337 Rheumatoid Arthritis"]
@@ -48,8 +51,9 @@ define "Denominator Encounter":
 
 define "Denominator":
   exists("Denominator Encounter")
-  and exists(["Procedure, Performed": "MIPS; Biologic Immune Response Modifier"] P
-    such that P.relevantPeriod starts during "Measurement Period"])
+  and exists("Biologic Immune Response Modifier" M
+    such that M.relevantPeriod starts during "Measurement Period"
+      and M.signingProvider.hasMeasureMembership = true)
 
 define "Numerator Performance Met: G9359":
   /*
