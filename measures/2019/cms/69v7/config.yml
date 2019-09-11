@@ -33,8 +33,7 @@ denominator:
   description: 'All patients aged 18 and older on the date of the encounter with at
     least one eligible encounter during the measurement period'
   component_groups:
-  - validation_record_table_count: 5
-    components:
+  - components:
     - display_title: Encounter
       show_codes: true
       annotation:
@@ -46,48 +45,59 @@ exclusion:
   reasons:
   - config_link_id: exclusion_noteligible
     code_value:
-    display_title: exclusion_noteligible
+    display_title: Not Eligible
     description: Patient is not eligible for BMI calculation
     component_groups:
-    - validation_record_table_count: 5
-      components:
+    - components:
       - display_title: Patient Not Eligible For BMI Calculation
         show_codes: true
         records:
-        - model: ClinicalActivity
+        - model: Order
           value_set: VSAC; Palliative Care
         - model: Diagnosis
           value_set: VSAC; Pregnancy
         - model: ClinicalActivity
           value_set: VSAC; Palliative care encounter
-        - model: ClinicalActivity
-          value_set: VSAC; BMI LOINC Value
+    - logical_operator: 'OR NOT'
+      components:
+      display_title: BMI
+      show_codes: true
+      annotation: 'Negation rationale: patient reason refused'
+      records:
+      - model: ClinicalActivity
+        value_set: VSAC; BMI LOINC Value
 exception:
   description:
   reasons:
   - config_link_id: exception_1
     code_value:
-    display_title: exception_1
-    description: No BMI Due to Medical Reason
+    display_title: Medical Reason
+    description: No BMI or follow-up to due to medical or other reason
     component_groups:
-    - validation_record_table_count: 5
-      components:
-      - display_title: No BMI Due to Medical Reason
+    - logical_operator: 'NOT'
+     components:
+        display_title: BMI
         show_codes: true
-        annotation: "Medical Reason for no BMI"
+        annotation: 'Negation rationale: medical or other reason not done'
         records:
         - model: ClinicalActivity
           value_set: VSAC; BMI LOINC Value
-        - model: ClinicalActivity
-          value_set: VSAC; Above Normal Medications
-        - model: ClinicalActivity
-          value_set: VSAC; Above Normal Follow-up
-        - model: ClinicalActivity
-          value_set: VSAC; Below Normal Medications
-        - model: ClinicalActivity
-          value_set: VSAC; Below Normal Follow up
-        - model: ClinicalActivity
-          value_set: VSAC; Referrals where weight assessment may occur
+    - logical_operator: 'OR NOT'
+      components:
+          display_title: BMI Follow-Up
+          show_codes: true
+          annotation: 'Negation rationale: medical or other reason not done'
+          records:
+          - model: Medication
+            value_set: VSAC; Above Normal Medications
+          - model: Order
+            value_set: VSAC; Above Normal Follow-up
+          - model: Medication
+            value_set: VSAC; Below Normal Medications
+          - model: Order
+            value_set: VSAC; Below Normal Follow up
+          - model: Order
+            value_set: VSAC; Referrals where weight assessment may occur
 performance_met:
   description: 'Patients with a documented BMI during the encounter or during the
     previous twelve months, AND when the BMI is outside of normal parameters, a follow-up
@@ -96,12 +106,11 @@ performance_met:
   reasons:
   - config_link_id: performance_met_normal
     code_value:
-    display_title: performance_met_normal
+    display_title: BMI Normal
     description: BMI is documented within normal parameters and no follow-up plan
       is required
     component_groups:
-    - validation_record_table_count: 5
-      components:
+    - components:
       - display_title: BMI
         show_codes: true
         annotation: "With result: ≥ 18.5 and < 25"
@@ -110,12 +119,11 @@ performance_met:
           value_set: VSAC; BMI LOINC Value
   - config_link_id: performance_met_above
     code_value:
-    display_title: performance_met_above
+    display_title: Above Normal Follow-Up
     description: BMI is documented above normal parameters and a follow-up plan is
       documented
     component_groups:
-    - validation_record_table_count: 5
-      components:
+    - components:
       - display_title: BMI
         show_codes: true
         annotation: "With result: ≥ 25"
@@ -126,16 +134,15 @@ performance_met:
         logical_operator: AND
         show_codes: true
         records:
-        - model: ClinicalActivity
+        - model: Order
           value_set: VSAC; Above Normal Follow-Up
   - config_link_id: performance_met_below
     code_value:
-    display_title: performance_met_below
+    display_title: Below Normal Follow-Up
     description: BMI is documented below normal parameters and a follow-up plan is
       documented
     component_groups:
-    - validation_record_table_count: 5
-      components:
+    - components:
       - display_title: BMI
         show_codes: true
         annotation: "With result: < 18.5"
@@ -146,22 +153,13 @@ performance_met:
         logical_operator: AND
         show_codes: true
         records:
-        - model: ClinicalActivity
+        - model: Order
           value_set: VSAC; Below Normal Follow up
 performance_not_met:
   description:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: performance_not_met
-    description: BMI documented outside normal parameters, no follow-up plan documented,
-      no reason given
+    display_title: No BMI or Follow-Up
+    description: BMI not documented or documented outside of normal parameters with no follow-up plan documented
     component_groups:
-    - validation_record_table_count: 5
-      components:
-      - display_title: BMI
-        show_codes: true
-        annotation: "With result: < 18.5 and ≥ 25"
-        records:
-        - model: ClinicalActivity
-          value_set: VSAC; BMI LOINC Value

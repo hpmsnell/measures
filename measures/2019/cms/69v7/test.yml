@@ -454,7 +454,7 @@ providers:
   credential: MD
   primary_specialty: Family Medicine
 patients:
-- name: Patient is too young for the denominator but otherwise meets the denominator
+- name: Too Young
   attributes:
     date_of_birth: 1998-02-02 # Too late
     given_name: Too
@@ -465,8 +465,11 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-02-01
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 12:00:00
       provider: Rachel
-- name: Patient is at lower age bound and otherwise meets the denominator
+- name: Age LowerBound
   attributes:
     date_of_birth: 1998-02-01
     given_name: Age
@@ -477,8 +480,11 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-02-01
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 12:00:00
       provider: Rachel
-- name: Patient has no denominator eligible encounters but otherwise meets the denominator
+- name: No Encounter
   attributes:
     date_of_birth: 1950-01-01
     given_name: "No"
@@ -489,8 +495,11 @@ patients:
     - code_type: CPT
       code_value: 11111 # Fake encounter code
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       provider: Rachel
-- name: Patient has an encounter that is on the upper bound as what is acceptable
+- name: Encounter Upper
   attributes:
     date_of_birth: 1950-01-01
     given_name: Encounter
@@ -501,20 +510,26 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       provider: Rachel
-- name: Patient has an encounter that is on the lower bound as what is acceptable
+- name: Encounter Lower
   attributes:
     date_of_birth: 1950-01-01
     given_name: Encounter
-    family_name: Early
+    family_name: Lower
     sex: Female
   clinical_models:
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-12-31
+      stop_date: 2016-12-31
+      start_datetime: 2016-12-31 12:00:00
+      stop_datetime: 2016-12-31 12:00:00
       provider: Rachel
-- name: Patient has an encounter that is early but otherwise meets the denominator
+- name: Encounter Early
   attributes:
     date_of_birth: 1950-01-01
     given_name: Encounter
@@ -525,8 +540,11 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2015-12-31 # Too early
+      stop_date: 2015-12-31
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       provider: Rachel
-- name: Patient has an encounter that is late but otherwise meets the denominator
+- name: Encounter Late
   attributes:
     date_of_birth: 1950-01-01
     given_name: Encounter
@@ -537,8 +555,11 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2017-01-01 # Too late
+      stop_date: 2017-01-01
+      start_datetime: 2017-01-01 12:00:00
+      stop_datetime: 2017-01-01 12:00:00
       provider: Rachel
-- name: Patient has an exclusion at the start of the allowable period
+- name: Exclusion Start
   attributes:
     date_of_birth: 1950-01-01
     given_name: Exclusion
@@ -549,12 +570,17 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       provider: Rachel
     - code_type: SNOMEDCT
       code_value: 133918004
       start_date: 2015-01-01
       stop_date: 2015-01-01
-- name: Patient has an exclusion at the end of the allowable period
+      start_datetime: 2015-01-01 12:00:00
+      stop_datetime: 2015-01-01 12:00:00
+- name: Exclusion End
   attributes:
     date_of_birth: 1950-01-01
     given_name: Exclusion
@@ -565,12 +591,17 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       provider: Rachel
     - code_type: SNOMEDCT
       code_value: 133918004
       start_date: 2016-01-01
       stop_date: 2016-01-01
-- name: Patient has an exclusion but it is too late
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
+- name: Exclusion Late
   attributes:
     date_of_birth: 1950-01-01
     given_name: Exclusion
@@ -581,12 +612,17 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       provider: Rachel
     - code_type: SNOMEDCT
       code_value: 133918004
       start_date: 2016-01-02
       stop_date: 2016-01-02
-- name: Patient has an exclusion but it is too early
+      start_datetime: 2016-01-02 12:00:00
+      stop_datetime: 2016-01-02 12:00:00
+- name: Exclusion Early
   attributes:
     date_of_birth: 1950-01-01
     given_name: Exclusion
@@ -597,12 +633,17 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       provider: Rachel
     - code_type: SNOMEDCT
       code_value: 133918004
       start_date: 2014-12-31
       stop_date: 2014-12-31
-- name: Patient has an exclusion for pregnancy
+      start_datetime: 2014-12-31 12:00:00
+      stop_datetime: 2014-12-31 12:00:00
+- name: Exclusion Pregnant
   attributes:
     date_of_birth: 1950-01-01
     given_name: Exclusion
@@ -613,12 +654,18 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       provider: Rachel
     diagnoses:
     - code_type: SNOMEDCT
       code_value: 102872000 # Pregnant
       start_date: 2010-01-01
-- name: Patient has an exclusion for pregnancy but it is too late
+      stop_date: 2010-01-01
+      start_datetime: 2010-01-01 12:00:00
+      stop_datetime: 2010-01-01 12:00:00
+- name: Exclusion PregnantLate
   attributes:
     date_of_birth: 1950-01-01
     given_name: Exclusion
@@ -629,12 +676,18 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       provider: Rachel
     diagnoses:
     - code_type: SNOMEDCT
       code_value: 102872000 # Pregnant
       start_date: 2017-01-01
-- name: Patient has a normal BMI at the start of the allowable period
+      stop_date: 2017-01-01
+      start_datetime: 2017-01-01 12:00:00
+      stop_datetime: 2017-01-01 12:00:00
+- name: BMI NormalStart
   attributes:
     date_of_birth: 1950-01-01
     given_name: BMI
@@ -645,12 +698,18 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-02-01
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 12:00:00
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
       start_date: 2015-02-01
+      stop_date: 2015-02-01
+      start_datetime: 2015-02-01 12:00:00
+      stop_datetime: 2015-02-01 12:00:00
       result_as_decimal: 20.0
-- name: Patient has a normal BMI at the end of the allowable period
+- name: BMI NormalEnd
   attributes:
     date_of_birth: 1950-01-01
     given_name: BMI
@@ -661,12 +720,18 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       result_as_decimal: 20.0
-- name: Patient has a normal BMI before the allowable period
+- name: BMI NormalEarly
   attributes:
     date_of_birth: 1950-01-01
     given_name: BMI
@@ -677,12 +742,18 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-02-01
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 12:00:00
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
       start_date: 2015-01-31
+      stop_date: 2015-01-31
+      start_datetime: 2015-01-31 12:00:00
+      stop_datetime: 2015-01-31 12:00:00
       result_as_decimal: 20.0
-- name: Patient has a normal BMI after the allowable period
+- name: BMI NormalLate
   attributes:
     date_of_birth: 1950-01-01
     given_name: BMI
@@ -693,12 +764,18 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
       start_date: 2016-01-02
+      stop_date: 2016-01-02
+      start_datetime: 2016-01-02 12:00:00
+      stop_datetime: 2016-01-02 12:00:00
       result_as_decimal: 20.0
-- name: Patient has multiple BMIs with most recent high
+- name: BMI RecentHigh
   attributes:
     date_of_birth: 1950-01-01
     given_name: BMI
@@ -709,16 +786,18 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-02-01
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 12:00:00
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       result_as_decimal: 20.0
-    - code_type: LOINC
-      code_value: 39156-5 # BMI
-      start_date: 2016-01-02
-      result_as_decimal: 30.0
-- name: Patient has a high BMI and follow-up at the start of the allowable period
+- name: BMI HighFollowUpStart
   attributes:
     date_of_birth: 1950-01-01
     given_name: BMI
@@ -729,15 +808,24 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-02-01
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 12:00:00
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
       start_date: 2016-02-01
+      stop_date: 2016-02-01
+      start_datetime: 2016-01-02 12:00:00
+      stop_datetime: 2016-01-02 12:00:00
       result_as_decimal: 25.0
     - code_type: SNOMEDCT
       code_value: 386464006 # Diet education
       start_date: 2015-02-01
-- name: Patient has a high BMI and follow-up at the end of the allowable period
+      stop_date: 2015-02-01
+      start_datetime: 2015-01-02 12:00:00
+      stop_datetime: 2015-01-02 12:00:00
+- name: BMI HighFollowUpEnd
   attributes:
     date_of_birth: 1950-01-01
     given_name: BMI
@@ -748,16 +836,24 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:01
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
       start_date: 2016-01-01
       stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       result_as_decimal: 25.0
     - code_type: SNOMEDCT
       code_value: 304549008 # Encouragement to exercise
       start_date: 2016-01-01
-- name: Patient has a high BMI and follow-up before the allowable period
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
+- name: BMI HighFollowUpEarly
   attributes:
     date_of_birth: 1950-01-01
     given_name: BMI
@@ -768,15 +864,24 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-02-01
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 12:00:00
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
       start_date: 2016-02-01
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 12:00:00
       result_as_decimal: 25.0
     - code_type: SNOMEDCT
       code_value: 304549008 # Encouragement to exercise
       start_date: 2015-01-31
-- name: Patient has a high BMI and follow-up after the allowable period
+      stop_date: 2015-01-31
+      start_datetime: 2015-01-31 12:00:00
+      stop_datetime: 2015-01-31 12:00:00
+- name: BMI HighFollowUpLate
   attributes:
     date_of_birth: 1950-01-01
     given_name: BMI
@@ -787,15 +892,24 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       result_as_decimal: 25.0
     - code_type: SNOMEDCT
       code_value: 304549008 # Encouragement to exercise
       start_date: 2016-01-02
-- name: Patient has a low BMI and follow-up at the start of the allowable period
+      stop_date: 2016-01-02
+      start_datetime: 2016-01-02 12:00:00
+      stop_datetime: 2016-01-02 12:00:00
+- name: BMI LowFollowUpStart
   attributes:
     date_of_birth: 1950-01-01
     given_name: BMI
@@ -806,15 +920,24 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-02-01
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 12:00:00
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
       start_date: 2016-02-01
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 12:00:00
       result_as_decimal: 18.4
     - code_type: SNOMEDCT
       code_value: 386464006 # Diet education
       start_date: 2015-02-01
-- name: Patient has a low BMI and follow-up at the end of the allowable period
+      stop_date: 2015-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 12:00:00
+- name: BMI LowFollowUpEnd
   attributes:
     date_of_birth: 1950-01-01
     given_name: BMI
@@ -825,15 +948,24 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       result_as_decimal: 18.4
     - code_type: SNOMEDCT
       code_value: 386464006 # Diet education
       start_date: 2016-01-01
-- name: Patient has a low BMI and follow-up before the allowable period
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
+- name: BMI LowFollowUpEarly
   attributes:
     date_of_birth: 1950-01-01
     given_name: BMI
@@ -844,15 +976,24 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-02-01
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 12:00:00
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
       start_date: 2016-02-01
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 12:00:00
       result_as_decimal: 18.4
     - code_type: SNOMEDCT
       code_value: 386464006 # Diet education
       start_date: 2015-01-31
-- name: Patient has a low BMI and follow-up after the allowable period
+      stop_date: 2015-01-31
+      start_datetime: 2015-01-31 12:00:00
+      stop_datetime: 2015-01-31 12:00:00
+- name: BMI LowFollowUpLate
   attributes:
     date_of_birth: 1950-01-01
     given_name: BMI
@@ -863,15 +1004,24 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       provider: Rachel
     - code_type: LOINC
       code_value: 39156-5 # BMI
       start_date: 2016-01-01
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
       result_as_decimal: 18.4
     - code_type: SNOMEDCT
       code_value: 386464006 # Diet education
       start_date: 2016-01-02
-- name: Patient has a denominator exception at the start of the allowable period
+      stop_date: 2016-01-02
+      start_datetime: 2016-01-02 12:00:00
+      stop_datetime: 2016-01-02 12:00:00
+- name: Exception Start
   attributes:
     date_of_birth: 1950-01-01
     given_name: Exception
@@ -882,12 +1032,18 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
-      provider: Patty
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
+      provider: Rachel
     - code_type: LOINC
       code_value: 39156-5
       child_code_value: 183932001
       start_date: 2015-01-01
-- name: Patient has a denominator exception at the end of the allowable period
+      stop_date: 2015-01-01
+      start_datetime: 2015-01-01 12:00:00
+      stop_datetime: 2015-01-01 12:00:00
+- name: Exception End
   attributes:
     date_of_birth: 1950-01-01
     given_name: Exception
@@ -898,12 +1054,18 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
-      provider: Patty
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
+      provider: Rachel
     - code_type: LOINC
       code_value: 39156-5
       child_code_value: 183932001
       start_date: 2016-12-31
-- name: Patient has a denominator exception but it is too late
+      stop_date: 2016-12-31
+      start_datetime: 2016-12-31 12:00:00
+      stop_datetime: 2016-12-31 12:00:00
+- name: Exception Late
   attributes:
     date_of_birth: 1950-01-01
     given_name: Exception
@@ -914,12 +1076,18 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
-      provider: Patty
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
+      provider: Rachel
     - code_type: LOINC
       code_value: 39156-5
       child_code_value: 183932001
       start_date: 2017-01-01
-- name: Patient has a denominator exception but it is too early
+      stop_date: 2017-01-01
+      start_datetime: 2017-01-01 12:00:00
+      stop_datetime: 2017-01-01 12:00:00
+- name: Exception Early
   attributes:
     date_of_birth: 1950-01-01
     given_name: Exception
@@ -930,8 +1098,14 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
-      provider: Patty
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 12:00:00
+      provider: Rachel
     - code_type: LOINC
       code_value: 39156-5
       child_code_value: 183932001
       start_date: 2015-12-31
+      stop_date: 2015-12-31
+      start_datetime: 2015-12-31 12:00:00
+      stop_datetime: 2015-12-31 12:00:00
