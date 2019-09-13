@@ -1,6 +1,6 @@
 ---
 measure:
-  name: 19.CMS.cms154v7
+  name: 19.CMS.Cms154v7
   required:
     display_title: Appropriate Treatment for Children with Upper Respiratory Infection
       (URI)
@@ -109,12 +109,13 @@ performance_met:
     display_title: No Antibiotic
     description: Patient not prescribed or dispensed antibiotic
     component_groups:
-    - components:
-      - display_title: "No Prescription For Antibiotic Medication"
-        show_codes: true
-        records:
-        - model: Medication
-          value_set: 'VSAC; Antibiotic Medications for Pharyngitis'
+     - logical_operator: 'NOT'
+      components:
+        - display_title: "Antibiotic for Pharyngitis"
+          show_codes: true
+          records:
+          - model: Medication
+            value_set: 'VSAC; Antibiotic Medications for Pharyngitis'
 performance_not_met:
   description:
   reasons:
