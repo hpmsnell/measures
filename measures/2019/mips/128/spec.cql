@@ -4,7 +4,7 @@ library MIPS_128_2019 version '1'
  * Source: MIPS
  * ID: 128
  * Year: 2019
- * Version: 1
+ * Version: 2
  *
   */
 
@@ -13,6 +13,7 @@ using QDM
 // Able Custom Value Sets
 valueset "ABLE; Above Normal BMI Follow-up"
 valueset "ABLE; Below Normal BMI Follow up"
+valueset "ABLE; Weight Management Referral"
 
 // MIPS Value Sets
 valueset "MIPS; MIPS 128 Encounter"
@@ -74,10 +75,14 @@ define "Last BMI Before Encounter Is Abnormal":
 define "Above Normal BMI Follow Up":
   ["Procedure, Performed": "ABLE; Above Normal BMI Follow up"]
   union ["Procedure, Performed": "VSAC; Above Normal Follow-up"]
+  union ["Diagnosis": "VSAC; Above Normal Follow-up"]
+  union ["Procedure, Performed": "Able; Weight Management Referral"]
 
 define "Below Normal BMI Follow Up":
   ["Procedure, Performed": "ABLE; Below Normal BMI Follow up"]
   union ["Procedure, Performed": "VSAC; Below Normal Follow up"]
+  union ["Diagnosis": "VSAC; Below Normal Follow-up"]
+  union ["Procedure, Performed": "Able; Weight Management Referral"]
 
 define "Last BMI Before Encounter Is High With Follow-Up":
   exists("Denominator Encounter" E
