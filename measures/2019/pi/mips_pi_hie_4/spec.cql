@@ -4,7 +4,7 @@ library MIPS_PI_HIE_4_2019 version '1'
  * Source: MIPS
  * ID: PI_HIE_4
  * Year: 2019
- * Version: 3
+ * Version: 4
  * Author: Steve Daniels
  *
   */
@@ -47,19 +47,23 @@ define "Numerator Performance Met":
    */
   "Denominator Transfer of Care" E
     with ["System Event"] S1
-      such that C1.start_datetime during [E.start_datetime, end of "Measurement Period"]
+      such that S1.start_datetime same year as start of "Measurment Period"
+        and S1.start_datetime on or after E.start_datetime
         and S1.type = "SUMMARY_OF_CARE_INCORPORATION"
         and S1.encounter_id = E.external_id
     with ["System Event"] S2
-      such that C2.start_datetime during [E.start_datetime, E.stop_datetime]
+      such that S2.start_datetime same year as start of "Measurment Period"
+        and S2.start_datetime on or after E.start_datetime
         and S2.type = "MEDICATION_LIST_RECONCILIATION"
         and S2.encounter_id = E.external_id
     with ["System Event"] S3
-      such that C3.start_datetime during [E.start_datetime, E.stop_datetime]
+      such that S3.start_datetime same year as start of "Measurment Period"
+        and S3.start_datetime on or after E.start_datetime
         and S3.type = "ALLERGY_LIST_RECONCILIATION"
         and S3.encounter_id = E.external_id
     with ["System Event"] S4
-      such that C4.start_datetime during [E.start_datetime, E.stop_datetime]
+      such that S4.start_datetime same year as start of "Measurment Period"
+        and S4.start_datetime on or after E.start_datetime
         and S4.type = "PROBLEM_LIST_RECONCILIATION"
         and S4.encounter_id = E.external_id
 

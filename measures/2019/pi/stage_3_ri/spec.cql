@@ -4,7 +4,7 @@ library STAGE_3_RI_2019 version '1'
  * Source: Stage 3
  * ID: RI
  * Year: 2019
- * Version: 2
+ * Version: 3
  * Author: Steve Daniels
  *
   */
@@ -39,11 +39,7 @@ define "Denominator Transfer of Care":
 /* Populations */
 
 define "Denominator":
-  "Denominator Transfer of Care" E
-    without ["System Event"] S
-      such that S.start_datetime during "Measurement Period"
-        and S.type = "SUMMARY_OF_CARE_UNAVAILABLE"
-        and S.encounter_id = E.external_id
+  "Denominator Transfer of Care"
 
 define "Numerator Performance Met":
   /*
@@ -52,6 +48,7 @@ define "Numerator Performance Met":
   "Denominator Transfer of Care" E
     with ["System Event"] S
       such that S.start_datetime during [E.start_datetime, end of "Measurement Period"]
+        and S.start_datetime on or after E.start_datetime
         and S.type = "SUMMARY_OF_CARE_INCORPORATION"
         and S.encounter_id = E.external_id
 
