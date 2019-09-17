@@ -38,10 +38,10 @@ define "Denominator Encounter":
       such that D.prevalencePeriod overlaps E.relevantPeriod
 
 define "Back Visual Analog Scale Exists":
-  exists(["Procedure, Performed": "Able; Back Visual Analog Scale"] A
+  exists(["Assessment, Performed": "Able; Back Visual Analog Scale"] A
     with "Denominator Encounter" E
       such that A.authorDateTime on or 3 months or less before start of E.relevantPeriod)
-  and exists(["Procedure, Performed": "Able; Back Visual Analog Scale"] A
+  and exists(["Assessment, Performed": "Able; Back Visual Analog Scale"] A
     with "Denominator Encounter" E
       such that A.authorDateTime during [6 weeks after start of E.relevantPeriod, 20 weeks after start of E.relevantPeriod])
 
