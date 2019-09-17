@@ -17,8 +17,6 @@ using QDM
 valueset "MIPS; MIPS 459 Procedure"
 valueset "MIPS; Herniated Disc"
 valueset "MIPS; Other Spine Procedure"
-valueset "MIPS; Performance Met: G9941"
-valueset "MIPS; Performance Not Met: G9943"
 
 // Able value sets
 
@@ -36,14 +34,6 @@ define "Denominator Encounter":
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Herniated Disc"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod
-
-define "Back Visual Analog Scale Exists":
-  exists(["Assessment, Performed": "Able; Back Visual Analog Scale"] A
-    with "Denominator Encounter" E
-      such that A.authorDateTime on or 3 months or less before start of E.relevantPeriod)
-  and exists(["Assessment, Performed": "Able; Back Visual Analog Scale"] A
-    with "Denominator Encounter" E
-      such that A.authorDateTime during [6 weeks after start of E.relevantPeriod, 20 weeks after start of E.relevantPeriod])
 
 define "Denominator":
   "Denominator Encounter"
@@ -63,12 +53,14 @@ define "Numerator Performance Met: G9941":
   /*
    * config_link_id: G9941
    */
-  exists(["Procedure, Performed": "MIPS; Performance Met: G9941"] P
+  exists(["Assessment, Performed": "Able; Back Visual Analog Scale"] A
+    where not A.result = null
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts on or 20 weeks or less after start of E.relevantPeriod)
-  or "Back Visual Analog Scale Exists"
-
-define "Numerator Performance Not Met: G9943":
+      such that A.authorDateTime on or 3 months or less before start of E.relevantPeriod)
+  and exists(["Assessment, Performed": "Able; Back Visual Analog Scale"] A
+    where not A.result = null
+    with "Denominator Encounter" E
+      such that A.authorDateTime during [6 weeks after start of E.relevantPeriod, 20 weeks after start of E.relevantPeriod])
   /*
    * config_link_id: G9943
    */

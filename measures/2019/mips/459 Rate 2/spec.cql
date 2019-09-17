@@ -42,12 +42,14 @@ define "Spine Procedure":
 
 define "Preoperative Result":
   ["Assessment, Performed": "Able; Back Visual Analog Scale"] A
+    where not A.result = null
     with "Denominator Encounter" E
       such that A.authorDateTime on or 3 months or less before start of E.relevantPeriod
     return A.result
 
 define "Postoperative Result":
   ["Assessment, Performed": "Able; Back Visual Analog Scale"] A
+    where not A.result = null
     with "Denominator Encounter" E
       such that A.authorDateTime during [6 weeks after start of E.relevantPeriod, 20 weeks after start of E.relevantPeriod]
     return A.result
