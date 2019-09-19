@@ -4,7 +4,7 @@ library MIPS_PI_PEA_1_2019 version '1'
  * Source: MIPS
  * ID: PI_PEA_1
  * Year: 2019
- * Version: 3
+ * Version: 4
  * Author: Steve Daniels
  *
   */
@@ -73,9 +73,9 @@ define "Numerator Performance Met":
           )
       )
       or (
-        exists("Valid Health Information Provisioning With Portal Access")
-        and exists("API Opt Out" S
-          where S.start_date starts before end of "Measurement Period")
+        exists("Valid Health Information Provisioning With Portal Access" S1
+          with "API Opt Out" S2
+            such that S2.start_datetime starts on or before 4 business days after S1.start_date)
     )
     // ...AND none of the other encounters lack valid provisioning events
     and not exists("Denominator Encounter in Calendar Year" E
@@ -123,7 +123,8 @@ define "Numerator Performance Met":
           or 4 business days after S1.start_date during [S2.start_date, S2.stop_date]
         )
       without "API Opt Out" S3
-        such that S3.start_date starts before end of "Measurement Period")
+    without "API Opt Out" S3
+      such that S3.start_datetime starts on or before 4 business days after S1.start_date)
 
 define "Numerator Performance Not Met":
   /*

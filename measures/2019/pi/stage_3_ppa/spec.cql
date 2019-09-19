@@ -4,7 +4,7 @@ library STAGE_3_PPA_2019 version '1'
  * Source: Stage 3
  * ID: PPA
  * Year: 2019
- * Version: 3
+ * Version: 4
  * Author: Steve Daniels
  *
   */
@@ -79,9 +79,9 @@ define "Numerator Performance Met":
           )
       )
       or (
-        exists("Valid Health Information Provisioning With Portal Access")
-        and exists("API Opt Out" S
-          where S.start_datetime starts before end of "Measurement Period")
+        exists("Valid Health Information Provisioning With Portal Access" S1
+          with "API Opt Out" S2
+            such that S2.start_datetime starts on or before 48 hours after S1.start_datetime)
     )
     // ...AND none of the other encounters lack valid provisioning events
     and not exists("Denominator Encounter in Calendar Year" E
@@ -129,7 +129,7 @@ define "Numerator Performance Met":
           or 48 hours after S1.start_date during [S2.start_datetime, S2.stop_datetime]
         )
       without "API Opt Out" S3
-        such that S3.start_datetime starts before end of "Measurement Period")
+        such that S3.start_datetime starts on or before 48 hours after S1.start_datetime)
 
 define "Numerator Performance Not Met":
   /*
