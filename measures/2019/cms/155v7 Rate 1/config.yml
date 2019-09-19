@@ -1,0 +1,124 @@
+---
+measure:
+  name: 19.Cms.Cms155v7Rate1
+  required:
+    display_title: 'Weight Assessment and Counseling for Nutrition and Physical Activity
+      for Children and Adolescents: Weight Assessment'
+    inverse: false
+    subject_type: Patient
+    set: CMS
+    external_id: '155'
+    version:
+  optional:
+    description: 'Percentage of patients 3-17 years of age who had an outpatient visit
+      with a Primary Care Physician (PCP) or Obstetrician/Gynecologist (OB/GYN) and who
+      had evidence of height, weight, and body mass index (BMI) percentile documentation during
+      the measurement period.'
+    gap_resolution_action: Patient is due for height, weight, and/or BMI percentile assessment
+    rate_id: '1'
+    version: 2019
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'Pediatrics'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum: 'BMI'
+    mips_objective:
+denominator:
+  description: 'Patients 3-17 years of age with at least one outpatient visit with a
+    primary care physician (PCP) or an obstetrician/gynecologist (OB/GYN) during the
+    measurement period'
+  component_groups:
+  - components:
+    - display_title: Encounter
+      show_codes: true
+      annotation:
+      records:
+      - model: ClinicalActivity
+        value_set: VSAC; Office Visit
+      - model: ClinicalActivity
+        value_set: VSAC; Preventive Care Services-Individual Counseling
+      - model: ClinicalActivity
+        value_set: VSAC; Preventive Care - Established Office Visit, 0 to 17
+      - model: ClinicalActivity
+        value_set: VSAC; Preventive Care- Initial Office Visit, 0 to 17
+      - model: ClinicalActivity
+        value_set: VSAC; Preventive Care Services - Group Counseling
+      - model: ClinicalActivity
+        value_set: VSAC; Home Healthcare Services
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_pregnancy
+    code_value:
+    display_title: Pregnancy
+    description: Patient excluded due to a diagnosis of pregnancy during the measurement period
+    component_groups:
+    - components:
+      - display_title: Pregnancy
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: VSAC; Pregnancy
+  - config_link_id: exclusion_hospice
+    code_value:
+    display_title: Hospice Service
+    description: Patient excluded due to hospice service
+    component_groups:
+    - components:
+       - display_title: Hospice Service
+         show_codes: true
+         records:
+         - model: ClinicalActivity
+           value_set: "VSAC; Hospice care ambulatory"
+         - model: Order
+           value_set: "VSAC; Hospice care ambulatory"
+     - logical_operator: 'OR'
+       components:
+        - display_title: Inpatient Encounter
+          show_codes: true
+          annotation: 'Discharge disposition: Discharge to home for hospice care'
+          records:
+          - model: ClinicalActivity
+            value_set: "VSAC; Encounter Inpatient"
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patients who had a height, weight and body mass index (BMI) percentile
+    recorded during the measurement period'
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Weight Assessment
+    description: 'Height, weight and body mass index (BMI) percentile
+      recorded during the measurement period'
+    component_groups:
+    - components:
+      - display_title: Height
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Height
+    - components:
+      - display_title: Weight
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Weight
+    - components:
+      - display_title: BMI Percentile
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; BMI Percentile
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Weight Assessment
+    description: 'Height, weight and/or body mass index (BMI) percentile not
+      recorded during the measurement period'
+    component_groups:
