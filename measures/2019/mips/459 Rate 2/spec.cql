@@ -54,11 +54,13 @@ define "Postoperative Result":
       such that A.authorDateTime during [6 weeks after start of E.relevantPeriod, 20 weeks after start of E.relevantPeriod]
     return A.result
 
-define "Average Preoperative Result":
-  Average("Preoperative Result")
+define "Highest Preoperative Result":
+  Last("Preoperative Result" R
+    sort by R asc)
 
-define "Average Postoperative Result":
-  Average("Postoperative Result")
+define "Lowest Postoperative Result":
+  First("Postoperative Result" R
+    sort by R asc)
 
 /* Populations */
 
@@ -80,4 +82,4 @@ define "Numerator":
   /*
    * config_link_id: numerator
    */
-  "Average Postoperative Result" - "Average Preoperative Result"
+  "Lowest Postoperative Result" - "Highest Preoperative Result"
