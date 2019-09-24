@@ -40,7 +40,7 @@ denominator:
       show_codes: true
       records:
       - model: Medication
-        value_set: VSAC; Antibiotic Medications for Pharyngitis
+        value_set: VSAC; Antibiotic Medications for Pharyngitis or Tonsillitis
   - logical_operator: AND
     components:
     - display_title: Pharyngitis
@@ -95,7 +95,7 @@ performance_met:
   reasons:
   - config_link_id: performance_met
     code_value:
-    display_title: Strep Test Performed
+    display_title: Strep Test
     description: Group A strep test performed
     component_groups:
     - components:
@@ -109,6 +109,6 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: Strep Test Not Performed
+    display_title: No Strep Test
     description: Group A strep test not performed, reason not otherwise specified
     component_groups:
