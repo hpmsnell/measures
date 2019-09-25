@@ -1,0 +1,90 @@
+---
+measure:
+  name: 19.CMS.Cms68v8
+  required:
+    display_title: Documentation of Current Medications in the Medical Record
+    inverse: false
+    subject_type: Encounter
+    set: CMS
+    external_id: 68
+    version:
+  optional:
+    description: 'Percentage of visits for patients aged 18 years and older for which
+      the eligible professional or eligible clinician attests to documenting a list
+      of current medications using all immediate resources available on the date of
+      the encounter. This list must include ALL known prescriptions, over-the-counters,
+      herbals, and vitamin/mineral/dietary (nutritional) supplements AND must contain
+      the medications’ name, dosage, frequency and route of administration'
+    end_to_end_bonus_disabled: true
+    gap_resolution_action:
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Allergy/Immunology, Internal Medicine, Anesthesiology, Cardiology,
+      Dermatology, Emergency Medicine, Gastroenterology, General Surgery, General
+      Oncology, Hospitalists, Neurology, Obstetrics/Gynecology, Ophthalmology, Orthopedic
+      Surgery, Otolaryngology, Physical Medicine, Preventive Medicine, Rheumatology,
+      Thoracic Surgery, Urology, Vascular Surgery, Mental/Behavioral Health, Plastic
+      Surgery, General Practice/Family Medicine'
+    mips_seven_point_max: true
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+    version: 2019
+denominator:
+  description: 'All visits occurring during the 12 month measurement period for patients aged 18 years and older'
+  component_groups:
+  - components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: VSAC; Medications Encounter Code Set
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: exception_medicalreason
+    code_value:
+    display_title: Exception Due To Medical Reason
+    description: Patient is in an urgent or emergent medical situation where
+    time is of the essence and to delay treatment would jeopardize the
+    patient's health status
+    component_groups:
+    - components:
+      - display_title: 'Medications Not Documented for Medical Reason'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'VSAC; Documentation of current medications (procedure)'
+performance_met:
+  description: 'Eligible professional or eligible clinician attests to documenting,
+    updating or reviewing a patient’s current medications using all immediate resources
+    available on the date of encounter. This list must include ALL known prescriptions,
+    over-the counters, herbals, and vitamin/mineral/dietary (nutritional) supplements AND
+    must contain the medications’ name, dosages, frequency and route of administration'
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Current Medications Documented
+    description: Eligible clinician attests to documenting in the medical record they
+      obtained, updated, or reviewed the patient’s current medications
+    component_groups:
+    - components:
+      - display_title: Current Medications Documented
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Documentation of current medications (procedure)
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: Current Medications Not Documented
+    description: Current list of medications not documented as obtained, updated,
+      or reviewed by the eligible clinician, reason not given
+    component_groups:
+    - components:
