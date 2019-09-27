@@ -48,7 +48,7 @@ exception:
   reasons:
   - config_link_id: exception_medicalreason
     code_value:
-    display_title: Exception Due To Medical Reason
+    display_title: Medical Reason
     description: Patient is in an urgent or emergent medical situation where
     time is of the essence and to delay treatment would jeopardize the
     patient's health status
@@ -56,6 +56,7 @@ exception:
     - components:
       - display_title: 'Medications Not Documented for Medical Reason'
         show_codes: true
+        annotation: 'With negation rationale: medical or other reason'
         records:
         - model: ClinicalActivity
           value_set: 'VSAC; Documentation of current medications (procedure)'
@@ -68,9 +69,9 @@ performance_met:
   reasons:
   - config_link_id: performance_met
     code_value:
-    display_title: Current Medications Documented
-    description: Eligible clinician attests to documenting in the medical record they
-      obtained, updated, or reviewed the patient’s current medications
+    display_title: Medications Documented
+    description: 'Eligible clinician attests to documenting in the medical record they
+      obtained, updated, or reviewed the patient’s current medications'
     component_groups:
     - components:
       - display_title: Current Medications Documented
@@ -83,8 +84,8 @@ performance_not_met:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: Current Medications Not Documented
-    description: Current list of medications not documented as obtained, updated,
-      or reviewed by the eligible clinician, reason not given
+    display_title: Medications Not Documented
+    description: 'Current list of medications not documented as obtained, updated,
+      or reviewed by the eligible clinician, reason not given'
     component_groups:
     - components:

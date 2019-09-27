@@ -2,78 +2,92 @@ measure_id: measure.Cms.2019.Cms68v8
 test_set_keys:
   organization_key:
     episodes_of_care:
-    - name: Too Young # Patient is too young for the denominator but has an encounter
+    - name: Too Young
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Wrong EncounterValue #  Encounter is not in the value set
+    - name: Age Lower
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorEncounter Before # Early
+      start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Wrong EncounterEarly #  Encounter prior to measurement year
+    - name: DenominatorEncounter Lower # Lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorEncounter Upper # Upper Bound
+      start_date: 2016-12-31
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorEncounter After # Late
+      start_date: 2017-01-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Wrong EncounterLate #  Encounter after measurement year
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Right EncounterLower #  Encounter at beginning of measurement year
+    - name: DenominatorEncounter DifferentProvider # Different denominator signing provider
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
-    - name: Right EncounterUpper #  Encounter at end of measurement year
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: Denominator Exclusion #  Exclusion on date of encounter
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception: exception_medicalreason
-      numerator:
-    - name: Denominator ExclusionEarly #  Exclusion prior to measurement year
+    - name: Documentation Before # Early
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
-    - name: Denominator ExclusionLate #  Exclusion after measurement year
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: Numerator Success #  Success on date of encounter
-      start_date: 2016-06-01
+    - name: Documentation Lower # Lower bound
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_met
-    - name: Numerator Success #  Success prior to encounter
-      start_date: 2016-07-01
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: Numerator Success #  Success after encounter
-      start_date: 2016-08-01
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: VSAC Success #  VSAC success on date of encounter
-      start_date: 2016-06-01
+    - name: Documentation Upper # Upper bound
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_met
-    - name: VSAC Success #  VSAC success prior to encounter
-      start_date: 2016-07-01
+    - name: Documentation After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Exception Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Exception Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: Exception Upper # Upper Bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: Exception After # Late
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -81,153 +95,109 @@ test_set_keys:
   providers_key:
   - name: Rachel
     episodes_of_care:
-    - name: Too Young # Patient is too young for the denominator but has an encounter
+    - name: Too Young
+      start_date: 2016-02-01
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Wrong EncounterValue #  Encounter is not in the value set
-      start_date: 2016-01-01
-      denominator:
+    - name: Age Lower
+      start_date: 2016-02-01
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator:
-    - name: Wrong EncounterEarly #  Encounter prior to measurement year
+      numerator: performance_not_met
+    - name: DenominatorEncounter Before # Early
       start_date: 2015-12-31
       denominator:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: Wrong EncounterLate #  Encounter after measurement year
-      start_date: 2017-01-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Right EncounterLower #  Encounter at beginning of measurement year
+    - name: DenominatorEncounter Lower # Lower bound
       start_date: 2016-01-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
-    - name: Right EncounterUpper #  Encounter at end of measurement year
+    - name: DenominatorEncounter Upper # Upper Bound
       start_date: 2016-12-31
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
-    - name: Denominator Exclusion #  Exclusion on date of encounter
-      denominator: 1
+    - name: DenominatorEncounter After # Late
+      start_date: 2017-01-01
+      denominator:
       denominator_exclusion:
-      denominator_exception: exception_medicalreason
+      denominator_exception:
       numerator:
-    - name: Denominator ExclusionEarly #  Exclusion prior to measurement year
+    - name: DenominatorEncounter DifferentProvider # Different denominator signing provider
+      start_date: 2016-02-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Documentation Before # Early
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
-    - name: Denominator ExclusionLate #  Exclusion after measurement year
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: Numerator Success #  Success on date of encounter
+    - name: Documentation Lower # Lower bound
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_met
-    - name: Numerator SuccessEarly #  Success prior to encounter
+    - name: Documentation Upper # Upper bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Documentation After # Late
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
-    - name: Numerator SuccessLate #  Success after encounter
-      start_date: 2016-08-01
+    - name: Exception Before # Early
+      start_date: 2016-02-01
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
-  - name: Patty
-    episodes_of_care:
-    - name: Too Young # Patient is too young for the denominator but has an encounter
-      denominator:
-      denominator_exclusion:
+    - name: Exception Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
-    - name: Wrong EncounterValue #  Encounter is not in the value set
-      denominator:
-      denominator_exclusion:
+    - name: Exception Upper # Upper Bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion: exclusion_1
       denominator_exception:
       numerator:
-    - name: Wrong EncounterEarly #  Encounter prior to measurement year
-      denominator:
+    - name: Exception After # Late
+      start_date: 2016-02-01
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator:
-    - name: Wrong EncounterLate #  Encounter after measurement year
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Right EncounterLower #  Encounter at beginning of measurement year
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Right EncounterUpper #  Encounter at end of measurement year
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Denominator Exclusion #  Exclusion on date of encounter
-      start_date: 2016-06-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Denominator ExclusionEarly #  Exclusion prior to date of encounter
-      start_date: 2016-07-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Denominator ExclusionLate #  Exclusion after date of encounter
-      start_date: 2016-08-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Numerator Success #  Success on date of encounter
-      start_date: 2016-06-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Numerator SuccessEarly #  Success prior to encounter
-      start_date: 2016-07-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
-    - name: Numerator SuccessLate #  Success after encounter
-      start_date: 2016-08-01
-      denominator:
-      denominator_exclusion:
-      denominator_exception:
-      numerator:
+      numerator: performance_not_met
 providers:
 - given_name: Rachel
-  family_name: Kohler
-  external_id: '111-111'
+  family_name:  Katz
   credential: DO
-  primary_specialty: Family Medicine
+  primary_specialty:  Family Medicine
+  external_id: '111-111'
 - given_name: Patty
-  family_name: PrimaryCare
-  external_id: '222-222'
+  family_name:  Smith
   credential: MD
-  primary_specialty: Family Medicine
+  primary_specialty:  Family Medicine
+  external_id: '222-222'
 patients:
-- name: Too Young # Patient is too young for the denominator
+- name: Too Young
   attributes:
     date_of_birth: 1998-01-02 # Too late
     given_name: Too
@@ -236,243 +206,270 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 90792 # 130 Encounter
-      start_date: 2016-01-01
-      stop_date: 2016-01-01
-      start_datetime: 2016-01-01 12:00:00
-      stop_datetime: 2016-01-01 13:00:00
+      code_value: 99281 # Encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 13:00:00
       provider: Rachel
-- name: Wrong EncounterValue #Encounter is not in the value set
+- name: Age Lower
   attributes:
-    date_of_birth: 1998-01-01
-    given_name: Wrong
-    family_name: EncounterValue
-    sex: Female
+    date_of_birth: 1998-01-01 # Lower bound
+    given_name: Age
+    family_name: Lower
+    sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 90000 # Fake code
-      start_date: 2016-01-01
-      stop_date: 2016-01-01
-      start_datetime: 2016-01-01 12:00:00
-      stop_datetime: 2016-01-01 13:00:00
+      code_value: 99281 # Encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 13:00:00
       provider: Rachel
-- name: Wrong EncounterBefore #Encounter prior to measurement year
+- name: DenominatorEncounter Before
   attributes:
-    date_of_birth: 1998-01-01
-    given_name: Wrong
-    family_name: EncounterBefore
-    sex: Female
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: Before
+    sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 90792 # 130 Encounter
+      code_value: 99281 # Encounter
       start_date: 2015-12-31 # Too early
       stop_date: 2015-12-31
       start_datetime: 2015-12-31 12:00:00
       stop_datetime: 2015-12-31 13:00:00
       provider: Rachel
-- name: Wrong EncounterLate #Encounter after measurement year
   attributes:
-    date_of_birth: 1998-01-01
-    given_name: Wrong
-    family_name: EncounterLate
-    sex: Female
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: Lower
+    sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 90792 # 130 Encounter
+      code_value: 99281 # Encounter
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+      start_datetime: 2016-01-01 12:00:00
+      stop_datetime: 2016-01-01 13:00:00
+      provider: Rachel
+- name: DenominatorEncounter Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99281 # Encounter
+      start_date: 2016-12-31 # Upper bound
+      stop_date: 2016-12-31
+      start_datetime: 2016-12-31 12:00:00
+      stop_datetime: 2016-12-31 13:00:00
+      provider: Rachel
+- name: DenominatorEncounter After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99281 # Encounter
       start_date: 2017-01-01 # Too late
       stop_date: 2017-01-01
       start_datetime: 2017-01-01 12:00:00
       stop_datetime: 2017-01-01 13:00:00
       provider: Rachel
-- name: Right EncounterLower #Encounter at the beginning
+- name: DenominatorEncounter DifferentProvider
   attributes:
-    date_of_birth: 1966-01-01
-    given_name: Right
-    family_name: EncounterLower
+    date_of_birth: 1990-01-01
+    given_name: DenominatorEncounter
+    family_name: DifferentProvider
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 90792 # 130 Encounter
-      start_date: 2016-01-01
-      stop_date: 2016-01-01
-      start_datetime: 2016-01-01 12:00:00
-      stop_datetime: 2016-01-01 13:00:00
-      provider: Rachel
-- name: Right EncounterUpper #Encounter at the end of measurement year
+      code_value: 99281 # Encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 13:00:00
+      provider: Patty # Different signing provider
+- name: Documentation Before
   attributes:
-    date_of_birth: 1966-01-01
-    given_name: Right
-    family_name: Encounter
+    date_of_birth: 1990-01-01
+    given_name: Documentation
+    family_name: Before
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 90792 # 130 Encounter
-      start_date: 2016-12-31
-      stop_date: 2016-12-31
-      start_datetime: 2016-12-31 12:00:00
-      stop_datetime: 2016-12-3113:00:00
-      provider: Rachel
-- name: Denominator Exclusion #Exclusion in measurement year
-  attributes:
-    date_of_birth: 1941-01-02
-    given_name: Denominator
-    family_name: Exclusion
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 90792 # 130 Encounter
+      code_value: 99281 # Encounter
       start_date: 2016-02-01
       stop_date: 2016-02-01
       start_datetime: 2016-02-01 12:00:00
       stop_datetime: 2016-02-01 13:00:00
       provider: Rachel
     - code_type: SNOMEDCT
-      code_value: 428191000124101 # Meds Documented
-      child_code_value: 397745006 # Medical Reason Not Done
-      start_date: 2016-02-01
+      code_value: 428191000124101 # Documentation of meds
+      start_date: 2016-02-01 # Too early
       stop_date: 2016-02-01
-      start_datetime: 2016-02-01 12:00:00
-      stop_datetime: 2016-02-01 13:00:00
-- name: Denominator ExclusionEarly #Exclusion prior to measurement year
+      start_datetime: 2016-02-01 11:00:00
+      stop_datetime: 2016-02-01 11:00:00
+- name: Documentation Lower
   attributes:
-    date_of_birth: 1941-01-02
-    given_name: Denominator
-    family_name: ExclusionEarly
+    date_of_birth: 1990-01-01
+    given_name: Documentation
+    family_name: Lower
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 90792 # 130 Encounter
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-      start_datetime: 2016-02-01 12:00:00
-      stop_datetime: 2016-02-01 13:00:00
-      provider: Rachel
-    - code_type: SNOMEDCT
-      code_value: 428191000124101 # Meds Documented
-      child_code_value: 397745006 # Medical Reason Not Done
-      start_date: 2015-12-31
-      stop_date: 2015-12-31
-      start_datetime: 2015-12-31 12:00:00
-      stop_datetime: 2015-12-31 13:00:00
-- name: Denominator ExclusionLate #Exclusion after measurement year
-  attributes:
-    date_of_birth: 1941-01-02
-    given_name: Denominator
-    family_name: ExclusionLate
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 90792 # 130 Encounter
+      code_value: 99281 # Encounter
       start_date: 2016-02-01
       stop_date: 2016-02-01
       start_datetime: 2016-02-01 12:00:00
       stop_datetime: 2016-02-01 13:00:00
       provider: Rachel
     - code_type: SNOMEDCT
-      code_value: 428191000124101 # Meds Documented
-      child_code_value: 397745006 # Medical Reason Not Done
-      start_date: 2017-01-01
-      stop_date: 2017-01-01
-      start_datetime: 2017-01-01 12:00:00
-      stop_datetime: 2017-01-01 13:00:00
+      code_value: 428191000124101 # Documentation of meds
+      start_date: 2016-02-01 # Lower bound
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 12:00:00
+- name: Documentation Upper
   attributes:
-    date_of_birth: 1941-01-02
-    given_name: Denominator
-    family_name: Exclusion
+    date_of_birth: 1990-01-01
+    given_name: Documentation
+    family_name: Upper
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 90792 # 130 Encounter
-      start_date: 2016-06-01
-      provider: Rachel
-    - code_type: CPT
-      code_value: 90792 # 130 Encounter
-      start_date: 2016-07-01
-      stop_date: 2016-07-01
-      provider: Rachel
-    - code_type: CPT
-      code_value: 90792 # 130 Encounter
-      start_date: 2016-08-01
-      stop_date: 2016-08-01
-      provider: Rachel
-    - code_type: CPT
-      code_value: exception_medicalreason # Denominator Exclusion: exception_medicalreason
-      start_date: 2016-06-01
-    - code_type: CPT
-      code_value: exception_medicalreason # Denominator Exclusion: exception_medicalreason
-      start_date: 2016-06-30 # Too early
-    - code_type: CPT
-      code_value: exception_medicalreason # Denominator Exclusion: exception_medicalreason
-      start_date: 2016-08-02 # Too late
-- name: Numerator Success #Success on date of encounter
-  attributes:
-    date_of_birth: 1941-01-02
-    given_name: Numerator
-    family_name: Success
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 90792 # 130 Encounter
-      start_date: 2016-06-01
-      stop_date: 2016-06-01
-      start_datetime: 2016-06-01 12:00:00
-      stop_datetime: 2016-06-01 13:00:00
+      code_value: 99281 # Encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 13:00:00
       provider: Rachel
     - code_type: SNOMEDCT
-      code_value: 428191000124101 # Current Medications Documented SNMD
-      start_date: 2016-06-01
-      stop_date: 2016-06-01
-      start_datetime: 2016-06-01 12:00:00
-      stop_datetime: 2016-06-01 13:00:00
-- name: Numerator SuccessEarly #Success  prior to date of encounter
+      code_value: 428191000124101 # Documentation of meds
+      start_date: 2016-02-01 # Upper boundnd
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 12:00:00
+- name: Documentation After
   attributes:
-    date_of_birth: 1941-01-02
-    given_name: Numerator
-    family_name: SuccessEarly
+    date_of_birth: 1990-01-01
+    given_name: Documentation
+    family_name: After
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 90792 # 130 Encounter
-      start_date: 2016-06-01
-      stop_date: 2016-06-01
-      start_datetime: 2016-06-01 12:00:00
-      stop_datetime: 2016-06-01 13:00:00
+      code_value: 99281 # Encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 13:00:00
       provider: Rachel
     - code_type: SNOMEDCT
-      code_value: 428191000124101 # Current Medications Documented SNMD
-      start_date: 2016-05-31
-      stop_date: 2016-05-31
-      start_datetime: 2016-05-31 12:00:00
-      stop_datetime: 2016-05-31 13:00:00
-- name: Numerator SuccessLate #Success after date of encounter
+      code_value: 428191000124101 # Documentation of meds
+      start_date: 2016-02-01 # Too late
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 14:00:00
+      stop_datetime: 2016-02-01 14:00:00
+- name: Exception Before
   attributes:
-    date_of_birth: 1941-01-02
-    given_name: Numerator
-    family_name: SuccessLate
+    date_of_birth: 1990-01-01
+    given_name: Exception
+    family_name: Before
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 90792 # 130 Encounter
-      start_date: 2016-06-01
-      stop_date: 2016-06-01
-      start_datetime: 2016-06-01 12:00:00
-      stop_datetime: 2016-06-01 13:00:00
+      code_value: 99281 # Encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 13:00:00
       provider: Rachel
     - code_type: SNOMEDCT
-      code_value: 428191000124101 # Current Medications Documented SNMD
-      start_date: 2016-06-02
-      stop_date: 2016-06-02
-      start_datetime: 2016-06-02 12:00:00
-      stop_datetime: 2016-06-02 13:00:00
+      code_value: 428191000124101 # Documentation of meds
+      child_code_value: 397745006 # Medical reason
+      start_date: 2016-02-01 # Too early
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 11:00:00
+      stop_datetime: 2016-02-01 11:00:00
+- name: Exception Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Exception
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99281 # Encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 13:00:00
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 428191000124101 # Documentation of meds
+      child_code_value: 397745006 # Medical reason
+      start_date: 2016-02-01 # Lower bound
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 12:00:00
+- name: Exception Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Exception
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99281 # Encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 13:00:00
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 428191000124101 # Documentation of meds
+      child_code_value: 397745006 # Medical reason
+      start_date: 2016-02-01 # Upper boundnd
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 12:00:00
+- name: Exception After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Exception
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99281 # Encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      start_datetime: 2016-02-01 12:00:00
+      stop_datetime: 2016-02-01 13:00:00
+      provider: Rachel
+    - code_type: SNOMEDCT
+      code_value: 428191000124101 # Documentation of meds
+      child_code_value: 397745006 # Medical reason
+      start_date: 2016-02-01 # Too late
+      stop_date: 2016-02-01
+      start_datetime: 2016-02-01 14:00:00
+      stop_datetime: 2016-02-01 14:00:00
