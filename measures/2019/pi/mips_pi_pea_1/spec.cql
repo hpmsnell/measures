@@ -4,7 +4,7 @@ library MIPS_PI_PEA_1_2019 version '1'
  * Source: MIPS
  * ID: PI_PEA_1
  * Year: 2019
- * Version: 6
+ * Version: 7
  * Author: Steve Daniels
  *
   */
@@ -24,15 +24,15 @@ define "Denominator Encounter":
 define "Portal Access":
   ["System Event"] S
     where S.type ="PORTAL_ACCESS"
-      and S.start_datetime during "Measurement Period"
+      and S.start_datetime starts on or before end "Measurement Period"
 
 define "API Access":
   ["System Event"] S
     where S.type ="API_ACCESS_OPT_IN"
-      and S.start_datetime during "Measurement Period"
+      and S.start_datetime starts on or before end "Measurement Period"
   union ["System Event"] S
     where S.type ="API_ACCESS_OPT_OUT"
-      and S.start_datetime during "Measurement Period"
+      and S.start_datetime starts on or before end "Measurement Period"
 
 define "Health Information Provisioning":
   ["System Event"] S

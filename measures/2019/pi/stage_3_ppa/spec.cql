@@ -4,7 +4,7 @@ library STAGE_3_PPA_2019 version '1'
  * Source: Stage 3
  * ID: PPA
  * Year: 2019
- * Version: 6
+ * Version: 7
  * Author: Steve Daniels
  *
   */
@@ -29,15 +29,15 @@ define "Denominator Encounter in Calendar Year":
 define "Portal Access":
   ["System Event"] S
     where S.type ="PORTAL_ACCESS"
-      and S.start_datetime same year as "Measurement Period"
+      and S.start_datetime starts on or before end of year of start of "Measurement Period"
 
 define "API Access":
   ["System Event"] S
     where S.type ="API_ACCESS_OPT_IN"
-      and S.start_datetime same year as "Measurement Period"
+      and S.start_datetime starts on or before end of year of start of "Measurement Period"
   union ["System Event"] S
     where S.type ="API_ACCESS_OPT_OUT"
-      and S.start_datetime same year as "Measurement Period"
+      and S.start_datetime starts on or before end of year of start of "Measurement Period"
 
 define "Health Information Provisioning":
   ["System Event"] S
