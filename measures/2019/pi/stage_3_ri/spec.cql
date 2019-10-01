@@ -4,7 +4,7 @@ library STAGE_3_RI_2019 version '1'
  * Source: Stage 3
  * ID: RI
  * Year: 2019
- * Version: 5
+ * Version: 6
  * Author: Steve Daniels
  *
   */
@@ -16,26 +16,28 @@ parameter "Reporting Provider ID" String
 
 context Patient
 
-define "Summary of Care":
-  ["System Event"] S
-    where S.type = "INBOUND_SUMMARY_OF_CARE"
-  union ["System Event"] S
-    where S.type = "OUTSIDE_SUMMARY_OF_CARE_AVAILABLE"
-
-define "Denominator Encounter":
+define "Denominator Encounter with Summary of Care":
   ["Encounter"] E
     where E.start_datetime during "Measurement Period"
       and R.provider_id = "Reporting Provider ID"
-    with "Summary of Care"
-      such that S.start_datetime on or before E.stop_datetime
+    with ["System Event"] S
+      such that S.type = "INBOUND_SUMMARY_OF_CARE"
+        and S.start_datetime before E.stop_datetime
+        and S.encounter_id = E.external_id
+  union ["Encounter"] E
+    where E.start_datetime during "Measurement Period"
+      and R.provider_id = "Reporting Provider ID"
+    with ["System Event"] S
+      such that S.type = "OUTSIDE_SUMMARY_OF_CARE_AVAILABLE"
+        and S.start_datetime during [E.start_datetime, end of "Measurement Period"]
         and S.encounter_id = E.external_id
 
 define "Denominator Transfer of Care":
-  "Denominator Encounter" E
+  "Denominator Encounter with Summary of Care" E
     with ["Clinical Activity": "Able; New Encounter"] C
       such that C.relevantPeriod starts during "Measurement Period"
         and C.encounter_id = E.encounter_id
-  union "Denominator Encounter" E
+  union "Denominator Encounter with Summary of Care" E
     with ["System Event"] S
       such that S.start_datetime during "Measurement Period"
         and S.type = "INBOUND_TRANSITION_OF_CARE"

@@ -4,7 +4,7 @@ library MIPS_PI_HIE_4_2019 version '1'
  * Source: MIPS
  * ID: PI_HIE_4
  * Year: 2019
- * Version: 5
+ * Version: 6
  * Author: Steve Daniels
  *
   */
@@ -21,7 +21,7 @@ define "Denominator Encounter":
     where E.start_datetime during "Measurement Period"
       and R.provider_id = "Reporting Provider ID"
     with ["System Event"] S
-      such that S.start_datetime on or before E.stop_datetime
+      such that S.start_datetime before E.stop_datetime
         and S.type = "INBOUND_SUMMARY_OF_CARE"
         and S.encounter_id = E.external_id
 
