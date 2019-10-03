@@ -5,7 +5,7 @@ library HEDIS_CDC6_2019 version '1'
  * Source: HEDIS
  * ID: CDC6
  * Year: 2019
- * Version: 2
+ * Version: 3
  * Author: Steve Daniels
  *
   */
@@ -43,6 +43,10 @@ valueset "HEDIS; Hospice"
 // VSAC value sets
 
 valueset "VSAC; ACE Inhibitor or ARB": '2.16.840.1.113883.3.526.3.1139'
+
+// NCQA value sets
+
+valueset "NCQA; ACE Inhibitor/ARB Medications"
 
 // MIPS value sets
 
@@ -89,6 +93,8 @@ define "Numerator Performance Met":
   or exists("Nephropathy Diagnoses" D
     where D.prevalencePeriod overlaps "Measurement Year")
   or exists(["Medication": "VSAC; ACE Inhibitor or ARB"] M
+    where M.relevantPeriod starts during "Measurement Year")
+  or exists(["Medication": "NCQA; ACE Inhibitor/ARB Medications"] M
     where M.relevantPeriod starts during "Measurement Year")
   or exists(["Procedure": "MIPS; Performance Met: G8506"] P
     where P.relevantPeriod starts during "Measurement Year")

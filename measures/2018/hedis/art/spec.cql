@@ -5,7 +5,7 @@ library HEDIS_ART_2018 version '1'
  * Source: HEDIS
  * ID: ART
  * Year: 2018
- * Version: 1
+ * Version: 2
  * Author: Steve Daniels
  *
   */
@@ -25,11 +25,18 @@ valueset "HEDIS; Rheumatoid Arthritis": '2.16.840.1.113883.3.464.1004.1229'
 valueset "HEDIS; HIV": '2.16.840.1.113883.3.464.1004.1110'
 valueset "HEDIS; HIV Type 2": '2.16.840.1.113883.3.464.1004.1406'
 valueset "HEDIS; DMARD": '2.16.840.1.113883.3.464.1004.1070'
-valueset "HEDIS; DMARD Medication"
 
 // VSAC value sets
 
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
+
+// NCQA value sets
+
+valueset "HEDIS; DMARD Medications"
+
+// Able value sets
+
+valueset "Able; DMARD Medication"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -89,7 +96,9 @@ define "Numerator Performance Met":
    */
   exists(["Intervention, Performed": "HEDIS; DMARD"] I
     where I.relevantPeriod starts during "Measurement Period")
-  or exists(["Medication, Order": "HEDIS; DMARD Medication"] M
+  or exists(["Medication, Order": "NCQA; DMARD Medications"] M
+    where M.relevantPeriod starts during "Measurement Period")
+  or exists(["Medication, Order": "Able; DMARD Medication"] M
     where M.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met":

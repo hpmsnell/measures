@@ -4,7 +4,7 @@ library MIPS_119_2017 version '1'
  * Source: MIPS
  * ID: 119
  * Year: 2017
- * Version: 1
+ * Version: 2
  * Written By: Steve Daniels
  * Reviewed By: Rachel Katz
  *
@@ -47,6 +47,10 @@ valueset "VSAC; Glomerulonephritis and Nephrotic Syndrome": '2.16.840.1.113883.3
 valueset "VSAC; Hypertensive Chronic Kidney Disease": '2.16.840.1.113883.3.464.1003.109.12.1017'
 valueset "VSAC; Kidney Failure": '2.16.840.1.113883.3.464.1003.109.12.1028'
 valueset "VSAC; Proteinuria": '2.16.840.1.113883.3.526.3.1003'
+
+// NCQA value sets
+
+valueset "NCQA; ACE Inhibitor/ARB Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 parameter "Denominator Period" Interval<DateTime>
@@ -143,6 +147,8 @@ define "Numerator Performance Met: G8506":
   exists(["Procedure, Performed": "MIPS; Performance Met: G8506"] P
     where P.relevantPeriod starts during "Measurement Period")
   or exists (["Medication": "VSAC; ACE Inhibitor or ARB"] M
+      where M.relevantPeriod overlaps "Measurement Period")
+  or exists (["Medication": "NCQA; ACE Inhibitor/ARB Medications"] M
       where M.relevantPeriod overlaps "Measurement Period")
 
 define "Numerator Performance Not Met: 3060F-8P":

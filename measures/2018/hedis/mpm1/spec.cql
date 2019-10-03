@@ -5,7 +5,7 @@ library HEDIS_MPM1_2018 version '1'
  * Source: HEDIS
  * ID: MPM1
  * Year: 2018
- * Version: 1
+ * Version: 2
  * Author: Steve Daniels
  *
   */
@@ -27,7 +27,11 @@ valueset "HEDIS; Serum Creatinine": '2.16.840.1.113883.3.464.1004.1236'
 // VSAC value sets
 
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
-valueset "VSAC; ACE Inhibitor/ARB": '2.16.840.1.113883.3.526.3.1139'
+valueset "VSAC; ACE Inhibitor or ARB": '2.16.840.1.113883.3.526.3.1139'
+
+// NCQA value sets
+
+valueset "NCQA; ACE Inhibitor/ARB Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -66,7 +70,9 @@ define "Medication End Date":
     return end of M.relevantPeriod
 
 define "Medication":
-  ["Medication": "HEDIS; ACE Inhibitor/ARB"] M
+  ["Medication": "NCQA; ACE Inhibitor/ARB Medications"] M
+    where M.relevantPeriod overlaps "Measurement Period"
+  union ["Medication": "VSAC; ACE Inhibitor or ARB"] M
     where M.relevantPeriod overlaps "Measurement Period"
 
 define "Hospice":

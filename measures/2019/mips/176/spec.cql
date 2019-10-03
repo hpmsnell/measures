@@ -5,7 +5,7 @@ library MIPS_176_2019 version '1'
  * Source: MIPS
  * ID: 176
  * Year: 2019
- * Version: 1
+ * Version: 2
  * Written by: Steve Daniels
  *
   */
@@ -23,7 +23,7 @@ valueset "MIPS; Performance Not Met: M1005"
 
 // Able value sets
 
-valueset "Able; Anti-Rheumatic Drug Therapy"
+valueset "Able; DMARD Medication"
 
 // NCQA value sets
 
@@ -38,7 +38,7 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Medication":
-  ["Medication": "Able; Anti-Rheumatic Drug Therapy"]
+  ["Medication": "Able; DMARD Medication"]
   union ["Medication": "NCQA; DMARD Medications"]
   union ["Procedure, Performed": "HEDIS; DMARD"]
 
