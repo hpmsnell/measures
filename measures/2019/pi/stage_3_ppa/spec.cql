@@ -4,7 +4,7 @@ library STAGE_3_PPA_2019 version '1'
  * Source: Stage 3
  * ID: PPA
  * Year: 2019
- * Version: 7
+ * Version: 8
  * Author: Steve Daniels
  *
   */
@@ -41,7 +41,7 @@ define "API Access":
 
 define "Health Information Provisioning":
   ["System Event"] S
-    where S.start_datetime same year as start of "Measurement Period"
+    where S.start_datetime during "Measurement Period"
       and S.type = "HEALTH_INFORMATION_PROVISIONING"
     with "Denominator Encounter" E
       such that S.encounter_id = E.external_id
@@ -90,7 +90,7 @@ define "Numerator Performance Met":
     // ...AND none of the other encounters have invalid provisioning events
     and not exists("Denominator Encounter in Calendar Year" E
         with ["System Event"] S
-          such that S.start_datetime same year as start of "Measurement Period"
+          such that S.start_datetime during "Measurement Period"
             and S.type = "HEALTH_INFORMATION_PROVISIONING"
             and S.encounter_id = E.external_id
             and (
@@ -101,7 +101,7 @@ define "Numerator Performance Met":
     // ...AND none of the other encounters have no portal access
     and not exists("Denominator Encounter in Calendar Year" E
         with ["System Event"] S1
-          such that S1.start_datetime same year as start of "Measurement Period"
+          such that S1.start_datetime during "Measurement Period"
             and S1.stop_datetime same year as start of "Measurement Period"
             and S1.type = "HEALTH_INFORMATION_PROVISIONING"
             and S1.stop_datetime 48 hours or less after S1.start_datetime
@@ -114,7 +114,7 @@ define "Numerator Performance Met":
   // ...AND none of the other encounters have no API access
   and not exists("Denominator Encounter in Calendar Year" E
       with ["System Event"] S1
-        such that S1.start_datetime same year as start of "Measurement Period"
+        such that S1.start_datetime during "Measurement Period"
           and S1.stop_datetime same year as start of "Measurement Period"
           and S1.type = "HEALTH_INFORMATION_PROVISIONING"
           and S1.stop_datetime 48 hours or less after S1.start_datetime
