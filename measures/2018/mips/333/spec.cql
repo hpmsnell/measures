@@ -70,7 +70,7 @@ define "Denominator Exception Exists":
       such that P.relevantPeriod starts on or 28 days or less after start of E.relevantPeriod)
   or exists("Excepted Conditions" D
     with "Denominator Encounter" E
-      such that D.prevalencePeriod overlaps Interval[start of E.relevantPeriod, E.relevantPeriod + 28 days])
+      such that D.prevalencePeriod overlaps E.relevantPeriod)
 
 define "Denominator":
   "Denominator Encounter"
