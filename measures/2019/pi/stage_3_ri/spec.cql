@@ -4,7 +4,7 @@ library STAGE_3_RI_2019 version '1'
  * Source: Stage 3
  * ID: RI
  * Year: 2019
- * Version: 6
+ * Version: 7
  * Author: Steve Daniels
  *
   */
@@ -57,7 +57,7 @@ define "Numerator Performance Met":
       such that S1.start_datetime same year as start of "Measurment Period"
         and S1.start_datetime on or after E.start_datetime
         and S.start_datetime on or after E.start_datetime
-        and S.type = "SUMMARY_OF_CARE_INCORPORATION"
+        and S.type in ["SUMMARY_OF_CARE_INCORPORATION","SUMMARY_OF_CARE_INCORPORATION_STAGE_3"]
         and S.encounter_id = E.external_id
 
 define "Numerator Performance Not Met":

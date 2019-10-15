@@ -4,7 +4,7 @@ library STAGE_3_CR_2019 version '1'
  * Source: MIPS
  * ID: CR
  * Year: 2019
- * Version: 5
+ * Version: 6
  * Author: Steve Daniels
  *
   */
@@ -31,6 +31,11 @@ define "Denominator Transfer of Care":
       such that S.start_datetime during "Measurement Period"
         and S.type = "INBOUND_TRANSITION_OF_CARE"
         and S.encounter_id = E.external_id
+  union "Denominator Encounter" E
+    with ["System Event"] S
+      such that S.start_datetime before E.stop_datetime
+        and S.type = "INBOUND_SUMMARY_OF_CARE"
+        and S.encounter_id = E.external_id
 
 /* Populations */
 
@@ -45,17 +50,17 @@ define "Numerator Performance Met":
     with ["System Event"] S1
       such that S1.start_datetime same year as "Measurement Period"
         and S1.start_datetime on or after E.start_datetime
-        and S1.type = "MEDICATION_LIST_RECONCILIATION"
+        and S.type in ["MEDICATION_LIST_RECONCILIATION","MEDICATION_LIST_RECONCILIATION_STAGE_3"]
         and S1.encounter_id = E.external_id
     with ["System Event"] S2
       such that S2.start_datetime same year as "Measurement Period"
         and S2.start_datetime on or after E.start_datetime
-        and S2.type = "ALLERGY_LIST_RECONCILIATION"
+        and S.type in ["ALLERGY_LIST_RECONCILIATION","ALLERGY_LIST_RECONCILIATION_STAGE_3"]
         and S2.encounter_id = E.external_id
     with ["System Event"] S3
       such that S3.start_datetime same year as "Measurement Period"
         and S3.start_datetime on or after E.start_datetime
-        and S3.type = "PROBLEM_LIST_RECONCILIATION"
+        and S.type in ["PROBLEM_LIST_RECONCILIATION","PROBLEM_LIST_RECONCILIATION_STAGE_3"]
         and S3.encounter_id = E.external_id
 
 define "Numerator Performance Not Met":
