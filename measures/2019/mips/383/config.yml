@@ -1,0 +1,186 @@
+---
+measure:
+  name: 19.MIPS.Mips383
+  required:
+    display_title: Adherence to Antipsychotic Medications For Individuals with Schizophrenia
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: '383'
+    version:
+  optional:
+    description: 'Percentage of individuals at least 18 years of age as of the beginning
+      of the measurement period with schizophrenia or schizoaffective disorder who
+      had at least two prescriptions filled for any antipsychotic medication and who
+      had a Proportion of Days Covered (PDC) of at least 0.8 for antipsychotic medications
+      during the measurement period (12 consecutive months)'
+    gap_resolution_action: Patient requires medication management due to a proportion
+      of days covered below 80% for antipsychotic medications
+    version: 2018
+    mips_measure_type: Intermediate Outcome
+    mips_high_priority: true
+    mips_specialty_sets: 'General Practice/Family Medicine, Internal Medicine,
+      Mental/Behavioral Health'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'Individuals at least 18 years of age as of the beginning of the measurement
+    period with schizophrenia or schizoaffective disorder and at least two prescriptions
+    filled for any antipsychotic medication during the measurement period (12 consecutive months)'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: Acute Inpatient Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: 'MIPS; MIPS 383 Encounter Acute Inpatient'
+    - display_title: 2 Encounters
+      logical_operator: 'OR'
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: 'MIPS; MIPS 383 Encounter Outpatient Option 1'
+      - model: ClinicalActivity
+        value_set: 'MIPS; MIPS 383 Encounter ED Option 1'
+      - model: ClinicalActivity
+        value_set: 'MIPS; MIPS 383 Encounter Non-Acute Inpatient Option 1'
+    - display_title: 2 Outpatient Encounters
+      logical_operator: 'OR'
+      show_codes: true
+      annotation: 'With place of service: 03, 05, 07, 09, 11, 12, 13, 14, 15, 20, 22, 24, 33, 49, 50, 52, 53, 71, 72'
+      records:
+      - model: ClinicalActivity
+        value_set: 'MIPS; MIPS 383 Encounter Outpatient Option 2'
+    - display_title: 2 ED Encounters
+      logical_operator: 'OR'
+      show_codes: true
+      annotation: 'With place of service: 23'
+      records:
+      - model: ClinicalActivity
+        value_set: 'MIPS; MIPS 383 Encounter ED Option 2'
+    - display_title: 2 Non-Acute Inpatient Encounters
+      logical_operator: 'OR'
+      show_codes: true
+      annotation: 'With place of service: 31, 32, 56'
+      records:
+      - model: ClinicalActivity
+        value_set: 'MIPS; MIPS 383 Encounter Non-Acute Inpatient Option 2'
+  - logical_operator: 'AND'
+    validation_record_table_count: 1
+    components:
+    - display_title: Schizophrenia
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; Schizophrenia
+  - logical_operator: 'AND'
+    validation_record_table_count: 10
+    components:
+    - display_title: 'Antipsychotic Medication'
+      show_codes: false
+      records:
+      - model: Medication
+        value_set: HEDIS; Oral Antipsychotic Medications
+      - model: Medication
+        value_set: HEDIS; Long-Acting Injections 14 Days Supply Medications
+      - model: Medication
+        value_set: HEDIS; Long-Acting Injections 28 Days Supply Medications
+      - model: ClinicalActivity
+        value_set: HEDIS; Long-Acting Injections 14 Days Supply
+      - model: ClinicalActivity
+        value_set: HEDIS; Long-Acting Injections 28 Days Supply
+      - model: Medication
+        value_set: VSAC; Antipsychotic Medications
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Dementia
+    description: Patient is excluded due to diagnosis of dementia
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Dementia
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: 'MIPS; MIPS 383 Dementia'
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Individuals in the denominator who have a Proportion of Days Covered (PDC)
+    of at least 0.8 for antipsychotic medications'
+  reasons:
+  - config_link_id: G9512
+    code_value: G9512
+    display_title: G9512
+    description: Individual had a PDC of 0.8 or greater
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9512'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G9512'
+          modifier: 'None'
+    - logical_operator: 'OR'
+      validation_record_table_count: 10
+      components:
+      - display_title: 'Antipsychotic Medication'
+        show_codes: false
+        annotation: 'With PDC ≥ 80%'
+        records:
+        - model: Medication
+          value_set: NCQA; Oral Antipsychotic Medications
+        - model: Medication
+          value_set: NCQA; Long-Acting Injections 14 Days Supply Medications
+        - model: Medication
+          value_set: NCQA; Long-Acting Injections 28 Days Supply Medications
+        - model: ClinicalActivity
+          value_set: NCQA; Long-Acting Injections 14 Days Supply
+        - model: ClinicalActivity
+          value_set: NCQA; Long-Acting Injections 28 Days Supply
+        - model: Medication
+          value_set: VSAC; Antipsychotic Medications
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G9513
+    code_value: G9513
+    display_title: G9513
+    description: Individual did not have a PDC of 0.8 or greater
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: 'Quality Data Code: G9513'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G9513'
+          modifier: 'None'
+    - logical_operator: 'OR'
+      validation_record_table_count: 10
+      components:
+      - display_title: 'Antipsychotic Medication'
+        show_codes: false
+        annotation: 'With PDC < 80%'
+        records:
+        - model: Medication
+          value_set: HEDIS; Oral Antipsychotic Medications
+        - model: Medication
+          value_set: HEDIS; Long-Acting Injections 14 Days Supply Medications
+        - model: Medication
+          value_set: HEDIS; Long-Acting Injections 28 Days Supply Medications
+        - model: ClinicalActivity
+          value_set: HEDIS; Long-Acting Injections 14 Days Supply
+        - model: ClinicalActivity
+          value_set: HEDIS; Long-Acting Injections 28 Days Supply
+        - model: Medication
+          value_set: VSAC; Antipsychotic Medications
