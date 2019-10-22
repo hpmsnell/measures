@@ -45,7 +45,9 @@ context Patient
 define "Depressed Left Ventricular Systolic Function":
     ["Assessment, Performed": "MIPS; Depressed Left Ventricular Systolic Function"]
     union ["Diagnosis": "VSAC; Moderate or Severe LVSD"]
-    union ["Assessment, Performed": "ABLE; Moderate or Severe LVSD"]
+    union ["Assessment, Performed": "Able; Moderate or Severe LVSD"]
+    union ["Assessment, Performed": "Able; LVSD"] A
+      where A.result < 40
 
 define "Denominator Encounter with Diagnosis":
   ["Encounter, Performed": "MIPS; MIPS 005 Outpatient Encounter"] E
@@ -65,6 +67,7 @@ define "Denominator Encounter":
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {'GQ', 'GT'}
+      and not E.placeOfService in {'02'}
 
 define "Denominator":
   exists("Denominator Encounter with Diagnosis")
