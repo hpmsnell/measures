@@ -22,11 +22,13 @@ define "Transition of Care":
     where S.type = "INBOUND_TRANSITION_OF_CARE"
 
 define "Denominator Summary of Care":
-  ["Summary of Care"] SOC
-    where SOC.provider_id = "Reporting Provider ID"
+  ["ClinicalDocument"] C
+    where C.type = "INBOUND_SUMMARY_OF_CARE"
+      C.provider_id = "Reporting Provider ID"
     with ["Encounter"] E
-      such that SOC.start_datetime before E.stop_datetime
-        and SOC.encounter_id = E.external_id
+      such that E.relevantPeriod starts during "Measurement Period"
+        and C.start_datetime before E.stop_datetime
+        and C.encounter_id = E.external_id
     with "Transition of Care" TOC
       such that TOC.start_datetime during "Measurement Period"
         and TOC.encounter_id = E.encounter_id
@@ -40,23 +42,23 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  "Denominator Summary of Care" SOC
+  "Denominator Summary of Care" C
     with ["System Event"] S1
-      such that S1.start_datetime during [SOC.start_datetime, end of "Measurement Period"]
+      such that S1.start_datetime during [C.start_datetime, end of "Measurement Period"]
         and S1.type in ["SUMMARY_OF_CARE_INCORPORATION","SUMMARY_OF_CARE_INCORPORATION_MIPS"]
-        and S1.encounter_id = SOC.external_id
+        and S1.encounter_id = C.external_id
     with ["System Event"] S2
-      such that S2.start_datetime during [SOC.start_datetime, end of "Measurement Period"]
+      such that S2.start_datetime during [C.start_datetime, end of "Measurement Period"]
         and S2.type in ["MEDICATION_LIST_RECONCILIATION","MEDICATION_LIST_RECONCILIATION_MIPS"]
-        and S2.encounter_id = SOC.external_id
+        and S2.encounter_id = C.external_id
     with ["System Event"] S3
-      such that S3.start_datetime during [SOC.start_datetime, end of "Measurement Period"]
+      such that S3.start_datetime during [C.start_datetime, end of "Measurement Period"]
         and S3.type in ["ALLERGY_LIST_RECONCILIATION","ALLERGY_LIST_RECONCILIATION_MIPS"]
-        and S3.encounter_id = SOC.external_id
+        and S3.encounter_id = C.external_id
     with ["System Event"] S4
-      such that S4.start_datetime during [SOC.start_datetime, end of "Measurement Period"]
+      such that S4.start_datetime during [C.start_datetime, end of "Measurement Period"]
         and S4.type in ["PROBLEM_LIST_RECONCILIATION","PROBLEM_LIST_RECONCILIATION_MIPS"]
-        and S4.encounter_id = SOC.external_id
+        and S4.encounter_id = C.external_id
 
 define "Numerator Performance Not Met":
   /*
