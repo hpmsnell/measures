@@ -27,7 +27,7 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Denominator Procedure":
-  ["Procedure, Performed": "MIPS; MIPS 143 Procedure"] E
+  ["Procedure, Performed": "MIPS; MIPS 144 Procedure"] E
     where E.relevantPeriod starts during "Measurement Period"
       and E.signingProvider.hasMeasureMembership = true
       and not E.code.modifier in {'GQ','GT','95'}

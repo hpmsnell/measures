@@ -43,12 +43,12 @@ define "Numerator Performance Met: 7010F":
   exists(["Procedure, Performed": "MIPS; Performance Met: 7010F"] P
     where P.relevantPeriod starts during "Measurement Period")
 
-    define "Denominator Exception: 7010F-3P":
-      /*
-       * config_link_id: 7010F
-       */
-      exists(["Procedure, Performed": "MIPS; Denominator Exception: 7010F-3P"] P
-        where P.relevantPeriod starts during "Measurement Period")
+define "Denominator Exception: 7010F-3P":
+  /*
+   * config_link_id: 7010F
+   */
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: 7010F-3P"] P
+    where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met: 7010F-8P":
   /*
