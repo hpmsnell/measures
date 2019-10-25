@@ -1,10 +1,10 @@
-library STAGE_3_RI_2019 version '1'
+library STAGE_3_RI_2019 version '8'
 
 /*
  * Source: Stage 3
  * ID: RI
  * Year: 2019
- * Version: 7
+ * Version: 8
  * Author: Steve Daniels
  *
   */
@@ -20,10 +20,10 @@ define "Denominator Encounter with Summary of Care":
   ["Encounter"] E
     where E.start_datetime during "Measurement Period"
       and R.provider_id = "Reporting Provider ID"
-    with ["System Event"] S
-      such that S.type = "INBOUND_SUMMARY_OF_CARE"
-        and S.start_datetime before E.stop_datetime
-        and S.encounter_id = E.external_id
+    with ["Clinical Document"] C
+      such that C.type = "INBOUND_SUMMARY_OF_CARE"
+        and C.start_datetime before E.stop_datetime
+        and C.encounter_id = E.external_id
   union ["Encounter"] E
     where E.start_datetime during "Measurement Period"
       and R.provider_id = "Reporting Provider ID"

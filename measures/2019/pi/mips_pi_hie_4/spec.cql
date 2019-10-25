@@ -1,10 +1,10 @@
-library MIPS_PI_HIE_4_2019 version '8'
+library MIPS_PI_HIE_4_2019 version '9'
 
 /*
  * Source: MIPS
  * ID: PI_HIE_4
  * Year: 2019
- * Version: 8
+ * Version: 9
  * Author: Steve Daniels
  *
   */
@@ -46,19 +46,19 @@ define "Numerator Performance Met":
     with ["System Event"] S1
       such that S1.start_datetime during [C.start_datetime, end of "Measurement Period"]
         and S1.type in ["SUMMARY_OF_CARE_INCORPORATION","SUMMARY_OF_CARE_INCORPORATION_MIPS"]
-        and S1.encounter_id = C.external_id
+        and S1.clinical_document_id = C.external_id
     with ["System Event"] S2
       such that S2.start_datetime during [C.start_datetime, end of "Measurement Period"]
         and S2.type in ["MEDICATION_LIST_RECONCILIATION","MEDICATION_LIST_RECONCILIATION_MIPS"]
-        and S2.encounter_id = C.external_id
+        and S2.clinical_document_id = C.external_id
     with ["System Event"] S3
       such that S3.start_datetime during [C.start_datetime, end of "Measurement Period"]
         and S3.type in ["ALLERGY_LIST_RECONCILIATION","ALLERGY_LIST_RECONCILIATION_MIPS"]
-        and S3.encounter_id = C.external_id
+        and S3.clinical_document_id = C.external_id
     with ["System Event"] S4
       such that S4.start_datetime during [C.start_datetime, end of "Measurement Period"]
         and S4.type in ["PROBLEM_LIST_RECONCILIATION","PROBLEM_LIST_RECONCILIATION_MIPS"]
-        and S4.encounter_id = C.external_id
+        and S4.clinical_document_id = C.external_id
 
 define "Numerator Performance Not Met":
   /*

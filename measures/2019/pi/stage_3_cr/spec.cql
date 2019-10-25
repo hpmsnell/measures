@@ -1,10 +1,10 @@
-library STAGE_3_CR_2019 version '1'
+library STAGE_3_CR_2019 version '8'
 
 /*
  * Source: MIPS
  * ID: CR
  * Year: 2019
- * Version: 6
+ * Version: 8
  * Author: Steve Daniels
  *
   */
@@ -19,7 +19,7 @@ context Patient
 define "Denominator Encounter":
   ["Encounter"] E
     where E.start_datetime during "Measurement Period"
-      and R.provider_id = "Reporting Provider ID"
+      and E.provider_id = "Reporting Provider ID"
 
 define "Denominator Transfer of Care":
   "Denominator Encounter" E
@@ -32,10 +32,10 @@ define "Denominator Transfer of Care":
         and S.type = "INBOUND_TRANSITION_OF_CARE"
         and S.encounter_id = E.external_id
   union "Denominator Encounter" E
-    with ["System Event"] S
-      such that S.start_datetime before E.stop_datetime
-        and S.type = "INBOUND_SUMMARY_OF_CARE"
-        and S.encounter_id = E.external_id
+    with ["Clinical Document"] C
+      such that C.start_datetime before E.stop_datetime
+        and C.type = "INBOUND_SUMMARY_OF_CARE"
+        and C.encounter_id = E.external_id
 
 /* Populations */
 
