@@ -39,9 +39,9 @@ define "Numerator Performance Met: G8573":
   /*
    * config_link_id: G8573
    */
-  exists(["Procedure, Performed": "MIPS; Performance Met: G8573"] P
-    with "Denominator Procedure" D
-      such that P.relevantPeriod starts on or 1 day or less after start of D.relevantPeriod)
+  exists(["Procedure, Performed": "MIPS; Performance Met: G8573"] P1
+    with "Denominator Procedure" P2
+      such that P1.relevantPeriod starts on or 1 day or less after start of P2.relevantPeriod)
   or exists(["Diagnosis"; "VSAC; Cerebrovascular disease, Stroke, TIA"] D
     with ["Denominator Procedure"] P
       such that D.prevalencePeriod starts on or 1 day or less after start of P.relevantPeriod)
