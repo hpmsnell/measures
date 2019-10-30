@@ -1,10 +1,10 @@
-library HEDIS_SPC2_2019 version '1'
+library HEDIS_SPC2_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: SPC2
- * Year: 2019
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -14,6 +14,7 @@ using QDM
 
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1189'
 valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
@@ -44,6 +45,9 @@ valueset "NCQA; Estrogen Agonists Medications":
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
+
+define "Hospice":
+  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "Statin in Measurement Period":
   ["Medication, Order": "NCQA; High and Moderate-Intensity Statin Medications"] M

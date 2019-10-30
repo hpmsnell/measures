@@ -1,10 +1,10 @@
-library HEDIS_CIS14_2018 version '1'
+library HEDIS_CIS14_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CIS14
- * Year: 2018
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -12,12 +12,9 @@ library HEDIS_CIS14_2018 version '1'
 
 using QDM
 
-// MIPS value sets
-
-valueset "MIPS; MIPS Hospice Service"
-
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; DTaP Vaccine Administered": '2.16.840.1.113883.3.464.1004.1071'
 valueset "HEDIS; Inactivated Polio Vaccine (IPV) Administered": '2.16.840.1.113883.3.464.1004.1135'
 valueset "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered": '2.16.840.1.113883.3.464.1004.1158'
@@ -45,10 +42,6 @@ valueset "HEDIS; Severe Combined Immunodeficiency": '2.16.840.1.113883.3.464.100
 valueset "HEDIS; Intussusception": '2.16.840.1.113883.3.464.1004.1415'
 valueset "HEDIS Varicella Zoster": '2.16.840.1.113883.3.464.1004.1258'
 valueset "HEDIS; Hepatitis B": '2.16.840.1.113883.3.464.1004.1266'
-
-// VSAC value sets
-
-valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 
 // Able value sets
 

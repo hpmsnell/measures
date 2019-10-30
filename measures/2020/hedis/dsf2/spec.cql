@@ -1,9 +1,9 @@
-library HEDIS_DSF2_2019 version '1'
+library HEDIS_DSF2_2020 version '1'
 
 /*
  * Source: HEDIS
  * ID: DSF2
- * Year: 2019
+ * Year: 2020
  * Version: 1
  * Written by: Steve Daniels
  *
@@ -13,6 +13,7 @@ using QDM
 
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Depression"
 valueset "HEDIS; Bipolar Disorder"
 valueset "HEDIS; Beck Depression Inventory Fast Screen total score [BDI]"
@@ -35,6 +36,7 @@ valueset "HEDIS; Behavioral Health Encounter"
 valueset "HEDIS; Antidepressant Medications"
 
 // NCQA value sets
+
 valueset "NCQA; Antidepressant Medications"
 
 parameter "Measurement Period" Interval<DateTime>

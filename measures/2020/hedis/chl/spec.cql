@@ -1,10 +1,10 @@
-library HEDIS_CHL_2018 version '1'
+library HEDIS_CHL_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CHL
- * Year: 2018
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -14,11 +14,11 @@ using QDM
 
 // MIPS value sets
 
-valueset "MIPS; MIPS Hospice Service"
 valueset "MIPS; Performance Met: G9820" //Chlamydia Screening
 
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Pregnancy": '2.16.840.1.113883.3.464.1004.1219'
 valueset "HEDIS; Pregnancy Tests": '2.16.840.1.113883.3.464.1004.1221'
 valueset "HEDIS; Sexual Activity": '2.16.840.1.113883.3.464.1004.1238'
@@ -29,7 +29,6 @@ valueset "HEDIS; Retinoid Medications"
 
 // VSAC value sets
 
-valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 valueset "VSAC; Pregnancy Test": '2.16.840.1.113883.3.464.1003.111.12.1011'
 valueset "VSAC; Pap Test": '2.16.840.1.113883.3.464.1003.108.12.1017'
 valueset "VSAC; Lab Tests During Pregnancy": '2.16.840.1.113883.3.464.1003.111.12.1007'
@@ -41,8 +40,7 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Hospice":
-  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
-  union ["Intervention, Performed": "VSAC; Palliative Care"]
+  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "Denominator Diagnosis":
   ["Diagnosis": "HEDIS; Pregnancy"]

@@ -1,10 +1,10 @@
-library HEDIS_MRP_2018 version '1'
+library HEDIS_MRP_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: MRP
- * Year: 2019
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -12,12 +12,9 @@ library HEDIS_MRP_2018 version '1'
 
 using QDM
 
-// MIPS value sets
-
-valueset "MIPS; MIPS Hospice Service"
-
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
 valueset "HEDIS; Medication Reconciliation": '2.16.840.1.113883.3.464.1004.1174'
 
@@ -29,7 +26,6 @@ valueset "Able; Able Discharge"
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
-
 
 define "Discharge":
   ["Encounter, Performed": "HEDIS; Inpatient Stay"]
@@ -43,8 +39,7 @@ define "Denominator Discharge":
       such that E2.relevantPeriod starts 30 days or less after start of E1.relevantPeriod
 
 define "Hospice":
-  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
-  union ["Intervention, Performed": "VSAC; Palliative Care"]
+  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "Medication Reconciliation":
   ["Procedure, Performed": "HEDIS; Medication Reconciliation"]

@@ -1,10 +1,10 @@
-library HEDIS_SPR_2018 version '1'
+library HEDIS_SPR_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: SPR
- * Year: 2018
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -12,12 +12,9 @@ library HEDIS_SPR_2018 version '1'
 
 using QDM
 
-// MIPS value sets
-
-valueset "MIPS; MIPS Hospice Service"
-
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
@@ -28,17 +25,12 @@ valueset "HEDIS; Emphysema":
 valueset "HEDIS; Chronic Bronchitis":
 valueset "HEDIS; Spirometry":
 
-// VSAC value sets
-
-valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
-
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 define "Hospice":
-  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
-  union ["Intervention, Performed": "VSAC; Palliative Care"]
+  ["Intervention, Performed": "HEDIS; Hospice"]  
 
 define "Encounter":
   ["Encounter, Performed": "HEDIS; Outpatient"]

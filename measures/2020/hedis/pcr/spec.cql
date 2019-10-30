@@ -1,10 +1,10 @@
-library HEDIS_PCR_2018 version '1'
+library HEDIS_PCR_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: PCR
- * Year: 2018
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -12,12 +12,9 @@ library HEDIS_PCR_2018 version '1'
 
 using QDM
 
-// MIPS value sets
-
-valueset "MIPS; MIPS Hospice Service"
-
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Inpatient Stay"
 valueset "HEDIS; Nonacute Inpatient Stay"
 valueset "HEDIS; Pregnancy"
@@ -69,8 +66,7 @@ define "Planned Procedure":
   union ["Procedure, Performed": "HEDIS; Organ Transplant Other Than Kidney"]
 
 define "Hospice":
-  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
-  union ["Intervention, Performed": "VSAC; Palliative Care"]
+  ["Intervention, Performed": "HEDIS; Hospice"]
 
 /* Populations */
 

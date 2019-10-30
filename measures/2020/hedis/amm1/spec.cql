@@ -1,10 +1,10 @@
-library HEDIS_AMM1`_2018 version '1'
+library HEDIS_AMM1`_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: AMM1`
- * Year: 2018
+ * Year: 2020
  * Version: 2
  * Author: Steve Daniels
  *
@@ -12,12 +12,9 @@ library HEDIS_AMM1`_2018 version '1'
 
 using QDM
 
-// MIPS value sets
-
-valueset "MIPS; MIPS Hospice Service"
-
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
 valueset "HEDIS; Inpatient Stay"
 valueset "HEDIS; AMM Visits"
@@ -25,10 +22,6 @@ valueset "HEDIS; AMM Standalone Visits"
 valueset "HEDIS; Telephone Visits"
 valueset "HEDIS; Major Depression"
 valueset "HEDIS; Antidepressant Medications"
-
-// VSAC value sets
-
-valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 
 parameter "Measurement Period" Interval<DateTime>
 

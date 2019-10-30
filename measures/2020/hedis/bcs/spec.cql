@@ -1,10 +1,10 @@
-library HEDIS_BCS_2019 version '1'
+library HEDIS_BCS_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: BCS
- * Year: 2019
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -18,6 +18,7 @@ valueset "MIPS; Performance Met: G9899"
 
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Bilateral Mastectomy": '2.16.840.1.113883.3.464.1004.1042'
 valueset "HEDIS; History of Bilateral Mastectomy": '2.16.840.1.113883.3.464.1004.1331'
 valueset "HEDIS; Unilateral Mastectomy": '2.16.840.1.113883.3.464.1004.1256'
@@ -32,7 +33,6 @@ valueset "HEDIS; Observation"
 valueset "HEDIS; ED"
 valueset "HEDIS; Nonacute Inpatient"
 valueset "HEDIS; Acute Inpatient"
-valueset "HEDIS; Hospice"
 
 // NCQA value sets
 

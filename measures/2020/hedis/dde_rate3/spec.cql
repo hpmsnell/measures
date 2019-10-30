@@ -1,10 +1,10 @@
-library HEDIS_DDE_RATE_3_2018 version '1'
+library HEDIS_DDE_RATE_3_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: DDE Rate 3
- * Year: 2018
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -12,28 +12,20 @@ library HEDIS_DDE_RATE_3_2018 version '1'
 
 using QDM
 
-// MIPS value sets
-
-valueset "MIPS; MIPS Hospice Service"
-
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; ESRD"
 valueset "HEDIS; CKD Stage 4"
 valueset "HEDIS; Kidney Transplant"
 valueset "HEDIS; Cox-2 Selective NSAIDs and Nonaspirin NSAIDs Medications"
-
-// VSAC value sets
-
-valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 define "Hospice":
-  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
-  union ["Intervention, Performed": "VSAC; Palliative Care"]
+  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "Kidney Disease":
   ["Diagnosis": "HEDIS; CKD Stage 4"]

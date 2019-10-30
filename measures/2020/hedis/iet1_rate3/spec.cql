@@ -1,20 +1,16 @@
-library HEDIS_IET1_RATE3_2018 version '1'
+library HEDIS_IET1_RATE3_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: IET1 Rate 3
- * Year: 2018
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
   */
 
 using QDM
-
-// MIPS value sets
-
-valueset "MIPS; MIPS Hospice Service"
 
 // HEDIS value sets
 
@@ -34,17 +30,12 @@ valueset "HEDIS; Medication Assisted Treatment"
 valueset "HEDIS; MAT for Alcohol Abuse or Dependence Medications"
 valueset "HEDIS; MAT for Opioid Abuse or Dependence Medications"
 
-// VSAC value sets
-
-valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
-
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 define "Hospice":
-  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
-  union ["Intervention, Performed": "VSAC; Palliative Care"]
+  ["Intervention, Performed": "HEDIS; Hospice"]  
 
 define "Encounter":
   ["Encounter, Performed": "HEDIS; IET Stand Alone Visits"]

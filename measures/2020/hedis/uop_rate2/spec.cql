@@ -1,10 +1,10 @@
-library HEDIS_UOP_RATE2_2019 version '1'
+library HEDIS_UOP_RATE2_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: UOP Rate 2
- * Year: 2019
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -14,7 +14,7 @@ using QDM
 
 // HEDIS value sets
 
-valueset "HEDIS; Hospice"
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "NCQA; Opioid Medications"
 
 parameter "Measurement Period" Interval<DateTime>
@@ -41,13 +41,16 @@ define "Opioid Days Supplied":
 
 /* Populations */
 
+define "Hospice":
+  ["Intervention, Performed": "HEDIS; Hospice"]
+
 define "Denominator":
   AgeInYearsAt(start of "Measurement Period") >= 18
   and exists("Opioid" M1
     with "Opioid" M2
       where M2.relevantPeriod starts 1 day or more after start of M1.relevantPeriod)
   and Sum("Opioid Days Supplied") >= 15
-  and not exists(["Intervention, Performed": "HEDIS; Hospice"] I
+  and not exists("Hospice" I
     where I.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Met":

@@ -1,10 +1,10 @@
-library HEDIS_SPC1_2019 version '1'
+library HEDIS_SPC1_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: SPC1
- * Year: 2019
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -14,6 +14,7 @@ using QDM
 
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1189'
 valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
@@ -24,7 +25,6 @@ valueset "HEDIS; IVD":
 valueset "HEDIS; CABG":
 valueset "HEDIS; PCI":
 valueset "HEDIS; Other Revascularization":
-valueset "HEDIS; Hospice":
 valueset "HEDIS; ESRD":
 valueset "HEDIS; Cirrhosis":
 valueset "HEDIS; Pregnancy":
@@ -44,6 +44,9 @@ valueset "NCQA; Estrogen Agonists Medications":
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
+
+define "Hospice":
+  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "IVD Encounter":
   ["Encounter, Performed": "HEDIS: Outpatient"]
@@ -91,7 +94,6 @@ define "Kidney/Liver Disease":
   union ["Procedure, Performed": "HEDIS; ESRD"]
   union ["Diagnosis": "HEDIS; Cirrhosis"]
 
-
 define "Visit":
   ["Encounter, Performed": "HEDIS; Outpatient"]
   union ["Encounter, Performed": "HEDIS; Observation"]
@@ -132,6 +134,8 @@ define "Denominator":
     "Cardiovascular Event Exists"
     or "IVD Exists"
   )
+  and not exists("Hospice" E
+    where E.relevantPeriod starts during "Measurement Period")
 
 define "Denominator Exclusion: Condition"
   /*

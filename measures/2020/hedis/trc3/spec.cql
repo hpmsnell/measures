@@ -1,10 +1,10 @@
-library HEDIS_TRC4_2018 version '1'
+library HEDIS_TRC4_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: TRC4
- * Year: 2018
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -12,18 +12,15 @@ library HEDIS_TRC4_2018 version '1'
 
 using QDM
 
-// MIPS value sets
-
-valueset "MIPS; MIPS Hospice Service"
-
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
 valueset "HEDIS; Outpatient": ''
 valueset "HEDIS; Telephone Visits": ''
 valueset "HEDIS; Transitional Care Management Services": ''
 
-// HEDIS value sets
+// Able value sets
 
 valueset "Able; Able Discharge"
 
@@ -43,8 +40,7 @@ define "Denominator Discharge":
       such that E2.relevantPeriod starts 30 days or less after start of E1.relevantPeriod
 
 define "Hospice":
-  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
-  union ["Intervention, Performed": "VSAC; Palliative Care"]
+  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "Patient Engagement":
   ["Encounter, Performed": "HEDIS; Outpatient"]

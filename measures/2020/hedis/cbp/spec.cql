@@ -1,10 +1,10 @@
-library HEDIS_CBP_2018 version '1'
+library HEDIS_CBP_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CBP
- * Year: 2018
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -14,13 +14,13 @@ using QDM
 
 // MIPS value sets
 
-valueset "MIPS; MIPS Hospice Service"
 valueset "MIPS; Performance Met: G8752" //Systolic BP <140
 valueset "MIPS; Performance Met: G8754" //Diastolic BP <90
 valueset "MIPS; Performance Met: G8783" //Normal BP
 
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Outpatient Without UBREV": '2.16.840.1.113883.3.464.1004.1203'
 valueset "HEDIS; Essential Hypertension": '2.16.840.1.113883.3.464.1004.1122'
 valueset "HEDIS; ESRD": '2.16.840.1.113883.3.464.1004.1089'
@@ -40,15 +40,15 @@ valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
 
 valueset "VSAC; Diastolic Blood Pressure": '2.16.840.1.113883.3.526.3.1033'
 valueset "VSAC; Systolic Blood Pressure": '2.16.840.1.113883.3.526.3.1032'
-valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
+
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 define "Hospice":
-  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
-  union ["Intervention, Performed": "VSAC; Palliative Care"]
+  ["Intervention, Performed": "HEDIS; Hospice"]
+
 
 define "Hypertension Exists":
   exists(["Encounter, Performed": "HEDIS; Outpatient Without UBREV"] E

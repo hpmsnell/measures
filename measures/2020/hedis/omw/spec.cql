@@ -1,10 +1,10 @@
-library HEDIS_OMW_2018 version '1'
+library HEDIS_OMW_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: OMW
- * Year: 2018
+ * Year: 2020
  * Version: 2
  * Author: Steve Daniels
  *
@@ -14,13 +14,13 @@ using QDM
 
 // MIPS value sets
 
-valueset "MIPS; MIPS Hospice Service"
 valueset "MIPS; Performance Met: 3095F" //Bone Mineral Density Tests
 valueset "MIPS; Performance Met: G8633" //Osteoporosis Medication
 valueset "MIPS; Performance Met: G8399" //DXA
 
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
@@ -31,17 +31,12 @@ valueset "HEDIS; Osteoporosis Medications": '2.16.840.1.113883.3.464.1004.1197'
 valueset "HEDIS; Long-Acting Osteoporosis Medications": '2.16.840.1.113883.3.464.1004.1396'
 valueset "HEDIS; Osteoporosis Medications List"
 
-// VSAC value sets
-
-valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
-
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 define "Hospice":
-  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
-  union ["Intervention, Performed": "VSAC; Palliative Care"]
+  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "Encounter":
   ["Encounter, Performed": "HEDIS; Outpatient"]

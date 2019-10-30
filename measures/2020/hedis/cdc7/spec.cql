@@ -1,10 +1,10 @@
-library HEDIS_CDC7_2019 version '1'
+library HEDIS_CDC7_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CDC7
- * Year: 2019
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -14,6 +14,7 @@ using QDM
 
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Diabetes": '2.16.840.1.113883.3.464.1004.1077'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
@@ -34,16 +35,11 @@ valueset "HEDIS; Observation"
 valueset "HEDIS; ED"
 valueset "HEDIS; Nonacute Inpatient"
 valueset "HEDIS; Acute Inpatient"
-valueset "HEDIS; Hospice"
 
 // VSAC value sets
 
 valueset "VSAC; Diastolic Blood Pressure": '2.16.840.1.113883.3.526.3.1033'
 valueset "VSAC; Systolic Blood Pressure": '2.16.840.1.113883.3.526.3.1032'
-
-// MIPS value sets
-
-valueset "MIPS; MIPS Hospice Service"
 
 parameter "Measurement Period" Interval<DateTime>
 

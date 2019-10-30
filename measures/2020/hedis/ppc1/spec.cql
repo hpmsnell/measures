@@ -1,10 +1,10 @@
-library HEDIS_PPC1_2018 version '1'
+library HEDIS_PPC1_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: PPC1
- * Year: 2018
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -12,12 +12,9 @@ library HEDIS_PPC1_2018 version '1'
 
 using QDM
 
-// MIPS value sets
-
-valueset "MIPS; MIPS Hospice Service"
-
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Deliveries": '2.16.840.1.113883.3.464.1004.1072'
 valueset "HEDIS; Non-Live Births": '2.16.840.1.113883.3.464.1004.1187'
 valueset "HEDIS; Prenatal Bundled Services": '2.16.840.1.113883.3.464.1004.1223'
@@ -36,7 +33,7 @@ valueset "HEDIS; Pregnancy Diagnosis": '2.16.840.1.113883.3.464.1004.1220'
 
 // VSAC value sets
 
-valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
+
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -44,11 +41,10 @@ context Patient
 
 define "Delivery":
   ["Procedure, Performed": "HEDIS; Deliveries"] P1
-    where P1.relevantPeriod starts during [56 days before start of "Measurement Period", 57 days before end of "Measurement Period"]
+    where P1.relevantPeriod starts during [56 days before start of "Measurement Period", 56 days before end of "Measurement Period"]
 
 define "Hospice":
-  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
-  union ["Intervention, Performed": "VSAC; Palliative Care"]
+  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "Delivery with Prenatal Visit":
   "Delivery" P
@@ -96,7 +92,7 @@ define "Denominator":
     without "Delivery" P2
       such that P1.relevantPeriod starts during 6 months or less before start of P2.relevantPeriod
     without "Hospice" I
-      such that I.authorDateTime during [56 days before start of "Measurement Period", 57 days before end of "Measurement Period"]
+      such that I.authorDateTime during "Measurement Period"
 
 define "Numerator Performance Met: Single Service":
   /*

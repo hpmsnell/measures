@@ -1,10 +1,10 @@
-library HEDIS_MMA1_2018 version '1'
+library HEDIS_MMA1_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: MMA1
- * Year: 2018
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -12,12 +12,9 @@ library HEDIS_MMA1_2018 version '1'
 
 using QDM
 
-// MIPS value sets
-
-valueset "MIPS; MIPS Hospice Service"
-
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
@@ -33,10 +30,6 @@ valueset "HEDIS; Cystic Fibrosis": '2.16.840.1.113883.3.464.1004.1068'
 valueset "HEDIS; Acute Respiratory Failure": '2.16.840.1.113883.3.464.1004.1019'
 valueset "HEDIS; Asthma Controller Medication"
 valueset "HEDIS; Asthma Reliever Medication"
-
-// VSAC value sets
-
-valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -101,8 +94,8 @@ define "Four Medications Exist During Prior Year":
     where M.relevantPeriod starts during [12 months before start of "Measurement Period", start of "Measurement Period"]) >= 4
 
 define "Hospice":
-  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
-  union ["Intervention, Performed": "VSAC; Palliative Care"]
+  ["Intervention, Performed": "HEDIS; Hospice"]
+
 
 define "Excluded Condition":
   ["Diagnosis": "HEDIS; Emphysema"]

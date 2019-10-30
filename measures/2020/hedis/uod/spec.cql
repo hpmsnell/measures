@@ -1,10 +1,10 @@
-library HEDIS_UOD_2019 version '1'
+library HEDIS_UOD_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: UOD
- * Year: 2019
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -14,7 +14,7 @@ using QDM
 
 // HEDIS value sets
 
-valueset "HEDIS; Hospice"
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "NCQA; UOD Opioid Medications"
 valueset "NCQA; UOD Opioid Medications: Butorphanol"
 valueset "NCQA; UOD Opioid Medications: Codeine"
@@ -40,6 +40,9 @@ valueset "NCQA; UOD Opioid Medications: Tramadol"
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
+
+define "Hospice":
+  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "Opioid":
   ["Medication, Order": "HEDIS; Opioid Medication"] M
@@ -175,7 +178,7 @@ define "Average MME Daily Dose":
 define "Denominator":
   AgeInYearsAt(start of "Measurement Period") >= 18
   and "Total Days Supplied" >= 15
-  and not exists(["Intervention, Performed": "HEDIS; Hospice"] I
+  and not exists("Hospice" I
     where I.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Met":

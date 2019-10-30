@@ -1,10 +1,10 @@
-library HEDIS_CDC6_2019 version '1'
+library HEDIS_CDC6_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CDC6
- * Year: 2019
+ * Year: 2020
  * Version: 3
  * Author: Steve Daniels
  *
@@ -18,6 +18,7 @@ valueset "MIPS; Performance Met: G8506" //ACE Inhibitor
 
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Diabetes": '2.16.840.1.113883.3.464.1004.1077'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
@@ -38,7 +39,6 @@ valueset "HEDIS; Observation"
 valueset "HEDIS; ED"
 valueset "HEDIS; Nonacute Inpatient"
 valueset "HEDIS; Acute Inpatient"
-valueset "HEDIS; Hospice"
 
 // VSAC value sets
 
@@ -47,10 +47,6 @@ valueset "VSAC; ACE Inhibitor or ARB": '2.16.840.1.113883.3.526.3.1139'
 // NCQA value sets
 
 valueset "NCQA; ACE Inhibitor/ARB Medications"
-
-// MIPS value sets
-
-valueset "MIPS; MIPS Hospice Service"
 
 parameter "Measurement Period" Interval<DateTime>
 

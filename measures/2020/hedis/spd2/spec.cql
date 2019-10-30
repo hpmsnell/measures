@@ -1,10 +1,10 @@
-library HEDIS_SPD2_2018 version '1'
+library HEDIS_SPD2_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: SPD2
- * Year: 2018
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -14,6 +14,7 @@ using QDM
 
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Diabetes": '2.16.840.1.113883.3.464.1004.1077'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
@@ -40,18 +41,16 @@ valueset "HEDIS; Low-Intensity Statin Medications"
 
 // VSAC value sets
 
-valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 valueset "VSAC; Low intensity statin therapy": '2.16.840.1.113762.1.4.1047.107'
 valueset "VSAC; Moderate intensity statin therapy": '2.16.840.1.113762.1.4.1047.98'
 valueset "VSAC; High intensity statin therapy": '2.16.840.1.113762.1.4.1047.97'
 
-// MIPS value sets
-
-valueset "MIPS; MIPS Hospice Service"
-
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
+
+define "Hospice":
+  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "IVD Exists During Measurement Year and Prior Year":
   exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E

@@ -1,10 +1,10 @@
-library HEDIS_CCS_2018 version '1'
+library HEDIS_CCS_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CCS
- * Year: 2018
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -12,27 +12,19 @@ library HEDIS_CCS_2018 version '1'
 
 using QDM
 
-// MIPS value sets
-
-valueset "MIPS; MIPS Hospice Service"
-
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Cervical Cytology": '2.16.840.1.113883.3.464.1004.1208'
 valueset "HEDIS; HPV Tests": '2.16.840.1.113883.3.464.1004.1265'
 valueset "HEDIS; Absence of Cervix": '2.16.840.1.113883.3.464.1004.1123'
-
-// VSAC value sets
-
-valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 define "Hospice":
-  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
-  union ["Intervention, Performed": "VSAC; Palliative Care"]
+  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "Cervical Cytology":
   ["Procedure, Performed": "HEDIS; Cervical Cytology"]

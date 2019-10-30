@@ -1,20 +1,16 @@
-library HEDIS_CIS4_2018 version '1'
+library HEDIS_CIS4_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CIS4
- * Year: 2018
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
   */
 
 using QDM
-
-// MIPS value sets
-
-valueset "MIPS; MIPS Hospice Service"
 
 // HEDIS value sets
 
@@ -43,10 +39,6 @@ valueset "HEDIS; HIV Type 2": '2.16.840.1.113883.3.464.1004.1406'
 valueset "HEDIS; Malignant Neoplasm of Lymphatic Tissue": '2.16.840.1.113883.3.464.1004.1319'
 valueset "HEDIS; Severe Combined Immunodeficiency": '2.16.840.1.113883.3.464.1004.1416'
 valueset "HEDIS; Intussusception": '2.16.840.1.113883.3.464.1004.1415'
-
-// VSAC value sets
-
-valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 
 // Able value sets
 

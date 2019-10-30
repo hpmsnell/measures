@@ -1,10 +1,10 @@
-library HEDIS_MPM1_2018 version '1'
+library HEDIS_MPM1_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: MPM1
- * Year: 2018
+ * Year: 2020
  * Version: 2
  * Author: Steve Daniels
  *
@@ -12,12 +12,9 @@ library HEDIS_MPM1_2018 version '1'
 
 using QDM
 
-// MIPS value sets
-
-valueset "MIPS; MIPS Hospice Service"
-
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
 valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1398'
 valueset "HEDIS; Lab Panel": '2.16.840.1.113883.3.464.1004.1145'
@@ -26,7 +23,6 @@ valueset "HEDIS; Serum Creatinine": '2.16.840.1.113883.3.464.1004.1236'
 
 // VSAC value sets
 
-valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 valueset "VSAC; ACE Inhibitor or ARB": '2.16.840.1.113883.3.526.3.1139'
 
 // NCQA value sets
@@ -76,8 +72,7 @@ define "Medication":
     where M.relevantPeriod overlaps "Measurement Period"
 
 define "Hospice":
-  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
-  union ["Intervention, Performed": "VSAC; Palliative Care"]
+  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "Inpatient Encounter"
   ["Encounter, Performed": "HEDIS; Acute Inpatient Visit"]

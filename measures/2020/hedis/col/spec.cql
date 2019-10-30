@@ -1,10 +1,10 @@
-library HEDIS_COL_2019 version '1'
+library HEDIS_COL_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: COL
- * Year: 2019
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
@@ -19,6 +19,7 @@ valueset "MIPS; Performance Met: 3017F"
 
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Colorectal Cancer": '2.16.840.1.113883.3.464.1004.1065'
 valueset "HEDIS; Total Colectomy": '2.16.840.1.113883.3.464.1004.1250'
 valueset "HEDIS; Colonoscopy": '2.16.840.1.113883.3.464.1004.1064'
@@ -33,7 +34,6 @@ valueset "HEDIS; Observation"
 valueset "HEDIS; ED"
 valueset "HEDIS; Nonacute Inpatient"
 valueset "HEDIS; Acute Inpatient"
-valueset "HEDIS; Hospice"
 
 // NCQA value sets
 
