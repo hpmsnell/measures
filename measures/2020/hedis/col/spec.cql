@@ -35,7 +35,7 @@ valueset "HEDIS; ED"
 valueset "HEDIS; Nonacute Inpatient"
 valueset "HEDIS; Acute Inpatient"
 
-// NCQA value sets
+// NCQA medication list value sets
 
 valueset "NCQA; Dementia Medications"
 
@@ -65,7 +65,7 @@ define "Advanced Illness Exists":
   or exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
     with ["Diagnosis": "HEDIS; Advanced Illness"] D
       such that D.prevalencePeriod starts during E.relevantPeriod)
-  or exists(["Medication, Order": "NCQA; Dementia Medications"] M
+  or exists(["Medication, Dispensed": "NCQA; Dementia Medications"] M
     where M.relevantPeriod starts during "Measurement Period")
 
 /* POPULATIONS */

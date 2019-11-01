@@ -21,11 +21,7 @@ valueset "HEDIS; Lab Panel": '2.16.840.1.113883.3.464.1004.1145'
 valueset "HEDIS; Serum Potassium": '2.16.840.1.113883.3.464.1004.1237'
 valueset "HEDIS; Serum Creatinine": '2.16.840.1.113883.3.464.1004.1236'
 
-// VSAC value sets
-
-valueset "VSAC; ACE Inhibitor or ARB": '2.16.840.1.113883.3.526.3.1139'
-
-// NCQA value sets
+// NCQA medication list value sets
 
 valueset "NCQA; ACE Inhibitor/ARB Medications"
 
@@ -66,9 +62,7 @@ define "Medication End Date":
     return end of M.relevantPeriod
 
 define "Medication":
-  ["Medication": "NCQA; ACE Inhibitor/ARB Medications"] M
-    where M.relevantPeriod overlaps "Measurement Period"
-  union ["Medication": "VSAC; ACE Inhibitor or ARB"] M
+  ["Medication, Dispensed": "NCQA; ACE Inhibitor/ARB Medications"] M
     where M.relevantPeriod overlaps "Measurement Period"
 
 define "Hospice":

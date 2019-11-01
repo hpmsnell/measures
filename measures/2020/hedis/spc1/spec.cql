@@ -36,7 +36,7 @@ valueset "HEDIS; Advanced Illness"
 valueset "HEDIS; Observation"
 valueset "HEDIS; ED"
 
-// NCQA value sets
+// NCQA medication list value sets
 
 valueset "NCQA; High and Moderate-Intensity Statin Medications"
 valueset "NCQA; Estrogen Agonists Medications":
@@ -113,7 +113,7 @@ define "Advanced Illness Exists":
   or exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
     with ["Diagnosis": "HEDIS; Advanced Illness"] D
       such that D.prevalencePeriod starts during E.relevantPeriod)
-  or exists(["Medication, Order": "NCQA; Dementia Medications"] M
+  or exists(["Medication, Dispensed": "NCQA; Dementia Medications"] M
     where M.relevantPeriod starts during "Measurement Period")
 
 /* Populations */
@@ -154,7 +154,7 @@ define "Denominator Exclusion: Pregnancy"
     where D.prevalencePeriod starts during [12 months before start of "Measurement Period", end of "Measurement Period"])
   or exists(["Procedure, Performed": "HEDIS; IVF"] P
     where P.relevantPeriod starts during [12 months before start of "Measurement Period", end of "Measurement Period"])
-  or exists(["Medication, Order": "NCQA; Estrogen Agonists Medications"] M
+  or exists(["Medication, Dispensed": "NCQA; Estrogen Agonists Medications"] M
     where M.relevantPeriod starts during [12 months before start of "Measurement Period", end of "Measurement Period"])
 
 define "Denominator Exclusion: Frailty and Advanced Illness":
@@ -174,7 +174,7 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists(["Medication, Order": "NCQA; High and Moderate-Intensity Statin Medications"] M
+  exists(["Medication, Dispensed": "NCQA; High and Moderate-Intensity Statin Medications"] M
     where M.relevantPeriod starts during "Measurment Period")
 
 define "Numerator Performance Not Met":

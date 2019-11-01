@@ -18,7 +18,10 @@ valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; ESRD"
 valueset "HEDIS; CKD Stage 4"
 valueset "HEDIS; Kidney Transplant"
-valueset "HEDIS; Cox-2 Selective NSAIDs and Nonaspirin NSAIDs Medications"
+
+// NCQA medication list value sets
+
+valueset "NCQA; Cox-2 Selective NSAIDs and Nonaspirin NSAIDs Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -43,7 +46,7 @@ define "First Kidney Disease During Index Period":
     sort by D.prevalencePeriod asc)
 
 define "Medication":
-  ["Medication, Dispensed": "HEDIS; Cox-2 Selective NSAIDs and Nonaspirin NSAIDs Medications"]
+  ["Medication, Dispensed": "NCQA; Cox-2 Selective NSAIDs and Nonaspirin NSAIDs Medications"]
 
 /* Populations */
 

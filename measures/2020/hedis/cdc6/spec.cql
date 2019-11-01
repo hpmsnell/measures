@@ -40,11 +40,7 @@ valueset "HEDIS; ED"
 valueset "HEDIS; Nonacute Inpatient"
 valueset "HEDIS; Acute Inpatient"
 
-// VSAC value sets
-
-valueset "VSAC; ACE Inhibitor or ARB": '2.16.840.1.113883.3.526.3.1139'
-
-// NCQA value sets
+// NCQA medication list value sets
 
 valueset "NCQA; ACE Inhibitor/ARB Medications"
 
@@ -88,9 +84,7 @@ define "Numerator Performance Met":
     where P.relevantPeriod starts during "Measurement Year")
   or exists("Nephropathy Diagnoses" D
     where D.prevalencePeriod overlaps "Measurement Year")
-  or exists(["Medication": "VSAC; ACE Inhibitor or ARB"] M
-    where M.relevantPeriod starts during "Measurement Year")
-  or exists(["Medication": "NCQA; ACE Inhibitor/ARB Medications"] M
+  or exists(["Medication, Dispensed": "NCQA; ACE Inhibitor/ARB Medications"] M
     where M.relevantPeriod starts during "Measurement Year")
   or exists(["Procedure": "MIPS; Performance Met: G8506"] P
     where P.relevantPeriod starts during "Measurement Year")

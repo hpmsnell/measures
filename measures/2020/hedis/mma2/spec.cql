@@ -28,8 +28,11 @@ valueset "HEDIS; Obstructive Chronic Bronchitis": '2.16.840.1.113883.3.464.1004.
 valueset "HEDIS; Chronic Respiratory Conditions Due to Fumes/Vapors": '2.16.840.1.113883.3.464.1004.1063'
 valueset "HEDIS; Cystic Fibrosis": '2.16.840.1.113883.3.464.1004.1068'
 valueset "HEDIS; Acute Respiratory Failure": '2.16.840.1.113883.3.464.1004.1019'
-valueset "HEDIS; Asthma Controller Medication"
-valueset "HEDIS; Asthma Reliever Medication"
+
+// NCQA medication list value sets
+
+valueset "NCQA; Asthma Controller Medications"
+valueset "NCQA; Asthma Reliever Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -66,8 +69,8 @@ define "Outpatient Visit":
   union ["Encounter, Performed": "HEDIS: Observation"]
 
 define "Asthma Medication":
-  ["Medication, Order": "HEDIS; Asthma Controller Medication"]
-  union ["Medication, Order": "HEDIS; Asthma Reliever Medication"]
+  ["Medication, Dispensed": "NCQA; Asthma Controller Medications"]
+  union ["Medication, Dispensed": "NCQA; Asthma Reliever Medications"]
 
 define "Four Outpatient Visits With Asthma and Two Medications Exist During Measurement Year":
   count("Outpatient Visit" E
@@ -106,12 +109,12 @@ define "Excluded Condition":
   union ["Diagnosis": "HEDIS; Acute Respiratory Failure"]
 
 define "Asthma Medication Start Date":
-  ["Medication, Order": "HEDIS; Asthma Controller Medication"] M
+  ["Medication, Dispensed": "NCQA; Asthma Controller Medications"] M
     where M.relevantPeriod starts during "Measurement Period"
     return start of M.relevantPeriod
 
 define "Asthma Medication Stop Date":
-  ["Medication, Order": "HEDIS; Asthma Controller Medication"] M
+  ["Medication, Dispensed": "NCQA; Asthma Controller Medications"] M
     where M.relevantPeriod starts during "Measurement Period"
     return end of M.relevantPeriod
 
@@ -119,7 +122,7 @@ define "Asthma Medication Stop Date or End of Measurement Period":
   Lower("Asthma Medication Stop Date", end of "Measurement Period")
 
 define "First Asthma Medication Start Date":
-  First(["Medication, Order": "HEDIS; Asthma Controller Medication"] M
+  First(["Medication, Dispensed": "NCQA; Asthma Controller Medications"] M
     where M.relevantPeriod starts during "Measurement Period"
     sort by start of M.relevantPeriod asc)
     return start of M.relevantPeriod
@@ -151,7 +154,7 @@ define "Denominator Exclusion: No Medication":
   /*
    * config_link_id: exclusion_1
    */
-  not exists(["Medication, Order": "HEDIS; Asthma Controller Medication"] M
+  not exists(["Medication, Dispensed": "NCQA; Asthma Controller Medications"] M
     where M.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Met":

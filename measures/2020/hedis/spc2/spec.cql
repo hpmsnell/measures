@@ -37,7 +37,7 @@ valueset "HEDIS; Advanced Illness"
 valueset "HEDIS; Observation"
 valueset "HEDIS; ED"
 
-// NCQA value sets
+// NCQA medication list value sets
 
 valueset "NCQA; High and Moderate-Intensity Statin Medications"
 valueset "NCQA; Estrogen Agonists Medications":
@@ -50,7 +50,7 @@ define "Hospice":
   ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "Statin in Measurement Period":
-  ["Medication, Order": "NCQA; High and Moderate-Intensity Statin Medications"] M
+  ["Medication, Dispensed": "NCQA; High and Moderate-Intensity Statin Medications"] M
     where M.relevantPeriod starts during "Measurement Period"
 
 define "Prescription Start Date":

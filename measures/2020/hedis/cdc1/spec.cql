@@ -22,7 +22,6 @@ valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
 valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1189'
 valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
 valueset "HEDIS; HbA1c Tests": '2.16.840.1.113883.3.464.1004.1116'
-valueset "HEDIS; Diabetes Medications"
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
 valueset "HEDIS; Frailty"
 valueset "HEDIS; Advanced Illness"
@@ -31,6 +30,10 @@ valueset "HEDIS; Observation"
 valueset "HEDIS; ED"
 valueset "HEDIS; Nonacute Inpatient"
 valueset "HEDIS; Acute Inpatient"
+
+// NCQA medication list value sets
+
+valueset "NCQA; Diabetes Medications"
 
 // MIPS value sets
 
@@ -68,7 +71,7 @@ define "Patient Has Diabetes":
       such that start of E2.relevantPeriod != start of E1.relevantPeriod
       and not E.code.modifier in {'GT','95'}
       and not E.placeOfService in {'02'})
-  or exists(["Medication": "HEDIS; Diabetes Medication"] M
+  or exists(["Medication, Dispensed": "NCQA; Diabetes Medications"] M
     where M.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
 
 define "Hospice":
@@ -93,7 +96,7 @@ define "Advanced Illness Exists":
   or exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
     with ["Diagnosis": "HEDIS; Advanced Illness"] D
       such that D.prevalencePeriod starts during E.relevantPeriod)
-  or exists(["Medication, Order": "NCQA; Dementia Medications"] M
+  or exists(["Medication, Dispensed": "NCQA; Dementia Medications"] M
     where M.relevantPeriod starts during "Measurement Period")
 
 /* Populations */

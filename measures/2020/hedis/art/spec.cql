@@ -23,13 +23,9 @@ valueset "HEDIS; HIV": '2.16.840.1.113883.3.464.1004.1110'
 valueset "HEDIS; HIV Type 2": '2.16.840.1.113883.3.464.1004.1406'
 valueset "HEDIS; DMARD": '2.16.840.1.113883.3.464.1004.1070'
 
-// NCQA value sets
+// NCQA medication list value sets
 
-valueset "HEDIS; DMARD Medications"
-
-// Able value sets
-
-valueset "Able; DMARD Medication"
+valueset "NCQA; DMARD Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -89,9 +85,7 @@ define "Numerator Performance Met":
    */
   exists(["Intervention, Performed": "HEDIS; DMARD"] I
     where I.relevantPeriod starts during "Measurement Period")
-  or exists(["Medication, Order": "NCQA; DMARD Medications"] M
-    where M.relevantPeriod starts during "Measurement Period")
-  or exists(["Medication, Order": "Able; DMARD Medication"] M
+  or exists(["Medication, Dispensed": "NCQA; DMARD Medications"] M
     where M.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met":

@@ -28,8 +28,11 @@ valueset "HEDIS; Obstructive Chronic Bronchitis": '2.16.840.1.113883.3.464.1004.
 valueset "HEDIS; Chronic Respiratory Conditions Due to Fumes/Vapors": '2.16.840.1.113883.3.464.1004.1063'
 valueset "HEDIS; Cystic Fibrosis": '2.16.840.1.113883.3.464.1004.1068'
 valueset "HEDIS; Acute Respiratory Failure": '2.16.840.1.113883.3.464.1004.1019'
-valueset "HEDIS; Asthma Controller Medication"
-valueset "HEDIS; Asthma Reliever Medication"
+
+// NCQA medication list value sets
+
+valueset "NCQA; Asthma Controller Medication"
+valueset "NCQA; Asthma Reliever Medication"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -66,8 +69,8 @@ define "Outpatient Visit":
   union ["Encounter, Performed": "HEDIS: Observation"]
 
 define "Asthma Medication":
-  ["Medication, Order": "HEDIS; Asthma Controller Medication"]
-  union ["Medication, Order": "HEDIS; Asthma Reliever Medication"]
+  ["Medication, Dispensed": "NCQA; Asthma Controller Medication"]
+  union ["Medication, Dispensed": "NCQA; Asthma Reliever Medication"]
 
 define "Four Outpatient Visits With Asthma and Two Medications Exist During Measurement Year":
   count("Outpatient Visit" E
@@ -107,7 +110,7 @@ define "Excluded Condition":
   union ["Diagnosis": "HEDIS; Acute Respiratory Failure"]
 
 define "Asthma Controller Quantity":
-  ["Medication, Order": "HEDIS; Asthma Controller Medication"] M
+  ["Medication, Dispensed": "NCQA; Asthma Controller Medication"] M
     where M.relevantPeriod starts during "Measurement Period"
     return M.quantity
 

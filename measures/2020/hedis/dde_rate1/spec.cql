@@ -26,16 +26,18 @@ valueset "HEDIS; Schizophrenia"
 valueset "HEDIS; Bipolar Disorder"
 valueset "HEDIS; Other Bipolar Disorder"
 valueset "HEDIS; Seizure Disorders"
-valueset "HEDIS; Potentially Harmful Drugs—Rate 1 Medications"
-valueset "HEDIS; Potentially Harmful Drugs—Rate 1 and Rate 2 Medications"
 
+// NCQA medication list value sets
+
+valueset "NCQA; Potentially Harmful Drugs—Rate 1 Medications"
+valueset "NCQA; Potentially Harmful Drugs—Rate 1 and Rate 2 Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]  
+  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "Encounter":
   ["Encounter, Performed": "HEDIS; Outpatient"]
@@ -69,8 +71,8 @@ define "Excluded Condition":
   union ["Diagnosis": "HEDIS; Seizure Disorders"]
 
 define "Medication":
-  ["Medication, Dispensed": "HEDIS; Potentially Harmful Drugs—Rate 1 Medications"]
-  union ["Medication, Dispensed": "HEDIS; Potentially Harmful Drugs—Rate 1 and Rate 2 Medications"]
+  ["Medication, Dispensed": "NCQA; Potentially Harmful Drugs—Rate 1 Medications"]
+  union ["Medication, Dispensed": "NCQA; Potentially Harmful Drugs—Rate 1 and Rate 2 Medications"]
 
 /* Populations */
 

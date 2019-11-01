@@ -28,8 +28,11 @@ valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
 valueset "HEDIS; Fractures": '2.16.840.1.113883.3.464.1004.1103'
 valueset "HEDIS; Bone Mineral Density Tests": '2.16.840.1.113883.3.464.1004.1047'
 valueset "HEDIS; Osteoporosis Medications": '2.16.840.1.113883.3.464.1004.1197'
-valueset "HEDIS; Long-Acting Osteoporosis Medications": '2.16.840.1.113883.3.464.1004.1396'
-valueset "HEDIS; Osteoporosis Medications List"
+
+// NCQA medication list value sets
+
+valueset "NCQA; Long-Acting Osteoporosis Medications": '2.16.840.1.113883.3.464.1004.1396'
+valueset "NCQA; Osteoporosis Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -99,7 +102,7 @@ define "Denominator Exclusion: Prior Treatment":
      with ["Procedure, Performed": "HEDIS; Osteoporosis Medications"] M
        such that M.relevantPeriod starts 365 days or less before start of E.relevantPeriod)
    or exists("First Fracture During Index Period" E
-     with ["Medication": "HEDIS; Osteoporosis Medications List"] M
+     with ["Medication, Dispensed": "NCQA; Osteoporosis Medications List"] M
        such that M.relevantPeriod overlaps [365 days before start of E.relevantPeriod, 1 day before start of E.relevantPeriod])
 
 define "Numerator Performance Met":
@@ -113,13 +116,13 @@ define "Numerator Performance Met":
      with ["Procedure, Performed": "MIPS; Performance Met: G8633"] P
        such that P.relevantPeriod starts on or 180 days after start of E.relevantPeriod)
    or exists("First Fracture During Index Period" E
-     with ["Medication": "HEDIS; Osteoporosis Medications"] M
+     with ["Procedure, Performed": "HEDIS; Osteoporosis Medications"] P
+       such that P.relevantPeriod starts on or 180 days after start of E.relevantPeriod)
+   or exists("First Fracture During Index Period" E
+     with ["Medication, Dispensed": "NCQA; Osteoporosis Medications"] M
        such that M.relevantPeriod starts on or 180 days after start of E.relevantPeriod)
    or exists("First Fracture During Index Period" E
-     with ["Medication": "HEDIS; Osteoporosis Medications List"] M
-       such that M.relevantPeriod starts on or 180 days after start of E.relevantPeriod)
-   or exists("First Fracture During Index Period" E
-     with ["Medication": "HEDIS; Long-Acting Osteoporosis Medications"] M
+     with ["Medication, Dispensed": "NCQA; Long-Acting Osteoporosis Medications"] M
        such that M.relevantPeriod starts during E.relevantPeriod)
 
 

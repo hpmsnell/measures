@@ -17,13 +17,14 @@ using QDM
 valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
 valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
-valueset "HEDIS; Acute Inpatient Stay":
-valueset "HEDIS; COPD":
-valueset "HEDIS; Emphysema":
-valueset "HEDIS; Chronic Bronchitis":
-valueset "HEDIS; Systemic Corticosteroid Medications":
+valueset "HEDIS; Acute Inpatient Stay"
+valueset "HEDIS; COPD"
+valueset "HEDIS; Emphysema"
+valueset "HEDIS; Chronic Bronchitis"
 
-valueset "VSAC; Corticosteroids": '2.16.840.1.113883.3.464.1003.196.12.1482'
+// NCQA medication list value sets
+
+valueset "NCQA; Systemic Corticosteroid Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -54,8 +55,7 @@ define "COPD During Index Period"
     and AgeInYearsAt(start of "Measurement Period") >= 40
 
 define "Corticosteroid":
-  ["Medication": "HEDIS; Systemic Corticosteroid Medications"]
-  union ["Medication": "VSAC; Corticosteroids"]
+  ["Medication, Dispensed": "NCQA; Systemic Corticosteroid Medications"]
 
 /* Populations */
 

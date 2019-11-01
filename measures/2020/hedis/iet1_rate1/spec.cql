@@ -28,8 +28,11 @@ valueset "HEDIS; Alcohol Abuse and Dependence"
 valueset "HEDIS; Opioid Abuse and Dependence"
 valueset "HEDIS; Other Drug Abuse and Dependence"
 valueset "HEDIS; Medication Assisted Treatment"
-valueset "HEDIS; MAT for Alcohol Abuse or Dependence Medications"
-valueset "HEDIS; MAT for Opioid Abuse or Dependence Medications"
+
+// NCQA medication list value sets
+
+valueset "NCQA; MAT for Alcohol Abuse or Dependence Medications"
+valueset "NCQA; MAT for Opioid Abuse or Dependence Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -71,7 +74,7 @@ define "First AOD During Index Period":
 
 define "MAT":
   ["Procedure, Performed": "HEDIS; Medication Assisted Treatement"]
-  union ["Medication": "HEDIS; MAT for Alcohol Abuse or Dependence"]
+  union ["Medication, Dispensed": "NCQA; MAT for Alcohol Abuse or Dependence"]
 
 define "Diagnosis History":
   ["Diagnosis": "HEDIS; AOD Abuse and Dependence"]

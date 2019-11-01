@@ -17,15 +17,14 @@ using QDM
 valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
 valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
-valueset "HEDIS; Acute Inpatient Stay":
-valueset "HEDIS; COPD":
-valueset "HEDIS; Emphysema":
-valueset "HEDIS; Chronic Bronchitis":
-valueset "HEDIS; Bronchodialtor Medications":
+valueset "HEDIS; Acute Inpatient Stay"
+valueset "HEDIS; COPD"
+valueset "HEDIS; Emphysema"
+valueset "HEDIS; Chronic Bronchitis"
 
-// Able value sets
+// NCQA medication list value sets
 
-valueset "Able; Bronchodilator"
+valueset "NCQA; Bronchodialtor Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -56,8 +55,7 @@ define "COPD During Index Period"
     and AgeInYearsAt(start of "Measurement Period") >= 40
 
 define "Bronchodilator":
-  ["Medication": "HEDIS; Bronchodialtor Medications"]
-  union ["Medication": "Able; Bronchodilator"]
+  ["Medication, Dispensed": "NCQA; Bronchodialtor Medications"]
 
 /* Populations */
 

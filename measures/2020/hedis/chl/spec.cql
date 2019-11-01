@@ -25,15 +25,10 @@ valueset "HEDIS; Sexual Activity": '2.16.840.1.113883.3.464.1004.1238'
 valueset "HEDIS; Pregnancy Test Exclusion": '2.16.840.1.113883.3.464.1004.1344'
 valueset "HEDIS; Diagnostic Radiology": '2.16.840.1.113883.3.464.1004.1081'
 valueset "HEDIS; Chlamydia Tests": '2.16.840.1.113883.3.464.1004.1060'
+
+// NCQA medication list value sets
+
 valueset "HEDIS; Retinoid Medications"
-
-// VSAC value sets
-
-valueset "VSAC; Pregnancy Test": '2.16.840.1.113883.3.464.1003.111.12.1011'
-valueset "VSAC; Pap Test": '2.16.840.1.113883.3.464.1003.108.12.1017'
-valueset "VSAC; Lab Tests During Pregnancy": '2.16.840.1.113883.3.464.1003.111.12.1007'
-valueset "VSAC; Lab Tests for Sexually Transmitted Infections": '2.16.840.1.113883.3.464.1003.110.12.1051'
-valueset "VSAC; Contraceptive Medications": '2.16.840.1.113883.3.464.1003.196.12.1080'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -50,36 +45,17 @@ define "Denominator Procedure":
   ["Procedure, Performed": "HEDIS; Pregnancy Tests"]
   union ["Procedure, Performed": "HEDIS; Sexual Activity"]
 
-define "Denominator Lab Without Pregnancy Test":
-union ["Laboratory Test, Performed": "VSAC; Pap Test"]
-union ["Laboratory Test, Performed": "VSAC; Lab Tests During Pregnancy"]
-union ["Laboratory Test, Performed": "VSAC; Lab Tests for Sexually Transmitted Infections"]
-
-define "Denominator Lab":
-  ["Laboratory Test, Performed": "VSAC; Pregnancy Test"]
-  union ["Laboratory Test, Performed": "VSAC; Pap Test"]
-  union ["Laboratory Test, Performed": "VSAC; Lab Tests During Pregnancy"]
-  union ["Laboratory Test, Performed": "VSAC; Lab Tests for Sexually Transmitted Infections"]
-
 define "Sexual Activity Exists":
   exists("Denominator Procedure" P
     where P.relevantPeriod starts during "Measurement Period")
   or exists("Denominator Diagnosis" D
     where D.relevantPeriod overlaps "Measurement Period")
-  or exists("Denominator Lab" L
-    where L.resultDateTime during "Measurement Period")
-  or exists(["Medication": "VSAC; Contraceptive Medications"] M
-    where M.relevantPeriod overlaps "Measurement Period")
 
 define "Only Pregnancy Test Exists":
   not exists(["Procedure, Performed": "HEDIS; Sexual Activity"] P
     where P.relevantPeriod starts during "Measurement Period")
   and not exists("Denominator Diagnosis" D
     where D.relevantPeriod overlaps "Measurement Period")
-  and not exists("Denominator Lab Without Pregnancy Test" L
-    where L.resultDateTime during "Measurement Period")
-  and not exists(["Medication": "VSAC; Contraceptive Medications"] M
-    where M.relevantPeriod overlaps "Measurement Period")
 
 define "Pregnancy Test Exclusion":
   ["Procedure, Performed": "HEDIS; Pregnancy Test Exclusion"]
@@ -87,7 +63,7 @@ define "Pregnancy Test Exclusion":
 
 define "Retinoid or Diagnostic Radiology":
   ["Procedure, Performed": "HEDIS; Diagnostic Radiology"]
-  union ["Medication": "HEDIS; Retinoid Medications"]
+  union ["Medication, Dispensed": "NCQA; Retinoid Medications"]
 
 define "Chlamydia Tests":
   ["Procedure, Performed": "HEDIS; Chlamydia Tests"]

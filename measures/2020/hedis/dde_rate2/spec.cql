@@ -16,24 +16,27 @@ using QDM
 
 valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Dementia"
-valueset "HEDIS; Dementia Medications"
 valueset "HEDIS; Psychosis"
 valueset "HEDIS; Schizophrenia"
 valueset "HEDIS; Bipolar Disorder"
 valueset "HEDIS; Other Bipolar Disorder"
-valueset "HEDIS; Potentially Harmful Drugs—Rate 2 Medications"
-valueset "HEDIS; Potentially Harmful Drugs—Rate 1 and Rate 2 Medications"
+
+// NCQA medication list value sets
+
+valueset "NCQA; Dementia Medications"
+valueset "NCQA; Potentially Harmful Drugs—Rate 2 Medications"
+valueset "NCQA; Potentially Harmful Drugs—Rate 1 and Rate 2 Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]  
+  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "Dementia":
   ["Diagnosis": "HEDIS; Hip Dementia"]
-  union ["Medication, Dispensed": "HEDIS; Dementia Medications"]
+  union ["Medication, Dispensed": "NCQA; Dementia Medications"]
 
 define "Dementia During Index Period"
   "Dementia" D
@@ -50,8 +53,8 @@ define "Excluded Condition":
   union ["Diagnosis": "HEDIS; Other Bipolar Disorder"]
 
 define "Medication":
-  ["Medication, Dispensed": "HEDIS; Potentially Harmful Drugs—Rate 2 Medications"]
-  union ["Medication, Dispensed": "HEDIS; Potentially Harmful Drugs—Rate 1 and Rate 2 Medications"]
+  ["Medication, Dispensed": "NCQA; Potentially Harmful Drugs—Rate 2 Medications"]
+  union ["Medication, Dispensed": "NCQA; Potentially Harmful Drugs—Rate 1 and Rate 2 Medications"]
 
 /* Populations */
 

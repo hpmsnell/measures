@@ -27,6 +27,9 @@ valueset "HEDIS; Alcohol Abuse and Dependence"
 valueset "HEDIS; Opioid Abuse and Dependence"
 valueset "HEDIS; Other Drug Abuse and Dependence"
 valueset "HEDIS; Medication Assisted Treatment"
+
+// NCQA medication list value sets
+
 valueset "HEDIS; MAT for Alcohol Abuse or Dependence Medications"
 valueset "HEDIS; MAT for Opioid Abuse or Dependence Medications"
 
@@ -35,7 +38,7 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]  
+  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "Encounter":
   ["Encounter, Performed": "HEDIS; IET Stand Alone Visits"]
@@ -70,8 +73,8 @@ define "First AOD During Index Period":
 
 define "MAT":
   ["Procedure, Performed": "HEDIS; Medication Assisted Treatement"]
-  union ["Medication": "HEDIS; MAT for Alcohol Abuse or Dependence"]
-  union ["Medication": "HEDIS; MAT for Opioid Abuse or Dependence"]
+  union ["Medication, Dispensed": "NCQA; MAT for Alcohol Abuse or Dependence"]
+  union ["Medication, Dispensed": "NCQA; MAT for Opioid Abuse or Dependence"]
 
 define "Diagnosis History":
   ["Diagnosis": "HEDIS; AOD Abuse and Dependence"]

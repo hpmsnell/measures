@@ -19,25 +19,26 @@ valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
 valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
-valueset "HEDIS; Osteopathic and Chiropractic Manipulative Treatment":
-valueset "HEDIS; Physical Therapy":
-valueset "HEDIS; Telephone Visits":
-valueset "HEDIS; Online Assessments":
-valueset "HEDIS; Uncomplicated Low Back Pain":
-valueset "HEDIS; Malignant Neoplasms":
-valueset "HEDIS; Other Neoplasms":
-valueset "HEDIS; History of Malignant Neoplasm":
-valueset "HEDIS; HIV":
-valueset "HEDIS; Organ Transplant Other Than Kidney":
-valueset "HEDIS; Kidney Transplant":
-valueset "HEDIS; Trauma":
-valueset "HEDIS; IV Drug Abuse":
-valueset "HEDIS; Neurologic Impairment":
-valueset "HEDIS; Spinal Infection":
-valueset "HEDIS; Corticosteroids Medications":
-valueset "HEDIS; Imaging Study":
+valueset "HEDIS; Osteopathic and Chiropractic Manipulative Treatment"
+valueset "HEDIS; Physical Therapy"
+valueset "HEDIS; Telephone Visits"
+valueset "HEDIS; Online Assessments"
+valueset "HEDIS; Uncomplicated Low Back Pain"
+valueset "HEDIS; Malignant Neoplasms"
+valueset "HEDIS; Other Neoplasms"
+valueset "HEDIS; History of Malignant Neoplasm"
+valueset "HEDIS; HIV"
+valueset "HEDIS; Organ Transplant Other Than Kidney"
+valueset "HEDIS; Kidney Transplant"
+valueset "HEDIS; Trauma"
+valueset "HEDIS; IV Drug Abuse"
+valueset "HEDIS; Neurologic Impairment"
+valueset "HEDIS; Spinal Infection"
+valueset "HEDIS; Imaging Study"
 
-valueset "VSAC: Corticosteroid": '2.16.840.1.113883.3.464.1003.196.12.1482'
+// NCQA medication list value sets
+
+valueset "NCQA; Corticosteroids Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -93,8 +94,7 @@ define "Exclusion in Past Year":
   union ["Diagnosis": "HEDIS; Spinal Infection"]
 
 define "Corticosteroid":
-  ["Medication": "HEDIS; Corticosteroid Medications"]
-  union ["Medication": "VSAC; Corticosteroid"]
+  ["Medication, Dispensed": "NCQA; Corticosteroid Medications"]
 
 define "Corticosteroid in Past Year":
   "Corticosteroid" M

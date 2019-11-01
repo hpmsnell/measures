@@ -21,14 +21,17 @@ valueset "HEDIS; AMM Visits"
 valueset "HEDIS; AMM Standalone Visits"
 valueset "HEDIS; Telephone Visits"
 valueset "HEDIS; Major Depression"
-valueset "HEDIS; Antidepressant Medication"
+
+// NCQA medication list value sets
+
+valueset "NCQA; Antidepressant Medication"
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 define "Medication in Index Period"
-  ["Medication, Dispensed": "HEDIS; Antidepressant Medications"] M
+  ["Medication, Dispensed": "NCQA; Antidepressant Medications"] M
     where M.relevantPeriod starts during [8 months before start of "Mesasurement Period", 8 months before end of "Measurement Period"]
 
 define "First Medication in Index Period":
@@ -51,7 +54,7 @@ define "Encounter with Depression Prior to First Medication in Index Period":
       such that E.relevantPeriod starts during [60 days before start of M.relevantPeriod, 60 days after start of M.relevantPeriod]
 
 define "Medication Prior to First Medication in Index Period":
-  ["Medication, Dispensed": "HEDIS; Antidepressant Medications"] M1
+  ["Medication, Dispensed": "NCQA; Antidepressant Medications"] M1
     with "First Medication in Index Period" M2
       such that M1.relevantPeriod starts 105 days or less before before start of M.relevantPeriod
 

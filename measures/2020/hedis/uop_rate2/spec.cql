@@ -15,6 +15,9 @@ using QDM
 // HEDIS value sets
 
 valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
+
+// NCQA medication list value sets
+
 valueset "NCQA; Opioid Medications"
 
 parameter "Measurement Period" Interval<DateTime>
@@ -22,7 +25,7 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Opioid":
-  ["Medication, Ordered": "HEDIS; Opioid Medication"] M
+  ["Medication, Dispenseded": "NCQA; Opioid Medications"] M
     where M.relevantPeriod starts during "Measurement Period"
 
 define "Opioid Start Date":

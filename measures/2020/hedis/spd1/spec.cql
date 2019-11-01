@@ -23,26 +23,24 @@ valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1189'
 valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
 valueset "HEDIS; Diabetes Medications"
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
-valueset "HEDIS; Acute Inpatient":
-valueset "HEDIS; Inpatient Stay":
-valueset "HEDIS; IVD":
-valueset "HEDIS; PCI":
-valueset "HEDIS; Other Revascularization":
-valueset "HEDIS; ESRD":
-valueset "HEDIS; Cirrhosis":
-valueset "HEDIS; Pregnancy":
-valueset "HEDIS; IVF":
-valueset "HEDIS; Estrogen Agonists Medications":
-valueset "HEDIS; MI":
-valueset "HEDIS; CABG":
-valueset "HEDIS; Muscular Pain and Disease":
-valueset "HEDIS; High and Moderate-Intensity Statin Medications"
-valueset "HEDIS; Low-Intensity Statin Medications"
+valueset "HEDIS; Acute Inpatient"
+valueset "HEDIS; Inpatient Stay"
+valueset "HEDIS; IVD"
+valueset "HEDIS; PCI"
+valueset "HEDIS; Other Revascularization"
+valueset "HEDIS; ESRD"
+valueset "HEDIS; Cirrhosis"
+valueset "HEDIS; Pregnancy"
+valueset "HEDIS; IVF"
+valueset "HEDIS; MI"
+valueset "HEDIS; CABG"
+valueset "HEDIS; Muscular Pain and Disease"
 
-// VSAC value sets
-valueset "VSAC; Low intensity statin therapy": '2.16.840.1.113762.1.4.1047.107'
-valueset "VSAC; Moderate intensity statin therapy": '2.16.840.1.113762.1.4.1047.98'
-valueset "VSAC; High intensity statin therapy": '2.16.840.1.113762.1.4.1047.97'
+// NCQA medication list value sets
+
+valueset "NCQA; Estrogen Agonists Medications"
+valueset "NCQA; High and Moderate-Intensity Statin Medications"
+valueset "NCQA; Low-Intensity Statin Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -72,11 +70,8 @@ define "Kidney/Liver Disease":
   union ["Diagnosis": "HEDIS; Cirrhosis"]
 
 define "Statin":
-  ["Medication": "VSAC; Low intensity statin therapy"]
-  union ["Medication": "VSAC; Moderate intensity statin therapy"]
-  union ["Medication": "VSAC; High intensity statin therapy"]
-  union ["Medication": "HEDIS; High and Moderate-Intensity Statin Medications"]
-  union ["Medication": "HEDIS; Low-Intensity Statin Medications"]
+  ["Medication, Dispensed": "NCQA; High and Moderate-Intensity Statin Medications"]
+  union ["Medication, Dispensed": "NCQA; Low-Intensity Statin Medications"]
 
 /* Populations */
 
@@ -111,7 +106,7 @@ define "Denominator Exclusion: Pregnancy"
     where D.prevalencePeriod starts during [12 months before start of "Measurement Period", end of "Measurement Period"])
   or exists(["Procedure, Performed": "HEDIS; IVF"] P
     where P.relevantPeriod starts during [12 months before start of "Measurement Period", end of "Measurement Period"])
-  or exists(["Medication, Order": "HEDIS; Estrogen Agonists Medications"] M
+  or exists(["Medication, Dispensed": "NCQA; Estrogen Agonists Medications"] M
     where M.relevantPeriod starts during [12 months before start of "Measurement Period", end of "Measurement Period"])
 
 define "Denominator Exclusion: Diabetes"

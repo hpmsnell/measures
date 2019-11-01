@@ -35,7 +35,7 @@ valueset "HEDIS; Depression Case Management Encounter"
 valueset "HEDIS; Behavioral Health Encounter"
 valueset "HEDIS; Antidepressant Medications"
 
-// NCQA value sets
+// NCQA medication list value sets
 
 valueset "NCQA; Antidepressant Medications"
 
