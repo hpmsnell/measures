@@ -13,14 +13,14 @@ measure:
     gap_resolution_action: Patient requires documentation of an advance directive
       or surrogate decision maker
     version: 2019
-    mips_measure_type: 
-    mips_high_priority: 
-    mips_specialty_sets: 
-    mips_seven_point_max: 
-    source_specification_url: 
-    measure_children_names: 
-    mips_stratum: 
-    mips_objective: 
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
 denominator:
   description: Patients 66 years and older as of December 31 of the measurement year.
   component_groups:
@@ -30,20 +30,18 @@ denominator:
       show_codes: true
       records:
       - model: ClinicalActivity
-        value_set: MIPS; MIPS Hospice Service
-      - model: ClinicalActivity
-        value_set: VSAC; Palliative Care
+        value_set: HEDIS; Hospice
 exclusion:
-  description: 
-  reasons: 
+  description:
+  reasons:
 exception:
-  description: 
-  reasons: 
+  description:
+  reasons:
 performance_met:
-  description: 
+  description:
   reasons:
   - config_link_id: performance_met
-    code_value: 
+    code_value:
     display_title: Care Plan
     description: Advance care planning performed during the measurement year
     component_groups:
@@ -58,10 +56,10 @@ performance_met:
         - model: ClinicalActivity
           value_set: Able; Advance Directive Discussed
 performance_not_met:
-  description: 
+  description:
   reasons:
   - config_link_id: performance_not_met
-    code_value: 
+    code_value:
     display_title: Medications Not Reviewed
     description: No advance care planning found during the measurement period
-    component_groups: 
+    component_groups:

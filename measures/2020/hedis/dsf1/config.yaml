@@ -24,6 +24,13 @@ measure:
 denominator:
   description: 'Patients 12 years of age and older at the start of the measurement period'
   component_groups:
+  - logical_operator: NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice
 exclusion:
   description:
   reasons:

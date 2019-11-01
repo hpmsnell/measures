@@ -107,6 +107,13 @@ denominator:
       records:
       - model: ClinicalActivity
         value_set: 'HEDIS; My Mood Monitor Total score [M3]'
+  - logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice
 exclusion:
   description:
   reasons:

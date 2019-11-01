@@ -14,14 +14,14 @@ measure:
     gap_resolution_action: Patient needs attention for asthma controller medication
       compliance
     version: 2019
-    mips_measure_type: 
-    mips_high_priority: 
-    mips_specialty_sets: 
-    mips_seven_point_max: 
-    source_specification_url: 
-    measure_children_names: 
-    mips_stratum: 
-    mips_objective: 
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
 denominator:
   description: Patients age 5-64 years of age with persistent asthma
   component_groups:
@@ -77,14 +77,12 @@ denominator:
       show_codes: true
       records:
       - model: ClinicalActivity
-        value_set: MIPS; MIPS Hospice Service
-      - model: ClinicalActivity
-        value_set: VSAC; Palliative Care
+        value_set: HEDIS; Hospice
 exclusion:
-  description: 
+  description:
   reasons:
   - config_link_id: exclusion_1
-    code_value: 
+    code_value:
     display_title: Condition
     description: Patient excluded due to an applicable condition
     component_groups:
@@ -107,7 +105,7 @@ exclusion:
         - model: Diagnosis
           value_set: HEDIS; Acute Respiratory Failure
   - config_link_id: exclusion_2
-    code_value: 
+    code_value:
     display_title: No Medication
     description: Patient excluded due to lack of asthma controller medications dispensed
       during the measurement year
@@ -120,13 +118,13 @@ exclusion:
         - model: Medication
           value_set: HEDIS; Asthma Controller Medications
 exception:
-  description: 
-  reasons: 
+  description:
+  reasons:
 performance_met:
-  description: 
+  description:
   reasons:
   - config_link_id: performance_met
-    code_value: 
+    code_value:
     display_title: Medication Compliance ≥75%
     description: Patient achieved a PDC of at least 75% for their asthma controller
       medications during the measurement year
@@ -139,10 +137,10 @@ performance_met:
         - model: Medication
           value_set: HEDIS; Asthma Controller Medications
 performance_not_met:
-  description: 
+  description:
   reasons:
   - config_link_id: performance_not_met
-    code_value: 
+    code_value:
     display_title: Medication Compliance <75%
     description: Patient did not achieve a PDC of at least 75% for their asthma controller
       medications during the measurement year
