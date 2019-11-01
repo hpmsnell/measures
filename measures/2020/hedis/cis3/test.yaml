@@ -1,0 +1,1085 @@
+---
+measure_id: measure.Hedis.2019.Cis3
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Too Young
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Age Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Too Old
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionHospice Lower
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Upper
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAllergyVaccination Before
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionAllergyVaccination After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAllergyVaccination PerformanceMet
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAllergyDTaP Before
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionAllergyDTaP After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAllergyDTaP NoAdverseReaction
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAllergyDTaP PerformanceMet
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAllergyMMR Before
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionAllergyMMR After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAllergyMMR PerformanceMet
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: ExclusionAllergyVZV PerformanceMet
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAllergyInfluenza PerformanceMet
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAllergyRotavirus Before
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionAllergyRotavirus After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAllergyRotavirus PerformanceMet
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAllergyIPV Before
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionAllergyIPV After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAllergyIPV PerformanceMet
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAllergyHepB Before
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionAllergyHepB After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAllergyHepB PerformanceMet
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineMMRProcedure Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineMMRProcedure After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineMMRMedication Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineMMRMedication After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineMeaslesRubellaProcedure Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineMeaslesRubellaProcedure After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineMeaslesRubellaMedication Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineMeaslesRubellaMedication After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineMeaslesProcedure Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineMeaslesProcedure After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineMeaslesMedication Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineMeaslesMedication After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineMeaslesDiagnosis Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineMeaslesDiagnosis After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineMumpsProcedure Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineMumpsProcedure After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineMumpsMedication Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineMumpsMedication After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineMumpsDiagnosis Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineMumpsDiagnosis After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineRubellaProcedure Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineRubellaProcedure After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineRubellaMedication Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineRubellaMedication After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineRubellaDiagnosis Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineRubellaDiagnosis After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+providers:
+  - given_name: Rachel
+    family_name: Katz
+    external_id: '111-111'
+    credential: DO
+    primary_specialty: Family Medicine
+  - given_name: Patty
+    family_name: Smith
+    external_id: '222-222'
+    credential: MD
+    primary_specialty: Family Medicine
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 2015-01-01 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Male
+  clinical_models:
+- name: Age Lower
+  attributes:
+    date_of_birth: 2014-12-31 # Lower bound
+    given_name: Age
+    family_name: Lower
+    sex: Male
+  clinical_models:
+- name: Age Upper
+  attributes:
+    date_of_birth: 2014-01-01 # Upper bound
+    given_name: Age
+    family_name: Upper
+    sex: Male
+  clinical_models:
+- name: Too Old
+  attributes:
+    date_of_birth: 2013-12-31 # Too early
+    given_name: Too
+    family_name: Old
+    sex: Male
+  clinical_models:
+- name: ExclusionHospice Before
+  attributes:
+    date_of_birth: 2014-01-01
+    given_name: ExclusionHospice
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: G9687 # Hospice
+      start_date: 2015-12-31 # Too early
+- name: ExclusionHospice Lower
+  attributes:
+    date_of_birth: 2014-01-01
+    given_name: ExclusionHospice
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: G9687 # Hospice
+      start_date: 2016-01-01 # Lower bound
+- name: ExclusionHospice Upper
+  attributes:
+    date_of_birth: 2014-01-01
+    given_name: ExclusionHospice
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: G9687 # Hospice
+      start_date: 2016-12-31 # Upper bound
+- name: ExclusionHospice After
+  attributes:
+    date_of_birth: 2014-01-01
+    given_name: ExclusionHospice
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: G9687 # Hospice
+      start_date: 2017-01-01 # Too late
+- name: ExclusionAllergyVaccination Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyVaccination
+    family_name: Before
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: T80.52XA # Allergy to vaccination
+      start_date: 2016-02-01 # Before deadline
+- name: ExclusionAllergyVaccination After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyVaccination
+    family_name: After
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: T80.52XA # Allergy to vaccination
+      start_date: 2016-02-02 # Too late
+- name: ExclusionAllergyVaccination PerformanceMet
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyVaccination
+    family_name: PerformanceMet
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: T80.52XA # Allergy to vaccination
+      start_date: 2016-02-02 # Too late
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90698 # DTaP vaccine Procedure
+      start_date: 2015-01-01
+- name: ExclusionAllergyDTaP Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyDTaP
+    family_name: Before
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G04.32 # Encephalopathy due to vaccination
+      start_date: 2016-02-01 # Before deadline
+    - code_type: ICD10CM
+      code_value: T50.A15A # Adverse reaction due to vaccination
+      start_date: 2016-02-01
+- name: ExclusionAllergyDTaP After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyDTaP
+    family_name: After
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G04.32 # Encephalopathy due to vaccination
+      start_date: 2016-02-02 # Too late
+    - code_type: ICD10CM
+      code_value: T50.A15A # Adverse reaction due to vaccination
+      start_date: 2016-02-02
+- name: ExclusionAllergyDTaP NoAdverseReaction
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyDTaP
+    family_name: NoAdverseReaction
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G04.32 # Encephalopathy due to vaccination
+      start_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: T50.A15A # Adverse reaction due to vaccination
+      start_date: 2016-02-02 # Different date
+- name: ExclusionAllergyDTaP PerformanceMet
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyDTaP
+    family_name: PerformanceMet
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: G04.32 # Encephalopathy due to vaccination
+      start_date: 2016-02-02 # Too late
+    - code_type: ICD10CM
+      code_value: T50.A15A # Adverse reaction due to vaccination
+      start_date: 2016-02-01
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90700 # DTaP vaccine Procedure
+      start_date: 2014-03-15
+    - code_type: CPT
+      code_value: 90700 # DTaP vaccine Procedure
+      start_date: 2014-03-16
+    - code_type: CPT
+      code_value: 90700 # DTaP vaccine Procedure
+      start_date: 2014-03-17
+    - code_type: CPT
+      code_value: 90700 # DTaP vaccine Procedure
+      start_date: 2014-03-18
+- name: ExclusionAllergyMMR Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyMMR
+    family_name: Before
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: B20 # HIV
+      start_date: 2016-02-01 # Before deadline
+- name: ExclusionAllergyMMR After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyMMR
+    family_name: After
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: B20 # HIV
+      start_date: 2016-02-02 # Too late
+- name: ExclusionAllergyMMR PerformanceMet
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyMMR
+    family_name: PerformanceMet
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: B20 # HIV
+      start_date: 2016-02-02 # Too late
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90707 # MMR vaccine Procedure
+      start_date: 2015-01-01
+- name: ExclusionAllergyVZV PerformanceMet
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyVZV
+    family_name: PerformanceMet
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: B20 # HIV
+      start_date: 2016-02-02 # Too late
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90716 # VZV vaccine Procedure
+      start_date: 2015-01-01
+- name: ExclusionAllergyInfluenza PerformanceMet
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyInfluenza
+    family_name: PerformanceMet
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: B20 # HIV
+      start_date: 2016-02-02 # Too late
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90655 # Influenza vaccine Procedure
+      start_date: 2014-07-31
+    - code_type: CPT
+      code_value: 90655 # Influenza vaccine Procedure
+      start_date: 2014-08-01
+- name: ExclusionAllergyRotavirus Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyRotavirus
+    family_name: Before
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: K56.1 # Intussusception
+      start_date: 2016-02-01 # Before deadline
+- name: ExclusionAllergyRotavirus After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyRotavirus
+    family_name: After
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: K56.1 # Intussusception
+      start_date: 2016-02-02 # Too late
+- name: ExclusionAllergyRotavirus PerformanceMet
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyRotavirus
+    family_name: PerformanceMet
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: K56.1 # Intussusception
+      start_date: 2016-02-02 # Too late
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90681 # Rotavirus 2 dose schedule
+      start_date: 2014-03-14
+    - code_type: CPT
+      code_value: 90681 # Rotavirus 2 dose schedule
+      start_date: 2014-03-16
+- name: ExclusionAllergyIPV Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyIPV
+    family_name: Before
+    sex: Male
+  clinical_models:
+    allergies:
+    - code_type: RXNORM
+      code_value: 8536 # Polymyxin B
+      start_date: 2016-02-01 # Before deadline
+- name: ExclusionAllergyIPV After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyIPV
+    family_name: After
+    sex: Male
+  clinical_models:
+    allergies:
+    - code_type: RXNORM
+      code_value: 8536 # Polymyxin B
+      start_date: 2016-02-02 # Too late
+- name: ExclusionAllergyIPV PerformanceMet
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyIPV
+    family_name: PerformanceMet
+    sex: Male
+  clinical_models:
+    allergies:
+    - code_type: RXNORM
+      code_value: 8536 # Polymyxin B
+      start_date: 2016-02-02 # Too late
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90713 # IPV vaccine Procedure
+      start_date: 2014-03-15
+    - code_type: CPT
+      code_value: 90713 # IPV vaccine Procedure
+      start_date: 2014-03-16
+    - code_type: CPT
+      code_value: 90713 # IPV vaccine Procedure
+      start_date: 2014-03-17
+- name: ExclusionAllergyHepB Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyHepB
+    family_name: Before
+    sex: Male
+  clinical_models:
+    allergies:
+    - code_type: RXNORM
+      code_value: 892674 # Baker's yeast
+      start_date: 2016-02-01 # Before deadline
+- name: ExclusionAllergyHepB After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyHepB
+    family_name: After
+    sex: Male
+  clinical_models:
+    allergies:
+    - code_type: RXNORM
+      code_value: 892674 # Baker's yeast
+      start_date: 2016-02-02 # Too late
+- name: ExclusionAllergyHepB PerformanceMet
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: ExclusionAllergyHepB
+    family_name: PerformanceMet
+    sex: Male
+  clinical_models:
+    allergies:
+    - code_type: RXNORM
+      code_value: 892674 # Baker's yeast
+      start_date: 2016-02-02 # Too late
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90740 # Hepatitis B vaccine procedure
+      start_date: 2014-03-14
+    - code_type: CPT
+      code_value: 90740 # Hepatitis B vaccine procedure
+      start_date: 2014-03-16
+    - code_type: CPT
+      code_value: 90740 # Hepatitis B vaccine procedure
+      start_date: 2014-03-17
+- name: VaccineMMRProcedure Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMMRProcedure
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90707 # MMR vaccine Procedure
+      start_date: 2014-03-14 # Before deadline
+- name: VaccineMMRProcedure After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMMRProcedure
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90707 # MMR vaccine Procedure
+      start_date: 2016-02-02 # After deadline
+- name: VaccineMMRMedication Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMMRMedication
+    family_name: Before
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: CVX
+      code_value: '03' # MMR vaccine
+      start_date: 2014-03-14 # Before deadline
+- name: VaccineMMRMedication After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMMRMedication
+    family_name: After
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: CVX
+      code_value: '03' # MMR vaccine
+      start_date: 2016-02-02 # After deadline
+- name: VaccineMeaslesRubellaProcedure Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMeaslesRubellaProcedure
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90708 # Measles/Rubella vaccine Procedure
+      start_date: 2014-03-14 # Before deadline
+    - code_type: CPT
+      code_value: 90704 # Mumps vaccine Procedure
+      start_date: 2014-03-14
+- name: VaccineMeaslesRubellaProcedure After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMeaslesRubellaProcedure
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90708 # Measles/Rubella vaccine Procedure
+      start_date: 2016-02-02 # After deadline
+    - code_type: CPT
+      code_value: 90704 # Mumps vaccine Procedure
+      start_date: 2014-03-14
+- name: VaccineMeaslesRubellaMedication Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMeaslesRubellaMedication
+    family_name: Before
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: CVX
+      code_value: '04' # Measles/Rubella vaccine
+      start_date: 2014-03-14 # Before deadline
+    - code_type: CVX
+      code_value: '07' # Mumps vaccine
+      start_date: 2014-03-14
+- name: VaccineMeaslesRubellaMedication After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMeaslesRubellaMedication
+    family_name: After
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: CVX
+      code_value: '04' # Measles/Rubella vaccine
+      start_date: 2016-02-02 # After deadline
+    - code_type: CVX
+      code_value: '07' # Mumps vaccine
+      start_date: 2014-03-14
+- name: VaccineMeaslesProcedure Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMeaslesProcedure
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90705 # Measles vaccine Procedure
+      start_date: 2014-03-14 # Before deadline
+    - code_type: CPT
+      code_value: 90704 # Mumps vaccine Procedure
+      start_date: 2014-03-14
+    - code_type: CPT
+      code_value: 90706 # Rubella vaccine Procedure
+      start_date: 2014-03-14
+- name: VaccineMeaslesProcedure After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMeaslesProcedure
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90705 # Measles vaccine Procedure
+      start_date: 2016-02-02 # After deadline
+    - code_type: CPT
+      code_value: 90704 # Mumps vaccine Procedure
+      start_date: 2014-03-14
+    - code_type: CPT
+      code_value: 90706 # Rubella vaccine Procedure
+      start_date: 2014-03-14
+- name: VaccineMeaslesMedication Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMeaslesMedication
+    family_name: Before
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: CVX
+      code_value: '05' # Measles vaccine
+      start_date: 2014-03-14 # Before deadline
+    - code_type: CVX
+      code_value: '07' # Mumps vaccine
+      start_date: 2014-03-14
+    - code_type: CVX
+      code_value: '06' # Rubella vaccine
+      start_date: 2014-03-14
+- name: VaccineMeaslesMedication After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMeaslesMedication
+    family_name: After
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: CVX
+      code_value: '05' # Measles vaccine
+      start_date: 2016-02-02 # After deadline
+    - code_type: CVX
+      code_value: '07' # Mumps vaccine
+      start_date: 2014-03-14
+      start_date: 2014-03-14
+    - code_type: CVX
+      code_value: '06' # Rubella vaccine
+      start_date: 2014-03-14
+- name: VaccineMeaslesDiagnosis Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMeaslesDiagnosis
+    family_name: Before
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: B05.0 # Measles
+      start_date: 2014-03-14 # Before deadline
+      stop_date: 2014-03-14
+    medications:
+    - code_type: CVX
+      code_value: '07' # Mumps vaccine
+      start_date: 2014-03-14
+    - code_type: CVX
+      code_value: '06' # Rubella vaccine
+      start_date: 2014-03-14
+- name: VaccineMeaslesDiagnosis After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMeaslesDiagnosis
+    family_name: After
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: B05.0 # Measles
+      start_date: 2016-02-02 # After deadline
+      stop_date: 2016-02-02
+    medications:
+    - code_type: CVX
+      code_value: '07' # Mumps vaccine
+      start_date: 2014-03-14
+    - code_type: CVX
+      code_value: '06' # Rubella vaccine
+      start_date: 2014-03-14
+- name: VaccineMumpsProcedure Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMumpsProcedure
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90704 # Mumps vaccine Procedure
+      start_date: 2014-03-14 # Before deadline
+    - code_type: CPT
+      code_value: 90705 # Measles vaccine Procedure
+      start_date: 2014-03-14
+    - code_type: CPT
+      code_value: 90706 # Rubella vaccine Procedure
+      start_date: 2014-03-14
+- name: VaccineMumpsProcedure After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMumpsProcedure
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90704 # Mumps vaccine Procedure
+      start_date: 2016-02-02 # After deadline
+    - code_type: CPT
+      code_value: 90705 # Measles vaccine Procedure
+      start_date: 2014-03-14
+    - code_type: CPT
+      code_value: 90706 # Rubella vaccine Procedure
+      start_date: 2014-03-14
+- name: VaccineMumpsMedication Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMumpsMedication
+    family_name: Before
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: CVX
+      code_value: '07' # Mumps vaccine
+      start_date: 2014-03-14 # Before deadline
+    - code_type: CVX
+      code_value: '05' # Measles vaccine
+      start_date: 2014-03-14
+    - code_type: CVX
+      code_value: '06' # Rubella vaccine
+      start_date: 2014-03-14
+- name: VaccineMumpsMedication After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMumpsMedication
+    family_name: After
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: CVX
+      code_value: '07' # Mumps vaccine
+      start_date: 2016-02-02 # After deadline
+    - code_type: CVX
+      code_value: '05' # Measles vaccine
+      start_date: 2014-03-14
+    - code_type: CVX
+      code_value: '06' # Rubella vaccine
+      start_date: 2014-03-14
+- name: VaccineMumpsDiagnosis Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMumpsDiagnosis
+    family_name: Before
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: B26.2 # Mumps
+      start_date: 2014-03-14 # Before deadline
+      stop_date: 2014-03-14
+    medications:
+    - code_type: CVX
+      code_value: '05' # Measles vaccine
+      start_date: 2014-03-14
+    - code_type: CVX
+      code_value: '06' # Rubella vaccine
+      start_date: 2014-03-14
+- name: VaccineMumpsDiagnosis After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMumpsDiagnosis
+    family_name: After
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: B26.2 # Mumps
+      start_date: 2016-02-02 # After deadline
+      stop_date: 2016-02-02
+    medications:
+    - code_type: CVX
+      code_value: '05' # Measles vaccine
+      start_date: 2014-03-14
+    - code_type: CVX
+      code_value: '06' # Rubella vaccine
+      start_date: 2014-03-14
+- name: VaccineRubellaProcedure Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineRubellaProcedure
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90706 # Rubella vaccine Procedure
+      start_date: 2014-03-14 # Before deadline
+    - code_type: CPT
+      code_value: 90705 # Measles vaccine Procedure
+      start_date: 2014-03-14
+    - code_type: CPT
+      code_value: 90704 # Mumps vaccine Procedure
+      start_date: 2014-03-14
+- name: VaccineRubellaProcedure After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineRubellaProcedure
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90706 # Rubella vaccine Procedure
+      start_date: 2016-02-02 # After deadline
+    - code_type: CPT
+      code_value: 90705 # Measles vaccine Procedure
+      start_date: 2014-03-14
+    - code_type: CPT
+      code_value: 90704 # Mumps vaccine Procedure
+      start_date: 2014-03-14
+- name: VaccineRubellaMedication Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineRubellaMedication
+    family_name: Before
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: CVX
+      code_value: '06' # Rubella vaccine
+      start_date: 2014-03-14 # Before deadline
+    - code_type: CVX
+      code_value: '05' # Measles vaccine
+      start_date: 2014-03-14
+    - code_type: CVX
+      code_value: '07' # Mumps vaccine
+      start_date: 2014-03-14
+- name: VaccineRubellaMedication After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineRubellaMedication
+    family_name: After
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: CVX
+      code_value: '06' # Rubella vaccine
+      start_date: 2016-02-02 # After deadline
+    - code_type: CVX
+      code_value: '05' # Measles vaccine
+      start_date: 2014-03-14
+    - code_type: CVX
+      code_value: '07' # Mumps vaccine
+      start_date: 2014-03-14
+- name: VaccineRubellaDiagnosis Before
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineRubellaDiagnosis
+    family_name: Before
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: B06.00 # Rubella
+      start_date: 2014-03-14 # Before deadline
+      stop_date: 2014-03-14
+    medications:
+    - code_type: CVX
+      code_value: '05' # Measles vaccine
+      start_date: 2014-03-14
+    - code_type: CVX
+      code_value: '07' # Mumps vaccine
+      start_date: 2014-03-14
+- name: VaccineRubellaDiagnosis After
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineRubellaDiagnosis
+    family_name: After
+    sex: Male
+  clinical_models:
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: B06.00 # Rubella
+      start_date: 2016-02-02 # After deadline
+      stop_date: 2016-02-02
+    medications:
+    - code_type: CVX
+      code_value: '05' # Measles vaccine
+      start_date: 2014-03-14
+    - code_type: CVX
+      code_value: '07' # Mumps vaccine
+      start_date: 2014-03-14

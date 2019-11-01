@@ -1,0 +1,1461 @@
+---
+measure_id: measure.Hedis.2019.Ppc1
+test_set_keys:
+  organization_key:
+    episodes_of_care:
+    - name: DenominatorDelivery Before
+      start_date: 2015-11-05
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorDelivery Lower
+      start_date: 2015-11-06
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorDelivery Upper
+      start_date: 2016-11-05
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorDelivery After
+      start_date: 2016-11-06
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Exclusion Male
+      start_date: 2016-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionNonLiveBirth Before
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionNonLiveBirth Lower
+      start_date: 2016-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionNonLiveBirth Upper
+      start_date: 2016-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionNonLiveBirth After
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionHospice Before
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionHospice Lower
+      start_date: 2016-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Upper
+      start_date: 2016-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice After
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAdditionalDelivery Before
+      start_date: 2016-10-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: single
+    - name: ExclusionAdditionalDelivery Lower
+      start_date: 2016-10-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionAdditionalDelivery Upper
+      start_date: 2016-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionAdditionalDelivery After
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: SingleVisit Before
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: SingleVisit Lower
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: single
+    - name: SingleVisit Upper
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: single
+    - name: SingleVisit After
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: MultipleVisit Before
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: MultipleVisit Lower
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: multiple
+    - name: MultipleVisit Upper
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: multiple
+    - name: MultipleVisit After
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VisitWithPregnancy Before
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VisitWithPregnancy Lower
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: multiple
+    - name: VisitWithPregnancy Upper
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: multiple
+    - name: VisitWithPregnancy After
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VisitWithAssessment Before
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VisitWithAssessment Lower
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: multiple
+    - name: VisitWithAssessment Upper
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: multiple
+    - name: VisitWithAssessment After
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VisitWithToxoplasma Before
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VisitWithToxoplasma Lower
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: multiple
+    - name: VisitWithToxoplasma Upper
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: multiple
+    - name: VisitWithToxoplasma After
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VisitWithRubella Before
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VisitWithRubella Lower
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: multiple
+    - name: VisitWithRubella Upper
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: multiple
+    - name: VisitWithRubella After
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VisitWithCytomegalovirus Before
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VisitWithCytomegalovirus Lower
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: multiple
+    - name: VisitWithCytomegalovirus Upper
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: multiple
+    - name: VisitWithCytomegalovirus After
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VisitWithHerpes Before
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VisitWithHerpes Lower
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: multiple
+    - name: VisitWithHerpes Upper
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: multiple
+    - name: VisitWithHerpes After
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VisitWithRubellaAndABO Before
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VisitWithRubellaAndABO Lower
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: multiple
+    - name: VisitWithRubellaAndABO Upper
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: multiple
+    - name: VisitWithRubellaAndABO After
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VisitWithABOAndRubella Before
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VisitWithABOAndRubella Lower
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: multiple
+    - name: VisitWithABOAndRubella Upper
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: multiple
+    - name: VisitWithABOAndRubella After
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+providers:
+  - given_name: Rachel
+    family_name: Katz
+    external_id: '111-111'
+    credential: DO
+    primary_specialty: Family Medicine
+  - given_name: Patty
+    family_name: Smith
+    external_id: '222-222'
+    credential: MD
+    primary_specialty: Family Medicine
+patients:
+- name: DenominatorDelivery Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: DenominatorDelivery
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2015-11-05 # Too early
+- name: DenominatorDelivery Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: DenominatorDelivery
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2015-11-06 # Lower bound
+- name: DenominatorDelivery Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: DenominatorDelivery
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-11-05 # Upper bound
+- name: DenominatorDelivery After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: DenominatorDelivery
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-11-06 # Too late
+- name: Exclusion Male
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: Exclusion
+    family_name: Male
+    sex: Male # Not female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+- name: ExclusionNonLiveBirth Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionNonLiveBirth
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+      stop_date: 2016-01-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: O00.0 # Non-live birth
+      start_date: 2015-12-31 # Too early
+      stop_date: 2015-12-31
+- name: ExclusionNonLiveBirth Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionNonLiveBirth
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+      stop_date: 2016-01-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: O00.0 # Non-live birth
+      start_date: 2016-01-01 # Lower bound
+- name: ExclusionNonLiveBirth Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionNonLiveBirth
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+      stop_date: 2016-01-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: O00.0 # Non-live birth
+      start_date: 2016-01-02 # Upper bound
+      stop_date: 2016-01-02
+- name: ExclusionNonLiveBirth After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionNonLiveBirth
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+      stop_date: 2016-01-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: O00.0 # Non-live birth
+      start_date: 2016-01-03 # Too late
+      stop_date: 2016-01-03
+- name: ExclusionHospice Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionHospice
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: G9687 # Hospice
+      start_date: 2015-12-31 # Too early
+- name: ExclusionHospice Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionHospice
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: G9687 # Hospice
+      start_date: 2016-01-01 # Lower bound
+- name: ExclusionHospice Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionHospice
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: G9687 # Hospice
+      start_date: 2016-12-31 # Upper bound
+- name: ExclusionHospice After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionHospice
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: G9687 # Hospice
+      start_date: 2017-01-01 # Too late
+- name: ExclusionAdditionalDelivery Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionAdditionalDelivery
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-10-01
+    - code_type: CPT
+      code_value: 59400 # Additional delivery
+      start_date: 2016-03-31 # Too early
+- name: ExclusionAdditionalDelivery Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionAdditionalDelivery
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-10-01
+    - code_type: CPT
+      code_value: 59400 # Additional delivery
+      start_date: 2016-04-01 # Lower bound
+- name: ExclusionAdditionalDelivery Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionAdditionalDelivery
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 59400 # Additional delivery
+      start_date: 2015-12-31 # Upper bound
+- name: ExclusionAdditionalDelivery After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionAdditionalDelivery
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 59400 # Additional delivery
+      start_date: 2016-01-02 # Too late
+- name: SingleVisit Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: SingleVisit
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: H1005 # Prenatal bundled service
+      start_date: 2015-03-31 # Too early
+- name: SingleVisit Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: SingleVisit
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: H1005 # Prenatal bundled service
+      start_date: 2015-04-01 # Lower bound
+- name: SingleVisit Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: SingleVisit
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: H1005 # Prenatal bundled service
+      start_date: 2015-07-01 # Upper bound
+- name: SingleVisit After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: SingleVisit
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: H1005 # Prenatal bundled service
+      start_date: 2015-07-02 # Too late
+- name: MultipleVisit Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: MultipleVisit
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-03-31 # Too early
+    - code_type: CPT
+      code_value: 80055 # Obstetric panel
+      start_date: 2015-05-01
+- name: MultipleVisit Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: MultipleVisit
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-04-01 # Lower bound
+    - code_type: CPT
+      code_value: 80055 # Obstetric panel
+      start_date: 2015-05-01
+- name: MultipleVisit Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: MultipleVisit
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-07-01 # Upper bound
+    - code_type: CPT
+      code_value: 80055 # Obstetric panel
+      start_date: 2015-05-01
+- name: MultipleVisit After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: MultipleVisit
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-07-02 # Too late
+    - code_type: CPT
+      code_value: 80055 # Obstetric panel
+      start_date: 2015-05-01
+- name: VisitWithPregnancy Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithPregnancy
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+      stop_date: 2015-05-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: O24.011 # Pregnancy
+      start_date: 2015-04-30 # Too early
+- name: VisitWithPregnancy Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithPregnancy
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+      stop_date: 2015-05-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: O24.011 # Pregnancy
+      start_date: 2015-05-01 # Lower bound
+- name: VisitWithPregnancy Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithPregnancy
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+      stop_date: 2015-05-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: O24.011 # Pregnancy
+      start_date: 2015-05-02 # Upper bound
+- name: VisitWithPregnancy After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithPregnancy
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+      stop_date: 2015-05-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: O24.011 # Pregnancy
+      start_date: 2015-05-03 # Too late
+- name: VisitWithAssessment Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithAssessment
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 80055 # Obstetric panel
+      start_date: 2015-03-31 # Too early
+- name: VisitWithAssessment Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithAssessment
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 80055 # Obstetric panel
+      start_date: 2015-04-01 # Lower bound
+- name: VisitWithAssessment Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithAssessment
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 80055 # Obstetric panel
+      start_date: 2015-07-01 # Upper bound
+- name: VisitWithAssessment After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithAssessment
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 80055 # Obstetric panel
+      start_date: 2015-07-02 # Too late
+- name: VisitWithToxoplasma Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithToxoplasma
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86777 # Toxoplasma test
+      start_date: 2015-03-31 # Too early
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-05-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 13225-8 # Cytomegalovirus test
+      start_date: 2015-05-01
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2015-05-01
+- name: VisitWithToxoplasma Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithToxoplasma
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86777 # Toxoplasma test
+      start_date: 2015-04-01 # Lower bound
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-05-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 13225-8 # Cytomegalovirus test
+      start_date: 2015-05-01
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2015-05-01
+- name: VisitWithToxoplasma Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithToxoplasma
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86777 # Toxoplasma test
+      start_date: 2015-07-01 # Upper bound
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-05-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 13225-8 # Cytomegalovirus test
+      start_date: 2015-05-01
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2015-05-01
+- name: VisitWithToxoplasma After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithToxoplasma
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86777 # Toxoplasma test
+      start_date: 2015-07-02 # Too late
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-05-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 13225-8 # Cytomegalovirus test
+      start_date: 2015-05-01
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2015-05-01
+- name: VisitWithRubella Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithRubella
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86777 # Toxoplasma test
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-03-31 # Too early
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 13225-8 # Cytomegalovirus test
+      start_date: 2015-05-01
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2015-05-01
+- name: VisitWithRubella Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithRubella
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86777 # Toxoplasma test
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-04-01 # Lower bound
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 13225-8 # Cytomegalovirus test
+      start_date: 2015-05-01
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2015-05-01
+- name: VisitWithRubella Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithRubella
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86777 # Toxoplasma test
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-07-01 # Upper bound
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 13225-8 # Cytomegalovirus test
+      start_date: 2015-05-01
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2015-05-01
+- name: VisitWithRubella After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithRubella
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86777 # Toxoplasma test
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-07-02 # Too late
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 13225-8 # Cytomegalovirus test
+      start_date: 2015-05-01
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2015-05-01
+- name: VisitWithCytomegalovirus Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithCytomegalovirus
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86777 # Toxoplasma test
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-05-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 13225-8 # Cytomegalovirus test
+      start_date: 2015-03-31 # Too early
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2015-05-01
+- name: VisitWithCytomegalovirus Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithCytomegalovirus
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86777 # Toxoplasma test
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-05-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 13225-8 # Cytomegalovirus test
+      start_date: 2015-04-01 # Lower bound
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2015-05-01
+- name: VisitWithCytomegalovirus Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithCytomegalovirus
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86777 # Toxoplasma test
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-05-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 13225-8 # Cytomegalovirus test
+      start_date: 2015-07-01 # Upper bound
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2015-05-01
+- name: VisitWithCytomegalovirus After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithCytomegalovirus
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86777 # Toxoplasma test
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-05-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 13225-8 # Cytomegalovirus test
+      start_date: 2015-07-02 # Too late
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2015-05-01
+- name: VisitWithHerpes Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithHerpes
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86777 # Toxoplasma test
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-05-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 13225-8 # Cytomegalovirus test
+      start_date: 2015-05-01
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2015-03-31 # Too early
+- name: VisitWithHerpes Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithHerpes
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86777 # Toxoplasma test
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-05-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 13225-8 # Cytomegalovirus test
+      start_date: 2015-05-01
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2015-04-01 # Lower bound
+- name: VisitWithHerpes Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithHerpes
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86777 # Toxoplasma test
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-05-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 13225-8 # Cytomegalovirus test
+      start_date: 2015-05-01
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2015-07-01 # Upper bound
+- name: VisitWithHerpes After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithHerpes
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86777 # Toxoplasma test
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-05-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 13225-8 # Cytomegalovirus test
+      start_date: 2015-05-01
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2015-07-02 # Too late
+- name: VisitWithRubellaAndABO Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithRubellaAndABO
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-05-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 77397-8 # ABO and Rh
+      start_date: 2015-03-31 # Too early
+- name: VisitWithRubellaAndABO Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithRubellaAndABO
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-05-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 77397-8 # ABO and Rh
+      start_date: 2015-04-01 # Lower bound
+- name: VisitWithRubellaAndABO Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithRubellaAndABO
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-05-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 77397-8 # ABO and Rh
+      start_date: 2015-07-01 # Upper bound
+- name: VisitWithRubellaAndABO After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithRubellaAndABO
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-05-01
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 77397-8 # ABO and Rh
+      start_date: 2015-07-02 # Too late
+- name: VisitWithABOAndRubella Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithABOAndRubella
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-03-31 # Too early
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 77397-8 # ABO and Rh
+      start_date: 2015-05-01
+- name: VisitWithABOAndRubella Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithABOAndRubella
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-04-01 # Lower bound
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 77397-8 # ABO and Rh
+      start_date: 2015-05-01
+- name: VisitWithABOAndRubella Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithABOAndRubella
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-07-01 # Upper bound
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 77397-8 # ABO and Rh
+      start_date: 2015-05-01
+- name: VisitWithABOAndRubella After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: VisitWithABOAndRubella
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Prenatal visit
+      start_date: 2015-05-01
+    - code_type: CPT
+      code_value: 86762 # Rubella test
+      start_date: 2015-07-02 # Too late
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 77397-8 # ABO and Rh
+      start_date: 2015-05-01

@@ -1,0 +1,169 @@
+---
+measure_id: measure.Hedis.2019.Coa4
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Too Young
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionHospice Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionHospice Lower
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Upper
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Pain Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Pain Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Pain Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Pain After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+providers:
+  - given_name: Rachel
+    family_name: Katz
+    external_id: '111-111'
+    credential: DO
+    primary_specialty: Family Medicine
+  - given_name: Patty
+    family_name: Smith
+    external_id: '222-222'
+    credential: MD
+    primary_specialty: Family Medicine
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1951-01-01 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Male
+  clinical_models:
+- name: Age Lower
+  attributes:
+    date_of_birth: 1950-12-31 # Lower bound
+    given_name: Age
+    family_name: Lower
+    sex: Male
+  clinical_models:
+- name: ExclusionHospice Before
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionHospice
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: G9687 # Hospice
+      start_date: 2015-12-31 # Too early
+- name: ExclusionHospice Lower
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionHospice
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: G9687 # Hospice
+      start_date: 2016-01-01 # Lower bound
+- name: ExclusionHospice Upper
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionHospice
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: G9687 # Hospice
+      start_date: 2016-12-31 # Upper bound
+- name: ExclusionHospice After
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionHospice
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: G9687 # Hospice
+      start_date: 2017-01-01 # Too late
+- name: Pain Before
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: Pain
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: SNOMEDCT
+      code_value: 225399009
+      start_date: 2015-12-31 # Too early
+- name: Pain Lower
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: Pain
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: SNOMEDCT
+      code_value: 225399009
+      start_date: 2016-01-01 # Lower bound
+- name: Pain Upper
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: Pain
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: SNOMEDCT
+      code_value: 225399009
+      start_date: 2016-12-31 # Upper bound
+- name: Pain After
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: Pain
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: SNOMEDCT
+      code_value: 225399009
+      start_date: 2017-01-01 # Too late

@@ -1,0 +1,939 @@
+---
+measure_id: measure.Hedis.2019.Spc1
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Male TooYoung
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Male AgeLower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Male AgeUpper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Male TooOld
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Female TooYoung
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Female AgeLower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Female AgeUpper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Female TooOld
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: CardiovascularEvent Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: CardiovascularEvent Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: CardiovascularEvent Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: CardiovascularEvent After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: MI Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: MI Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: MI Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: MI After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: MI NoDiagnosis
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: IVDYear1 Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: IVDYear1 Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: IVDYear1 Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: IVDYear1 After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: IVDYear2 Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: IVDYear2 Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: IVDYear2 Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: IVDYear2 After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionHospice Lower
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Upper
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionPregnancy Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionPregnancy Lower
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionPregnancy Upper
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionPregnancy After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionEstrogen Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionEstrogen Lower
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionEstrogen Upper
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionEstrogen After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionCondition Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionCondition Lower
+      denominator: 1
+      denominator_exclusion: exclusion_3
+      denominator_exception:
+      numerator:
+    - name: ExclusionCondition Upper
+      denominator: 1
+      denominator_exclusion: exclusion_3
+      denominator_exception:
+      numerator:
+    - name: ExclusionCondition After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Statin Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Statin Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Statin Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Statin After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+providers:
+- given_name: Rachel
+  family_name: Katz
+  external_id: 111-111
+  credential: DO
+  primary_specialty: Family Medicine
+- given_name: Patty
+  family_name: Smith
+  external_id: 222-222
+  credential: MD
+  primary_specialty: Family Medicine
+patients:
+- name: Male TooYoung
+  attributes:
+    date_of_birth: 1996-01-01
+    given_name: Male
+    family_name: TooYoung
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+- name: Male AgeLower
+  attributes:
+    date_of_birth: 1995-12-31
+    given_name: Male
+    family_name: AgeLower
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+- name: Male AgeUpper
+  attributes:
+    date_of_birth: 1942-01-01
+    given_name: Male
+    family_name: AgeUpper
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+- name: Male TooOld
+  attributes:
+    date_of_birth: 1941-12-31
+    given_name: Male
+    family_name: TooOld
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+- name: Female TooYoung
+  attributes:
+    date_of_birth: 1977-01-01
+    given_name: Female
+    family_name: TooYoung
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+- name: Female AgeLower
+  attributes:
+    date_of_birth: 1976-12-31
+    given_name: Female
+    family_name: AgeLower
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+- name: Female AgeUpper
+  attributes:
+    date_of_birth: 1942-01-01
+    given_name: Female
+    family_name: AgeUpper
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+- name: Female TooOld
+  attributes:
+    date_of_birth: 1941-12-31
+    given_name: Female
+    family_name: TooOld
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+- name: CardiovascularEvent Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: CardiovascularEvent
+    family_name: Before
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2014-12-31
+- name: CardiovascularEvent Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: CardiovascularEvent
+    family_name: Lower
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-01-01
+- name: CardiovascularEvent Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: CardiovascularEvent
+    family_name: Upper
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-12-31
+- name: CardiovascularEvent After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: CardiovascularEvent
+    family_name: After
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2016-01-01
+- name: MI Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: MI
+    family_name: Before
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2014-12-31
+      stop_date: 2014-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I21.01
+      start_date: 2014-12-31
+- name: MI Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: MI
+    family_name: Lower
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2015-01-01
+      stop_date: 2015-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I21.01
+      start_date: 2015-01-01
+- name: MI Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: MI
+    family_name: Upper
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2015-12-31
+      stop_date: 2015-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I21.01
+      start_date: 2015-12-31
+- name: MI After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: MI
+    family_name: After
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I21.01
+      start_date: 2016-01-01
+- name: MI NoDiagnosis
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: MI
+    family_name: NoDiagnosis
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+- name: IVDYear1 Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: IVDYear1
+    family_name: Before
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2015-02-01
+      stop_date: 2015-02-02
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_date: 2015-01-31
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_date: 2016-02-01
+- name: IVDYear1 Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: IVDYear1
+    family_name: Lower
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2015-02-01
+      stop_date: 2015-02-02
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_date: 2015-02-01
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_date: 2016-02-01
+- name: IVDYear1 Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: IVDYear1
+    family_name: Upper
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2015-02-01
+      stop_date: 2015-02-02
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_date: 2015-02-02
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_date: 2016-02-01
+- name: IVDYear1 After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: IVDYear1
+    family_name: After
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2015-02-01
+      stop_date: 2015-02-02
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_date: 2016-02-03
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_date: 2016-02-01
+- name: IVDYear2 Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: IVDYear2
+    family_name: Before
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2015-02-01
+      stop_date: 2015-02-02
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_date: 2015-02-01
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_date: 2016-01-31
+- name: IVDYear2 Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: IVDYear2
+    family_name: Lower
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2015-02-01
+      stop_date: 2015-02-02
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_date: 2015-02-01
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_date: 2016-02-01
+- name: IVDYear2 Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: IVDYear2
+    family_name: Upper
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2015-02-01
+      stop_date: 2015-02-02
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_date: 2015-02-01
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_date: 2016-02-02
+- name: IVDYear2 After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: IVDYear2
+    family_name: After
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2015-02-01
+      stop_date: 2015-02-02
+    - code_type: UB
+      code_value: '0100'
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_date: 2015-02-01
+    - code_type: ICD10CM
+      code_value: I20.0
+      start_date: 2016-02-03
+- name: ExclusionHospice Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionHospice
+    family_name: Before
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    - code_type: CPT
+      code_value: 99377
+      start_date: 2015-12-31
+- name: ExclusionHospice Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionHospice
+    family_name: Lower
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    - code_type: CPT
+      code_value: 99377
+      start_date: 2016-01-01
+- name: ExclusionHospice Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionHospice
+    family_name: Upper
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    - code_type: CPT
+      code_value: 99377
+      start_date: 2016-12-31
+- name: ExclusionHospice After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionHospice
+    family_name: After
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    - code_type: CPT
+      code_value: 99377
+      start_date: 2017-01-01
+- name: ExclusionPregnancy Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionPregnancy
+    family_name: Before
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: O00.0
+      start_date: 2014-12-31
+- name: ExclusionPregnancy Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionPregnancy
+    family_name: Lower
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: O00.0
+      start_date: 2015-01-01
+- name: ExclusionPregnancy Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionPregnancy
+    family_name: Upper
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: O00.0
+      start_date: 2016-12-31
+- name: ExclusionPregnancy After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionPregnancy
+    family_name: After
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: O00.0
+      start_date: 2017-01-01
+- name: ExclusionEstrogen Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionEstrogen
+    family_name: Before
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    medications:
+    - code_type: NDC
+      code_value: '00068022630'
+      start_date: 2014-12-31
+      method: E
+- name: ExclusionEstrogen Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionEstrogen
+    family_name: Lower
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    medications:
+    - code_type: NDC
+      code_value: '00068022630'
+      start_date: 2015-01-01
+- name: ExclusionEstrogen Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionEstrogen
+    family_name: Upper
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    medications:
+    - code_type: NDC
+      code_value: '00068022630'
+      start_date: 2016-12-31
+- name: ExclusionEstrogen After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionEstrogen
+    family_name: After
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    medications:
+    - code_type: NDC
+      code_value: '00068022630'
+      start_date: 2017-01-01
+- name: ExclusionCondition Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionCondition
+    family_name: Before
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: N18.5
+      start_date: 2014-12-31
+- name: ExclusionCondition Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionCondition
+    family_name: Lower
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: N18.5
+      start_date: 2015-01-01
+- name: ExclusionCondition Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionCondition
+    family_name: Upper
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: N18.5
+      start_date: 2016-12-31
+- name: ExclusionCondition After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionCondition
+    family_name: After
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: N18.5
+      start_date: 2017-01-01
+- name: Statin Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: Statin
+    family_name: Before
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    medications:
+    - code_type: NDC
+      code_value: '00069225030'
+      start_date: 2015-12-31
+      prescribed: 1
+      dispensed: 1
+- name: Statin Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: Statin
+    family_name: Lower
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    medications:
+    - code_type: NDC
+      code_value: '00069225030'
+      start_date: 2016-01-01
+      prescribed: 1
+      dispensed: 1
+- name: Statin Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: Statin
+    family_name: Upper
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    medications:
+    - code_type: NDC
+      code_value: '00069225030'
+      start_date: 2016-12-31
+      prescribed: 1
+      dispensed: 1
+- name: Statin After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: Statin
+    family_name: After
+    sex: male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 33510
+      start_date: 2015-02-01
+    medications:
+    - code_type: NDC
+      code_value: '00069225030'
+      start_date: 2017-01-01
+      prescribed: 1
+      dispensed: 1
