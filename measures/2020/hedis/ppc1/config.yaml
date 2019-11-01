@@ -1,0 +1,134 @@
+---
+measure:
+  name: 19.HEDIS.Ppc1
+  required:
+    display_title: Timeliness of Prenatal Care
+    inverse: false
+    subject_type: Encounter
+    set: HEDIS
+    external_id: PPC1
+  optional:
+    description: The percentage of deliveries that received a prenatal care visit
+      in the first trimester.
+    gap_resolution_action: 
+    version: 2019
+    mips_measure_type: 
+    mips_high_priority: 
+    mips_specialty_sets: 
+    mips_seven_point_max: 
+    source_specification_url: 
+    measure_children_names: 
+    mips_stratum: 
+    mips_objective: 
+denominator:
+  description: Delivered a live birth on or between November 6 of the year prior to
+    the measurement year and November 5 of the measurement year. Patients who delivered
+    in any setting should be included in this measure.
+  component_groups:
+  - components:
+    - display_title: Delivery
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Deliveries
+  - logical_operator: AND NOT
+    components:
+    - display_title: Non-Live Births
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Non-live Births
+  - logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
+exclusion:
+  description: 
+  reasons: 
+exception:
+  description: 
+  reasons: 
+performance_met:
+  description: A prenatal visit in the first trimester
+  reasons:
+  - config_link_id: single
+    code_value: 
+    display_title: Single Service
+    description: Patient received a complete prenatal service
+    component_groups:
+    - components:
+      - display_title: Complete Prenatal Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Prenatal Bundled Services
+        - model: ClinicalActivity
+          value_set: HEDIS; Stand Alone Prenatal Visits
+  - config_link_id: multiple
+    code_value: 
+    display_title: Multiple Services
+    description: Patient received a prenatal visit with one or more additional eligible
+      services
+    component_groups:
+    - components:
+      - display_title: Prenatal Visit
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Prenatal Visits
+    - logical_operator: AND
+      components:
+      - display_title: Obstetric Panel
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Obstetric Panel
+      - display_title: Prenatal Ultrasound
+        logical_operator: OR
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Prenatal Ultrasound
+      - display_title: Antibody Tests
+        logical_operator: OR
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Toxoplasma Antibody
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; Toxoplasma Antibody
+        - model: ClinicalActivity
+          value_set: HEDIS; Rubella Antibody
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; Rubella Antibody
+        - model: ClinicalActivity
+          value_set: HEDIS; Cytomegalovirus Antibody
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; Cytomegalovirus Antibody
+        - model: ClinicalActivity
+          value_set: HEDIS; Herpes Simplex Antibody
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; Herpes Simplex Antibody
+        - model: ClinicalActivity
+          value_set: HEDIS; ABO
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; ABO
+        - model: ClinicalActivity
+          value_set: HEDIS; Rh
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; Rh
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; ABO and Rh
+performance_not_met:
+  description: 
+  reasons:
+  - config_link_id: performance_not_met
+    code_value: 
+    display_title: No Prenatal Care
+    description: No prenatal visit found during the first trimester
+    component_groups: 

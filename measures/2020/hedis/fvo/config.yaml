@@ -1,0 +1,59 @@
+---
+measure:
+  name: 19.HEDIS.Fvo
+  required:
+    display_title: 'Flu Vaccinations for Adults Ages 65 and Older'
+    inverse: false
+    subject_type: Patient
+    set: HEDIS
+    external_id: FVO
+  optional:
+    description: "The percentage of commercial and Medicaid members 65 years of age and older who received an influenza
+      vaccination between July 1 of the measurement year and December 31 of the measurement year."
+    gap_resolution_action: Patient is due for an influenza immunization
+    version: 2019
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: "Patients 65 years of age and older as of December 31 of the measurement year."
+  component_groups:
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Influenza Vaccination
+    description: "Patient received an influenza vaccination between July 1 of the measurement
+      year and December 31 of the measurement year"
+    component_groups:
+    - components:
+      - display_title: Influenza Vaccine
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: VSAC; Influenza Vaccine
+        - model: ClinicalActivity
+          value_set: VSAC; Influenza Vaccination
+        - model: ClinicalActivity
+          value_set: VSAC; Previous Receipt of Influenza Vaccine
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Influenza Vaccination
+    description: "No influenza vaccination found between July 1 of the measurement
+      year and December 31 of the measurement year"
+    component_groups:

@@ -1,0 +1,162 @@
+---
+measure:
+  name: 19.HEDIS.Lbp
+  required:
+    display_title: Use of Imaging Studies for Low Back Pain
+    inverse: false
+    subject_type: Patient
+    set: HEDIS
+    external_id: LBP
+  optional:
+    description: The percentage of patients with a primary diagnosis of low back pain
+      who did not have an imaging study (plain X-ray, MRI, CT scan) within 28 days
+      of the diagnosis
+    gap_resolution_action:
+    version: 2019
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: Patients with an encounter with a primary diagnosis of low back pain
+    from January 1 through December 3 of the measurement year
+  component_groups:
+  - components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Outpatient
+      - model: ClinicalActivity
+        value_set: HEDIS; Observation
+      - model: ClinicalActivity
+        value_set: HEDIS; ED
+      - model: ClinicalActivity
+        value_set: HEDIS; Osteopathic and Chiropractic Manipulative Treatment
+      - model: ClinicalActivity
+        value_set: HEDIS; Physical Therapy
+      - model: ClinicalActivity
+        value_set: HEDIS; Telephone Visits
+      - model: ClinicalActivity
+        value_set: HEDIS; Online Assessments
+  - logical_operator: AND
+    components:
+    - display_title: Low Back Pain
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Uncomplicated Low Back Pain
+  - logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Excluded Diagnosis
+    description: Patient excluded due cancer, HIV, or major organ transplant anytime
+      in the patient's history through 28 days after the first denominator-eligible
+      encounter; trauma duering the 3 months prior to through 28 days after the first
+      denominator-eligible encounter; IV drug abuse, neurological impairment, spinal
+      infection, or 90 days of consecutive corticosteroid treatment during the 12
+      months prior to through 28 days after the first denominator-eligible encounter
+    component_groups:
+    - components:
+      - display_title: Cancer
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Malignant Neoplasms
+        - model: Diagnosis
+          value_set: HEDIS; Other Neoplasms
+        - model: Diagnosis
+          value_set: HEDIS; History of Malignant Neoplasm
+    - logical_operator: OR
+      components:
+      - display_title: HIV
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; HIV
+    - logical_operator: OR
+      components:
+      - display_title: Organ Transplant
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Organ Transplant Other Than Kidney
+        - model: Diagnosis
+          value_set: HEDIS; Kidney Transplant
+    - logical_operator: OR
+      components:
+      - display_title: Trauma
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Trauma
+    - logical_operator: OR
+      components:
+      - display_title: IV Drug Abuse
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; IV Drug Abuse
+    - logical_operator: OR
+      components:
+      - display_title: Neurologic Impairment
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Neurologic Impairment
+    - logical_operator: OR
+      components:
+      - display_title: Corticosteroid
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: NCQA; Corticosteroid Medications
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Imaging Study
+    description: Patient received an imaging study with a diagnosis of uncomplicated
+      low back pain on or within 28 days after the first denominator-eligible encounter
+    component_groups:
+    - components:
+      - display_title: Imaging Study
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Imaging Study
+    - logical_operator: AND
+      components:
+      - display_title: Uncomplicated Low Back Pain
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Uncomplicated Low Back Pain
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Imaging Study
+    description: No imaging study with a diagnosis of uncomplicated low back pain
+      found during the applicable timeframe
+    component_groups:

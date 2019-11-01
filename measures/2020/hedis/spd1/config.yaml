@@ -1,0 +1,214 @@
+---
+measure:
+  name: 19.Hedis.Spd1
+  required:
+    display_title: 'Statin Therapy for Patients With Diabetes: Received Statin Therapy'
+    inverse: true
+    subject_type: Patient
+    set: HEDIS
+    external_id: SPD1
+  optional:
+    description: The percentage of patients 40–75 years of age during the measurement
+      year with diabetes who do not have clinical atherosclerotic cardiovascular disease
+      (ASCVD) who were dispensed at least one statin medication of any intensity during
+      the measurement year.
+    gap_resolution_action: Patient is due for statin therapy for treatment of diabetes
+    version: 2019
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: Patients 40–75 years as of December 31 of the measurement year with
+    type 1 or type 2 diabetes.
+  component_groups:
+  - components:
+    - display_title: Diabetes
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Diabetes
+    - display_title: Encounter
+      logical_operator: AND
+      annotation: 2 outpatient visits or 1 acute inpatient encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Acute Inpatient
+      - model: ClinicalActivity
+        value_set: HEDIS; Outpatient
+      - model: ClinicalActivity
+        value_set: HEDIS; Observation
+      - model: ClinicalActivity
+        value_set: HEDIS; ED
+      - model: ClinicalActivity
+        value_set: HEDIS; Nonacute Inpatient
+  - logical_operator: OR
+    components:
+    - display_title: Diabetes Medication
+      show_codes: true
+      records:
+      - model: Medication
+        value_set: HEDIS; Diabetes Medications
+  - logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Excluded Condition
+    description: Patient excluded due to ischemic vascular disease during the measurement
+      year or the year prior to the measurement year, or MI, PCI, CABG, other revascularization,
+      ESRD, or cirrhosis during the year prior to the measurement year, or myalgia,
+      myositis, myopathy, or rhabdymyolysis during the measurement year
+    component_groups:
+    - components:
+      - display_title: Encounter
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Outpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Acute Inpatient
+      - display_title: IVD
+        logical_operator: AND
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; IVD
+    - logical_operator: OR
+      components:
+      - display_title: Discharge
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Inpatient Stay
+      - display_title: MI
+        logical_operator: AND
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; MI
+    - logical_operator: OR
+      components:
+      - display_title: CABG
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; CABG
+    - logical_operator: OR
+      components:
+      - display_title: PCI
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; PCI
+    - logical_operator: OR
+      components:
+      - display_title: Revascularization
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Other Revascularization
+    - logical_operator: OR
+      components:
+      - display_title: ESRD
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; ESRD
+        - model: ClinicalActivity
+          value_set: HEDIS; ESRD
+    - logical_operator: OR
+      components:
+      - display_title: Cirrhosis
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Cirrhosis
+    - logical_operator: OR
+      components:
+      - display_title: Muscular Condition
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Muscular Pain and Disease
+  - config_link_id: exclusion_2
+    code_value:
+    display_title: Pregnancy or Clomiphene
+    description: Patient excluded due to pregnancy, in vitro fertilization, or a prescription
+      for clomiphene during the measurement year or the year prior to the measurement
+      year
+    component_groups:
+    - components:
+      - display_title: Pregnancy
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Pregnancy
+    - logical_operator: OR
+      components:
+      - display_title: In Vitro Fertilization
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; IVF
+    - logical_operator: OR
+      components:
+      - display_title: Clomiphene
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: NCQA; Estrogen Agonists Medications
+  - config_link_id: exclusion_3
+    code_value:
+    display_title: Excluded Diabetes
+    description: Patient excluded due to a diagnosis of gestational diabetes or steroid-induced
+      diabetes during the measurement year or the year prior to the measurement year
+    component_groups:
+    - components:
+      - display_title: Excluded Diabetes
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Diabetes Exclusions
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Statin
+    description: Patient received a statin medication of any intensity during the
+      measurement year
+    component_groups:
+    - components:
+      - display_title: Statin
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: NCQA; High and Moderate-Intensity Statin Medications
+        - model: Medication
+          value_set: NCQA; Low-Intensity Statin Medications
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Statin
+    description: No statin found during the measurement year
+    component_groups:

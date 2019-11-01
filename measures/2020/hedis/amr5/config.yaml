@@ -1,0 +1,162 @@
+---
+measure:
+  name: 19.HEDIS.Amr5
+  required:
+    display_title: Asthma Medication Ratio
+    inverse: false
+    subject_type: Patient
+    set: HEDIS
+    external_id: AMR5
+  optional:
+    description: The percentage of patients 5–64 years of age who were identified
+      as having persistent asthma and had a ratio of controller medications to total
+      asthma medications of ≥0.50 during the measurement year.
+    gap_resolution_action: Patient needs attention for ratio of asthma controller
+      medications to total asthma medications
+    version: 2019
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: Patients age 5-64 years of age with persistent asthma
+  component_groups:
+  - components:
+    - display_title: Inpatient or ED Visit
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; ED
+      - model: ClinicalActivity
+        value_set: HEDIS; Acute Inpatient
+    - display_title: Asthma
+      logical_operator: AND
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Asthma
+  - logical_operator: OR
+    components:
+    - display_title: 4 Outpatient Visits
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Outpatient
+      - model: ClinicalActivity
+        value_set: HEDIS; Observation
+    - display_title: Asthma
+      logical_operator: AND
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Asthma
+    - display_title: Asthma Medication
+      logical_operator: AND
+      show_codes: true
+      records:
+      - model: Medication
+        value_set: NCQA; Asthma Reliever Medications
+      - model: Medication
+        value_set: NCQA; Asthma Controller Medications
+  - logical_operator: OR
+    components:
+    - display_title: 4 Asthma Medication Events
+      show_codes: true
+      records:
+      - model: Medication
+        value_set: NCQA; Asthma Reliever Medications
+      - model: Medication
+        value_set: NCQA; Asthma Controller Medications
+  - logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Condition
+    description: Patient excluded due to an applicable condition
+    component_groups:
+    - components:
+      - display_title: Excluded Condition
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Emphysema
+        - model: Diagnosis
+          value_set: HEDIS; Other Emphysema
+        - model: Diagnosis
+          value_set: HEDIS; COPD
+        - model: Diagnosis
+          value_set: HEDIS; Obstructive Chronic Bronchitis
+        - model: Diagnosis
+          value_set: HEDIS; Chronic Respiratory Conditions Due to Fumes/Vapors
+        - model: Diagnosis
+          value_set: HEDIS; Cystic Fibrosis
+        - model: Diagnosis
+          value_set: HEDIS; Acute Respiratory Failure
+  - config_link_id: exclusion_2
+    code_value:
+    display_title: No Medication
+    description: Patient excluded due to lack of asthma medications dispensed during
+      the measurement year
+    component_groups:
+    - logical_operator: NOT
+      components:
+      - display_title: Asthma Medication
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: NCQA; Asthma Reliever Medications
+        - model: Medication
+          value_set: NCQA; Asthma Controller Medications
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Medication Ratio ≥0.50
+    description: The number of patients who have a medication ratio of 0.50 or greater
+      during the measurement year.
+    component_groups:
+    - components:
+      - display_title: Asthma Medication
+        annotation: 'With ratio: ≥0.50'
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: NCQA; Asthma Reliever Medications
+        - model: Medication
+          value_set: NCQA; Asthma Controller Medications
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: Medication Ratio <0.50
+    description: Patient has a ratio of controller medications to total asthma medications
+      of <0.50 during the measurement period
+    component_groups:
+    - components:
+      - display_title: Asthma Medication
+        annotation: 'With ratio: <0.50'
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: NCQA; Asthma Reliever Medications
+        - model: Medication
+          value_set: NCQA; Asthma Controller Medications

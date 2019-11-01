@@ -1,0 +1,65 @@
+---
+measure:
+  name: 19.HEDIS.Coa3
+  required:
+    display_title: 'Care for Older Adults: Functional Status Assessment'
+    inverse: false
+    subject_type: Patient
+    set: HEDIS
+    external_id: COA3
+  optional:
+    description: The percentage of adults 66 years and older who had a functional
+      status assessment during the measurement year.
+    gap_resolution_action: Patient is due for functional status assessment
+    version: 2019
+    mips_measure_type: 
+    mips_high_priority: 
+    mips_specialty_sets: 
+    mips_seven_point_max: 
+    source_specification_url: 
+    measure_children_names: 
+    mips_stratum: 
+    mips_objective: 
+denominator:
+  description: Patients 66 years and older as of December 31 of the measurement year.
+  component_groups:
+  - logical_operator: NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
+exclusion:
+  description: 
+  reasons: 
+exception:
+  description: 
+  reasons: 
+performance_met:
+  description: 
+  reasons:
+  - config_link_id: performance_met
+    code_value: 
+    display_title: Functional Status Assessment
+    description: At least one functional status assessment during the measurement
+      year
+    component_groups:
+    - components:
+      - display_title: Functional Status Assessment
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Functional Status Assessment
+        - model: ClinicalActivity
+          value_set: Able; Functional Status Assessment
+performance_not_met:
+  description: 
+  reasons:
+  - config_link_id: performance_not_met
+    code_value: 
+    display_title: No Functional Status Assessment
+    description: No functional status assessment found during the measurement period
+    component_groups: 

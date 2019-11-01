@@ -1,0 +1,80 @@
+---
+measure:
+  name: 19.HEDIS.Coa2
+  required:
+    display_title: 'Care for Older Adults: Medication Review'
+    inverse: false
+    subject_type: Patient
+    set: HEDIS
+    external_id: COA2
+  optional:
+    description: The percentage of adults 66 years and older who had a medication
+      review during the measurement year.
+    gap_resolution_action: Patient is due for medication review
+    version: 2019
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: Patients 66 years and older as of December 31 of the measurement year.
+  component_groups:
+  - logical_operator: NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Medications Reviewed
+    description: At least one medication review and presence of a medication list
+      in the medical record during the measurement year or transitional care managment
+      services during the measurement year
+    component_groups:
+    - components:
+      - display_title: Medication Review
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Medication Review
+      - display_title: Medication List
+        logical_operator: AND
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Medication List
+        - model: ClinicalActivity
+          value_set: VSAC; Current Medications Documented SNMD
+    - logical_operator: OR
+      components:
+      - display_title: Transitional Care Management
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Transitional Care Management Services
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: Medications Not Reviewed
+    description: No medication review and/or medication list found during the measurement
+      period
+    component_groups:

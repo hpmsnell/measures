@@ -1,0 +1,89 @@
+---
+measure:
+  name: 19.HEDIS.DdeRate3
+  required:
+    display_title: 'Potentially Harmful Drug-Disease Interactions in the Elderly:
+      Chronic Kidney Disease'
+    inverse: true
+    subject_type: Patient
+    set: HEDIS
+    external_id: DDE
+    rate_id: 3
+  optional:
+    description: The percentage of members 65 years of age and older who have evidence
+      of chronic kidney disease and who were dispensed an ambulatory prescription
+      for Cox-2 selective NSAIDs or nonaspirin NSAIDs concurrent with or after the
+      diagnosis.
+    gap_resolution_action:
+    version: 2019
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: Patients 67 years and older with a diagnosis of ESRD, or stage 4 chronic
+    kidney disease, or kidney transplant on or between January 1 of the year prior
+    to the measurement year and December 1 of the measurement year.
+  component_groups:
+  - components:
+    - display_title: Kidney Disease
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; ESRD
+      - model: Diagnosis
+        value_set: HEDIS; CKD Stage 4
+  - logical_operator: OR
+    components:
+    - display_title: Kidney Transplant
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Kidney Transplant
+      - model: ClinicalActivity
+        value_set: HEDIS; Kidney Transplant
+  - logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS Hospice Service
+      - model: ClinicalActivity
+        value_set: VSAC; Palliative Care
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Drug
+    description: Patient received an ambulatory prescription for a Cox-2 selective
+      NSAID or nonaspirin NSAID on or between the earliest documentation of chronic
+      kidney disease within 24 months of the end of the measurement year and December
+      31 of the measurement year.
+    component_groups:
+    - components:
+      - display_title: Medication
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: NCQA; Cox-2 Selective NSAIDs and Nonaspirin NSAIDs Medications
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Drug
+    description: Patient did not receive an ambulatory prescription for a potentially
+      harmful medication
+    component_groups:

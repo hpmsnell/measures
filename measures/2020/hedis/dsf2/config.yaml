@@ -1,0 +1,273 @@
+---
+measure:
+  name: 19.Hedis.Dsf2
+  required:
+    display_title: 'Depression Screening and Follow-Up for Adolescents and Adults:
+      Follow-Up on Positive Screen'
+    inverse: false
+    subject_type: Patient
+    set: HEDIS
+    external_id: DSF2
+    version:
+  optional:
+    description: 'The percentage of patients 12 years of age and older who received
+      follow-up care within 30 days of screening positive for depression'
+    gap_resolution_action: 'Patient is due for a follow-up for positive depression screening'
+    version: 2019
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'Patients 12 years of age and older at the start of the measurement period
+    with a positive finding for depression during the measurement period'
+  component_groups:
+  - components:
+    - display_title: PHQ-9 or PHQ-9M
+      show_codes: true
+      annotation: 'With result: ≥5'
+      records:
+      - model: ClinicalActivity
+        value_set: 'HEDIS; Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]'
+      - model: ClinicalActivity
+        value_set: 'HEDIS; Patient Health Questionnaire 9: Modified for Teens total score [Reported.PHQ.Teen]'
+  - logical_operator: 'OR'
+    components:
+    - display_title: PHQ-2
+      show_codes: true
+      annotation: 'With result: ≥3'
+      records:
+      - model: ClinicalActivity
+        value_set: 'HEDIS; Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]'
+  - logical_operator: 'OR'
+    components:
+    - display_title: BDI-FS
+      show_codes: true
+      annotation: 'With result: ≥4'
+      records:
+      - model: ClinicalActivity
+        value_set: 'HEDIS; Beck Depression Inventory Fast Screen total score [BDI]'
+  - logical_operator: 'OR'
+    components:
+    - display_title: BDI-II
+      show_codes: true
+      annotation: 'With result: ≥14'
+      records:
+      - model: ClinicalActivity
+        value_set: 'HEDIS; Beck Depression Inventory II total score [BDI]'
+  - logical_operator: 'OR'
+    components:
+    - display_title: CESD-R
+      show_codes: true
+      annotation: 'With result: ≥10'
+      records:
+      - model: ClinicalActivity
+        value_set: 'HEDIS; Center for Epidemiologic Studies Depression Scale-Revised total score [CESD-R]'
+  - logical_operator: 'OR'
+    components:
+    - display_title: PROMIS Depression
+      show_codes: true
+      annotation: 'With result: ≥52.5'
+      records:
+      - model: ClinicalActivity
+        value_set: 'HEDIS; PROMIS 29 Depression score T score'
+  - logical_operator: 'OR'
+    components:
+    - display_title: GDS Short Form
+      show_codes: true
+      annotation: 'With result: ≥5'
+      records:
+      - model: ClinicalActivity
+        value_set: 'HEDIS; Geriatric depression scale (GDS) short version total'
+  - logical_operator: 'OR'
+    components:
+    - display_title: GDS Long Form
+      show_codes: true
+      annotation: 'With result: ≥10'
+      records:
+      - model: ClinicalActivity
+        value_set: 'HEDIS; Geriatric depression scale (GDS) total'
+  - logical_operator: 'OR'
+    components:
+    - display_title: EPDS
+      show_codes: true
+      annotation: 'With result: ≥9'
+      records:
+      - model: ClinicalActivity
+        value_set: 'HEDIS; Edinburgh Postnatal Depression Scale [EPDS]'
+  - logical_operator: 'OR'
+    components:
+    - display_title: M-3
+      show_codes: true
+      annotation: 'With result: ≥5'
+      records:
+      - model: ClinicalActivity
+        value_set: 'HEDIS; My Mood Monitor Total score [M3]'
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Mental Health
+    description: 'Patient is excluded due to a diagnosis of bipolar disorder or depression'
+    component_groups:
+    - components:
+      - display_title: Mental Health Disorder
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Bipolar Disorder
+        - model: Diagnosis
+          value_set: HEDIS; Depression
+  - config_link_id: exclusion_2
+    code_value:
+    display_title: Hospice
+    description: 'Patient is excluded due to hospice'
+    component_groups:
+    - components:
+      - display_title: Hospice
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Follow-Up
+    description: 'Follow-up care received on or 30 days after the date of the first
+      positive screen (31 days total)'
+    component_groups:
+    - components:
+      - display_title: 'Follow-Up Visit'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Follow-Up Visit
+      - logical_operator: 'AND'
+        display_title: 'Behavioral Health Condition'
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Depression or Other Behavioral Health Condition
+    - logical_operator: 'OR'
+      components:
+      - display_title: 'Depression Case Management Encounter'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Depression Case Management Encounter
+      - logical_operator: 'AND'
+        display_title: 'Depression'
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Depression
+        - model: ClinicalActivity
+          value_set: HEDIS; Symptoms of Depression
+    - logical_operator: 'OR'
+      components:
+      - display_title: 'Behavioral Health Encounter'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Behavioral Health Encounter
+    - logical_operator: 'OR'
+      components:
+      - display_title: 'Antidepressant Medication'
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: HEDIS; Antidepressant Medications
+        - model: Medication
+          value_set: NCQA; Antidepressant Medications
+    - logical_operator: 'OR'
+      components:
+      - display_title: PHQ-9 or PHQ-9M
+        show_codes: true
+        annotation: 'With result: <5'
+        records:
+        - model: ClinicalActivity
+          value_set: 'HEDIS; Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]'
+        - model: ClinicalActivity
+          value_set: 'HEDIS; Patient Health Questionnaire 9: Modified for Teens total score [Reported.PHQ.Teen]'
+      - logical_operator: 'OR'
+        display_title: PHQ-2
+        show_codes: true
+        annotation: 'With result: <3'
+        records:
+        - model: ClinicalActivity
+          value_set: 'HEDIS; Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]'
+      - logical_operator: 'OR'
+        display_title: BDI-FS
+        show_codes: true
+        annotation: 'With result: <4'
+        records:
+          - model: ClinicalActivity
+            value_set: 'HEDIS; Beck Depression Inventory Fast Screen total score [BDI]'
+      - logical_operator: 'OR'
+        display_title: BDI-II
+        show_codes: true
+        annotation: 'With result: <14'
+        records:
+        - model: ClinicalActivity
+          value_set: 'HEDIS; Beck Depression Inventory II total score [BDI]'
+      - logical_operator: 'OR'
+        display_title: CESD-R
+        show_codes: true
+        annotation: 'With result: <10'
+        records:
+        - model: ClinicalActivity
+          value_set: 'HEDIS; Center for Epidemiologic Studies Depression Scale-Revised total score [CESD-R]'
+      - logical_operator: 'OR'
+        display_title: PROMIS Depression
+        show_codes: true
+        annotation: 'With result: <52.5'
+        records:
+        - model: ClinicalActivity
+          value_set: 'HEDIS; PROMIS 29 Depression score T score'
+      - logical_operator: 'OR'
+        display_title: GDS Short Form
+        show_codes: true
+        annotation: 'With result: <5'
+        records:
+        - model: ClinicalActivity
+          value_set: 'HEDIS; Geriatric depression scale (GDS) short version total'
+      - logical_operator: 'OR'
+        display_title: GDS Long Form
+        show_codes: true
+        annotation: 'With result: <10'
+        records:
+        - model: ClinicalActivity
+          value_set: 'HEDIS; Geriatric depression scale (GDS) total'
+      - logical_operator: 'OR'
+        display_title: EPDS
+        show_codes: true
+        annotation: 'With result: <9'
+        records:
+        - model: ClinicalActivity
+          value_set: 'HEDIS; Edinburgh Postnatal Depression Scale [EPDS]'
+      - logical_operator: 'OR'
+        display_title: M-3
+        show_codes: true
+        annotation: 'With result: <5'
+        records:
+        - model: ClinicalActivity
+          value_set: 'HEDIS; My Mood Monitor Total score [M3]'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Follow-Up
+    description: 'No follow-up care found on or 30 days after the date of the first
+      positive screen (31 days total)'
+    component_groups:
