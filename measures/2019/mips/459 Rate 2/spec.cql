@@ -82,4 +82,4 @@ define "Numerator":
   /*
    * config_link_id: numerator
    */
-  "Lowest Postoperative Result" - "Highest Preoperative Result"
+  "Highest Preoperative Result" - "Lowest Postoperative Result"
