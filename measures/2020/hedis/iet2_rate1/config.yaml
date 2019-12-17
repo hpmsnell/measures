@@ -1,0 +1,141 @@
+---
+measure:
+  name: 20.HEDIS.Iet2Rate1
+  required:
+    display_title: 'Initiation of Alcohol and Other Drug Abuse or Dependence Treatment:
+      Alcohol for Patients Ages 13-17'
+    inverse: false
+    subject_type: Patient
+    set: HEDIS
+    external_id: IET2
+    rate_id: '1'
+  optional:
+    description: The percentage of adolescent ages 13 - 17 with a new episode
+      of alcohol abuse or dependence who initiate treatment through an inpatient AOD
+      admission, outpatient visit, intensive outpatient encounter or partial hospitalization,
+      telehealth or medication assisted treatment (MAT) within 14 days of the diagnosis.
+    gap_resolution_action: Patient is due for initiation of AOD treatment
+    version: 2020
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: Patients 13 - 17 years old as of December 31 of the measurement year
+    with a new episode of alcohol abuse or dependence between January 1 and November
+    15 of the measurement year
+  component_groups:
+  - components:
+    - display_title: Visit or Inpatient Stay
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; IET Stand Alone Visits
+      - model: ClinicalActivity
+        value_set: HEDIS; IET Visits Group 1
+      - model: ClinicalActivity
+        value_set: HEDIS; IET Visits Group 2
+      - model: ClinicalActivity
+        value_set: HEDIS; Detoxification
+      - model: ClinicalActivity
+        value_set: HEDIS; ED
+      - model: ClinicalActivity
+        value_set: HEDIS; Inpatient Stay
+      - model: ClinicalActivity
+        value_set: HEDIS; Telephone Visits
+      - model: ClinicalActivity
+        value_set: HEDIS; Online Assessments
+  - logical_operator: AND
+    components:
+    - display_title: Alcohol Abuse or Dependence
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Alcohol Abuse and Dependence
+  - logical_operator: AND NOT
+    components:
+    - display_title: History of AOD Abuse or Dependence
+      annotation: Within 60 days prior to episode
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; AOD Abuse and Dependence
+      - model: ClinicalActivity
+        value_set: HEDIS; Medication Assisted Treatment
+      - model: Medication
+        value_set: NCQA; Medication Treatment for Alcohol Abuse or Dependence Medications
+      - model: Medication
+        value_set: NCQA; Medication Treatment for Opioid Abuse or Dependence Medications
+  - logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Initiation of Treatment
+    description: Patient received initiation of AOD treatment through an inpatient
+      admission outpatient visit, telehealth, intensive outpatient encounter or partial
+      hospitalization or MAT within 14-days of the denominator-eligible episode
+    component_groups:
+    - components:
+      - display_title: Visit or Inpatient Stay
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; IET Stand Alone Visits
+        - model: ClinicalActivity
+          value_set: HEDIS; IET Visits Group 1
+        - model: ClinicalActivity
+          value_set: HEDIS; IET Visits Group 2
+        - model: ClinicalActivity
+          value_set: HEDIS; Detoxification
+        - model: ClinicalActivity
+          value_set: HEDIS; ED
+        - model: ClinicalActivity
+          value_set: HEDIS; Inpatient Stay
+        - model: ClinicalActivity
+          value_set: HEDIS; Telephone Visits
+        - model: ClinicalActivity
+          value_set: HEDIS; Online Assessments
+      - logical_operator: AND
+        display_title: Alcohol Abuse or Dependence
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Alcohol Abuse and Dependence
+    - logical_operator: OR
+      components:
+      - display_title: Medication Assisted Treatment
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Medication Assisted Treatment
+        - model: Medication
+          value_set: NCQA; Medication Treatment for Alcohol Abuse or Dependence Medications
+        - model: Medication
+          value_set: NCQA; Medication Treatment for Opioid Abuse or Dependence Medications
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Initiation of treatment
+    description: No AOD treatment found within 14-days of the denominator-eligible
+      episode
+    component_groups:
