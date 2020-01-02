@@ -14,7 +14,7 @@ using QDM
 
 // MIPS value sets
 
-valueset "MIPS; MIPS 470 Encounter"
+valueset "MIPS; MIPS 470 Procedure"
 valueset "MIPS; Performance Met: M1045"
 valueset "MIPS; Performance Not Met: M1046"
 
@@ -27,16 +27,10 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Denominator Encounter":
-  ["Encounter, Performed": "MIPS; MIPS 470 Encounter"] E
+  ["Encounter, Performed": "MIPS; MIPS 470 Procedure"] E
     where E.relevantPeriod starts during [15 months before start of "Measurement Period", 15 months before end of "Measurement Period"]
       and AgeInYearsAt(15 months before start of "Measurement Period") >= 18
       and E.signingProvider.hasMeasureMembership = true
-
-define "Excluded Diagnosis":
-  ["Diagnosis": "MIPS; Lumbar Spine Region Cancer"]
-  union ["Diagnosis": "MIPS; Lumbar Spine Region Fracture"]
-  union ["Diagnosis": "MIPS; Lumbar Spine Region Infection"]
-  union ["Diagnosis": "MIPS; Lumbar Idiopathic or Congenital Scoliosis"]
 
 define "Oxford Knee Score Exists":
   exists(["Procedure, Performed": "Able; Oxford Knee Score"] A
@@ -50,17 +44,6 @@ define "Oxford Knee Score Exists":
 
 define "Denominator":
   "Denominator Encounter"
-
-define "Denominator Exclusion":
-  /*
-   * config_link_id: exclusion_1
-   */
-  exists(["Procedure, Performed": "MIPS; Denominator Exclusion: M1041"] P
-    with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod)
-  or exists("Excluded Diagnosis" D
-    with "Denominator Encounter" E
-      such that D.prevalencePeriod overlaps E.relevantPeriod)
 
 define "Numerator Performance Met: M1045":
   /*

@@ -54,10 +54,10 @@ define "Denominator Exclusion":
    */
   exists(["Procedure, Performed": "MIPS; Other Spine Procedure"] P
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts during of E.relevantPeriod)
+      such that P.relevantPeriod starts during E.relevantPeriod)
   exists(["Procedure, Performed": "Able; Other Spine Procedure"] P
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts during of E.relevantPeriod)
+      such that P.relevantPeriod starts during E.relevantPeriod)
 
 define "Numerator Performance Met: M1048":
   /*
