@@ -56,10 +56,10 @@ define "Fall Exists":
     where P.relevantPeriod starts during "Denominator Period")
   or exists(["Diagnosis": "Able; Fall with Injury"] D
     with "Denominator Encounter" E
-      such that D.prevalencePeriod starts 1 year or less before start of E.relevantPeriod)
+      such that D.prevalencePeriod starts on or 1 year or less before start of E.relevantPeriod)
   or count("Fall" D
     with "Denominator Encounter" E
-      such that D.prevalencePeriod starts 1 year or less before start of E.relevantPeriod) >= 2
+      such that D.prevalencePeriod starts on or 1 year or less before start of E.relevantPeriod) >= 2
   or exists(["Assessment, Performed": "Able; Falls Count Screening"] A
     where A.authorDateTime during "Measurement Period"
       and A.result_as_decimal >= 2)
