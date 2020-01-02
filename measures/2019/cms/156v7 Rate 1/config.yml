@@ -1,0 +1,102 @@
+---
+measure:
+  name: 19.Cms.Cms156v7Rate1
+  required:
+    display_title: 'Use of High-Risk Medications in the Elderly: 1 or More High-Risk
+      Medications'
+    inverse: true
+    subject_type: Patient
+    set: CMS
+    external_id: '156'
+    version:
+  optional:
+    description: 'Percentage of patients 65 years of age who were ordered at least
+      one high-risk medication'
+    hqmf_id:
+    hqmf_set_id:
+    hqmf_population_ids:
+      ipp:
+      denom:
+      numer:
+      denex:
+    gap_resolution_action:
+    rate_id: '1'
+    version: 7
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Allergy/Immunology, Cardiology, Family Medicine, Internal Medicine
+      Rheumatology, Geriatrics'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    - 19.Cms.Cms156v7Rate2
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'Patients 65 years and older who had a visit during the measurement
+    period'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: 'Encounter'
+      show_codes: true
+      annotation:
+      records:
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Office Visit"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Ophthalmologic Outpatient Visit"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Preventive Care Services - Established Office Visit, 18 and Up"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Discharge Services - Nursing Facility"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Nursing Facility Visit"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Care Services in Long-Term Residential Facility"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Preventive Care Services-Initial Office Visit, 18 and Up"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Annual Wellness Visit"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Home Healthcare Services"
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patients with an order for at least one high-risk medication
+    during the measurement period'
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: One Medication
+    description: Patient was ordered at least one high-risk medication
+    component_groups:
+    - components:
+      - display_title: High Risk Medication
+        show_codes: false
+        records:
+        - model: Medication
+          value_set: VSAC; High Risk Medications for the Elderly
+        - model: Medication
+          value_set: VSAC; High-Risk Medications With Days Supply Criteria
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Medication
+    description: Patient was not ordered at least one high-risk medication
+    component_groups:

@@ -1,0 +1,123 @@
+measure:
+  name: 19.Cms.Cms131v7
+  required:
+    display_title: 'Diabetes: Eye Exam'
+    inverse: true
+    subject_type: Patient
+    set: CMS
+    external_id: '131'
+    version:
+  optional:
+    description: 'Percentage of patients 18 - 75 years of age with diabetes who had
+      a retinal or dilated eye exam by an eye care professional during the measurement
+      period or a negative retinal or dilated eye exam (no evidence of retinopathy) in
+      the 12 months prior to the measurement period'
+    end_to_end_bonus_disabled: false
+    hqmf_id:
+    hqmf_set_id:
+    hqmf_population_ids:
+      ipp:
+      denom:
+      numer:
+      denex:
+    gap_resolution_action: Patient is due for a diabetic eye exam
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Internal Medicine, Family Medicine, Ophthalmology'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+    version: 7
+denominator:
+  description: 'Patients 18-75 years of age with diabetes with a visit during the measurement period'
+  component_groups:
+    - components:
+      - display_title: 'Encounter'
+        show_codes: true
+        records:
+          - model: ClinicalActivity
+            qrda_datatype: 'Encounter, Performed'
+            value_set: "VSAC; Office Visit"
+          - model: ClinicalActivity
+            qrda_datatype: 'Encounter, Performed'
+            value_set: "VSAC; Annual Wellness Visit"
+          - model: ClinicalActivity
+            qrda_datatype: 'Encounter, Performed'
+            value_set: "VSAC; Preventive Care Services - Established Office Visit, 18 and Up"
+          - model: ClinicalActivity
+            qrda_datatype: 'Encounter, Performed'
+            value_set: "VSAC; Preventive Care Services-Initial Office Visit, 18 and Up"
+          - model: ClinicalActivity
+            qrda_datatype: 'Encounter, Performed'
+            value_set: "VSAC; Home Healthcare Services"
+          - model: ClinicalActivity
+            qrda_datatype: 'Encounter, Performed'
+            value_set: "VSAC; Ophthalmological Services"
+    - logical_operator: AND
+      components:
+      - display_title: Diabetes
+        show_codes: true
+        records:
+        - model: Diagnosis
+          qrda_datatype: 'Diagnosis'
+          value_set: "VSAC; Diabetes"
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_hospice
+    code_value:
+    display_title: Hospice Service
+    description: Patient excluded due to hospice service
+    component_groups:
+    - components:
+       - display_title: Hospice Service
+         show_codes: true
+         records:
+         - model: ClinicalActivity
+           qrda_datatype: 'Intervention, Performed'
+           value_set: "VSAC; Hospice care ambulatory"
+         - model: Order
+           qrda_datatype: 'Intervention, Order'
+           value_set: "VSAC; Hospice care ambulatory"
+    - logical_operator: 'OR'
+      components:
+      - display_title: Inpatient Encounter
+        show_codes: true
+        annotation: 'Discharge disposition: Discharge to home for hospice care'
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Encounter, Performed'
+          value_set: "VSAC; Encounter Inpatient"
+          qrda_child_code_attribute: 'dischargeDisposition'
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patients with an eye screening for diabetic retinal disease. This includes diabetics who
+    had one of the following: A retinal or dilated eye exam by an eye care professional in the measurement
+    period or a negative retinal exam (no evidence of retinopathy) by an eye care professional in the year
+    prior to the measurement period'
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Eye Exam
+    description: 'Patient received an eye screening'
+    component_groups:
+    - components:
+      - display_title: 'Retinal Exam'
+        show_codes: true
+        annotation: 'During measurement period, or during year prior with negative result'
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Physical Exam, Performed'
+          value_set: VSAC; Retinal or Dilated Eye Exam
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Eye Exam
+    description: No eye exam found in the allowable time period
+    component_groups:
