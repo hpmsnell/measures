@@ -27,7 +27,13 @@ denominator:
     a diagnosis of hypertension
   component_groups:
   - components:
-    - display_title: Hypertension
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Outpatient Without UBREV
+    - logical_operator: 'AND'
+      display_title: Hypertension
       show_codes: true
       records:
       - model: Diagnosis

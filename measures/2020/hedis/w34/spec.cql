@@ -35,9 +35,11 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   exists(["Encounter, Performed": "HEDIS; Well-Care"] E
-    where E.relevantPeriod starts during "Measurement Period")
+    where E.relevantPeriod starts during "Measurement Period"
+      and E.signingProvider.primaryCareProvider = true)
   or exists(["Diagnosis": "HEDIS; Well-Care"] E
-    where E.relevantPeriod starts during "Measurement Period")
+    where E.relevantPeriod starts during "Measurement Period"
+      and E.signingProvider.primaryCareProvider = true)
 
 define "Numerator Performance Not Met":
   /*
