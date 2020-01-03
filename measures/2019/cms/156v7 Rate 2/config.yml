@@ -89,8 +89,10 @@ performance_met:
         annotation: 'At least two orders for the same medication'
         records:
         - model: Medication
+          qrda_datatype: 'Medication, Order'
           value_set: VSAC; High Risk Medications for the Elderly
         - model: Medication
+          qrda_datatype: 'Medication, Order'
           value_set: VSAC; High-Risk Medications With Days Supply Criteria
 performance_not_met:
   description:
