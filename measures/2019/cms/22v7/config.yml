@@ -1,0 +1,256 @@
+---
+measure:
+  name: 19.Cms.Cms22v7
+  required:
+    display_title: 'Preventive Care and Screening: Screening for High Blood Pressure
+      and Follow-Up Documented'
+    inverse: false
+    subject_type: Patient
+    set: CMS
+    external_id: '22'
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older seen during the submitting
+      period who were screened for high blood pressure AND a recommended follow-up
+      plan is documented based on the current blood pressure (BP) reading as indicated'
+    hqmf_id:
+    hqmf_set_id:
+    hqmf_population_ids:
+      ipp:
+      denom:
+      numer:
+      denex:
+    gap_resolution_action: Patient is due for a blood pressure screening or needs
+        attention for uncontrolled blood pressure
+    version: 7
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'Allergy/Immunology, Cardiology, Gastroenterology, Dermatology,
+      Emergency Medicine, Family Medicine, Internal Medicine, Obstetrics/Gynecology,
+      Orthopedic Surgery, Otolaryngology, Physical Medicine, Plastic Surgery, Preventive Medicine,
+      Neurology, Mental Health/Behavioral Health, Vascular Surgery, General Surgery,
+      Thoracic Surgery, Urology, Oncology, Rheumatology, Nephrology, Urgent Care, Skilled Nursing Facility'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 years and older at the beginning of the measurement period with at least one eligible encounter during the measurement period'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: 'Encounter'
+      show_codes: true
+      annotation:
+      records:
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; BP Screening Encounter Codes"
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_hypertension
+    code_value:
+    display_title: Hypertension
+    description: Patient is excluded due to diagnosis of hypertension
+    component_groups:
+    - components:
+      - display_title: Hypertension
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: VSAC; Diagnosis of Hypertension
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patients who were screened for high blood pressure AND have a recommended
+    follow-up plan documented, as indicated, if the blood pressure is pre-hypertensive
+    or hypertensive'
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Screening & Follow-Up
+    description:
+    component_groups:
+    - components:
+      - display_title: Systolic Blood Pressure
+        show_codes: true
+        annotation: 'With result: < 120 mmHg'
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Physical Exam, Performed'
+          value_set: VSAC; Systolic Blood Pressure
+      - logical_operator: AND
+        display_title: Diastolic Blood Pressure
+        show_codes: true
+        annotation: 'With result: < 80 mmHg'
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Physical Exam, Performed'
+          value_set: VSAC; Diastolic Blood Pressure
+    - logical_operator: OR
+      components:
+      - display_title: Systolic Blood Pressure
+        show_codes: true
+        annotation: 'With result: ≥ 120 mmHg and < 140 mmHg'
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Physical Exam, Performed'
+          value_set: VSAC; Systolic Blood Pressure
+      - logical_operator: AND/OR
+        display_title: Diastolic Blood Pressure
+        show_codes: true
+        annotation: 'With result: ≥ 80 mmHg and < 90 mmHg'
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Physical Exam, Performed'
+          value_set: VSAC; Diastolic Blood Pressure
+      - logical_operator: AND
+        display_title: Referral
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Referral to Alternative Provider / Primary Care Provider
+      - logical_operator: 'OR BOTH OF:'
+        display_title: Intervention
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Lifestyle Recommendation
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Weight Reduction Recommended
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Dietary Recommendations
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Physical Activity Recommendation
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Moderation of ETOH Consumption Recommendation
+      - logical_operator: 'AND'
+        display_title: Follow-Up One Year
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Followup Within One Year
+    - logical_operator: OR
+      components:
+      - display_title: Systolic Blood Pressure
+        show_codes: true
+        annotation: 'With result: ≥ 140 mmHg'
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Physical Exam, Performed'
+          value_set: VSAC; Systolic Blood Pressure
+      - logical_operator: AND/OR
+        display_title: Diastolic Blood Pressure
+        show_codes: true
+        annotation: 'With result: ≥ 90 mmHg'
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Physical Exam, Performed'
+          value_set: VSAC; Diastolic Blood Pressure
+      - logical_operator: AND
+        display_title: Referral
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Referral to Alternative Provider / Primary Care Provider
+      - logical_operator: 'OR BOTH OF:'
+        display_title: Intervention
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Lifestyle Recommendation
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Weight Reduction Recommended
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Dietary Recommendations
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Physical Activity Recommendation
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Moderation of ETOH Consumption Recommendation
+      - logical_operator: 'AND'
+        display_title: Follow-Up Four Weeks
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Followup Within Four Weeks
+    - logical_operator: OR
+      components:
+      - display_title: Systolic Blood Pressure
+        show_codes: true
+        annotation: 'At least two with result: ≥ 140 mmHg'
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Physical Exam, Performed'
+          value_set: VSAC; Systolic Blood Pressure
+      - logical_operator: AND/OR
+        display_title: Diastolic Blood Pressure
+        show_codes: true
+        annotation: 'At least two with result: ≥ 90 mmHg'
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Physical Exam, Performed'
+          value_set: VSAC; Diastolic Blood Pressure
+      - logical_operator: AND
+        display_title: Referral
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Referral to Alternative Provider / Primary Care Provider
+      - logical_operator: 'OR BOTH OF:'
+        display_title: Intervention
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Lifestyle Recommendation
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Weight Reduction Recommended
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Dietary Recommendations
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Physical Activity Recommendation
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Moderation of ETOH Consumption Recommendation
+      - logical_operator: 'AND'
+        display_title: Follow-Up
+        show_codes: false
+        records:
+        - model: Order
+          qrda_datatype: 'Laboratory Test, Order'
+          value_set: VSAC; Laboratory Tests for Hypertension
+        - model: Order
+          qrda_datatype: 'Diagnostic Study, Order'
+          value_set: VSAC; ECG 12 lead or study order
+        - model: Medication
+          qrda_datatype: 'Medication, Order'
+          value_set: VSAC; Anti-Hypertensive Pharmacologic Therapy
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Screening or Follow-Up
+    description: No screening or follow-up found in the appropriate timeframe
+    component_groups:
