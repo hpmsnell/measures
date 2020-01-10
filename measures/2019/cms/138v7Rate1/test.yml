@@ -1,3 +1,4 @@
+---
 measure_id: measure.Cms.2019.Cms138v7Rate1
 test_set_keys:
   organization_key:
@@ -275,10 +276,6 @@ test_set_keys:
           denominator_exclusion:
           denominator_exception:
           numerator: performance_not_met
-          denominator: 1
-          denominator_exclusion:
-          denominator_exception:
-          numerator: performance_not_met
 providers:
 - given_name: Rachel
   family_name: Kohler
@@ -308,7 +305,7 @@ patients:
         provider: Rachel
   - name: Age Lower
     attributes:
-      date_of_birth: 1998-02-01
+      date_of_birth: 1998-01-01
       given_name: Age
       family_name: Lower
       sex: Female
@@ -333,15 +330,15 @@ patients:
         code_value: 90791
         start_date: 2015-12-31
         stop_date: 2015-12-31
-        start_date: 2015-12-31 23:59:00 # Too early
-        stop_date: 2015-12-31 23:59:00
+        start_datetime: 2015-12-31 23:59:00 # Too early
+        stop_datetime: 2015-12-31 23:59:00
         provider: Rachel
       - code_type: CPT
         code_value: 90792
         start_date: 2016-01-01
         stop_date: 2016-01-01
-        start_date: 2016-01-01 00:00:00
-        stop_date: 2016-01-01 00:00:00
+        start_datetime: 2016-01-01 00:00:00
+        stop_datetime: 2016-01-01 00:00:00
         provider: Rachel
   - name: Encounter Lower
     attributes:
@@ -355,15 +352,15 @@ patients:
         code_value: 90791 # ENCOUNTER
         start_date: 2016-01-01
         stop_date: 2016-01-01
-        start_date: 2016-01-01 00:00:00
-        stop_date: 2016-01-01 00:00:00
+        start_datetime: 2016-01-01 00:00:00
+        stop_datetime: 2016-01-01 00:00:00
         provider: Rachel
       - code_type: CPT
         code_value: 90792 # ENCOUNTER
         start_date: 2016-01-01
         stop_date: 2016-01-01
-        start_date: 2016-01-01 00:00:00
-        stop_date: 2016-01-01 00:00:00
+        start_datetime: 2016-01-01 00:00:00
+        stop_datetime: 2016-01-01 00:00:00
         provider: Rachel
   - name: Encounter Upper
     attributes:
@@ -377,15 +374,15 @@ patients:
         code_value: 90791
         start_date: 2016-12-31
         stop_date: 2016-12-31
-        start_date: 2016-12-31 23:59:00
-        stop_date: 2016-12-31 23:59:00
+        start_datetime: 2016-12-31 23:59:00
+        stop_datetime: 2016-12-31 23:59:00
         provider: Rachel
       - code_type: CPT
         code_value: 90792
         start_date: 2016-01-01
         stop_date: 2016-01-01
-        start_date: 2016-01-01 00:00:00
-        stop_date: 2016-01-01 00:00:00
+        start_datetime: 2016-01-01 00:00:00
+        stop_datetime: 2016-01-01 00:00:00
         provider: Rachel
   - name: Encounter Late
     attributes:
@@ -399,8 +396,8 @@ patients:
         code_value: 90791
         start_date: 2017-01-01
         stop_date: 2017-01-01
-        start_date: 2017-01-01 00:00:00
-        stop_date: 2017-01-01 00:00:00
+        start_datetime: 2017-01-01 00:00:00
+        stop_datetime: 2017-01-01 00:00:00
         provider: Rachel
       - code_type: CPT
         code_value: 90792
@@ -418,15 +415,15 @@ patients:
         code_value: 90791
         start_date: 2016-01-01
         stop_date: 2016-01-01
-        start_date: 2016-01-01 00:00:00
-        stop_date: 2016-01-01 00:00:00
-        provider: Rachel
+        start_datetime: 2016-01-01 00:00:00
+        stop_datetime: 2016-01-01 00:00:00
+        provider: Patty
       - code_type: CPT
         code_value: 90792
         start_date: 2016-01-01
         stop_date: 2016-01-01
-        start_date: 2016-01-01 00:00:00
-        stop_date: 2016-01-01 00:00:00
+        start_datetime: 2016-01-01 00:00:00
+        stop_datetime: 2016-01-01 00:00:00
         provider: Patty
   - name: PreventiveEncounter Early
     attributes:
@@ -440,8 +437,8 @@ patients:
         code_value: 99385
         start_date: 2015-12-31
         stop_date: 2015-12-31
-        start_date: 2015-12-31 23:59:00 # Too early
-        stop_date: 2015-12-31 23:59:00
+        start_datetime: 2015-12-31 23:59:00 # Too early
+        stop_datetime: 2015-12-31 23:59:00
         provider: Rachel
   - name: PreventiveEncounter Lower
     attributes:
@@ -455,8 +452,8 @@ patients:
         code_value: 99385
         start_date: 2016-01-01
         stop_date: 2016-01-01
-        start_date: 2016-01-01 00:00:00
-        stop_date: 2016-01-01 00:00:00
+        start_datetime: 2016-01-01 00:00:00
+        stop_datetime: 2016-01-01 00:00:00
         provider: Rachel
   - name: PreventiveEncounter Upper
     attributes:
@@ -470,8 +467,8 @@ patients:
         code_value: 99385
         start_date: 2016-12-31
         stop_date: 2016-12-31
-        start_date: 2016-12-31 23:59:00
-        stop_date: 2016-12-31 23:59:00
+        start_datetime: 2016-12-31 23:59:00
+        stop_datetime: 2016-12-31 23:59:00
         provider: Rachel
   - name: PreventiveEncounter Late
     attributes:
@@ -485,8 +482,8 @@ patients:
         code_value: 99385
         start_date: 2017-01-01
         stop_date: 2017-01-01
-        start_date: 2017-01-01 00:00:00
-        stop_date: 2017-01-01 00:00:00
+        start_datetime: 2017-01-01 00:00:00
+        stop_datetime: 2017-01-01 00:00:00
   - name: TobaccoUser Early
     attributes:
       date_of_birth: 1988-03-22
@@ -523,7 +520,7 @@ patients:
         provider: Rachel
       - code_type: LOINC
         code_value: 72166-2 # Tobacco screening
-        start_date: 2014-02-01 # Lower bound
+        start_date: 2014-12-31 # Lower bound
         child_code_value: 160603005 # TobaccoUser
   - name: TobaccoUser Upper
     attributes:
@@ -561,7 +558,7 @@ patients:
         provider: Rachel
       - code_type: LOINC
         code_value: 72166-2 # Tobacco screening
-        start_date: 2016-02-02 # Too late
+        start_date: 2017-01-01 # Too late
         child_code_value: 160603005 # TobaccoUser
   - name: TobaccoNonUser Early
     attributes:
@@ -599,7 +596,7 @@ patients:
         provider: Rachel
       - code_type: LOINC
         code_value: 72166-2
-        start_date: 2014-02-01 # Lower bound
+        start_date: 2014-12-31 # Lower bound
         child_code_value: 160618006 # TobaccoUser
   - name: TobaccoNonUser Upper
     attributes:
@@ -637,7 +634,7 @@ patients:
         provider: Rachel
       - code_type: LOINC
         code_value: 72166-2
-        start_date: 2016-02-02 # Too late
+        start_date: 2017-01-01 # Too late
         child_code_value: 160618006 # TobaccoUser
   - name: Exception Early
     attributes:
@@ -653,11 +650,10 @@ patients:
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 13:00:00
-        stop_date: 2016-02-02
         provider: Rachel
-      - code_type: SNOMEDCT
+      - code_type: LOINC
         code_value: 72166-2
-        start_date: 2016-01-31 # Too early
+        start_date: 2014-12-30 # Too early
         child_code_value: 183964008 # MedicalReason
   - name: Exception Lower
     attributes:
@@ -669,15 +665,14 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99385
-        start_date: 2014-02-01
-        stop_date: 2014-02-01
-        start_datetime: 2014-02-01 12:00:00
-        stop_datetime: 2014-02-01 13:00:00
-      clinical_activities:
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       - code_type: LOINC
         code_value: 72166-2
-        start_date: 2016-02-01 # Lower bound
+        start_date: 2014-12-31 # Lower bound
         child_code_value: 183964008 # MedicalReason
   - name: Exception Upper
     attributes:
@@ -696,7 +691,7 @@ patients:
         provider: Rachel
       - code_type: LOINC
         code_value: 72166-2
-        start_date: 2016-02-02 # Upper bound
+        start_date: 2016-12-31 # Upper bound
         child_code_value: 183964008 # MedicalReason
   - name: Exception Late
     attributes:
@@ -715,34 +710,7 @@ patients:
         provider: Rachel
       - code_type: LOINC
         code_value: 72166-2
-        start_date: 2016-02-03 # Too late
-        child_code_value: 183964008 # MedicalReason
-    attributes:
-      date_of_birth: 1988-03-22
-      given_name: Exception
-      family_name: Late
-      sex: Female
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99385
-        start_date: 2016-02-01
-        stop_date: 2016-02-01
-        start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
-        stop_date: 2016-02-02
-        provider: Rachel
-      - code_type: CPT
-        code_value: 99385
-        start_date: 2016-03-01
-        stop_date: 2016-03-01
-        start_datetime: 2016-03-01 12:00:00
-        stop_datetime: 2016-03-01 13:00:00
-        provider: Rachel
-      - code_type: LOINC
-        code_value: 72166-2
-        start_date: 2016-02-03
-        stop_date: 2016-02-03
+        start_date: 2017-01-01 # Too late
         child_code_value: 183964008 # MedicalReason
   - name: LimitedLife Early
     attributes:
@@ -764,7 +732,7 @@ patients:
       - code_type: SNOMEDCT
         code_value: 162607003
         start_date: 2015-01-01
-        stop_date: 2016-01-31 # Too early
+        stop_date: 2015-12-31 # Too early
   - name: LimitedLife Lower
     attributes:
       date_of_birth: 1988-03-22
@@ -824,4 +792,4 @@ patients:
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 162607003
-        start_date: 2016-02-03 # Too late
+        start_date: 2017-01-01 # Too late
