@@ -5,7 +5,7 @@ library HEDIS_COA4_2020 version '1'
  * Source: HEDIS
  * ID: COA4
  * Year: 2020
- * Version: 2
+ * Version: 1
  * Author: Steve Daniels
  *
   */

@@ -5,7 +5,7 @@ library HEDIS_CDC3_2020 version '1'
  * Source: HEDIS
  * ID: CDC3
  * Year: 2020
- * Version: 2
+ * Version: 1
  * Author: Steve Daniels
  *
   */

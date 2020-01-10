@@ -1,11 +1,11 @@
-library HEDIS_AMM1`_2020 version '1'
+library HEDIS_AMM1_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: AMM1`
  * Year: 2020
- * Version: 2
+ * Version: 1
  * Author: Steve Daniels
  *
   */
