@@ -148,7 +148,7 @@ performance_met:
           value_set: VSAC; Systolic Blood Pressure
     - logical_operator: AND
       components:
-      - display_title: High Diastolic Blood Pressure
+      - display_title: Normal Diastolic Blood Pressure
         show_codes: true
         annotation: 'With result: < 90 mmHg'
         records:
@@ -165,7 +165,7 @@ performance_not_met:
       blood pressure >= 90 mmHg
     component_groups:
     - components:
-      - display_title: 'Normal Systolic Blood Pressure'
+      - display_title: 'High Systolic Blood Pressure'
         show_codes: true
         annotation: 'With result: ≥ 140 mmHg'
         records:
