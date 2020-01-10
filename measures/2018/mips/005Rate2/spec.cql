@@ -21,6 +21,7 @@ valueset "ABLE; Moderate or Severe LVSD"
 valueset "MIPS; MIPS 005 Discharge"
 valueset "MIPS; Heart Failure"
 valueset "MIPS; Depressed Left Ventricular Systolic Function"
+valueset "MIPS; LVEF <40%"
 valueset "MIPS; Performance Met: 4010F"
 valueset "MIPS; Denominator Exception: 4010F-1P"
 valueset "MIPS; Denominator Exception: 4010F-2P"
@@ -47,6 +48,7 @@ define "Depressed Left Ventricular Systolic Function":
     ["Assessment, Performed": "MIPS; Depressed Left Ventricular Systolic Function"]
     union ["Diagnosis": "VSAC; Moderate or Severe LVSD"]
     union ["Assessment, Performed": "ABLE; Moderate or Severe LVSD"]
+    union ["Assessment, Performed": "MIPS; LVEF <40%"]
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 005 Discharge"] E
