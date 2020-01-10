@@ -32,14 +32,19 @@ denominator:
         show_codes: true
         records:
           - model: ClinicalActivity
+            qrda_datatype: 'Encounter, Performed'
             value_set: "VSAC; Office Visit"
           - model: ClinicalActivity
+            qrda_datatype: 'Encounter, Performed'
             value_set: "VSAC; Annual Wellness Visit"
           - model: ClinicalActivity
+            qrda_datatype: 'Encounter, Performed'
             value_set: "VSAC; Preventive Care Services - Established Office Visit, 18 and Up"
           - model: ClinicalActivity
+            qrda_datatype: 'Encounter, Performed'
             value_set: "VSAC; Preventive Care Services-Initial Office Visit, 18 and Up"
           - model: ClinicalActivity
+            qrda_datatype: 'Encounter, Performed'
             value_set: "VSAC; Home Healthcare Services"
     - logical_operator: AND
       components:
@@ -47,6 +52,7 @@ denominator:
         show_codes: true
         records:
         - model: Diagnosis
+          qrda_datatype: 'Diagnosis'
           value_set: "VSAC; Diabetes"
 exclusion:
   description:
@@ -61,8 +67,10 @@ exclusion:
          show_codes: true
          records:
          - model: ClinicalActivity
+           qrda_datatype: 'Intervention, Performed'
            value_set: "VSAC; Hospice care ambulatory"
          - model: Order
+           qrda_datatype: 'Intervention, Order'
            value_set: "VSAC; Hospice care ambulatory"
      - logical_operator: 'OR'
        components:
@@ -71,6 +79,7 @@ exclusion:
           annotation: 'Discharge disposition: Discharge to home for hospice care'
           records:
           - model: ClinicalActivity
+            qrda_datatype: 'Encounter, Performed'
             value_set: "VSAC; Encounter Inpatient"
 exception:
   description:
@@ -90,6 +99,7 @@ performance_met:
         annotation: 'With result: > 9.0%'
         records:
         - model: LaboratoryTestPerformed
+          qrda_datatype: 'Laboratory Test, Performed'
           value_set: VSAC; HbA1c Laboratory Test
     - logical_operator: 'OR NOT'
       components:
@@ -97,6 +107,7 @@ performance_met:
         show_codes: true
         records:
         - model: LaboratoryTestPerformed
+          qrda_datatype: 'Laboratory Test, Performed'
           value_set: VSAC; HbA1c Laboratory Test
 performance_not_met:
   description:
@@ -112,4 +123,5 @@ performance_not_met:
         annotation: 'With result: ≤ 9.0%'
         records:
         - model: LaboratoryTestPerformed
+          qrda_datatype: 'Laboratory Test, Performed'
           value_set: VSAC; HbA1c Laboratory Test
