@@ -33,7 +33,8 @@ define "Denominator Encounter":
       such that D.prevalencePeriod overlaps E.relevantPeriod
 
 define "Denominator":
-  exists("Denominator Encounter")
+  "Patient Characteristic Sex" = 'Female'
+  and exists("Denominator Encounter")
 
 define "Numerator Performance Met: 4340F":
   /*

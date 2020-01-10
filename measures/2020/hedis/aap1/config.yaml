@@ -1,0 +1,68 @@
+---
+measure:
+  name: 19.Hedis.Aap1
+  required:
+    display_title: 'Adults’ Access to Preventive/Ambulatory Health Services:
+      Medicare and Medicaid'
+    inverse: false
+    subject_type: Patient
+    set: HEDIS
+    external_id: AAP1
+  optional:
+    description: 'The percentage of members 20 years and older who had an ambulatory
+      or preventive care visit during the measurement year'
+    gap_resolution_action: 'Patient is due for an ambulatory or preventive care visit'
+    version: 2020
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: Patients 20 years and older as of December 31 of the measurement year
+  component_groups:
+  - logical_operator: NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Annual Wellness Visit
+    description: 'Patient received an ambulatory or preventive care visit during
+      the measurement period'
+    component_groups:
+    - components:
+      - display_title: Visit
+        show_codes: true
+        records:
+          - model: ClinicalActivity
+            value_set: "HEDIS; Ambulatory Visits"
+          - model: ClinicalActivity
+            value_set: "HEDIS; Other Ambulatory Visits"
+          - model: ClinicalActivity
+            value_set: "HEDIS; Telephone Visits"
+          - model: ClinicalActivity
+            value_set: "HEDIS; Online Assessments"
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Visit
+    description: 'No ambulatory or preventive care visit found during the measurement period'
+    component_groups:

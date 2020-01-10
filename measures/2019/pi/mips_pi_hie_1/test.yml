@@ -1,0 +1,477 @@
+measure_id: measure.Pi.2019.Mipspihie1
+test_set_keys:
+  organization_key:
+    episodes_of_care:
+    - name: DenominatorReferral Before # Early
+      start_date: 2015-12-31
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorReferral Lower # Lower bound
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorReferral Upper # Upper Bound
+      start_date: 2016-12-31
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorReferral After # Late
+      start_date: 2017-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorReferral DifferentProvider # Different denominator provider
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: SOCExchange Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: SOCExchange Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: SOCExchange Upper # Upper bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: SOCExchange After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: SOCExchange WrongReferral # Different Referral ID
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: SOCReceipt Before # Early
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: SOCReceipt Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: SOCReceipt Upper # Upper bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: SOCReceipt After # Late
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: SOCReceipt WrongReferral # Different Referral ID
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+  providers_key:
+    - name: Rachel
+      episodes_of_care:
+      - name: DenominatorReferral Before # Early
+        start_date: 2015-12-31
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorReferral Lower # Lower bound
+        start_date: 2016-01-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: DenominatorReferral Upper # Upper Bound
+        start_date: 2016-12-31
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: DenominatorReferral After # Late
+        start_date: 2017-01-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorReferral DifferentProvider # Different denominator provider
+        start_date: 2016-02-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: SOCExchange Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: SOCExchange Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
+      - name: SOCExchange Upper # Upper bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
+      - name: SOCExchange After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: SOCExchange WrongReferral # Different Referral ID
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: SOCReceipt Before # Early
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: SOCReceipt Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
+      - name: SOCReceipt Upper # Upper bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_met
+      - name: SOCReceipt After # Late
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: SOCReceipt WrongReferral # Different Referral ID
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+providers:
+  - given_name: Rachel
+    family_name:  Katz
+    credential: DO
+    primary_specialty:  Family Medicine
+    external_id: '111-111'
+  - given_name: Patty
+    family_name:  Smith
+    credential: MD
+    primary_specialty:  Family Medicine
+    external_id: '222-222'
+patients:
+  - name: DenominatorReferral Before
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorReferral
+      family_name: Before
+      sex: Male
+    clinical_models:
+      referrals:
+      - external_id: 1
+        start_date: 2015-12-31 # Too early
+        stop_date: 2015-12-31
+        provider: Rachel
+  - name: DenominatorReferral Lower
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorReferral
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      referrals:
+      - external_id: 1
+        start_date: 2016-01-01 # Lower bound
+        stop_date: 2016-01-01
+        provider: Rachel
+  - name: DenominatorReferral Upper
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorReferral
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      referrals:
+      - external_id: 1
+        start_date: 2016-12-31 # Upper bound
+        stop_date: 2016-12-31
+        provider: Rachel
+  - name: DenominatorReferral After
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorReferral
+      family_name: After
+      sex: Male
+    clinical_models:
+      referrals:
+      - external_id: 1
+        start_date: 2017-01-01 # Too late
+        stop_date: 2017-01-01
+        provider: Rachel
+  - name: DenominatorReferral DifferentProvider
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorReferral
+      family_name: DifferentProvider
+      sex: Male
+    clinical_models:
+      referrals:
+      - external_id: 1
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Patty # Different provider
+  - name: SOCExchange Before
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: SOCExchange
+      family_name: Before
+      sex: Male
+    clinical_models:
+      referrals:
+      - external_id: 1
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      system_events:
+      - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
+        start_date: 2015-12-31 # Early
+        stop_date: 2015-12-31
+        referral_external_id: 1
+      - type: SUMMARY_OF_CARE_RECEIPT
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        referral_external_id: 1
+  - name: SOCExchange Lower
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: SOCExchange
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      referrals:
+      - external_id: 1
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      system_events:
+      - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
+        start_date: 2016-01-01 # Lower bound
+        stop_date: 2016-01-01
+        referral_external_id: 1
+      - type: SUMMARY_OF_CARE_RECEIPT
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        referral_external_id: 1
+  - name: SOCExchange Upper
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: SOCExchange
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      referrals:
+      - external_id: 1
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      system_events:
+      - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
+        start_date: 2016-12-31 # Upper bound
+        stop_date: 2016-12-31
+        referral_external_id: 1
+      - type: SUMMARY_OF_CARE_RECEIPT
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        referral_external_id: 1
+  - name: SOCExchange After
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: SOCExchange
+      family_name: After
+      sex: Male
+    clinical_models:
+      referrals:
+      - external_id: 1
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      system_events:
+      - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
+        start_date: 2017-01-01 # Late
+        stop_date: 2017-01-01
+        referral_external_id: 1
+      - type: SUMMARY_OF_CARE_RECEIPT
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        referral_external_id: 1
+  - name: SOCExchange WrongReferral
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: SOCExchange
+      family_name: WrongReferral
+      sex: Male
+    clinical_models:
+      referrals:
+      - external_id: 1
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - external_id: 2
+        start_date: 2016-03-01
+        stop_date: 2016-03-01
+        provider: Rachel
+      system_events:
+      - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
+        start_date: 2016-03-01
+        stop_date: 2016-03-01
+        referral_external_id: 2 # Wrong referral
+      - type: SUMMARY_OF_CARE_RECEIPT
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        referral_external_id: 1
+  - name: SOCReceipt Before
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: SOCReceipt
+      family_name: Before
+      sex: Male
+    clinical_models:
+      referrals:
+      - external_id: 1
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      system_events:
+      - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        referral_external_id: 1
+      - type: SUMMARY_OF_CARE_RECEIPT
+        start_date: 2015-12-31 # Early
+        stop_date: 2015-12-31
+        referral_external_id: 1
+  - name: SOCReceipt Lower
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: SOCReceipt
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      referrals:
+      - external_id: 1
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      system_events:
+      - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        referral_external_id: 1
+      - type: SUMMARY_OF_CARE_RECEIPT
+        start_date: 2016-01-01 # Lower bound
+        stop_date: 2016-01-01
+        referral_external_id: 1
+  - name: SOCReceipt Upper
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: SOCReceipt
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      referrals:
+      - external_id: 1
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      system_events:
+      - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        referral_external_id: 1
+      - type: SUMMARY_OF_CARE_RECEIPT
+        start_date: 2016-12-31 # Upper bound
+        stop_date: 2016-12-31
+        referral_external_id: 1
+  - name: SOCReceipt After
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: SOCReceipt
+      family_name: After
+      sex: Male
+    clinical_models:
+      referrals:
+      - external_id: 1
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      system_events:
+      - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        referral_external_id: 1
+      - type: SUMMARY_OF_CARE_RECEIPT
+        start_date: 2017-01-01 # Late
+        stop_date: 2017-01-01
+        referral_external_id: 1
+  - name: SOCReceipt WrongReferral
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: SOCReceipt
+      family_name: WrongReferral
+      sex: Male
+    clinical_models:
+      referrals:
+      - external_id: 1
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      - external_id: 2
+        start_date: 2016-03-01
+        stop_date: 2016-03-01
+        provider: Rachel
+      system_events:
+      - type: SUMMARY_OF_CARE_CREATION_AND_EXCHANGE
+        start_date: 2016-03-01
+        stop_date: 2016-03-01
+        referral_external_id: 1
+      - type: SUMMARY_OF_CARE_RECEIPT
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        referral_external_id: 2 # Wrong referral

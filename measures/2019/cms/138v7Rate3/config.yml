@@ -1,0 +1,172 @@
+---
+measure:
+  name: 19.CMS.138Rate3
+  required:
+    display_title: 'Preventive Care and Screening: Tobacco Use: Screening and Cessation
+      Intervention'
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: '138'
+    rate_id: '3'
+    version:
+  optional:
+    description: 'Percentage of patients aged 18 years and older who were screened
+      for tobacco use one or more times within 24 months AND who received tobacco
+      cessation intervention if identified as a tobacco user'
+    gap_resolution_action:
+    version: 2019
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'Allergy/Immunology, Internal Medicine, Cardiology, Dermatology,
+      Emergency Medicine, Gastroenterology, General Surgery, General Oncology, Hospitalists,
+      Neurology, Obstetrics/Gynecology, Ophthalmology, Orthopedic Surgery, Otolaryngology,
+      Physical Medicine, Preventive Medicine, Rheumatology, Thoracic Surgery, Urology,
+      Vascular Surgery, Mental/Behavioral Health, Plastic Surgery, General Practice/Family
+      Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum: 'tobacco'
+    mips_objective:
+denominator:
+  description: 'All patients aged 18 years and older seen for at least two visits
+    or at least one preventive visit during the measurement period'
+  component_groups:
+  - validation_record_table_count: 2
+    components:
+    - display_title: 2 Encounters
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: VSAC; Health & Behavioral Assessment - Individual
+      - model: ClinicalActivity
+        value_set: VSAC; Health and Behavioral Assessment - Initial
+      - model: ClinicalActivity
+        value_set: VSAC; Health and Behavioral Assessment, Reassessment
+      - model: ClinicalActivity
+        value_set: VSAC; Home Healthcare Services
+      - model: ClinicalActivity
+        value_set: VSAC; Occupational Therapy Evaluation
+      - model: ClinicalActivity
+        value_set: VSAC; Office Visit
+      - model: ClinicalActivity
+        value_set: VSAC; Ophthalmological Services
+      - model: ClinicalActivity
+        value_set: VSAC; Psych Visit - Diagnostic Evaluation
+      - model: ClinicalActivity
+        value_set: Psych Visit - Psychotherapy
+      - model: ClinicalActivity
+        value_set: VSAC; Psychoanalysis
+      - model: ClinicalActivity
+        value_set: VSAC; Speech and Hearing Evaluation
+    - display_title: Preventive Encounter
+      logical_operator: OR
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: VSAC; Preventive Care Services - Established Office Visit, 18 and Up
+      - model: ClinicalActivity
+        value_set: VSAC; Preventive Care Services - Group Counseling
+      - model: ClinicalActivity
+        value_set: VSAC; Preventive Care Services - Other
+      - model: ClinicalActivity
+        value_set: VSAC; Preventive Care Services-Individual Counseling
+      - model: ClinicalActivity
+        value_set: VSAC; Preventive Care Services-Initial Office Visit, 18 and Up
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: exception_medicalreason
+    code_value:
+    display_title: Medical Reason For Not Screening
+    description: Documentation of medical reason(s) for not screening for
+    tobacco use OR for not providing tobacco cessation intervention for patients
+    identified as tobacco users (eg, limited life expectancy, other medical reason)
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Medical Reason For Not Counseling
+        show_codes: true
+        annotation: 'Reason for Not Counseling: Medical Reason'
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Tobacco Use Cessation Counseling
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Medical Reason For Not Ordering Pharmacotherapy
+        show_codes: true
+        annotation: 'Reason for Not Ordering Pharmacotherapy: Medical Reason'
+        records:
+        - model: Medication
+          value_set: VSAC; Tobacco Use Cessation Pharmacotherapy
+    - validation_record_table_count: 1
+      components:
+      - display_title: Medical Reason For Not Screening
+        show_codes: true
+        annotation: 'Reason for Not Screening: Medical Reason'
+        records:
+        - model: Diagnosis
+          value_set: VSAC; Tobacco Use Screening
+    - validation_record_table_count: 1
+      logical_operator: OR
+      components:
+      - display_title: Limited Life Expectancy
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: VSAC; Limited Life Expectancy
+performance_met:
+  description: "Patients who were screened for tobacco use at least once within 24
+    months AND who received tobacco cessation intervention if identified as a tobacco
+    user"
+  reasons:
+  - config_link_id: performance_met_user
+    code_value:
+    display_title: Tobacco User Received Intervention
+    description: Patient identified as a tobacco user and received tobacco cessation
+      intervention
+    component_groups:
+      - validation_record_table_count: 1
+        components:
+        - display_title: Tobacco User
+          show_codes: true
+          annotation: 'Tobacco Use Screening Result: User'
+          records:
+          - model: ClinicalActivity
+            value_set: VSAC; Tobacco Use Screening
+      - display_title: Tobacco Cessation Intervention
+        logical_operator: AND
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: VSAC; Tobacco Use Cessation Pharmacotherapy
+        - model: ClinicalActivity
+          value_set: VSAC; Tobacco Use Cessation Counseling
+  - config_link_id: performance_met_nonuser
+    code_value:
+    display_title: Tobacco Non-User
+    description: Patient identified as a tobacco non-user
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Tobacco Non-User
+        show_codes: true
+        annotation: 'Tobacco Use Screening Result: Non-user'
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Tobacco Use Screening
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: Patient Not Screened Or Tobacco User No Intervention
+    description: Patient not screened for tobacco use OR patient screened for tobacco
+      use but did not receive tobacco cessation intervention, reason not otherwise
+      specified
+    component_groups:

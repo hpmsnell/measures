@@ -1,0 +1,127 @@
+---
+measure:
+  name: 19.CMS.124
+  required:
+    display_title: Cervical Cancer Screening
+    inverse: false
+    subject_type: Patient
+    set: CMS
+    external_id: '124'
+    version:
+  optional:
+    description: 'Percentage of women 21-64 years of age who were screened for cervical
+      cancer using either of the following criteria: *  Women age 21-64 who had cervical
+      cytology performed every 3 years *  Women age 30-64 who had cervical cytology/human
+      papillomavirus (HPV) co-testing performed every 5 years'
+    gap_resolution_action: Patient is due for a cervical cancer screening
+    version: 2019
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'Internal Medicine, General Practice/Family Medicine, Obstetrics/Gynecology'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'Women 23-64 years of age with a visit during the measurement period'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: 'Encounter'
+      show_codes: true
+      annotation:
+      records:
+      - model: ClinicalActivity
+        value_set: "VSAC; Office Visit"
+      - model: ClinicalActivity
+        value_set: "VSAC; Preventive Care Services - Established Office Visit, 18 and Up"
+      - model: ClinicalActivity
+        value_set: "VSAC; Preventive Care Services-Initial Office Visit, 18 and Up"
+      - model: ClinicalActivity
+        value_set: "VSAC; Home Healthcare Services"
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_cervix
+    code_value:
+    display_title: 'Absence of Cervix'
+    description: Patient is excluded due to hysterectomy with no residual cervix or a congenital absence of cervix
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Absence of Cervix
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "VSAC; Congenital absence of cervix (disorder)"
+        - model: ClinicalActivity
+          value_set: "VSAC; Hysterectomy with No Residual Cervix"
+  - config_link_id: exclusion_hospice
+    code_value:
+    display_title: Hospice Service
+    description: Patient excluded due to hospice service
+    component_groups:
+    - components:
+       - display_title: Hospice Service
+         show_codes: true
+         records:
+         - model: ClinicalActivity
+           value_set: "VSAC; Hospice care ambulatory"
+         - model: Order
+           value_set: "VSAC; Hospice care ambulatory"
+     - logical_operator: 'OR'
+       components:
+        - display_title: Inpatient Encounter
+          show_codes: true
+          annotation: 'Discharge disposition: Discharge to home for hospice care'
+          records:
+          - model: ClinicalActivity
+            value_set: "VSAC; Encounter Inpatient"
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Women with one or more screenings for cervical cancer. Appropriate screenings
+    are defined by any one of the following criteria: - Cervical cytology performed during the
+    measurement period or the two years prior to the measurement period for women who are at least
+    21 years old at the time of the test - Cervical cytology/human papillomavirus (HPV) co-testing
+    performed during the measurement period or the four years prior to the measurement period for
+    women who are at least 30 years old at the time of the test'
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Screening for Cervical Cancer
+    description: Cervical cancer screening performed
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Pap Test
+        show_codes: true
+        annotation: 'Within last 3 years'
+        records:
+        - model: LaboratoryTestPerformed
+          value_set: "VSAC; Pap Test"
+    - logical_operator: OR
+      validation_record_table_count: 1
+      components:
+      - display_title: Pap Test
+        show_codes: true
+        annotation: 'Within last 5 years'
+        records:
+        - model: LaboratoryTestPerformed
+          value_set: "VSAC; Pap Test"
+      - logical_operator: AND
+        display_title: HPV Test
+        show_codes: true
+        records:
+        - model: LaboratoryTestPerformed
+          value_set: "VSAC; HPV Test"
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Screening for Cervical Cancer
+    description: Cervical cancer screening not found
+    component_groups:

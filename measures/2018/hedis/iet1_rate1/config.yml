@@ -70,8 +70,6 @@ denominator:
         value_set: HEDIS; Medication Assisted Treatment
       - model: Medication
         value_set: HEDIS; MAT for Alcohol Abuse or Dependence Medications
-      - model: Medication
-        value_set: HEDIS; MAT for Opioid Abuse or Dependence Medications
   - validation_record_table_count: 10
     logical_operator: AND NOT
     components:
@@ -135,8 +133,6 @@ performance_met:
               value_set: HEDIS; Medication Assisted Treatment
             - model: Medication
               value_set: HEDIS; MAT for Alcohol Abuse or Dependence Medications
-            - model: Medication
-              value_set: HEDIS; MAT for Opioid Abuse or Dependence Medications
 performance_not_met:
   description:
   reasons:

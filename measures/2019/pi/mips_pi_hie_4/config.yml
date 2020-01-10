@@ -1,0 +1,63 @@
+---
+measure:
+  name: 19.PI.Mipspihie4
+  required:
+    display_title: 'Support Electronic Referral Loops by Receiving and Incorporating Health Information'
+    inverse: false
+    subject_type: Encounter
+    set: MIPS
+    external_id: 'PI_HIE_4'
+    version:
+  optional:
+    description: 'For at least one electronic summary of care record received for patient encounters
+      during the performance period for which a MIPS eligible clinician was the receiving party
+      of a transition of care or referral, or for patient encounters during the performance period
+      in which the MIPS eligible clinician has never before encountered the patient, the MIPS
+      eligible clinician conducts clinical information reconciliation for medication, medication
+      allergy, and current problem list.'
+    gap_resolution_action:
+    version: 2019
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective: 'Health Information Exchange'
+denominator:
+  description: 'Number of electronic summary of care records received using CEHRT for patient
+    encounters during the performance period for which a MIPS eligible clinician was the
+    receiving party of a transition of care or referral, and for patient encounters during
+    the performance period in which the MIPS eligible clinician has never before encountered
+    the patient.'
+  component_groups:
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'The number of electronic summary of care records in the denominator for which
+    clinical information reconciliation is completed using CEHRT for the following three
+    clinical information sets: (1) Medication – Review of the patient's medication,
+    including the name, dosage, frequency, and route of each medication; (2) Medication allergy –
+    Review of the patient's known medication allergies; and (3) Current Problem List – Review
+    of the patient’s current and active diagnoses.'
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Received and Incorporated
+    description: 'Summary of care incorporated and reconciliations performed for medication,
+      medication allergy, and problem lists'
+    component_groups:
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: Not Received and Incorporated
+    description: 'Summary of care not incorporated or reconciliations not performed for medication, 
+      medication allergy, and problem lists'
+    component_groups:

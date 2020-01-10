@@ -11,6 +11,10 @@ library MIPS_238Rate2_2017 version '1'
 
 using QDM
 
+// ABLE value sets
+
+valueset "ABLE; High Risk Medications for the Elderly"
+
 // MIPS value sets
 
 valueset "MIPS; MIPS 238 Encounter"
@@ -39,8 +43,10 @@ define "Hospice":
   union ["Intervention, Performed": "VSAC; Palliative Care"]
 
 define "Order For High Risk Medication":
-	["Medication, Order": "VSAC; High Risk Medications for the Elderly"] HighRiskMedicationOrder
-		where HighRiskMedicationOrder.authorDatetime during "Measurement Period"
+  ["Medication, Order": "VSAC; High Risk Medications for the Elderly"] HighRiskMedicationOrder
+    where HighRiskMedicationOrder.authorDatetime during "Measurement Period"
+  union ["Medication, Order": "ABLE; High Risk Medications for the Elderly"] HighRiskMedicationOrder
+    where HighRiskMedicationOrder.authorDatetime during "Measurement Period"
 
 define "High Risk Medications With Prolonged Duration":
 	["Medication, Order": "VSAC; High-Risk Medications With Days Supply Criteria"] HighRiskMedicationOrder

@@ -1,0 +1,68 @@
+---
+measure:
+  name: 19.HEDIS.Coa4
+  required:
+    display_title: 'Care for Older Adults: Pain Assessment'
+    inverse: false
+    subject_type: Patient
+    set: HEDIS
+    external_id: COA4
+  optional:
+    description: The percentage of adults 66 years and older who had a pain assessment
+      during the measurement year.
+    gap_resolution_action: Patient is due for pain assessment
+    version: 2020
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: Patients 66 years and older as of December 31 of the measurement year.
+  component_groups:
+  - logical_operator: NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Pain Assessment
+    description: At least one pain assessment during the measurement year.
+    component_groups:
+    - components:
+      - display_title: Pain Assessment
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Pain Assessment
+        - model: ClinicalActivity
+          value_set: Able; Standardized Pain Assessment Tool
+        - model: ClinicalActivity
+          value_set: Able; Pain Assessments
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8730'
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8731'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Pain Assessment
+    description: No pain assessment found during the measurement period
+    component_groups:

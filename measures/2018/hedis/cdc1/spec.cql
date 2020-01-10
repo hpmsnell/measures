@@ -31,6 +31,9 @@ valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 // MIPS value sets
 
 valueset "MIPS; MIPS Hospice Service"
+valueset "MIPS; Performance Met: 3046F" //HbA1c Test
+valueset "MIPS; Performance Not Met: 3045F" //HbA1c Test
+valueset "MIPS; Performance Not Met: 3044F" //HbA1c Test
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -83,6 +86,12 @@ define "Numerator Performance Met":
   exists(["Laboratory Test, Performed": "HEDIS; HbA1c Tests"] L
     where L.resultDateTime during "Measurement Year")
   or exists(["Procedure, Performed": "HEDIS; HbA1c Tests"] P
+    where P.relevantPeriod starts during "Measurement Year")
+  or exists(["Procedure, Performed": "MIPS; Performance Met: 3046F"] P
+    where P.relevantPeriod starts during "Measurement Year")
+  or exists(["Procedure, Performed": "MIPS; Performance Not Met: 3045F"] P
+    where P.relevantPeriod starts during "Measurement Year")
+  or exists(["Procedure, Performed": "MIPS; Performance Not Met: 3044F"] P
     where P.relevantPeriod starts during "Measurement Year")
 
 define "Numerator Performance Not Met":

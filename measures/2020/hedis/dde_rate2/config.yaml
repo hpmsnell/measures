@@ -1,0 +1,116 @@
+---
+measure:
+  name: 19.HEDIS.DdeRate2
+  required:
+    display_title: 'Potentially Harmful Drug-Disease Interactions in the Elderly:
+      Dementia'
+    inverse: true
+    subject_type: Patient
+    set: HEDIS
+    external_id: DDE
+    rate_id: 2
+  optional:
+    description: The percentage of members 65 years of age and older who have evidence
+      of dementia and who were dispensed an ambulatory prescription for antipsychotics,
+      benzodiazepines, nonbenzodiazepine hypnotics, tricyclic antidepressants, H2
+      receptor antagonists or anticholinergic agents concurrent with or after the
+      diagnosis.
+    gap_resolution_action:
+    version: 2020
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: Patients 67 years and older with a diagnosis of dementia or dispensed
+    a dementia medication on or between January 1 of the year prior to the measurement
+    year and December 1 of the measurement year.
+  component_groups:
+  - components:
+    - display_title: Dementia
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Dementia
+  - logical_operator: OR
+    components:
+    - display_title: Dementia Medication
+      show_codes: true
+      records:
+      - model: Medication
+        value_set: NCQA; Dementia Medications
+  - logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Excluded Condition
+    description: Patient excluded due a diagnosis of psychosis, schizophrenia, bipolar
+      disorder or seizure disorder on or between January 1 of the year prior to the
+      measurement year and December 1 of the measurement year.
+    component_groups:
+    - components:
+      - display_title: Psychosis
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Psychosis
+    - logical_operator: OR
+      components:
+      - display_title: Schizophrenia
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Schizophrenia
+    - logical_operator: OR
+      components:
+      - display_title: Bipolar Disorder
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Bipolar Disorder
+        - model: Diagnosis
+          value_set: HEDIS; Other Bipolar Disorder
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Drug
+    description: Patient received an ambulatory prescription for antipsychotics, benzodiazepines,
+      nonbenzodiazepine hypnotics, tricyclic antidepressants, H2 receptor antagonists
+      or anticholinergic agents on or between the earliest documentation of dementia
+      within 24 months of the end of the measurement year and December 31 of the measurement
+      year.
+    component_groups:
+    - components:
+      - display_title: Medication
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: NCQA; Potentially Harmful Drugs—Rate 2 Medications
+        - model: Medication
+          value_set: NCQA; Potentially Harmful Drugs—Rate 1 and Rate 2 Medications
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Drug
+    description: Patient did not receive an ambulatory prescription for a potentially
+      harmful medication
+    component_groups:

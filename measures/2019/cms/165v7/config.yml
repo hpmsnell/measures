@@ -1,0 +1,163 @@
+---
+measure:
+  name: 19.CMS.165
+  required:
+    display_title: Controlling High Blood Pressure
+    inverse: false
+    subject_type: Patient
+    set: CMS
+    external_id: 165
+    version:
+  optional:
+    description: 'Percentage of patients 18 - 85 years of age who had a diagnosis
+      of hypertension and whose blood pressure was adequately controlled (< 140/90
+      mmHg) during the measurement period'
+    end_to_end_bonus_disabled: false
+    gap_resolution_action: Patient is due for a blood pressure screening or needs
+      attention for uncontrolled blood pressure
+    mips_measure_type: Intermediate Outcome
+    mips_high_priority: true
+    mips_specialty_sets: 'Internal Medicine, Cardiology, Obstetrics/Gynecology, Preventive
+      Medicine, Thoracic Surgery, Vascular Surgery, General Practice/Family Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+    version: 2019
+denominator:
+  description: 'Patients 18-85 years of age who had a diagnosis of essential hypertension
+    within the first six months of the measurement period or any time prior to the
+    measurement period'
+  component_groups:
+    - components:
+      - display_title: Encounter
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: "VSAC; Office Visit"
+        - model: ClinicalActivity
+          value_set: "VSAC; Annual Wellness Visit"
+        - model: ClinicalActivity
+          value_set: "VSAC; Preventive Care Services - Established Office Visit, 18 and Up"
+        - model: ClinicalActivity
+          value_set: "VSAC; Preventive Care Services-Initial Office Visit, 18 and Up"
+        - model: ClinicalActivity
+          value_set: "VSAC; Home Healthcare Services"
+    - logical_operator: AND
+      components:
+      - display_title: Hypertension
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: VSAC; Essential Hypertension
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: 'Hospice Service'
+    description: Patient is excluded due to hospice service during the measurement
+      period
+    component_groups:
+    - components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: "VSAC; Hospice care ambulatory"
+        - model: Order
+          value_set: "VSAC; Hospice care ambulatory"
+    - logical_operator: 'OR'
+      components:
+       - display_title: Inpatient Encounter
+         show_codes: true
+         annotation: 'Discharge disposition: Discharge to home for hospice care'
+         records:
+         - model: ClinicalActivity
+           value_set: "VSAC; Encounter Inpatient"
+  - config_link_id: exclusion_2
+    code_value:
+    display_title: 'Renal Condition or Pregnancy'
+    description: Patient is excluded due end stage renal disease (ESRD), dialysis,
+      renal transplant before or during the measurement period or pregnancy during
+      the measurement period
+    component_groups:
+    - components:
+      - display_title: Pregnancy
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: VSAC; Pregnancy
+    - logical_operator: OR
+      components:
+      - display_title: Renal Condition
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: VSAC; End Stage Renal Disease
+        - model: Diagnosis
+          value_set: VSAC; Chronic Kidney Disease, Stage 5
+        - model: Diagnosis
+          value_set: VSAC; Kidney Transplant Recipient
+        - model: ClinicalActivity
+          value_set: VSAC; Vascular Access for Dialysis
+        - model: ClinicalActivity
+          value_set: VSAC; ESRD Monthly Outpatient Services
+        - model: ClinicalActivity
+          value_set: VSAC; Kidney Transplant
+        - model: ClinicalActivity
+          value_set: VSAC; Dialysis Services
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patients whose blood pressure at the most recent visit is adequately
+    controlled (systolic blood pressure < 140 mmHg and diastolic blood pressure <
+    90 mmHg) during the measurement period'
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Blood Pressure Controlled
+    description: Most recent systolic blood pressure < 140 mmHg and most recent diastolic
+      blood pressure < 90 mmHg
+    component_groups:
+    - components:
+      - display_title: 'Normal Systolic Blood Pressure'
+        show_codes: true
+        annotation: 'With result: < 140 mmHg'
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Systolic Blood Pressure
+    - logical_operator: AND
+      components:
+      - display_title: High Diastolic Blood Pressure
+        show_codes: true
+        annotation: 'With result: < 90 mmHg'
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Diastolic Blood Pressure
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: Blood Pressure Not Controlled
+    description: Most recent systolic blood pressure < 140 mmHg and most recent diastolic
+      blood pressure >= 90 mmHg
+    component_groups:
+    - components:
+      - display_title: 'Normal Systolic Blood Pressure'
+        show_codes: true
+        annotation: 'With result: ≥ 140 mmHg'
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Systolic Blood Pressure
+    - logical_operator: OR
+      components:
+      - display_title: High Diastolic Blood Pressure
+        show_codes: true
+        annotation: 'With result: ≥ 90 mmHg'
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Diastolic Blood Pressure

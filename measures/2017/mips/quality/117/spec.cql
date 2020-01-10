@@ -4,7 +4,7 @@ library MIPS_117_2017 version '1'
  * Source: MIPS
  * ID: 117
  * Year: 2017
- * Version: 1
+ * Version: 2
  * Written By: Steve Daniels
  * Reviewed By: Rachel Katz
  *
@@ -39,7 +39,7 @@ define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 117 Encounter"] E
     where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
-      and AgeInYearsAt(start of E.relevantPeriod) < 65
+      and AgeInYearsAt(start of E.relevantPeriod) < 75
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Diabetes"] D
       where D.prevalencePeriod overlaps E.relevantPeriod)
@@ -93,14 +93,14 @@ define "Numerator Performance Not Met: 2022F-8P":
   /*
    * config_link_id: 2022F-8P
    */
-  exists(["Procedure, Performed": "MIPS; Performance Met: 2022F-8P"] P
+  exists(["Procedure, Performed": "MIPS; Performance Not Met: 2022F-8P"] P
     where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met: 2024F-8P":
  /*
   * config_link_id: 2024F-8P
   */
-  exists(["Procedure, Performed": "MIPS; Performance Met: 2024F-8P"] P
+  exists(["Procedure, Performed": "MIPS; Performance Not Met: 2024F-8P"] P
     where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met: 2026F-8P":
@@ -112,5 +112,5 @@ define "Numerator Performance Not Met: 2026F-8P":
    and not "Numerator Performance Met: 2024F"
    and not "Numerator Performance Met: 2026F"
    and not "Numerator Performance Met: 3072F"
-   and not "Numerator Performance Not Met: 2022F"
-   and not "Numerator Performance Not Met: 2024F"
+   and not "Numerator Performance Not Met: 2022F-8P"
+   and not "Numerator Performance Not Met: 2024F-8P"

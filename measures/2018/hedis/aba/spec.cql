@@ -15,6 +15,11 @@ using QDM
 // MIPS value sets
 
 valueset "MIPS; MIPS Hospice Service"
+valueset "MIPS; Performance Met: G8420"
+valueset "MIPS; Performance Met: G8417"
+valueset "MIPS; Performance Met: G8418"
+valueset "MIPS; Denominator Exception: G8416"
+valueset "MIPS; Performance Not Met: G8419"
 
 // HEDIS value sets
 
@@ -27,8 +32,6 @@ valueset "HEDIS; Pregnancy": '2.16.840.1.113883.3.464.1004.1219'
 
 valueset "VSAC; BMI LOINC Value": '2.16.840.1.113883.3.600.1.681'
 valueset "VSAC; BMI percentile": '2.16.840.1.113883.3.464.1003.121.12.1012'
-valueset "VSAC; Height": '2.16.840.1.113883.3.464.1003.121.12.1014'
-valueset "VSAC; Weight": '2.16.840.1.113883.3.464.1003.121.12.1015'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -38,41 +41,32 @@ define "Hospice":
   ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
   union ["Intervention, Performed": "VSAC; Palliative Care"]
 
-define "BMI and Weight Exists":
-  exists(["Assessment, Performed": "VSAC; BMI LOINC Value"] A
-    where A.authorDateTime during [24 months before end of "Measurement Period", end of "Measurement Period"])
-  and exists(["Assessment, Performed": "VSAC; Weight"] A
-    where A.authorDateTime during [24 months before end of "Measurement Period", end of "Measurement Period"])
-
-define "BMI Exists":
-  exists(["Diagnosis": "HEDIS; BMI"] D
-    where D.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
-  or "Patient has BMI and Weight"
+define "BMI":
+  ["Assessment, Performed": "VSAC; BMI LOINC Value"]
+  union ["Diagnosis": "HEDIS; BMI"]
+  union ["Procedure, Performed": "MIPS; Performance Met: G8420"]
+  union ["Procedure, Performed": "MIPS; Performance Met: G8417"]
+  union ["Procedure, Performed": "MIPS; Performance Met: G8418"]
+  union ["Procedure, Performed": "MIPS; Denominator Exception: G8416"]
+  union ["Procedure, Performed": "MIPS; Performance Not Met: G8419"]
 
 define "Patient 20+ with BMI":
   exists(["Encounter, Performed": "HEDIS; Outpatient"] E
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 20)
-  and "BMI Exists"
+  and exists("BMI" P
+    where P.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
 
-define "BMI Percentile, Height, and Weight Exist":
-  exists(["Assessment, Performed": "VSAC; BMI percentile"] A
-    where A.authorDateTime during [24 months before end of "Measurement Period", end of "Measurement Period"])
-  and exists(["Assessment, Performed": "VSAC; Height"] A
-    where A.authorDateTime during [24 months before end of "Measurement Period", end of "Measurement Period"])
-  and exists(["Assessment, Performed": "VSAC; Weight"] A
-    where A.authorDateTime during [24 months before end of "Measurement Period", end of "Measurement Period"])
-
-define "BMI Percentile Exists":
-  exists(["Diagnosis": "HEDIS; BMI Percentile"] D
-    where D.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
-  or "BMI Percentile, Height, and Weight Exist"
+define "BMI Percentile":
+  ["Diagnosis": "HEDIS; BMI Percentile"]
+  union ["Assessment, Performed": "VSAC; BMI percentile"]
 
 define "Patient <20 with BMI Percentile":
   exists(["Encounter, Performed": "HEDIS; Outpatient"] E
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) < 20)
-  and "BMI Percentile Exists"
+  and exists("BMI Percentile" P
+    where P.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
 
 // Populations
 

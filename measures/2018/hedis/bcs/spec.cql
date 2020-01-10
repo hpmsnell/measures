@@ -15,6 +15,7 @@ using QDM
 // MIPS value sets
 
 valueset "MIPS; MIPS Hospice Service"
+valueset "MIPS; Performance Met: G9899"
 
 // HEDIS value sets
 
@@ -58,6 +59,7 @@ define "Absence of Left and Right Breast Exists":
 // Populations
 
 define "Denominator":
+  "Patient Characteristic Sex" = 'Female'
   AgeInYearsAt(end of "Measurement Period") >= 52
   and AgeInYearsAt(end of "Measurement Period") < 75
   and not exists("Hospice" I
@@ -84,6 +86,8 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   exists("Procedure, Performed": "HEDIS; Mammography"] P
+    where P.relevantPeriod starts during [27 months before end of "Measurement Period", end of "Measurement Period")
+  or exists("Procedure, Performed": "MIPS; Performance Met: G9899"] P
     where P.relevantPeriod starts during [27 months before end of "Measurement Period", end of "Measurement Period")
 
 define "Numerator Performance Not Met":

@@ -23,6 +23,9 @@ valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
 valueset "HEDIS; HbA1c Tests": '2.16.840.1.113883.3.464.1004.1116'
 valueset "HEDIS; Diabetes Medications"
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
+valueset "HEDIS; HbA1c Level Less Than 7.0"
+valueset "HEDIS; HbA1c Level 7.0-9.0"
+valueset "HEDIS; HbA1c Level Greater Than 9.0"
 
 // VSAC value sets
 
@@ -42,6 +45,11 @@ define "Last HbA1c Result":
       and not L.result = null
     sort by L.resultDateTime asc
     return L.result)
+
+define "Eligible HbA1c Procedures":
+  ["Procedure, Performed": "HEDIS; HbA1c Level Less Than 7.0"]
+  union ["Procedure, Performed": "HEDIS; HbA1c Level 7.0-9.0"]
+  union ["Procedure, Performed": "HEDIS; HbA1c Level Greater Than 9.0"]
 
 define "Denominator":
   "HEDIS CDC1: Denominator"

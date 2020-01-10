@@ -1,0 +1,455 @@
+---
+measure_id: measure.Hedis.2020.Ccs1
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Too Young
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Age Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Too Old
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Patient Male
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionHospice Lower
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Upper
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionHysterectomy Before
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionHysterectomy After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Cytology Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Cytology Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Cytology Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Cytology After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: CytologyWithHPV Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: CytologyWithHPV Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: CytologyWithHPV Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: CytologyWithHPV After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: CytologyWithHPV TooYoung
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: CytologyWithHPV OldEnough
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: HPVWithCytology Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: HPVWithCytology Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: HPVWithCytology Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: HPVWithCytology After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: HPVWithCytology Before5Years
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+providers:
+  - given_name: Rachel
+    family_name: Katz
+    external_id: '111-111'
+    credential: DO
+    primary_specialty: Family Medicine
+  - given_name: Patty
+    family_name: Smith
+    external_id: '222-222'
+    credential: MD
+    primary_specialty: Family Medicine
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1993-01-01 # Too late
+    given_name: Too
+    family_name: Young
+    sex: female
+  clinical_models:
+- name: Age Lower
+  attributes:
+    date_of_birth: 1992-12-31 # Lower bound
+    given_name: Age
+    family_name: Lower
+    sex: female
+- name: Age Upper
+  attributes:
+    date_of_birth: 1952-01-01 # Upper bound
+    given_name: Age
+    family_name: Upper
+    sex: female
+  clinical_models:
+- name: Too Old
+  attributes:
+    date_of_birth: 1951-12-31 # Too early
+    given_name: Too
+    family_name: Old
+    sex: female
+  clinical_models:
+- name: Patient Male
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Patient
+    family_name: Male
+    sex: male
+- name: ExclusionHospice Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionHospice
+    family_name: Before
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: G0182 # Hospice
+      start_date: 2015-12-31 # Too early
+- name: ExclusionHospice Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionHospice
+    family_name: Lower
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: G0182 # Hospice
+      start_date: 2016-01-01 # Lower bound
+- name: ExclusionHospice Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionHospice
+    family_name: Upper
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: G0182 # Hospice
+      start_date: 2016-12-31 # Upper bound
+- name: ExclusionHospice After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionHospice
+    family_name: After
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: G0182 # Hospice
+      start_date: 2017-01-01 # Too late
+- name: ExclusionHysterectomy Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionHysterectomy
+    family_name: Before
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 57555 # Absence of cervix
+      start_date: 2015-12-31 # Before measurement period
+- name: ExclusionHysterectomy After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: ExclusionHysterectomy
+    family_name: After
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 57555 # Absence of cervix
+      start_date: 2017-01-01 # Too late
+- name: Cytology Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: Cytology
+    family_name: Before
+    sex: female
+  clinical_models:
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10524-7 # Cervical cytology
+      start_date: 2013-12-31 # Too early
+- name: Cytology Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: Cytology
+    family_name: Lower
+    sex: female
+  clinical_models:
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10524-7 # Cervical cytology
+      start_date: 2014-01-01 # Lower bound
+- name: Cytology Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: Cytology
+    family_name: Upper
+    sex: female
+  clinical_models:
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10524-7 # Cervical cytology
+      start_date: 2016-12-31 # Upper bound
+- name: Cytology After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: Cytology
+    family_name: After
+    sex: female
+  clinical_models:
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10524-7 # Cervical cytology
+      start_date: 2017-01-01 # Too late
+- name: CytologyWithHPV Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: CytologyWithHPV
+    family_name: Before
+    sex: female
+  clinical_models:
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10524-7 # Cervical cytology
+      start_date: 2012-02-14
+    clinical_activities:
+    - code_type: CPT
+      code_value: 87622 # HPV Test
+      start_date: 2012-02-09 # Too early
+- name: CytologyWithHPV Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: CytologyWithHPV
+    family_name: Lower
+    sex: female
+  clinical_models:
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10524-7 # Cervical cytology
+      start_date: 2012-02-14
+    clinical_activities:
+    - code_type: CPT
+      code_value: 87622 # HPV Test
+      start_date: 2012-02-10 # Lower bound
+- name: CytologyWithHPV Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: CytologyWithHPV
+    family_name: Upper
+    sex: female
+  clinical_models:
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10524-7 # Cervical cytology
+      start_date: 2012-02-14
+    clinical_activities:
+    - code_type: CPT
+      code_value: 87622 # HPV Test
+      start_date: 2012-02-18 # Upper bound
+- name: CytologyWithHPV After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: CytologyWithHPV
+    family_name: After
+    sex: female
+  clinical_models:
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10524-7 # Cervical cytology
+      start_date: 2012-02-14
+    clinical_activities:
+    - code_type: CPT
+      code_value: 87622 # HPV Test
+      start_date: 2012-02-19 # Too late
+- name: CytologyWithHPV TooYoung
+  attributes:
+    date_of_birth: 1982-02-15 # Too young
+    given_name: CytologyWithHPV
+    family_name: TooYoung
+    sex: female
+  clinical_models:
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10524-7 # Cervical cytology
+      start_date: 2012-02-14
+    clinical_activities:
+    - code_type: CPT
+      code_value: 87622 # HPV Test
+      start_date: 2012-02-14
+- name: CytologyWithHPV OldEnough
+  attributes:
+    date_of_birth: 1982-02-14 # Lower bound
+    given_name: CytologyWithHPV
+    family_name: OldEnough
+    sex: female
+  clinical_models:
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10524-7 # Cervical cytology
+      start_date: 2012-02-14
+    clinical_activities:
+    - code_type: CPT
+      code_value: 87622 # HPV Test
+      start_date: 2012-02-14
+- name: HPVWithCytology Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: HPVWithCytology
+    family_name: Before
+    sex: female
+  clinical_models:
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10524-7 # Cervical cytology
+      start_date: 2012-02-09 # Too early
+    clinical_activities:
+    - code_type: CPT
+      code_value: 87622 # HPV Test
+      start_date: 2012-02-14
+- name: HPVWithCytology Lower
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: HPVWithCytology
+    family_name: Lower
+    sex: female
+  clinical_models:
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10524-7 # Cervical cytology
+      start_date: 2012-02-10 # Lower bound
+    clinical_activities:
+    - code_type: CPT
+      code_value: 87622 # HPV Test
+      start_date: 2012-02-14
+- name: HPVWithCytology Upper
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: HPVWithCytology
+    family_name: Upper
+    sex: female
+  clinical_models:
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10524-7 # Cervical cytology
+      start_date: 2012-02-18 # Upper bound
+    clinical_activities:
+    - code_type: CPT
+      code_value: 87622 # HPV Test
+      start_date: 2012-02-14
+- name: HPVWithCytology After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: HPVWithCytology
+    family_name: After
+    sex: female
+  clinical_models:
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10524-7 # Cervical cytology
+      start_date: 2012-02-19 # Too late
+    clinical_activities:
+    - code_type: CPT
+      code_value: 87622 # HPV Test
+      start_date: 2012-02-14
+- name: HPVWithCytology Before5Years
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: HPVWithCytology
+    family_name: Before5Years
+    sex: female
+  clinical_models:
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10524-7 # Cervical cytology
+      start_date: 2011-12-31
+    clinical_activities:
+    - code_type: CPT
+      code_value: 87622 # HPV Test
+      start_date: 2011-12-31

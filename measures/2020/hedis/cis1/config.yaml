@@ -1,0 +1,88 @@
+---
+measure:
+  name: 19.HEDIS.Cis1
+  required:
+    display_title: 'Childhood Immunization Status: DTaP'
+    inverse: false
+    subject_type: Patient
+    set: HEDIS
+    external_id: CIS DTaP
+  optional:
+    description: The percentage of children 2 years of age who had four diphtheria,
+      tetanus and acellular pertussis (DTaP) vaccines by their second birthday.
+    gap_resolution_action: Patient is missing one or more DTaP vaccines
+    version: 2020
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: Children who turn 2 years of age during the measurement year.
+  component_groups:
+  - logical_operator: NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Allergy to Vaccination
+    description: Patient excluded due to allergy to vaccine
+    component_groups:
+    - components:
+      - display_title: Allergy to Vaccination
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Anaphylactic Reaction Due to Vaccination
+        - model: Allergy
+          value_set: HEDIS; DTaP Vaccine Administered
+    - logical_operator: OR
+      components:
+      - display_title: Vaccine Causing Adverse Effect
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Vaccine Causing Adverse Effect
+        - model: Diagnosis
+          value_set: HEDIS; Encephalopathy Due To Vaccination
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: 4 DTaP Vaccines
+    description: At least four DTaP vaccinations administered between 42 days and
+      2 years of age
+    component_groups:
+    - components:
+      - display_title: 4 DTaP Vaccines
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; DTaP Vaccine Administered
+        - model: ClinicalActivity
+          value_set: Able; DTaP Vaccine
+        - model: Medication
+          value_set: HEDIS; DTaP Vaccine Administered
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: Missing Vaccines
+    description: Fewer than four DTaP vaccinations found on between 42 days and 2
+      years of age
+    component_groups:

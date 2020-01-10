@@ -56,5 +56,4 @@ define "Numerator Performance Not Met":
   /*
    * config_link_id: performance_not_met
    */
-  not "Denominator Exclusion"
-  and not "Numerator Performance Met"
+  not "Numerator Performance Met"

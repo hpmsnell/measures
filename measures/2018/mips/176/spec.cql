@@ -1,10 +1,10 @@
-library MIPS_176_2017 version '1'
+library MIPS_176_2018 version '1'
 
 /*
  *
  * Source: MIPS
  * ID: 176
- * Year: 2017
+ * Year: 2018
  * Version: 1
  * Written by: Steve Daniels
  *

@@ -1,0 +1,119 @@
+---
+measure:
+  name: 19.HEDIS.Omw
+  required:
+    display_title: Osteoporosis Management in Women Who Had a Fracture
+    inverse: false
+    subject_type: Patient
+    set: HEDIS
+    external_id: OMW
+  optional:
+    description: The percentage of women 67–85 years of age who suffered a fracture
+      and who had either a bone mineral density (BMD) test or prescription for a drug
+      to treat osteoporosis in the six months after the fracture.
+    gap_resolution_action: Patient is due for osteoporosis management due to a fracture
+    version: 2020
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: Women 67–85 years of age who had an outpatient or inpatient visit with
+    a fracture between July 1 of the year prior to the measurement year to June 30
+    of the measurement year
+  component_groups:
+  - components:
+    - display_title: Visit or Inpatient Stay
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Outpatient
+      - model: ClinicalActivity
+        value_set: HEDIS; Observation
+      - model: ClinicalActivity
+        value_set: HEDIS; ED
+      - model: ClinicalActivity
+        value_set: HEDIS; Inpatient Stay
+  - logical_operator: AND
+    components:
+    - display_title: Fracture
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Fractures
+  - logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Prior Osteoporosis Management
+    description: Patient excluded due to bone mineral density test within 24 months
+      prior to the earliest denominator eligible encounter or osteoporosis therapy
+      or medication within 12 months prior to the earliest denominator eligible encounter.
+    component_groups:
+    - components:
+      - display_title: Osteoporosis Management
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Bone Mineral Density Tests
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: 3095F'
+          modifier: None
+        - model: ClinicalActivity
+          value_set: HEDIS; Osteoporosis Medications
+        - model: Medication
+          value_set: NCQA; Osteoporosis Medications
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8633'
+        - model: ClinicalActivity
+          value_set: "MIPS; Performance Met: G8399"
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Osteoporosis Management
+    description: Patient received osteoporosis management during the inpatient stay
+      or within 180 days after the denominator eligible encounter
+    component_groups:
+    - components:
+      - display_title: Bone Mineral Density Tests or Osteoporosis Medication
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Bone Mineral Density Tests
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: 3095F'
+        - model: ClinicalActivity
+          value_set: HEDIS; Osteoporosis Medications
+        - model: Medication
+          value_set: NCQA; Osteoporosis Medications
+        - model: Medication
+          value_set: HEDIS; Long-Acting Osteoporosis Medications
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G8633'
+        - model: ClinicalActivity
+          value_set: "MIPS; Performance Met: G8399"
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Osteoporosis Management
+    description: No osteoporosis management found during the appropriate timeframe
+    component_groups:

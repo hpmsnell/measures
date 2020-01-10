@@ -1,0 +1,974 @@
+---
+measure_id: measure.Hedis.2020.Omw
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Too Young
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Age Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Too Old
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Sex Male
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorEncounter Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorEncounter After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorDiagnosis Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorDiagnosis Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorDiagnosis Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorDiagnosis After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionHospice Lower
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Upper
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionPriorEncounter Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionPriorEncounter Lower
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionPriorEncounter Upper
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionPriorEncounter After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionTest Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionTest Lower
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionTest Upper
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionTest After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: ExclusionMedication Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionMedication Lower
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionMedication Upper
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionMedication After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Test Before
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: Test Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Test Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Test After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Test AfterFirstFracture
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Medication Before
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: Medication Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Medication Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Medication After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Medication AfterFirstFracture
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+providers:
+  - given_name: Rachel
+    family_name: Katz
+    external_id: '111-111'
+    credential: DO
+    primary_specialty: Family Medicine
+  - given_name: Patty
+    family_name: Smith
+    external_id: '222-222'
+    credential: MD
+    primary_specialty: Family Medicine
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1950-01-01 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: Age Lower
+  attributes:
+    date_of_birth: 1949-12-31 # Lower bound
+    given_name: Age
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: Age Upper
+  attributes:
+    date_of_birth: 1931-01-01 # Upper bound
+    given_name: Age
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: Too Old
+  attributes:
+    date_of_birth: 1930-12-31 # Too early
+    given_name: Too
+    family_name: Old
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: Sex Male
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: Sex
+    family_name: Male
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: DenominatorEncounter Before
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: DenominatorEncounter
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-06-30 # Before index period
+      stop_date: 2015-06-30
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-06-30
+      stop_date: 2015-06-30
+- name: DenominatorEncounter Lower
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: DenominatorEncounter
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01 # Lower bound of index period
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+- name: DenominatorEncounter Upper
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: DenominatorEncounter
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-06-30 # Upper bound of index period
+      stop_date: 2016-06-30
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2016-06-30
+      stop_date: 2016-06-30
+- name: DenominatorEncounter After
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: DenominatorEncounter
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-07-01 # After index period
+      stop_date: 2016-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2016-07-01
+      stop_date: 2016-07-01
+- name: DenominatorDiagnosis Before
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: DenominatorDiagnosis
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA # Fracture
+      start_date: 2016-01-31 # Before encounter
+      stop_date: 2016-01-31
+- name: DenominatorDiagnosis Lower
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: DenominatorDiagnosis
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA # Fracture
+      start_date: 2016-02-01 # Lower bound of encounter
+      stop_date: 2016-02-01
+- name: DenominatorDiagnosis Upper
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: DenominatorDiagnosis
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA # Fracture
+      start_date: 2016-02-02 # Upper bound of encounter
+      stop_date: 2016-02-02
+- name: DenominatorDiagnosis After
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: DenominatorDiagnosis
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M48.40XA # Fracture
+      start_date: 2016-02-03 # After encounter
+      stop_date: 2016-02-03
+- name: ExclusionHospice Before
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionHospice
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: G0182 # Hospice
+      start_date: 2015-12-31 # Too early
+- name: ExclusionHospice Lower
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionHospice
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: G0182 # Hospice
+      start_date: 2016-01-01 # Lower bound
+- name: ExclusionHospice Upper
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionHospice
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: G0182 # Hospice
+      start_date: 2016-12-31 # Upper bound
+- name: ExclusionHospice After
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionHospice
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: G0182 # Hospice
+      start_date: 2017-01-01 # Too late
+- name: ExclusionPriorEncounter Before
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionPriorEncounter
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-05-01 # Before 60 days prior to encounter
+      stop_date: 2015-05-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-05-01
+      stop_date: 2015-05-01
+- name: ExclusionPriorEncounter Lower
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionPriorEncounter
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-05-02 # 60 days prior to encounter
+      stop_date: 2015-05-02
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-05-02
+      stop_date: 2015-05-02
+- name: ExclusionPriorEncounter Upper
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionPriorEncounter
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-06-30 # Day before encounter
+      stop_date: 2015-06-30
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-06-30
+      stop_date: 2015-06-30
+- name: ExclusionPriorEncounter After
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionPriorEncounter
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01 # Day of encounter
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+- name: ExclusionTest Before
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionTest
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 76977 # Bone mineral density test
+      start_date: 2013-06-30 # Before 730 days prior to encounter
+      stop_date: 2013-06-30
+- name: ExclusionTest Lower
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionTest
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 76977 # Bone mineral density test
+      start_date: 2013-07-01 # 730 days prior to encounter
+      stop_date: 2013-07-01
+- name: ExclusionTest Upper
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionTest
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 76977 # Bone mineral density test
+      start_date: 2015-06-30 # Day before encounter
+      stop_date: 2015-06-30
+- name: ExclusionTest After
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionTest
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 76977 # Bone mineral density test
+      start_date: 2015-07-01 # Day of encounter
+      stop_date: 2015-07-01
+- name: ExclusionMedication Before
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionMedication
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    medications:
+    - code_type: NDC
+      code_value: '00093514101' # Osteoporosis medication
+      start_date: 2010-01-01
+      stop_date: 2014-06-30  # Before 365 days prior to encounter
+- name: ExclusionMedication Lower
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionMedication
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    medications:
+    - code_type: NDC
+      code_value: '00093514101' # Osteoporosis medication
+      start_date: 2010-01-01
+      stop_date: 2014-07-01 # 365 days prior to encounter
+- name: ExclusionMedication Upper
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionMedication
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    medications:
+    - code_type: NDC
+      code_value: '00093514101' # Osteoporosis medication
+      start_date: 2015-06-30 # Day before encounter
+- name: ExclusionMedication After
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionMedication
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    medications:
+    - code_type: NDC
+      code_value: '00093514101' # Osteoporosis medication
+      start_date: 2015-07-01 # Day of encounter\
+- name: Test Before
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: Test
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 76977 # Bone mineral density test
+      start_date: 2015-06-30 # Before encounter
+      stop_date: 2015-06-30
+- name: Test Lower
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: Test
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 76977 # Bone mineral density test
+      start_date: 2015-07-01 # Day of encounter
+      stop_date: 2015-07-01
+- name: Test Upper
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: Test
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 76977 # Bone mineral density test
+      start_date: 2015-12-28 # 180 days after encounter
+      stop_date: 2015-12-28
+- name: Test After
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: Test
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 76977 # Bone mineral density test
+      start_date: 2015-12-29 # More than 180 days after encounter
+      stop_date: 2015-12-29
+- name: Test AfterFirstFracture
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: Test
+    family_name: AfterFirstFracture
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter (Not the first)
+      start_date: 2015-08-01
+      stop_date: 2015-08-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-08-01
+      stop_date: 2015-08-01
+    - code_type: CPT
+      code_value: 76977 # Bone mineral density test
+      start_date: 2015-12-29 # More than 180 days after first encounter
+      stop_date: 2015-12-29
+- name: Medication Before
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: Medication
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    medications:
+    - code_type: NDC
+      code_value: '00093514101' # Osteoporosis medication
+      start_date: 2015-06-30 # Before encounter
+- name: Medication Lower
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: Medication
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    medications:
+    - code_type: NDC
+      code_value: '00093514101' # Osteoporosis medication
+      start_date: 2015-07-01 # Day of encounter
+- name: Medication Upper
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: Medication
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    medications:
+    - code_type: NDC
+      code_value: '00093514101' # Osteoporosis medication
+      start_date: 2015-12-28 # 180 days after encounter
+- name: Medication After
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: Medication
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    medications:
+    - code_type: NDC
+      code_value: '00093514101' # Osteoporosis medication
+      start_date: 2015-12-29 # More than 180 days after encounter
+- name: Medication AfterFirstFracture
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: Medication
+    family_name: AfterFirstFracture
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-07-01
+      stop_date: 2015-07-01
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter (Not the first)
+      start_date: 2015-08-01
+      stop_date: 2015-08-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2015-08-01
+      stop_date: 2015-08-01
+    medications:
+    - code_type: NDC
+      code_value: '00093514101' # Osteoporosis medication
+      start_date: 2015-12-29 # More than 180 days after encounter

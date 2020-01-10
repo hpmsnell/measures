@@ -1,0 +1,117 @@
+---
+measure:
+  name: 19.CMS.139
+  required:
+    display_title: 'Falls: Screening for Future Fall Risk'
+    inverse: false
+    subject_type: Patient
+    set: CMS
+    external_id: '139'
+    version:
+  optional:
+    description: 'Percentage of patients 65 years of age and older who were screened
+      for future fall risk during the measurement period'
+    gap_resolution_action: Patient is due for screening for future fall risk
+    version: 2019
+    mips_measure_type: Process
+    mips_high_priority: true
+    mips_specialty_sets: 'Family Medicine, Internal Medicine, Orthopedic Surgery, Nephrology, Podiatry'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'Patients aged 65 years and older with a visit during the measurement period'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: 'Encounter'
+      show_codes: true
+      annotation:
+      records:
+      - model: ClinicalActivity
+        value_set: "VSAC; Office Visit"
+      - model: ClinicalActivity
+        value_set: "VSAC; Annual Wellness Visit"
+      - model: ClinicalActivity
+        value_set: "VSAC; Preventive Care Services - Established Office Visit, 18 and Up"
+      - model: ClinicalActivity
+        value_set: "VSAC; Preventive Care Services-Initial Office Visit, 18 and Up"
+      - model: ClinicalActivity
+        value_set: "VSAC; Home Healthcare Services"
+      - model: ClinicalActivity
+        value_set: "VSAC; Ophthalmological Services"
+      - model: ClinicalActivity
+        value_set: "VSAC; Preventive Care Services-Individual Counseling"
+      - model: ClinicalActivity
+        value_set: "VSAC; Discharge Services - Nursing Facility"
+      - model: ClinicalActivity
+        value_set: "VSAC; Nursing Facility Visit"
+      - model: ClinicalActivity
+        value_set: "VSAC; Care Services in Long-Term Residential Facility"
+      - model: ClinicalActivity
+        value_set: "VSAC; Audiology Visit"] ) ValidEncounte
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_nonambulatory
+    code_value:
+    display_title: 'Non-Ambulatory'
+    description: Patient non-ambulatory at some point in the measurement period
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Total Colectomy or Colorectal Cancer
+        show_codes: true
+        annotation: 'With result: patient not ambulatory'
+        records:
+        - model: ClinicalActivity
+          value_set: "VSAC; Ambulatory Status"
+  - config_link_id: exclusion_hospice
+    code_value:
+    display_title: Hospice Service
+    description: Patient excluded due to hospice service
+    component_groups:
+    - components:
+       - display_title: Hospice Service
+         show_codes: true
+         records:
+         - model: ClinicalActivity
+           value_set: "VSAC; Hospice care ambulatory"
+         - model: Order
+           value_set: "VSAC; Hospice care ambulatory"
+     - logical_operator: 'OR'
+       components:
+        - display_title: Inpatient Encounter
+          show_codes: true
+          annotation: 'Discharge disposition: Discharge to home for hospice care'
+          records:
+          - model: ClinicalActivity
+            value_set: "VSAC; Encounter Inpatient"
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patients who were screened for future fall risk at least once within the measurement period'
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Screening for Fall Risk
+    description: Patient screened for future fall risk
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Screening for Fall Risk
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: "VSAC; Falls Screening"
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Screening for Fall Risk
+    description: Screening for future fall risk not found during the measurement period
+    component_groups:

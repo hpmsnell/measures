@@ -35,7 +35,8 @@ define "Denominator Encounter":
       such that D.prevalencePeriod overlaps E.relevantPeriod
 
 define "First Sleep Apnea Diagnosis":
-  First(["Diagnosis": "MIPS; Sleep Apnea"])
+  First(["Diagnosis": "MIPS; Sleep Apnea"] D
+    sort by start of D.prevalencePeriod asc)
 
 define "Denominator":
   exists("Denominator Encounter")

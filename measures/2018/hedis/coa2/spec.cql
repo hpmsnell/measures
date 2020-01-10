@@ -12,6 +12,10 @@ library HEDIS_COA2_2018 version '1'
 
 using QDM
 
+// VSAC value sets
+
+valueset "VSAC; Current Medications Documented SNMD"
+
 // MIPS value sets
 
 valueset "MIPS; MIPS Hospice Service"
@@ -26,10 +30,14 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
+define "Medication List":
+  ["Procedure, Performed": "HEDIS; Medication List"]
+  union ["Procedure, Performed": "VSAC; Current Medications Documented SNMD"]
+
 define "Medication Review Exists":
   exists(["Procedure, Performed": "HEDIS; Medication Review"] P
     where P.relevantPeriod starts during "Measurement Period")
-  and exists(["Procedure, Performed": "HEDIS; Medication List"] P
+  and exists("Medication List Exists" P
     where P.relevantPeriod starts during "Measurement Period")
 
 define "Hospice":

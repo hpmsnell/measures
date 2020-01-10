@@ -1,0 +1,115 @@
+measure:
+  name: 19.Cms.Cms122v7
+  required:
+    display_title: 'Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%)'
+    inverse: true
+    subject_type: Patient
+    set: CMS
+    external_id: '122'
+    version:
+  optional:
+    description: 'Percentage of patients 18-75 years of age with diabetes who had
+      hemoglobin A1c > 9.0% during the measurement period'
+    end_to_end_bonus_disabled: false
+    gap_resolution_action: Patient is due for an HbA1c test or needs attention for
+      an uncontrolled lab result
+    mips_measure_type: Intermediate Outcome
+    mips_high_priority: true
+    mips_specialty_sets: 'Internal Medicine, Preventive Medicine, General Practice/Family
+      Medicine'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+    version: 2019
+denominator:
+  description: 'Patients 18 - 75 years of age with diabetes with a visit during the
+    measurement period'
+  component_groups:
+    - components:
+      - display_title: 'Encounter'
+        show_codes: true
+        records:
+          - model: ClinicalActivity
+            value_set: "VSAC; Office Visit"
+          - model: ClinicalActivity
+            value_set: "VSAC; Annual Wellness Visit"
+          - model: ClinicalActivity
+            value_set: "VSAC; Preventive Care Services - Established Office Visit, 18 and Up"
+          - model: ClinicalActivity
+            value_set: "VSAC; Preventive Care Services-Initial Office Visit, 18 and Up"
+          - model: ClinicalActivity
+            value_set: "VSAC; Home Healthcare Services"
+    - logical_operator: AND
+      components:
+      - display_title: Diabetes
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: "VSAC; Diabetes"
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_hospice
+    code_value:
+    display_title: Hospice Service
+    description: Patient excluded due to hospice service
+    component_groups:
+    - components:
+       - display_title: Hospice Service
+         show_codes: true
+         records:
+         - model: ClinicalActivity
+           value_set: "VSAC; Hospice care ambulatory"
+         - model: Order
+           value_set: "VSAC; Hospice care ambulatory"
+     - logical_operator: 'OR'
+       components:
+        - display_title: Inpatient Encounter
+          show_codes: true
+          annotation: 'Discharge disposition: Discharge to home for hospice care'
+          records:
+          - model: ClinicalActivity
+            value_set: "VSAC; Encounter Inpatient"
+exception:
+  description:
+  reasons:
+performance_met:
+  description: 'Patients whose most recent HbA1c level (performed during the measurement
+    period) is > 9.0%'
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Poor Control
+    description: 'Most recent hemoglobin A1c level > 9.0% or no result found during the measurement period'
+    component_groups:
+    - components:
+      - display_title: 'HbA1c Test'
+        show_codes: true
+        annotation: 'With result: > 9.0%'
+        records:
+        - model: LaboratoryTestPerformed
+          value_set: VSAC; HbA1c Laboratory Test
+    - logical_operator: 'OR NOT'
+      components:
+      - display_title: 'HbA1c Test'
+        show_codes: true
+        records:
+        - model: LaboratoryTestPerformed
+          value_set: VSAC; HbA1c Laboratory Test
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Poor Control
+    description: Most recent hemoglobin A1c (HbA1c) level < 9.0%
+    component_groups:
+    - components:
+      - display_title: 'HbA1c Test'
+        show_codes: true
+        annotation: 'With result: ≤ 9.0%'
+        records:
+        - model: LaboratoryTestPerformed
+          value_set: VSAC; HbA1c Laboratory Test

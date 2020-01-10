@@ -62,7 +62,7 @@ define "Numerator Performance Met: G8731":
   exists(["Procedure, Performed": "MIPS; Performance Met: G8731"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts during E.relevantPeriod)
-  exists("Pain Assessment" A
+  or exists("Pain Assessment" A
     where A.result = 0
     with "Denominator Encounter" E
       such that A.relevantPeriod starts during E.relevantPeriod)
@@ -91,7 +91,7 @@ define "Numerator Performance Not Met: G8509":
     with "Denominator Encounter" E
       such that P.relevantPeriod starts during E.relevantPeriod)
   exists(["Procedure, Performed": "Able; Standardized Pain Assessment Tool"] P
-    where P.result = 'negative'
+    where P.result > 0
     with "Denominator Encounter" E
       such that P.relevantPeriod starts during E.relevantPeriod)
 

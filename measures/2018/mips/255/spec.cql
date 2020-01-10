@@ -33,6 +33,7 @@ define "Denominator Encounter":
       and AgeInYearsAt(start of E.relevantPeriod) < 50
       and E.placeOfService = 23
       and E.signingProvider.hasMeasureMembership = true
+      and "Patient Characteristic Sex" = "Female"
     with ["Diagnosis": "MIPS; Rh-Negative"] D1
       such that D1.prevalencePeriod overlaps E.relevantPeriod
     with ["Diagnosis": "MIPS; High Risk Pregnancy Complication"] D1

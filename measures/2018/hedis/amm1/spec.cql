@@ -5,7 +5,7 @@ library HEDIS_AMM1`_2018 version '1'
  * Source: HEDIS
  * ID: AMM1`
  * Year: 2018
- * Version: 1
+ * Version: 2
  * Author: Steve Daniels
  *
   */
@@ -55,7 +55,7 @@ define "Encounter with Depression Prior to First Medication in Index Period":
     with ["Diagnosis": "HEDIS; Major Depression"] D
       such that D.prevalencePeriod starts during E.relevantPeriod
     with "First Medication in Index Period" M
-      such that E.relevantPeriod starts 105 days or less before before start of M.relevantPeriod
+      such that E.relevantPeriod starts during [60 days before before start of M.relevantPeriod, 60 days before after start of M.relevantPeriod]
 
 define "Medication Prior to First Medication in Index Period":
   ["Medication, Dispensed": "HEDIS; Antidepressant Medications"] M1
