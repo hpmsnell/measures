@@ -5,7 +5,7 @@ library MIPS_005Rate2_2018 version '1'
  * Source: MIPS
  * ID: 005Rate2
  * Year: 2018
- * Version: 1
+ * Version: 2
  * Written by: Becky Weber
  *
   */
@@ -21,6 +21,7 @@ valueset "ABLE; Moderate or Severe LVSD"
 valueset "MIPS; MIPS 005 Discharge"
 valueset "MIPS; Heart Failure"
 valueset "MIPS; Depressed Left Ventricular Systolic Function"
+valueset "MIPS; LVEF <40%"
 valueset "MIPS; Performance Met: 4010F"
 valueset "MIPS; Denominator Exception: 4010F-1P"
 valueset "MIPS; Denominator Exception: 4010F-2P"
@@ -34,6 +35,10 @@ valueset "VSAC; ACE Inhibitor or ARB Ingredient": '2.16.840.1.113883.3.526.3.148
 valueset "VSAC; Allergy to ACE Inhibitor or ARB": '2.16.840.1.113883.3.526.3.1211'
 valueset "VSAC; Hypotension": '2.16.840.1.113883.3.526.3.370'
 
+// NCQA value sets
+
+valueset "NCQA; ACE Inhibitor/ARB Medications"
+
 parameter "Measurement Period" Interval<DateTime>
 parameter "Denominator Period" Interval<DateTime>
 
@@ -43,6 +48,7 @@ define "Depressed Left Ventricular Systolic Function":
     ["Assessment, Performed": "MIPS; Depressed Left Ventricular Systolic Function"]
     union ["Diagnosis": "VSAC; Moderate or Severe LVSD"]
     union ["Assessment, Performed": "ABLE; Moderate or Severe LVSD"]
+    union ["Assessment, Performed": "MIPS; LVEF <40%"]
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 005 Discharge"] E
@@ -65,6 +71,9 @@ define "Numerator Performance Met: 4010F":
     where P.relevantPeriod starts during E.relevantPeriod
   or exists(["Medication": "VSAC; Ace Inhibitor or ARB"] M
     with "Denominator Encounter" E
+      such that M.relevantPeriod overlaps E.relevantPeriod)
+  or exists(["Medication": "HEDIS; Ace Inhibitor/ARB Medications"] M
+    with "Denominator Encounter with Diagnosis" E
       such that M.relevantPeriod overlaps E.relevantPeriod)
 
 define "Denominator Exception: 4010F-1P":

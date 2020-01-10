@@ -1,0 +1,1193 @@
+---
+measure_id: measure.Hedis.2020.Lbp
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Too Young
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Age Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Too Old
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorEncounter Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorEncounter Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorEncounter After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorDiagnosis Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorDiagnosis Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorDiagnosis Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorDiagnosis After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionHospice Lower
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Upper
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionPriorEncounter Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionPriorEncounter Lower
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionPriorEncounter Upper
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionPriorEncounter After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Exclusion Inpatient
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionCancer Before
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionCancer After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionTrauma Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionTrauma Lower
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionTrauma Upper
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionTrauma After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionDrug Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionDrug Lower
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionDrug Upper
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionDrug After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionCorticosteroid Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionCorticosteroid Lower
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionCorticosteroid Upper
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionCorticosteroid After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionCorticosteroid 89Days
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Imaging Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Imaging Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Imaging Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Imaging After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ImagingDiagnosis Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ImagingDiagnosis Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: ImagingDiagnosis Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: ImagingDiagnosis After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Imaging AfterFirstPain
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+providers:
+  - given_name: Rachel
+    family_name: Katz
+    external_id: '111-111'
+    credential: DO
+    primary_specialty: Family Medicine
+  - given_name: Patty
+    family_name: Smith
+    external_id: '222-222'
+    credential: MD
+    primary_specialty: Family Medicine
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1998-01-01 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: Age Lower
+  attributes:
+    date_of_birth: 1997-12-31 # Lower bound
+    given_name: Age
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: Age Upper
+  attributes:
+    date_of_birth: 1966-01-01 # Upper bound
+    given_name: Age
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: Too Old
+  attributes:
+    date_of_birth: 1965-12-31 # Too early
+    given_name: Too
+    family_name: Old
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: DenominatorEncounter Before
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: DenominatorEncounter
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-12-31 # Before index period
+      stop_date: 2015-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2015-12-31
+      stop_date: 2015-12-31
+- name: DenominatorEncounter Lower
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: DenominatorEncounter
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-01-01 # Lower bound of index period
+      stop_date: 2016-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+- name: DenominatorEncounter Upper
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: DenominatorEncounter
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-12-03 # Upper bound of index period
+      stop_date: 2016-12-03
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-12-03
+      stop_date: 2016-12-03
+- name: DenominatorEncounter After
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: DenominatorEncounter
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-12-04 # After index period
+      stop_date: 2016-12-04
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-12-04
+      stop_date: 2016-12-04
+- name: DenominatorDiagnosis Before
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: DenominatorDiagnosis
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-01-31 # Before encounter
+      stop_date: 2016-01-31
+- name: DenominatorDiagnosis Lower
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: DenominatorDiagnosis
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01 # Lower bound of encounter
+      stop_date: 2016-02-01
+- name: DenominatorDiagnosis Upper
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: DenominatorDiagnosis
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-02 # Upper bound of encounter
+      stop_date: 2016-02-02
+- name: DenominatorDiagnosis After
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: DenominatorDiagnosis
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-03 # After encounter
+      stop_date: 2016-02-03
+- name: ExclusionHospice Before
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionHospice
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: G0182 # Hospice
+      start_date: 2015-12-31 # Too early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: ExclusionHospice Lower
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionHospice
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: G0182 # Hospice
+      start_date: 2016-01-01 # Lower bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: ExclusionHospice Upper
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionHospice
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: G0182 # Hospice
+      start_date: 2016-12-31 # Upper bound
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: ExclusionHospice After
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionHospice
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: G0182 # Hospice
+      start_date: 2017-01-01 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: ExclusionPriorEncounter Before
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionPriorEncounter
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-08-04 # Before 180 days prior to encounter
+      stop_date: 2015-08-04
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2015-08-04 # Before 180 days prior to encounter
+      stop_date: 2015-08-04
+- name: ExclusionPriorEncounter Lower
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionPriorEncounter
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-08-05 # 180 days prior to encounter
+      stop_date: 2015-08-05
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2015-08-05
+      stop_date: 2015-08-05
+- name: ExclusionPriorEncounter Upper
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionPriorEncounter
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2015-12-31 # Day before encounter
+      stop_date: 2015-12-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2015-12-31
+      stop_date: 2015-12-31
+- name: ExclusionPriorEncounter After
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionPriorEncounter
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01 # Day of encounter
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: Exclusion Inpatient
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: Exclusion
+    family_name: Inpatient
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99217 # Observation
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: UB
+      code_value: '0100' # Inpatient Stay
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: ExclusionCancer Before
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionCancer
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C00.0 # Cancer
+      start_date: 2010-01-01 # Before encounter
+      stop_date: 2010-01-01
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: ExclusionCancer After
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionCancer
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: C00.0 # Cancer
+      start_date: 2016-03-01 # More than 28 days after
+      stop_date: 2016-03-01
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: ExclusionTrauma Before
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionTrauma
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: S02.0XXA # Trauma
+      start_date: 2015-10-31 # Before 3 months before
+      stop_date: 2015-10-31
+- name: ExclusionTrauma Lower
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionTrauma
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: S02.0XXA # Trauma
+      start_date: 2015-11-01 # 3 months before
+      stop_date: 2015-11-01
+- name: ExclusionTrauma Upper
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionTrauma
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: S02.0XXA # Trauma
+      start_date: 2016-02-29 # 28 days after
+      stop_date: 2016-02-29
+- name: ExclusionTrauma After
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionTrauma
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: S02.0XXA # Trauma
+      start_date: 2016-03-01 # More than 28 days after
+      stop_date: 2016-03-01
+- name: ExclusionDrug Before
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionDrug
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: F11.10 # IV drug abuse
+      start_date: 2015-01-31 # Before 12 months before
+      stop_date: 2015-01-31
+- name: ExclusionDrug Lower
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionDrug
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: F11.10 # IV drug abuse
+      start_date: 2015-02-01 # 12 months before
+      stop_date: 2015-02-01
+- name: ExclusionDrug Upper
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionDrug
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: F11.10 # IV drug abuse
+      start_date: 2016-02-29 # 28 days after
+      stop_date: 2016-02-29
+- name: ExclusionDrug After
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionDrug
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: F11.10 # IV drug abuse
+      start_date: 2016-03-01 # More than 28 days after
+      stop_date: 2016-03-01
+- name: ExclusionCorticosteroid Before
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionCorticosteroid
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1005830 # Corticosteroid
+      start_date: 2015-01-31 # Before 12 months before
+- name: ExclusionCorticosteroid Lower
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionCorticosteroid
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1005830 # Corticosteroid
+      start_date: 2015-02-01 # 12 months before
+- name: ExclusionCorticosteroid Upper
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionCorticosteroid
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1005830 # Corticosteroid
+      start_date: 2015-11-02 # 90 days before
+- name: ExclusionCorticosteroid After
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionCorticosteroid
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1005830 # Corticosteroid
+      start_date: 2015-11-03 # Less than 90 days
+- name: ExclusionCorticosteroid 89Days
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ExclusionCorticosteroid
+    family_name: 89Days
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    medications:
+    - code_type: RXNORM
+      code_value: 1005830 # Corticosteroid
+      start_date: 2015-03-01
+      stop_date: 2015-05-29 # Less than 90 days
+- name: Imaging Before
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: Imaging
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 72020 # Imaging
+      start_date: 2016-01-31 # Before encounter
+      stop_date: 2016-01-31
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-01-31
+      stop_date: 2016-01-31
+- name: Imaging Lower
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: Imaging
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 72020 # Imaging
+      start_date: 2016-02-01 # During encounter
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: Imaging Upper
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: Imaging
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 72020 # Imaging
+      start_date: 2016-02-29 # 28 days after
+      stop_date: 2016-02-29
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-29
+      stop_date: 2016-02-29
+- name: Imaging After
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: Imaging
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 72020 # Imaging
+      start_date: 2016-03-01 # More than 28 days after
+      stop_date: 2016-03-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+- name: ImagingDiagnosis Before
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ImagingDiagnosis
+    family_name: Before
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 72020 # Imaging
+      start_date: 2016-02-15
+      stop_date: 2016-02-15
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-14 # Before imaging
+      stop_date: 2016-02-14
+- name: ImagingDiagnosis Lower
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ImagingDiagnosis
+    family_name: Lower
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 72020 # Imaging
+      start_date: 2016-02-15
+      stop_date: 2016-02-15
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-15 # Lower bound of imaging
+      stop_date: 2016-02-15
+- name: ImagingDiagnosis Upper
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ImagingDiagnosis
+    family_name: Upper
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 72020 # Imaging
+      start_date: 2016-02-15
+      stop_date: 2016-02-15
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-15 # Upper bound of imaging
+      stop_date: 2016-02-15
+- name: ImagingDiagnosis After
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: ImagingDiagnosis
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 72020 # Imaging
+      start_date: 2016-02-15
+      stop_date: 2016-02-15
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-16 # After imaging
+      stop_date: 2016-02-16
+- name: Imaging AfterFirstPain
+  attributes:
+    date_of_birth: 1980-01-01
+    given_name: Imaging
+    family_name: AfterFirstPain
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-06-30
+      stop_date: 2016-06-30
+    - code_type: CPT
+      code_value: 72020 # Imaging
+      start_date: 2016-06-01 # After first low back pain in index period
+      stop_date: 2016-06-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: M47.26 # Low back pain
+      start_date: 2016-06-30
+      stop_date: 2016-06-30
+

@@ -94,7 +94,7 @@ define "Denominator":
     without ["Diagnosis": "HEDIS; Non-Live Births"] D
       such that D.prevalencePeriod starts during P1.relevantPeriod
     without "Delivery" P2
-      such that P1.relevantPeriod starts during [6 months before start of P2.relevantPeriod, 6 months after start of P2.relevantPeriod]
+      such that P1.relevantPeriod starts during 6 months or less before start of P2.relevantPeriod
     without "Hospice" I
       such that I.authorDateTime during [56 days before start of "Measurement Period", 57 days before end of "Measurement Period"]
 

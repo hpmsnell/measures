@@ -1,0 +1,107 @@
+---
+measure:
+  name: 19.Hedis.Dsf1
+  required:
+    display_title: 'Depression Screening and Follow-Up for Adolescents and Adults: Depression Screening'
+    inverse: false
+    subject_type: Patient
+    set: HEDIS
+    external_id: DSF1
+    version:
+  optional:
+    description: 'The percentage of patients 12 years of age and older who were screened for
+      clinical depression using a standardized instrument'
+    gap_resolution_action: Patient is due for a depression screening
+    version: 2020
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'Patients 12 years of age and older at the start of the measurement period'
+  component_groups:
+  - logical_operator: NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Mental Health
+    description: 'Patient is excluded due to a diagnosis of bipolar disorder or depression'
+    component_groups:
+    - components:
+      - display_title: Mental Health Disorder
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Bipolar Disorder
+        - model: Diagnosis
+          value_set: HEDIS; Depression
+  - config_link_id: exclusion_2
+    code_value:
+    display_title: Hospice
+    description: 'Patient is excluded due to hospice'
+    component_groups:
+    - components:
+      - display_title: Hospice
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Depression Screening
+    description: 'Documentation of depression screening performed using an
+      age-appropriate standardized instrument during the measurement period'
+    component_groups:
+    - components:
+      - display_title: Depression Screening
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'HEDIS; Beck Depression Inventory Fast Screen total score [BDI]'
+        - model: ClinicalActivity
+          value_set: 'HEDIS; Beck Depression Inventory II total score [BDI]'
+        - model: ClinicalActivity
+          value_set: 'HEDIS; Center for Epidemiologic Studies Depression Scale-Revised total score [CESD-R]'
+        - model: ClinicalActivity
+          value_set: 'HEDIS; Edinburgh Postnatal Depression Scale [EPDS]'
+        - model: ClinicalActivity
+          value_set: 'HEDIS; Geriatric depression scale (GDS) short version total'
+        - model: ClinicalActivity
+          value_set: 'HEDIS; Geriatric depression scale (GDS) total'
+        - model: ClinicalActivity
+          value_set: 'HEDIS; Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]'
+        - model: ClinicalActivity
+          value_set: 'HEDIS; Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]'
+        - model: ClinicalActivity
+          value_set: 'HEDIS; Patient Health Questionnaire 9: Modified for Teens total score [Reported.PHQ.Teen]'
+        - model: ClinicalActivity
+          value_set: 'HEDIS; PROMIS 29 Depression score T score'
+        - model: ClinicalActivity
+          value_set: 'HEDIS; My Mood Monitor Total score [M3]'
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Depression Screening
+    description: 'No documentation of depression screening found during the
+      measurement period'
+    component_groups:

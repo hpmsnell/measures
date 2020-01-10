@@ -1,0 +1,181 @@
+---
+measure:
+  name: 19.Cms.Cms147v8
+  required:
+    display_title: 'Preventive Care and Screening: Influenza Immunization'
+    inverse: false
+    subject_type: Patient
+    set: CMS
+    external_id: '147'
+    version:
+  optional:
+    description: 'Percentage of patients aged 6 months and older seen for a visit
+      between October 1 and March 31 who received an influenza immunization OR who
+      reported previous receipt of an influenza immunization'
+    hqmf_id:
+    hqmf_set_id:
+    hqmf_population_ids:
+      ipp:
+      denom:
+      numer:
+      denex:
+    gap_resolution_action: Patient is due for an influenza immunization
+    version: 8
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: 'Allergy/Immunology, Family Medicine, Internal Medicine,
+      Obstetrics/Gynecology, Otolaryngology, Pediatrics, Preventive Medicine, Oncology, Rheumatology,
+      Nephrology, Infectious Disease, Geriatrics, Skilled Nursing Facility'
+    mips_seven_point_max: false
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'All patients aged 6 months and older seen for a visit during the measurement period'
+  component_groups:
+  - validation_record_table_count: 1
+    components:
+    - display_title: 'Encounter'
+      show_codes: true
+      annotation:
+      records:
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Office Visit"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Outpatient Consultation"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Care Services in Long-Term Residential Facility"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Home Healthcare Services"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Patient Provider Interaction"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Preventive Care Services, Initial Office Visit, 0 to 17"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Preventive Care Services-Initial Office Visit, 18 and Up"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Preventive Care Services-Individual Counseling"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Preventive Care Services - Group Counseling"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Preventive Care Services - Other"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Discharge Services - Nursing Facility"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Nursing Facility Visit"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Annual Wellness Visit"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Preventive Care Services - Established Office Visit, 0 to 17"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Preventive Care Services - Established Office Visit, 18 and Up"
+      - model: ClinicalActivity
+        qrda_datatype: 'Procedure, Performed'
+        value_set: "VSAC; Hemodialysis"
+      - model: ClinicalActivity
+        qrda_datatype: 'Procedure, Performed'
+        value_set: "VSAC; Peritoneal Dialysis"
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: exception
+    code_value:
+    display_title: Exception
+    description: 'Documentation of medical, patient, or system reason(s) for not receiving
+      influenza immunizaton'
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Patient Declined Vaccination
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Communication: From Patient to Provider'
+          value_set: "VSAC; Influenza Vaccination Declined"
+    - logical_operator: OR
+      validation_record_table_count: 1
+      components:
+      - display_title: Reason for Not Performing
+        show_codes: true
+        annotation: 'Reason not done: Medical, patient, or system reason'
+        records:
+        - model: Medication
+          qrda_datatype: 'Immunization, Administered'
+          value_set: "VSAC; Influenza Vaccine"
+        - model: ClinicalActivity
+          qrda_datatype: 'Procedure, Performed'
+          value_set: "VSAC; Influenza Vacciantion"
+    - logical_operator: OR
+      validation_record_table_count: 1
+      components:
+      - display_title: Allergy to Vaccine
+        show_codes: true
+        records:
+        - model: Diagnosis
+          qrda_datatype: 'Diagnosis'
+          value_set: "VSAC; Allergy to Eggs"
+        - model: Allergy
+          qrda_datatype: 'Allergy/Intolerance'
+          value_set: "VSAC; Egg Substance"
+        - model: Diagnosis
+          qrda_datatype: 'Diagnosis'
+          value_set: "VSAC; Allergy to Influenza Vaccine"
+        - model: Diagnosis
+          qrda_datatype: 'Diagnosis'
+          value_set: "VSAC; Intolerance to Influenza Vaccine"
+        - model: Allergy
+          qrda_datatype: 'Allergy/Intolerance'
+          value_set: "VSAC; Infleunza Vaccination"
+        - model: Allergy
+          qrda_datatype: 'Allergy/Intolerance'
+          value_set: "VSAC; Infleunza Vaccine"
+performance_met:
+  description: 'Patients who received an influenza immunization OR who reported previous
+    receipt of an influenza immunization'
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Vaccination
+    description: Patient received an influenza immunization
+    component_groups:
+    - validation_record_table_count: 1
+      components:
+      - display_title: Pneumococcal Vaccination
+        show_codes: true
+        records:
+        - model: Medication
+          qrda_datatype: 'Immunization, Administered'
+          value_set: "VSAC; Influenza Vaccine"
+        - model: ClinicalActivity
+          qrda_datatype: 'Procedure, Performed'
+          value_set: "VSAC; Influenza Vacciantion"
+        - model: ClinicalActivity
+          qrda_datatype: 'Communication: From Patient to Provider'
+          value_set: "VSAC; Previous Receipt of Influenza Vaccine"
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No Vaccination
+    description: No pneumococcal vaccination found
+    component_groups:

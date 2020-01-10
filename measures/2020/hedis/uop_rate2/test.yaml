@@ -1,0 +1,430 @@
+measure_id: measure.Hedis.2020.UopRate2
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Too Young
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorMedication Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorMedication Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorMedication Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorMedication After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorMedication 14DaysSupplied # Medications total too few days supplied
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorMedication 15DaysSupplied # Medications total lower bound of days supplied
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorMedication SameDateOfService # 2 medications but on the same date of service
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionHospice Lower
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Upper
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Medication 3Pharmacies
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Medication 4Pharmacies
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Medication BlankPharmacy # 2 providers + 2 blank
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+providers:
+  - given_name: Rachel
+    family_name: Katz
+    external_id: '111-111'
+    credential: DO
+    primary_specialty: Family Medicine
+  - given_name: Patty
+    family_name: Smith
+    external_id: '222-222'
+    credential: MD
+    primary_specialty: Family Medicine
+  - given_name: Carlos
+    family_name: Garda
+    external_id: '333-333'
+    credential: MD
+    primary_specialty: Family Medicine
+  - given_name: Bridgette
+    family_name: Minden
+    external_id: '444-444'
+    credential: MD
+    primary_specialty: Family Medicine
+patients:
+- name: Too Young
+  attributes:
+    date_of_birth: 1998-01-02 # Too late
+    given_name: Too
+    family_name: Young
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-01
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-02
+- name: Age Lower
+  attributes:
+    date_of_birth: 1998-01-01 # Lower bound
+    given_name: Age
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-01
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-02
+- name: DenominatorMedication Before
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorMedication
+    family_name: Before
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2015-12-31 # Early
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-02
+- name: DenominatorMedication Lower
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorMedication
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-01 # Lower bound
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-02
+- name: DenominatorMedication Upper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorMedication
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-12-31 # Upper bound
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-02
+- name: DenominatorMedication After
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorMedication
+    family_name: After
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2017-01-01 # Late
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-02
+- name: DenominatorMedication 14DaysSupplied
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorMedication
+    family_name: 14DaysSupplied
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-01
+      stop_date: 2016-01-14 # 13 days
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-02
+      stop_date: 2016-01-03 # 1 day
+- name: DenominatorMedication 15DaysSupplied
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorMedication
+    family_name: 15DaysSupplied
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-01
+      stop_date: 2016-01-14 # 13 days
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-02
+      stop_date: 2016-01-04 # 2 days
+- name: DenominatorMedication SameDateOfService
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorMedication
+    family_name: SameDateOfService
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-01
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-01 # Same date
+- name: ExclusionHospice Before
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionHospice
+    family_name: Before
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-01
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-02
+    clinical_activities:
+    - code_type: CPT
+      code_value: G0182 # Hospice
+      start_date: 2015-12-31 # Too early
+- name: ExclusionHospice Lower
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionHospice
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-01
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-02
+    clinical_activities:
+    - code_type: CPT
+      code_value: G0182 # Hospice
+      start_date: 2016-01-01 # Lower bound
+- name: ExclusionHospice Upper
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionHospice
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-01
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-02
+    clinical_activities:
+    - code_type: CPT
+      code_value: G0182 # Hospice
+      start_date: 2016-12-31 # Upper bound
+- name: ExclusionHospice After
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: ExclusionHospice
+    family_name: After
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-01
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-02
+    clinical_activities:
+    - code_type: CPT
+      code_value: G0182 # Hospice
+      start_date: 2017-01-01 # Too late
+- name: Medication 3Pharmacies
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Medication
+    family_name: 3Pharmacies
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      csv_checksum: '1'
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      pharmacy_npi: 1
+      start_date: 2016-01-01
+    - code_type: NDC
+      csv_checksum: '2'
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      pharmacy_npi: 1
+      start_date: 2016-01-02
+    - code_type: NDC
+      csv_checksum: '3'
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      pharmacy_npi: 2
+      start_date: 2016-01-03
+    - code_type: NDC
+      csv_checksum: '4'
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      pharmacy_npi: 3
+      start_date: 2016-01-04
+- name: Medication 4Pharmacies
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Medication
+    family_name: 4Pharmacies
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      csv_checksum: '1'
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      pharmacy_npi: 1
+      start_date: 2016-01-01
+    - code_type: NDC
+      csv_checksum: '2'
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      pharmacy_npi: 2
+      start_date: 2016-01-02
+    - code_type: NDC
+      csv_checksum: '3'
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      pharmacy_npi: 3
+      start_date: 2016-01-03
+    - code_type: NDC
+      csv_checksum: '4'
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      pharmacy_npi: 4
+      start_date: 2016-01-04
+- name: Medication BlankPharmacy
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Medication
+    family_name: BlankPharmacy
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      csv_checksum: '1'
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      pharmacy_npi: 1
+      start_date: 2016-01-01
+    - code_type: NDC
+      csv_checksum: '2'
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      pharmacy_npi: 2
+      start_date: 2016-01-02
+    - code_type: NDC
+      csv_checksum: '3'
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      pharmacy_npi: # Blank
+      start_date: 2016-01-03
+    - code_type: NDC
+      csv_checksum: '4'
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      pharmacy_npi: # Blank
+      start_date: 2016-01-04

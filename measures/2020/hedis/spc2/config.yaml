@@ -1,0 +1,215 @@
+---
+measure:
+  name: 19.Hedis.Spc2
+  required:
+    display_title: 'Statin Therapy for Patients With Cardiovascular Disease: Statin Adherence 80%'
+    inverse: true
+    subject_type: Patient
+    set: HEDIS
+    external_id: SPC2
+  optional:
+    description: "The percentage of males 21–75 years of age and females 40–75 years of
+      age during the measurement year, who were identified as having clinical atherosclerotic
+      cardiovascular disease (ASCVD) and were dispensed at least one high-intensity or moderate-
+      intensity statin medication during the measurement year who achieved a proportion of days covered (PDC) of at
+      least 80% during the treatment period"
+    gap_resolution_action: 'Patient needs attention for less than 80% proportaion
+      of days covered for statin therapy for cardiovascular disease'
+    version: 2020
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: 'Males 21–75 years of age and females 40–75 years of age during the measurement
+    year, who were identified as having clinical atherosclerotic cardiovascular disease (ASCVD)
+    and who were dispensed a statin medication during the measurement year'
+  component_groups:
+  - components:
+    - display_title: Inpatient Stay
+      show_codes: true
+      annotation: 'During the year prior to the measurement year'
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Inpatient Stay
+    - logical_operator: AND
+      display_title: MI
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; MI
+  - logical_operator: OR
+    components:
+    - display_title: CABG, PCI, or Revascularization
+      show_codes: true
+      annotation: 'During the year prior to the measurement year'
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; CABG
+      - model: ClinicalActivity
+        value_set: HEDIS; PCI
+      - model: ClinicalActivity
+        value_set: HEDIS; Other Revascularization
+  - logical_operator: 'OR'
+    components:
+    - display_title: Visit
+      show_codes: true
+      annotation: 'Must have a visit during the measurement year and during the year prior.
+        For acute inpatient visits, without telehealth modifier: 95, GT, POS 02.'
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Outpatient
+      - model: ClinicalActivity
+        value_set: HEDIS; Telephone Visits
+      - model: ClinicalActivity
+        value_set: HEDIS; Online Assessments
+      - model: ClinicalActivity
+        value_set: HEDIS; Acute Inpatient
+    - logical_operator: AND
+      display_title: IVD
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; IVD
+  - logical_operator: AND
+    components:
+    - display_title: Statin
+      show_codes: true
+      records:
+      - model: Medication
+        value_set: HEDIS; High and Moderate-Intensity Statin Medications
+  - logical_operator: AND NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Excluded Condition
+    description: Patient excluded due to ischemic vascular disease during the measurement
+      year or the year prior to the measurement year, or MI, PCI, CABG, other revascularization,
+      ESRD, or cirrhosis during the year prior to the measurement year, or myalgia,
+      myositis, myopathy, or rhabdymyolysis during the measurement year
+    component_groups:
+    - components:
+      - display_title: ESRD
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; ESRD
+    - logical_operator: OR
+      components:
+      - display_title: Cirrhosis
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Cirrhosis
+    - logical_operator: OR
+      components:
+      - display_title: Muscular Condition
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Muscular Pain and Disease
+  - config_link_id: exclusion_2
+    code_value:
+    display_title: Pregnancy or Clomiphene
+    description: Patient excluded due to pregnancy, in vitro fertilization, or a prescription
+      for clomiphene during the measurement year or the year prior to the measurement
+      year
+    component_groups:
+    - components:
+      - display_title: Pregnancy
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Pregnancy
+    - logical_operator: OR
+      components:
+      - display_title: In Vitro Fertilization
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; IVF
+    - logical_operator: OR
+      components:
+      - display_title: Clomiphene
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: HEDIS; Estrogen Agonists Medications
+  - config_link_id: exclusion_3
+    code_value:
+    display_title: Frailty and Advanced Illness
+    description: Patient excluded due to frailty and advanced illness
+    component_groups:
+    - components:
+      - display_title: Frailty
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Frailty
+        - model: ClinicalActivity
+          value_set: HEDIS; Frailty
+    - logical_operator: AND
+      components:
+      - display_title: Dementia Medication
+        show_codes: false
+        records:
+        - model: Medication
+          value_set: NCQA; Dementia Medications
+      - logical_operator: 'OR BOTH:'
+        display_title: Visit
+        show_codes: true
+        annotation: 'Two visits are required if visit is not an acute inpatient visit'
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Outpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Observation
+        - model: ClinicalActivity
+          value_set: HEDIS; ED
+        - model: ClinicalActivity
+          value_set: HEDIS; Nonacute Inpatient
+      - logical_operator: AND
+        display_title: Advanced Illness
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Advanced Illness
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: Statin Adherence 80%
+    description: Patient achieved a proportion of days covered (PDC) of at least 80%
+      during the treatment period
+    component_groups:
+    - components:
+      - display_title: Statin
+        annotation: PDC ≥80%
+        show_codes: true
+        records:
+        - model: Medication
+          value_set: NCQA; High and Moderate-Intensity Statin Medications
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: Statin Adherence <80%
+    description: Proportion of days covered for statin <80%
+    component_groups:

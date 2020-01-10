@@ -6,7 +6,7 @@ library MIPS_118Rate1_2018 version '1'
  * Measure ID: 118
  * Rate ID: 1
  * Year: 2018
- * Version: 1
+ * Version: 2
  * Written by: Steve Daniels
  *
   */
@@ -32,6 +32,10 @@ valueset "VSAC; ACE Inhibitor or ARB": '2.16.840.1.113883.3.526.3.1139'
 valueset "VSAC; ACE Inhibitor or ARB Ingredient": '2.16.840.1.113883.3.526.3.1489'
 valueset "VSAC; Allergy to ACE Inhibitor or ARB": '2.16.840.1.113883.3.526.3.1211'
 valueset "VSAC; Pregnancy"
+
+// NCQA value sets
+
+valueset "NCQA; ACE Inhibitor/ARB Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -78,6 +82,9 @@ define "Numerator Performance Met: G8935":
     where P.relevantPeriod starts during "Measurement Period")
   or exists(["Medication": "VSAC; Ace Inhibitor or ARB"] M
     where M.relevantPeriod overlaps "Measurement Period")
+  or exists(["Medication": "NCQA; Ace Inhibitor/ARB Medications"] M
+    with "Denominator Encounter with Diagnosis" E
+      such that M.relevantPeriod overlaps E.relevantPeriod)
 
 define "Denominator Exception: G8936":
   /*

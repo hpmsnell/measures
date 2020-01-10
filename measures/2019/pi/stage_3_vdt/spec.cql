@@ -28,13 +28,13 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   exists(["System Event"] S
-    where S.start_datetime during "Measurement Period"
+    where S.start_datetime same year as start of "Measurement Period"
       and S.type = "VDT_VIEW")
   or exists(["System Event"] S
-    where S.start_datetime during "Measurement Period"
+    where S.start_datetime same year as start of "Measurement Period"
       and S.type = "VDT_DOWNLOAD")
   or exists(["System Event"] S
-    where S.start_datetime during "Measurement Period"
+    where S.start_datetime  same year as start of "Measurement Period"
       and S.type = "VDT_TRANSMISSION")
 
 define "Numerator Performance Not Met":

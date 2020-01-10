@@ -47,6 +47,11 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
+    - name: Education DifferentProvider # Different provider
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
   providers_key:
     - name: Rachel
       patients:
@@ -95,6 +100,11 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator: performance_not_met
+      - name: Education DifferentProvider # Different provider
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
 providers:
   - given_name: Rachel
     family_name:  Katz
@@ -121,6 +131,7 @@ patients:
       system_events:
       - code_type: AUTOMATION
         event_type: EDUCATION_PROVISION
+        provider: Rachel
         start_date: 2015-12-31 # Before
         stop_date: 2015-12-31
   - name: DenominatorEncounter Lower
@@ -137,6 +148,7 @@ patients:
       system_events:
       - code_type: AUTOMATION
         event_type: EDUCATION_PROVISION
+        provider: Rachel
         start_date: 2015-12-31 # Before
         stop_date: 2015-12-31
   - name: DenominatorEncounter Upper
@@ -153,6 +165,7 @@ patients:
       system_events:
       - code_type: AUTOMATION
         event_type: EDUCATION_PROVISION
+        provider: Rachel
         start_date: 2015-12-31 # Before
         stop_date: 2015-12-31
   - name: DenominatorEncounter After
@@ -169,6 +182,7 @@ patients:
       system_events:
       - code_type: AUTOMATION
         event_type: EDUCATION_PROVISION
+        provider: Rachel
         start_date: 2015-12-31 # Before
         stop_date: 2015-12-31
   - name: DenominatorEncounter DifferentProvider
@@ -185,6 +199,7 @@ patients:
       system_events:
       - code_type: AUTOMATION
         event_type: EDUCATION_PROVISION
+        provider: Rachel
         start_date: 2015-12-31 # Before
         stop_date: 2015-12-31
   - name: Education Before
@@ -199,7 +214,9 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - event_type: EDUCATION_PROVISION
+      - code_type: AUTOMATION
+        event_type: EDUCATION_PROVISION
+        provider: Rachel
         start_date: 2015-12-31 # Before
         stop_date: 2015-12-31
   - name: Education Lower
@@ -214,7 +231,9 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - event_type: EDUCATION_PROVISION
+      - code_type: AUTOMATION
+        event_type: EDUCATION_PROVISION
+        provider: Rachel
         start_date: 2016-01-01 # Lower
         stop_date: 2016-01-01
   - name: Education Upper
@@ -229,7 +248,9 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - event_type: EDUCATION_PROVISION
+      - code_type: AUTOMATION
+        event_type: EDUCATION_PROVISION
+        provider: Rachel
         start_date: 2016-12-31 # Upper
         stop_date: 2016-12-31
   - name: Education After
@@ -244,6 +265,25 @@ patients:
         stop_date: 2016-02-01
         provider: Rachel
       system_events:
-      - event_type: EDUCATION_PROVISION
+      - code_type: AUTOMATION
+        event_type: EDUCATION_PROVISION
+        provider: Rachel
         start_date: 2017-01-01 # After
         stop_date: 2017-01-01
+  - name: Education DifferentProvider
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: Education
+      family_name: DifferentProvider
+      sex: Male
+    clinical_models:
+      encounters:
+      - start_date: 2016-02-01
+        stop_date: 2016-02-01
+        provider: Rachel
+      system_events:
+      - code_type: AUTOMATION
+        event_type: EDUCATION_PROVISION
+        provider: Patty # Different provider
+        start_date: 2016-02-01
+        stop_date: 2016-02-01

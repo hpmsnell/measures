@@ -4,7 +4,7 @@ library STAGE_3_PHGD_2019 version '1'
  * Source: Stage 3
  * ID: PHGD
  * Year: 2019
- * Version: 1
+ * Version: 2
  * Author: Steve Daniels
  *
   */
@@ -29,7 +29,8 @@ define "Numerator Performance Met":
    */
   exists(["System Event"] S
     where S.start_datetime during "Measurement Period"
-      and S.type = "PGHD_INCORPORATION")
+      and S.type = "PGHD_INCORPORATION"
+      and S.provider_id = "Reporting Provider ID")
 
 define "Numerator Performance Not Met":
   /*

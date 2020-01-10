@@ -29,7 +29,8 @@ define "Numerator Performance Met":
    */
   exists(["System Event"] S
     where S.start_datetime same year as start of "Measurement Period"
-      and S.code_value = "EDUCATION_PROVISION")
+      and S.code_value = "EDUCATION_PROVISION"
+      and S.provider_id = "Reporting Provider ID")
 
 define "Numerator Performance Not Met":
   /*

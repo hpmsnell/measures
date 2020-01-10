@@ -4,7 +4,7 @@ library STAGE_3_PPA_2019 version '1'
  * Source: Stage 3
  * ID: PPA
  * Year: 2019
- * Version: 2
+ * Version: 8
  * Author: Steve Daniels
  *
   */
@@ -21,21 +21,27 @@ define "Denominator Encounter":
     where E.start_datetime during "Measurement Period"
       and E.provider_id = "Reporting Provider ID"
 
+define "Denominator Encounter in Calendar Year":
+  ["Encounter"] E
+    where E.start_datetime same year as start of "Measurement Period"
+      and E.provider_id = "Reporting Provider ID"
+
 define "Portal Access":
   ["System Event"] S
     where S.type ="PORTAL_ACCESS"
+      and S.start_datetime starts on or before end of year of start of "Measurement Period"
 
 define "API Access":
-  union ["System Event"] S
+  ["System Event"] S
     where S.type ="API_ACCESS_OPT_IN"
-
-define "API Opt Out":
+      and S.start_datetime starts on or before end of year of start of "Measurement Period"
   union ["System Event"] S
     where S.type ="API_ACCESS_OPT_OUT"
+      and S.start_datetime starts on or before end of year of start of "Measurement Period"
 
 define "Health Information Provisioning":
   ["System Event"] S
-    where S.start_datetime same year as start of "Measurement Period"
+    where S.start_datetime during "Measurement Period"
       and S.type = "HEALTH_INFORMATION_PROVISIONING"
     with "Denominator Encounter" E
       such that S.encounter_id = E.external_id
@@ -43,6 +49,7 @@ define "Health Information Provisioning":
 define "Valid Health Information Provisioning With Portal Access":
   "Health Information Provisioning" S1
     where S1.stop_datetime 48 hours or less after S1.start_datetime
+      and S1.stop_datetime same year as start of "Measurement Period"
     with "Portal Access" S2
       such that (
         S1.stop_date during [S2.start_datetime, S2.stop_datetime]
@@ -72,47 +79,51 @@ define "Numerator Performance Met":
             or 48 hours after S1.start_date during [S2.start_datetime, S2.stop_datetime]
           )
       )
-      or (
-        exists("Valid Health Information Provisioning With Portal Access")
-        and exists("API Opt Out" S
-          where S.start_datetime starts before end of "Measurement Period")
-    )
-    // ...AND none of the other health information provisioning events for the encounter
-    // have information madea vailable to the patient more than 4 days
-    // after information is made available to the provider
-    and not exists("Health Information Provisioning" S
-        where S.stop_datetime more than 48 hours after S.start_datetime)
-    // ...AND none of the other health information provisioning events for the encounter
-    // have no patient portal access at the time that information is made available to the patient
-    and not exists("Health Information Provisioning" S1
-      without "Portal Access" S2
+    // ...AND none of the other encounters lack valid provisioning events
+    and not exists("Denominator Encounter in Calendar Year" E
+        without ["System Event"] S
+          such that S.start_datetime during "Measurement Period"
+            and S.stop_datetime same year as start of "Measurement Period"
+            and S.type = "HEALTH_INFORMATION_PROVISIONING"
+            and S.stop_datetime 48 hours or less after S.start_datetime
+            and S.encounter_id = E.external_id)
+    // ...AND none of the other encounters have invalid provisioning events
+    and not exists("Denominator Encounter in Calendar Year" E
+        with ["System Event"] S
+          such that S.start_datetime during "Measurement Period"
+            and S.type = "HEALTH_INFORMATION_PROVISIONING"
+            and S.encounter_id = E.external_id
+            and (
+                S.stop_datetime == null
+                or S.stop_datetime after 48 hours after S.start_datetime
+                or S.stop_datetime after end of "Measurement Period"
+            ))
+    // ...AND none of the other encounters have no portal access
+    and not exists("Denominator Encounter in Calendar Year" E
+        with ["System Event"] S1
+          such that S1.start_datetime during "Measurement Period"
+            and S1.stop_datetime same year as start of "Measurement Period"
+            and S1.type = "HEALTH_INFORMATION_PROVISIONING"
+            and S1.stop_datetime 48 hours or less after S1.start_datetime
+            and S1.encounter_id = E.external_id
+        without "Portal Access" S2
+          such that (
+            S1.stop_date during [S2.start_datetime, S2.stop_datetime]
+            or 48 hours after S1.start_date during [S2.start_datetime, S2.stop_datetime]
+          ))
+  // ...AND none of the other encounters have no API access
+  and not exists("Denominator Encounter in Calendar Year" E
+      with ["System Event"] S1
+        such that S1.start_datetime during "Measurement Period"
+          and S1.stop_datetime same year as start of "Measurement Period"
+          and S1.type = "HEALTH_INFORMATION_PROVISIONING"
+          and S1.stop_datetime 48 hours or less after S1.start_datetime
+          and S1.encounter_id = E.external_id
+      without "API Access" S2
         such that (
           S1.stop_date during [S2.start_datetime, S2.stop_datetime]
           or 48 hours after S1.start_date during [S2.start_datetime, S2.stop_datetime]
         )
-      )
-    // ...AND none of the other health information provisioning events for the encounter
-    // have no API access at the time that information is made available to the patient
-    and (
-      not exists("Health Information Provisioning" S1
-        without "API" S2
-          such that (
-            S1.stop_date during [S2.start_datetime, S2.stop_datetime]
-            or 48 hours after S1.start_date during [S2.start_datetime, S2.stop_datetime]
-          )
-      )
-      or exists("API Opt Out" S
-        where S.start_datetime starts before end of "Measurement Period")
-    )
-  )
-  // OR patient has no health information provisioning events for any encounter
-  // during the measurement period
-  or not exists(["System Event"] S
-    where S.start_datetime same year as start of "Measurement Period"
-      and S.type = "HEALTH_INFORMATION_PROVISIONING"
-    with ["Encounter"] E
-      where S.encounter_id = E.external_id
-      and E.start_datetime during "Measurement Period")
 
 define "Numerator Performance Not Met":
   /*

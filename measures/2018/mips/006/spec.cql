@@ -46,6 +46,9 @@ define "Denominator Encounter":
     with ["Diagnosis": "MIPS; Coronary Artery Disease (CAD)"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod
 
+define "Denominator":
+  exists("Denominator Encounter")
+
 define "Numerator Performance Met: 4086F":
   /*
    * config_link_id: 4086F

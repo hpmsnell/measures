@@ -38,9 +38,9 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Mammography":
-  ["Diagnostic Study, Performed": "VSAC; Mammogram"]
+  ["Diagnostic Study, Performed": "VSAC; Mammography"]
   union ["Diagnostic Study, Performed": "Able; Mammogram"]
-  union ["Laboratory Test, Performed": "VSAC; Mammogram"]
+  union ["Laboratory Test, Performed": "VSAC; Mammography"]
   union ["Laboratory Test, Performed": "Able; Mammogram"]
 
 define "Denominator":

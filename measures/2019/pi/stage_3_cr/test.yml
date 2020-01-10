@@ -32,7 +32,31 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
-    - name: DenominatorEncounter NotNew # Not type "new"
+    - name: DenominatorClinicalActivity Before # Early
+      start_date: 2015-12-31
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorClinicalActivity Lower # Lower bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorClinicalActivity Upper # Upper Bound
+      start_date: 2016-02-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorClinicalActivity After # Late
+      start_date: 2017-01-01
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorClinicalActivity WrongEncounter # Encounter ID does not match encounter
       start_date: 2016-02-01
       denominator:
       denominator_exclusion:
@@ -221,7 +245,31 @@ test_set_keys:
         denominator_exclusion:
         denominator_exception:
         numerator:
-      - name: DenominatorEncounter NotNew # Not type "new"
+      - name: DenominatorClinicalActivity Before # Early
+        start_date: 2015-12-31
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorClinicalActivity Lower # Lower bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: DenominatorClinicalActivity Upper # Upper Bound
+        start_date: 2016-02-01
+        denominator: 1
+        denominator_exclusion:
+        denominator_exception:
+        numerator: performance_not_met
+      - name: DenominatorClinicalActivity After # Late
+        start_date: 2017-01-01
+        denominator:
+        denominator_exclusion:
+        denominator_exception:
+        numerator:
+      - name: DenominatorClinicalActivity WrongEncounter # Encounter ID does not match encounter
         start_date: 2016-02-01
         denominator:
         denominator_exclusion:
@@ -396,6 +444,13 @@ patients:
       family_name: Before
       sex: Male
     clinical_models:
+      system_events:
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       clinical_activities:
       - code_type: 'CPT'
         code_value: '99201'
@@ -418,6 +473,13 @@ patients:
       family_name: Lower
       sex: Male
     clinical_models:
+      system_events:
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       clinical_activities:
       - code_type: 'CPT'
         code_value: '99201'
@@ -440,6 +502,13 @@ patients:
       family_name: Upper
       sex: Male
     clinical_models:
+      system_events:
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       clinical_activities:
       - code_type: 'CPT'
         code_value: '99201'
@@ -450,10 +519,10 @@ patients:
         encounter_external_id: 1
       encounters:
       - external_id: 1
-        start_date: 2016-12-31 # Upper bound
-        stop_date: 2016-12-31
-        start_datetime: 2016-12-31 12:00:00
-        stop_datetime: 2016-12-31 13:00:00
+      start_date: 2016-12-31 # Upper bound
+      stop_date: 2016-12-31
+      start_datetime: 2016-12-31 12:00:00
+      stop_datetime: 2016-12-31 13:00:00
         provider: Rachel
   - name: DenominatorEncounter After
     attributes:
@@ -462,6 +531,13 @@ patients:
       family_name: After
       sex: Male
     clinical_models:
+      system_events:
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       clinical_activities:
       - code_type: 'CPT'
         code_value: '99201'
@@ -472,10 +548,10 @@ patients:
         encounter_external_id: 1
       encounters:
       - external_id: 1
-        start_date: 2017-01-01 # Too late
-        stop_date: 2017-01-01
-        start_datetime: 2017-01-01 12:00:00
-        stop_datetime: 2017-01-01 13:00:00
+      start_date: 2017-01-01 # Too late
+      stop_date: 2017-01-01
+      start_datetime: 2017-01-01 12:00:00
+      stop_datetime: 2017-01-01 13:00:00
         provider: Rachel
   - name: DenominatorEncounter DifferentProvider
     attributes:
@@ -484,6 +560,13 @@ patients:
       family_name: DifferentProvider
       sex: Male
     clinical_models:
+      system_events:
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       clinical_activities:
       - code_type: 'CPT'
         code_value: '99201'
@@ -496,30 +579,157 @@ patients:
       - external_id: 1
         start_date: 2016-02-01
         stop_date: 2016-02-01
-        start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
         provider: Patty # Different provider
-  - name: DenominatorEncounter NotNew
+  - name: DenominatorClinicalActivity Before
     attributes:
       date_of_birth: 2000-01-01
-      given_name: DenominatorEncounter
-      family_name: NotNew
+      given_name: DenominatorClinicalActivity
+      family_name: Before
       sex: Male
     clinical_models:
-      clinical_activities:
-      - code_type: 'CPT'
-        code_value: 'NOTNEW' # Not a new encounter
+      system_events:
+      - event_type: INBOUND_SUMMARY_OF_CARE
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
         encounter_external_id: 1
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2015-12-31 # Too early
+        stop_date: 2015-12-31
+        start_datetime: 2015-12-31 12:00:00
+        stop_datetime: 2015-12-31 13:00:00
+        encounter_external_id: 1
       encounters:
       - external_id: 1
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        provider: Rachel
+  - name: DenominatorClinicalActivity Lower
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorClinicalActivity
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      system_events:
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
+        start_datetime: 2016-01-01 12:00:00
+        stop_datetime: 2016-01-01 13:00:00
+        encounter_external_id: 1
+      encounters:
+      - external_id: 1
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        provider: Rachel
+  - name: DenominatorClinicalActivity Upper
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorClinicalActivity
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      system_events:
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-12-31 # Upper bound
+        stop_date: 2016-12-31
+        start_datetime: 2016-12-31 12:00:00
+        stop_datetime: 2016-12-31 13:00:00
+        encounter_external_id: 1
+      encounters:
+      - external_id: 1
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        provider: Rachel
+  - name: DenominatorClinicalActivity After
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorClinicalActivity
+      family_name: After
+      sex: Male
+    clinical_models:
+      system_events:
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2017-01-01 # Too late
+        stop_date: 2017-01-01
+        start_datetime: 2017-01-01 12:00:00
+        stop_datetime: 2017-01-01 13:00:00
+        encounter_external_id: 1
+      encounters:
+      - external_id: 1
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        provider: Rachel
+  - name: DenominatorClinicalActivity WrongEncounter
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: DenominatorClinicalActivity
+      family_name: WrongEncounter
+      sex: Male
+    clinical_models:
+      system_events:
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
+      clinical_activities:
+      - code_type: 'CPT'
+        code_value: '99201'
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 2
+      encounters:
+      - external_id: 1
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        provider: Rachel
+      - external_id: 2
+        start_date: 2016-05-01
+        stop_date: 2016-05-01
+        start_datetime: 2016-05-01 12:00:00
+        stop_datetime: 2016-05-01 12:00:00
         provider: Rachel
   - name: DenominatorTOC Before
     attributes:
@@ -533,14 +743,20 @@ patients:
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
+        stop_datetime: 2016-02-01 12:00:00
         provider: Rachel
       system_events:
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       - event_type: INBOUND_TRANSITION_OF_CARE
         start_date: 2015-12-31 # Early
         stop_date: 2015-12-31
         start_datetime: 2015-12-31 12:00:00
-        stop_datetime: 2015-12-31 13:00:00
+        stop_datetime: 2015-12-31 12:00:00
         encounter_external_id: 1
   - name: DenominatorTOC Lower
     attributes:
@@ -554,9 +770,15 @@ patients:
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
+        stop_datetime: 2016-02-01 12:00:00
         provider: Rachel
       system_events:
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       - event_type: INBOUND_TRANSITION_OF_CARE
         start_date: 2016-01-01 # Lower bound
         stop_date: 2016-01-01
@@ -575,9 +797,15 @@ patients:
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
+        stop_datetime: 2016-02-01 12:00:00
         provider: Rachel
       system_events:
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       - event_type: INBOUND_TRANSITION_OF_CARE
         start_date: 2016-12-31 # Upper bound
         stop_date: 2016-12-31
@@ -596,13 +824,19 @@ patients:
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
+        stop_datetime: 2016-02-01 12:00:00
         provider: Rachel
       system_events:
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       - event_type: INBOUND_TRANSITION_OF_CARE
         start_date: 2017-01-01 # Late
         stop_date: 2017-01-01
-        start_datetime: 2017-01-01 12:00:00 # Late
+        start_datetime: 2017-01-01 12:00:00
         stop_datetime: 2017-01-01 13:00:00
         encounter_external_id: 1
   - name: DenominatorTOC WrongEncounter
@@ -617,15 +851,21 @@ patients:
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
+        stop_datetime: 2016-02-01 12:00:00
         provider: Rachel
       - external_id: 2
         start_date: 2016-03-01
         stop_date: 2016-03-01
         start_datetime: 2016-03-01 12:00:00
-        stop_datetime: 2016-03-01 13:00:00
+        stop_datetime: 2016-03-01 12:00:00
         provider: Rachel
       system_events:
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
+        encounter_external_id: 1
       - event_type: INBOUND_TRANSITION_OF_CARE
         start_date: 2016-03-01
         stop_date: 2016-03-01
@@ -644,14 +884,14 @@ patients:
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
+        stop_datetime: 2016-02-01 12:00:00
         provider: Rachel
       system_events:
       - event_type: INBOUND_SUMMARY_OF_CARE
-        start_date: 2015-12-31 # Early
-        stop_date: 2015-12-31
-        start_datetime: 2015-12-31 12:00:00
-        stop_datetime: 2015-12-31 12:00:00
+        start_date: 2014-01-31 # Early
+        stop_date: 2014-01-31
+        start_datetime: 2014-01-31 12:00:00
+        stop_datetime: 2014-01-31 13:00:00
         encounter_external_id: 1
   - name: DenominatorSOC Lower
     attributes:
@@ -665,14 +905,14 @@ patients:
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
+        stop_datetime: 2016-02-01 12:00:00
         provider: Rachel
       system_events:
       - event_type: INBOUND_SUMMARY_OF_CARE
-        start_date: 2016-01-01 # Lower bound
-        stop_date: 2016-01-01
-        start_datetime: 2016-01-01 12:00:00
-        stop_datetime: 2016-01-01 12:00:00
+        start_date: 2014-02-01 # Lower bound
+        stop_date: 2014-02-01
+        start_datetime: 2014-02-01 12:00:00
+        stop_datetime: 2014-02-01 13:00:00
         encounter_external_id: 1
   - name: DenominatorSOC Upper
     attributes:
@@ -686,14 +926,14 @@ patients:
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
+        stop_datetime: 2016-02-01 12:00:00
         provider: Rachel
       system_events:
       - event_type: INBOUND_SUMMARY_OF_CARE
-        start_date: 2016-12-31 # Upper bound
-        stop_date: 2016-12-31
-        start_datetime: 2016-12-31 12:00:00
-        stop_datetime: 2016-12-31 12:00:00
+        start_date: 2016-02-01 # Upper bound
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_external_id: 1
   - name: DenominatorSOC After
     attributes:
@@ -707,14 +947,14 @@ patients:
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
+        stop_datetime: 2016-02-01 12:00:00
         provider: Rachel
       system_events:
       - event_type: INBOUND_SUMMARY_OF_CARE
-        start_date: 2017-01-01 # Late
-        stop_date: 2017-01-01
-        start_datetime: 2017-01-01 12:00:00
-        stop_datetime: 2017-01-01 12:00:00
+        start_date: 2016-02-02 # Late
+        stop_date: 2016-02-02
+        start_datetime: 2016-02-02 12:00:00
+        stop_datetime: 2016-02-02 12:00:00
         encounter_external_id: 1
   - name: DenominatorSOC WrongEncounter
     attributes:
@@ -728,20 +968,20 @@ patients:
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
-        stop_datetime: 2016-02-01 13:00:00
+        stop_datetime: 2016-02-01 12:00:00
         provider: Rachel
       - external_id: 2
         start_date: 2016-03-01
         stop_date: 2016-03-01
         start_datetime: 2016-03-01 12:00:00
-        stop_datetime: 2016-03-01 13:00:00
+        stop_datetime: 2016-03-01 12:00:00
         provider: Rachel
       system_events:
       - event_type: INBOUND_SUMMARY_OF_CARE
-        start_date: 2016-03-01
-        stop_date: 2016-03-01
-        start_datetime: 2016-03-01 12:00:00
-        stop_datetime: 2016-03-01 12:00:00
+        start_date: 2016-02-01
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_external_id: 2 # Wrong Encounter
   - name: ReconciliationMedication Before
     attributes:
@@ -752,7 +992,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: 'CPT'
-        code_value: '99201'
+        code_value: 99201
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -766,11 +1006,11 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
-      - event_type: SUMMARY_OF_CARE_INCORPORATION
-        start_date: 2014-02-01
-        stop_date: 2014-02-01
-        start_datetime: 2014-02-01 11:59:59
-        stop_datetime: 2014-02-01 12:59:59
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01 # Upper bound
+        stop_date: 2016-02-01
+        start_datetime: 2016-02-01 12:00:00
+        stop_datetime: 2016-02-01 12:00:00
         encounter_external_id: 1
       - event_type: MEDICATION_LIST_RECONCILIATION
         start_date: 2016-02-01
@@ -799,7 +1039,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: 'CPT'
-        code_value: '99201'
+        code_value: 99201
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -813,8 +1053,8 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
-      - event_type: SUMMARY_OF_CARE_INCORPORATION
-        start_date: 2016-02-01
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01 # Upper bound
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
@@ -846,7 +1086,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: 'CPT'
-        code_value: '99201'
+        code_value: 99201
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -860,8 +1100,8 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
-      - event_type: SUMMARY_OF_CARE_INCORPORATION
-        start_date: 2016-02-01
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01 # Upper bound
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
@@ -893,7 +1133,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: 'CPT'
-        code_value: '99201'
+        code_value: 99201
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -907,8 +1147,8 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
-      - event_type: SUMMARY_OF_CARE_INCORPORATION
-        start_date: 2016-02-01
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01 # Upper bound
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
@@ -940,14 +1180,14 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: 'CPT'
-        code_value: '99201'
+        code_value: 99201
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
         encounter_external_id: 1
       - code_type: 'CPT'
-        code_value: '99201'
+        code_value: 99201
         start_date: 2016-03-01
         stop_date: 2016-03-01
         start_datetime: 2016-03-01 12:00:00
@@ -967,8 +1207,8 @@ patients:
         stop_datetime: 2016-03-01 12:00:00
         provider: Rachel
       system_events:
-      - event_type: SUMMARY_OF_CARE_INCORPORATION
-        start_date: 2016-02-01
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01 # Upper bound
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
@@ -1000,7 +1240,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: 'CPT'
-        code_value: '99201'
+        code_value: 99201
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -1014,8 +1254,8 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
-      - event_type: SUMMARY_OF_CARE_INCORPORATION
-        start_date: 2016-02-01
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01 # Upper bound
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
@@ -1048,7 +1288,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: 'CPT'
-        code_value: '99201'
+        code_value: 99201
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -1062,8 +1302,8 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
-      - event_type: SUMMARY_OF_CARE_INCORPORATION
-        start_date: 2016-02-01
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01 # Upper bound
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
@@ -1095,7 +1335,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: 'CPT'
-        code_value: '99201'
+        code_value: 99201
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -1109,8 +1349,8 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
-      - event_type: SUMMARY_OF_CARE_INCORPORATION
-        start_date: 2016-02-01
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01 # Upper bound
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
@@ -1142,7 +1382,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: 'CPT'
-        code_value: '99201'
+        code_value: 99201
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -1156,8 +1396,8 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
-      - event_type: SUMMARY_OF_CARE_INCORPORATION
-        start_date: 2016-02-01
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01 # Upper bound
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
@@ -1189,14 +1429,14 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: 'CPT'
-        code_value: '99201'
+        code_value: 99201
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
         encounter_external_id: 1
       - code_type: 'CPT'
-        code_value: '99201'
+        code_value: 99201
         start_date: 2016-03-01
         stop_date: 2016-03-01
         start_datetime: 2016-03-01 12:00:00
@@ -1216,8 +1456,8 @@ patients:
         stop_datetime: 2016-03-01 12:00:00
         provider: Rachel
       system_events:
-      - event_type: SUMMARY_OF_CARE_INCORPORATION
-        start_date: 2016-02-01
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01 # Upper bound
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
@@ -1249,7 +1489,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: 'CPT'
-        code_value: '99201'
+        code_value: 99201
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -1263,8 +1503,8 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
-      - event_type: SUMMARY_OF_CARE_INCORPORATION
-        start_date: 2016-02-01
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01 # Upper bound
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
@@ -1296,7 +1536,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: 'CPT'
-        code_value: '99201'
+        code_value: 99201
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -1310,8 +1550,8 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
-      - event_type: SUMMARY_OF_CARE_INCORPORATION
-        start_date: 2016-02-01
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01 # Upper bound
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
@@ -1343,7 +1583,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: 'CPT'
-        code_value: '99201'
+        code_value: 99201
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -1357,8 +1597,8 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
-      - event_type: SUMMARY_OF_CARE_INCORPORATION
-        start_date: 2016-02-01
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01 # Upper bound
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
@@ -1390,7 +1630,7 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: 'CPT'
-        code_value: '99201'
+        code_value: 99201
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
@@ -1404,8 +1644,8 @@ patients:
         stop_datetime: 2016-02-01 13:00:00
         provider: Rachel
       system_events:
-      - event_type: SUMMARY_OF_CARE_INCORPORATION
-        start_date: 2016-02-01
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01 # Upper bound
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
@@ -1437,14 +1677,14 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: 'CPT'
-        code_value: '99201'
+        code_value: 99201
         start_date: 2016-02-01
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
         encounter_external_id: 1
       - code_type: 'CPT'
-        code_value: '99201'
+        code_value: 99201
         start_date: 2016-03-01
         stop_date: 2016-03-01
         start_datetime: 2016-03-01 12:00:00
@@ -1464,8 +1704,8 @@ patients:
         stop_datetime: 2016-03-01 12:00:00
         provider: Rachel
       system_events:
-      - event_type: SUMMARY_OF_CARE_INCORPORATION
-        start_date: 2016-02-01
+      - event_type: INBOUND_SUMMARY_OF_CARE
+        start_date: 2016-02-01 # Upper bound
         stop_date: 2016-02-01
         start_datetime: 2016-02-01 12:00:00
         stop_datetime: 2016-02-01 12:00:00
