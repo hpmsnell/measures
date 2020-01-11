@@ -1,6 +1,7 @@
 measure_id: measure.Cms.2019.Cms153v7Rate1
 test_set_keys:
   organization_key:
+    patients:
     - name: Too Young
       denominator:
       denominator_exclusion:
@@ -56,6 +57,46 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
+    - name: SexualActivityProcedure Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: SexualActivityProcedure Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: SexualActivityProcedure Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: SexualActivityProcedure After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:      
+    - name: ScreeningNegative Before # Negative screening before interval
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9821
+    - name: ScreeningNegative Lower # Negative screening lower bound interval
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9820
+    - name: ScreeningNegative Upper # Negative screening upper bound interval
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9820
+    - name: ScreeningNegative After # Negative screening after interval
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: G9821      
 providers:
   - given_name: Rachel
     family_name: Katz
@@ -268,4 +309,144 @@ patients:
       - code_type: LOINC
         code_value: CVX
         start_date: 2010-01-01
-        start_datetime: 2010-01-01 09:00:00                
+        start_datetime: 2010-01-01 09:00:00
+  - name: SexualActivityProcedure Before
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: SexualActivityProcedure
+      family_name: Before
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 81025 # Pregnancy test (sexual activity)
+        start_date: 2015-12-31 # Too early
+  - name: SexualActivityProcedure Lower
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: SexualActivityProcedure
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 81025 # Pregnancy test (sexual activity)
+        start_date: 2016-01-01 # Lower bound
+  - name: SexualActivityProcedure Upper
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: SexualActivityProcedure
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 81025 # Pregnancy test (sexual activity)
+        start_date: 2016-12-31 # Upper bound
+  - name: SexualActivityProcedure After
+    attributes:
+      date_of_birth: 2000-01-01
+      given_name: SexualActivityProcedure
+      family_name: After
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 81025 # Pregnancy test (sexual activity)
+        start_date: 2017-01-01 # Too late
+  - name: ScreeningNegative Before
+    attributes:
+      date_of_birth: 2000-03-22
+      given_name: ScreeningNegative
+      family_name: Before
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2015-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9818
+        start_date: 2016-02-01
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 14463-4
+        result: negative
+        start_date: 2015-12-31 # Too early
+   - name: ScreeningNegative Lower
+    attributes:
+      date_of_birth: 2000-03-22
+      given_name: ScreeningNegative
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2015-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9818
+        start_date: 2016-02-01
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 14463-4
+        result: negative
+        start_date: 2016-01-01 # Lower bound
+   - name: ScreeningNegative Upper
+    attributes:
+      date_of_birth: 2000-03-22
+      given_name: ScreeningNegative
+      family_name: Upper
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2015-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9818
+        start_date: 2016-02-01
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 14463-4
+        result: negative
+        start_date: 2016-12-31 # Upper bound
+  - name: ScreeningNegative After
+    attributes:
+      date_of_birth: 2000-03-22
+      given_name: ScreeningNegative
+      family_name: After
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2016-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: 99201
+        start_date: 2015-02-01
+        provider: Rachel
+      - code_type: CPT
+        code_value: G9818
+        start_date: 2016-02-01
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 14463-4
+        result: negative
+        start_date: 2017-01-01 # Too late        
