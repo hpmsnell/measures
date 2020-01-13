@@ -37,6 +37,10 @@ valueset "NCQA; Long-Acting Injections 28 Days Supply"
 
 valueset "VSAC; Antipsychotic Medications"
 
+// Able value sets
+
+valueset "Able; Antipsychotic Medications"
+
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
@@ -75,6 +79,7 @@ define "Antipsychotic Medication":
   union ["Procedure, Performed": "NCQA; Long-Acting Injections 14 Days Supply"]
   union ["Procedure, Performed": "NCQA; Long-Acting Injections 28 Days Supply"]
   union ["Medication": "VSAC; Antipsychotic Medications"]
+  union ["Medication": "Able; Antipsychotic Medications"]
 
 define "Antipsychotic Medication in Measurement Period":
   "Antipsychotic Medication" M

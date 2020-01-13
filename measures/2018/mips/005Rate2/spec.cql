@@ -49,6 +49,8 @@ define "Depressed Left Ventricular Systolic Function":
     union ["Diagnosis": "VSAC; Moderate or Severe LVSD"]
     union ["Assessment, Performed": "ABLE; Moderate or Severe LVSD"]
     union ["Assessment, Performed": "MIPS; LVEF <40%"]
+    union ["Assessment, Performed": "Able; LVSD"] A
+      where A.result < 40
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 005 Discharge"] E
