@@ -86,8 +86,8 @@ patients:
         code_value: 99201 # Denominator encounter
         start_date: 2016-02-01
         start_datetime: 2016-02-01 09:00:00
-        stop_date: 2016-12-31
-        stop_datetime: 2016-12-31 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00
         provider: Rachel 
   - name: Age Lower
     attributes:
@@ -102,7 +102,7 @@ patients:
         start_date: 2016-02-01
         start_datetime: 2016-02-01 09:00:00
         stop_date: 2016-12-31
-        stop_datetime: 2016-12-31 09:00:00
+        stop_datetime: 2016-02-01 10:00:00
         provider: Rachel 
   - name: Encounter Before
     attributes:
@@ -115,9 +115,9 @@ patients:
       - code_type: CPT
         code_value: 99201 # Denominator encounter
         start_date: 2015-12-30 # Too early
-        start_datetime: 2015-12-30 00:00:00 # Too early
+        start_datetime: 2015-12-30 09:00:00 # Too early
         stop_date: 2015-12-31
-        stop_datetime: 2015-12-31 00:00:00
+        stop_datetime: 2015-12-30 10:00:00
         provider: Rachel
   - name: Encounter Lower
     attributes:
@@ -130,9 +130,9 @@ patients:
       - code_type: CPT
         code_value: 99201 # Denominator encounter
         start_date: 2016-01-01 # Lower bound
-        start_datetime: 2016-01-01 00:00:00 # Lower bound
+        start_datetime: 2016-01-01 09:00:00 # Lower bound
         stop_date: 2016-01-01
-        stop_datetime: 2016-01-01 00:00:00
+        stop_datetime: 2016-01-01 10:00:00
         provider: Rachel
   - name: Encounter Upper
     attributes:
@@ -180,7 +180,9 @@ patients:
       - code_type: SNOMEDCT
         code_value: 385763009 # Hospice
         start_date: 2015-12-31 # Too early
-        start_datetime: 2015-12-31 23:59:59 # Too early
+        start_datetime: 2015-12-31 23:00:00 # Too early
+        stop_date: 2015-12-31
+        stop_datetime: 2015-12-31 23:59:59
   - name: ExclusionHospice Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -199,6 +201,8 @@ patients:
         code_value: 385763009 # Hospice
         start_date: 2016-01-01 # Lower bound
         start_datetime: 2016-01-01 00:00:00 # Lower bound
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 01:00:00
   - name: ExclusionHospice Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -216,7 +220,9 @@ patients:
       - code_type: SNOMEDCT
         code_value: 385763009 # Hospice
         start_date: 2016-12-31 # Upper bound
-        start_datetime: 2016-12-31 23:59:59 # Upper bound
+        start_datetime: 2016-12-31 23:00:00 # Upper bound
+        start_date: 2016-12-31
+        stop_datetime: 2016-12-31 23:59:59        
   - name: ExclusionHospice After
     attributes:
       date_of_birth: 1950-01-01
@@ -234,7 +240,9 @@ patients:
       - code_type: SNOMEDCT
         code_value: 385763009 # Hospice
         start_date: 2017-01-01 # Too late
-        start_datetime: 2017-01-01 00:00:00 # Too late    
+        start_datetime: 2017-01-01 09:00:00 # Too late
+        stop_date: 2017-01-01
+        stop_datetime: 2017-01-01 10:00:00    
   - name: Vaccine Received
     attributes:
       date_of_birth: 1955-02-01
