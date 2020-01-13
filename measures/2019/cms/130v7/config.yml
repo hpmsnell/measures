@@ -31,12 +31,16 @@ denominator:
       annotation:
       records:
       - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
         value_set: "VSAC; Annual Wellness Visit"
       - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
         value_set: "VSAC; Preventive Care Services - Established Office Visit, 18 and Up"
       - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
         value_set: "VSAC; Preventive Care Services-Initial Office Visit, 18 and Up"
       - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
         value_set: "VSAC; Home Healthcare Services"
 exclusion:
   description:
@@ -53,8 +57,10 @@ exclusion:
         show_codes: true
         records:
         - model: Diagnosis
+          qrda_datatype: 'Diagnosis'
           value_set: "VSAC; Malignant Neoplasm of Colon"
         - model: ClinicalActivity
+          qrda_datatype: 'Procedure, Performed'
           value_set: "VSAC; Total Colectomy"
   - config_link_id: exclusion_hospice
     code_value:
@@ -66,8 +72,10 @@ exclusion:
          show_codes: true
          records:
          - model: ClinicalActivity
+           qrda_datatype: 'Intervention, Performed'
            value_set: "VSAC; Hospice care ambulatory"
          - model: Order
+           qrda_datatype: 'Intervention, Order'
            value_set: "VSAC; Hospice care ambulatory"
      - logical_operator: 'OR'
        components:
@@ -76,6 +84,7 @@ exclusion:
           annotation: 'Discharge disposition: Discharge to home for hospice care'
           records:
           - model: ClinicalActivity
+            qrda_datatype: 'Encounter, Performed'
             value_set: "VSAC; Encounter Inpatient"
 exception:
   description:
@@ -100,14 +109,19 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
+          qrda_datatype: 'Procedure, Performed'
           value_set: "VSAC; Colonoscopy"
         - model: ClinicalActivity
+          qrda_datatype: 'Procedure, Performed'
           value_set: "VSAC; CT Colonography"
         - model: ClinicalActivity
+          qrda_datatype: 'Procedure, Performed'
           value_set: "VSAC; Flexible Sigmoidoscopy"
         - model: LaboratoryTestPerformed
+          qrda_datatype: 'Laboratory Test, Performed'
           value_set: "VSAC; Fecal Occult Blood Test (FOBT)"
         - model: LaboratoryTestPerformed
+          qrda_datatype: 'Laboratory Test, Performed'
           value_set: "VSAC; FIT DNA"
 performance_not_met:
   description:

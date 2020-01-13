@@ -35,14 +35,19 @@ denominator:
         show_codes: true
         records:
         - model: ClinicalActivity
+          qrda_datatype: 'Encounter, Performed'
           value_set: "VSAC; Office Visit"
         - model: ClinicalActivity
+          qrda_datatype: 'Encounter, Performed'
           value_set: "VSAC; Annual Wellness Visit"
         - model: ClinicalActivity
+          qrda_datatype: 'Encounter, Performed'
           value_set: "VSAC; Preventive Care Services - Established Office Visit, 18 and Up"
         - model: ClinicalActivity
+          qrda_datatype: 'Encounter, Performed'
           value_set: "VSAC; Preventive Care Services-Initial Office Visit, 18 and Up"
         - model: ClinicalActivity
+          qrda_datatype: 'Encounter, Performed'
           value_set: "VSAC; Home Healthcare Services"
     - logical_operator: AND
       components:
@@ -50,6 +55,7 @@ denominator:
         show_codes: true
         records:
         - model: Diagnosis
+          qrda_datatype: 'Diagnosis'
           value_set: VSAC; Essential Hypertension
 exclusion:
   description:
@@ -61,21 +67,24 @@ exclusion:
       period
     component_groups:
     - components:
-      - display_title: Hospice Service
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: "VSAC; Hospice care ambulatory"
-        - model: Order
-          value_set: "VSAC; Hospice care ambulatory"
-    - logical_operator: 'OR'
-      components:
-       - display_title: Inpatient Encounter
+       - display_title: Hospice Service
          show_codes: true
-         annotation: 'Discharge disposition: Discharge to home for hospice care'
          records:
          - model: ClinicalActivity
-           value_set: "VSAC; Encounter Inpatient"
+           qrda_datatype: 'Intervention, Performed'
+           value_set: "VSAC; Hospice care ambulatory"
+         - model: Order
+           qrda_datatype: 'Intervention, Order'
+           value_set: "VSAC; Hospice care ambulatory"
+     - logical_operator: 'OR'
+       components:
+        - display_title: Inpatient Encounter
+          show_codes: true
+          annotation: 'Discharge disposition: Discharge to home for hospice care'
+          records:
+          - model: ClinicalActivity
+            qrda_datatype: 'Encounter, Performed'
+            value_set: "VSAC; Encounter Inpatient"
   - config_link_id: exclusion_2
     code_value:
     display_title: 'Renal Condition or Pregnancy'
@@ -95,18 +104,25 @@ exclusion:
         show_codes: true
         records:
         - model: Diagnosis
+          qrda_datatype: 'Diagnosis'
           value_set: VSAC; End Stage Renal Disease
         - model: Diagnosis
+          qrda_datatype: 'Diagnosis'
           value_set: VSAC; Chronic Kidney Disease, Stage 5
         - model: Diagnosis
+          qrda_datatype: 'Diagnosis'
           value_set: VSAC; Kidney Transplant Recipient
         - model: ClinicalActivity
+          qrda_datatype: 'Procedure, Performed'
           value_set: VSAC; Vascular Access for Dialysis
         - model: ClinicalActivity
+          qrda_datatype: 'Encounter, Performed'
           value_set: VSAC; ESRD Monthly Outpatient Services
         - model: ClinicalActivity
+          qrda_datatype: 'Procedure, Performed'
           value_set: VSAC; Kidney Transplant
         - model: ClinicalActivity
+          qrda_datatype: 'Procedure, Performed'
           value_set: VSAC; Dialysis Services
 exception:
   description:
@@ -128,14 +144,16 @@ performance_met:
         annotation: 'With result: < 140 mmHg'
         records:
         - model: ClinicalActivity
+          qrda_datatype: 'Physical Exam, Performed'
           value_set: VSAC; Systolic Blood Pressure
     - logical_operator: AND
       components:
-      - display_title: High Diastolic Blood Pressure
+      - display_title: Normal Diastolic Blood Pressure
         show_codes: true
         annotation: 'With result: < 90 mmHg'
         records:
         - model: ClinicalActivity
+          qrda_datatype: 'Physical Exam, Performed'
           value_set: VSAC; Diastolic Blood Pressure
 performance_not_met:
   description:
@@ -147,11 +165,12 @@ performance_not_met:
       blood pressure >= 90 mmHg
     component_groups:
     - components:
-      - display_title: 'Normal Systolic Blood Pressure'
+      - display_title: 'High Systolic Blood Pressure'
         show_codes: true
         annotation: 'With result: ≥ 140 mmHg'
         records:
         - model: ClinicalActivity
+          qrda_datatype: 'Physical Exam, Performed'
           value_set: VSAC; Systolic Blood Pressure
     - logical_operator: OR
       components:

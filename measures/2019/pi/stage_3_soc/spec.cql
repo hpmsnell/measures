@@ -4,7 +4,7 @@ library MIPS_PI_HIE_1_2019 version '1'
  * Source: MIPS
  * ID: PI_HIE_1
  * Year: 2019
- * Version: 1
+ * Version: 2
  * Author: Steve Daniels
  *
   */
@@ -32,11 +32,11 @@ define "Numerator Performance Met":
    */
   "Denominator Referral" R
     with ["System Event"] S1
-      such that C1.start_datetime during "Measurement Period"
+      such that C1.start_datetime same year as start of "Measurement Period"
         and S1.type = "SUMMARY_OF_CARE_CREATION_AND_EXCHANGE"
         and S1.referral_id = R.external_id
     with ["System Event"] S2
-      such that C2.start_datetime during "Measurement Period"
+      such that C2.start_datetime same year as start of "Measurement Period"
         and S2.type = "SUMMARY_OF_CARE_RECEIPT"
         and S2.referral_id = R.external_id
 

@@ -33,12 +33,16 @@ denominator:
       annotation:
       records:
       - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
         value_set: "VSAC; Office Visit"
       - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
         value_set: "VSAC; Preventive Care Services - Established Office Visit, 18 and Up"
       - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
         value_set: "VSAC; Preventive Care Services-Initial Office Visit, 18 and Up"
       - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
         value_set: "VSAC; Home Healthcare Services"
 exclusion:
   description:
@@ -54,8 +58,10 @@ exclusion:
         show_codes: true
         records:
         - model: Diagnosis
+          qrda_datatype: 'Diagnosis'
           value_set: "VSAC; Congenital absence of cervix (disorder)"
         - model: ClinicalActivity
+          qrda_datatype: 'Procedure, Performed'
           value_set: "VSAC; Hysterectomy with No Residual Cervix"
   - config_link_id: exclusion_hospice
     code_value:
@@ -67,8 +73,10 @@ exclusion:
          show_codes: true
          records:
          - model: ClinicalActivity
+           qrda_datatype: 'Intervention, Performed'
            value_set: "VSAC; Hospice care ambulatory"
          - model: Order
+           qrda_datatype: 'Intervention, Order'
            value_set: "VSAC; Hospice care ambulatory"
      - logical_operator: 'OR'
        components:
@@ -77,6 +85,7 @@ exclusion:
           annotation: 'Discharge disposition: Discharge to home for hospice care'
           records:
           - model: ClinicalActivity
+            qrda_datatype: 'Encounter, Performed'
             value_set: "VSAC; Encounter Inpatient"
 exception:
   description:
@@ -101,6 +110,7 @@ performance_met:
         annotation: 'Within last 3 years'
         records:
         - model: LaboratoryTestPerformed
+          qrda_datatype: 'Laboratory Test, Performed'
           value_set: "VSAC; Pap Test"
     - logical_operator: OR
       validation_record_table_count: 1
@@ -110,12 +120,14 @@ performance_met:
         annotation: 'Within last 5 years'
         records:
         - model: LaboratoryTestPerformed
+          qrda_datatype: 'Laboratory Test, Performed'
           value_set: "VSAC; Pap Test"
       - logical_operator: AND
         display_title: HPV Test
         show_codes: true
         records:
         - model: LaboratoryTestPerformed
+          qrda_datatype: 'Laboratory Test, Performed'
           value_set: "VSAC; HPV Test"
 performance_not_met:
   description:

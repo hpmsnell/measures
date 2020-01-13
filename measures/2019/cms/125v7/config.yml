@@ -31,15 +31,20 @@ denominator:
       show_codes: true
       records:
       - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
         value_set: "VSAC; Office Visit"
       - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
         value_set: "VSAC; Annual Wellness Visit"
-        - model: ClinicalActivity
-          value_set: "VSAC; Preventive Care Services - Established Office Visit, 18 and Up"
-        - model: ClinicalActivity
-          value_set: "VSAC; Preventive Care Services-Initial Office Visit, 18 and Up"
-        - model: ClinicalActivity
-          value_set: "VSAC; Home Healthcare Services"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Preventive Care Services - Established Office Visit, 18 and Up"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Preventive Care Services-Initial Office Visit, 18 and Up"
+      - model: ClinicalActivity
+        qrda_datatype: 'Encounter, Performed'
+        value_set: "VSAC; Home Healthcare Services"
 exclusion:
   description:
   reasons:
@@ -55,6 +60,7 @@ exclusion:
         show_codes: true
         records:
         - model: Diagnosis
+          qrda_datatype: 'Diagnosis'
           value_set: VSAC; History of bilateral mastectomy
     - validation_record_table_count: 5
       logical_operator: OR
@@ -63,6 +69,7 @@ exclusion:
         show_codes: true
         records:
         - model: ClinicalActivity
+          qrda_datatype: 'Procedure, Performed'
           value_set: VSAC; Unilateral Mastectomy
     - validation_record_table_count: 1
       logical_operator: OR
@@ -71,16 +78,20 @@ exclusion:
         show_codes: true
         records:
         - model: Diagnosis
+          qrda_datatype: 'Diagnosis'
           value_set: VSAC; Status Post Left Mastectomy
         - model: Diagnosis
+          qrda_datatype: 'Diagnosis'
           value_set: VSAC; Unilateral Mastectomy, Unspecified Laterality
       - display_title: Right Mastectomy
         logical_operator: AND
         show_codes: true
         records:
         - model: Diagnosis
+          qrda_datatype: 'Diagnosis'
           value_set: VSAC; Status Post Right Mastectomy
         - model: Diagnosis
+          qrda_datatype: 'Diagnosis'
           value_set: VSAC; Unilateral Mastectomy, Unspecified Laterality
   - config_link_id: exclusion_hospice
     code_value:
@@ -92,8 +103,10 @@ exclusion:
          show_codes: true
          records:
          - model: ClinicalActivity
+           qrda_datatype: 'Intervention, Performed'
            value_set: "VSAC; Hospice care ambulatory"
          - model: Order
+           qrda_datatype: 'Intervention, Order'
            value_set: "VSAC; Hospice care ambulatory"
      - logical_operator: 'OR'
        components:
@@ -102,6 +115,7 @@ exclusion:
           annotation: 'Discharge disposition: Discharge to home for hospice care'
           records:
           - model: ClinicalActivity
+            qrda_datatype: 'Encounter, Performed'
             value_set: "VSAC; Encounter Inpatient"
 exception:
   description:
@@ -121,6 +135,7 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
+          qrda_datatype: 'Diagnostic Study, Performed'
           value_set: VSAC; Mammography
 performance_not_met:
   description:
