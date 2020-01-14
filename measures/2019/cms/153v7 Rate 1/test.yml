@@ -244,7 +244,7 @@ patients:
         code_value: 99201
         start_date: 2010-01-01
         start_datetime: 2010-01-01 09:00:00        
- - name: Encounter Upper
+  - name: Encounter Upper
     attributes:
       date_of_birth: 1996-02-01
       given_name: Encounter
@@ -259,7 +259,7 @@ patients:
         stop_date: 2016-12-31
         stop_datetime: 2016-12-31 23:59:59
         provider: Rachel 
- - name: Encounter After
+  - name: Encounter After
     attributes:
       date_of_birth: 1996-02-01
       given_name: Encounter
@@ -273,10 +273,10 @@ patients:
         start_datetime: 2017-02-01 09:00:00
         stop_date: 2017-02-01
         stop_datetime: 2017-02-01 10:00:00        
- - name: ExclusionHospice Before
+  - name: ExclusionHospice Before
     attributes:
       date_of_birth: 1966-01-01
-      given_name: Hospice
+      given_name: ExclusionHospice
       family_name: Before
       sex: Female
     clinical_models:
@@ -301,7 +301,7 @@ patients:
   - name: ExclusionHospice Lower
     attributes:
       date_of_birth: 1950-01-01
-      given_name: Hospice
+      given_name: ExclusionHospice
       family_name: Lower
       sex: Female
     clinical_models:
@@ -326,7 +326,7 @@ patients:
   - name: ExclusionHospice Upper
     attributes:
       date_of_birth: 1950-01-01
-      given_name: Hospice
+      given_name: ExclusionHospice
       family_name: Upper
       sex: Female
     clinical_models:
@@ -351,7 +351,7 @@ patients:
   - name: ExclusionHospice After
     attributes:
       date_of_birth: 1950-01-01
-      given_name: Hospice
+      given_name: ExclusionHospice
       family_name: After
       sex: Female
     clinical_models:
@@ -476,7 +476,7 @@ patients:
       - code_type: LOINC
         code_value: 14463-4
         result: negative
-        start_date: 2015-12-31 # Too early
+        start_date: 2015-12-31 # too early
         start_datetime: 2015-12-31 09:00:00
   - name: ChlamydiaScreening Lower
     attributes:
