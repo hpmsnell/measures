@@ -7,6 +7,11 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
+    - name: Too Old
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:        
     - name: Age Lower
       denominator: 1 
       denominator_exclusion:
@@ -77,26 +82,46 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:      
-    - name: ScreeningNegative Before # Negative screening before interval
+    - name: ChlamydiaScreening Before
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9821
-    - name: ScreeningNegative Lower # Negative screening lower bound interval
+      numerator: performance_not_met
+    - name: ChlamydiaScreening Lower
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9820
-    - name: ScreeningNegative Upper # Negative screening upper bound interval
+      numerator: performance_met
+    - name: ChlamydiaScreening Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9820
-    - name: ScreeningNegative After # Negative screening after interval
+      numerator: performance_met
+    - name: ChlamydiaScreening After
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: G9821      
+      numerator: performance_not_met
+    - name: ExclusionPregnancy Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionPregnancy Lower
+      denominator: 1
+      denominator_exclusion: exclusion_pregnancy
+      denominator_exception:
+      numerator:
+    - name: ExclusionPregnancy Upper
+      denominator: 1
+      denominator_exclusion: exclusion_pregnancy
+      denominator_exception:
+      numerator:
+    - name: ExclusionPregnancy After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met            
 providers:
   - given_name: Rachel
     family_name: Katz
@@ -125,31 +150,45 @@ patients:
       date_of_birth: 2001-01-01 # Too Early
       given_name: Too
       family_name: Young
-      sex: Male
+      sex: Female
     clinical_models:
       clinical_activities:
       - code_type: CPT
         code_value: 99203 # Denominator encounter
         start_date: 2016-02-01
         start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
-      diagnoses:
-      - code_type: LOINC
-        code_value: 99201
-        start_date: 2010-01-01
-        start_datetime: 2010-01-01 09:00:00  
+  - name: Too Old
+    attributes:
+      date_of_birth: 1991-01-01 # Too Late
+      given_name: Too
+      family_name: Old
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99203 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00        
+        provider: Rachel          
   - name: Age Lower
     attributes:
       date_of_birth: 2000-01-01 # Lower bound
       given_name: Age
       family_name: Lower
-      sex: Male
+      sex: Female
     clinical_models:
       clinical_activities:
       - code_type: CPT
         code_value: 99203 # Denominator encounter
         start_date: 2016-02-01
         start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
       diagnoses:
       - code_type: LOINC
@@ -161,13 +200,15 @@ patients:
       date_of_birth: 1996-02-01 # Upper bound
       given_name: Age
       family_name: Upper
-      sex: Male
+      sex: Female
     clinical_models:
       clinical_activities:
       - code_type: CPT
         code_value: 99203 # Denominator encounter
         start_date: 2016-02-01
         start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
       diagnoses:
       - code_type: LOINC
@@ -179,31 +220,53 @@ patients:
       date_of_birth: 1998-02-01
       given_name: Encounter
       family_name: Before
-      sex: Male
+      sex: Female
     clinical_models:
       clinical_activities:
       - code_type: CPT
         code_value: 99341 # Denominator encounter
         start_date: 2015-12-31 # Too early
-        start_datetime: 2015-12-31 23:59:59 # Too early
+        start_datetime: 2015-12-31 22:59:59 # Too early
+        stop_date: 2015-12-31
+        stop_datetime: 2015-12-31 23:59:59
         provider: Rachel
       diagnoses:
       - code_type: LOINC
         code_value: 99201
         start_date: 2010-01-01
         start_datetime: 2010-01-01 09:00:00
+  - name: Encounter Lower
+    attributes:
+      date_of_birth: 1998-02-01
+      given_name: Encounter
+      family_name: Lower
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99341 # Denominator encounter
+        start_date: 2016-01-01 # Lower bound
+        start_datetime: 2016-01-01 00:00:00 # Too early
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 01:00:00
+        provider: Rachel
+      diagnoses:
+      - code_type: LOINC
+        code_value: 99201
+        start_date: 2010-01-01
+        start_datetime: 2010-01-01 09:00:00        
  - name: Encounter Upper
     attributes:
       date_of_birth: 1996-02-01
       given_name: Encounter
       family_name: Lower
-      sex: Male
+      sex: Female
     clinical_models:
       clinical_activities:
       - code_type: LOINC
         code_value: 99341 # Denominator encounter
         start_date: 2016-12-31 # Upper bound
-        start_datetime: 2016-12-31 23:59:59 # Lower bound
+        start_datetime: 2016-12-31 22:59:59 # Upper bound
         stop_date: 2016-12-31
         stop_datetime: 2016-12-31 23:59:59
         provider: Rachel 
@@ -212,24 +275,29 @@ patients:
       date_of_birth: 1996-02-01
       given_name: Encounter
       family_name: After
-      sex: Male
+      sex: Female
     clinical_models:
       clinical_activities:
       - code_type: CPT
         code_value: 99201 # Denominator encounter
         start_date: 2017-02-01 # After the measurement period
+        start_datetime: 2017-02-01 09:00:00
+        stop_date: 2017-02-01
+        stop_datetime: 2017-02-01 10:00:00        
 - name: ExclusionHospice Before
     attributes:
       date_of_birth: 1966-01-01
       given_name: Hospice
       family_name: Before
-      sex: Male
+      sex: Female
     clinical_models:
       clinical_activities:
       - code_type: CPT
         code_value: 99201 # Denominator encounter
         start_date: 2016-02-01
         start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
       orders:
       - code_type: LOINC
@@ -246,13 +314,15 @@ patients:
       date_of_birth: 1950-01-01
       given_name: Hospice
       family_name: Lower
-      sex: Male
+      sex: Female
     clinical_models:
       clinical_activities:
       - code_type: CPT
         code_value: 99201 # Denominator encounter
         start_date: 2016-02-01
         start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
       orders:
       - code_type: LOINC
@@ -269,13 +339,15 @@ patients:
       date_of_birth: 1950-01-01
       given_name: Hospice
       family_name: Upper
-      sex: Male
+      sex: Female
     clinical_models:
       clinical_activities:
       - code_type: CPT
         code_value: 99201 # Denominator encounter
         start_date: 2016-02-01
         start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
       orders:
       - code_type: LOINC
@@ -292,13 +364,15 @@ patients:
       date_of_birth: 1950-01-01
       given_name: Hospice
       family_name: After
-      sex: Male
+      sex: Female
     clinical_models:
       clinical_activities:
       - code_type: CPT
         code_value: 99201 # Denominator encounter
         start_date: 2016-02-01
         start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
       orders:
       - code_type: LOINC
@@ -319,8 +393,18 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00        
+        provider: Rachel
+      - code_type: CPT
         code_value: 81025 # Pregnancy test (sexual activity)
         start_date: 2015-12-31 # Too early
+        start_datetime: 2015-12-31 09:00:00
+        stop_date: 2015-12-31
+        stop_datetime: 2015-12-31 10:00:00
   - name: SexualActivityProcedure Lower
     attributes:
       date_of_birth: 2000-01-01
@@ -330,8 +414,18 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00        
+        provider: Rachel        
+      - code_type: CPT
         code_value: 81025 # Pregnancy test (sexual activity)
         start_date: 2016-01-01 # Lower bound
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 01:00:00
   - name: SexualActivityProcedure Upper
     attributes:
       date_of_birth: 2000-01-01
@@ -341,8 +435,18 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00        
+        provider: Rachel        
+      - code_type: CPT
         code_value: 81025 # Pregnancy test (sexual activity)
         start_date: 2016-12-31 # Upper bound
+        start_datetime: 2016-12-31 23:59:59
+        stop_date: 2016-12-31
+        stop_datetime: 2016-12-31 23:59:59
   - name: SexualActivityProcedure After
     attributes:
       date_of_birth: 2000-01-01
@@ -352,12 +456,22 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00        
+        provider: Rachel        
+      - code_type: CPT
         code_value: 81025 # Pregnancy test (sexual activity)
         start_date: 2017-01-01 # Too late
-  - name: ScreeningNegative Before
+        start_datetime: 2017-01-01 09:00:00
+        stop_date: 2017-01-01
+        stop_datetime: 2017-01-01 10:00:00        
+  - name: ChlamydiaScreening Before
     attributes:
       date_of_birth: 2000-03-22
-      given_name: ScreeningNegative
+      given_name: ChlamydiaScreening
       family_name: Before
       sex: Female
     clinical_models:
@@ -365,23 +479,20 @@ patients:
       - code_type: CPT
         code_value: 99201
         start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00        
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00                
         provider: Rachel
-      - code_type: CPT
-        code_value: 99201
-        start_date: 2015-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: G9818
-        start_date: 2016-02-01
       laboratory_test_performeds:
       - code_type: LOINC
         code_value: 14463-4
         result: negative
         start_date: 2015-12-31 # Too early
-   - name: ScreeningNegative Lower
+        start_datetime: 2015-12-31 09:00:00
+  - name: ChlamydiaScreening Lower
     attributes:
       date_of_birth: 2000-03-22
-      given_name: ScreeningNegative
+      given_name: ChlamydiaScreening
       family_name: Lower
       sex: Female
     clinical_models:
@@ -389,23 +500,20 @@ patients:
       - code_type: CPT
         code_value: 99201
         start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
-      - code_type: CPT
-        code_value: 99201
-        start_date: 2015-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: G9818
-        start_date: 2016-02-01
       laboratory_test_performeds:
       - code_type: LOINC
         code_value: 14463-4
         result: negative
         start_date: 2016-01-01 # Lower bound
-   - name: ScreeningNegative Upper
+        start_datetime: 2016-01-01 09:00:00
+   - name: ChlamydiaScreening Upper
     attributes:
       date_of_birth: 2000-03-22
-      given_name: ScreeningNegative
+      given_name: ChlamydiaScreening
       family_name: Upper
       sex: Female
     clinical_models:
@@ -413,23 +521,20 @@ patients:
       - code_type: CPT
         code_value: 99201
         start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
-      - code_type: CPT
-        code_value: 99201
-        start_date: 2015-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: G9818
-        start_date: 2016-02-01
       laboratory_test_performeds:
       - code_type: LOINC
         code_value: 14463-4
         result: negative
         start_date: 2016-12-31 # Upper bound
-  - name: ScreeningNegative After
+        start_datetime: 2016-12-31 23:59:59
+  - name: ChlamydiaScreening After
     attributes:
       date_of_birth: 2000-03-22
-      given_name: ScreeningNegative
+      given_name: ChlamydiaScreening
       family_name: After
       sex: Female
     clinical_models:
@@ -437,16 +542,104 @@ patients:
       - code_type: CPT
         code_value: 99201
         start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
-      - code_type: CPT
-        code_value: 99201
-        start_date: 2015-02-01
-        provider: Rachel
-      - code_type: CPT
-        code_value: G9818
-        start_date: 2016-02-01
       laboratory_test_performeds:
       - code_type: LOINC
         code_value: 14463-4
         result: negative
-        start_date: 2017-01-01 # Too late        
+        start_date: 2017-01-01 # Too late
+        start_datetime: 2017-01-01 09:00:00
+- name: ExclusionPregnancy Before
+  attributes:
+    date_of_birth: 2000-02-01
+    given_name: ExclusionPregnancy
+    family_name: Before
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      start_datetime: 2016-02-01 09:00:00        
+      stop_date: 2016-02-01
+      stop_datetime: 2016-02-01 10:00:00                
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I21.01 # ASCVD
+      start_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: O04.89 # Pregnancy
+      start_date: 2015-01-01
+      stop_date: 2015-12-31 # Too early
+- name: ExclusionPregnancy Lower
+  attributes:
+    date_of_birth: 2000-03-22
+    given_name: ExclusionPregnancy
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      start_datetime: 2016-02-01 09:00:00
+      stop_date: 2016-02-01
+      stop_datetime: 2016-02-01 10:00:00
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I21.01 # ASCVD
+      start_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: O04.89 # Pregnancy
+      start_date: 2015-01-01
+- name: ExclusionPregnancy Upper
+  attributes:
+    date_of_birth: 2000-03-22
+    given_name: ExclusionPregnancy
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      start_datetime: 2016-02-01 09:00:00
+      stop_date: 2016-02-01
+      stop_datetime: 2016-02-01 10:00:00
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I21.01 # ASCVD
+      start_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: O04.89 # Pregnancy
+      start_date: 2016-12-31 # Upper bound
+      start_datetime: 2016-12-31 00:00:00
+- name: ExclusionPregnancy After
+  attributes:
+    date_of_birth: 2000-03-22
+    given_name: ExclusionPregnancy
+    family_name: After
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      start_datetime: 2016-02-01 09:00:00
+      stop_date: 2016-02-01
+      stop_datetime: 2016-02-01 10:00:00
+      provider: Rachel
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: I21.01 # ASCVD
+      start_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: O04.89 # Pregnancy
+      start_date: 2017-01-01 # Too late        
+      start_datetime: 2017-01-01 00:00:00
