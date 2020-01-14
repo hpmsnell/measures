@@ -17,6 +17,11 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
+    - name: Male Patient
+      denominator: 1 
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met      
     - name: Age Upper
       denominator: 1 
       denominator_exclusion:
@@ -184,6 +189,26 @@ patients:
         code_value: 99201
         start_date: 2010-01-01
         start_datetime: 2010-01-01 09:00:00
+  - name: Male Patient
+    attributes:
+      date_of_birth: 2000-01-01 # Lower bound
+      given_name: Male
+      family_name: Patient
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99203 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00
+        provider: Rachel
+      diagnoses:
+      - code_type: LOINC
+        code_value: 99201
+        start_date: 2010-01-01
+        start_datetime: 2010-01-01 09:00:00        
   - name: Age Upper
     attributes:
       date_of_birth: 1996-02-01 # Upper bound
