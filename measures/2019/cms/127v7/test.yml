@@ -101,12 +101,12 @@ patients:
         code_value: 99201 # Denominator encounter
         start_date: 2016-02-01
         start_datetime: 2016-02-01 09:00:00
-        stop_date: 2016-12-31
+        stop_date: 2016-02-01
         stop_datetime: 2016-02-01 10:00:00
         provider: Rachel 
   - name: Encounter Before
     attributes:
-      date_of_birth: 1950-02-01
+      date_of_birth: 1949-02-01
       given_name: Encounter
       family_name: Before
       sex: Male
@@ -116,7 +116,7 @@ patients:
         code_value: 99201 # Denominator encounter
         start_date: 2015-12-30 # Too early
         start_datetime: 2015-12-30 09:00:00 # Too early
-        stop_date: 2015-12-31
+        stop_date: 2015-12-30
         stop_datetime: 2015-12-30 10:00:00
         provider: Rachel
   - name: Encounter Lower
@@ -136,7 +136,7 @@ patients:
         provider: Rachel
   - name: Encounter Upper
     attributes:
-      date_of_birth: 1966-02-01
+      date_of_birth: 1945-02-01
       given_name: Encounter
       family_name: Lower
       sex: Male
@@ -145,13 +145,13 @@ patients:
       - code_type: CPT
         code_value: 99201 # Denominator encounter
         start_date: 2016-12-31 # Upper bound
-        start_datetime: 2016-12-31 23:59:59 # Lower bound
+        start_datetime: 2016-12-31 22:59:59 # Lower bound
         stop_date: 2016-12-31
         stop_datetime: 2016-12-31 23:59:59
         provider: Rachel 
   - name: Encounter After
     attributes:
-      date_of_birth: 1955-02-01
+      date_of_birth: 1947-02-01
       given_name: Encounter
       family_name: After
       sex: Male
@@ -175,14 +175,14 @@ patients:
         code_value: 99201 # Denominator encounter
         start_date: 2016-02-01
         start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
         provider: Rachel
       orders:
       - code_type: SNOMEDCT
         code_value: 385763009 # Hospice
         start_date: 2015-12-31 # Too early
         start_datetime: 2015-12-31 23:00:00 # Too early
-        stop_date: 2015-12-31
-        stop_datetime: 2015-12-31 23:59:59
   - name: ExclusionHospice Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -195,14 +195,14 @@ patients:
         code_value: 99201 # Denominator encounter
         start_date: 2016-02-01
         start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
       orders:
       - code_type: SNOMEDCT
         code_value: 385763009 # Hospice
         start_date: 2016-01-01 # Lower bound
         start_datetime: 2016-01-01 00:00:00 # Lower bound
-        stop_date: 2016-01-01
-        stop_datetime: 2016-01-01 01:00:00
   - name: ExclusionHospice Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -215,14 +215,14 @@ patients:
         code_value: 99201 # Denominator encounter
         start_date: 2016-02-01
         start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
       orders:
       - code_type: SNOMEDCT
         code_value: 385763009 # Hospice
         start_date: 2016-12-31 # Upper bound
         start_datetime: 2016-12-31 23:00:00 # Upper bound
-        start_date: 2016-12-31
-        stop_datetime: 2016-12-31 23:59:59        
   - name: ExclusionHospice After
     attributes:
       date_of_birth: 1950-01-01
@@ -235,17 +235,17 @@ patients:
         code_value: 99201 # Denominator encounter
         start_date: 2016-02-01
         start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
       orders:
       - code_type: SNOMEDCT
         code_value: 385763009 # Hospice
         start_date: 2017-01-01 # Too late
         start_datetime: 2017-01-01 09:00:00 # Too late
-        stop_date: 2017-01-01
-        stop_datetime: 2017-01-01 10:00:00    
   - name: Vaccine Received
     attributes:
-      date_of_birth: 1955-02-01
+      date_of_birth: 1945-02-01
       given_name: Vaccine
       family_name: Received
       sex: Male
@@ -255,6 +255,8 @@ patients:
         code_value: 99201 # Denominator encounter
         start_date: 2016-01-01
         start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 01:00:00
         provider: Rachel
       medications:
       - start_date: 2016-03-01 # Inside the measurement period
@@ -263,7 +265,7 @@ patients:
         code_value: 109
   - name: Vaccine After
     attributes:
-      date_of_birth: 1955-02-01
+      date_of_birth: 1945-02-01
       given_name: Vaccine
       family_name: After
       sex: Male
@@ -273,10 +275,11 @@ patients:
         code_value: 99201 # Denominator encounter
         start_date: 2016-01-01
         start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 01:00:00
         provider: Rachel
       medications:
       - start_date: 2017-03-01 # Inside the measurement period
         start_datetime: 2017-03-01 00:00:00 # Inside the measurement period
         code_type: CVX
         code_value: 109
-        
