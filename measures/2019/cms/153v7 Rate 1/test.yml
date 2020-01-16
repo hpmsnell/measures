@@ -147,6 +147,26 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met                  
+    - name: Herpes Test
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                        
+    - name: MedicationAndHerpes Before    
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                              
+    - name: MedicationBefore 7Days    
+      denominator: 1
+      denominator_exclusion: exclusion_hospice
+      denominator_exception:
+      numerator: performance_not_met                                    
+    - name: MedicationBefore Herpes
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                                          
 providers:
   - given_name: Rachel
     family_name: Katz
@@ -752,3 +772,141 @@ patients:
         code_value: 10705-2 # Laboratory test for sexual activity
         start_date: 2010-01-01
         start_datetime: 2010-01-01 09:00:00
+  - name: Herpes Test
+    attributes:
+      date_of_birth: 2001-01-01 # Too Early
+      given_name: herpes
+      family_name: Test
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99203 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00        
+        provider: Rachel
+      - code_type: CPT
+        code_value: 81025 # Pregnancy test (sexual activity)
+        start_date: 2016-01-01 # Lower bound
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 01:00:00
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2016-01-01
+      stop_datetime: 2016-01-01 09:00:00
+  - name: MedicationAndHerpes Before
+    attributes:
+      date_of_birth: 2001-01-01 # Too Early
+      given_name: MedicationAndHerpes
+      family_name: Before
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99203 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00        
+        provider: Rachel
+      - code_type: CPT
+        code_value: 81025 # Pregnancy test (sexual activity)
+        start_date: 2016-01-01 # Lower bound
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 01:00:00
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2016-01-01
+      stop_datetime: 2016-01-01 09:00:00        
+    medications:
+     - code_type: RXNORM
+       code_value: 309121 # Cephalosporin (MIPS 021)
+       start_date: 2015-03-01
+       stop_datetime: 2015-03-01 09:00:00
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2016-01-01
+      stop_datetime: 2016-01-01 09:00:00
+  - name: MedicationBefore 7Days
+    attributes:
+      date_of_birth: 2001-01-01 # Too Early
+      given_name: MedicationBefore
+      family_name: 7Days
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99203 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00        
+        provider: Rachel
+      - code_type: CPT
+        code_value: 81025 # Pregnancy test (sexual activity)
+        start_date: 2016-01-01 # Lower bound
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 01:00:00
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2016-01-01
+      start_datetime: 2016-01-01 09:00:00
+      stop_date: 2016-01-01
+      stop_datetime: 2016-01-01 09:00:00        
+    medications:
+     - code_type: RXNORM
+       code_value: 309121 # Cephalosporin (MIPS 021)
+       start_date: 2016-02-02
+       start_datetime: 2016-02-02 09:00:00
+       stop_date: 2016-02-02
+       stop_datetime: 2016-02-02 09:00:00      
+  - name: MedicationBefore Herpes
+    attributes:
+      date_of_birth: 2001-01-01 # Too Early
+      given_name: MedicationBefore
+      family_name: Herpes
+      sex: Female
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99203 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00        
+        provider: Rachel
+      - code_type: CPT
+        code_value: 81025 # Pregnancy test (sexual activity)
+        start_date: 2016-01-01 # Lower bound
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 01:00:00
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2016-01-01
+      start_datetime: 2016-01-01 09:00:00
+      stop_datetime: 2016-01-01 09:00:00        
+    medications:
+     - code_type: RXNORM
+       code_value: 309121 # Cephalosporin (MIPS 021)
+       start_date: 2016-02-02
+       start_datetime: 2016-02-02 09:00:00
+       stop_date: 2016-02-02
+       stop_datetime: 2016-02-02 09:00:00      
+    laboratory_test_performeds:
+    - code_type: LOINC
+      code_value: 10350-7 # Herpes test
+      start_date: 2016-01-01
+      start_datetime: 2016-01-01 09:00:00
+      stop_date: 2016-01-01
+      stop_datetime: 2016-01-01 09:00:00       
