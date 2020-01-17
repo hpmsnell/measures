@@ -1,10 +1,10 @@
-library MIPS_385_2017 version '1'
+library MIPS_385_2018 version '1'
 
 /*
  * Source: MIPS
  * ID: 385
  * Year: 2018
- * Version: 1
+ * Version: 2
  * Written By: Steve Daniels
  * Reviewed By:
  *
@@ -31,7 +31,6 @@ context Patient
 define "Denominator Procedure":
   ["Procedure, Performed": "MIPS; MIPS 385 Procedure"] P
     where P.relevantPeriod starts during Interval[start of "Measurement Period", 3 months before end "Measurement Period"]
-      and P.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of P.relevantPeriod) >= 18
       and P.signingProvider.hasMeasureMembership = true
 
@@ -68,7 +67,7 @@ define "Denominator Exclusion: G9757":
   /*
    * config_link_id: exclusion_1
    */
-  exists(["Procedure, Performed": "MIPS; Denominator Exception: G9757"] P
+  exists(["Procedure, Performed": "MIPS; Procedures Using Silicone Oil"] P
     with "Denominator Procedure" E
       such that P.relevantPeriod starts during E.relevantPeriod)
 

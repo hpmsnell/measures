@@ -4,7 +4,7 @@ library MIPS_384_2018 version '1'
  * Source: MIPS
  * ID: 384
  * Year: 2018
- * Version: 1
+ * Version: 2
  * Written By: Steve Daniels
  *
   */
@@ -26,7 +26,7 @@ context Patient
 
 define "Denominator Procedure":
   ["Procedure, Performed": "MIPS; MIPS 384 Procedure"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where P.relevantPeriod starts during Interval[start of "Measurement Period", 3 months before end "Measurement Period"]
       and AgeInYearsAt >= 18
       and E.signingProvider.hasMeasureMembership = true
 
