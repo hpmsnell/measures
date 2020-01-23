@@ -108,10 +108,10 @@ test_set_keys:
       denominator_exception:
       numerator: performance_not_met
     - name: ExclusionPregnancy Before
-      denominator: 1
+      denominator: 
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: 
     - name: ExclusionPregnancy Lower
       denominator: 1
       denominator_exclusion: exclusion_pregnancy
@@ -123,10 +123,10 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: ExclusionPregnancy After
-      denominator: 1
+      denominator: 
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: 
     - name: InpatientEncounter Before
       denominator: 1
       denominator_exclusion:
@@ -152,16 +152,16 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met                        
-    - name: MedicationAndHerpes Before    
+    - name: ExclusionMedication BeforePregnancyTest    
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met                              
     - name: MedicationBefore 7Days    
       denominator: 1
-      denominator_exclusion: exclusion_hospice
+      denominator_exclusion: exclusion_pregnancy
       denominator_exception:
-      numerator: performance_not_met                                    
+      numerator:                                     
     - name: MedicationBefore Herpes
       denominator: 1
       denominator_exclusion:
@@ -663,7 +663,7 @@ patients:
         result: negative
         start_date: 2017-01-01 # Too late
         start_datetime: 2017-01-01 09:00:00
-  - name: ExclusionPregnancy Before
+  - name: ExclusionPregnancy Before # Update test key so this patient does not meet the denominator 
     attributes:
       date_of_birth: 2000-02-01
       given_name: ExclusionPregnancy
@@ -678,17 +678,15 @@ patients:
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 10:00:00                
         provider: Rachel
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: I21.01 # ASCVD
-        start_date: 2016-02-01
-        start_datetime: 2016-02-01 00:00:00
-      - code_type: ICD10CM
-        code_value: O04.89 # Pregnancy
-        start_date: 2016-02-01 
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01 # Too early
-        stop_datetime: 2016-02-01 01:00:00
+      orders:
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test
+        start_date: 2015-12-31 # Lower bound
+        start_datetime: 2015-12-31 23:59:59
+      - code_type: LOINC
+        code_value: 24531-6 # Diagnostic radiology
+        start_date: 2015-12-31
+        start_datetime: 2015-12-31 23:59:59
   - name: ExclusionPregnancy Lower
     attributes:
       date_of_birth: 2000-03-22
@@ -704,26 +702,21 @@ patients:
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: I21.01 # ASCVD
-        start_date: 2016-02-01
-        start_datetime: 2016-02-01 08:00:00        
-      - code_type: ICD10CM
-        code_value: O04.89 # Pregnancy
-        start_date: 2015-01-01
-        start_datetime: 2015-01-01 08:00:00
       orders:  
       - code_type: LOINC
-        code_value: 70010 # Diagnostic radiology
-        start_date: 2015-01-01 # Lower bound
-        start_datetime: 2015-01-01 00:00:00    
+        code_value: 19080-1 # Pregnancy test
+        start_date: 2016-01-01 # Lower bound
+        start_datetime: 2016-01-01 23:59:59
+      - code_type: LOINC
+        code_value: 24531-6 # Diagnostic radiology
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 23:59:59 
   - name: ExclusionPregnancy Upper
     attributes:
       date_of_birth: 2000-03-22
       given_name: ExclusionPregnancy
       family_name: Upper
-      sex: Feale
+      sex: Female
     clinical_models:
       clinical_activities:
       - code_type: CPT
@@ -733,21 +726,16 @@ patients:
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: I21.01 # ASCVD
-        start_date: 2016-02-01
-        start_datetime: 2016-02-01 00:00:00
-      - code_type: ICD10CM
-        code_value: O04.89 # Pregnancy
-        start_date: 2016-12-31 # Upper bound
-        start_datetime: 2016-12-31 00:00:00
       orders:  
       - code_type: LOINC
-        code_value: 70010 # Diagnostic radiology
+        code_value: 19080-1 # Pregnancy test
         start_date: 2016-12-31 # Upper bound
-        start_datetime: 2016-12-31 00:00:00        
-  - name: ExclusionPregnancy After
+        start_datetime: 2016-12-31 23:59:59
+      - code_type: LOINC
+        code_value: 24531-6 # Diagnostic radiology
+        start_date: 2016-12-31
+        start_datetime: 2016-12-31 23:59:59       
+  - name: ExclusionPregnancy After # Upate test key so that this patient does not meet denominator
     attributes:
       date_of_birth: 2000-03-22
       given_name: ExclusionPregnancy
@@ -762,17 +750,15 @@ patients:
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
-      diagnoses:
-      - code_type: ICD10CM
-        code_value: I21.01 # ASCVD
-        start_date: 2016-02-01
-        start_datetime: 2016-02-01 00:00:00
-      - code_type: ICD10CM
-        code_value: O04.89 # Pregnancy
-        start_date: 2016-02-01 # Too late        
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-02
-        stop_datetime: 2016-02-02 01:00:00
+      orders:  
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test
+        start_date: 2017-01-01 # Too late
+        start_datetime: 2017-01-01 23:59:59
+      - code_type: LOINC
+        code_value: 24531-6 # Diagnostic radiology
+        start_date: 2017-01-01
+        start_datetime: 2017-01-01 23:59:59 
  - name: InpatientEncounter Before
     attributes:
       date_of_birth: 1966-01-01
@@ -894,22 +880,20 @@ patients:
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
+      orders:
       - code_type: CPT
         code_value: 81025 # Pregnancy test (sexual activity)
         start_date: 2016-01-01 # Lower bound
         start_datetime: 2016-01-01 00:00:00
-        stop_date: 2016-01-01
-        stop_datetime: 2016-01-01 01:00:00
-    laboratory_test_performeds:
-    - code_type: LOINC
-      code_value: 10350-7 # Herpes test
-      start_date: 2016-01-01
-      start_datetime: 2016-01-01 09:00:00
-  - name: MedicationAndHerpes Before
+      - code_type: LOINC
+        code_value: 10350-7 # Herpes test
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 09:00:00
+  - name: ExclusionMedication BeforePregnancyTest # Update name of patient in test key
     attributes:
       date_of_birth: 2001-01-01 # Too Early
-      given_name: MedicationAndHerpes
-      family_name: Before
+      given_name: ExclusionMedication
+      family_name: BeforePregnancyTest
       sex: Female
     clinical_models:
       clinical_activities:
@@ -920,24 +904,22 @@ patients:
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
+      orders:
       - code_type: CPT
         code_value: 81025 # Pregnancy test (sexual activity)
         start_date: 2016-01-01 # Lower bound
         start_datetime: 2016-01-01 00:00:00
-        stop_date: 2016-01-01
-        stop_datetime: 2016-01-01 01:00:00
-    laboratory_test_performeds:
-    - code_type: LOINC
-      code_value: 10350-7 # Herpes test
-      start_date: 2016-01-01
-      start_datetime: 2016-01-01 09:00:00        
-    medications:
-     - code_type: RXNORM
-       code_value: 309121 # Cephalosporin (MIPS 021)
-       start_date: 2015-03-01
-       start_datetime: 2015-03-01 08:00:00
-       stop_date: 2015-03-01
-       stop_datetime: 2015-03-01 09:00:00
+      - code_type: LOINC
+        code_value: 10350-7 # Herpes test
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 09:00:00        
+      medications:
+       - code_type: RXNORM
+         code_value: 309121 # Cephalosporin (MIPS 021)
+         start_date: 2015-03-01
+         start_datetime: 2015-03-01 08:00:00
+         stop_date: 2015-03-01
+         stop_datetime: 2015-03-01 09:00:00
   - name: MedicationBefore 7Days
     attributes:
       date_of_birth: 2001-01-01 # Too Early
@@ -953,24 +935,22 @@ patients:
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
+      orders:
       - code_type: CPT
         code_value: 81025 # Pregnancy test (sexual activity)
         start_date: 2016-01-01 # Lower bound
         start_datetime: 2016-01-01 00:00:00
-        stop_date: 2016-01-01
-        stop_datetime: 2016-01-01 01:00:00
-    laboratory_test_performeds:
-    - code_type: LOINC
-      code_value: 10350-7 # Herpes test
-      start_date: 2016-01-01
-      start_datetime: 2016-01-01 09:00:00
-    medications:
-     - code_type: RXNORM
-       code_value: 309121 # Cephalosporin (MIPS 021)
-       start_date: 2016-02-02
-       start_datetime: 2016-02-02 09:00:00
-       stop_date: 2016-02-02
-       stop_datetime: 2016-02-02 09:00:00      
+      - code_type: LOINC
+        code_value: 10350-7 # Herpes test
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 09:00:00
+      medications:
+       - code_type: RXNORM
+         code_value: 309121 # Cephalosporin (MIPS 021)
+         start_date: 2016-02-02
+         start_datetime: 2016-02-02 09:00:00
+         stop_date: 2016-02-02
+         stop_datetime: 2016-02-02 09:00:00      
   - name: MedicationBefore Herpes
     attributes:
       date_of_birth: 2001-01-01 # Too Early
@@ -986,22 +966,20 @@ patients:
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
+      orders:
       - code_type: CPT
         code_value: 81025 # Pregnancy test (sexual activity)
         start_date: 2016-01-01 # Lower bound
         start_datetime: 2016-01-01 00:00:00
-        stop_date: 2016-01-01
-        stop_datetime: 2016-01-01 01:00:00
-    laboratory_test_performeds:
-    - code_type: LOINC
-      code_value: 10350-7 # Herpes test
-      start_date: 2016-01-01
-      start_datetime: 2016-01-01 09:00:00
-    medications:
-     - code_type: RXNORM
-       code_value: 309121 # Cephalosporin (MIPS 021)
-       start_date: 2016-02-02
-       start_datetime: 2016-02-02 09:00:00
-       stop_date: 2016-02-02
-       stop_datetime: 2016-02-02 09:00:00      
+      - code_type: LOINC
+        code_value: 10350-7 # Herpes test
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 09:00:00
+      medications:
+       - code_type: RXNORM
+         code_value: 309121 # Cephalosporin (MIPS 021)
+         start_date: 2016-02-02
+         start_datetime: 2016-02-02 09:00:00
+         stop_date: 2016-02-02
+         stop_datetime: 2016-02-02 09:00:00      
        
