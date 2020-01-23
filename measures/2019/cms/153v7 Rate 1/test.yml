@@ -157,12 +157,12 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met                              
-    - name: MedicationBefore 7Days    
+    - name: ExclusionMedication Before7Days    
       denominator: 1
       denominator_exclusion: exclusion_pregnancy
       denominator_exception:
       numerator:                                     
-    - name: MedicationBefore Herpes
+    - name: MedicationBefore7Days AndHerpes
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -920,11 +920,11 @@ patients:
          start_datetime: 2015-03-01 08:00:00
          stop_date: 2015-03-01
          stop_datetime: 2015-03-01 09:00:00
-  - name: MedicationBefore 7Days
+  - name: ExclusionMedication Before7Days
     attributes:
       date_of_birth: 2001-01-01 # Too Early
-      given_name: MedicationBefore
-      family_name: 7Days
+      given_name: ExclusionMedication
+      family_name: Before7Days
       sex: Female
     clinical_models:
       clinical_activities:
@@ -951,11 +951,11 @@ patients:
          start_datetime: 2016-02-02 09:00:00
          stop_date: 2016-02-02
          stop_datetime: 2016-02-02 09:00:00      
-  - name: MedicationBefore Herpes
+  - name: MedicationBefore7Days AndHerpes
     attributes:
       date_of_birth: 2001-01-01 # Too Early
-      given_name: MedicationBefore
-      family_name: Herpes
+      given_name: MedicationBefore7Days
+      family_name: AndHerpes
       sex: Female
     clinical_models:
       clinical_activities:
