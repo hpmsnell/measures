@@ -57,11 +57,46 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_met      
+    - name: Immunization Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Immunization Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Immunization Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met      
     - name: Immunization After
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met            
+      numerator: performance_not_met
+    - name: ExceptionDiagnosis AllergyToEgg
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                        
+    - name: ExceptionAllergy EggSubstance
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                              
+    - name: ExceptionDiagnosis AllergyToInfluenzaVaccine
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                                    
+    - name: ExceptionDiagnosis IntoleranceToInfluenzaVaccine
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                                          
 providers:
   - given_name: Rachel
     family_name: Katz
@@ -279,7 +314,7 @@ patients:
         stop_datetime: 2016-01-01 10:00:00        
         provider: Rachel
       medications:
-      - start_date: 2015-09-01 # During the flu seasson
+      - start_date: 2015-09-01 # During the flu season
         start_datetime: 2015-09-01 00:00:00
         code_type: SNOMEDCT
         code_value: 18170008
@@ -299,7 +334,7 @@ patients:
         stop_datetime: 2016-02-01 09:00:00
         provider: Rachel
       medications:
-      - start_date: 2015-07-31 # Before the flu seasson
+      - start_date: 2015-07-31 # Before the flu season
         start_datetime: 2015-07-31 00:00:00 
         code_type: SNOMEDCT
         code_value: 18170008        
@@ -319,7 +354,7 @@ patients:
         stop_datetime: 2016-02-01 09:00:00
         provider: Rachel
       medications:
-      - start_date: 2015-08-01 # Lower bound of the flu seasson
+      - start_date: 2015-08-01 # Lower bound of the flu season
         start_datetime: 2015-08-01 00:00:00
         code_type: SNOMEDCT
         code_value: 18170008
@@ -339,7 +374,7 @@ patients:
         stop_datetime: 2016-02-01 09:00:00
         provider: Rachel
       medications:
-      - start_date: 2016-03-31 # Upper bound of the flu seasson
+      - start_date: 2016-03-31 # Upper bound of the flu season
         start_datetime: 2016-03-31 23:59:59 
         code_type: SNOMEDCT
         code_value: 18170008                                
@@ -359,8 +394,115 @@ patients:
         stop_datetime: 2016-02-01 09:00:00
         provider: Rachel
       medications:
-      - start_date: 2016-04-01 # After the flu seasson
+      - start_date: 2016-04-01 # After the flu season
         start_datetime: 2016-04-01 00:00:00
         code_type: SNOMEDCT
         code_value: 18170008
-        
+  - name: ExceptionDiagnosis AllergyToEgg
+    attributes:
+      date_of_birth: 2015-10-01
+      given_name: ExceptionDiagnosis
+      family_name: AllergyToEgg
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 10:00:00        
+        provider: Rachel
+      medications:
+      - start_date: 2015-09-01 # During the flu season
+        start_datetime: 2015-09-01 00:00:00
+        code_type: SNOMEDCT
+        code_value: 18170008        
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 213020009 # Allergy to egg
+        start_date: 2016-03-30
+        start_datetime: 2016-03-30 09:00:00
+        stop_date: 2016-04-02 # Overlap after the influenza season
+        stop_datetime: 2016-04-02 10:00:00
+  - name: ExceptionAllergy EggSubstance
+    attributes:
+      date_of_birth: 2015-10-01
+      given_name: ExceptionAllergy
+      family_name: EggSubstance
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 10:00:00        
+        provider: Rachel
+      medications:
+      - start_date: 2015-09-01 # During the flu season
+        start_datetime: 2015-09-01 00:00:00
+        code_type: SNOMEDCT
+        code_value: 18170008        
+      allergy:
+      - code_type: SNOMEDCT
+        code_value: 102263004 # Egg Substance Allergy
+        start_date: 2016-03-30
+        start_datetime: 2016-03-30 09:00:00
+        stop_date: 2016-04-02 # Overlap after the influenza season
+        stop_datetime: 2016-04-02 10:00:00        
+  - name: ExceptionDiagnosis AllergyToInfluenzaVaccine
+    attributes:
+      date_of_birth: 2015-10-01
+      given_name: ExceptionDiagnosis
+      family_name: AllergyToInfluenzaVaccine
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 10:00:00        
+        provider: Rachel
+      medications:
+      - start_date: 2015-09-01 # During the flu season
+        start_datetime: 2015-09-01 00:00:00
+        code_type: SNOMEDCT
+        code_value: 18170008        
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 294647003 # Allergy to Influenza virus vaccine
+        start_date: 2016-03-30
+        start_datetime: 2016-03-30 09:00:00
+        stop_date: 2016-04-02 # Overlap after the influenza season
+        stop_datetime: 2016-04-02 10:00:00
+  - name: ExceptionDiagnosis IntoleranceToInfluenzaVaccine
+    attributes:
+      date_of_birth: 2015-10-01
+      given_name: ExceptionDiagnosis
+      family_name: IntoleranceToInfluenzaVaccine
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 10:00:00        
+        provider: Rachel
+      medications:
+      - start_date: 2015-09-01 # During the flu season
+        start_datetime: 2015-09-01 00:00:00
+        code_type: SNOMEDCT
+        code_value: 18170008        
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 293112000 # Intolerance to Influenza virus vaccine
+        start_date: 2016-03-30
+        start_datetime: 2016-03-30 09:00:00
+        stop_date: 2016-04-02 # Overlap after the influenza season
+        stop_datetime: 2016-04-02 10:00:00        
