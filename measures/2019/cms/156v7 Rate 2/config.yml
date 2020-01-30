@@ -71,6 +71,30 @@ denominator:
 exclusion:
   description:
   reasons:
+  - config_link_id: exclusion_hospice
+    code_value:
+    display_title: Hospice Service
+    description: Patient excluded due to hospice service
+    component_groups:
+    - components:
+       - display_title: Hospice Service
+         show_codes: true
+         records:
+         - model: ClinicalActivity
+           qrda_datatype: 'Intervention, Performed'
+           value_set: "VSAC; Hospice care ambulatory"
+         - model: Order
+           qrda_datatype: 'Intervention, Order'
+           value_set: "VSAC; Hospice care ambulatory"
+     - logical_operator: 'OR'
+       components:
+        - display_title: Inpatient Encounter
+          show_codes: true
+          annotation: 'Discharge disposition: Discharge to home for hospice care'
+          records:
+          - model: ClinicalActivity
+            qrda_datatype: 'Encounter, Performed'
+            value_set: "VSAC; Encounter Inpatient"
 exception:
   description:
   reasons:
