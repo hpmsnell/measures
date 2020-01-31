@@ -46,12 +46,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: performance_met
     - name: Immunization Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met      
+      numerator: performance_met      
     - name: Immunization After
       denominator: 1
       denominator_exclusion:
@@ -114,11 +114,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201 # Denominator encounter
-        start_date: 2015-11-01
-        start_datetime: 2015-11-01 09:00:00
-        stop_date: 2015-11-01
-        stop_datetime: 2015-11-01 10:00:00        
-        provider: Rachel 
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 09:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 10:00:00        
+        provider: Rachel
   - name: Encounter Before
     attributes:
       date_of_birth: 2015-01-01
@@ -148,6 +148,13 @@ patients:
         start_datetime: 2015-10-01 00:00:00 # Lower bound
         stop_date: 2015-10-01
         stop_datetime: 2015-10-01 01:00:00
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 11797002
+        start_date: 2016-10-01
+        start_datetime: 2016-10-01 00:00:00
+        stop_date: 2016-10-01
+        stop_datetime: 2016-10-01 01:00:00
         provider: Rachel
   - name: Encounter Upper
     attributes:
@@ -180,7 +187,7 @@ patients:
         stop_datetime: 2016-04-01 01:00:00
   - name: Immunization Received
     attributes:
-      date_of_birth: 2015-10-01
+      date_of_birth: 2015-07-01
       given_name: Immunization
       family_name: Received
       sex: Male
@@ -200,7 +207,7 @@ patients:
         code_value: 135 # (influenza, high dose seasonal, preservative-free)
   - name: Immunization Before
     attributes:
-      date_of_birth: 2015-10-01
+      date_of_birth: 2015-07-01
       given_name: Immunization
       family_name: Before
       sex: Male
@@ -220,7 +227,7 @@ patients:
         code_value: 135 # (influenza, high dose seasonal, preservative-free)
   - name: Immunization Lower
     attributes:
-      date_of_birth: 2015-10-01
+      date_of_birth: 2015-07-01
       given_name: Immunization
       family_name: Lower
       sex: Male
@@ -240,7 +247,7 @@ patients:
         code_value: 135 # (influenza, high dose seasonal, preservative-free)
   - name: Immunization Upper
     attributes:
-      date_of_birth: 2015-10-01
+      date_of_birth: 2015-07-01
       given_name: Immunization
       family_name: Upper
       sex: Male
@@ -260,7 +267,7 @@ patients:
         code_value: 135 # (influenza, high dose seasonal, preservative-free)
   - name: Immunization After
     attributes:
-      date_of_birth: 2015-10-01
+      date_of_birth: 2015-07-01
       given_name: Immunization
       family_name: After
       sex: Male
@@ -280,7 +287,7 @@ patients:
         code_value: 135 # (influenza, high dose seasonal, preservative-free)
   - name: ExceptionDiagnosis AllergyToEgg
     attributes:
-      date_of_birth: 2015-10-01
+      date_of_birth: 2015-08-01
       given_name: ExceptionDiagnosis
       family_name: AllergyToEgg
       sex: Male
@@ -288,10 +295,10 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201 # Denominator encounter
-        start_date: 2016-01-01
-        start_datetime: 2016-01-01 00:00:00
-        stop_date: 2016-01-01
-        stop_datetime: 2016-01-01 10:00:00        
+        start_date: 2016-02-02
+        start_datetime: 2016-02-02 00:00:00
+        stop_date: 2016-02-02
+        stop_datetime: 2016-02-02 10:00:00        
         provider: Rachel
       diagnoses:
       - code_type: SNOMEDCT
@@ -302,7 +309,7 @@ patients:
         stop_datetime: 2016-04-02 10:00:00
   - name: ExceptionAllergy EggSubstance
     attributes:
-      date_of_birth: 2015-10-01
+      date_of_birth: 2015-07-01
       given_name: ExceptionAllergy
       family_name: EggSubstance
       sex: Male
@@ -324,7 +331,7 @@ patients:
         stop_datetime: 2016-04-02 10:00:00        
   - name: ExceptionDiagnosis AllergyToInfluenzaVaccine
     attributes:
-      date_of_birth: 2015-10-01
+      date_of_birth: 2015-07-01
       given_name: ExceptionDiagnosis
       family_name: AllergyToInfluenzaVaccine
       sex: Male
@@ -346,7 +353,7 @@ patients:
         stop_datetime: 2016-04-02 10:00:00
   - name: ExceptionDiagnosis IntoleranceToInfluenzaVaccine
     attributes:
-      date_of_birth: 2015-10-01
+      date_of_birth: 2015-07-01
       given_name: ExceptionDiagnosis
       family_name: IntoleranceToInfluenzaVaccine
       sex: Male
@@ -365,4 +372,5 @@ patients:
         start_date: 2016-03-30
         start_datetime: 2016-03-30 09:00:00
         stop_date: 2016-04-02 # Overlap after the influenza season
-        stop_datetime: 2016-04-02 10:00:00        
+        stop_datetime: 2016-04-02 10:00:00
+        
