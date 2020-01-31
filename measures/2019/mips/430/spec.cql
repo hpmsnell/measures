@@ -30,6 +30,7 @@ define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 430 Procedure"] E
     where E.relevantPeriod starts during "Measurement Period"
       and E.signingProvider.hasMeasureMembership = true
+      and not E.code.modifier in {'51', '80'}
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
     with ["Procedure, Performed": "MIPS; MIPS 430 Inhalational Anesthetic Agent"] P1
       such that P1.relevantPeriod starts during E.relevantPeriod
