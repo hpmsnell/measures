@@ -1,3 +1,4 @@
+---
 measure_id: measure.Cms.2019.Cms153v7Rate2
 test_set_keys:
   organization_key:
@@ -49,9 +50,9 @@ test_set_keys:
       numerator:
     - name: ExclusionHospice Before
       denominator: 1
-      denominator_exclusion:
+      denominator_exclusion: exclusion_hospice
       denominator_exception:
-      numerator: performance_not_met
+      numerator:
     - name: ExclusionHospice Lower
       denominator: 1
       denominator_exclusion: exclusion_hospice
@@ -195,7 +196,7 @@ patients:
         stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
       orders:  
-      - code_type: CPT
+      - code_type: LOINC
         code_value: 81025 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
@@ -215,7 +216,7 @@ patients:
         stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
       orders:  
-      - code_type: CPT
+      - code_type: LOINC
         code_value: 81025 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
@@ -235,8 +236,8 @@ patients:
         stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
       orders:  
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
   - name: Male Patient
@@ -255,8 +256,8 @@ patients:
         stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
       orders:  
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
   - name: Age Upper
@@ -275,8 +276,8 @@ patients:
         stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
       orders:  
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
   - name: Encounter Before
@@ -295,8 +296,8 @@ patients:
         stop_datetime: 2015-12-31 23:59:59
         provider: Rachel
       orders:  
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
   - name: Encounter Lower
@@ -315,19 +316,19 @@ patients:
         stop_datetime: 2016-01-01 01:00:00
         provider: Rachel
       orders:  
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
   - name: Encounter Upper
     attributes:
       date_of_birth: 1992-02-01
       given_name: Encounter
-      family_name: Lower
+      family_name: Upper
       sex: Female
     clinical_models:
       clinical_activities:
-      - code_type: LOINC
+      - code_type: CPT
         code_value: 99341 # Denominator encounter
         start_date: 2016-12-31 # Upper bound
         start_datetime: 2016-12-31 22:59:59 # Upper bound
@@ -335,8 +336,8 @@ patients:
         stop_datetime: 2016-12-31 23:59:59
         provider: Rachel 
       orders:  
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
   - name: Encounter After
@@ -354,13 +355,13 @@ patients:
         stop_date: 2017-02-01
         stop_datetime: 2017-02-01 10:00:00 
       orders:         
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
   - name: ExclusionHospice Before
     attributes:
-      date_of_birth: 1962-01-01
+      date_of_birth: 1994-01-01
       given_name: ExclusionHospice
       family_name: Before
       sex: Female
@@ -373,14 +374,14 @@ patients:
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      orders:        
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
         stop_date: 2016-03-20
         stop_datetime: 2016-03-20 01:00:00        
-      orders:
-      - code_type: LOINC
+      - code_type: SNOMEDCT
         code_value: 385763009 # Hospice
         start_date: 2015-12-31 # Too early
         start_datetime: 2015-12-31 23:59:59 # Too early
@@ -400,12 +401,12 @@ patients:
         stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
       orders:
-      - code_type: LOINC
+      - code_type: SNOMEDCT
         code_value: 385763009 # Hospice
         start_date: 2016-01-01 # Lower bound
         start_datetime: 2016-01-01 00:00:00 # Lower bound
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00        
   - name: ExclusionHospice Upper
@@ -428,8 +429,8 @@ patients:
         code_value: 385763009 # Hospice
         start_date: 2016-12-31 # Upper bound
         start_datetime: 2016-12-31 23:59:59 # Upper bound
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00        
   - name: ExclusionHospice After
@@ -448,12 +449,12 @@ patients:
         stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
       orders:
-      - code_type: LOINC
+      - code_type: SNOMEDCT
         code_value: 385763009 # Hospice
         start_date: 2017-01-01 # Too late
         start_datetime: 2017-01-01 00:00:00 # Too late
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00        
   - name: SexualActivityProcedure Before
@@ -472,8 +473,8 @@ patients:
         stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
       orders:  
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
   - name: SexualActivityProcedure Lower
@@ -492,8 +493,8 @@ patients:
         stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel       
       orders:   
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
   - name: SexualActivityProcedure Upper
@@ -512,8 +513,8 @@ patients:
         stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel        
       orders:  
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
   - name: SexualActivityProcedure After
@@ -532,8 +533,8 @@ patients:
         stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel        
       orders:  
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
   - name: ChlamydiaScreening Before
@@ -545,15 +546,15 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99201
+        code_value: 99201 # Denominator Encounter
         start_date: 2016-02-01
         start_datetime: 2016-02-01 09:00:00        
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 10:00:00                
         provider: Rachel
       orders:  
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
       laboratory_test_performeds:
@@ -578,8 +579,8 @@ patients:
         stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
       orders:  
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
       laboratory_test_performeds:
@@ -604,8 +605,8 @@ patients:
         stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
       orders:  
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
       laboratory_test_performeds:
@@ -630,8 +631,8 @@ patients:
         stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
       orders:  
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
       laboratory_test_performeds:
@@ -736,7 +737,7 @@ patients:
         code_value: 24531-6 # Diagnostic radiology
         start_date: 2017-01-01
         start_datetime: 2017-01-01 23:59:59 
- - name: InpatientEncounter Before
+  - name: InpatientEncounter Before
     attributes:
       date_of_birth: 1961-01-01
       given_name: InpatientEncounter
@@ -858,8 +859,8 @@ patients:
         stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
       orders:
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-01-01
         start_datetime: 2016-01-01 00:00:00
       - code_type: LOINC
@@ -882,8 +883,8 @@ patients:
         stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
       orders:
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-01-01 # Lower bound
         start_datetime: 2016-01-01 00:00:00
       medications:
@@ -909,12 +910,12 @@ patients:
         stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
       orders:
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-01-01
         start_datetime: 2016-01-01 00:00:00
       medications:
-       - code_type: RXNORM
+      - code_type: RXNORM
         code_value: 309121 # Cephalosporin (MIPS 021)
         start_date: 2016-01-05
         start_datetime: 2016-01-05 09:00:00
@@ -936,8 +937,8 @@ patients:
         stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
       orders:
-      - code_type: CPT
-        code_value: 81025 # Pregnancy test (sexual activity)
+      - code_type: LOINC
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-01-01
         start_datetime: 2016-01-01 00:00:00
       - code_type: LOINC
@@ -945,10 +946,9 @@ patients:
         start_date: 2016-01-01
         start_datetime: 2016-01-01 09:00:00
       medications:
-       - code_type: RXNORM
+      - code_type: RXNORM
         code_value: 309121 # Cephalosporin (MIPS 021)
         start_date: 2016-01-05
         start_datetime: 2016-01-05 09:00:00
         stop_date: 2016-01-05
-        stop_datetime: 2016-01-05 10:00:00      
-       
+        stop_datetime: 2016-01-05 10:00:00
