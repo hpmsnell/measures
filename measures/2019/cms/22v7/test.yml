@@ -1,1 +1,155 @@
 measure_id: measure.Cms.2019.Cms22v7
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Too Young
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      denominator: 1 
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Encounter Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Encounter Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Encounter Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Encounter After
+      denominator: 
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: BPScreening Before
+      denominator: 
+      denominator_exclusion:
+      denominator_exception:
+      numerator:        
+    - name: BPScreening Lower
+      denominator: 
+      denominator_exclusion:
+      denominator_exception:
+      numerator:        
+    - name: BPScreening Upper
+      denominator: 
+      denominator_exclusion:
+      denominator_exception:
+      numerator:        
+    - name: BPScreening After
+      denominator: 
+      denominator_exclusion:
+      denominator_exception:
+      numerator:                            
+providers:
+  - given_name: Rachel
+    family_name: Katz
+    external_id: '111-111'
+    credential: DO
+    primary_specialty: Family Medicine
+  - given_name: Patty
+    family_name: Smith
+    external_id: '222-222'
+    credential: MD
+    primary_specialty: Family Medicine
+patients:
+  - name: Too Young
+    attributes:
+      date_of_birth: 1998-01-02 # Too late
+      given_name: Too
+      family_name: Young
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00
+        provider: Rachel 
+  - name: Age Lower
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: Age
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00
+        provider: Rachel 
+  - name: Encounter Before
+    attributes:
+      date_of_birth: 1995-02-01
+      given_name: Encounter
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2015-12-30 # Too early
+        start_datetime: 2015-12-30 09:00:00 # Too early
+        stop_date: 2015-12-30
+        stop_datetime: 2015-12-30 10:00:00
+        provider: Rachel
+  - name: Encounter Lower
+    attributes:
+      date_of_birth: 1995-02-01
+      given_name: Encounter
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-01-01 # Lower bound
+        start_datetime: 2016-01-01 09:00:00 # Lower bound
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 10:00:00
+        provider: Rachel
+  - name: Encounter Upper
+    attributes:
+      date_of_birth: 1994-02-01
+      given_name: Encounter
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-12-31 # Upper bound
+        start_datetime: 2016-12-31 22:59:59 # Lower bound
+        stop_date: 2016-12-31
+        stop_datetime: 2016-12-31 23:59:59
+        provider: Rachel 
+  - name: Encounter After
+    attributes:
+      date_of_birth: 1996-02-01
+      given_name: Encounter
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2017-01-01 # After the measurement period
+        start_datetime: 2017-01-01 00:00:00
+        stop_date: 2017-01-01
+        stop_datetime: 2017-01-01 23:59:59        
