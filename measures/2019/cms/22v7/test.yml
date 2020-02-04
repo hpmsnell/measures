@@ -33,10 +33,10 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: BPScreening Before
-      denominator: 
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator:        
+      numerator: performance_not_met       
     - name: BPScreening Lower
       denominator: 1
       denominator_exclusion:
@@ -48,10 +48,30 @@ test_set_keys:
       denominator_exception:
       numerator: performance_met        
     - name: BPScreening After
-      denominator: 
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator:                            
+      numerator: performance_not_met
+    - name: ExclusionHypertension Before
+      denominator:
+      denominator_exclusion: exclusion_hypertension
+      denominator_exception:
+      numerator:                       
+    - name: ExclusionHypertension Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                       
+    - name: ExclusionHypertension Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                       
+    - name: ExclusionHypertension After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                                   
 providers:
   - given_name: Rachel
     family_name: Katz
@@ -153,3 +173,163 @@ patients:
         start_datetime: 2017-01-01 00:00:00
         stop_date: 2017-01-01
         stop_datetime: 2017-01-01 23:59:59        
+  - name: BPScreening Before
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: BPScreening
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59     
+      - code_type: CPT
+        code_value: 90791 # Psychiatric diagnostic evaluation (BP Screening)
+        start_date: 2015-12-30
+        start_datetime: 2015-12-30 00:00:00
+        stop_date: 2015-12-31
+        stop_datetime: 2015-12-31 23:59:59
+  - name: BPScreening Lower
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: BPScreening
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59     
+      - code_type: CPT
+        code_value: 92014 # Ophthalmological services (BP Screening)
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 00:00:00        
+  - name: BPScreening Upper
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: BPScreening
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59     
+      - code_type: CPT
+        code_value: 90791 # Psychiatric diagnostic evaluation (BP Screening)
+        start_date: 2016-12-31
+        start_datetime: 2016-12-31 23:59:59
+        stop_date: 2015-12-31
+        stop_datetime: 2015-12-31 23:59:59        
+  - name: BPScreening After
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: BPScreening
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59     
+      - code_type: CPT
+        code_value: 92014 # Ophthalmological services (BP Screening)
+        start_date: 2017-01-01
+        start_datetime: 2017-01-01 00:00:00
+        stop_date: 2017-01-01
+        stop_datetime: 2017-01-01 01:00:00        
+  - name: ExclusionHypertension Before
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: ExclusionHypertension
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59     
+      - code_type: CPT
+        code_value: 92014 # Ophthalmological services (BP Screening)
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 00:00:00    
+  - name: ExclusionHypertension Lower
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: ExclusionHypertension
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59     
+      - code_type: CPT
+        code_value: 92014 # Ophthalmological services (BP Screening)
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 00:00:00        
+  - name: ExclusionHypertension Upper
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: ExclusionHypertension
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59     
+      - code_type: CPT
+        code_value: 92014 # Ophthalmological services (BP Screening)
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 00:00:00    
+  - name: ExclusionHypertension After
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: ExclusionHypertension
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59     
+      - code_type: CPT
+        code_value: 92014 # Ophthalmological services (BP Screening)
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 00:00:00    
