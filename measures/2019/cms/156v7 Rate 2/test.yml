@@ -292,12 +292,12 @@ patients:
       - start_date: 2015-12-31 # Before the measurement period
         start_datetime: 2015-12-31 00:00:00
         code_type: RXNORM
-        code_value: 1090463 # Brompheniramine Maleate 0.2 MG (High Risk medication for the elderly)
+        code_value: 1431286 # Acetaminophen 300 MG (Medications List)
         prescribed: true   
       - start_date: 2016-01-30 # Inside the measurement period
         start_datetime: 2016-01-30 00:00:00 # Inside the measurement period
         code_type: RXNORM
-        code_value: 1090699 # Chlorpheniramine Maleate 2 MG / Pseudoephedrine Hydrochloride 30 MG Oral Tablet (High Risk medication for the elderly)
+        code_value: 993943 # Acetaminophen 325 MG (Medications List)
         prescribed: true                
   - name: Medicine Lower
     attributes:
@@ -318,12 +318,12 @@ patients:
       - start_date: 2016-01-01 # Lower bound of the measurement period
         start_datetime: 2016-01-01 00:00:00 # Lower bound of the measurement period
         code_type: RXNORM
-        code_value: 1092189 # Acetaminophen 500 MG (High Risk medication for the elderly)         
+        code_value: 995624 # Meclizine Hydrochloride 12.5 MG Oral Tablet (Medications List)         
         prescribed: true
-      - start_date: 2017-01-02 # Different day from the first medication and outside the measurement period
-        start_datetime: 2017-01-02 01:00:00 
+      - start_date: 2016-01-02 # Different day from the first medication
+        start_datetime: 2016-01-02 01:00:00 
         code_type: RXNORM
-        code_value: 1049900 # Diphenhydramine Hydrochloride 12.5 MG Chewable Tablet (High Risk medication for the elderly)         
+        code_value: 995632 # Meclizine Hydrochloride 25 MG Chewable Tablet (Medications List)         
         prescribed: true        
   - name: Medicine Upper
     attributes:
@@ -344,12 +344,12 @@ patients:
       - start_date: 2016-12-31 # Upper bound of the measurement period
         start_datetime: 2016-12-31 23:59:59 # Upper bound of the measurement period
         code_type: RXNORM
-        code_value: 1090463 # Brompheniramine Maleate 0.2 MG (High Risk medication for the elderly)                               
+        code_value: 835564 # Imipramine Hydrochloride 25 MG Oral Tablet (Medications List)                             
         prescribed: true
-      - start_date: 2017-02-20 # Different day from the first medication and outside the measurement period
-        start_datetime: 2017-02-20 23:59:59
+      - start_date: 2016-02-20 # Different day from the first medication
+        start_datetime: 2016-02-20 23:59:59
         code_type: RXNORM
-        code_value: 1088934 # Chlorzoxazone 375 MG Oral Tablet (High Risk medication for the elderly)                               
+        code_value: 835568 # Imipramine Hydrochloride 50 MG Oral Tablet (Medications List)                               
         prescribed: true        
   - name: Medicine After
     attributes:
@@ -370,12 +370,12 @@ patients:
       - start_date: 2017-01-01 # After the measurement period
         start_datetime: 2017-01-01 00:00:00 # After the measurement period
         code_type: RXNORM
-        code_value: 1092189 # Acetaminophen 500 MG (High Risk medication for the elderly)         
+        code_value: 905168 # Protriptyline Hydrochloride 10 MG Oral Tablet (Medications List)         
         prescribed: true
-      - start_date: 2017-01-02 # Different day from the first medication and outside the measurement period
-        start_datetime: 2017-01-02 00:00:00
+      - start_date: 2016-01-02 # Different day from the first medication
+        start_datetime: 2016-01-02 00:00:00
         code_type: RXNORM
-        code_value: 1093098 # Diphenhydramine Hydrochloride 25 MG Disintegrating Oral Tablet (High Risk medication for the elderly)         
+        code_value: 905172 # Protriptyline Hydrochloride 5 MG Oral Tablet (Medications List)                 
         prescribed: true        
   - name: HighRiskMedicationOrder Before
     attributes:
@@ -398,12 +398,12 @@ patients:
         stop_date: 2016-08-30 # 89 days from start date to end date
         stop_datetime: 2016-08-30 00:00:00   
         code_type: RXNORM
-        code_value: 1090443 # Chlorpheniramine Maleate 4 MG (High Risk medication for the elderly)        
+        code_value: 1430122 # Paroxetine mesylate 7.5 MG Oral Capsule (Medications List)        
         prescribed: true
-      - start_date: 2017-09-01 # Different day from the first medication and outside the measurement period
-        start_datetime: 2017-09-01 00:00:00
+      - start_date: 2015-09-01 # Different day from the first medication
+        start_datetime: 2015-09-01 00:00:00
         code_type: RXNORM
-        code_value: 1298799 # Isoxsuprine Hydrochloride 20 MG Oral Tablet (High Risk medication for the elderly)        
+        code_value: 1738483 # Paroxetine Hydrochloride 10 MG Oral Tablet (Medications List)        
         prescribed: true        
   - name: HighRiskMedicationOrder After
     attributes:
@@ -426,14 +426,14 @@ patients:
         stop_date: 2016-10-08 # 90 days from start date to end date
         stop_datetime: 2016-10-08 00:00:00
         code_type: RXNORM
-        code_value: 1090443 # Chlorpheniramine Maleate 4 MG (High Risk medication for the elderly)                
+        code_value: 1046815 # Atropine Sulfate 0.0194 MG (Medications List)                
         prescribed: true
       - start_date: 2017-03-25 # Different day from the first medication and outside the measurement period
         start_datetime: 2017-03-25 00:00:00 
         stop_date: 2017-06-23 # 90 days from start date to end date
         stop_datetime: 2017-06-23 00:00:00
         code_type: RXNORM
-        code_value: 1537803 # thyroid (USP) 113.75 MG Oral Tablet (High Risk medication for the elderly)                
+        code_value: 1048147 # Atropine Sulfate 0.0582 MG (Medications List)                
         prescribed: true
   - name: MedicationList SameDay
     attributes:
@@ -456,14 +456,14 @@ patients:
         stop_date: 2016-10-08 # 90 days from start date to end date
         stop_datetime: 2016-10-08 00:00:00
         code_type: RXNORM
-        code_value: 1249617 #  Acetaminophen 300 MG / butalbital 50 MG Oral Tablet  
+        code_value: 197956 # Methyldopa 250 MG Oral Tablet (Medications List)
         prescribed: true
       - start_date: 2016-06-10 # Inside the measurement period
         start_datetime: 2016-06-10 00:00:00 # Inside the measurement period
         stop_date: 2016-10-08 # 90 days from start date to end date
         stop_datetime: 2016-10-08 00:00:00
         code_type: RXNORM
-        code_value: 1724446 # Acetaminophen 325 MG / butalbital 25 MG Oral Tablet
+        code_value: 197958 # Methyldopa 500 MG Oral Tablet (Medications List)
         prescribed: true
   - name: MedicationList DifferentDay
     attributes:
@@ -486,12 +486,12 @@ patients:
         stop_date: 2016-08-30 # 90 days from start date to end date
         stop_datetime: 2016-08-30 00:00:00
         code_type: RXNORM
-        code_value: 197363 # Amoxapine 100 MG Oral Tablet          
+        code_value: 198032 # Nifedipine 10 MG Oral Capsule (Medications List)     
         prescribed: true        
       - start_date: 2016-05-01 # Inside the measurement period
         start_datetime: 2016-05-01 00:00:00 # Inside the measurement period
         stop_date: 2016-07-30 # 90 days from start date to end date
         stop_datetime: 2016-07-30 00:00:00
         code_type: RXNORM
-        code_value: 197364 # Amoxapine 150 MG Oral Tablet
+        code_value: 198033 # Nifedipine 20 MG Oral Capsule (Medications List)
         prescribed: true                        
