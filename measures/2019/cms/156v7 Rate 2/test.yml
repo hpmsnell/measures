@@ -294,8 +294,8 @@ patients:
         code_type: RXNORM
         code_value: 1090463 # Brompheniramine Maleate 0.2 MG (High Risk medication for the elderly)
         prescribed: true   
-      - start_date: 2015-12-30 # Before the measurement period
-        start_datetime: 2015-12-30 00:00:00 # After the measurement period
+      - start_date: 2016-01-30 # Inside the measurement period
+        start_datetime: 2016-01-30 00:00:00 # Inside the measurement period
         code_type: RXNORM
         code_value: 1090699 # Chlorpheniramine Maleate 2 MG / Pseudoephedrine Hydrochloride 30 MG Oral Tablet (High Risk medication for the elderly)
         prescribed: true                
@@ -320,8 +320,8 @@ patients:
         code_type: RXNORM
         code_value: 1092189 # Acetaminophen 500 MG (High Risk medication for the elderly)         
         prescribed: true
-      - start_date: 2016-01-02
-        start_datetime: 2016-01-02 01:00:00 # Lower bound of the measurement period
+      - start_date: 2017-01-02 # Different day from the first medication and outside the measurement period
+        start_datetime: 2017-01-02 01:00:00 
         code_type: RXNORM
         code_value: 1049900 # Diphenhydramine Hydrochloride 12.5 MG Chewable Tablet (High Risk medication for the elderly)         
         prescribed: true        
@@ -342,12 +342,12 @@ patients:
         provider: Rachel
       medications:
       - start_date: 2016-12-31 # Upper bound of the measurement period
-        start_datetime: 2017-12-31 23:59:59 # Upper bound of the measurement period
+        start_datetime: 2016-12-31 23:59:59 # Upper bound of the measurement period
         code_type: RXNORM
         code_value: 1090463 # Brompheniramine Maleate 0.2 MG (High Risk medication for the elderly)                               
         prescribed: true
-      - start_date: 2016-12-30 # Upper bound of the measurement period
-        start_datetime: 2017-12-30 23:59:59 # Upper bound of the measurement period
+      - start_date: 2017-02-20 # Different day from the first medication and outside the measurement period
+        start_datetime: 2017-02-20 23:59:59
         code_type: RXNORM
         code_value: 1088934 # Chlorzoxazone 375 MG Oral Tablet (High Risk medication for the elderly)                               
         prescribed: true        
@@ -372,7 +372,7 @@ patients:
         code_type: RXNORM
         code_value: 1092189 # Acetaminophen 500 MG (High Risk medication for the elderly)         
         prescribed: true
-      - start_date: 2017-01-02
+      - start_date: 2017-01-02 # Different day from the first medication and outside the measurement period
         start_datetime: 2017-01-02 00:00:00
         code_type: RXNORM
         code_value: 1093098 # Diphenhydramine Hydrochloride 25 MG Disintegrating Oral Tablet (High Risk medication for the elderly)         
@@ -400,8 +400,8 @@ patients:
         code_type: RXNORM
         code_value: 1090443 # Chlorpheniramine Maleate 4 MG (High Risk medication for the elderly)        
         prescribed: true
-      - start_date: 2016-09-01 # Inside the measurement period
-        start_datetime: 2016-09-01 00:00:00 # Inside the measurement period
+      - start_date: 2017-09-01 # Different day from the first medication and outside the measurement period
+        start_datetime: 2017-09-01 00:00:00
         code_type: RXNORM
         code_value: 1298799 # Isoxsuprine Hydrochloride 20 MG Oral Tablet (High Risk medication for the elderly)        
         prescribed: true        
@@ -428,10 +428,10 @@ patients:
         code_type: RXNORM
         code_value: 1090443 # Chlorpheniramine Maleate 4 MG (High Risk medication for the elderly)                
         prescribed: true
-      - start_date: 2016-10-09 # Inside the measurement period
-        start_datetime: 2016-10-09 00:00:00 # Inside the measurement period
-        stop_date: 2016-10-10 # 90 days from start date to end date
-        stop_datetime: 2016-10-10 00:00:00
+      - start_date: 2017-03-25 # Different day from the first medication and outside the measurement period
+        start_datetime: 2017-03-25 00:00:00 
+        stop_date: 2017-06-23 # 90 days from start date to end date
+        stop_datetime: 2017-06-23 00:00:00
         code_type: RXNORM
         code_value: 1537803 # thyroid (USP) 113.75 MG Oral Tablet (High Risk medication for the elderly)                
         prescribed: true
