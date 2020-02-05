@@ -1,3 +1,4 @@
+---
 measure_id: measure.Cms.2019.Cms153v7Rate2
 test_set_keys:
   organization_key:
@@ -196,9 +197,12 @@ patients:
         provider: Rachel
       orders:  
       - code_type: LOINC
-        code_value: 81025 # Pregnancy test (sexual activity)
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: Too Old
     attributes:
       date_of_birth: 1991-01-01 # Too Late
@@ -216,9 +220,12 @@ patients:
         provider: Rachel
       orders:  
       - code_type: LOINC
-        code_value: 81025 # Pregnancy test (sexual activity)
+        code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: Age Lower
     attributes:
       date_of_birth: 1995-01-01 # Lower bound
@@ -239,6 +246,9 @@ patients:
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: Male Patient
     attributes:
       date_of_birth: 1995-01-01 # Lower bound
@@ -255,10 +265,13 @@ patients:
         stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
       orders:  
-      - code_type: LOINC
+      - code_type: CPT
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: Age Upper
     attributes:
       date_of_birth: 1992-02-01 # Upper bound
@@ -279,6 +292,9 @@ patients:
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: Encounter Before
     attributes:
       date_of_birth: 1994-02-01
@@ -299,6 +315,9 @@ patients:
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: Encounter Lower
     attributes:
       date_of_birth: 1994-02-01
@@ -319,6 +338,9 @@ patients:
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: Encounter Upper
     attributes:
       date_of_birth: 1992-02-01
@@ -339,6 +361,9 @@ patients:
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: Encounter After
     attributes:
       date_of_birth: 1992-02-01
@@ -358,6 +383,9 @@ patients:
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: ExclusionHospice Before
     attributes:
       date_of_birth: 1994-01-01
@@ -380,10 +408,15 @@ patients:
         start_datetime: 2016-03-20 00:00:00
         stop_date: 2016-03-20
         stop_datetime: 2016-03-20 01:00:00        
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
       - code_type: SNOMEDCT
         code_value: 385763009 # Hospice
         start_date: 2015-12-31 # Too early
         start_datetime: 2015-12-31 23:59:59 # Too early
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: ExclusionHospice Lower
     attributes:
       date_of_birth: 1994-01-01
@@ -404,10 +437,15 @@ patients:
         code_value: 385763009 # Hospice
         start_date: 2016-01-01 # Lower bound
         start_datetime: 2016-01-01 00:00:00 # Lower bound
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
       - code_type: LOINC
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00        
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: ExclusionHospice Upper
     attributes:
       date_of_birth: 1995-01-01
@@ -424,14 +462,19 @@ patients:
         stop_datetime: 2016-02-01 10:00:00
         provider: Rachel
       orders:
-      - code_type: LOINC
+      - code_type: SNOMEDCT
         code_value: 385763009 # Hospice
         start_date: 2016-12-31 # Upper bound
         start_datetime: 2016-12-31 23:59:59 # Upper bound
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
       - code_type: LOINC
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
-        start_datetime: 2016-03-20 00:00:00        
+        start_datetime: 2016-03-20 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                        
   - name: ExclusionHospice After
     attributes:
       date_of_birth: 1994-01-01
@@ -451,11 +494,16 @@ patients:
       - code_type: SNOMEDCT
         code_value: 385763009 # Hospice
         start_date: 2017-01-01 # Too late
-        start_datetime: 2017-01-01 00:00:00 # Too late
+        start_datetime: 2017-01-01 00:00:00 # Too Late
+        author_date: 2017-02-01
+        author_datetime: 2017-02-01 00:00:00                
       - code_type: LOINC
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00        
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: SexualActivityProcedure Before
     attributes:
       date_of_birth: 1995-01-01
@@ -471,11 +519,13 @@ patients:
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 10:00:00        
         provider: Rachel
-      orders:  
       - code_type: LOINC
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2015-12-31
         start_datetime: 2015-12-31 00:00:00
+        child_code_value: 373066001
+        author_date: 2017-01-01
+        author_datetime: 2017-01-01 00:00:00                
   - name: SexualActivityProcedure Lower
     attributes:
       date_of_birth: 1995-01-01
@@ -496,6 +546,9 @@ patients:
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: SexualActivityProcedure Upper
     attributes:
       date_of_birth: 1995-01-01
@@ -516,6 +569,9 @@ patients:
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: SexualActivityProcedure After
     attributes:
       date_of_birth: 1995-01-01
@@ -536,6 +592,9 @@ patients:
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2017-03-20
         start_datetime: 2017-03-20 00:00:00
+        child_code_value: 373066001
+        author_date: 2017-01-01
+        author_datetime: 2017-01-01 00:00:00                
   - name: ChlamydiaScreening Before
     attributes:
       date_of_birth: 1995-03-22
@@ -556,6 +615,9 @@ patients:
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
       laboratory_test_performeds:
       - code_type: LOINC
         code_value: 14463-4
@@ -582,6 +644,9 @@ patients:
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
       laboratory_test_performeds:
       - code_type: LOINC
         code_value: 14463-4
@@ -608,6 +673,9 @@ patients:
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
       laboratory_test_performeds:
       - code_type: LOINC
         code_value: 14463-4
@@ -634,6 +702,9 @@ patients:
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-03-20
         start_datetime: 2016-03-20 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
       laboratory_test_performeds:
       - code_type: LOINC
         code_value: 14463-4
@@ -660,10 +731,15 @@ patients:
         code_value: 19080-1 # Pregnancy test
         start_date: 2015-12-31 # Lower bound
         start_datetime: 2015-12-31 23:59:59
+        child_code_value: 373066001
+        author_date: 2015-12-31
+        author_datetime: 2015-12-31 23:59:59                
       - code_type: LOINC
         code_value: 24531-6 # Diagnostic radiology
         start_date: 2015-12-31
         start_datetime: 2015-12-31 23:59:59
+        author_date: 2016-02-03
+        author_datetime: 2016-02-03 00:00:00                
   - name: ExclusionPregnancy Lower
     attributes:
       date_of_birth: 1995-03-22
@@ -684,10 +760,15 @@ patients:
         code_value: 19080-1 # Pregnancy test
         start_date: 2016-01-01 # Lower bound
         start_datetime: 2016-01-01 23:59:59
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
       - code_type: LOINC
         code_value: 24531-6 # Diagnostic radiology
         start_date: 2016-01-01
-        start_datetime: 2016-01-01 23:59:59 
+        start_datetime: 2016-01-01 23:59:59
+        author_date: 2016-02-03
+        author_datetime: 2016-02-03 00:00:00                 
   - name: ExclusionPregnancy Upper
     attributes:
       date_of_birth: 1995-03-22
@@ -708,10 +789,15 @@ patients:
         code_value: 19080-1 # Pregnancy test
         start_date: 2016-12-31 # Upper bound
         start_datetime: 2016-12-31 23:59:59
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
       - code_type: LOINC
         code_value: 24531-6 # Diagnostic radiology
         start_date: 2016-12-31
-        start_datetime: 2016-12-31 23:59:59       
+        start_datetime: 2016-12-31 23:59:59
+        author_date: 2016-02-08
+        author_datetime: 2016-02-08 00:00:00                       
   - name: ExclusionPregnancy After # Upate test key so that this patient does not meet denominator
     attributes:
       date_of_birth: 1995-03-22
@@ -732,10 +818,15 @@ patients:
         code_value: 19080-1 # Pregnancy test
         start_date: 2017-01-01 # Too late
         start_datetime: 2017-01-01 23:59:59
+        child_code_value: 373066001
+        author_date: 2017-01-01
+        author_datetime: 2017-01-01 00:00:00                
       - code_type: LOINC
         code_value: 24531-6 # Diagnostic radiology
         start_date: 2017-01-01
         start_datetime: 2017-01-01 23:59:59 
+        author_date: 2016-02-03
+        author_datetime: 2016-02-03 00:00:00       
   - name: InpatientEncounter Before
     attributes:
       date_of_birth: 1995-01-01
@@ -758,11 +849,15 @@ patients:
         start_datetime: 2015-12-31 23:59:59
         stop_date: 2015-12-31 # Too early
         stop_datetime: 2015-12-31 23:59:59
-      orders:
+      medications:
       - code_type: RXNORM 
         code_value: 1000126 # Active contraceptive medication
         start_date: 2016-12-31
         start_datetime: 2016-12-31 22:59:59
+        stop_date: 2016-12-31
+        stop_datetime: 2016-12-31 22:59:59  
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: InpatientEncounter Lower
     attributes:
       date_of_birth: 1995-01-01
@@ -788,6 +883,8 @@ patients:
         code_value: 10524-7 # Pap Test (Sexual activity but not pregnancy)
         start_date: 2016-01-01
         start_datetime: 2016-01-01 09:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: InpatientEncounter Upper
     attributes:
       date_of_birth: 1995-03-22
@@ -810,11 +907,14 @@ patients:
         start_datetime: 2016-02-01 09:00:00
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 10:00:00
-      orders:
+      medications:
       - code_type: RXNORM
         code_value: 1251323 # Order: Contraceptive medications
         start_date: 2016-01-01
         start_datetime: 2016-01-01 09:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: InpatientEncounter After
     attributes:
       date_of_birth: 1995-02-01
@@ -842,6 +942,8 @@ patients:
         code_value: 10524-7 # Laboratory test for sexual activity
         start_date: 2016-01-01
         start_datetime: 2016-01-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: Herpes Test
     attributes:
       date_of_birth: 1996-01-01 # Too Early
@@ -862,10 +964,16 @@ patients:
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-01-01
         start_datetime: 2016-01-01 00:00:00
-      - code_type: LOINC
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
+      - code_type: SNOMEDCT
         code_value: 10350-7 # Herpes test
         start_date: 2016-01-01
         start_datetime: 2016-01-01 09:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
   - name: ExclusionMedication BeforePregnancyTest # Update name of patient in test key
     attributes:
       date_of_birth: 1996-01-01 # Too Early
@@ -886,6 +994,9 @@ patients:
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-01-01 # Lower bound
         start_datetime: 2016-01-01 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
       medications:
       - code_type: RXNORM
         code_value: 309121 # Cephalosporin (MIPS 021)
@@ -913,6 +1024,9 @@ patients:
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-01-01
         start_datetime: 2016-01-01 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
       medications:
       - code_type: RXNORM
         code_value: 309121 # Cephalosporin (MIPS 021)
@@ -940,10 +1054,15 @@ patients:
         code_value: 19080-1 # Pregnancy test (sexual activity)
         start_date: 2016-01-01
         start_datetime: 2016-01-01 00:00:00
+        child_code_value: 373066001
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
       - code_type: LOINC
         code_value: 10350-7 # Herpes test
         start_date: 2016-01-01
         start_datetime: 2016-01-01 09:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
       medications:
       - code_type: RXNORM
         code_value: 309121 # Cephalosporin (MIPS 021)
