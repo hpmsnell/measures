@@ -72,12 +72,12 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met                  
-    - name: HighRiskMedicationOrder Before      
+    - name: HighRiskMedicationOrder 89Days      
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met                  
-    - name: HighRiskMedicationOrder After
+    - name: HighRiskMedicationOrder 90Days
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -377,11 +377,11 @@ patients:
         code_type: RXNORM
         code_value: 905172 # Protriptyline Hydrochloride 5 MG Oral Tablet (Medications List)                 
         prescribed: true        
-  - name: HighRiskMedicationOrder Before
+  - name: HighRiskMedicationOrder 89Days
     attributes:
       date_of_birth: 1945-02-01
       given_name: HighRiskMedicationOrder
-      family_name: Before
+      family_name: 89Days
       sex: Male
     clinical_models:
       clinical_activities:
@@ -398,18 +398,20 @@ patients:
         stop_date: 2016-08-30 # 89 days from start date to end date
         stop_datetime: 2016-08-30 00:00:00   
         code_type: RXNORM
-        code_value: 1430122 # Paroxetine mesylate 7.5 MG Oral Capsule (Medications List)        
+        code_value: 1648755 # NITROFURANTOIN, MACROCRYSTALS 25 MG (Anti Infectives)        
         prescribed: true
-      - start_date: 2015-09-01 # Different day from the first medication
-        start_datetime: 2015-09-01 00:00:00
+      - start_date: 2016-09-01 # Different day from the first medication
+        start_datetime: 2016-09-01 00:00:00
+        stop_date: 2016-11-29 # 89 days from start date to end date
+        stop_datetime: 2016-11-29 00:00:00
         code_type: RXNORM
-        code_value: 1738483 # Paroxetine Hydrochloride 10 MG Oral Tablet (Medications List)        
+        code_value: 1648759 # NITROFURANTOIN, MACROCRYSTALS 100 MG Oral Capsule (Anti Infectives)        
         prescribed: true        
-  - name: HighRiskMedicationOrder After
+  - name: HighRiskMedicationOrder 90Days
     attributes:
       date_of_birth: 1945-02-01
       given_name: HighRiskMedicationOrder
-      family_name: After
+      family_name: 90Days
       sex: Male
     clinical_models:
       clinical_activities:
@@ -423,17 +425,17 @@ patients:
       medications:
       - start_date: 2016-06-10 # Inside the measurement period
         start_datetime: 2016-06-10 00:00:00 # Inside the measurement period
-        stop_date: 2016-10-08 # 90 days from start date to end date
-        stop_datetime: 2016-10-08 00:00:00
+        stop_date: 2016-09-08 # 90 days from start date to end date
+        stop_datetime: 2016-09-08 00:00:00
         code_type: RXNORM
-        code_value: 1046815 # Atropine Sulfate 0.0194 MG (Medications List)                
+        code_value: 1232194 # Zolpidem tartrate 1.75 MG Sublingual Tablet (Nonbenzodiazepine hypnotics)                
         prescribed: true
-      - start_date: 2017-03-25 # Different day from the first medication and outside the measurement period
+      - start_date: 2016-03-25 # Different day from the first medication and outside the measurement period
         start_datetime: 2017-03-25 00:00:00 
-        stop_date: 2017-06-23 # 90 days from start date to end date
+        stop_date: 2016-06-23 # 90 days from start date to end date
         stop_datetime: 2017-06-23 00:00:00
         code_type: RXNORM
-        code_value: 1048147 # Atropine Sulfate 0.0582 MG (Medications List)                
+        code_value: 1232202 # Zolpidem tartrate 3.5 MG Sublingual Tablet  (Nonbenzodiazepine hypnotics)
         prescribed: true
   - name: MedicationList SameDay
     attributes:
