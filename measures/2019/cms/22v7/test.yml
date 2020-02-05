@@ -32,11 +32,6 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: BPScreening Before
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met       
     - name: BPScreening Lower
       denominator: 1
       denominator_exclusion:
@@ -47,11 +42,6 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_met        
-    - name: BPScreening After
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
     - name: ExclusionHypertension Before
       denominator:
       denominator_exclusion: exclusion_hypertension
@@ -123,12 +113,12 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99201 # Denominator encounter
-        start_date: 2015-12-30 # Too early
-        start_datetime: 2015-12-30 09:00:00 # Too early
-        stop_date: 2015-12-30
-        stop_datetime: 2015-12-30 10:00:00
-        provider: Rachel
+        code_value: 90791 # Psychiatric diagnostic evaluation (BP Screening)
+        start_date: 2015-12-30 # Before the Measurement Period
+        start_datetime: 2015-12-30 00:00:00
+        stop_date: 2015-12-31
+        stop_datetime: 2015-12-31 23:59:59
+        provider: Rachel 
   - name: Encounter Lower
     attributes:
       date_of_birth: 1995-02-01
@@ -138,12 +128,12 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99201 # Denominator encounter
-        start_date: 2016-01-01 # Lower bound
-        start_datetime: 2016-01-01 09:00:00 # Lower bound
+        code_value: 92014 # Ophthalmological services (BP Screening)
+        start_date: 2016-01-01 # Lower bound of the Measurement Period
+        start_datetime: 2016-01-01 00:00:00
         stop_date: 2016-01-01
-        stop_datetime: 2016-01-01 10:00:00
-        provider: Rachel
+        stop_datetime: 2016-01-01 00:00:00
+        provider: Rachel                 
   - name: Encounter Upper
     attributes:
       date_of_birth: 1994-02-01
@@ -153,11 +143,11 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99201 # Denominator encounter
-        start_date: 2016-12-31 # Upper bound
-        start_datetime: 2016-12-31 22:59:59 # Lower bound
-        stop_date: 2016-12-31
-        stop_datetime: 2016-12-31 23:59:59
+        code_value: 90791 # Psychiatric diagnostic evaluation (BP Screening)
+        start_date: 2016-12-31 # Upper bound of the Measurement Period
+        start_datetime: 2016-12-31 23:59:59
+        stop_date: 2015-12-31
+        stop_datetime: 2015-12-31 23:59:59        
         provider: Rachel 
   - name: Encounter After
     attributes:
@@ -168,31 +158,11 @@ patients:
     clinical_models:
       clinical_activities:
       - code_type: CPT
-        code_value: 99201 # Denominator encounter
-        start_date: 2017-01-01 # After the measurement period
+        code_value: 92014 # Ophthalmological services (BP Screening)
+        start_date: 2017-01-01 # After the Measurement Period
         start_datetime: 2017-01-01 00:00:00
         stop_date: 2017-01-01
-        stop_datetime: 2017-01-01 23:59:59        
-  - name: BPScreening Before
-    attributes:
-      date_of_birth: 1998-01-01
-      given_name: BPScreening
-      family_name: Before
-      sex: Male
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201 # Denominator encounter
-        start_date: 2016-02-01 # Inside the measurement period
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59     
-      - code_type: CPT
-        code_value: 90791 # Psychiatric diagnostic evaluation (BP Screening)
-        start_date: 2015-12-30
-        start_datetime: 2015-12-30 00:00:00
-        stop_date: 2015-12-31
-        stop_datetime: 2015-12-31 23:59:59
+        stop_datetime: 2017-01-01 01:00:00        
   - name: BPScreening Lower
     attributes:
       date_of_birth: 1998-01-01
@@ -233,26 +203,6 @@ patients:
         start_datetime: 2016-12-31 23:59:59
         stop_date: 2015-12-31
         stop_datetime: 2015-12-31 23:59:59        
-  - name: BPScreening After
-    attributes:
-      date_of_birth: 1998-01-01
-      given_name: BPScreening
-      family_name: After
-      sex: Male
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201 # Denominator encounter
-        start_date: 2016-02-01 # Inside the measurement period
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59     
-      - code_type: CPT
-        code_value: 92014 # Ophthalmological services (BP Screening)
-        start_date: 2017-01-01
-        start_datetime: 2017-01-01 00:00:00
-        stop_date: 2017-01-01
-        stop_datetime: 2017-01-01 01:00:00        
   - name: ExclusionHypertension Before
     attributes:
       date_of_birth: 1998-01-01
@@ -265,14 +215,15 @@ patients:
         code_value: 99201 # Denominator encounter
         start_date: 2016-02-01 # Inside the measurement period
         start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59     
-      - code_type: CPT
-        code_value: 92014 # Ophthalmological services (BP Screening)
-        start_date: 2016-01-01
-        start_datetime: 2016-01-01 00:00:00
-        stop_date: 2016-01-01
-        stop_datetime: 2016-01-01 00:00:00    
+        stop_date: 2016-02-02
+        stop_datetime: 2016-02-02 00:00:00
+      diagnoses:       
+      - code_type: SNOMEDCT
+        code_value: 102932008 # Fear of hypertension (finding) (Hypertension)
+        start_date: 2016-01-31
+        start_datetime: 2016-01-31 23:59:59
+        stop_date: 2016-01-31
+        stop_datetime: 2016-01-31 23:59:59    
   - name: ExclusionHypertension Lower
     attributes:
       date_of_birth: 1998-01-01
@@ -285,14 +236,15 @@ patients:
         code_value: 99201 # Denominator encounter
         start_date: 2016-02-01 # Inside the measurement period
         start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-02
+        stop_datetime: 2016-02-02 23:59:59     
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 10725009 # Benign hypertension (disorder) (Hypertension)
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
         stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59     
-      - code_type: CPT
-        code_value: 92014 # Ophthalmological services (BP Screening)
-        start_date: 2016-01-01
-        start_datetime: 2016-01-01 00:00:00
-        stop_date: 2016-01-01
-        stop_datetime: 2016-01-01 00:00:00        
+        stop_datetime: 2016-02-01 00:00:00        
   - name: ExclusionHypertension Upper
     attributes:
       date_of_birth: 1998-01-01
@@ -305,14 +257,15 @@ patients:
         code_value: 99201 # Denominator encounter
         start_date: 2016-02-01 # Inside the measurement period
         start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59     
-      - code_type: CPT
-        code_value: 92014 # Ophthalmological services (BP Screening)
-        start_date: 2016-01-01
-        start_datetime: 2016-01-01 00:00:00
-        stop_date: 2016-01-01
-        stop_datetime: 2016-01-01 00:00:00    
+        stop_date: 2016-02-02
+        stop_datetime: 2016-02-02 23:59:59     
+      diagnoses:  
+      - code_type: SNOMEDCT
+        code_value: 10964002 #   Progressive pulmonary hypertension (disorder) (Hypertension)
+        start_date: 2016-02-02
+        start_datetime: 2016-02-02 23:59:59
+        stop_date: 2016-02-02
+        stop_datetime: 2016-02-02 23:59:59   
   - name: ExclusionHypertension After
     attributes:
       date_of_birth: 1998-01-01
@@ -325,11 +278,12 @@ patients:
         code_value: 99201 # Denominator encounter
         start_date: 2016-02-01 # Inside the measurement period
         start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59     
-      - code_type: CPT
-        code_value: 92014 # Ophthalmological services (BP Screening)
-        start_date: 2016-01-01
-        start_datetime: 2016-01-01 00:00:00
-        stop_date: 2016-01-01
-        stop_datetime: 2016-01-01 00:00:00    
+        stop_date: 2016-02-02
+        stop_datetime: 2016-02-02 23:59:59
+      diagnoses:       
+      - code_type: SNOMEDCT
+        code_value: 1201005 #   Benign essential hypertension (disorder) (Hypertension)
+        start_date: 2017-02-03
+        start_datetime: 2017-02-03 00:00:00
+        stop_date: 2017-02-03
+        stop_datetime: 2017-02-03 00:00:00    
