@@ -74,7 +74,7 @@ define "DTaP Allergy Exists":
     where D.prevalencePeriod starts on or before 2 years after "Patient Characteristic Birthdate")
     with ["Diagnosis": "HEDIS; Vaccine Causing Adverse Effect"] D2
       such that D1.prevalencePeriod starts at start of D2.prevalencePeriod
-  or exists(["Allergy": "HEDIS; DTaP Vaccine Administered"] A
+  or exists(["Allergy": "HEDIS; DTaP Immunization"] A
     where A.prevalencePeriod starts on or before 2 years after "Patient Characteristic Birthdate")
 
 define "Exclusion for DTaP Exists":
@@ -168,13 +168,12 @@ define "Exclusion for Hepatitis B":
     where A.prevalencePeriod starts on or before 2 years after "Patient Characteristic Birthdate")
   amnd not "CIS5 Performance Met"
 
-define "DTaP Procedure":
-  ["Procedure, Performed": "HEDIS; DTaP Vaccine Administered"] P
-    where P.relevantPeriod starts during ["Patient Characteristic Birthdate" + 42 days, "Patient Characteristic Birthdate" + 2 years]
 
-define "DTaP Medication":
-  ["Medication, Administered": "HEDIS; DTaP Vaccine Administered"] M
-    where M.authorDateTime during ["Patient Characteristic Birthdate" + 42 days, "Patient Characteristic Birthdate" + 2 years]
+
+define "DTap Immunizations or Procedures"
+  ((["Immunization, Administered": "DTaP Immunization"]
+  union ["Procedure, Performed": "DTaP Vaccine Procedure"])DTaPVacc
+  where DTaPVacc.relevantDatetime during Interval["Patient Characteristic Birthdate" + 42 days, "Patient Characteristic Birthdate" + 2 year])
 
 // Populations
 
