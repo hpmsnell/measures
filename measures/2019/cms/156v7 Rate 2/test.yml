@@ -395,15 +395,15 @@ patients:
       medications:
       - start_date: 2016-06-02 # Inside the measurement period
         start_datetime: 2016-06-02 00:00:00 # Inside the measurement period
-        stop_date: 2016-08-30 # 89 days from start date to end date
-        stop_datetime: 2016-08-30 00:00:00   
+        stop_date: 2016-08-20 # 79 days from start date to end date
+        stop_datetime: 2016-08-20 00:00:00   
         code_type: RXNORM
         code_value: 1648755 # NITROFURANTOIN, MACROCRYSTALS 25 MG (Anti Infectives)        
         prescribed: true
       - start_date: 2016-09-01 # Different day from the first medication
         start_datetime: 2016-09-01 00:00:00
-        stop_date: 2016-11-29 # 89 days from start date to end date
-        stop_datetime: 2016-11-29 00:00:00
+        stop_date: 2016-09-11 # 10 days from start date to end date
+        stop_datetime: 2016-09-11 00:00:00
         code_type: RXNORM
         code_value: 1648759 # NITROFURANTOIN, MACROCRYSTALS 100 MG Oral Capsule (Anti Infectives)        
         prescribed: true        
@@ -425,15 +425,15 @@ patients:
       medications:
       - start_date: 2016-06-10 # Inside the measurement period
         start_datetime: 2016-06-10 00:00:00 # Inside the measurement period
-        stop_date: 2016-09-08 # 90 days from start date to end date
-        stop_datetime: 2016-09-08 00:00:00
+        stop_date: 2016-09-02 # 84 days from start date to end date
+        stop_datetime: 2016-09-02 00:00:00
         code_type: RXNORM
         code_value: 1232194 # Zolpidem tartrate 1.75 MG Sublingual Tablet (Nonbenzodiazepine hypnotics)                
         prescribed: true
       - start_date: 2016-03-25 # Different day from the first medication and outside the measurement period
         start_datetime: 2017-03-25 00:00:00 
-        stop_date: 2016-06-23 # 90 days from start date to end date
-        stop_datetime: 2017-06-23 00:00:00
+        stop_date: 2016-03-31 # 6 days from start date to end date
+        stop_datetime: 2017-03-31 00:00:00
         code_type: RXNORM
         code_value: 1232202 # Zolpidem tartrate 3.5 MG Sublingual Tablet  (Nonbenzodiazepine hypnotics)
         prescribed: true
