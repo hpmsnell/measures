@@ -15,7 +15,8 @@ using QDM
 // HEDIS value sets
 
 valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
-valueset "HEDIS; DTaP Vaccine Administered": '2.16.840.1.113883.3.464.1004.1071'
+valueset "HEDIS; DTaP Immunization": '2.16.840.1.113883.3.464.1004.1744'
+valueset "HEDIS; DTaP Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1745'
 valueset "HEDIS; Inactivated Polio Vaccine (IPV) Administered": '2.16.840.1.113883.3.464.1004.1135'
 valueset "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered": '2.16.840.1.113883.3.464.1004.1158'
 valueset "HEDIS; Measles/Rubella Vaccine Administered": '2.16.840.1.113883.3.464.1004.1172'
@@ -170,7 +171,7 @@ define "Exclusion for Hepatitis B":
 
 
 
-define "DTap Immunizations or Procedures"
+define "DTaP Immunizations or Procedures"
   ((["Immunization, Administered": "DTaP Immunization"]
   union ["Procedure, Performed": "DTaP Vaccine Procedure"])DTaPVacc
   where DTaPVacc.relevantDatetime during Interval["Patient Characteristic Birthdate" + 42 days, "Patient Characteristic Birthdate" + 2 year])
@@ -199,21 +200,15 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists("DTaP Procedure" P1
-    with "DTaP Procedure" P2
-      and "DTaP Procedure" P3
-      and "DTaP Procedure" P4
-    such that P1.relevantPeriod starts 1 day or more before start of P2.relevantPeriod
-      and P2.relevantPeriod starts 1 day or more before start of P3.relevantPeriod
-      and P3.relevantPeriod starts 1 day or more before start of P4.relevantPeriod)
-  or exists("DTaP Medication" M1
-    with "DTaP Medication" M2
-      and "DTaP Medication" M3
-      and "DTaP Medication" M4
-    such that M1.authorDateTime 1 day or more before M2.authorDateTime
-      and M2.authorDateTime 1 day or more before M3.authorDateTime
-      and M3.authorDateTime 1 day or more before M4.authorDateTime)
-
+  from
+    "DTaP Immunizations or Procedures" DTaPVacc1,
+    "DTaP Immunizations or Procedures" DTaPVacc2,
+    "DTaP Immunizations or Procedures" DTaPVacc3,
+    "DTaP Immunizations or Procedures" DTaPVacc4
+    where DTaPVacc1.relevantDatetime starts 1 day or more before start of DTaPVacc2.relevantDatetime
+      and DTaPVacc2.relevantDatetime starts 1 day or more before start of DTaPVacc3.relevantDatetime
+      and DTaPVacc3.relevantDatetime starts 1 day or more before start of DTaPVacc4.relevantDatetime
+    return DTaPVacc1
 define "Numerator Performance Not Met":
   /*
    * config_link_id: performance_not_met
