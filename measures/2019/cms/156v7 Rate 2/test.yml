@@ -168,7 +168,7 @@ patients:
     attributes:
       date_of_birth: 1945-02-01
       given_name: Encounter
-      family_name: Lower
+      family_name: Upper
       sex: Male
     clinical_models:
       clinical_activities:
@@ -193,7 +193,7 @@ patients:
         start_datetime: 2017-02-01 00:00:00
         stop_date: 2017-02-01
         stop_datetime: 2017-02-01 23:59:59
-- name: ExclusionHospice Before
+  - name: ExclusionHospice Before
     attributes:
       date_of_birth: 1949-01-01
       given_name: ExclusionHospice
@@ -213,6 +213,8 @@ patients:
         code_value: 385763009 # Hospice
         start_date: 2015-12-31 # Too early
         start_datetime: 2015-12-31 23:00:00 # Too early
+        author_date: 2015-12-31 # Too early 
+        author_datetime: 2015-12-31 23:00:00 # Too early        
   - name: ExclusionHospice Lower
     attributes:
       date_of_birth: 1950-01-01
@@ -233,6 +235,8 @@ patients:
         code_value: 385763009 # Hospice
         start_date: 2016-01-01 # Lower bound
         start_datetime: 2016-01-01 00:00:00 # Lower bound
+        author_date: 2016-01-01 
+        author_datetime: 2016-01-01 23:00:00                
   - name: ExclusionHospice Upper
     attributes:
       date_of_birth: 1950-01-01
@@ -253,6 +257,8 @@ patients:
         code_value: 385763009 # Hospice
         start_date: 2016-12-31 # Upper bound
         start_datetime: 2016-12-31 23:00:00 # Upper bound
+        author_date: 2016-12-31 
+        author_datetime: 2016-12-31 23:00:00                        
   - name: ExclusionHospice After
     attributes:
       date_of_birth: 1950-01-01
@@ -272,7 +278,9 @@ patients:
       - code_type: SNOMEDCT
         code_value: 385763009 # Hospice
         start_date: 2017-01-01 # Too late
-        start_datetime: 2017-01-01 09:00:00 # Too late       
+        start_datetime: 2017-01-01 09:00:00 # Too late
+        author_date: 2017-01-01 
+        author_datetime: 2017-01-01 23:00:00                               
   - name: Medicine Before
     attributes:
       date_of_birth: 1945-02-01
@@ -294,11 +302,15 @@ patients:
         code_type: RXNORM
         code_value: 1431286 # Acetaminophen 300 MG (Medications List)
         prescribed: true   
+        author_date: 2015-12-31
+        author_datetime: 2015-12-31 00:00:00 
       - start_date: 2016-01-30 # Inside the measurement period
         start_datetime: 2016-01-30 00:00:00 # Inside the measurement period
         code_type: RXNORM
         code_value: 993943 # Acetaminophen 325 MG (Medications List)
         prescribed: true                
+        author_date: 2015-12-31
+        author_datetime: 2015-12-31 00:00:00         
   - name: Medicine Lower
     attributes:
       date_of_birth: 1945-02-01
@@ -320,11 +332,15 @@ patients:
         code_type: RXNORM
         code_value: 995624 # Meclizine Hydrochloride 12.5 MG Oral Tablet (Medications List)         
         prescribed: true
+        author_date: 2015-12-31
+        author_datetime: 2015-12-31 00:00:00 
       - start_date: 2016-01-02 # Different day from the first medication
         start_datetime: 2016-01-02 01:00:00 
         code_type: RXNORM
         code_value: 995632 # Meclizine Hydrochloride 25 MG Chewable Tablet (Medications List)         
         prescribed: true        
+        author_date: 2015-12-31
+        author_datetime: 2015-12-31 00:00:00 
   - name: Medicine Upper
     attributes:
       date_of_birth: 1945-02-01
@@ -346,11 +362,15 @@ patients:
         code_type: RXNORM
         code_value: 835564 # Imipramine Hydrochloride 25 MG Oral Tablet (Medications List)                             
         prescribed: true
+        author_date: 2016-12-31
+        author_datetime: 2016-12-31 23:59:59
       - start_date: 2016-02-20 # Different day from the first medication
         start_datetime: 2016-02-20 23:59:59
         code_type: RXNORM
         code_value: 835568 # Imipramine Hydrochloride 50 MG Oral Tablet (Medications List)                               
         prescribed: true        
+        author_date: 2016-12-31
+        author_datetime: 2016-12-31 23:59:59        
   - name: Medicine After
     attributes:
       date_of_birth: 1945-02-01
@@ -372,11 +392,15 @@ patients:
         code_type: RXNORM
         code_value: 905168 # Protriptyline Hydrochloride 10 MG Oral Tablet (Medications List)         
         prescribed: true
+        author_date: 2017-01-01
+        author_datetime: 2017-01-01 00:00:00         
       - start_date: 2016-01-02 # Different day from the first medication
         start_datetime: 2016-01-02 00:00:00
         code_type: RXNORM
         code_value: 905172 # Protriptyline Hydrochloride 5 MG Oral Tablet (Medications List)                 
         prescribed: true        
+        author_date: 2017-01-01
+        author_datetime: 2017-01-01 00:00:00         
   - name: HighRiskMedicationOrder 89Days
     attributes:
       date_of_birth: 1945-02-01
@@ -385,7 +409,7 @@ patients:
       sex: Male
     clinical_models:
       clinical_activities:
-      - code_type: CPT
+      - code_type: code_type
         code_value: 99201 # Denominator encounter
         start_date: 2016-01-01
         start_datetime: 2016-01-01 00:00:00
@@ -400,13 +424,17 @@ patients:
         code_type: RXNORM
         code_value: 1648755 # NITROFURANTOIN, MACROCRYSTALS 25 MG (Anti Infectives)        
         prescribed: true
+        author_date: 2015-12-31
+        author_datetime: 2015-12-31 00:00:00         
       - start_date: 2016-09-01 # Different day from the first medication
         start_datetime: 2016-09-01 00:00:00
         stop_date: 2016-09-11 # 10 days from start date to end date
         stop_datetime: 2016-09-11 00:00:00
         code_type: RXNORM
         code_value: 1648759 # NITROFURANTOIN, MACROCRYSTALS 100 MG Oral Capsule (Anti Infectives)        
-        prescribed: true        
+        prescribed: true     
+        author_date: 2015-12-31
+        author_datetime: 2015-12-31 00:00:00         
   - name: HighRiskMedicationOrder 90Days
     attributes:
       date_of_birth: 1945-02-01
@@ -430,6 +458,8 @@ patients:
         code_type: RXNORM
         code_value: 1232194 # Zolpidem tartrate 1.75 MG Sublingual Tablet (Nonbenzodiazepine hypnotics)                
         prescribed: true
+        author_date: 2015-12-31
+        author_datetime: 2015-12-31 00:00:00                 
       - start_date: 2016-03-25 # Different day from the first medication and outside the measurement period
         start_datetime: 2017-03-25 00:00:00 
         stop_date: 2016-03-31 # 6 days from start date to end date
@@ -437,6 +467,8 @@ patients:
         code_type: RXNORM
         code_value: 1232202 # Zolpidem tartrate 3.5 MG Sublingual Tablet  (Nonbenzodiazepine hypnotics)
         prescribed: true
+        author_date: 2015-12-31
+        author_datetime: 2015-12-31 00:00:00                 
   - name: MedicationList SameDay
     attributes:
       date_of_birth: 1945-02-01
@@ -460,6 +492,8 @@ patients:
         code_type: RXNORM
         code_value: 197956 # Methyldopa 250 MG Oral Tablet (Medications List)
         prescribed: true
+        author_date: 2016-01-01
+        author_datetime: 2016-01-01 00:00:00                 
       - start_date: 2016-06-10 # Inside the measurement period
         start_datetime: 2016-06-10 00:00:00 # Inside the measurement period
         stop_date: 2016-10-08 # 90 days from start date to end date
@@ -467,6 +501,8 @@ patients:
         code_type: RXNORM
         code_value: 197958 # Methyldopa 500 MG Oral Tablet (Medications List)
         prescribed: true
+        author_date: 2016-01-01
+        author_datetime: 2016-01-01 00:00:00                 
   - name: MedicationList DifferentDay
     attributes:
       date_of_birth: 1945-02-01
@@ -490,6 +526,8 @@ patients:
         code_type: RXNORM
         code_value: 198032 # Nifedipine 10 MG Oral Capsule (Medications List)     
         prescribed: true        
+        author_date: 2016-01-01
+        author_datetime: 2016-01-01 00:00:00                         
       - start_date: 2016-05-01 # Inside the measurement period
         start_datetime: 2016-05-01 00:00:00 # Inside the measurement period
         stop_date: 2016-07-30 # 90 days from start date to end date
@@ -497,3 +535,6 @@ patients:
         code_type: RXNORM
         code_value: 198033 # Nifedipine 20 MG Oral Capsule (Medications List)
         prescribed: true                        
+        author_date: 2016-01-01
+        author_datetime: 2016-01-01 00:00:00                 
+                
