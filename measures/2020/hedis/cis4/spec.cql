@@ -21,7 +21,8 @@ valueset "HEDIS; Measles/Rubella Vaccine Administered": '2.16.840.1.113883.3.464
 valueset "HEDIS; Mumps Vaccine Administered": '2.16.840.1.113883.3.464.1004.1321'
 valueset "HEDIS; Measles Vaccine Administered": '2.16.840.1.113883.3.464.1004.1320'
 valueset "HEDIS; Rubella Vaccine Administered": '2.16.840.1.113883.3.464.1004.1322'
-valueset "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered": '2.16.840.1.113883.3.464.1004.1120'
+valueset "HEDIS; Haemophilus Influenzae Type B (HiB) Immunization": '2.16.840.1.113883.3.464.1004.1753'
+valueset "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1754'
 valueset "HEDIS; Hepatitis B Vaccine Administered": '2.16.840.1.113883.3.464.1004.1118'
 valueset "HEDIS; Newborn Hepatitis B Vaccine Administered": '2.16.840.1.113883.3.464.1004.1397'
 valueset "HEDIS; Varicella Zoster (VZV) Vaccine Administered": '2.16.840.1.113883.3.464.1004.1323'
@@ -51,13 +52,11 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "HiB Procedure":
-  ["Procedure, Performed": "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered"] P
-    where P.relevantPeriod starts during ["Patient Characteristic Birthdate" + 42 days, "Patient Characteristic Birthdate" + 2 years]
 
-define "HiB Medication":
-  ["Medication, Administered": "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered"] M
-    where M.authorDateTime during ["Patient Characteristic Birthdate" + 42 days, "Patient Characteristic Birthdate" + 2 years]
+define "HiB Immunizations or Procedures"
+  ((["Immunization, Administered": "Haemophilus Influenzae Type B (HiB) Immunization"]
+      union ["Procedure, Performed": "Haemophilus Influenzae Type B (HiB) Vaccine Procedure"])HiBVacc
+      where HiBVacc.relevantDatetime during Interval["Patient Characteristic Birthdate" + 42 days, "Patient Characteristic Birthdate" + 2 year])
 
 // Populations
 
@@ -74,16 +73,11 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists("HiB Procedure" P1
-    with "HiB Procedure" P2
-      and "HiB Procedure" P3
-    such that P1.relevantPeriod starts 1 day or more before start of P2.relevantPeriod
-      and P2.relevantPeriod starts 1 day or more before start of P3.relevantPeriod)
-  or exists("HiB Medication" M1
-    with "HiB Medication" M2
-      and "HiB Medication" M3
-    such that M1.authorDateTime 1 day or more before M2.authorDateTime
-      and M2.authorDateTime 1 day or more before M3.authorDateTime)
+  exists("HiB Immunizations or Procedures" HiBVacc1
+    with "HiB Immunizations or Procedures" HiBVacc2
+      and "HiB Immunizations or Procedures" HiBVacc3
+    such that HiBVacc1.relevantDatetime starts 1 day or more before start of HiBVacc2.relevantDatetime
+      and HiBVacc2.relevantDatetime starts 1 day or more before start of HiBVacc3.relevantDatetime)
 
 define "Numerator Performance Not Met":
   /*
