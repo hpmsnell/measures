@@ -32,16 +32,6 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: BPScreening Lower
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_met       
-    - name: BPScreening Upper
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_met        
     - name: ExclusionHypertension Before
       denominator:
       denominator_exclusion: exclusion_hypertension
@@ -62,6 +52,56 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met                                   
+    - name: ExceptionNoBP Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                      
+    - name: ExceptionNoBP Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                       
+    - name: ExceptionNoBP Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                       
+    - name: ExceptionNoBP After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met 
+    - name: SystolicDiastolicBP Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met       
+    - name: SystolicDiastolicBP Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met       
+    - name: SystolicDiastolicBP After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Prehypertensive Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                                                
+    - name: Prehypertensive Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Prehypertensive After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met      
 providers:
   - given_name: Rachel
     family_name: Katz
@@ -162,47 +202,7 @@ patients:
         start_date: 2017-01-01 # After the Measurement Period
         start_datetime: 2017-01-01 00:00:00
         stop_date: 2017-01-01
-        stop_datetime: 2017-01-01 01:00:00        
-  - name: BPScreening Lower
-    attributes:
-      date_of_birth: 1998-01-01
-      given_name: BPScreening
-      family_name: Lower
-      sex: Male
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201 # Denominator encounter
-        start_date: 2016-02-01 # Inside the measurement period
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59     
-      - code_type: CPT
-        code_value: 92014 # Ophthalmological services (BP Screening)
-        start_date: 2016-01-01
-        start_datetime: 2016-01-01 00:00:00
-        stop_date: 2016-01-01
-        stop_datetime: 2016-01-01 00:00:00        
-  - name: BPScreening Upper
-    attributes:
-      date_of_birth: 1998-01-01
-      given_name: BPScreening
-      family_name: Upper
-      sex: Male
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201 # Denominator encounter
-        start_date: 2016-02-01 # Inside the measurement period
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59     
-      - code_type: CPT
-        code_value: 90791 # Psychiatric diagnostic evaluation (BP Screening)
-        start_date: 2016-12-31
-        start_datetime: 2016-12-31 23:59:59
-        stop_date: 2015-12-31
-        stop_datetime: 2015-12-31 23:59:59        
+        stop_datetime: 2017-01-01 01:00:00                
   - name: ExclusionHypertension Before
     attributes:
       date_of_birth: 1998-01-01
@@ -287,3 +287,360 @@ patients:
         start_datetime: 2017-02-03 00:00:00
         stop_date: 2017-02-03
         stop_datetime: 2017-02-03 00:00:00    
+  - name: ExceptionNoBP Before
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: ExceptionNoBP
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-01-31
+        author_datetime: 2016-01-31 23:59:59
+        child_code_value: 183932001 # Procedure contraindicated (situation)
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        child_code_value: 183932001 # Procedure contraindicated (situation)
+  - name: ExceptionNoBP Lower
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: ExceptionNoBP
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        child_code_value: 183932001 # Procedure contraindicated (situation)
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        child_code_value: 183932001 # Procedure contraindicated (situation)        
+ - name: ExceptionNoBP Upper
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: ExceptionNoBP
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 23:59:59
+        child_code_value: 183932001 # Procedure contraindicated (situation)
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        child_code_value: 183932001 # Procedure contraindicated (situation)
+ - name: ExceptionNoBP After
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: ExceptionNoBP
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-02
+        start_datetime: 2016-02-02 00:00:00
+        stop_date: 2016-02-02
+        stop_datetime: 2016-02-02 23:59:59    
+        author_date: 2016-02-02
+        author_datetime: 2016-02-02 00:00:00 # Too late
+        child_code_value: 183932001 # Procedure contraindicated (situation)
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        child_code_value: 183932001 # Procedure contraindicated (situation)                
+  - name: SystolicDiastolicBP Before # Before means the attribute result_as_decimal is lower than 80 for Diastolic BP and lower than 120 in Systolic BP
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SystolicDiastolicBP
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        child_code_value: 183932001 # Procedure contraindicated (situation)
+        result_as_decimal: 79
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        child_code_value: 183932001 # Procedure contraindicated (situation)        
+        result_as_decimal: 119
+  - name: SystolicDiastolicBP Lower # Lower means the attribute result_as_decimal is 80 for Diastolic BP and 120 in Systolic BP
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SystolicDiastolicBP
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        child_code_value: 183932001 # Procedure contraindicated (situation)
+        result_as_decimal: 80
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        child_code_value: 183932001 # Procedure contraindicated (situation)        
+        result_as_decimal: 120        
+  - name: SystolicDiastolicBP After # After means the attribute result_as_decimal is more than 80 for Diastolic BP and more than 120 in Systolic BP
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SystolicDiastolicBP
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        child_code_value: 183932001 # Procedure contraindicated (situation)
+        result_as_decimal: 81
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        child_code_value: 183932001 # Procedure contraindicated (situation)        
+        result_as_decimal: 121
+  - name: Prehypertensive Before
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: Prehypertensive
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        child_code_value: 183932001 # Procedure contraindicated (situation)
+        result_as_decimal: 85
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        child_code_value: 183932001 # Procedure contraindicated (situation)        
+        result_as_decimal: 125
+      - code_type: SNOMEDCT
+        code_value: 134403003 # Urgent referral (procedure)
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-01-31 # Too soon
+        author_datetime: 2016-01-31 23:59:59                
+  - name: Prehypertensive Lower
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: Prehypertensive
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        child_code_value: 183932001 # Procedure contraindicated (situation)
+        result_as_decimal: 85
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        child_code_value: 183932001 # Procedure contraindicated (situation)        
+        result_as_decimal: 125
+      - code_type: SNOMEDCT
+        code_value: 134403003 # Urgent referral (procedure)
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01 #Lower Bound
+        author_datetime: 2016-02-01 00:00:00        
+  - name: Prehypertensive After
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: Prehypertensive
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        child_code_value: 183932001 # Procedure contraindicated (situation)
+        result_as_decimal: 85
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        child_code_value: 183932001 # Procedure contraindicated (situation)        
+        result_as_decimal: 125
+      - code_type: SNOMEDCT
+        code_value: 134403003 # Urgent referral (procedure)
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-02 # Too late
+        author_datetime: 2016-02-02 00:00:00                
+                 
