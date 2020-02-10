@@ -15,22 +15,45 @@ using QDM
 // HEDIS value sets
 
 valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
-valueset "HEDIS; DTaP Vaccine Administered": '2.16.840.1.113883.3.464.1004.1071'
-valueset "HEDIS; Inactivated Polio Vaccine (IPV) Administered": '2.16.840.1.113883.3.464.1004.1135'
-valueset "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered": '2.16.840.1.113883.3.464.1004.1158'
-valueset "HEDIS; Measles/Rubella Vaccine Administered": '2.16.840.1.113883.3.464.1004.1172'
-valueset "HEDIS; Mumps Vaccine Administered": '2.16.840.1.113883.3.464.1004.1321'
-valueset "HEDIS; Measles Vaccine Administered": '2.16.840.1.113883.3.464.1004.1320'
-valueset "HEDIS; Rubella Vaccine Administered": '2.16.840.1.113883.3.464.1004.1322'
-valueset "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered": '2.16.840.1.113883.3.464.1004.1120'
-valueset "HEDIS; Hepatitis B Vaccine Administered": '2.16.840.1.113883.3.464.1004.1118'
+valueset "HEDIS; DTaP Immunization": '2.16.840.1.113883.3.464.1004.1744'
+valueset "HEDIS; DTaP Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1745'
+valueset "HEDIS; Inactivated Polio Vaccine (IPV) Immunization": '2.16.840.1.113883.3.464.1004.1765'
+valueset "HEDIS; Inactivated Polio Vaccine (IPV) Procedure": '2.16.840.1.113883.3.464.1004.1766'
+valueset "HEDIS; Measles, Mumps and Rubella (MMR) immunization": '2.16.840.1.113883.3.464.1004.1773'
+valueset "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1774'
+valueset "HEDIS; Mumps": '2.16.840.1.113883.3.464.1004.1181'
+valueset "HEDIS; Mumps Immunization": '2.16.840.1.113883.3.464.1004.1779'
+valueset "HEDIS; Mumps Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1780'
+valueset "HEDIS; Measles Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1772'
+valueset "HEDIS; Measles": '2.16.840.1.113883.3.464.1004.1171'
+valueset "HEDIS; Measles Immunization": '2.16.840.1.113883.3.464.1004.1771'
+valueset "HEDIS; Rubella": '2.16.840.1.113883.3.464.1004.1232'
+valueset "HEDIS; Rubella Immunization": '2.16.840.1.113883.3.464.1004.1789'
+valueset "HEDIS; Rubella Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1790'
+valueset "HEDIS; Measles Rubella Immunization": '2.16.840.1.113883.3.464.1004.1775'
+valueset "HEDIS; Measles Rubella Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1776'
+valueset "HEDIS; Haemophilus Influenzae Type B (HiB) Immunization": '2.16.840.1.113883.3.464.1004.1753'
+valueset "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Procedure": ' 2.16.840.1.113883.3.464.1004.1753'
+valueset "HEDIS; Hepatitis B": '2.16.840.1.113883.3.464.1004.1266'
+valueset "HEDIS; Hepatitis B Immunization": '2.16.840.1.113883.3.464.1004.1759'
+valueset "HEDIS; Hepatitis B Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1760'
 valueset "HEDIS; Newborn Hepatitis B Vaccine Administered": '2.16.840.1.113883.3.464.1004.1397'
-valueset "HEDIS; Varicella Zoster (VZV) Vaccine Administered": '2.16.840.1.113883.3.464.1004.1323'
-valueset "HEDIS; Pneumococcal Conjugate Vaccine Administered": '2.16.840.1.113883.3.464.1004.1214'
-valueset "HEDIS; Hepatitis A Vaccine Administered": '2.16.840.1.113883.3.464.1004.1318'
-valueset "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered": '2.16.840.1.113883.3.464.1004.1231'
-valueset "HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered": '2.16.840.1.113883.3.464.1004.1267'
-valueset "HEDIS; Influenza Vaccine Administered": '2.16.840.1.113883.3.464.1004.1140'
+valueset "HEDIS; Varicella Zoster": '2.16.840.1.113883.3.464.1004.1258'
+valueset "HEDIS; Varicella Zoster (VZV) Immunization": '2.16.840.1.113883.3.464.1004.1793'
+valueset "HEDIS; Varicella Zoster (VZV) Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1794'
+valueset "HEDIS; Pneumococcal Conjugate Immunization": '2.16.840.1.113883.3.464.1004.1781'
+valueset "HEDIS; Pneumococcal Conjugate Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1782'
+valueset "HEDIS; Hepatitis A": '2.16.840.1.113883.3.464.1004.1117'
+valueset "HEDIS; Hepatitis A Immunization": '2.16.840.1.113883.3.464.1004.1757'
+valueset "HEDIS; Hepatitis A Procedure": '2.16.840.1.113883.3.464.1004.1758
+valueset "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Procedure": '2.16.840.1.113883.3.464.1004.1787'
+valueset "HEDIS; Rotavirus (2 Dose Schedule) Immunization": '2.16.840.1.113883.3.464.1004.1785'
+valueset "HEDIS; Rotavirus (3 Dose Schedule) Immunization": '2.16.840.1.113883.3.464.1004.1786'
+valueset "HEDIS; Rotavirus Vaccine (3 Dose Schedule) Procedure": '2.16.840.1.113883.3.464.1004.1788'
+valueset "HEDIS; Influenza Immunization": '2.16.840.1.113883.3.464.1004.1767'
+valueset "HEDIS; Influenza Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1768'
+valueset "HEDIS; Influenza Virus LAIV Immunization": '2.16.840.1.113883.3.464.1004.1974'
+valueset "HEDIS; Influenza Virus LAIV Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1973'
 valueset "HEDIS; Analphylactic Reaction Due to Vaccination": '2.16.840.1.113883.3.464.1004.1024'
 valueset "HEDIS; Encephalopathy Due To Vaccination": '2.16.840.1.113883.3.464.1004.1092'
 valueset "HEDIS; Vaccine Causing Adverse Effect": '2.16.840.1.113883.3.464.1004.1259'
@@ -52,67 +75,39 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "2-Dose Rotavirus Procedure":
-  ["Procedure, Performed": "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered"] P
-    where P.relevantPeriod starts on or before "Patient Characteristic Birthdate" + 2 years
+define “2-Dose Rotavirus Immunization or Procedure"
+  ((["Immunization, Administered": "Rotavirus (2 Dose Schedule) Immunization"]
+  union ["Procedure, Performed": "Rotavirus Vaccine (2 Dose Schedule) Procedure”])2RotaVacc
+  where 2RotaVacc.relevantDatetime during Interval["Patient Characteristic Birthdate", "Patient Characteristic Birthdate" + 2 years])
 
-define "2-Dose Rotavirus Medication":
-  ["Medication, Administered": "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered"] M
-    where M.authorDateTime on or before "Patient Characteristic Birthdate" + 2 years
+define “3-Dose Rotavirus Immunization or Procedure"
+  ((["Immunization, Administered": "Rotavirus (3 Dose Schedule) Immunization"]
+  union ["Procedure, Performed": "Rotavirus Vaccine (3 Dose Schedule) Procedure”])3RotaVacc
+  where 3RotaVacc.relevantDatetime during Interval["Patient Characteristic Birthdate", "Patient Characteristic Birthdate" + 2 years])
 
-define "3-Dose Rotavirus Procedure":
-  ["Procedure, Performed": "HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered"] P
-    where P.relevantPeriod starts on or before "Patient Characteristic Birthdate" + 2 years
 
-define "3-Dose Rotavirus Medication":
-  ["Medication, Administered": "HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered"] M
-    where M.authorDateTime on or before "Patient Characteristic Birthdate" + 2 years
 
-define "2 2-Dose Rotavirus Procedures Exist":
-  exists("2-Dose Rotavirus Procedure" P1
-    with "2-Dose Rotavirus Procedure" P2
-    such that P1.relevantPeriod starts 1 day or more before start of P2.relevantPeriod)
+define "Two 2-Dose Rotavirus Immunizations or Procedures Exist":
+  exists("2-Dose Rotavirus Immunization or Procedure" 2RotaVacc1
+    with "2-Dose Rotavirus Immunization or Procedure" 2RotaVacc2
+    such that 2RotaVacc1.relevantDatetime starts 1 day or more before start of 2RotaVacc2.relevantDatetime)
 
-define "2 2-Dose Rotavirus Medications Exist":
-  exists("2-Dose Rotavirus Medication" M1
-    with "2-Dose Rotavirus Medication" M2
-    such that M1.authorDateTime 1 day or more before M2.authorDateTime)
 
-define "3 3-Dose Rotavirus Procedures Exist":
-  exists("3-Dose Rotavirus Procedure" P1
-    with "3-Dose Rotavirus Procedure" P2
-      and "3-Dose Rotavirus Procedure" P3
-    such that P1.relevantPeriod starts 1 day or more before start of P2.relevantPeriod
-      and P2.relevantPeriod starts 1 day or more before start of P3.relevantPeriod)
+define "Three 3-Dose Rotavirus Immunizations or Procedures Exist":
+  exists("3-Dose Rotavirus Immunization or Procedure" 3RotaVacc1
+    with "3-Dose Rotavirus Immunization or Procedure" 3RotaVacc2
+      and "3-Dose Rotavirus Immunization or Procedure" 3RotaVacc3
+    such that 3RotaVacc1.relevantDatetime starts 1 day or more before start of 3RotaVacc2.relevantDatetime
+      and 3RotaVacc2.relevantDatetime starts 1 day or more before start of 3RotaVacc3.relevantDatetime)
 
-define "3 3-Dose Rotavirus Medications Exist":
-  exists("3-Dose Rotavirus Medication" M1
-    with "3-Dose Rotavirus Medication" M2
-      and "3-Dose Rotavirus Medication" M3
-    such that M1.authorDateTime 1 day or more before M2.authorDateTime
-      and M2.authorDateTime 1 day or more before M3.authorDateTime)
+define "Two 3-Dose Rotavirus Immunizations or Procedures Exist":
+  exists("3-Dose Rotavirus Immunization or Procedure" 3RotaVacc1
+    with "3-Dose Rotavirus Immunization or Procedure" 3RotaVacc2
+    such that P1.relevantDatetime starts 1 day or more before start of P2.relevantDatetime)
 
-define "2 3-Dose Rotavirus Procedures Exist":
-  exists("3-Dose Rotavirus Procedure" P1
-    with "3-Dose Rotavirus Procedure" P2
-    such that P1.relevantPeriod starts 1 day or more before start of P2.relevantPeriod)
-
-define "2 3-Dose Rotavirus Medications Exist":
-  exists("3-Dose Rotavirus Medication" M1
-    with "3-Dose Rotavirus Medication" M2
-    such that M1.authorDateTime 1 day or more before M2.authorDateTime)
-
-define "1 2-Dose Rotavirus Exists":
-  exists("2-Dose Rotavirus Procedure")
-  or exists("2-Dose Rotavirus Medication")
-
-define "2 3-Dose Rotavirus Exist":
-  "2 3-Dose Rotavirus Procedures Exist"
-  or "2 3-Dose Rotavirus Medications Exist"
-
-define "1 2-Dose Rotavirus and 2 3-Dose Rotavirus Exist":
-  "1 2-Dose Rotavirus Exists"
-  and "2 3-Dose Rotavirus Exist"
+define "One 2-Dose Rotavirus and Two 3-Dose Rotavirus Immunizations or Procedures Exist":
+  "2-Dose Rotavirus Immunization or Procedure"
+  and "Two 3-Dose Rotavirus Immunizations or Procedures Exist"
 
 // Populations
 
@@ -129,11 +124,9 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  "2 2-Dose Rotavirus Procedures Exist"
-  or "2 2-Dose Rotavirus Medications Exist"
-  or "3 3-Dose Rotavirus Procedures Exist"
-  or "3 3-Dose Rotavirus Medications Exist"
-  or "1 2-Dose Rotavirus and 2 3-Dose Rotavirus Exist"
+  "Two 2-Dose Rotavirus Immunizations or Procedures Exist"
+  or "Three 3-Dose Rotavirus Immunizations or Procedures Exist"
+  or "One 2-Dose Rotavirus and Two 3-Dose Rotavirus Immunizations or Procedures Exist"
 
 define "Numerator Performance Not Met":
   /*
