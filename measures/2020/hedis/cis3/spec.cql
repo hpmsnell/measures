@@ -14,23 +14,46 @@ using QDM
 
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
-valueset "HEDIS; DTaP Vaccine Administered": '2.16.840.1.113883.3.464.1004.1071'
-valueset "HEDIS; Inactivated Polio Vaccine (IPV) Administered": '2.16.840.1.113883.3.464.1004.1135'
-valueset "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered": '2.16.840.1.113883.3.464.1004.1158'
-valueset "HEDIS; Measles/Rubella Vaccine Administered": '2.16.840.1.113883.3.464.1004.1172'
-valueset "HEDIS; Mumps Vaccine Administered": '2.16.840.1.113883.3.464.1004.1321'
-valueset "HEDIS; Measles Vaccine Administered": '2.16.840.1.113883.3.464.1004.1320'
-valueset "HEDIS; Rubella Vaccine Administered": '2.16.840.1.113883.3.464.1004.1322'
-valueset "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered": '2.16.840.1.113883.3.464.1004.1120'
-valueset "HEDIS; Hepatitis B Vaccine Administered": '2.16.840.1.113883.3.464.1004.1118'
+valueset "HEDIS; DTaP Immunization": '2.16.840.1.113883.3.464.1004.1744'
+valueset "HEDIS; DTaP Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1745'
+valueset "HEDIS; Inactivated Polio Vaccine (IPV) Immunization": '2.16.840.1.113883.3.464.1004.1765'
+valueset "HEDIS; Inactivated Polio Vaccine (IPV) Procedure": '2.16.840.1.113883.3.464.1004.1766'
+valueset "HEDIS; Measles, Mumps and Rubella (MMR) immunization": '2.16.840.1.113883.3.464.1004.1773'
+valueset "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1774'
+valueset "HEDIS; Mumps": '2.16.840.1.113883.3.464.1004.1181'
+valueset "HEDIS; Mumps Immunization": '2.16.840.1.113883.3.464.1004.1779'
+valueset "HEDIS; Mumps Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1780'
+valueset "HEDIS; Measles Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1772'
+valueset "HEDIS; Measles": '2.16.840.1.113883.3.464.1004.1171'
+valueset "HEDIS; Measles Immunization": '2.16.840.1.113883.3.464.1004.1771'
+valueset "HEDIS; Rubella": '2.16.840.1.113883.3.464.1004.1232'
+valueset "HEDIS; Rubella Immunization": '2.16.840.1.113883.3.464.1004.1789'
+valueset "HEDIS; Rubella Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1790'
+valueset "HEDIS; Measles Rubella Immunization": '2.16.840.1.113883.3.464.1004.1775'
+valueset "HEDIS; Measles Rubella Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1776'
+valueset "HEDIS; Haemophilus Influenzae Type B (HiB) Immunization": '2.16.840.1.113883.3.464.1004.1753'
+valueset "HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1753'
+valueset "HEDIS; Hepatitis B": '2.16.840.1.113883.3.464.1004.1266'
+valueset "HEDIS; Hepatitis B Immunization": '2.16.840.1.113883.3.464.1004.1759'
+valueset "HEDIS; Hepatitis B Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1760'
 valueset "HEDIS; Newborn Hepatitis B Vaccine Administered": '2.16.840.1.113883.3.464.1004.1397'
-valueset "HEDIS; Varicella Zoster (VZV) Vaccine Administered": '2.16.840.1.113883.3.464.1004.1323'
-valueset "HEDIS; Pneumococcal Conjugate Vaccine Administered": '2.16.840.1.113883.3.464.1004.1214'
-valueset "HEDIS; Hepatitis A Vaccine Administered": '2.16.840.1.113883.3.464.1004.1318'
-valueset "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered": '2.16.840.1.113883.3.464.1004.1231'
-valueset "HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered": '2.16.840.1.113883.3.464.1004.1267'
-valueset "HEDIS; Influenza Vaccine Administered": '2.16.840.1.113883.3.464.1004.1140'
+valueset "HEDIS; Varicella Zoster": '2.16.840.1.113883.3.464.1004.1258'
+valueset "HEDIS; Varicella Zoster (VZV) Immunization": '2.16.840.1.113883.3.464.1004.1793'
+valueset "HEDIS; Varicella Zoster (VZV) Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1794'
+valueset "HEDIS; Pneumococcal Conjugate Immunization": '2.16.840.1.113883.3.464.1004.1781'
+valueset "HEDIS; Pneumococcal Conjugate Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1782'
+valueset "HEDIS; Hepatitis A": '2.16.840.1.113883.3.464.1004.1117'
+valueset "HEDIS; Hepatitis A Immunization": '2.16.840.1.113883.3.464.1004.1757'
+valueset "HEDIS; Hepatitis A Procedure": '2.16.840.1.113883.3.464.1004.1758
+valueset "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Procedure": '2.16.840.1.113883.3.464.1004.1787'
+valueset "HEDIS; Rotavirus (2 Dose Schedule) Immunization": '2.16.840.1.113883.3.464.1004.1785'
+valueset "HEDIS; Rotavirus (3 Dose Schedule) Immunization": '2.16.840.1.113883.3.464.1004.1786'
+valueset "HEDIS; Rotavirus Vaccine (3 Dose Schedule) Procedure": '2.16.840.1.113883.3.464.1004.1788'
+valueset "HEDIS; Influenza Immunization": '2.16.840.1.113883.3.464.1004.1767'
+valueset "HEDIS; Influenza Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1768'
+valueset "HEDIS; Influenza Virus LAIV Immunization": '2.16.840.1.113883.3.464.1004.1974'
+valueset "HEDIS; Influenza Virus LAIV Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1973'
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Analphylactic Reaction Due to Vaccination": '2.16.840.1.113883.3.464.1004.1024'
 valueset "HEDIS; Encephalopathy Due To Vaccination": '2.16.840.1.113883.3.464.1004.1092'
 valueset "HEDIS; Vaccine Causing Adverse Effect": '2.16.840.1.113883.3.464.1004.1259'
@@ -55,47 +78,42 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Measles/Rubella Exists":
-  exists(["Procedure, Performed": "HEDIS; Measles/Rubella Vaccine Administered"] P
-    where P.relevantPeriod starts on or before "Patient Characteristic Birthdate" + 2 years)
-  or exists(["Medication, Administered": "HEDIS; Measles/Rubella Vaccine Administered"] M
-    where M.authorDateTime on or before "Patient Characteristic Birthdate" + 2 years)
+define "Measles Rubella Immunization or Procedure":
+  ((["Immunization, Administered": "Measles Rubella Immunization"]
+  union ["Procedure, Performed": "Measles Rubella Vaccine Procedure"])MeasRubVacc
+    where MeasRubVacc.relevantDatetime during Interval["Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
 
 define "Measles Exists":
-  exists(["Procedure, Performed": "HEDIS; Measles Vaccine Administered"] P
-    where P.relevantPeriod starts on or before "Patient Characteristic Birthdate" + 2 years)
-  or exists(["Medication, Administered": "HEDIS; Measles Vaccine Administered"] M
-    where M.authorDateTime on or before "Patient Characteristic Birthdate" + 2 years)
-  or exists(["Diagnosis": "HEDIS; Measles"] D
-    where D.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 2 years)
+  exists("Immunization, Administered": "HEDIS, Measles Immunization" MeasVacc
+    or exist "Procedure, Performed": "HEDIS; Measles Vaccine Procedure" MeasVacc2
+    or exist "Diagnosis": "HEDIS; Measles"]
+    where MeasVacc.relevantDatetime during Interval["Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
+      or MeasVacc2.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 2 years])
 
 define "Mumps Exists":
-  exists(["Procedure, Performed": "HEDIS; Mumps Vaccine Administered"] P
-    where P.relevantPeriod starts on or before "Patient Characteristic Birthdate" + 2 years)
-  or exists(["Medication, Administered": "HEDIS; Mumps Vaccine Administered"] M
-    where M.authorDateTime on or before "Patient Characteristic Birthdate" + 2 years)
-  or exists(["Diagnosis": "HEDIS; Mumps"] D
-    where D.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 2 years)
+  exists("Immunization, Administered": "HEDIS; Mumps Immunization" MumpsVacc
+    or exist "Procedure, Performed": "HEDIS; Mumps Vaccine Procedure"
+    or exist "Diagnosis": "HEDIS; Mumps"]
+    where MumpsVacc.relevantDatetime during Interval["Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
+      or MumpsVacc2.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 2 years])
 
 define "Rubella Exists":
-  exists(["Procedure, Performed": "HEDIS; Rubella Vaccine Administered"] P
-    where P.relevantPeriod starts on or before "Patient Characteristic Birthdate" + 2 years)
-  or exists(["Medication, Administered": "HEDIS; Rubella Vaccine Administered"] M
-    where M.authorDateTime on or before "Patient Characteristic Birthdate" + 2 years)
-  or exists(["Diagnosis": "HEDIS; Rubella"] D
-    where D.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 2 years)
+  exists("Immunization, Administered": "HEDIS, Rubella Immunization" RubVacc
+    or exist "Procedure, Performed": "HEDIS; Rubella Vaccine Procedure" RubVacc2
+    or exist "Diagnosis": "HEDIS; Rubella"]
+    where RubVacc.relevantDatetime during Interval["Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
+      or RubVacc2.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 2 years])
 
-define "MMR Exists":
-  exists(["Procedure, Performed": "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered"] P
-    where P.relevantPeriod starts on or before "Patient Characteristic Birthdate" + 2 years)
-  or exists(["Medication, Administered": "HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered"] M
-    where M.authorDateTime on or before "Patient Characteristic Birthdate" + 2 years)
+define "MMR Exists: Pathway 1":
+  ((["Immunization, Administered": " HEDIS, Measles, Mumps and Rubella (MMR) Immunization "]
+  union ["Procedure, Performed": " HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Procedure "])MMRVacc
+    where MMRVacc.relevantDatetime during Interval["Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
 
-define "Measles/Rubella and Mumps Exists":
-  "Measles/Rubella Exists"
+define "MMR Exists: Pathway 2":
+  "Measles Rubella Immunization or Procedure"
   and "Mumps Exists"
 
-define "Measles, Rubella, and Mumps Exists":
+define "MMR Exists: Pathway 3":
   "Measles Exists"
   and "Mumps Exists"
   and "Rubella Exists"
@@ -115,9 +133,9 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  "MMR Exists"
-  or "Measles/Rubella and Mumps Exists"
-  or "Measles, Rubella, and Mumps Exists":
+  "MMR Exists: Pathway 1"
+  or "MMR Exists: Pathway 2"
+  or "MMR Exists: Pathway 3":
 
 define "Numerator Performance Not Met":
   /*
