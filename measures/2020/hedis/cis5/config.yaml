@@ -45,7 +45,7 @@ exclusion:
         - model: Diagnosis
           value_set: HEDIS; Anaphylactic Reaction Due to Vaccination
         - model: Allergy
-          value_set: HEDIS; Hepatitis B Vaccine Administered
+          value_set: HEDIS; Hepatitis B immunization
         - model: Allergy
           value_set: HEDIS; Newborn Hepatitis B Vaccine Administered
     - logical_operator: OR
@@ -72,9 +72,9 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Hepatitis B Vaccine Administered
+          value_set: HEDIS; Hepatitis B Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Hepatitis B Vaccine Administered
+          value_set: HEDIS; Hepatitis B Immunization
     - logical_operator: OR
       components:
       - display_title: Hepatitis B
