@@ -64,6 +64,76 @@ exclusion:
 exception:
   description:
   reasons:
+  - config_link_id: exception
+    code_value:
+    display_title: Medical Reason or Patient Refusal
+    description:
+    component_groups:
+    - components:
+      - display_title: Systolic Blood Pressure
+        show_codes: true
+        annotation: 'With negation rationale: Medical reason or patient refused'
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Physical Exam, Performed'
+          value_set: VSAC; Systolic Blood Pressure
+          child_qrda_attribute: reason
+    - logical_operator: OR
+      components:
+      - display_title: Diastolic Blood Pressure
+        show_codes: true
+        annotation: 'With negation rationale: Medical reason or patient refused'
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Physical Exam, Performed'
+          value_set: VSAC; Diastolic Blood Pressure
+          child_qrda_attribute: reason
+    - logical_operator: OR
+      components:
+      - display_title: Intervention
+        show_codes: false
+        annotation: 'With negation rationale: Patient refused'
+        records:
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Referral to Alternative Provider / Primary Care Provider
+          child_qrda_attribute: reason
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Lifestyle Recommendation
+          child_qrda_attribute: reason
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Weight Reduction Recommended
+          child_qrda_attribute: reason
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Dietary Recommendations
+          child_qrda_attribute: reason
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Physical Activity Recommendation
+          child_qrda_attribute: reason
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Moderation of ETOH Consumption Recommendation
+          child_qrda_attribute: reason
+        - model: ClinicalActivity
+          qrda_datatype: 'Intervention, Order'
+          value_set: VSAC; Followup Within One Year
+          child_qrda_attribute: reason
+        - model: ClinicalActivity
+          qrda_datatype: 'Laboratory Test, Order'
+          value_set: VSAC; Laboratory Tests for Hypertension
+          child_qrda_attribute: reason
+        - model: ClinicalActivity
+          qrda_datatype: 'Diagnostic Study, Order'
+          value_set: VSAC; ECG 12 lead or study order
+          child_qrda_attribute: reason
+        - model: ClinicalActivity
+          qrda_datatype: 'Medication, Order'
+          value_set: VSAC; Anti-Hypertensive Pharmacologic Therapy
+          child_qrda_attribute: reason
 performance_met:
   description: 'Patients who were screened for high blood pressure AND have a recommended
     follow-up plan documented, as indicated, if the blood pressure is pre-hypertensive
