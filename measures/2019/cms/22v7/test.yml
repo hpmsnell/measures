@@ -33,7 +33,7 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: ExclusionHypertension Before
-      denominator:
+      denominator: 1
       denominator_exclusion: exclusion_hypertension
       denominator_exception:
       numerator:                       
@@ -52,41 +52,76 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met                                   
-    - name: ExceptionNoBP Before
+    - name: ExceptionNoBP Sameday
       denominator: 1
       denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met                      
-    - name: ExceptionNoBP Lower
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met                       
-    - name: ExceptionNoBP Upper
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met                       
-    - name: ExceptionNoBP After
+      denominator_exception: exception
+      numerator:
+    - name: ExceptionNoBP DifferentDay
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met 
-    - name: SystolicDiastolicBP Before
+    - name: ExceptionHypertensiveFollowupInterventionNotOrdered SameDay
       denominator: 1
       denominator_exclusion:
-      denominator_exception:
-      numerator: performance_met       
-    - name: SystolicDiastolicBP Lower
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met       
-    - name: SystolicDiastolicBP After
+      denominator_exception: exception
+      numerator:
+    - name: ExceptionHypertensiveFollowupInterventionNotOrdered DifferentDay
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
+    - name: ExceptionAntihypertensiveMedicationNotOrdered SameDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: exception
+      numerator:
+    - name: ExceptionAntihypertensiveMedicationNotOrdered DifferentDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met              
+    - name: ExceptionHypertensiveLabTestNotOrdered SameDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: exception
+      numerator:
+    - name: ExceptionHypertensiveLabTestNotOrdered DifferentDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met  
+    - name: ExceptionDiagnosticStudyNotOrdered SameDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception: exception
+      numerator:
+    - name: ExceptionDiagnosticStudyNotOrdered DifferentDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                                   
+    - name: SystolicDiastolic BPNormal
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met       
+    - name: SystolicDiastolic BothBPIncreased
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met       
+    - name: Systolic Increased
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Diastolic Increased
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met      
     - name: Prehypertensive Before
       denominator: 1
       denominator_exclusion:
@@ -101,7 +136,187 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met      
+      numerator: performance_not_met            
+    - name: Prehypertensive InterventionOnly
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                      
+    - name: Prehypertensive FollowupOnly
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                      
+    - name: PrehypertensiveInterventionAndFollowup SameDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: PrehypertensiveInterventionAndFollowup DifferentDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met     
+    - name: FirstHypertensiveReading InterventionOnly
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met     
+    - name: FirstHypertensiveReading FollowupOnly
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met     
+    - name: FirstHypertensiveReadingInterventionAndFollowup DifferentDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met     
+    - name: FirstHypertensiveReadingInterventionAndFollowup SameDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met     
+    - name: FirstHypertensiveReadingReferral DifferentDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met     
+    - name: FirstHypertensiveReadingReferral SameDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met     
+    - name: FirstHypertensiveReadingReferralSameDay D89S140
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met     
+    - name: FirstHypertensiveReadingReferralSameDay D90S139
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met                                                     
+    - name: SecondHBPMoreThanOneYear InterventionOnly
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                                                           
+    - name: SecondHBPMoreThanOneYear FollowupOnly
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                                                                 
+    - name: SecondHBPMoreThanOneYearInterventionAndFollowup DifferentDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                                                                 
+    - name: SecondHBPMoreThanOneYearInterventionAndFollowup SameDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met                                                                 
+    - name: SecondHBPMoreThanOneYearReferral DifferentDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                                                                 
+    - name: SecondHBPMoreThanOneYearReferral SameDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: SecondHBPMoreThanOneYearReferralSameDay D89S140
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: SecondHBPMoreThanOneYearReferralSameDay D90S139
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met            
+    - name: SecondHBPExactlyOneYearMedication DifferentDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met            
+    - name: SecondHBPExactlyOneYearMedication SameDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: SecondHBPExactlyOneYearLabOrder DifferentDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                        
+    - name: SecondHBPExactlyOneYearLabOrder SameDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: SecondHBPExactlyOneYearElectrocardiogram DifferentDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: SecondHBPExactlyOneYearElectrocardiogram SameDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: SecondHBPExactlyOneYearElectrocardiogramSameDay D89S140
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met      
+    - name: SecondHBPExactlyOneYearElectrocardiogramSameDay D90S139
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met            
+    - name: SecondHBPLessThanOneYearMedication DifferentDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met        
+    - name: SecondHBPLessThanOneYearMedication SameDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: SecondHBPLessThanOneYearLabOrder DifferentDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                        
+    - name: SecondHBPLessThanOneYearLabOrder SameDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance__met                        
+    - name: SecondHBPLessThanOneYearElectrocardiogram DifferentDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met                                                     
+    - name: SecondHBPLessThanOneYearElectrocardiogram SameDay
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met                                                           
+    - name: SecondHBPLessThanOneYearElectrocardiogramSameDay D89S140
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met                        
+    - name: SecondHBPLessThanOneYearElectrocardiogramSameDay D90S139
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
 providers:
   - given_name: Rachel
     family_name: Katz
@@ -178,7 +393,7 @@ patients:
     attributes:
       date_of_birth: 1994-02-01
       given_name: Encounter
-      family_name: Lower
+      family_name: Upper
       sex: Male
     clinical_models:
       clinical_activities:
@@ -202,7 +417,8 @@ patients:
         start_date: 2017-01-01 # After the Measurement Period
         start_datetime: 2017-01-01 00:00:00
         stop_date: 2017-01-01
-        stop_datetime: 2017-01-01 01:00:00                
+        stop_datetime: 2017-01-01 01:00:00
+        provider: Rachel                
   - name: ExclusionHypertension Before
     attributes:
       date_of_birth: 1998-01-01
@@ -217,6 +433,7 @@ patients:
         start_datetime: 2016-02-01 00:00:00
         stop_date: 2016-02-02
         stop_datetime: 2016-02-02 00:00:00
+        provider: Rachel
       diagnoses:       
       - code_type: SNOMEDCT
         code_value: 102932008 # Fear of hypertension (finding) (Hypertension)
@@ -237,7 +454,8 @@ patients:
         start_date: 2016-02-01 # Inside the measurement period
         start_datetime: 2016-02-01 00:00:00
         stop_date: 2016-02-02
-        stop_datetime: 2016-02-02 23:59:59     
+        stop_datetime: 2016-02-02 23:59:59
+        provider: Rachel     
       diagnoses:
       - code_type: SNOMEDCT
         code_value: 10725009 # Benign hypertension (disorder) (Hypertension)
@@ -258,7 +476,8 @@ patients:
         start_date: 2016-02-01 # Inside the measurement period
         start_datetime: 2016-02-01 00:00:00
         stop_date: 2016-02-02
-        stop_datetime: 2016-02-02 23:59:59     
+        stop_datetime: 2016-02-02 23:59:59
+        provider: Rachel     
       diagnoses:  
       - code_type: SNOMEDCT
         code_value: 10964002 #   Progressive pulmonary hypertension (disorder) (Hypertension)
@@ -280,50 +499,44 @@ patients:
         start_datetime: 2016-02-01 00:00:00
         stop_date: 2016-02-02
         stop_datetime: 2016-02-02 23:59:59
+        provider: Rachel
       diagnoses:       
       - code_type: SNOMEDCT
         code_value: 1201005 #   Benign essential hypertension (disorder) (Hypertension)
-        start_date: 2017-02-03
-        start_datetime: 2017-02-03 00:00:00
-        stop_date: 2017-02-03
-        stop_datetime: 2017-02-03 00:00:00    
-  - name: ExceptionNoBP Before
+        start_date: 2016-02-03
+        start_datetime: 2016-02-03 00:00:00
+        stop_date: 2016-02-03
+        stop_datetime: 2016-02-03 00:00:00    
+  - name: ExceptionNoBP Sameday
     attributes:
       date_of_birth: 1998-01-01
       given_name: ExceptionNoBP
-      family_name: Before
+      family_name: Sameday
       sex: Male
     clinical_models:
       clinical_activities:
       - code_type: CPT
         code_value: 99201 # Denominator encounter
-        start_date: 2016-02-01 # Inside the measurement period
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59     
+        start_date: 2016-01-01 # Inside the measurement period
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 23:59:59
+        provider: Rachel     
       - code_type: LOINC
         code_value: 8462-4 # Diastolic blood pressure
-        start_date: 2016-02-01
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59    
-        author_date: 2016-01-31
-        author_datetime: 2016-01-31 23:59:59
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 00:00:00    
+        author_date: 2016-01-01
+        author_datetime: 2016-01-01 00:00:00
         child_code_value: 183932001 # Procedure contraindicated (situation)
-      - code_type: LOINC
-        code_value: 8480-6 # Systolic blood pressure 
-        start_date: 2016-02-01
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59    
-        author_date: 2016-02-01
-        author_datetime: 2016-02-01 00:00:00        
-        child_code_value: 183932001 # Procedure contraindicated (situation)
-  - name: ExceptionNoBP Lower
+        provider: Rachel
+  - name: ExceptionNoBP DifferentDay
     attributes:
       date_of_birth: 1998-01-01
       given_name: ExceptionNoBP
-      family_name: Lower
+      family_name: DifferentDay
       sex: Male
     clinical_models:
       clinical_activities:
@@ -332,71 +545,59 @@ patients:
         start_date: 2016-02-01 # Inside the measurement period
         start_datetime: 2016-02-01 00:00:00
         stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59     
+        stop_datetime: 2016-02-01 00:00:00
+        provider: Rachel     
       - code_type: LOINC
         code_value: 8462-4 # Diastolic blood pressure
-        start_date: 2016-02-01
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59    
-        author_date: 2016-02-01
-        author_datetime: 2016-02-01 00:00:00
+        start_date: 2016-02-02
+        start_datetime: 2016-02-02 00:00:00
+        stop_date: 2016-02-02
+        stop_datetime: 2016-02-02 00:00:00    
+        author_date: 2016-02-02
+        author_datetime: 2016-02-02 00:00:00
         child_code_value: 183932001 # Procedure contraindicated (situation)
-      - code_type: LOINC
-        code_value: 8480-6 # Systolic blood pressure 
-        start_date: 2016-02-01
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59    
-        author_date: 2016-02-01
-        author_datetime: 2016-02-01 00:00:00        
-        child_code_value: 183932001 # Procedure contraindicated (situation)        
- - name: ExceptionNoBP Upper
+        provider: Rachel
+  - name: ExceptionHypertensiveFollowupInterventionNotOrdered SameDay
     attributes:
       date_of_birth: 1998-01-01
-      given_name: ExceptionNoBP
-      family_name: Upper
+      given_name: ExceptionHypertensiveFollowupInterventionNotOrdered
+      family_name: SameDay
       sex: Male
     clinical_models:
       clinical_activities:
       - code_type: CPT
         code_value: 99201 # Denominator encounter
-        start_date: 2016-02-01 # Inside the measurement period
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59     
+        start_date: 2016-01-01 # Inside the measurement period
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 23:59:59
+        provider: Rachel     
       - code_type: LOINC
         code_value: 8462-4 # Diastolic blood pressure
-        start_date: 2016-02-01
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59    
-        author_date: 2016-02-01
-        author_datetime: 2016-02-01 23:59:59
-        child_code_value: 183932001 # Procedure contraindicated (situation)
-      - code_type: LOINC
-        code_value: 8480-6 # Systolic blood pressure 
-        start_date: 2016-02-01
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59    
-        author_date: 2016-02-01
-        author_datetime: 2016-02-01 00:00:00        
-        child_code_value: 183932001 # Procedure contraindicated (situation)
- - name: ExceptionNoBP After
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 23:59:59    
+        author_date: 2016-01-01
+        author_datetime: 2016-01-01 00:00:00
+        result_as_decimal: 79
+        child_code_value: 134403003 #  Urgent referral (procedure)
+        provider: Rachel          
+  - name: ExceptionHypertensiveFollowupInterventionNotOrdered DifferentDay
     attributes:
       date_of_birth: 1998-01-01
-      given_name: ExceptionNoBP
-      family_name: After
+      given_name: ExceptionHypertensiveFollowupInterventionNotOrdered
+      family_name: DifferentDay
       sex: Male
     clinical_models:
       clinical_activities:
       - code_type: CPT
         code_value: 99201 # Denominator encounter
-        start_date: 2016-02-01 # Inside the measurement period
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59     
+        start_date: 2016-01-01 # Inside the measurement period
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 23:59:59
+        provider: Rachel     
       - code_type: LOINC
         code_value: 8462-4 # Diastolic blood pressure
         start_date: 2016-02-02
@@ -404,41 +605,175 @@ patients:
         stop_date: 2016-02-02
         stop_datetime: 2016-02-02 23:59:59    
         author_date: 2016-02-02
-        author_datetime: 2016-02-02 00:00:00 # Too late
-        child_code_value: 183932001 # Procedure contraindicated (situation)
-      - code_type: LOINC
-        code_value: 8480-6 # Systolic blood pressure 
-        start_date: 2016-02-01
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59    
-        author_date: 2016-02-01
-        author_datetime: 2016-02-01 00:00:00        
-        child_code_value: 183932001 # Procedure contraindicated (situation)                
-  - name: SystolicDiastolicBP Before # Before means the attribute result_as_decimal is lower than 80 for Diastolic BP and lower than 120 in Systolic BP
-    attributes:
-      date_of_birth: 1998-01-01
-      given_name: SystolicDiastolicBP
-      family_name: Before
-      sex: Male
-    clinical_models:
-      clinical_activities:
-      - code_type: CPT
-        code_value: 99201 # Denominator encounter
-        start_date: 2016-02-01 # Inside the measurement period
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59     
-      - code_type: LOINC
-        code_value: 8462-4 # Diastolic blood pressure
-        start_date: 2016-02-01
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59    
-        author_date: 2016-02-01
-        author_datetime: 2016-02-01 00:00:00
-        child_code_value: 183932001 # Procedure contraindicated (situation)
+        author_datetime: 2016-02-02 00:00:00
         result_as_decimal: 79
+        child_code_value: 134403003 #  Urgent referral (procedure)
+        provider: Rachel                  
+  - name: ExceptionAntihypertensiveMedicationNotOrdered SameDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: ExceptionAntihypertensiveMedicationNotOrdered
+      family_name: SameDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-01-01 # Inside the measurement period
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 23:59:59
+        provider: Rachel     
+      medications:  
+      - code_type: RXNORM
+        code_value: 1011710 #  aliskiren 150 MG / Hydrochlorothiazide 12.5 MG Oral Tablet
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 23:59:59    
+        author_date: 2016-01-01
+        author_datetime: 2016-01-01 00:00:00
+  - name: ExceptionAntihypertensiveMedicationNotOrdered DifferentDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: ExceptionAntihypertensiveMedicationNotOrdered
+      family_name: DifferentDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-01-01 # Inside the measurement period
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 23:59:59
+        provider: Rachel     
+      medications:  
+      - code_type: RXNORM
+        code_value: 1011710 #  aliskiren 150 MG / Hydrochlorothiazide 12.5 MG Oral Tablet
+        start_date: 2016-02-02
+        start_datetime: 2016-02-02 00:00:00
+        stop_date: 2016-02-02
+        stop_datetime: 2016-02-02 23:59:59    
+        author_date: 2016-02-02
+        author_datetime: 2016-02-02 00:00:00
+  - name: ExceptionHypertensiveLabTestNotOrdered SameDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: ExceptionHypertensiveLabTestNotOrdered
+      family_name: SameDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-01-01 # Inside the measurement period
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 23:59:59
+        provider: Rachel     
+      laboratory_test_performeds:  
+      - code_type: LOINC
+        code_value: 24320-4 # Basic metabolic 1998 panel - Serum or Plasma  
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        author_date: 2016-01-01
+        author_datetime: 2016-01-01 00:00:00        
+  - name: ExceptionHypertensiveLabTestNotOrdered DifferentDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: ExceptionHypertensiveLabTestNotOrdered
+      family_name: DifferentDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-01-01 # Inside the measurement period
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 23:59:59
+        provider: Rachel     
+      laboratory_test_performeds:  
+      - code_type: LOINC
+        code_value: 24320-4 # Basic metabolic 1998 panel - Serum or Plasma  
+        start_date: 2016-02-02
+        start_datetime: 2016-02-02 00:00:00
+        author_date: 2016-02-02
+        author_datetime: 2016-02-02 00:00:00                
+  - name: ExceptionDiagnosticStudyNotOrdered SameDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: ExceptionDiagnosticStudyNotOrdered
+      family_name: SameDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-01-01 # Inside the measurement period
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 23:59:59
+        provider: Rachel     
+      diagnoses:  
+      - code_type: LOINC
+        code_value: 11524-6 # EKG study  
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 23:59:59    
+        author_date: 2016-01-01
+        author_datetime: 2016-01-01 00:00:00          
+  - name: ExceptionDiagnosticStudyNotOrdered DifferentDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: ExceptionDiagnosticStudyNotOrdered
+      family_name: DifferentDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-01-01 # Inside the measurement period
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 23:59:59
+        provider: Rachel     
+      diagnoses:  
+      - code_type: LOINC
+        code_value: 11524-6 # EKG study  
+        start_date: 2016-02-02
+        start_datetime: 2016-02-02 00:00:00
+        stop_date: 2016-02-02
+        stop_datetime: 2016-02-02 23:59:59    
+        author_date: 2016-02-02
+        author_datetime: 2016-02-02 00:00:00                          
+  - name: SystolicDiastolic BPNormal
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SystolicDiastolic
+      family_name: BPNormal
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 79
+        provider: Rachel
       - code_type: LOINC
         code_value: 8480-6 # Systolic blood pressure 
         start_date: 2016-02-01
@@ -447,13 +782,13 @@ patients:
         stop_datetime: 2016-02-01 23:59:59    
         author_date: 2016-02-01
         author_datetime: 2016-02-01 00:00:00        
-        child_code_value: 183932001 # Procedure contraindicated (situation)        
         result_as_decimal: 119
-  - name: SystolicDiastolicBP Lower # Lower means the attribute result_as_decimal is 80 for Diastolic BP and 120 in Systolic BP
+        provider: Rachel
+  - name: SystolicDiastolic BothBPIncreased
     attributes:
       date_of_birth: 1998-01-01
-      given_name: SystolicDiastolicBP
-      family_name: Lower
+      given_name: SystolicDiastolic
+      family_name: BothBPIncreased
       sex: Male
     clinical_models:
       clinical_activities:
@@ -462,7 +797,8 @@ patients:
         start_date: 2016-02-01 # Inside the measurement period
         start_datetime: 2016-02-01 00:00:00
         stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59     
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
       - code_type: LOINC
         code_value: 8462-4 # Diastolic blood pressure
         start_date: 2016-02-01
@@ -471,8 +807,8 @@ patients:
         stop_datetime: 2016-02-01 23:59:59    
         author_date: 2016-02-01
         author_datetime: 2016-02-01 00:00:00
-        child_code_value: 183932001 # Procedure contraindicated (situation)
         result_as_decimal: 80
+        provider: Rachel
       - code_type: LOINC
         code_value: 8480-6 # Systolic blood pressure 
         start_date: 2016-02-01
@@ -481,13 +817,13 @@ patients:
         stop_datetime: 2016-02-01 23:59:59    
         author_date: 2016-02-01
         author_datetime: 2016-02-01 00:00:00        
-        child_code_value: 183932001 # Procedure contraindicated (situation)        
-        result_as_decimal: 120        
-  - name: SystolicDiastolicBP After # After means the attribute result_as_decimal is more than 80 for Diastolic BP and more than 120 in Systolic BP
+        result_as_decimal: 120
+        provider: Rachel        
+  - name: Systolic Increased
     attributes:
       date_of_birth: 1998-01-01
-      given_name: SystolicDiastolicBP
-      family_name: After
+      given_name: Systolic
+      family_name: Increased
       sex: Male
     clinical_models:
       clinical_activities:
@@ -496,7 +832,8 @@ patients:
         start_date: 2016-02-01 # Inside the measurement period
         start_datetime: 2016-02-01 00:00:00
         stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59     
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
       - code_type: LOINC
         code_value: 8462-4 # Diastolic blood pressure
         start_date: 2016-02-01
@@ -505,8 +842,8 @@ patients:
         stop_datetime: 2016-02-01 23:59:59    
         author_date: 2016-02-01
         author_datetime: 2016-02-01 00:00:00
-        child_code_value: 183932001 # Procedure contraindicated (situation)
-        result_as_decimal: 81
+        result_as_decimal: 79
+        provider: Rachel
       - code_type: LOINC
         code_value: 8480-6 # Systolic blood pressure 
         start_date: 2016-02-01
@@ -515,8 +852,43 @@ patients:
         stop_datetime: 2016-02-01 23:59:59    
         author_date: 2016-02-01
         author_datetime: 2016-02-01 00:00:00        
-        child_code_value: 183932001 # Procedure contraindicated (situation)        
         result_as_decimal: 121
+        provider: Rachel
+  - name: Diastolic Increased
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: Diastolic
+      family_name: Increased
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 81
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        result_as_decimal: 119
+        provider: Rachel        
   - name: Prehypertensive Before
     attributes:
       date_of_birth: 1998-01-01
@@ -530,7 +902,8 @@ patients:
         start_date: 2016-02-01 # Inside the measurement period
         start_datetime: 2016-02-01 00:00:00
         stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59     
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
       - code_type: LOINC
         code_value: 8462-4 # Diastolic blood pressure
         start_date: 2016-02-01
@@ -539,8 +912,8 @@ patients:
         stop_datetime: 2016-02-01 23:59:59    
         author_date: 2016-02-01
         author_datetime: 2016-02-01 00:00:00
-        child_code_value: 183932001 # Procedure contraindicated (situation)
         result_as_decimal: 85
+        provider: Rachel
       - code_type: LOINC
         code_value: 8480-6 # Systolic blood pressure 
         start_date: 2016-02-01
@@ -548,9 +921,10 @@ patients:
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 23:59:59    
         author_date: 2016-02-01
-        author_datetime: 2016-02-01 00:00:00        
-        child_code_value: 183932001 # Procedure contraindicated (situation)        
+        author_datetime: 2016-02-01 00:00:00      
         result_as_decimal: 125
+        provider: Rachel
+      orders:
       - code_type: SNOMEDCT
         code_value: 134403003 # Urgent referral (procedure)
         start_date: 2016-02-01
@@ -558,7 +932,8 @@ patients:
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 23:59:59    
         author_date: 2016-01-31 # Too soon
-        author_datetime: 2016-01-31 23:59:59                
+        author_datetime: 2016-01-31 23:59:59
+        provider: Rachel                
   - name: Prehypertensive Lower
     attributes:
       date_of_birth: 1998-01-01
@@ -572,7 +947,8 @@ patients:
         start_date: 2016-02-01 # Inside the measurement period
         start_datetime: 2016-02-01 00:00:00
         stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59     
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
       - code_type: LOINC
         code_value: 8462-4 # Diastolic blood pressure
         start_date: 2016-02-01
@@ -581,8 +957,8 @@ patients:
         stop_datetime: 2016-02-01 23:59:59    
         author_date: 2016-02-01
         author_datetime: 2016-02-01 00:00:00
-        child_code_value: 183932001 # Procedure contraindicated (situation)
         result_as_decimal: 85
+        provider: Rachel
       - code_type: LOINC
         code_value: 8480-6 # Systolic blood pressure 
         start_date: 2016-02-01
@@ -591,8 +967,9 @@ patients:
         stop_datetime: 2016-02-01 23:59:59    
         author_date: 2016-02-01
         author_datetime: 2016-02-01 00:00:00        
-        child_code_value: 183932001 # Procedure contraindicated (situation)        
         result_as_decimal: 125
+        provider: Rachel
+      orders:
       - code_type: SNOMEDCT
         code_value: 134403003 # Urgent referral (procedure)
         start_date: 2016-02-01
@@ -600,7 +977,8 @@ patients:
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 23:59:59    
         author_date: 2016-02-01 #Lower Bound
-        author_datetime: 2016-02-01 00:00:00        
+        author_datetime: 2016-02-01 00:00:00
+        provider: Rachel        
   - name: Prehypertensive After
     attributes:
       date_of_birth: 1998-01-01
@@ -611,10 +989,11 @@ patients:
       clinical_activities:
       - code_type: CPT
         code_value: 99201 # Denominator encounter
-        start_date: 2016-02-01 # Inside the measurement period
-        start_datetime: 2016-02-01 00:00:00
-        stop_date: 2016-02-01
-        stop_datetime: 2016-02-01 23:59:59     
+        start_date: 2016-01-01 # Inside the measurement period
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 23:59:59
+        provider: Rachel     
       - code_type: LOINC
         code_value: 8462-4 # Diastolic blood pressure
         start_date: 2016-02-01
@@ -625,6 +1004,7 @@ patients:
         author_datetime: 2016-02-01 00:00:00
         child_code_value: 183932001 # Procedure contraindicated (situation)
         result_as_decimal: 85
+        provider: Rachel
       - code_type: LOINC
         code_value: 8480-6 # Systolic blood pressure 
         start_date: 2016-02-01
@@ -635,12 +1015,2091 @@ patients:
         author_datetime: 2016-02-01 00:00:00        
         child_code_value: 183932001 # Procedure contraindicated (situation)        
         result_as_decimal: 125
+        provider: Rachel
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 134403003 # Urgent referral (procedure)
+        start_date: 2016-02-02
+        start_datetime: 2016-02-02 00:00:00
+        stop_date: 2016-02-02
+        stop_datetime: 2016-02-02 23:59:59    
+        author_date: 2016-02-02 # Too late
+        author_datetime: 2016-02-02 00:00:00                
+        provider: Rachel
+  - name: Prehypertensive InterventionOnly
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: Prehypertensive
+      family_name: InterventionOnly
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 89
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        result_as_decimal: 139
+        provider: Rachel
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle education (procedure)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                
+  - name: Prehypertensive FollowupOnly
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: Prehypertensive
+      family_name: FollowupOnly
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 89
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        result_as_decimal: 139
+        provider: Rachel
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 183617005 # Follow-up 1 day (finding)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                        
+  - name: PrehypertensiveInterventionAndFollowup SameDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: PrehypertensiveInterventionAndFollowup
+      family_name: SameDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 89
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        result_as_decimal: 139
+        provider: Rachel
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle education (procedure)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                        
+      - code_type: SNOMEDCT
+        code_value: 183617005 # Follow-up 1 day (finding)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                
+  - name: PrehypertensiveInterventionAndFollowup DifferentDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: PrehypertensiveInterventionAndFollowup
+      family_name: DifferentDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 89
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        result_as_decimal: 139
+        provider: Rachel
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle education (procedure)
+        start_date: 2016-02-03 
+        start_datetime: 2016-02-03 00:00:00
+        author_date: 2016-02-03
+        author_datetime: 2016-02-03 00:00:00                        
+      - code_type: SNOMEDCT
+        code_value: 183617005 # Follow-up 1 day (finding)
+        start_date: 2016-02-03 
+        start_datetime: 2016-02-03 00:00:00
+        author_date: 2016-02-03
+        author_datetime: 2016-02-03 00:00:00                                
+  - name: FirstHypertensiveReading InterventionOnly
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: FirstHypertensiveReading 
+      family_name: InterventionOnly
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        result_as_decimal: 140
+        provider: Rachel
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle education (procedure) (Intervention)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                        
+  - name: FirstHypertensiveReading FollowupOnly
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: FirstHypertensiveReading 
+      family_name: FollowupOnly
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        result_as_decimal: 140
+        provider: Rachel
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 183617005 # Follow-up 1 day (finding)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                
+  - name: FirstHypertensiveReadingInterventionAndFollowup DifferentDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: FirstHypertensiveReadingInterventionAndFollowup
+      family_name: DifferentDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        result_as_decimal: 140
+        provider: Rachel
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle education (procedure) (Intervention)
+        start_date: 2016-02-03 
+        start_datetime: 2016-02-03 00:00:00
+        author_date: 2016-02-03
+        author_datetime: 2016-02-03 00:00:00                                
+      - code_type: SNOMEDCT
+        code_value: 183617005 # Follow-up 1 day (finding)
+        start_date: 2016-02-03
+        start_datetime: 2016-02-03 00:00:00
+        author_date: 2016-02-03
+        author_datetime: 2016-02-03 00:00:00                                        
+  - name: FirstHypertensiveReadingInterventionAndFollowup SameDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: FirstHypertensiveReadingInterventionAndFollowup
+      family_name: SameDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        result_as_decimal: 140
+        provider: Rachel
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle education (procedure) (Intervention)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                
+      - code_type: SNOMEDCT
+        code_value: 183617005 # Follow-up 1 day (finding)
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                        
+  - name: FirstHypertensiveReadingReferral DifferentDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: FirstHypertensiveReadingReferral
+      family_name: DifferentDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        result_as_decimal: 140
+        provider: Rachel
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 134403003 # Urgent referral (procedure)
+        start_date: 2016-02-03
+        start_datetime: 2016-02-03 00:00:00
+        stop_date: 2016-02-03
+        stop_datetime: 2016-02-03 23:59:59    
+        author_date: 2016-02-03
+        author_datetime: 2016-02-03 23:59:59
+        provider: Rachel                
+  - name: FirstHypertensiveReadingReferral SameDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: FirstHypertensiveReadingReferral
+      family_name: SameDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        result_as_decimal: 140
+        provider: Rachel
+      orders:
       - code_type: SNOMEDCT
         code_value: 134403003 # Urgent referral (procedure)
         start_date: 2016-02-01
         start_datetime: 2016-02-01 00:00:00
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 23:59:59    
-        author_date: 2016-02-02 # Too late
-        author_datetime: 2016-02-02 00:00:00                
-                 
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 23:59:59
+        provider: Rachel                        
+  - name: FirstHypertensiveReadingReferralSameDay D89S140
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: FirstHypertensiveReadingReferralSameDay
+      family_name: D89S140
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 89
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        result_as_decimal: 140
+        provider: Rachel
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 134403003 # Urgent referral (procedure)
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 23:59:59
+        provider: Rachel                        
+  - name: FirstHypertensiveReadingReferralSameDay D90S139
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: FirstHypertensiveReadingReferralSameDay
+      family_name: D90S139
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00        
+        result_as_decimal: 139
+        provider: Rachel
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 134403003 # Urgent referral (procedure)
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 23:59:59
+        provider: Rachel                                        
+  - name: SecondHBPMoreThanOneYear InterventionOnly
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPMoreThanOneYear 
+      family_name: InterventionOnly
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-01-31
+        start_datetime: 2015-01-31 00:00:00
+        stop_date: 2015-01-31
+        stop_datetime: 2015-01-31 23:59:59    
+        author_date: 2015-01-31
+        author_datetime: 2015-01-31 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-01-31
+        start_datetime: 2015-01-31 00:00:00
+        stop_date: 2015-01-31
+        stop_datetime: 2015-01-31 23:59:59    
+        author_date: 2015-01-31
+        author_datetime: 2015-01-31 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle education (procedure) (Intervention)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                        
+  - name: SecondHBPMoreThanOneYear FollowupOnly
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPMoreThanOneYear 
+      family_name: FollowupOnly
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-01-31
+        start_datetime: 2015-01-31 00:00:00
+        stop_date: 2015-01-31
+        stop_datetime: 2015-01-31 23:59:59    
+        author_date: 2015-01-31
+        author_datetime: 2015-01-31 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-01-31
+        start_datetime: 2015-01-31 00:00:00
+        stop_date: 2015-01-31
+        stop_datetime: 2015-01-31 23:59:59    
+        author_date: 2015-01-31
+        author_datetime: 2015-01-31 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 183617005 # Follow-up 1 day (finding)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                
+  - name: SecondHBPMoreThanOneYearInterventionAndFollowup DifferentDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPMoreThanOneYearInterventionAndFollowup
+      family_name: DifferentDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-01-31
+        start_datetime: 2015-01-31 00:00:00
+        stop_date: 2015-01-31
+        stop_datetime: 2015-01-31 23:59:59    
+        author_date: 2015-01-31
+        author_datetime: 2015-01-31 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-01-31
+        start_datetime: 2015-01-31 00:00:00
+        stop_date: 2015-01-31
+        stop_datetime: 2015-01-31 23:59:59    
+        author_date: 2015-01-31
+        author_datetime: 2015-01-31 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle education (procedure) (Intervention)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                
+      - code_type: SNOMEDCT
+        code_value: 183617005 # Follow-up 1 day (finding)
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                        
+  - name: SecondHBPMoreThanOneYearInterventionAndFollowup SameDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPMoreThanOneYearInterventionAndFollowup
+      family_name: SameDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-01-31
+        start_datetime: 2015-01-31 00:00:00
+        stop_date: 2015-01-31
+        stop_datetime: 2015-01-31 23:59:59    
+        author_date: 2015-01-31
+        author_datetime: 2015-01-31 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-01-31
+        start_datetime: 2015-01-31 00:00:00
+        stop_date: 2015-01-31
+        stop_datetime: 2015-01-31 23:59:59    
+        author_date: 2015-01-31
+        author_datetime: 2015-01-31 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle education (procedure) (Intervention)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                
+      - code_type: SNOMEDCT
+        code_value: 183617005 # Follow-up 1 day (finding)
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                        
+  - name: SecondHBPMoreThanOneYearReferral DifferentDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPMoreThanOneYearReferral
+      family_name: DifferentDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-01-31
+        start_datetime: 2015-01-31 00:00:00
+        stop_date: 2015-01-31
+        stop_datetime: 2015-01-31 23:59:59    
+        author_date: 2015-01-31
+        author_datetime: 2015-01-31 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-01-31
+        start_datetime: 2015-01-31 00:00:00
+        stop_date: 2015-01-31
+        stop_datetime: 2015-01-31 23:59:59    
+        author_date: 2015-01-31
+        author_datetime: 2015-01-31 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 134403003 # Urgent referral (procedure)
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 23:59:59
+        provider: Rachel                
+  - name: SecondHBPMoreThanOneYearReferral SameDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPMoreThanOneYearReferral
+      family_name: SameDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-01-31
+        start_datetime: 2015-01-31 00:00:00
+        stop_date: 2015-01-31
+        stop_datetime: 2015-01-31 23:59:59    
+        author_date: 2015-01-31
+        author_datetime: 2015-01-31 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-01-31
+        start_datetime: 2015-01-31 00:00:00
+        stop_date: 2015-01-31
+        stop_datetime: 2015-01-31 23:59:59    
+        author_date: 2015-01-31
+        author_datetime: 2015-01-31 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 134403003 # Urgent referral (procedure)
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 23:59:59
+        provider: Rachel                        
+  - name: SecondHBPMoreThanOneYearReferralSameDay D89S140
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPMoreThanOneYearReferralSameDay
+      family_name: D89S140
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-01-31
+        start_datetime: 2015-01-31 00:00:00
+        stop_date: 2015-01-31
+        stop_datetime: 2015-01-31 23:59:59    
+        author_date: 2015-01-31
+        author_datetime: 2015-01-31 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-01-31
+        start_datetime: 2015-01-31 00:00:00
+        stop_date: 2015-01-31
+        stop_datetime: 2015-01-31 23:59:59    
+        author_date: 2015-01-31
+        author_datetime: 2015-01-31 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 89
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 134403003 # Urgent referral (procedure)
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 23:59:59
+        provider: Rachel                        
+  - name: SecondHBPMoreThanOneYearReferralSameDay D90S139
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPMoreThanOneYearReferralSameDay
+      family_name: D90S139
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-01-31
+        start_datetime: 2015-01-31 00:00:00
+        stop_date: 2015-01-31
+        stop_datetime: 2015-01-31 23:59:59    
+        author_date: 2015-01-31
+        author_datetime: 2015-01-31 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-01-31
+        start_datetime: 2015-01-31 00:00:00
+        stop_date: 2015-01-31
+        stop_datetime: 2015-01-31 23:59:59    
+        author_date: 2015-01-31
+        author_datetime: 2015-01-31 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 139
+        provider: Rachel        
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 134403003 # Urgent referral (procedure)
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 23:59:59
+        provider: Rachel                                                
+  - name: SecondHBPExactlyOneYearMedication DifferentDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPExactlyOneYearMedication  
+      family_name: DifferentDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-02-01
+        start_datetime: 2015-02-01 00:00:00
+        stop_date: 2015-02-01
+        stop_datetime: 2015-02-01 23:59:59    
+        author_date: 2015-02-01
+        author_datetime: 2015-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-02-01
+        start_datetime: 2015-02-01 00:00:00
+        stop_date: 2015-02-01
+        stop_datetime: 2015-02-01 23:59:59    
+        author_date: 2015-02-01
+        author_datetime: 2015-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 89
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      medications:
+      - code_type: RXNORM
+        code_value: 1011710 # aliskiren 150 MG / Hydrochlorothiazide 12.5 MG Oral Tablet)
+        start_date: 2016-02-02 
+        start_datetime: 2016-02-02 00:00:00
+        stop_date: 2016-02-02
+        stop_datetime: 2016-02-02 00:00:00
+        author_date: 2016-02-02
+        author_datetime: 2016-02-02 00:00:00                        
+  - name: SecondHBPExactlyOneYearMedication SameDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPExactlyOneYearMedication  
+      family_name: SameDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-02-01
+        start_datetime: 2015-02-01 00:00:00
+        stop_date: 2015-02-01
+        stop_datetime: 2015-02-01 23:59:59    
+        author_date: 2015-02-01
+        author_datetime: 2015-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-02-01
+        start_datetime: 2015-02-01 00:00:00
+        stop_date: 2015-02-01
+        stop_datetime: 2015-02-01 23:59:59    
+        author_date: 2015-02-01
+        author_datetime: 2015-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 89
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      medications:
+      - code_type: RXNORM
+        code_value: 1011710 # aliskiren 150 MG / Hydrochlorothiazide 12.5 MG Oral Tablet)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                        
+  - name: SecondHBPExactlyOneYearLabOrder DifferentDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPExactlyOneYearLabOrder  
+      family_name: DifferentDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-02-01
+        start_datetime: 2015-02-01 00:00:00
+        stop_date: 2015-02-01
+        stop_datetime: 2015-02-01 23:59:59    
+        author_date: 2015-02-01
+        author_datetime: 2015-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-02-01
+        start_datetime: 2015-02-01 00:00:00
+        stop_date: 2015-02-01
+        stop_datetime: 2015-02-01 23:59:59    
+        author_date: 2015-02-01
+        author_datetime: 2015-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 89
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 24320-4 # Basic metabolic 1998 panel - Serum or Plasma
+        start_date: 2016-02-02 
+        start_datetime: 2016-02-02 00:00:00
+        author_date: 2016-02-02
+        author_datetime: 2016-02-02 00:00:00                        
+  - name: SecondHBPExactlyOneYearLabOrder SameDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPExactlyOneYearLabOrder  
+      family_name: SameDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-02-01
+        start_datetime: 2015-02-01 00:00:00
+        stop_date: 2015-02-01
+        stop_datetime: 2015-02-01 23:59:59    
+        author_date: 2015-02-01
+        author_datetime: 2015-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-02-01
+        start_datetime: 2015-02-01 00:00:00
+        stop_date: 2015-02-01
+        stop_datetime: 2015-02-01 23:59:59    
+        author_date: 2015-02-01
+        author_datetime: 2015-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 89
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 24320-4 # Basic metabolic 1998 panel - Serum or Plasma
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                
+  - name: SecondHBPExactlyOneYearElectrocardiogram DifferentDay
+    attributes: 
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPExactlyOneYearElectrocardiogram
+      family_name: DifferentDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-02-01
+        start_datetime: 2015-02-01 00:00:00
+        stop_date: 2015-02-01
+        stop_datetime: 2015-02-01 23:59:59    
+        author_date: 2015-02-01
+        author_datetime: 2015-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-02-01
+        start_datetime: 2015-02-01 00:00:00
+        stop_date: 2015-02-01
+        stop_datetime: 2015-02-01 23:59:59    
+        author_date: 2015-02-01
+        author_datetime: 2015-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 89
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      diagnoses:
+      - code_type: LOINC
+        code_value: 11524-6 # EKG study
+        start_date: 2016-02-02 
+        start_datetime: 2016-02-02 00:00:00
+        stop_date: 2016-02-02
+        stop_datetime: 2016-02-02 00:00:00
+        author_date: 2016-02-02
+        author_datetime: 2016-02-02 00:00:00                                
+  - name: SecondHBPExactlyOneYearElectrocardiogram SameDay
+    attributes: 
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPExactlyOneYearElectrocardiogram   
+      family_name: SameDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-02-01
+        start_datetime: 2015-02-01 00:00:00
+        stop_date: 2015-02-01
+        stop_datetime: 2015-02-01 23:59:59    
+        author_date: 2015-02-01
+        author_datetime: 2015-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-02-01
+        start_datetime: 2015-02-01 00:00:00
+        stop_date: 2015-02-01
+        stop_datetime: 2015-02-01 23:59:59    
+        author_date: 2015-02-01
+        author_datetime: 2015-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 89
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      diagnoses:
+      - code_type: LOINC
+        code_value: 11524-6 # EKG study
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                        
+  - name: SecondHBPExactlyOneYearElectrocardiogramSameDay D89S140
+    attributes: 
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPExactlyOneYearElectrocardiogramSameDay   
+      family_name: D89S140
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-02-01
+        start_datetime: 2015-02-01 00:00:00
+        stop_date: 2015-02-01
+        stop_datetime: 2015-02-01 23:59:59    
+        author_date: 2015-02-01
+        author_datetime: 2015-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-02-01
+        start_datetime: 2015-02-01 00:00:00
+        stop_date: 2015-02-01
+        stop_datetime: 2015-02-01 23:59:59    
+        author_date: 2015-02-01
+        author_datetime: 2015-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 89
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      diagnoses:
+      - code_type: LOINC
+        code_value: 11524-6 # EKG study
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                        
+  - name: SecondHBPExactlyOneYearElectrocardiogramSameDay D90S139 
+    attributes: 
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPExactlyOneYearElectrocardiogramSameDay   
+      family_name: D90S139
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-02-01
+        start_datetime: 2015-02-01 00:00:00
+        stop_date: 2015-02-01
+        stop_datetime: 2015-02-01 23:59:59    
+        author_date: 2015-02-01
+        author_datetime: 2015-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-02-01
+        start_datetime: 2015-02-01 00:00:00
+        stop_date: 2015-02-01
+        stop_datetime: 2015-02-01 23:59:59    
+        author_date: 2015-02-01
+        author_datetime: 2015-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 139
+        provider: Rachel        
+      diagnoses:
+      - code_type: LOINC
+        code_value: 11524-6 # EKG study
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                        
+  - name: SecondHBPLessThanOneYearMedication DifferentDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPLessThanOneYearMedication  
+      family_name: DifferentDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-02-02
+        start_datetime: 2015-02-02 00:00:00
+        stop_date: 2015-02-02
+        stop_datetime: 2015-02-02 23:59:59    
+        author_date: 2015-02-02
+        author_datetime: 2015-02-02 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-02-02
+        start_datetime: 2015-02-02 00:00:00
+        stop_date: 2015-02-02
+        stop_datetime: 2015-02-02 23:59:59    
+        author_date: 2015-02-02
+        author_datetime: 2015-02-02 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      medications:
+      - code_type: RXNORM
+        code_value: 1011710 # aliskiren 150 MG / Hydrochlorothiazide 12.5 MG Oral Tablet)
+        start_date: 2016-02-02 
+        start_datetime: 2016-02-02 00:00:00
+        stop_date: 2016-02-02
+        stop_datetime: 2016-02-02 00:00:00
+        author_date: 2016-02-02
+        author_datetime: 2016-02-02 00:00:00                        
+  - name: SecondHBPLessThanOneYearMedication SameDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPLessThanOneYearMedication  
+      family_name: SameDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-02-02
+        start_datetime: 2015-02-02 00:00:00
+        stop_date: 2015-02-02
+        stop_datetime: 2015-02-02 23:59:59    
+        author_date: 2015-02-02
+        author_datetime: 2015-02-02 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-02-02
+        start_datetime: 2015-02-02 00:00:00
+        stop_date: 2015-02-02
+        stop_datetime: 2015-02-02 23:59:59    
+        author_date: 2015-02-02
+        author_datetime: 2015-02-02 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      medications:
+      - code_type: RXNORM
+        code_value: 1011710 # aliskiren 150 MG / Hydrochlorothiazide 12.5 MG Oral Tablet)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                        
+  - name: SecondHBPLessThanOneYearLabOrder DifferentDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPLessThanOneYearLabOrder  
+      family_name: DifferentDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-02-02
+        start_datetime: 2015-02-02 00:00:00
+        stop_date: 2015-02-02
+        stop_datetime: 2015-02-02 23:59:59    
+        author_date: 2015-02-02
+        author_datetime: 2015-02-02 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-02-02
+        start_datetime: 2015-02-02 00:00:00
+        stop_date: 2015-02-02
+        stop_datetime: 2015-02-02 23:59:59    
+        author_date: 2015-02-02
+        author_datetime: 2015-02-02 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+        provider: Rachel
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 24320-4 # Basic metabolic 1998 panel - Serum or Plasma
+        start_date: 2016-02-02 
+        start_datetime: 2016-02-02 00:00:00
+        author_date: 2016-02-02
+        author_datetime: 2016-02-02 00:00:00                        
+  - name: SecondHBPLessThanOneYearLabOrder SameDay
+    attributes:
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPLessThanOneYearLabOrder  
+      family_name: SameDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-02-02
+        start_datetime: 2015-02-02 00:00:00
+        stop_date: 2015-02-02
+        stop_datetime: 2015-02-02 23:59:59    
+        author_date: 2015-02-02
+        author_datetime: 2015-02-02 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-02-02
+        start_datetime: 2015-02-02 00:00:00
+        stop_date: 2015-02-02
+        stop_datetime: 2015-02-02 23:59:59    
+        author_date: 2015-02-02
+        author_datetime: 2015-02-02 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      laboratory_test_performeds:
+      - code_type: LOINC
+        code_value: 24320-4 # Basic metabolic 1998 panel - Serum or Plasma
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                
+  - name: SecondHBPLessThanOneYearElectrocardiogram DifferentDay
+    attributes: 
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPLessThanOneYearElectrocardiogram
+      family_name: DifferentDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-02-02
+        start_datetime: 2015-02-02 00:00:00
+        stop_date: 2015-02-02
+        stop_datetime: 2015-02-02 23:59:59    
+        author_date: 2015-02-02
+        author_datetime: 2015-02-02 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-02-02
+        start_datetime: 2015-02-02 00:00:00
+        stop_date: 2015-02-02
+        stop_datetime: 2015-02-02 23:59:59    
+        author_date: 2015-02-02
+        author_datetime: 2015-02-02 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      diagnoses:
+      - code_type: LOINC
+        code_value: 11524-6 # EKG study
+        start_date: 2016-02-02 
+        start_datetime: 2016-02-02 00:00:00
+        stop_date: 2016-02-02
+        stop_datetime: 2016-02-02 00:00:00
+        author_date: 2016-02-02
+        author_datetime: 2016-02-02 00:00:00                                
+  - name: SecondHBPLessThanOneYearElectrocardiogram SameDay
+    attributes: 
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPLessThanOneYearElectrocardiogram   
+      family_name: SameDay
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-02-02
+        start_datetime: 2015-02-02 00:00:00
+        stop_date: 2015-02-02
+        stop_datetime: 2015-02-02 23:59:59    
+        author_date: 2015-02-02
+        author_datetime: 2015-02-02 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-02-02
+        start_datetime: 2015-02-02 00:00:00
+        stop_date: 2015-02-02
+        stop_datetime: 2015-02-02 23:59:59    
+        author_date: 2015-02-01
+        author_datetime: 2015-02-02 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      diagnoses:
+      - code_type: LOINC
+        code_value: 11524-6 # EKG study
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                        
+  - name: SecondHBPLessThanOneYearElectrocardiogramSameDay D89S140
+    attributes: 
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPLessThanOneYearElectrocardiogramSameDay   
+      family_name: D89S140
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-02-02
+        start_datetime: 2015-02-02 00:00:00
+        stop_date: 2015-02-02
+        stop_datetime: 2015-02-02 23:59:59    
+        author_date: 2015-02-02
+        author_datetime: 2015-02-02 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-02-02
+        start_datetime: 2015-02-02 00:00:00
+        stop_date: 2015-02-02
+        stop_datetime: 2015-02-02 23:59:59    
+        author_date: 2015-02-02
+        author_datetime: 2015-02-02 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 89
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 140
+        provider: Rachel        
+      diagnoses:
+      - code_type: LOINC
+        code_value: 11524-6 # EKG study
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                        
+  - name: SecondHBPLessThanOneYearElectrocardiogramSameDay D90S139 
+    attributes: 
+      date_of_birth: 1998-01-01
+      given_name: SecondHBPLessThanOneYearElectrocardiogramSameDay   
+      family_name: D90S139
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01 # Inside the measurement period
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel     
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2015-02-02
+        start_datetime: 2015-02-02 00:00:00
+        stop_date: 2015-02-02
+        stop_datetime: 2015-02-02 23:59:59    
+        author_date: 2015-02-02
+        author_datetime: 2015-02-02 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2015-02-02
+        start_datetime: 2015-02-02 00:00:00
+        stop_date: 2015-02-02
+        stop_datetime: 2015-02-01 23:59:59    
+        author_date: 2015-02-02
+        author_datetime: 2015-02-02 00:00:00
+        result_as_decimal: 140
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8462-4 # Diastolic blood pressure
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 90
+        provider: Rachel
+      - code_type: LOINC
+        code_value: 8480-6 # Systolic blood pressure 
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59    
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00
+        result_as_decimal: 139
+        provider: Rachel        
+      diagnoses:
+      - code_type: LOINC
+        code_value: 11524-6 # EKG study
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                        
