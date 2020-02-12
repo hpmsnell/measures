@@ -1,3 +1,4 @@
+---
 measure_id: measure.Cms.2019.Cms22v7
 test_set_keys:
   organization_key:
@@ -296,7 +297,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance__met                        
+      numerator: performance_met                        
     - name: SecondHBPLessThanOneYearElectrocardiogram DifferentDay
       denominator: 1
       denominator_exclusion:
@@ -672,7 +673,7 @@ patients:
         stop_date: 2016-01-01
         stop_datetime: 2016-01-01 23:59:59
         provider: Rachel     
-      laboratory_test_performeds:  
+      orders:  
       - code_type: LOINC
         code_value: 24320-4 # Basic metabolic 1998 panel - Serum or Plasma  
         start_date: 2016-01-01
@@ -694,7 +695,7 @@ patients:
         stop_date: 2016-01-01
         stop_datetime: 2016-01-01 23:59:59
         provider: Rachel     
-      laboratory_test_performeds:  
+      orders:  
       - code_type: LOINC
         code_value: 24320-4 # Basic metabolic 1998 panel - Serum or Plasma  
         start_date: 2016-02-02
@@ -2269,7 +2270,7 @@ patients:
         author_datetime: 2016-02-01 00:00:00
         result_as_decimal: 140
         provider: Rachel        
-      laboratory_test_performeds:
+      orders:
       - code_type: LOINC
         code_value: 24320-4 # Basic metabolic 1998 panel - Serum or Plasma
         start_date: 2016-02-02 
@@ -2331,7 +2332,7 @@ patients:
         author_datetime: 2016-02-01 00:00:00
         result_as_decimal: 140
         provider: Rachel        
-      laboratory_test_performeds:
+      orders:
       - code_type: LOINC
         code_value: 24320-4 # Basic metabolic 1998 panel - Serum or Plasma
         start_date: 2016-02-01 
@@ -2657,7 +2658,8 @@ patients:
         stop_date: 2016-02-02
         stop_datetime: 2016-02-02 00:00:00
         author_date: 2016-02-02
-        author_datetime: 2016-02-02 00:00:00                        
+        author_datetime: 2016-02-02 00:00:00   
+        prescribed: true
   - name: SecondHBPLessThanOneYearMedication SameDay
     attributes:
       date_of_birth: 1998-01-01
@@ -2721,7 +2723,15 @@ patients:
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 00:00:00
         author_date: 2016-02-01
-        author_datetime: 2016-02-01 00:00:00                        
+        author_datetime: 2016-02-01 00:00:00    
+        prescribed: true
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle education (procedure)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00 
   - name: SecondHBPLessThanOneYearLabOrder DifferentDay
     attributes:
       date_of_birth: 1998-01-01
@@ -2778,13 +2788,19 @@ patients:
         result_as_decimal: 140
         provider: Rachel        
         provider: Rachel
-      laboratory_test_performeds:
+      orders:
       - code_type: LOINC
         code_value: 24320-4 # Basic metabolic 1998 panel - Serum or Plasma
         start_date: 2016-02-02 
         start_datetime: 2016-02-02 00:00:00
         author_date: 2016-02-02
-        author_datetime: 2016-02-02 00:00:00                        
+        author_datetime: 2016-02-02 00:00:00 
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle education (procedure)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                        
   - name: SecondHBPLessThanOneYearLabOrder SameDay
     attributes:
       date_of_birth: 1998-01-01
@@ -2840,13 +2856,19 @@ patients:
         author_datetime: 2016-02-01 00:00:00
         result_as_decimal: 140
         provider: Rachel        
-      laboratory_test_performeds:
+      orders:
       - code_type: LOINC
         code_value: 24320-4 # Basic metabolic 1998 panel - Serum or Plasma
         start_date: 2016-02-01 
         start_datetime: 2016-02-01 00:00:00
         author_date: 2016-02-01
-        author_datetime: 2016-02-01 00:00:00                                
+        author_datetime: 2016-02-01 00:00:00
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle education (procedure)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                   
   - name: SecondHBPLessThanOneYearElectrocardiogram DifferentDay
     attributes: 
       date_of_birth: 1998-01-01
@@ -2902,7 +2924,7 @@ patients:
         author_datetime: 2016-02-01 00:00:00
         result_as_decimal: 140
         provider: Rachel        
-      diagnoses:
+      orders:
       - code_type: LOINC
         code_value: 11524-6 # EKG study
         start_date: 2016-02-02 
@@ -2966,7 +2988,7 @@ patients:
         author_datetime: 2016-02-01 00:00:00
         result_as_decimal: 140
         provider: Rachel        
-      diagnoses:
+      orders:
       - code_type: LOINC
         code_value: 11524-6 # EKG study
         start_date: 2016-02-01 
@@ -2974,7 +2996,13 @@ patients:
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 00:00:00
         author_date: 2016-02-01
-        author_datetime: 2016-02-01 00:00:00                                        
+        author_datetime: 2016-02-01 00:00:00   
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle education (procedure)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                      
   - name: SecondHBPLessThanOneYearElectrocardiogramSameDay D89S140
     attributes: 
       date_of_birth: 1998-01-01
@@ -3030,7 +3058,7 @@ patients:
         author_datetime: 2016-02-01 00:00:00
         result_as_decimal: 140
         provider: Rachel        
-      diagnoses:
+      orders:
       - code_type: LOINC
         code_value: 11524-6 # EKG study
         start_date: 2016-02-01 
@@ -3038,7 +3066,13 @@ patients:
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 00:00:00
         author_date: 2016-02-01
-        author_datetime: 2016-02-01 00:00:00                                        
+        author_datetime: 2016-02-01 00:00:00
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle education (procedure)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00   
   - name: SecondHBPLessThanOneYearElectrocardiogramSameDay D90S139 
     attributes: 
       date_of_birth: 1998-01-01
@@ -3069,7 +3103,7 @@ patients:
         start_date: 2015-02-02
         start_datetime: 2015-02-02 00:00:00
         stop_date: 2015-02-02
-        stop_datetime: 2015-02-01 23:59:59    
+        stop_datetime: 2015-02-02 23:59:59    
         author_date: 2015-02-02
         author_datetime: 2015-02-02 00:00:00
         result_as_decimal: 140
@@ -3094,7 +3128,7 @@ patients:
         author_datetime: 2016-02-01 00:00:00
         result_as_decimal: 139
         provider: Rachel        
-      diagnoses:
+      orders:
       - code_type: LOINC
         code_value: 11524-6 # EKG study
         start_date: 2016-02-01 
@@ -3102,4 +3136,11 @@ patients:
         stop_date: 2016-02-01
         stop_datetime: 2016-02-01 00:00:00
         author_date: 2016-02-01
-        author_datetime: 2016-02-01 00:00:00                                        
+        author_datetime: 2016-02-01 00:00:00
+      - code_type: SNOMEDCT
+        code_value: 313204009 # Lifestyle education (procedure)
+        start_date: 2016-02-01 
+        start_datetime: 2016-02-01 00:00:00
+        author_date: 2016-02-01
+        author_datetime: 2016-02-01 00:00:00                                   
+        
