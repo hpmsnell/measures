@@ -45,7 +45,7 @@ exclusion:
         - model: Diagnosis
           value_set: HEDIS; Anaphylactic Reaction Due to Vaccination
         - model: Allergy
-          value_set: HEDIS; DTaP Vaccine Administered
+          value_set: HEDIS; DTaP Immunization
     - logical_operator: OR
       components:
       - display_title: Vaccine Causing Adverse Effect
@@ -72,11 +72,11 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; DTaP Vaccine Administered
+          value_set: HEDIS; DTaP Vaccine Procedure
         - model: ClinicalActivity
           value_set: Able; DTaP Vaccine
         - model: Medication
-          value_set: HEDIS; DTaP Vaccine Administered
+          value_set: HEDIS; DTaP Immunization
 performance_not_met:
   description:
   reasons:
