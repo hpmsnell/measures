@@ -1,0 +1,759 @@
+measure_id: measure.Cms.2019.Cms164v7
+test_set_keys:
+  organization_key:
+    patients:
+    - name: Too Young
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Age Lower
+      denominator: 1 
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: AdultOutpatientEncounter Before
+      denominator: 
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: AdultOutpatientEncounter Lower
+      denominator: 
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: AdultOutpatientEncounter Upper
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: AdultOutpatientEncounter After
+      denominator: 
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: AcuteMyocardialInfarction Before
+      denominator: 
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: AcuteMyocardialInfarction Lower
+      denominator: 1 
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: AcuteMyocardialInfarction Upper
+      denominator: 1 
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: AcuteMyocardialInfarction After
+      denominator: 
+      denominator_exclusion:
+      denominator_exception:
+      numerator:    
+    - name: IschemicVascularDisease Before
+      denominator: 
+      denominator_exclusion:
+      denominator_exception:
+      numerator:            
+    - name: IschemicVascularDisease Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met           
+    - name: IschemicVascularDisease Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met           
+    - name: IschemicVascularDisease After
+      denominator: 
+      denominator_exclusion:
+      denominator_exception:
+      numerator:                                
+    - name: HeartProcedure Before
+      denominator: 
+      denominator_exclusion:
+      denominator_exception:
+      numerator:            
+    - name: HeartProcedure Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met           
+    - name: HeartProcedure Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met           
+    - name: HeartProcedure After
+      denominator: 
+      denominator_exclusion:
+      denominator_exception:
+      numerator:                                     
+    - name: ExclusionHospice Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionHospice Lower
+      denominator: 1
+      denominator_exclusion: exclusion_hospice
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Upper
+      denominator: 1
+      denominator_exclusion: exclusion_hospice
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met      
+    - name: ExclusionAnticoagulantMedication Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAnticoagulantMedication Lower
+      denominator: 1
+      denominator_exclusion: exclusion
+      denominator_exception:
+      numerator:
+    - name: ExclusionAnticoagulantMedication Upper
+      denominator: 1
+      denominator_exclusion: exclusion
+      denominator_exception:
+      numerator:
+    - name: ExclusionAnticoagulantMedication After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met            
+    - name: Antiplatelets Before
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Antiplatelets Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met                  
+    - name: Antiplatelets Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance__met                  
+    - name: Antiplatelets After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:                                    
+providers:
+  - given_name: Rachel
+    family_name: Katz
+    external_id: '111-111'
+    credential: DO
+    primary_specialty: Family Medicine
+  - given_name: Patty
+    family_name: Smith
+    external_id: '222-222'
+    credential: MD
+    primary_specialty: Family Medicine
+patients:
+  - name: Too Young
+    attributes:
+      date_of_birth: 1998-01-02 # Too late
+      given_name: Too
+      family_name: Young
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00
+        provider: Rachel 
+  - name: Age Lower
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: Age
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00
+        provider: Rachel 
+  - name: AdultOutpatientEncounter Before
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: AdultOutpatientEncounter
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2015-12-31
+        start_datetime: 2015-12-31 23:59:59
+        stop_date: 2015-12-31
+        stop_datetime: 2015-12-31 23:59:59
+        provider: Rachel 
+  - name: AdultOutpatientEncounter Lower
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: AdultOutpatientEncounter
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 00:00:00
+        provider: Rachel 
+  - name: AdultOutpatientEncounter Upper
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: AdultOutpatientEncounter
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-12-31
+        start_datetime: 2016-12-31 23:59:59
+        stop_date: 2016-12-31
+        stop_datetime: 2016-12-31 23:59:59
+        provider: Rachel                         
+  - name: AdultOutpatientEncounter After
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: AdultOutpatientEncounter
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2017-01-01
+        start_datetime: 2017-01-01 00:00:00
+        stop_date: 2017-01-01
+        stop_datetime: 2017-01-01 00:00:00
+        provider: Rachel                                 
+  - name: AcuteMyocardialInfarction Before
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: AcuteMyocardialInfarction
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        provider: Rachel                                 
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 10273003 # Acute infarction of papillary muscle (disorder)
+        start_date: 2014-12-31
+        start_datetime: 2014-12-31 23:59:59  
+        stop_date: 2014-12-31
+        stop_datetime: 2014-12-31 23:59:59  
+  - name: AcuteMyocardialInfarction Lower
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: AcuteMyocardialInfarction
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        provider: Rachel                 
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 10273003 # Acute infarction of papillary muscle (disorder)
+        start_date: 2015-01-01
+        start_datetime: 2015-01-01 00:00:00  
+        stop_date: 2015-01-01
+        stop_datetime: 2015-01-01 00:00:00                          
+  - name: AcuteMyocardialInfarction Upper
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: AcuteMyocardialInfarction
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        provider: Rachel                    
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 10273003 # Acute infarction of papillary muscle (disorder)
+        start_date: 2015-12-31
+        start_datetime: 2015-12-31 23:59:59  
+        stop_date: 2015-12-31
+        stop_datetime: 2015-12-31 23:59:59                       
+  - name: AcuteMyocardialInfarction After
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: AcuteMyocardialInfarction
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        provider: Rachel                                                                 
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 10273003 # Acute infarction of papillary muscle (disorder)
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00  
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 00:00:00  
+  - name: IschemicVascularDisease Before
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: IschemicVascularDisease
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        provider: Rachel                                 
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 1055001 # Stenosis of precerebral artery (disorder)
+        start_date: 2015-12-31
+        start_datetime: 2015-12-31 23:59:59  
+        stop_date: 2015-12-31
+        stop_datetime: 2015-12-31 23:59:59  
+  - name: IschemicVascularDisease Lower
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: IschemicVascularDisease
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        provider: Rachel                 
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 1055001 # Stenosis of precerebral artery (disorder)
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00  
+  - name: IschemicVascularDisease Upper
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: IschemicVascularDisease
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        provider: Rachel                    
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 1055001 # Stenosis of precerebral artery (disorder)
+        start_date: 2015-12-31
+        start_datetime: 2015-12-31 23:59:59  
+  - name: IschemicVascularDisease After
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: IschemicVascularDisease
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        provider: Rachel                                                                 
+      diagnoses:
+      - code_type: SNOMEDCT
+        code_value: 1055001 # Stenosis of precerebral artery (disorder)
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00  
+  - name: HeartProcedure Before
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: HeartProcedure
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 00:00:00
+        provider: Rachel 
+      - code_type: SNOMEDCT
+        code_value: 11101003 # Percutaneous transluminal coronary angioplasty (procedure)
+        start_date: 2014-12-31
+        start_datetime: 2014-12-31 00:00:00
+        stop_date: 2014-12-31
+        stop_datetime: 2014-12-31 00:00:00
+        provider: Rachel         
+  - name: HeartProcedure Lower
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: HeartProcedure
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 00:00:00
+        provider: Rachel 
+      - code_type: SNOMEDCT
+        code_value: 11101003 # Percutaneous transluminal coronary angioplasty (procedure)
+        start_date: 2015-01-01
+        start_datetime: 2015-01-01 00:00:00
+        stop_date: 2015-01-01
+        stop_datetime: 2015-01-01 00:00:00
+        provider: Rachel                 
+  - name: HeartProcedure Upper
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: HeartProcedure
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 00:00:00
+        provider: Rachel
+      - code_type: SNOMEDCT
+        code_value: 11101003 # Percutaneous transluminal coronary angioplasty (procedure)
+        start_date: 2015-12-31
+        start_datetime: 2015-12-31 00:00:00
+        stop_date: 2015-12-31
+        stop_datetime: 2015-12-31 00:00:00
+        provider: Rachel          
+  - name: HeartProcedure After
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: HeartProcedure
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 00:00:00
+        provider: Rachel                                 
+      - code_type: SNOMEDCT
+        code_value: 11101003 # Percutaneous transluminal coronary angioplasty (procedure)
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+        stop_date: 2016-01-01
+        stop_datetime: 2016-01-01 00:00:00
+        provider: Rachel 
+  - name: ExclusionHospice Before
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: ExclusionHospice
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 23:59:59
+        provider: Rachel
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 385763009 # Hospice
+        start_date: 2015-12-31 # Too early
+        start_datetime: 2015-12-31 23:00:00 # Too early
+  - name: ExclusionHospice Lower
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: ExclusionHospice
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00
+        provider: Rachel
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 385763009 # Hospice
+        start_date: 2016-01-01 # Lower bound
+        start_datetime: 2016-01-01 00:00:00 # Lower bound
+  - name: ExclusionHospice Upper
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: ExclusionHospice
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00
+        provider: Rachel
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 385763009 # Hospice
+        start_date: 2016-12-31 # Upper bound
+        start_datetime: 2016-12-31 23:00:00 # Upper bound
+  - name: ExclusionHospice After
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: ExclusionHospice
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 09:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 10:00:00
+        provider: Rachel
+      orders:
+      - code_type: SNOMEDCT
+        code_value: 385763009 # Hospice
+        start_date: 2017-01-01 # Too late
+        start_datetime: 2017-01-01 09:00:00 # Too late     
+  - name: ExclusionAnticoagulantMedication Before
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: ExclusionAnticoagulantMedication
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        provider: Rachel                                 
+      medications:
+      - code_type: RXNORM
+        code_value: 1037045 # dabigatran etexilate 150 MG Oral Capsule
+        start_date: 2015-12-31
+        start_datetime: 2015-12-31 23:59:59  
+        stop_date: 2015-12-31
+        stop_datetime: 2015-12-31 23:59:59  
+  - name: ExclusionAnticoagulantMedication Lower
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: ExclusionAnticoagulantMedication
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        provider: Rachel                 
+      medications:
+      - code_type: RXNORM
+        code_value: 1037045 # dabigatran etexilate 150 MG Oral Capsule
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00  
+  - name: ExclusionAnticoagulantMedication Upper
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: ExclusionAnticoagulantMedication
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        provider: Rachel                    
+      medications:
+      - code_type: RXNORM
+        code_value: 1037045 # dabigatran etexilate 150 MG Oral Capsule
+        start_date: 2015-12-31
+        start_datetime: 2015-12-31 23:59:59  
+  - name: ExclusionAnticoagulantMedication After
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: ExclusionAnticoagulantMedication
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        provider: Rachel                                                                 
+      medications:
+      - code_type: RXNORM
+        code_value: 1037045 # dabigatran etexilate 150 MG Oral Capsule
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00
+  - name: Antiplatelets Before
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: Antiplatelets
+      family_name: Before
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        provider: Rachel                                 
+      medications:
+      - code_type: RXNORM
+        code_value: 1116635 # Ticagrelor 90 MG Oral Tablet
+        start_date: 2015-12-31
+        start_datetime: 2015-12-31 23:59:59  
+        stop_date: 2015-12-31
+        stop_datetime: 2015-12-31 23:59:59  
+  - name: Antiplatelets Lower
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: Antiplatelets
+      family_name: Lower
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        provider: Rachel                 
+      medications:
+      - code_type: RXNORM
+        code_value: 1116635 # Ticagrelor 90 MG Oral Tablet
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00  
+  - name: Antiplatelets Upper
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: Antiplatelets
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        provider: Rachel                    
+      medications:
+      - code_type: RXNORM
+        code_value: 1116635 # Ticagrelor 90 MG Oral Tablet
+        start_date: 2015-12-31
+        start_datetime: 2015-12-31 23:59:59  
+  - name: Antiplatelets After
+    attributes:
+      date_of_birth: 1998-01-01 # Lower bound
+      given_name: Antiplatelets
+      family_name: After
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 99201 # Denominator encounter
+        start_date: 2016-02-01
+        start_datetime: 2016-02-01 00:00:00
+        stop_date: 2016-02-01
+        stop_datetime: 2016-02-01 00:00:00
+        provider: Rachel                                                                 
+      medications:
+      - code_type: RXNORM
+        code_value: 1116635 # Ticagrelor 90 MG Oral Tablet
+        start_date: 2016-01-01
+        start_datetime: 2016-01-01 00:00:00                    
+        
