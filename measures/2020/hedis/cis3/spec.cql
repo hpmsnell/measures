@@ -43,7 +43,7 @@ valueset "HEDIS; Varicella Zoster (VZV) Vaccine Procedure": '2.16.840.1.113883.3
 valueset "HEDIS; Pneumococcal Conjugate Immunization": '2.16.840.1.113883.3.464.1004.1781'
 valueset "HEDIS; Pneumococcal Conjugate Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1782'
 valueset "HEDIS; Hepatitis A": '2.16.840.1.113883.3.464.1004.1117'
-valueset "HEDIS; Hepatitis A Immunization": '2.16.840.1.113883.3.464.1004.1757'
+valueset "HEDIS; Hepatitis A Vaccine Immunization": '2.16.840.1.113883.3.464.1004.1757'
 valueset "HEDIS; Hepatitis A Procedure": '2.16.840.1.113883.3.464.1004.1758
 valueset "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Procedure": '2.16.840.1.113883.3.464.1004.1787'
 valueset "HEDIS; Rotavirus (2 Dose Schedule) Immunization": '2.16.840.1.113883.3.464.1004.1785'
@@ -84,25 +84,28 @@ define "Measles Rubella Immunization or Procedure":
     where MeasRubVacc.relevantDatetime during Interval["Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
 
 define "Measles Exists":
-  exists("Immunization, Administered": "HEDIS, Measles Immunization" MeasVacc
-    or exist "Procedure, Performed": "HEDIS; Measles Vaccine Procedure" MeasVacc2
-    or exist "Diagnosis": "HEDIS; Measles"]
-    where MeasVacc.relevantDatetime during Interval["Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
-      or MeasVacc2.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 2 years])
+  exists(["Immunization, Administered": "HEDIS; Measles Immunization"] MeasVaccI
+    where MeasVaccI.relevantDateTime during Interval[Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
+  or exists(["Procedure, Performed": "HEDIS; Measles Vaccine Procedure"] MeasVaccP
+    where MeasVaccI.relevantDateTime during Interval[Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
+  or exists(["Diagnosis": "HEDIS; Measles"] MeasDx
+    where MeasDx.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 2 years)
 
 define "Mumps Exists":
-  exists("Immunization, Administered": "HEDIS; Mumps Immunization" MumpsVacc
-    or exist "Procedure, Performed": "HEDIS; Mumps Vaccine Procedure"
-    or exist "Diagnosis": "HEDIS; Mumps"]
-    where MumpsVacc.relevantDatetime during Interval["Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
-      or MumpsVacc2.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 2 years])
+  exists(["Immunization, Administered": "HEDIS; Mumps Immunization"] MumpsVaccI
+    where MumpsVaccI.relevantDateTime during Interval[Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
+  or exists(["Procedure, Performed": "HEDIS; Mumps Vaccine Procedure"] MumpsVaccP
+    where MumpsVaccI.relevantDateTime during Interval[Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
+  or exists(["Diagnosis": "HEDIS; Mumps"] MumpsDx
+    where MumpsDx.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 2 years)
 
 define "Rubella Exists":
-  exists("Immunization, Administered": "HEDIS, Rubella Immunization" RubVacc
-    or exist "Procedure, Performed": "HEDIS; Rubella Vaccine Procedure" RubVacc2
-    or exist "Diagnosis": "HEDIS; Rubella"]
-    where RubVacc.relevantDatetime during Interval["Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
-      or RubVacc2.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 2 years])
+  exists(["Immunization, Administered": "HEDIS; Rubella Immunization"] RubVaccI
+    where RubVaccI.relevantDateTime during Interval[Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
+  or exists(["Procedure, Performed": "HEDIS; Rubella Vaccine Procedure"] RubVaccP
+    where RubVaccI.relevantDateTime during Interval[Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
+  or exists(["Diagnosis": "HEDIS; Rubella"] RubDx
+    where RubDx.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 2 years)
 
 define "MMR Exists: Pathway 1":
   ((["Immunization, Administered": " HEDIS, Measles, Mumps and Rubella (MMR) Immunization "]
