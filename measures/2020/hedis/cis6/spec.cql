@@ -43,7 +43,7 @@ valueset "HEDIS; Pneumococcal Conjugate Immunization": '2.16.840.1.113883.3.464.
 valueset "HEDIS; Pneumococcal Conjugate Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1782'
 valueset "HEDIS; Hepatitis A": '2.16.840.1.113883.3.464.1004.1117'
 valueset "HEDIS; Hepatitis A Immunization": '2.16.840.1.113883.3.464.1004.1757'
-valueset "HEDIS; Hepatitis A Procedure": '2.16.840.1.113883.3.464.1004.1758
+valueset "HEDIS; Hepatitis A Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1758
 valueset "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Procedure": '2.16.840.1.113883.3.464.1004.1787'
 valueset "HEDIS; Rotavirus (2 Dose Schedule) Immunization": '2.16.840.1.113883.3.464.1004.1785'
 valueset "HEDIS; Rotavirus (3 Dose Schedule) Immunization": '2.16.840.1.113883.3.464.1004.1786'
@@ -90,11 +90,13 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-exists("Immunization, Administered": "HEDIS, Varicella Zoster (VZV) Immunization" VaricellaVacc
-  or exist "Procedure, Performed": "HEDIS; Varicella Zoster (VZV) Vaccine Procedure" VaricellaVacc2
-  or exist "Diagnosis": "HEDIS; Varicella Zoster"]
-  where VaricellaVacc.relevantDatetime during Interval["Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
-    or VaricellaVacc2.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 2 years])
+   exists(["Immunization, Administered": "HEDIS; HEDIS, Varicella Zoster (VZV) Immunization"] VaricellaVaccI
+     where VaricellaVaccI.relevantDateTime during Interval[Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
+   or exists(["Procedure, Performed": "HEDIS; Varicella Zoster (VZV) Vaccine Procedure"] VaricellaVaccP
+     where VaricellaVaccP.relevantDateTime during Interval[Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
+   or exists(["Diagnosis": "HEDIS; Varicella Zoster"] VarZDx
+     where VarZDx.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 2 years)
+
 
 define "Numerator Performance Not Met":
   /*
