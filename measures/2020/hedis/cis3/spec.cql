@@ -103,7 +103,7 @@ define "Rubella Exists":
   exists(["Immunization, Administered": "HEDIS; Rubella Immunization"] RubVaccI
     where RubVaccI.relevantDateTime during Interval[Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
   or exists(["Procedure, Performed": "HEDIS; Rubella Vaccine Procedure"] RubVaccP
-    where RubVaccI.relevantDateTime during Interval[Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
+    where RubVaccP.relevantDateTime during Interval[Patient Characteristic Birthdate" + 1 year, "Patient Characteristic Birthdate" + 2 years])
   or exists(["Diagnosis": "HEDIS; Rubella"] RubDx
     where RubDx.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 2 years)
 
