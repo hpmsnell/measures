@@ -48,31 +48,33 @@ exclusion:
         - model: Diagnosis
           value_set: HEDIS; Anaphylactic Reaction Due to Vaccination
         - model: Allergy
-          value_set: HEDIS; DTaP Vaccine Administered
+          value_set: HEDIS; DTaP Immunization
         - model: Allergy
-          value_set: HEDIS; Inactivated Polio Vaccine (IPV) Administered
+          value_set: HEDIS; Inactivated Polio Vaccine (IPV) Immunization
         - model: Allergy
-          value_set: HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered
+          value_set: HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Immunization
         - model: Allergy
-          value_set: HEDIS; Measles/Rubella Vaccine Administered
+          value_set: HEDIS; Measles Rubella Immunization
         - model: Allergy
-          value_set: HEDIS; Mumps Vaccine Administered
+          value_set: HEDIS; Mumps Immunization
         - model: Allergy
-          value_set: HEDIS; Measles Vaccine Administered
+          value_set: HEDIS; Measles Immunization
         - model: Allergy
-          value_set: HEDIS; Rubella Vaccine Administered
+          value_set: HEDIS; Rubella Immunization
         - model: Allergy
-          value_set: HEDIS; Hepatitis B Vaccine Administered
+          value_set: HEDIS; Hepatitis B Immunization
         - model: Allergy
           value_set: HEDIS; Newborn Hepatitis B Vaccine Administered
         - model: Allergy
-          value_set: HEDIS; Varicella Zoster (VZV) Vaccine Administered
+          value_set: HEDIS; Varicella Zoster (VZV) Immunization
         - model: Allergy
-          value_set: HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered
+          value_set: HEDIS; Rotavirus (2 Dose Schedule) Immunization
         - model: Allergy
-          value_set: HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered
+          value_set: HEDIS; Rotavirus (3 Dose Schedule) Immunization
         - model: Allergy
-          value_set: HEDIS; Influenza Vaccine Administered
+          value_set: HEDIS; Influenza Immunization
+        - model: Allergy
+            value_set: HEDIS; Influenza Virus LAIV Immunization
     - logical_operator: OR
       components:
       - display_title: Vaccine Causing Adverse Effect
@@ -130,73 +132,75 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; DTaP Vaccine Administered
+          value_set: HEDIS; DTaP Vaccine Procedure
         - model: ClinicalActivity
           value_set: Able; DTaP Vaccine
         - model: Medication
-          value_set: HEDIS; DTaP Vaccine Administered
+          value_set: HEDIS; DTaP Immunization
     - logical_operator: AND
       components:
       - display_title: 3 IPV Vaccines
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Inactivated Polio Vaccine (IPV) Administered
+          value_set: HEDIS; Inactivated Polio Vaccine (IPV) Procedure
         - model: ClinicalActivity
           value_set: Able; IPV Vaccine
         - model: Medication
-          value_set: HEDIS; Inactivated Polio Vaccine (IPV) Administered
+          value_set: HEDIS; Inactivated Polio Vaccine (IPV) Immunization
     - logical_operator: AND
       components:
       - display_title: MMR Vaccine
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered
+          value_set: HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered
+          value_set: HEDIS; Measles, Mumps and Rubella (MMR) Immunization
         - model: ClinicalActivity
-          value_set: HEDIS; Measles/Rubella Vaccine Administered
+          value_set: HEDIS; Measles Rubella Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Measles/Rubella Vaccine Administered
+          value_set: HEDIS; Measles Rubella Immunization
         - model: ClinicalActivity
-          value_set: HEDIS; Mumps Vaccine Administered
+          value_set: HEDIS; Mumps Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Mumps Vaccine Administered
+          value_set: HEDIS; Mumps Immunization
         - model: ClinicalActivity
-          value_set: HEDIS; Measles Vaccine Administered
+          value_set: HEDIS; Measles Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Measles Vaccine Administered
+          value_set: HEDIS; Measles Immunization
         - model: ClinicalActivity
-          value_set: HEDIS; Rubella Vaccine Administered
+          value_set: HEDIS; Rubella Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Rubella Vaccine Administered
+          value_set: HEDIS; Rubella Immunization
       - display_title: History of MMR
         show_codes: true
         logical_operator: OR
         records:
-        - model: ClinicalActivity
+        - model: Diagnosis
           value_set: HEDIS; Measles
         - model: Diagnosis
           value_set: HEDIS; Rubella
+        - model: Diagnosis
+          value_set: HEDIS; Mumps
     - logical_operator: AND
       components:
       - display_title: 3 HiB Vaccines
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered
+          value_set: HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Haemophilus Influenzae Type B (HiB) Vaccine Administered
+          value_set: HEDIS; Haemophilus Influenzae Type B (HiB) Immunization
     - logical_operator: AND
       components:
       - display_title: Hepatitis B Vaccine
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Hepatitis B Vaccine Administered
+          value_set: HEDIS; Hepatitis B Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Hepatitis B Vaccine Administered
+          value_set: HEDIS; Hepatitis B Immunization
       - display_title: History of Hepatitis B
         logical_operator: OR
         show_codes: true
@@ -209,9 +213,9 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Varicella Zoster (VZV) Vaccine Administered
+          value_set: HEDIS; Varicella Zoster (VZV) Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Varicella Zoster (VZV) Vaccine Administered
+          value_set: HEDIS; Varicella Zoster (VZV) Immunization
       - display_title: History of VZV
         logical_operator: OR
         show_codes: true
@@ -224,26 +228,26 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Pneumococcal Conjugate Vaccine Administered
+          value_set: HEDIS; Pneumococcal Conjugate Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Pneumococcal Conjugate Vaccine Administered
+          value_set: HEDIS; Pneumococcal Conjugate Immunization
     - logical_operator: AND
       components:
       - display_title: 3 Rotavirus (3 Dose Schedule) Vaccines
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered
+          value_set: HEDIS; Rotavirus Vaccine (3 Dose Schedule) Procedure
         - model: Medication
-          value_set: HEDIS; Rotavirus Vaccine (3 Dose Schedule) Administered
+          value_set: HEDIS; Rotavirus (3 Dose Schedule) Immunization
       - display_title: 2 Rotavirus (2 Dose Schedule) Vaccines
         show_codes: true
         logical_operator: OR
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered
+          value_set: HEDIS; Rotavirus Vaccine (2 Dose Schedule) Procedure
         - model: Medication
-          value_set: HEDIS; Rotavirus Vaccine (2 Dose Schedule) Administered
+          value_set: HEDIS; Rotavirus (2 Dose Schedule) Immunization
 performance_not_met:
   description:
   reasons:
