@@ -4,16 +4,18 @@ library MIPS_128_2019 version '1'
  * Source: MIPS
  * ID: 128
  * Year: 2019
- * Version: 2
+ * Version: 3
  *
   */
 
 using QDM
 
 // Able Custom Value Sets
-valueset "ABLE; Above Normal BMI Follow-up"
-valueset "ABLE; Below Normal BMI Follow up"
-valueset "ABLE; Weight Management Referral"
+valueset "Able; Above Normal BMI Follow-up"
+valueset "Able; Below Normal BMI Follow up"
+valueset "Able; Weight Management Referral"
+valueset "Able; BMI Normal"
+valueset "Able; BMI Above Normal"
 
 // MIPS Value Sets
 valueset "MIPS; MIPS 128 Encounter"
@@ -30,10 +32,11 @@ valueset "MIPS; Performance Not Met: G8419"
 valueset "VSAC; BMI LOINC Value"
 valueset "VSAC; Above Normal Follow-up"
 valueset "VSAC; Below Normal Follow up"
-
-// VSAC Value Sets
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 valueset "VSAC; Pregnancy": '2.16.840.1.113883.3.600.1622'
+
+// HEDIS value sets
+valueset "HEDIS; BMI"
 
 parameter "Measurement Period" Interval<DateTime>
 context Patient
@@ -55,7 +58,8 @@ define "Exclusion Procedure":
   union ["Intervention, Performed": "VSAC; Palliative Care"]
 
 define "Last BMI Before Encounter":
-  Last(["Assessment, Performed": "VSAC; BMI LOINC Value"] A
+  Last((["Assessment, Performed": "VSAC; BMI LOINC Value"
+    union ["Diagnosis": "HEDIS; BMI"]) A
     with "Denominator Encounter" E
       such that A.authorDateTime on or 12 months or less before start of E.relevantPeriod
     sort by A.authorDateTime asc)
@@ -65,21 +69,32 @@ define "Last BMI Before Encounter Result":
     return A.result
 
 define "Last BMI Before Encounter Is Normal":
-  "Last BMI Before Encounter Result" >= 18.5
-  and "Last BMI Before Encounter Result" < 25
+  (
+    "Last BMI Before Encounter Result" >= 18.5
+    and "Last BMI Before Encounter Result" < 25
+  ) or exists ("Last BMI Before Encounter" A
+    with ["Diagnosis": "Able; BMI Normal"] D
+      such that D.prevelancePeriod starts during A.relevantPeriod)
+
+define "Abnormal BMI Diagnosis":
+  ["Diagnosis": "Able; BMI Above Normal"]
 
 define "Last BMI Before Encounter Is Abnormal":
-  "Last BMI Before Encounter Result" >= 25
-  or "Last BMI Before Encounter Result" < 18.5
+  (
+    "Last BMI Before Encounter Result" >= 25
+    or "Last BMI Before Encounter Result" < 18.5
+  ) or exists ("Last BMI Before Encounter" A
+   with "Abnormal BMI Diagnosis" D
+     such that D.prevelancePeriod starts during A.relevantPeriod)
 
 define "Above Normal BMI Follow Up":
-  ["Procedure, Performed": "ABLE; Above Normal BMI Follow up"]
+  ["Procedure, Performed": "Able; Above Normal BMI Follow up"]
   union ["Procedure, Performed": "VSAC; Above Normal Follow-up"]
   union ["Diagnosis": "VSAC; Above Normal Follow-up"]
   union ["Procedure, Performed": "Able; Weight Management Referral"]
 
 define "Below Normal BMI Follow Up":
-  ["Procedure, Performed": "ABLE; Below Normal BMI Follow up"]
+  ["Procedure, Performed": "Able; Below Normal BMI Follow up"]
   union ["Procedure, Performed": "VSAC; Below Normal Follow up"]
   union ["Diagnosis": "VSAC; Below Normal Follow-up"]
   union ["Procedure, Performed": "Able; Weight Management Referral"]
@@ -88,7 +103,12 @@ define "Last BMI Before Encounter Is High With Follow-Up":
   exists("Denominator Encounter" E
     with "Last BMI Before Encounter" A
       such that A.result >= 25
-        and A.authorDateTime on or 12 months or less before start of E.relevantPeriod
+    with "Above Normal BMI Follow Up" P
+      such that P.relevantPeriod starts on or 12 months or less before start of E.relevantPeriod)
+  or exists("Denominator Encounter" E
+    with "Last BMI Before Encounter" A
+    with ["Diagnosis": "Able; BMI Above Normal"] D
+      such that D.prevalencePeriod during A.relevantPeriod
     with "Above Normal BMI Follow Up" P
       such that P.relevantPeriod starts on or 12 months or less before start of E.relevantPeriod)
 
@@ -96,7 +116,6 @@ define "Last BMI Before Encounter Is Low With Follow-Up":
   exists("Denominator Encounter" E
     with "Last BMI Before Encounter" A
       such that A.result < 18.5
-        and A.authorDateTime on or 12 months or less before start of E.relevantPeriod
     with "Below Normal BMI Follow Up" P
       such that P.relevantPeriod starts on or 12 months or less before start of E.relevantPeriod)
 
