@@ -45,9 +45,9 @@ exclusion:
         - model: Diagnosis
           value_set: HEDIS; Anaphylactic Reaction Due to Vaccination
         - model: Allergy
-          value_set: HEDIS; DTaP Vaccine Administered
+          value_set: HEDIS; DTaP Immunization
         - model: Allergy
-          value_set: HEDIS; Inactivated Polio Vaccine (IPV) Administered
+          value_set: HEDIS; Inactivated Polio Vaccine (IPV) Immunization
     - logical_operator: OR
       components:
       - display_title: Vaccine Causing Adverse Effect
@@ -76,11 +76,11 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Inactivated Polio Vaccine (IPV) Administered
+          value_set: HEDIS; Inactivated Polio Vaccine (IPV) Procedure
         - model: ClinicalActivity
           value_set: Able; IPV Vaccine
         - model: Medication
-          value_set: HEDIS; Inactivated Polio Vaccine (IPV) Administered
+          value_set: HEDIS; Inactivated Polio Vaccine (IPV) Immunization
 performance_not_met:
   description:
   reasons:

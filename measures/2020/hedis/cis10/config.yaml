@@ -45,7 +45,7 @@ exclusion:
         - model: Diagnosis
           value_set: HEDIS; Anaphylactic Reaction Due to Vaccination
         - model: Allergy
-          value_set: HEDIS; Influenza Vaccine Administered
+          value_set: HEDIS; Influenza Immunization
     - logical_operator: OR
       components:
       - display_title: Disorder of the Immune System
@@ -83,9 +83,13 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Influenza Vaccine Administered
+          value_set: HEDIS; Influenza Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Influenza Vaccine Administered
+          value_set: HEDIS; Influenza Immunization
+        - model: ClinicalActivity
+          value_set: HEDIS; Influenza Virus LAIV Vaccine Procedure
+        - model: Medication
+          value_set: HEDIS; Influenza Virus LAIV Immunization
 performance_not_met:
   description:
   reasons:
