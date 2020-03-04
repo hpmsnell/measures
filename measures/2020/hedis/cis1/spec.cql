@@ -45,7 +45,7 @@ valueset "HEDIS; Pneumococcal Conjugate Immunization": '2.16.840.1.113883.3.464.
 valueset "HEDIS; Pneumococcal Conjugate Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1782'
 valueset "HEDIS; Hepatitis A": '2.16.840.1.113883.3.464.1004.1117'
 valueset "HEDIS; Hepatitis A Immunization": '2.16.840.1.113883.3.464.1004.1757'
-valueset "HEDIS; Hepatitis A Procedure": '2.16.840.1.113883.3.464.1004.1758
+valueset "HEDIS; Hepatitis A Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1758
 valueset "HEDIS; Rotavirus Vaccine (2 Dose Schedule) Procedure": '2.16.840.1.113883.3.464.1004.1787'
 valueset "HEDIS; Rotavirus (2 Dose Schedule) Immunization": '2.16.840.1.113883.3.464.1004.1785'
 valueset "HEDIS; Rotavirus (3 Dose Schedule) Immunization": '2.16.840.1.113883.3.464.1004.1786'
@@ -185,8 +185,7 @@ define "Exclusion for IPV":
 
 define "Allergy for Hepatitis B":
     ["Allergy": "Able; Baker's Yeast"]
-    union ["Allergy": "HEDIS; Hepatitis B Vaccine Immunization"]
-    union ["Allergy": "HEDIS; Newborn Hepatitis B Vaccine Administered"]
+    union ["Allergy": "HEDIS; Hepatitis B Immunization"]
 
 define "Exclusion for Hepatitis B":
   exists("Allergy for Hepatitis B" A
