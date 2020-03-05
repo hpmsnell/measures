@@ -15,7 +15,7 @@ measure:
     version: 2020
     mips_measure_type:
     mips_high_priority:
-    mips_specialty_sets: 
+    mips_specialty_sets:
     mips_seven_point_max:
     source_specification_url:
     measure_children_names:
@@ -43,11 +43,12 @@ performance_met:
   - config_link_id: performance_met
     code_value:
     display_title: Well-Child Visit
-    description: Patient received a well-child visit during the measurement period
+    description: Patient received a well-child visit during the measurement period, that was not billed with a telehealth modifier
     component_groups:
     - components:
       - display_title: Well-Care
         show_codes: true
+        annotation: 'Without telehealth POS or modifier'
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Well-Care
