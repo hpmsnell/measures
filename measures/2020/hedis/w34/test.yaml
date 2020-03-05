@@ -210,7 +210,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99383
-      code_modifiers: 95
+      code_modifiers: [95]
       provider: Rachel
       start_date: 2016-12-31 # Upper bound
 - name: WellCare TelehealthPOS
@@ -223,7 +223,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 99383
-      place_of_service: 02
+      place_of_service: '02'
       provider: Rachel
       start_date: 2016-12-31 # Upper bound
 - name: WellCare After
