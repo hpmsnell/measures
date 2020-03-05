@@ -63,12 +63,12 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
-    - name: WellCare Telehealth Modifier
+    - name: WellCare TelehealthModifier
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
-    - name: WellCare Telehealth POS
+    - name: WellCare TelehealthPOS
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -200,36 +200,30 @@ patients:
       code_value: 99383
       provider: Rachel
       start_date: 2016-12-31 # Upper bound
-- name: WellCare Telehealth Modifier
+- name: WellCare TelehealthModifier
   attributes:
     date_of_birth: 2012-01-01
     given_name: WellCare
-    family_name: Telehealth Modifier
+    family_name: TelehealthModifier
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
       code_value: 99383
+      code_modifiers: 95
       provider: Rachel
       start_date: 2016-12-31 # Upper bound
-    - code_type: Modifier
-      code_value: 95
-      provider: Rachel
-      start_date: 2016-12-31 # Upper bound
-- name: WellCare Telehealth POS
+- name: WellCare TelehealthPOS
   attributes:
     date_of_birth: 2012-01-01
     given_name: WellCare
-    family_name: Telehealth POS
+    family_name: TelehealthPOS
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
       code_value: 99383
-      provider: Rachel
-      start_date: 2016-12-31 # Upper bound
-    - code_type: POS
-      code_value: 02
+      place_of_service: 02
       provider: Rachel
       start_date: 2016-12-31 # Upper bound
 - name: WellCare After

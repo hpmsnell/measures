@@ -31,13 +31,9 @@ define "Qualifying Encounter during Measurement Period":
   union ["Diagnosis": "HEDIS; Well-Care"]
   union ["Physical Exam, Performed": "HEDIS; Well-Care"])QualifyingEncounter
   where QualifyingEncounter.relevantPeriod starts during "Measurement Period"
-    and QualifyingEncounter.signingProvider.primaryCareProvider = true)
-
-define "Has Telehealth Billing Code":
-  "Qualifying Encounter during Measurement Period" QualifyingEncounter
-    with (["Encounter, Performed": "HEDIS; Telehealth POS"]
-    union ["Encounter, Performed": "HEDIS; Telehealth Modifier"])TelehealthEncounter
-      such that TelehealthEncounter.relevantPeriod overlaps QualifyingEncounter.relevantPeriod
+    and QualifyingEncounter.signingProvider.primaryCareProvider = true
+    and not QualifyingEncounter.placeOfService in "HEDIS; Telehealth POS"
+    and not QualifyingEncounter.code.modifier in "HEDIS; Telehealth Modifier")
 
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 3
@@ -50,7 +46,6 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   exists "Qualifying Encounter during Measurement Period"
-    and not exists "Has Telehealth Billing Code"
 
 
 define "Numerator Performance Not Met":

@@ -48,20 +48,12 @@ performance_met:
     - components:
       - display_title: Well-Care
         show_codes: true
+        annotation: 'Without telehealth POS or modifier'
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Well-Care
         - model: Diagnosis
           value_set: HEDIS; Well-Care
-    - logical_operator: NOT
-      components:
-      - display_title: Telehealth Service
-          show_codes: true
-          records:
-        - model: ClinicalActivity
-            value_set: HEDIS; Telehealth POS
-        - model: ClinicalActivity
-              value_set: HEDIS; Telehealth Modifier
 performance_not_met:
   description:
   reasons:
