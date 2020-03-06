@@ -49,6 +49,10 @@ exclusion:
           value_set: HEDIS; Colorectal Cancer
         - model: ClinicalActivity
           value_set: MIPS; History of Total Colectomy or Colorectal Cancer
+          - model: ClinicalActivity
+            value_set: HEDIS; History of Total Colectomy
+        - model: Diagnosis
+          value_set: HEDIS; History of Total Colectomy
     - logical_operator: OR
       components:
       - display_title: Total Colectomy
@@ -68,9 +72,13 @@ exclusion:
         show_codes: true
         records:
         - model: Diagnosis
-          value_set: HEDIS; Frailty
+          value_set: HEDIS; Frailty Diagnosis
+        - model: Diagnosis
+          value_set: HEDIS; Frailty Symptom
         - model: ClinicalActivity
-          value_set: HEDIS; Frailty
+          value_set: HEDIS; Frailty Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Frailty Device
     - logical_operator: AND
       components:
       - display_title: Dementia Medication
@@ -81,7 +89,7 @@ exclusion:
       - logical_operator: 'OR BOTH:'
         display_title: Visit
         show_codes: true
-        annotation: 'Two visits are required if visit is not an acute inpatient visit'
+        annotation: 'Two visits are required if visit is not an acute inpatient visit, during the measurement year or the year prior to the measurement year (count services that occur over both years)'
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Outpatient
@@ -91,6 +99,8 @@ exclusion:
           value_set: HEDIS; ED
         - model: ClinicalActivity
           value_set: HEDIS; Nonacute Inpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Nonacute Inpatient Stay
       - logical_operator: AND
         display_title: Advanced Illness
         show_codes: true

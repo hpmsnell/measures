@@ -51,6 +51,7 @@ valueset "NCQA; Dementia Medications"
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
+
 define "Qualifying Exclusion Age":
 AgeInYearsAt(end of "Measurement Period") >= 66
 
@@ -61,11 +62,9 @@ define "Visit":
   ["Encounter, Performed": "HEDIS; Outpatient"]
   union ["Encounter, Performed": "HEDIS; Observation"]
   union ["Encounter, Performed": "HEDIS; ED"]
-  union "Nonacute Inpatient Visit"
-
-define "Nonacute Inpatient Visit":
-  ((["Encounter, Performed": "HEDIS; Nonacute Inpatient"])QualifyingNonacuteIPVisit
-  where QualifyingNonacuteIPVisit.code.placeOfService in "HEDIS; Nonacute Inpatient Stay")
+  union ((["Encounter, Performed": "HEDIS; Nonacute Inpatient"])NonacuteIP
+    with (["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"])NonacuteIPFlag
+    such that NonacuteIP.relevantPeriod overlaps NonacuteIPFlag.relevantPeriod)
 
 define "Visit with Advanced Illness":
   "Visit" ExcludeQualVisit
@@ -84,8 +83,8 @@ define "Advanced Illness Exists":
         where M.relevantPeriod starts during "Measurement Period"))
 
 define "Frailty Diagnosis or Symptoms":
-  (["Diagnosis": "HEDIS; Frailty Diagnosis"]
-  union ["Diagnosis": "HEDIS; Frailty Symptom"]FrailDxSx
+  ((["Diagnosis": "HEDIS; Frailty Diagnosis"]
+  union ["Diagnosis": "HEDIS; Frailty Symptom"])FrailDxSx
     where FrailDxSx.prevalencePeriod overlaps "Measurement Period")
 
 define "Frailty Encounter":
