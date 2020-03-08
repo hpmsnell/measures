@@ -92,10 +92,6 @@ define "Absence of Left Breast":
     where P.code.modifier in "HEDIS; Clinical Left Modifier")
 
 define "Absence of Left Breast Exists":
-    where P.relevantPeriod starts before end of "Measurement Period")
-  or exists(["Procedure, Performed": "HEDIS; Unilateral Mastectomy"] P
-    where P.relevantPeriod starts before end of "Measurement Period"
-      and P.code.modifier in {'LT'})
   "Absence of Left Breast" AbsentLt
     where AbsentLt.prevalencePeriod starts before end of "Measurement Period"
       or AbsentLt.relevantPeriod starts before end of "Measurement Period"
