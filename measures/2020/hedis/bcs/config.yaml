@@ -29,7 +29,9 @@ denominator:
       show_codes: true
       records:
       - model: ClinicalActivity
-        value_set: HEDIS; Hospice
+        value_set: HEDIS; Hospice Intervention
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice Encounter
 exclusion:
   description: Bilateral mastectomy any time during the member’s history through December
     31 of the measurement year.
@@ -58,7 +60,7 @@ exclusion:
       components:
       - display_title: Mastectomy with Bilateral Modifier
         show_codes: true
-        annotation: 'wtih Clinical Bilateral Modifier VS'
+        annotation: 'wtih Clinical Bilateral Modifier'
         records:
         - model: ClinicalActivity
         value_set: HEDIS; Clinical Unilateral Mastectomy
@@ -66,7 +68,7 @@ exclusion:
       components:
       - display_title: Absence of Left Breast
         show_codes: true
-        annotation: 'Unilateral Mastectomy Left with Clinical Left Modifier VS'
+        annotation: 'Unilateral Mastectomy Left with Clinical Left Modifier'
         records:
         - model: Diagnosis
           value_set: HEDIS; Absence of Left Breast
@@ -75,7 +77,7 @@ exclusion:
       - display_title: Absence of Right Breast
         logical_operator: AND
         show_codes: true
-        annotation: 'Unilateral Mastectomy Right with Clinical Right Modifier VS'
+        annotation: 'Unilateral Mastectomy Right with Clinical Right Modifier'
         records:
         - model: Diagnosis
           value_set: HEDIS; Absence of Right Breast

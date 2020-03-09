@@ -562,6 +562,7 @@ patients:
     - code_type: ICD10CM
       code_value: A81.00 # Advanced illness
       start_date: 2016-01-31 # Too early
+      claim_id: 99
 - name: ExclusionAdvancedIllness OneEncBeforeOneDuring
   attributes:
     date_of_birth: 1950-01-01
@@ -579,6 +580,7 @@ patients:
       code_value: 99201 # Outpatient
       start_date: 2014-12-31
       stop_date: 2014-12-31 # Too early
+      claim_id: 199
     diagnoses:
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
@@ -590,6 +592,7 @@ patients:
     - code_type: ICD10CM
       code_value: A81.00 # Advanced illness
       start_date: 2016-01-31 # Too early
+      claim_id: 99
 - name: ExclusionAdvancedIllness OneEncDuringOneAfter
   attributes:
     date_of_birth: 1950-01-01
@@ -702,6 +705,7 @@ patients:
     - code_type: ICD10CM
       code_value: A81.00 # Advanced illness
       start_date: 2016-02-02 # Too late
+      claim_id: 2
 - name: ExclusionAdvancedIllness NonacutePlusStayCodeSameClaim
   attributes:
     date_of_birth: 1950-01-01

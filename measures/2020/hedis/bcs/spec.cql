@@ -18,7 +18,8 @@ valueset "MIPS; Performance Met: G9899"
 
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
 valueset "HEDIS; Bilateral Mastectomy": '2.16.840.1.113883.3.464.1004.1042'
 valueset "HEDIS; History of Bilateral Mastectomy": '2.16.840.1.113883.3.464.1004.1331'
 valueset "HEDIS; Unilateral Mastectomy": '2.16.840.1.113883.3.464.1004.1256'
@@ -56,7 +57,8 @@ define "Qualifying Exclusion Age":
 AgeInYearsAt(end of "Measurement Period") >= 66
 
 define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
+  ["Intervention, Performed": "HEDIS; Hospice Intervention"]
+  union ["Encounter, Performed": "HEDIS; Hospice Encounter"]
 
 define "Visit":
   ["Encounter, Performed": "HEDIS; Outpatient"]
@@ -91,7 +93,7 @@ define "Absence of Left Breast":
   union (["Procedure, Performed": "HEDIS; Unilateral Mastectomy"] P
     where P.code.modifier in "HEDIS; Clinical Left Modifier")
 
-define "Absence of Left Breast Exists":
+define "Absence of Left Breast Confirmed":
   "Absence of Left Breast" AbsentLt
     where AbsentLt.prevalencePeriod starts before end of "Measurement Period"
       or AbsentLt.relevantPeriod starts before end of "Measurement Period"
@@ -102,7 +104,7 @@ define "Absence of Right Breast":
   union (["Procedure, Performed": "HEDIS; Unilateral Mastectomy"] P
     where P.code.modifier in "HEDIS; Clinical Right Modifier")
 
-define "Absence of Right Breast Exists":
+define "Absence of Right Breast Confirmed":
   "Absence of Right Breast" AbsentRt
     where AbsentRt.prevalencePeriod starts before end of "Measurement Period"
       or AbsentRt.relevantPeriod starts before end of "Measurement Period"
@@ -119,12 +121,12 @@ define "Bilateral Mastectomy Procedure":
 define "Bilateral Mastectomy Clinical Info":
   ((["Diagnosis": "HEDIS; Clinical Unilateral Mastectomy"] DxClinUni
     where DxClinUni.code.modifier in "HEDIS; Clinical Bilateral Modifier")
-  union ["Diagnosis": "HEDIS; History of Bilateral Mastectomy"])DxBilatMast
-  where DxBilatMast.prevalencePeriod starts before end of "Measurement Period"
+  union (["Diagnosis": "HEDIS; History of Bilateral Mastectomy"])DxBilatMast
+    where DxBilatMast.prevalencePeriod starts before end of "Measurement Period")
 
-define "Absence of Left and Right Breast Exists":
-  exists "Absence of Left Breast Exists"
-  and exists "Absence of Right Breast Exists"
+define "Absence of Left and Right Breast Confirmed":
+  exists "Absence of Left Breast Confirmed"
+  and exists "Absence of Right Breast Confirmed"
 
   define "Frailty Diagnosis or Symptoms":
     ((["Diagnosis": "HEDIS; Frailty Diagnosis"]
