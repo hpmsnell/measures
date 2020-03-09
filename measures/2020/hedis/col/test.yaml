@@ -764,13 +764,14 @@ patients:
     - code_type: ICD10CM
       code_value: A81.00 # Advanced illness
       start_date: 2016-03-01
+      claim_id: 1
     - code_type: ICD10CM
       code_value: A81.00 # Advanced illness
       start_date: 2016-02-01 # Lower bound
-      start_date: 2016-03-01
+      claim_id: 1
     - code_type: ICD10CM
       code_value: A81.00 # Advanced illness
-      start_date: 2016-02-01 # Upper bound
+      start_date: 2016-03-01 # Upper bound
       claim_id: 1
 - name: ExclusionAdvancedIllness After
   attributes:
@@ -796,11 +797,12 @@ patients:
       start_date: 2016-02-01
     - code_type: ICD10CM
       code_value: A81.00 # Advanced illness
-      start_date: 2016-03-01
+      start_date: 2016-03-02 #Too late
+      claim_id: 1
     - code_type: ICD10CM
       code_value: A81.00 # Advanced illness
       start_date: 2016-02-02 # Too late
-      claim_id: 2
+      claim_id: 1
 - name: ExclusionDementiaMedication Before
   attributes:
     date_of_birth: 1950-01-01
