@@ -28,7 +28,9 @@ denominator:
       show_codes: true
       records:
       - model: ClinicalActivity
-        value_set: HEDIS; Hospice
+        value_set: HEDIS; Hospice Encounter
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice Intervention
 exclusion:
   description:
   reasons:
@@ -42,9 +44,9 @@ exclusion:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Absence of Cervix
+          value_set: HEDIS; Hysterectomy With No Residual Cervix
         - model: Diagnosis
-          value_set: HEDIS; Absence of Cervix
+          value_set: HEDIS; Absence of Cervix Diagnosis
 exception:
   description:
   reasons:
@@ -62,9 +64,11 @@ performance_met:
         annotation: Patient is 21-64 years in age
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Cervical Cytology
+          value_set: HEDIS; Cervical Cytology Lab Test
         - model: LaboratoryTestPerformed
-          value_set: HEDIS; Cervical Cytology
+          value_set: HEDIS; Cervical Cytology Lab Test
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; Cervical Cytology Result or Finding
     - logical_operator: OR
       components:
       - display_title: Cytology/HPV Co-testing
@@ -72,9 +76,11 @@ performance_met:
         annotation: Patient is 34-64 years in age
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; HPV Tests
+          value_set: HEDIS; High Risk HPV Lab Test
         - model: LaboratoryTestPerformed
-          value_set: HEDIS; HPV Tests
+          value_set: HEDIS; High Risk HPV Lab Test
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; High Risk HPV Test Results or Finding
 performance_not_met:
   description:
   reasons:

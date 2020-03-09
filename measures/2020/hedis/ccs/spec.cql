@@ -14,34 +14,45 @@ using QDM
 
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
-valueset "HEDIS; Cervical Cytology": '2.16.840.1.113883.3.464.1004.1208'
-valueset "HEDIS; HPV Tests": '2.16.840.1.113883.3.464.1004.1265'
-valueset "HEDIS; Absence of Cervix": '2.16.840.1.113883.3.464.1004.1123'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
+valueset "HEDIS; Cervical Cytology Lab Test": '2.16.840.1.113883.3.464.1004.1525'
+valueset "HEDIS; Cervical Cytology Result or Finding": '2.16.840.1.113883.3.464.1004.1524'
+valueset "HEDIS; High Risk HPV Lab Test": '2.16.840.1.113883.3.464.1004.1527'
+valueset "HEDIS; High Risk HPV Test Result or Finding": '2.16.840.1.113883.3.464.1004.1526'
+valueset "HEDIS; Hysterectomy With No Residual Cervix": '2.16.840.1.113883.3.464.1004.1523'
+valueset "HEDIS; Absence of Cervix Diagnosis": '2.16.840.1.113883.3.464.1004.1522'
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
+  ["Intervention, Performed": "HEDIS; Hospice Encounter"]
+  union ["Encounter, Performed": "HEDIS; Hospice Encounter"]
 
-define "Cervical Cytology":
-  ["Procedure, Performed": "HEDIS; Cervical Cytology"]
-  union ["Laboratory Test, Performed": "HEDIS; Cervical Cytology"]
+define "Cervical Cytology with Results":
+  (["Procedure, Performed": "HEDIS; Cervical Cytology Lab Test"]
+  union ["Laboratory Test, Performed": "HEDIS; Cervical Cytology Lab Test"]
+  union ["Laboratory Test, Performed": "HEDIS; Cervical Cytology Result or Finding"])CervicalCytology
+    where CervicalCytology.result is not null
 
-define "HPV Test":
-  ["Procedure, Performed": "HEDIS; HPV Tests"]
-  union ["Laboratory Test, Performed": "HEDIS; HPV Tests"]
+define "Cervical Cytology within 3 years":
+  "Cervical Cytology with Results" PapDone
+  where PapDone.relevantPeriod starts 36 months or less before end of "Measurement Period"
+
+define "HPV Test within 5 years":
+  (["Procedure, Performed": "HEDIS; High Risk HPV Lab Test"]
+  union ["Laboratory Test, Performed": "HEDIS; High Risk HPV Lab Test"]
+  union ["Laboratory Test, Performed": "HEDIS; High Risk HPV Test Result or Finding"])HPVTest
+    where AgeInYearsAt(start of HPVTest.relevantPeriod) >= 30
+    and HPVTest.result is not null
+    and HPVTest.relevantPeriod starts 60 months or less before end of "Measurement Period"
 
 define "Patient 30-64 with Cervical Cytology and HPV Test":
-  exists("Certival Cytology" P1
-    where P1.relevantPeriod starts during [60 months before end of "Measurement Period", end of "Measurement Period"
-      and AgeInYearsAt(start of P1.relevantPeriod) >= 30
-    with "HPV Test" P2
-      where AgeInYearsAt(start of P2.relevantPeriod) >= 30
-      such that P1.relevantPeriod starts on or after 4 days before start of P2.relevantPeriod
-        and P1.relevantPeriod starts on or before 4 days after start of P2.relevantPeriod)
+  "Cervical Cytology with Results" PapTest
+    where AgeInYearsAt(start of PapTest.relevantPeriod) >= 30
+    and exists "HPV Test within 5 years" P2
 
 // Populations
 
@@ -56,18 +67,17 @@ define "Denominator Exclusion":
   /*
    * config_link_id: exclusion_1
    */
-  exists(["Procedure, Performed": "HEDIS; Absence of Cervix"] P
+  exists(["Procedure, Performed": "HEDIS; Hysterectomy With No Residual Cervix"] P
     where P.relevantPeriod starts before end of "Measurement Period")
-  or exists(["Diagnosis": "HEDIS; Absence of Cervix"] D
+  or exists(["Diagnosis": "HEDIS; Absence of Cervix Diagnosis"] D
     where D.prevalencePeriod starts before end of "Measurement Period")
 
 define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists("Cervical Cytology" P
-    where P.relevantPeriod starts during [36 months before end of "Measurement Period", end of "Measurement Period")
-  or "Patient 30-64 with Cervical Cytology and HPV Test"
+  "Cervical Cytology within 3 years"
+  union "Patient 30-64 with Cervical Cytology and HPV Test"
 
 define "Numerator Performance Not Met":
   /*
