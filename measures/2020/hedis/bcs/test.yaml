@@ -58,6 +58,26 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
+    - name: ExclusionUnilateralClinMastectomy Modifier
+      denominator: 1
+      denominator_exclusion: exclusion_1
+      denominator_exception:
+      numerator:
+    - name: ExclusionUnilateralClinMastectomy NoModifer
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionBilateralClinMastectomy ModifierAfter
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionBilateralClinMastectomy NoModifer
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
     - name: ExclusionUnilateralMastectomy Before
       denominator: 1
       denominator_exclusion: exclusion_1
@@ -118,6 +138,16 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
+    - name: ExclusionAdvancedIllness OneEncBeforeOneDuring
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAdvancedIllness OneEncDuringOneAfter
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
     - name: ExclusionAdvancedIllness Lower
       denominator: 1
       denominator_exclusion: exclusion_2
@@ -129,6 +159,26 @@ test_set_keys:
       denominator_exception:
       numerator:
     - name: ExclusionAdvancedIllness After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAdvancedIllness NonacutePlusStayCodeSameClaim
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionAdvancedIllness NonacutePlusStayCodeDiffClaim
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionAdvancedIllness InpatientPlusStayCodeSameClaim
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionAdvancedIllness InpatientPlusStayCodeDiffClaim
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -285,6 +335,42 @@ patients:
     - code_type: ICD10PCS
       code_value: '0HTV0ZZ' # Bilateral mastectomy
       start_date: 2017-01-01 # Too late
+- name: ExclusionUnilateralClinMastectomy Modifier
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionUnilateralClinMastectomy
+    family_name: Modifier
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: SNOMEDCT
+      code_value: '70183006' # Clinical Unilateral mastectomy
+      start_date: 2015-12-31
+      code_modifiers: [51440002]
+- name: ExclusionUnilateralMastectomy NoModifier
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionUnilateralMastectomy
+    family_name: NoModifier
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: ICD10PCS
+      code_value: '70183006' # Clinical Unilateral mastectomy
+      start_date: 2015-01-01
+      code_modifiers: # No modifier
+- name: ExclusionUnilateralClinMastectomy ModifierAfter
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionUnilateralClinMastectomy
+    family_name: ModifierAfter
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: SNOMEDCT
+      code_value: '70183006' # Clinical Unilateral mastectomy
+      start_date: 2017-01-01 #too late
+      code_modifiers: [51440002]
 - name: ExclusionUnilateralMastectomy Before
   attributes:
     date_of_birth: 1950-01-01
@@ -464,6 +550,7 @@ patients:
       code_value: 99201 # Outpatient
       start_date: 2016-03-01
       stop_date: 2016-03-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
@@ -471,6 +558,63 @@ patients:
     - code_type: ICD10CM
       code_value: A81.00 # Advanced illness
       start_date: 2016-03-01
+      claim_id: 1
+    - code_type: ICD10CM
+      code_value: A81.00 # Advanced illness
+      start_date: 2016-01-31 # Too early
+- name: ExclusionAdvancedIllness OneEncBeforeOneDuring
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionAdvancedIllness
+    family_name: OneEncBeforeOneDuring
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      claim_id: 1
+    - code_type: CPT
+      code_value: 99201 # Outpatient
+      start_date: 2014-12-31
+      stop_date: 2014-12-31 # Too early
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: L89.119 # Frailty
+      start_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: A81.00 # Advanced illness
+      start_date: 2016-02-01
+      claim_id: 1
+    - code_type: ICD10CM
+      code_value: A81.00 # Advanced illness
+      start_date: 2016-01-31 # Too early
+- name: ExclusionAdvancedIllness OneEncDuringOneAfter
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionAdvancedIllness
+    family_name: OneEncDuringOneAfter
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      claim_id: 1
+    - code_type: CPT
+      code_value: 99201 # Outpatient
+      start_date: 2017-01-01
+      stop_date: 2017-01-01 # Too late
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: L89.119 # Frailty
+      start_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: A81.00 # Advanced illness
+      start_date: 2016-02-01
+      claim_id: 1
     - code_type: ICD10CM
       code_value: A81.00 # Advanced illness
       start_date: 2016-01-31 # Too early
@@ -486,6 +630,7 @@ patients:
       code_value: 99201 # Outpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     - code_type: CPT
       code_value: 99201 # Outpatient
       start_date: 2016-03-01
@@ -500,6 +645,7 @@ patients:
     - code_type: ICD10CM
       code_value: A81.00 # Advanced illness
       start_date: 2016-02-01 # Lower bound
+      claim_id: 1
 - name: ExclusionAdvancedIllness Upper
   attributes:
     date_of_birth: 1950-01-01
@@ -512,6 +658,7 @@ patients:
       code_value: 99201 # Outpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     - code_type: CPT
       code_value: 99201 # Outpatient
       start_date: 2016-03-01
@@ -526,6 +673,7 @@ patients:
     - code_type: ICD10CM
       code_value: A81.00 # Advanced illness
       start_date: 2016-02-01 # Upper bound
+      claim_id: 1
 - name: ExclusionAdvancedIllness After
   attributes:
     date_of_birth: 1950-01-01
@@ -542,6 +690,40 @@ patients:
       code_value: 99201 # Outpatient
       start_date: 2016-03-01
       stop_date: 2016-03-01
+      claim_id: 1
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: L89.119 # Frailty
+      start_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: A81.00 # Advanced illness
+      start_date: 2016-03-01
+      claim_id: 1
+    - code_type: ICD10CM
+      code_value: A81.00 # Advanced illness
+      start_date: 2016-02-02 # Too late
+- name: ExclusionAdvancedIllness NonacutePlusStayCodeSameClaim
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionAdvancedIllness
+    family_name: NonacutePlusStayCodeSameClaim
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99337 # Nonacute Inpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      claim_id: 1
+    - code_type: UBREV
+      code_value: 0022 # Nonacute Inpatient Stay
+      start_date: 2016-02-01
+      stop_date: 2016-02-11
+      claim_id: 1
+    - code_type: CPT
+      code_value: 99201 # Outpatient
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
     diagnoses:
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
@@ -551,7 +733,105 @@ patients:
       start_date: 2016-03-01
     - code_type: ICD10CM
       code_value: A81.00 # Advanced illness
-      start_date: 2016-02-02 # Too late
+      start_date: 2016-02-01 # Upper bound
+      claim_id: 1
+- name: ExclusionAdvancedIllness NonacutePlusStayCodeDiffClaim
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionAdvancedIllness
+    family_name: NonacutePlusStayCodeSameClaim
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99337 # Nonacute Inpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      claim_id: 1
+    - code_type: UBREV
+      code_value: 0022 # Nonacute Inpatient Stay
+      start_date: 2016-02-01
+      stop_date: 2016-02-11
+      claim_id: 2
+    - code_type: CPT
+      code_value: 99201 # Outpatient
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: L89.119 # Frailty
+      start_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: A81.00 # Advanced illness
+      start_date: 2016-03-01
+    - code_type: ICD10CM
+      code_value: A81.00 # Advanced illness
+      start_date: 2016-02-01 # Upper bound
+- name: ExclusionAdvancedIllness InpatientPlusStayCodeSameClaim
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionAdvancedIllness
+    family_name: InpatientPlusStayCodeSameClaim
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: UBREV
+      code_value: 0100 # Inpatient Stay
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      claim_id: 1
+    - code_type: UBREV
+      code_value: 0022 # Nonacute Inpatient Stay
+      start_date: 2016-02-01
+      stop_date: 2016-02-11
+      claim_id: 1
+    - code_type: CPT
+      code_value: 99201 # Outpatient
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: L89.119 # Frailty
+      start_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: A81.00 # Advanced illness
+      start_date: 2016-03-01
+    - code_type: ICD10CM
+      code_value: A81.00 # Advanced illness
+      start_date: 2016-02-01 # Upper bound
+      claim_id: 1
+- name: ExclusionAdvancedIllness InpatientPlusStayCodeDiffClaim
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionAdvancedIllness
+    family_name: InpatientPlusStayCodeSameClaim
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: UBREV
+      code_value: 0100 # Inpatient Stay
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      claim_id: 1
+    - code_type: UBREV
+      code_value: 0022 # Nonacute Inpatient Stay
+      start_date: 2016-02-01
+      stop_date: 2016-02-11
+      claim_id: 2
+    - code_type: CPT
+      code_value: 99201 # Outpatient
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: L89.119 # Frailty
+      start_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: A81.00 # Advanced illness
+      start_date: 2016-03-01
+    - code_type: ICD10CM
+      code_value: A81.00 # Advanced illness
+      start_date: 2016-02-01 # Upper bound
 - name: ExclusionDementiaMedication Before
   attributes:
     date_of_birth: 1950-01-01
