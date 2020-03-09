@@ -19,7 +19,8 @@ valueset "MIPS; Performance Met: 3017F"
 
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
 valueset "HEDIS; Colorectal Cancer": '2.16.840.1.113883.3.464.1004.1065'
 valueset "HEDIS; Total Colectomy": '2.16.840.1.113883.3.464.1004.1250'
 valueset "HEDIS; Colonoscopy": '2.16.840.1.113883.3.464.1004.1064'
@@ -56,7 +57,8 @@ define "Qualifying Exclusion Age":
 AgeInYearsAt(end of "Measurement Period") >= 66
 
 define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
+  ["Intervention, Performed": "HEDIS; Hospice Intervention"]
+  union ["Encounter, Performed": "HEDIS; Hospice Encounter"]
 
 define "Visit":
   ["Encounter, Performed": "HEDIS; Outpatient"]
@@ -64,7 +66,10 @@ define "Visit":
   union ["Encounter, Performed": "HEDIS; ED"]
   union ((["Encounter, Performed": "HEDIS; Nonacute Inpatient"])NonacuteIP
     with (["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"])NonacuteIPFlag
-    such that NonacuteIP.relevantPeriod overlaps NonacuteIPFlag.relevantPeriod)
+    such that NonacuteIP.claim_id = NonacuteIPFlag.claim_id)
+  union ((["Encounter, Performed": "HEDIS; InpatientStay"])Inpatient
+    with (["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"])NonacuteIPFlag
+    such that Inpatient.claim_id = NonacuteIPFlag.claim_id)
 
 define "Visit with Advanced Illness":
   "Visit" ExcludeQualVisit
