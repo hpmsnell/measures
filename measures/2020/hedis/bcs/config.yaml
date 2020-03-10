@@ -29,7 +29,9 @@ denominator:
       show_codes: true
       records:
       - model: ClinicalActivity
-        value_set: HEDIS; Hospice
+        value_set: HEDIS; Hospice Intervention
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice Encounter
 exclusion:
   description: Bilateral mastectomy any time during the member’s history through December
     31 of the measurement year.
@@ -56,8 +58,17 @@ exclusion:
           value_set: HEDIS; Unilateral Mastectomy
     - logical_operator: OR
       components:
+      - display_title: Mastectomy with Bilateral Modifier
+        show_codes: true
+        annotation: 'with Clinical Bilateral Modifier'
+        records:
+        - model: ClinicalActivity
+        value_set: HEDIS; Clinical Unilateral Mastectomy
+    - logical_operator: OR
+      components:
       - display_title: Absence of Left Breast
         show_codes: true
+        annotation: 'Unilateral Mastectomy Left with Clinical Left Modifier'
         records:
         - model: Diagnosis
           value_set: HEDIS; Absence of Left Breast
@@ -66,6 +77,7 @@ exclusion:
       - display_title: Absence of Right Breast
         logical_operator: AND
         show_codes: true
+        annotation: 'Unilateral Mastectomy Right with Clinical Right Modifier'
         records:
         - model: Diagnosis
           value_set: HEDIS; Absence of Right Breast
@@ -81,9 +93,13 @@ exclusion:
         show_codes: true
         records:
         - model: Diagnosis
-          value_set: HEDIS; Frailty
+          value_set: HEDIS; Frailty Diagnosis
+        - model: Diagnosis
+          value_set: HEDIS; Frailty Symptom
         - model: ClinicalActivity
-          value_set: HEDIS; Frailty
+          value_set: HEDIS; Frailty Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Frailty Device
     - logical_operator: AND
       components:
       - display_title: Dementia Medication
@@ -94,7 +110,7 @@ exclusion:
       - logical_operator: 'OR BOTH:'
         display_title: Visit
         show_codes: true
-        annotation: 'Two visits are required if visit is not an acute inpatient visit'
+        annotation: 'Two visits are required if visit is not an acute inpatient visit', during the measurement year or the year prior to the measurement year (count services that occur over both years)'
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Outpatient
@@ -104,6 +120,10 @@ exclusion:
           value_set: HEDIS; ED
         - model: ClinicalActivity
           value_set: HEDIS; Nonacute Inpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Nonacute Inpatient Stay
+        - model: ClinicalActivity
+          value_set: HEDIS; Inpatient Stay
       - logical_operator: AND
         display_title: Advanced Illness
         show_codes: true
