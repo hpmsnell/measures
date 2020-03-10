@@ -49,7 +49,7 @@ define "Sexual Activity Exists":
   exists("Denominator Procedure" P
     where P.relevantPeriod starts during "Measurement Period")
   or exists("Denominator Diagnosis" D
-    where D.relevantPeriod overlaps "Measurement Period")
+    where D.prevalencePeriod starts during "Measurement Period")
 
 define "Only Pregnancy Test Exists":
   not exists(["Procedure, Performed": "HEDIS; Sexual Activity"] P
