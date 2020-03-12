@@ -32,8 +32,8 @@ define "Hospice":
   union ["Encounter, Performed": "HEDIS; Hospice Encounter"]
 
 define "Cervical Cytology with Results":
-  (["Procedure, Performed": "HEDIS; Cervical Cytology Lab Test"]
-  union ["Laboratory Test, Performed": "HEDIS; Cervical Cytology Lab Test"]
+  ["Procedure, Performed": "HEDIS; Cervical Cytology Lab Test"]
+  union (["Laboratory Test, Performed": "HEDIS; Cervical Cytology Lab Test"]
   union ["Laboratory Test, Performed": "HEDIS; Cervical Cytology Result or Finding"])CervicalCytology
     where CervicalCytology.result is not null
 
@@ -42,8 +42,8 @@ define "Cervical Cytology within 3 years":
   where PapDone.relevantPeriod starts 36 months or less before end of "Measurement Period"
 
 define "HPV Test within 5 years":
-  (["Procedure, Performed": "HEDIS; High Risk HPV Lab Test"]
-  union ["Laboratory Test, Performed": "HEDIS; High Risk HPV Lab Test"]
+  ["Procedure, Performed": "HEDIS; High Risk HPV Lab Test"]
+  union (["Laboratory Test, Performed": "HEDIS; High Risk HPV Lab Test"]
   union ["Laboratory Test, Performed": "HEDIS; High Risk HPV Test Result or Finding"])HPVTest
     where AgeInYearsAt(start of HPVTest.relevantPeriod) >= 30
     and HPVTest.result is not null
