@@ -23,8 +23,8 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Patients 18–85 years as of December 31 of the measurement year with
-    a diagnosis of hypertension
+  description: Patients 18–85 years as of December 31 of the measurement year with at 
+    least two visits with a diagnosis of hypertension during the measurement period or the year prior
   component_groups:
   - components:
     - display_title: Encounter
@@ -32,6 +32,10 @@ denominator:
       records:
       - model: ClinicalActivity
         value_set: HEDIS; Outpatient Without UBREV
+      - model: ClinicalActivity
+        value_set: HEDIS; Nonacute Inpatient Stay
+      - model: ClinicalActivity
+        value_set: HEDIS; Remote Blood Pressure Monitoring
     - logical_operator: 'AND'
       display_title: Hypertension
       show_codes: true
@@ -45,6 +49,8 @@ denominator:
       records:
       - model: ClinicalActivity
         value_set: HEDIS; Hospice
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice Intervention
 exclusion:
   description:
   reasons:
@@ -66,6 +72,12 @@ exclusion:
           value_set: HEDIS; ESRD Obsolete
         - model: ClinicalActivity
           value_set: HEDIS; Kidney Transplant
+        - model: ClinicalActivity
+          value_set: HEDIS; Dialysis Procedure
+        - model: ClinicalActivity
+          value_set: HEDIS; Nephrectomy
+        - model: ClinicalActivity
+          value_set: HEDIS; History of Kidney Transplant
   - config_link_id: exclusion_2
     code_value:
     display_title: Pregnancy
@@ -106,7 +118,7 @@ performance_met:
     - components:
       - display_title: Normal Systolic Blood Pressure
         show_codes: true
-        annotation: 'Patient 18-59 with result: <140 mmHg'
+        annotation: 'Patient 18-85 with result: <140 mmHg'
         records:
         - model: ClinicalActivity
           value_set: VSAC; Systolic Blood Pressure
@@ -116,7 +128,7 @@ performance_met:
           value_set: 'MIPS; Performance Met: G8783'
       - display_title: Normal Diastolic Blood Pressure
         logical_operator: AND
-        annotation: 'Patients 18-59 with result: <90 mmHg'
+        annotation: 'Patients 18-85 with result: <90 mmHg'
         show_codes: true
         records:
         - model: ClinicalActivity
@@ -125,56 +137,6 @@ performance_met:
           value_set: 'MIPS; Performance Met: G8754'
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Met: G8783'
-    - logical_operator: OR
-      components:
-      - display_title: Diabetes
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: HEDIS; Diabetes
-      - display_title: Normal Systolic Blood Pressure
-        logical_operator: AND
-        show_codes: true
-        annotation: 'Patient 60-85 with result: <140 mmHg'
-        records:
-        - model: ClinicalActivity
-          value_set: VSAC; Systolic Blood Pressure
-        - model: ClinicalActivity
-          value_set: 'MIPS; Performance Met: G8752'
-        - model: ClinicalActivity
-          value_set: 'MIPS; Performance Met: G8783'
-      - display_title: Normal Diastolic Blood Pressure
-        logical_operator: AND
-        annotation: 'Patients 60-85 with result: <90 mmHg'
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: VSAC; Diastolic Blood Pressure
-        - model: ClinicalActivity
-          value_set: 'MIPS; Performance Met: G8754'
-        - model: ClinicalActivity
-          value_set: 'MIPS; Performance Met: G8783'
-    - logical_operator: OR
-      components:
-      - display_title: Normal Systolic Blood Pressure
-        show_codes: true
-        annotation: 'Patient 60-85 with result: <150 mmHg'
-        records:
-        - model: ClinicalActivity
-          value_set: VSAC; Systolic Blood Pressure
-        - model: ClinicalActivity
-          value_set: 'MIPS; Performance Met: G8752'
-        - model: ClinicalActivity
-          value_set: 'MIPS; Performance Met: G8783'
-      - display_title: Normal Diastolic Blood Pressure
-        logical_operator: AND
-        annotation: 'Patients 60-85 with result: <90 mmHg'
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: VSAC; Diastolic Blood Pressure
-        - model: ClinicalActivity
-          value_set: 'MIPS; Performance Met: G8754'
 performance_not_met:
   description:
   reasons:
@@ -186,13 +148,13 @@ performance_not_met:
     - components:
       - display_title: High Systolic Blood Pressure
         show_codes: true
-        annotation: 'Patient 18-59 with result: ≥140 mmHg'
+        annotation: 'Patient 18-85 with result: ≥140 mmHg'
         records:
         - model: ClinicalActivity
           value_set: VSAC; Systolic Blood Pressure
       - display_title: High Diastolic Blood Pressure
         logical_operator: OR
-        annotation: 'Patients 18-59 with result: ≥90 mmHg'
+        annotation: 'Patients 18-85 with result: ≥90 mmHg'
         show_codes: true
         records:
         - model: ClinicalActivity

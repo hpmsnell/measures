@@ -103,7 +103,6 @@ define "Date of Second Hypertension Diagnosis":
 define "Encounters On or After Second Hypertension Diagnosis":
   (["Encounter, Performed": "HEDIS; Outpatient Without UBREV"] 
     union ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"]
-    union ["Encounter, Performed": "HEDIS; Outpatient Without UBREV"]
     union ["Encounter, Performed": "HEDIS; Remote Blood Pressure Monitoring"] //this is likely a procedure and NOT an encounter
     ) E
       where E.relevantPeriod starts on or after "Date of Second Hypertension Diagnosis"
