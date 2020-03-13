@@ -98,7 +98,7 @@ define "Count of Visits with Hypertension Diagnosis":
     + count("Distinct Dates of Non-Telehealth Encounters with Hypertension")
 
 define "Date of Second Hypertension Diagnosis":
-  date from ((["Diagnosis": "HEDIS; Essential Hypertension"])[1])
+  date from ((["Diagnosis": "HEDIS; Essential Hypertension"] D sort by start of e.relevantPeriod asc)[1]) //note we want the second element here
 
 define "Encounters On or After Second Hypertension Diagnosis":
   (["Encounter, Performed": "HEDIS; Outpatient Without UBREV"] 
