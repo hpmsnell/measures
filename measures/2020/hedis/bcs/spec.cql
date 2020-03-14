@@ -66,10 +66,10 @@ define "Visit":
   union ["Encounter, Performed": "HEDIS; ED"]
   union ((["Encounter, Performed": "HEDIS; Nonacute Inpatient"])NonacuteIP
     with (["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"])NonacuteIPFlag
-    such that NonacuteIP.relevantPeriod = NonacuteIPFlag.relevantPeriod)
-  union ((["Encounter, Performed": "HEDIS; Inpatient Stay"])Inpatient
+    such that NonacuteIP.claimId = NonacuteIPFlag.claimId)
+  union ((["Encounter, Performed": "HEDIS; InpatientStay"])Inpatient
     with (["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"])NonacuteIPFlag
-    such that Inpatient.relevantPeriod = NonacuteIPFlag.relevantPeriod)
+    such that Inpatient.claimId = NonacuteIPFlag.claimId)
 
 define "Visit with Advanced Illness":
 "Visit" ExcludeQualVisit
