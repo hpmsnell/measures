@@ -114,7 +114,7 @@ define "Bilateral Mastectomy Procedure":
   union (["Procedure, Performed": "HEDIS; Clinical Unilateral Mastectomy"] PClinUni
     where PClinUni.code.modifier in "HEDIS; Clinical Bilateral Modifier")
   union (["Procedure, Performed": "HEDIS; Unilateral Mastectomy"] PUniMast
-    where PUniMast.code.modifier in "HEDIS; Bilateral Mastectomy")
+    where PUniMast.code.modifier in "HEDIS; Bilateral Modifier")
   union ["Procedure, Performed": "HEDIS; History of Bilateral Mastectomy"])PBilatMast
   where PBilatMast.relevantPeriod starts before end of "Measurement Period"
 
