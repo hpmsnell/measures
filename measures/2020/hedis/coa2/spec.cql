@@ -28,14 +28,15 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Medication List":
-  ["Procedure, Performed": "HEDIS; Medication List"]
-  union ["Procedure, Performed": "VSAC; Current Medications Documented SNMD"]
+  (["Procedure, Performed": "HEDIS; Medication List"]
+  union ["Procedure, Performed": "VSAC; Current Medications Documented SNMD"]) MedList
+    where MedList.relevantPeriod starts during "Measurement Period"
+      and MedList.signingProvider.prescribing = true
 
-define "Medication Review Exists":
-  exists(["Procedure, Performed": "HEDIS; Medication Review"] P
-    where P.relevantPeriod starts during "Measurement Period")
-  and exists("Medication List Exists" P
-    where P.relevantPeriod starts during "Measurement Period")
+define "Medication Review":
+  ["Procedure, Performed": "HEDIS; Medication Review"] MedReview
+    where MedReview.relevantPeriod starts during "Measurement Period"
+      and MedReview.signingProvider.prescribing = true
 
 define "Hospice":
   ["Intervention, Performed": "HEDIS; Hospice"]
@@ -51,7 +52,10 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  "Medication Review Exists"
+  "Medication Review" MedReview
+    with "Medication List" MedList
+      such that MedReview.claimId = MedList.claimId
+
   or exists(["Procedure, Performed": "HEDIS; Transitional Care Management Sercices"] P
     where P.relevantPeriod starts during "Measurement Period")
 
