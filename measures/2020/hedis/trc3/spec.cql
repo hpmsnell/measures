@@ -44,8 +44,8 @@ define "Qualifying Discharge":
 
 define "Nonacute Overlaps":
   ((["Encounter, Performed": "HEDIS; Inpatient Stay"])InpatientStay
-    with ("HEDIS; Nonacute Inpatient Stay")NonacuteIPStay
-    such that InpatientStay.relevantPeriod during NonacuteIPStay.relevantPeriod
+    with (["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"])NonacuteIPStay
+    such that InpatientStay.relevantPeriod during NonacuteIPStay.relevantPeriod)
 
 define "Hospice":
   (["Intervention, Performed": "HEDIS; Hospice Encounter"]
