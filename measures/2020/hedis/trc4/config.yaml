@@ -33,13 +33,17 @@ denominator:
         value_set: HEDIS; Inpatient Stay
       - model: ClinicalActivity
         value_set: Able; Able Discharge
+      - model: ClinicalActivity
+        value_set: HEDIS; Nonacute Inpatient Stay
   - logical_operator: AND NOT
     components:
     - display_title: Hospice Service
       show_codes: true
       records:
       - model: ClinicalActivity
-        value_set: HEDIS; Hospice
+        value_set: HEDIS; Hospice Intervention
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice Encounter
 exclusion:
   description:
   reasons:
@@ -61,9 +65,9 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Medication Reconciliation
+          value_set: HEDIS; Medication Reconciliation Intervention
         - model: ClinicalActivity
-          value_set: Able; Medication Reconciliation
+          value_set: Able; Medication Reconciliation Encounter
 performance_not_met:
   description:
   reasons:
@@ -71,5 +75,5 @@ performance_not_met:
     code_value:
     display_title: No Medication Reconciliation
     description: Discharge medications not reconciled with the current medication
-      list in outpatient medical record, reason not otherwise specified
+      list in outpatient medical record, reconciled more than 31days post-discharge, or reason not otherwise specified
     component_groups:
