@@ -41,6 +41,11 @@ define "Denominator Discharge":
     without "Discharge" E2
       such that E2.relevantPeriod starts 30 days or less after start of E1.relevantPeriod
 
+define "Acute in Nonacute":
+  ((["Encounter, Performed": "HEDIS; Inpatient Stay"])InpatientStay
+    with ("HEDIS; Nonacute Inpatient Stay")NonacuteIPStay
+    such that InpatientStay.relevantPeriod during NonacuteIPStay.relevantPeriod
+
 define "Hospice":
   (["Intervention, Performed": "HEDIS; Hospice Encounter"]
   union ["Intervention, Performed": "HEDIS; Hospice Intervention"])HospiceEnc
