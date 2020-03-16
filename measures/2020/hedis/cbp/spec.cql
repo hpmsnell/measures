@@ -94,8 +94,11 @@ define "Distinct Dates of Non-Telehealth Encounters with Hypertension":
 
 define "Count of Visits with Hypertension Diagnosis":
     //we only allow a max of ONE telehealth over the period - and we need to make sure it doesn't intersect with non-telehealth
-    count(first("Distinct Dates of Telehealth Encounters with Hypertension" except "Distinct Dates of Non-Telehealth Encounters with Hypertension"))
-    + count("Distinct Dates of Non-Telehealth Encounters with Hypertension")
+    //we're going to count the # of telehealth encounters REMOVING the non-telehealth encounters - taking the FIRST element and then converting it to a list
+    Count(
+    	{First("Distinct Dates of Telehealth Encounters with Hypertension" except "Distinct Dates of Non-Telehealth Encounters with Hypertension")}
+    	union "Distinct Dates of Non-Telehealth Encounters with Hypertension"
+    )
 
 define "Second Hypertension Diagnosis":
   (["Diagnosis": "HEDIS; Essential Hypertension"] D sort by start of prevalencePeriod asc)[1] //prevalencePeriod //note we want the second element here
