@@ -16,6 +16,8 @@ using QDM
 
 valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Functional Status Assessment": '2.16.840.1.113883.3.464.1004.1104'
+valueset "HEDIS; Acute Inpatient POS"
+valueset "HEDIS; Acute Inpatient"
 
 // Able value sets
 
@@ -43,8 +45,11 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists("Functional Status Assessment" P
-    where P.relevantPeriod starts during "Measurement Period")
+  exists("Functional Status Assessment" FSA
+    where FSA.relevantPeriod starts during "Measurement Period"
+      and FSA.code.placeOfService in "HEDIS; Acute Inpatient POS"
+    without ["Procedure, Performed": "HEDIS; Acute Inpatient"] Inpatient
+      such that FSA.claimId = Inpatient.claimId)
 
 define "Numerator Performance Not Met":
   /*

@@ -52,8 +52,11 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists("Pain Assessment" P
-    where P.relevantPeriod starts during "Measurement Period")
+  exists("Pain Assessment" PA
+    where PA.relevantPeriod starts during "Measurement Period"
+      and PA.code.placeOfService in "HEDIS; Acute Inpatient POS"
+    without ["Procedure, Performed": "HEDIS; Acute Inpatient"] Inpatient
+      such that PA.claimId = Inpatient.claimId)
 
 define "Numerator Performance Not Met":
   /*
