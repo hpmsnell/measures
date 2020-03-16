@@ -98,7 +98,7 @@ define "Count of Visits with Hypertension Diagnosis":
     + count("Distinct Dates of Non-Telehealth Encounters with Hypertension")
 
 define "Date of Second Hypertension Diagnosis":
-  date from ((["Diagnosis": "HEDIS; Essential Hypertension"] D sort by start of e.relevantPeriod asc)[1]) //note we want the second element here
+  date from ((["Diagnosis": "HEDIS; Essential Hypertension"] D sort by start of D.relevantPeriod asc)[1]) //note we want the second element here
 
 define "Encounters On or After Second Hypertension Diagnosis":
   (["Encounter, Performed": "HEDIS; Outpatient Without UBREV"] 
@@ -242,14 +242,12 @@ define "Denominator Exclusion: Pregnancy":
   and exists(["Diagnosis": "HEDIS; Pregnancy"] D
     where D.prevalencePeriod overlaps "Measurement Period")
 
-define "Denominator Exclusion: Inpatient Visit":
+define "Denominator Exclusion: Nonacute Inpatient Visit":
   /*
    * config_link_id: exclusion_3
    */
-  exists(["Encounter, Performed": "HEDIS; Inpatient Stay"] E1
-    with ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] E2
-      such that E2.relevantPeriod overlaps E1.relevantPeriod
-        where E1.relevantPeriod starts during "Measurement Period")
+  exists(["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"]) EE
+    where E.admissionDate during "Measurement Period")
 
 define "Numerator Performance Met":
   /*
@@ -272,6 +270,6 @@ define "Numerator Performance Not Met: No Blood Pressure":
    */
   not "Denominator Exclusion: ESRD"
   and not "Denominator Exclusion: Pregnancy"
-  and not "Denominator Exclusion: Inpatient Visit"
+  and not "Denominator Exclusion: Nonacute Inpatient Visit"
   and not "Numerator Performance Met"
   and not "Numerator Performance Not Met: Out of Range"
