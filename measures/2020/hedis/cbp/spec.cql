@@ -24,7 +24,7 @@ valueset "MIPS; Performance Not Met: G8952" //Hypertensive BP
 
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
 valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
 valueset "HEDIS; Outpatient Without UBREV": '2.16.840.1.113883.3.464.1004.1203'
 valueset "HEDIS; Essential Hypertension": '2.16.840.1.113883.3.464.1004.1122'
@@ -52,7 +52,6 @@ valueset "HEDIS; Dialysis Procedure": '2.16.840.1.113883.3.464.1004.1952'
 valueset "HEDIS; Nephrectomy": '2.16.840.1.113883.3.464.1004.1909'
 valueset "HEDIS; History of Kidney Transplant": '2.16.840.1.113883.3.464.1004.1908'
 valueset "HEDIS; Remote Blood Pressure Monitoring": '2.16.840.1.113883.3.464.1004.1469'
-valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
 
 // VSAC value test_set_keys
 
@@ -64,7 +63,7 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
+  ["Intervention, Performed": "HEDIS; Hospice Intervention"]
   union ["Encounter, Performed": "HEDIS; Hospice Encounter"]
 
 define "Encounter with Hypertension":
@@ -215,8 +214,13 @@ define "Denominator":
   and AgeInYearsAt(end of "Measurement Period") < 86
   and exists("Encounter with Hypertension")
   and "Count of Visits with Hypertension Diagnosis" >= 2
-  and not exists("Hospice" I
-    where I.relevantPeriod overlaps "Measurement Period")
+
+define "Exclusion: Hospice":
+  /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice" Hospice
+     where Hospice.relevantPeriod overlaps "Measurement Period")
 
 define "Denominator Exclusion: ESRD":
   /*
