@@ -75,7 +75,7 @@ define "Numerator Performance Met":
    */
   "Live Delivery" P
   and exists "Complete Prenatal Service" E
-   where E.relevantPeriod in Interval [end of P.relevantPeriod - 280 days, end of P.relevantPeriod - 219 days]
+   where E.relevantPeriod in Interval [end of P.relevantPeriod - 280 days, end of P.relevantPeriod - 176 days]
 
 define "Numerator Performance Not Met":
   /*
