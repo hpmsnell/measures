@@ -34,7 +34,7 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Live Delivery":
-  exists ["Procedure, Performed": "HEDIS; Deliveries"] Delivery
+  ["Procedure, Performed": "HEDIS; Deliveries"] Delivery
     where Delivery.relevantPeriod starts 85 days or less before start of "Measurement Period"
     and Delivery.relevantPeriod ends 86 days or less before end of "Measurement Period"
   and not exists ["Diagnosis": "HEDIS; Non-Live Births"] Nonlive
@@ -51,9 +51,10 @@ define "Cervical Cytology with Results":
   union ["Laboratory Test, Performed": "HEDIS; Cervical Cytology Result or Finding"]
 
 define "Postpartum Bundle Not Delivery":
-  exists ["Procedure, Performed": "HEDIS; Postpartum Bundled Services"] PPBundle
-  and not exists ("Live Delivery") Delivered
+  ["Procedure, Performed": "HEDIS; Postpartum Bundled Services"] PPBundle
+    where not exists ("Live Delivery" Delivered
     where Delivered.relevantPeriod during PPBundle.relevantPeriod
+  )
 
 define "Acute Inpatient":
   ["Encounter, Performed": "HEDIS; Acute Inpatient"]
