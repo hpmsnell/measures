@@ -36,7 +36,7 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Live Delivery":
-  exists ["Procedure, Performed": "HEDIS; Deliveries"] Delivery
+  ["Procedure, Performed": "HEDIS; Deliveries"] Delivery
     where Delivery.relevantPeriod starts 85 days or less before start of "Measurement Period"
       and Delivery.relevantPeriod ends 86 days or less before end of "Measurement Period"
   and not exists ["Diagnosis": "HEDIS; Non-Live Births"] Nonlive
