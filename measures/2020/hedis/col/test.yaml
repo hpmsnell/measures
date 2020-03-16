@@ -29,13 +29,13 @@ test_set_keys:
       denominator_exception:
       numerator: performance_not_met
     - name: ExclusionHospice Lower
-      denominator:
-      denominator_exclusion:
+      denominator: 1
+      denominator_exclusion: exclusion_required_hospice
       denominator_exception:
       numerator:
     - name: ExclusionHospice Upper
-      denominator:
-      denominator_exclusion:
+      denominator: 1
+      denominator_exclusion: exclusion_required_hospice
       denominator_exception:
       numerator:
     - name: ExclusionHospice After
@@ -45,7 +45,7 @@ test_set_keys:
       numerator: performance_not_met
     - name: ExclusionColectomy Before
       denominator: 1
-      denominator_exclusion: exclusion_1
+      denominator_exclusion: exclusion_optional_colon
       denominator_exception:
       numerator:
     - name: ExclusionColectomy After
@@ -55,7 +55,7 @@ test_set_keys:
       numerator: performance_not_met
     - name: ExclusionCancer Before
       denominator: 1
-      denominator_exclusion: exclusion_1
+      denominator_exclusion: exclusion_optional_colon
       denominator_exception:
       numerator:
     - name: ExclusionCancer After
@@ -507,7 +507,7 @@ patients:
       start_date: 2016-03-01
     - code_type: ICD10CM
       code_value: A81.00 # Advanced illness
-      start_date: 2016-02-1
+      start_date: 2016-02-01
 - name: ExclusionAdvancedIllness OneEncDuringOneAfter
   attributes:
     date_of_birth: 1950-01-01
@@ -522,8 +522,8 @@ patients:
       stop_date: 2016-02-01
     - code_type: CPT
       code_value: 99201 # Outpatient
-      start_date: 2017-1-1
-      stop_date: 2017-1-1 #Enc too late, so count 1 only
+      start_date: 2017-01-01
+      stop_date: 2017-01-01 #Enc too late, so count 1 only
     diagnoses:
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
@@ -663,7 +663,7 @@ patients:
   attributes:
     date_of_birth: 1950-01-01
     given_name: ExclusionAdvancedIllness
-    family_name: NonacutePlusStayCode
+    family_name: NonacutePlusStayCodeDiffClaim
     sex: Male
   clinical_models:
     clinical_activities:

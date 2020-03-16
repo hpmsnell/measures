@@ -114,13 +114,13 @@ test_set_keys:
       denominator_exception:
       numerator: performance_not_met
     - name: ExclusionHospice Lower
-      denominator:
-      denominator_exclusion:
+      denominator: 1
+      denominator_exclusion: exclusion_required_hospice
       denominator_exception:
       numerator:
     - name: ExclusionHospice Upper
-      denominator:
-      denominator_exclusion:
+      denominator: 1
+      denominator_exclusion: exclusion_required_hospice
       denominator_exception:
       numerator:
     - name: ExclusionHospice After
@@ -135,12 +135,12 @@ test_set_keys:
       numerator: performance_not_met
     - name: ExclusionRetinoid Lower
       denominator: 1
-      denominator_exclusion: exclusion_1
+      denominator_exclusion: exclusion_optional_pregnancy
       denominator_exception:
       numerator:
     - name: ExclusionRetinoid Upper
       denominator: 1
-      denominator_exclusion: exclusion_1
+      denominator_exclusion: exclusion_optional_pregnancy
       denominator_exception:
       numerator:
     - name: ExclusionRetinoid After
@@ -334,7 +334,7 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: O00.0 # Pregnancy (sexual activity)
-      start_date: 2015-04-01
+      start_date: 2015-12-31
       stop_date: 2015-12-31 # Lower bound
 - name: SexualActivityDiagnosis Lower
   attributes:
@@ -346,7 +346,7 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: O00.0 # Pregnancy (sexual activity)
-      start_date: 2015-04-01
+      start_date: 2016-01-01
       stop_date: 2016-01-01 # Lower bound
 - name: SexualActivityDiagnosis Upper
   attributes:

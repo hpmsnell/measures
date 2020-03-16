@@ -1,6 +1,6 @@
 ---
 measure:
-  name: 19.HEDIS.W34
+  name: 20.HEDIS.W34
   required:
     display_title: Well-Child Visits in the Third, Fourth, Fifth and Sixth Years of
       Life
@@ -24,16 +24,22 @@ measure:
 denominator:
   description: Patient 3–6 years as of December 31 of the measurement year.
   component_groups:
-  - logical_operator: NOT
-    components:
-    - display_title: Hospice Service
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: HEDIS; Hospice
 exclusion:
   description:
   reasons:
+  - config_link_id: exclusion_required_hospice
+    code_value:
+    display_title: Hospice
+    description: Advance care planning performed during the measurement year
+    component_groups:
+    - components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Intervention
 exception:
   description:
   reasons:

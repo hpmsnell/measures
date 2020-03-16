@@ -74,12 +74,18 @@ define "Denominator":
   and AgeInYearsAt(end of "Measurement Period") < 75
   and exists(["Encounter, Performed": "HEDIS; Outpatient"] E
     where E.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
-  and not exists("Hospice" I
-    where I.relevantPeriod starts during "Measurement Period")
+      and E.supplemental = false
+
+define "Exclusion: Hospice":
+  /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice" Hospice
+     where Hospice.relevantPeriod starts during "Measurement Period")
 
 define "Denominator Exclusion":
   /*
-   * config_link_id: exclusion_1
+   * config_link_id: exclusion_optional_pregnancy
    */
   exists(["Diagnosis": "HEDIS; Pregnancy"] D
     where D.prevalencePeriod overlaps [12 months before start of "Measurement Period", end of "Measurement Period"])

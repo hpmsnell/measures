@@ -1,6 +1,6 @@
 ---
 measure:
-  name: 19.HEDIS.Col
+  name: 20.HEDIS.Col
   required:
     display_title: Colorectal Cancer Screening
     inverse: false
@@ -23,19 +23,23 @@ measure:
 denominator:
   description: Patients aged 51–75 years as of December 31 of the measurement year.
   component_groups:
-  - logical_operator: NOT
-    components:
-    - display_title: Hospice Service
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: HEDIS; Hospice Encounter
-      - model: ClinicalActivity
-        value_set: HEDIS; Hospice Intervention
 exclusion:
   description:
   reasons:
-  - config_link_id: exclusion_1
+  - config_link_id: exclusion_required_hospice
+    code_value:
+    display_title: Hospice
+    description: Advance care planning performed during the measurement year
+    component_groups:
+    - components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Intervention
+  - config_link_id: exclusion_optional_colon
     code_value:
     display_title: Colectomy or Cancer
     description: Patient excluded due to a history of total colectomy
@@ -51,8 +55,8 @@ exclusion:
           value_set: HEDIS; Colorectal Cancer
         - model: ClinicalActivity
           value_set: MIPS; History of Total Colectomy or Colorectal Cancer
-          - model: ClinicalActivity
-            value_set: HEDIS; History of Total Colectomy
+        - model: ClinicalActivity
+          value_set: HEDIS; History of Total Colectomy
         - model: Diagnosis
           value_set: HEDIS; History of Total Colectomy
     - logical_operator: OR
@@ -64,7 +68,7 @@ exclusion:
           value_set: HEDIS; Total Colectomy
         - model: ClinicalActivity
           value_set: MIPS; History of Total Colectomy or Colorectal Cancer
-  - config_link_id: exclusion_2
+  - config_link_id: exclusion_required_frailty
     code_value:
     display_title: Frailty and Advanced Illness
     description: Patient excluded due to frailty and advanced illness

@@ -14,7 +14,8 @@ using QDM
 
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
 valueset "HEDIS; Well-Care": '2.16.840.1.113883.3.464.1004.1262'
 valueset "HEDIS; Telehealth POS": '2.16.840.1.113883.3.464.1004.1460'
 valueset "HEDIS; Telehealth Modifier": '2.16.840.1.113883.3.464.1004.1445'
@@ -24,7 +25,8 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
+  ["Intervention, Performed": "HEDIS; Hospice Intervention"]
+  union ["Encounter, Performed": "HEDIS; Hospice Encounter"]
 
 define "Qualifying Encounter during Measurement Period":
   ((["Encounter, Performed": "HEDIS; Well-Care"]
@@ -38,8 +40,13 @@ define "Qualifying Encounter during Measurement Period":
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 3
   and AgeInYearsAt(end of "Measurement Period") < 7
-  and not exists("Hospice" I
-    where I.relevantPeriod starts during "Measurement Period")
+
+define "Exclusion: Hospice":
+  /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice" Hospice
+     where Hospice.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Met":
   /*

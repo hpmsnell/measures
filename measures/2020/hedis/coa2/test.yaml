@@ -19,13 +19,13 @@ test_set_keys:
       denominator_exception:
       numerator: performance_not_met
     - name: ExclusionHospice Lower
-      denominator:
-      denominator_exclusion:
+      denominator: 1
+      denominator_exclusion: exclusion_required_hospice
       denominator_exception:
       numerator:
     - name: ExclusionHospice Upper
-      denominator:
-      denominator_exclusion:
+      denominator: 1
+      denominator_exclusion: exclusion_required_hospice
       denominator_exception:
       numerator:
     - name: ExclusionHospice After
@@ -53,11 +53,6 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
-    - name: MedicationReview NotPrescribing
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
     - name: MedicationList Before
       denominator: 1
       denominator_exclusion:
@@ -74,16 +69,6 @@ test_set_keys:
       denominator_exception:
       numerator: performance_met
     - name: MedicationList After
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: MedicationList NotPrescribing
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: MedicationReviewList DifferentClaim
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -114,7 +99,6 @@ providers:
     external_id: '111-111'
     credential: DO
     primary_specialty: Family Medicine
-    prescribing: true
   - given_name: Patty
     family_name: Smith
     external_id: '222-222'
@@ -190,13 +174,9 @@ patients:
     - code_type: CPT
       code_value: 90863 # Medication review
       start_date: 2015-12-31 # Too early
-      claim_id: 1
-      provider: Rachel
     - code_type: CPT
       code_value: 1159F # Medication list
       start_date: 2016-01-01
-      claim_id: 1
-      provider: Rachel
 - name: MedicationReview Lower
   attributes:
     date_of_birth: 1940-01-01
@@ -208,13 +188,9 @@ patients:
     - code_type: CPT
       code_value: 90863 # Medication review
       start_date: 2016-01-01 # Lower bound
-      claim_id: 1
-      provider: Rachel
     - code_type: CPT
       code_value: 1159F # Medication list
       start_date: 2016-01-01
-      claim_id: 1
-      provider: Rachel
 - name: MedicationReview Upper
   attributes:
     date_of_birth: 1940-01-01
@@ -226,13 +202,9 @@ patients:
     - code_type: CPT
       code_value: 90863 # Medication review
       start_date: 2016-12-31 # Upper bound
-      claim_id: 1
-      provider: Rachel
     - code_type: CPT
       code_value: 1159F # Medication list
       start_date: 2016-01-01
-      claim_id: 1
-      provider: Rachel
 - name: MedicationReview After
   attributes:
     date_of_birth: 1940-01-01
@@ -244,30 +216,9 @@ patients:
     - code_type: CPT
       code_value: 90863 # Medication review
       start_date: 2017-01-01 # Too late
-      claim_id: 1
-      provider: Rachel
     - code_type: CPT
       code_value: 1159F # Medication list
       start_date: 2016-01-01
-      claim_id: 1
-      provider: Rachel
-- name: MedicationReview NotPrescribing
-  attributes:
-    date_of_birth: 1940-01-01
-    given_name: MedicationReview
-    family_name: NotPrescribing
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 90863 # Medication review
-      start_date: 2016-01-01
-      claim_id: 1
-    - code_type: CPT
-      code_value: 1159F # Medication list
-      start_date: 2016-01-01
-      claim_id: 1
-      provider: Rachel
 - name: MedicationList Before
   attributes:
     date_of_birth: 1940-01-01
@@ -279,13 +230,9 @@ patients:
     - code_type: CPT
       code_value: 1159F # Medication list
       start_date: 2015-12-31 # Too early
-      claim_id: 1
-      provider: Rachel
     - code_type: CPT
       code_value: 90863 # Medication review
       start_date: 2016-01-01
-      claim_id: 1
-      provider: Rachel
 - name: MedicationList Lower
   attributes:
     date_of_birth: 1940-01-01
@@ -297,13 +244,9 @@ patients:
     - code_type: CPT
       code_value: 1159F # Medication list
       start_date: 2016-01-01 # Lower bound
-      claim_id: 1
-      provider: Rachel
     - code_type: CPT
       code_value: 90863 # Medication review
       start_date: 2016-01-01
-      claim_id: 1
-      provider: Rachel
 - name: MedicationList Upper
   attributes:
     date_of_birth: 1940-01-01
@@ -315,13 +258,9 @@ patients:
     - code_type: CPT
       code_value: 1159F # Medication list
       start_date: 2016-12-31 # Upper bound
-      claim_id: 1
-      provider: Rachel
     - code_type: CPT
       code_value: 90863 # Medication review
       start_date: 2016-01-01
-      claim_id: 1
-      provider: Rachel
 - name: MedicationList After
   attributes:
     date_of_birth: 1940-01-01
@@ -333,48 +272,9 @@ patients:
     - code_type: CPT
       code_value: 1159F # Medication list
       start_date: 2017-01-01 # Too late
-      claim_id: 1
-      provider: Rachel
     - code_type: CPT
       code_value: 90863 # Medication review
       start_date: 2016-01-01
-      claim_id: 1
-      provider: Rachel
-- name: MedicationList NotPrescribing
-  attributes:
-    date_of_birth: 1940-01-01
-    given_name: MedicationList
-    family_name: NotPrescribing
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 90863 # Medication review
-      start_date: 2016-01-01
-      claim_id: 1
-      provider: Rachel
-    - code_type: CPT
-      code_value: 1159F # Medication list
-      start_date: 2016-01-01
-      claim_id: 1
-- name: MedicationReviewList DifferentClaim
-  attributes:
-    date_of_birth: 1940-01-01
-    given_name: MedicationReviewList
-    family_name: DifferentClaim
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 90863 # Medication review
-      start_date: 2016-01-01
-      claim_id: 1
-      provider: Rachel
-    - code_type: CPT
-      code_value: 1159F # Medication list
-      start_date: 2016-01-01
-      claim_id: 2 # Different claim
-      provider: Rachel
 - name: TransitionalCare Before
   attributes:
     date_of_birth: 1940-01-01

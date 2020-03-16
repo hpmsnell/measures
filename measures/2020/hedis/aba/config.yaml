@@ -1,6 +1,6 @@
 ---
 measure:
-  name: 19.HEDIS.Aba
+  name: 20.HEDIS.Aba
   required:
     display_title: Adult BMI Assessment
     inverse: false
@@ -31,17 +31,23 @@ denominator:
       records:
       - model: ClinicalActivity
         value_set: HEDIS; Outpatient
-  - logical_operator: AND NOT
-    components:
-    - display_title: Hospice Service
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: HEDIS; Hospice
 exclusion:
   description:
   reasons:
-  - config_link_id: exclusion_1
+  - config_link_id: exclusion_required_hospice
+    code_value:
+    display_title: Hospice
+    description: Advance care planning performed during the measurement year
+    component_groups:
+    - components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Intervention
+  - config_link_id: exclusion_optional_pregnancy
     code_value:
     display_title: Pregnancy
     description: Patient excluded due to pregnancy during the measurement year

@@ -29,13 +29,13 @@ test_set_keys:
       denominator_exception:
       numerator: performance_not_met
     - name: ExclusionHospice Lower
-      denominator:
-      denominator_exclusion:
+      denominator: 1
+      denominator_exclusion: exclusion_required_hospice
       denominator_exception:
       numerator:
     - name: ExclusionHospice Upper
-      denominator:
-      denominator_exclusion:
+      denominator: 1
+      denominator_exclusion: exclusion_required_hospice
       denominator_exception:
       numerator:
     - name: ExclusionHospice After
@@ -242,11 +242,11 @@ patients:
   attributes:
     date_of_birth: 2012-01-01
     given_name: WellCare
-    family_name: After
+    family_name: NotPCP
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
       code_value: 99383
       provider: Patty
-      start_date: 2017-01-01 # Too late
+      start_date: 2016-02-01 # Too late

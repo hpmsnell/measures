@@ -19,13 +19,13 @@ test_set_keys:
       denominator_exception:
       numerator: performance_not_met
     - name: ExclusionHospice Lower
-      denominator:
-      denominator_exclusion:
+      denominator: 1
+      denominator_exclusion: exclusion_required_hospice
       denominator_exception:
       numerator:
     - name: ExclusionHospice Upper
-      denominator:
-      denominator_exclusion:
+      denominator: 1
+      denominator_exclusion: exclusion_required_hospice
       denominator_exception:
       numerator:
     - name: ExclusionHospice After
@@ -49,16 +49,6 @@ test_set_keys:
       denominator_exception:
       numerator: performance_met
     - name: FunctionalStatus After
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: FunctionalStatus InpatientCode
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: FunctionalStatus InpatientPOS
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -177,29 +167,3 @@ patients:
     - code_type: CPT
       code_value: 1170F
       start_date: 2017-01-01 # Too late
-- name: FunctionalStatus InpatientCode
-  attributes:
-    date_of_birth: 1940-01-01
-    given_name: FunctionalStatus
-    family_name: InpatientCode
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 1170F
-      start_date: 2016-01-01
-    - code_type: CPT
-      code_value: 99221 # Acute inpatient
-      start_date: 2016-02-01
-- name: FunctionalStatus InpatientPOS
-  attributes:
-    date_of_birth: 1940-01-01
-    given_name: FunctionalStatus
-    family_name: InpatientPOS
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 1170F
-      start_date: 2016-01-01
-      place_of_service: 21 # Acute inpatient

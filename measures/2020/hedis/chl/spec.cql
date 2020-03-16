@@ -18,7 +18,8 @@ valueset "MIPS; Performance Met: G9820" //Chlamydia Screening
 
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
 valueset "HEDIS; Pregnancy": '2.16.840.1.113883.3.464.1004.1219'
 valueset "HEDIS; Pregnancy Tests": '2.16.840.1.113883.3.464.1004.1221'
 valueset "HEDIS; Sexual Activity": '2.16.840.1.113883.3.464.1004.1238'
@@ -35,7 +36,8 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
+  ["Intervention, Performed": "HEDIS; Hospice Intervention"]
+  union ["Encounter, Performed": "HEDIS; Hospice Encounter"]
 
 define "Denominator Diagnosis":
   ["Diagnosis": "HEDIS; Pregnancy"]
@@ -77,12 +79,17 @@ define "Denominator":
   and AgeInYearsAt(end of "Measurement Period") < 25
   and "Patient Characteristic Sex" = "Female"
   and "Sexual Activity Exists"
-  and not exists("Hospice" I
-    where I.relevantPeriod starts during "Measurement Period")
+
+define "Exclusion: Hospice":
+  /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice" Hospice
+     where Hospice.relevantPeriod starts during "Measurement Period")
 
 define "Denominator Exclusion":
   /*
-   * config_link_id: exclusion_1
+   * config_link_id: exclusion_optional_pregnancy
    */
   "Only Pregnancy Test Exists"
   and exists("Pregnancy Test Exclusion" L

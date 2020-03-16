@@ -75,33 +75,40 @@ define "Visit with Advanced Illness":
   "Visit" ExcludeQualVisit
     where exists (ExcludeQualVisit.diagnoses Diagnosis
       where Diagnosis.code in "HEDIS; Advanced Illness"
+        and Diagnosis.supplemental = false
       )
        and ExcludeQualVisit.relevantPeriod starts 2 years or less before end of "Measurement Period"
+       and ExcludeQualVisit.supplemental = false
 
 define "Advanced Illness Exists":
   "Qualifying Exclusion Age"
     and (Count("Visit with Advanced Illness")>=2
       or exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
         with ["Diagnosis": "HEDIS; Advanced Illness"] D
-        such that D.prevalencePeriod starts during E.relevantPeriod)
+          such that D.prevalencePeriod starts during E.relevantPeriod
+            and D.supplemental = false)
       or exists(["Medication, Dispensed": "NCQA; Dementia Medications"] M
-        where M.relevantPeriod starts during "Measurement Period"))
+        where M.relevantPeriod starts during "Measurement Period"
+          and M.supplemental = false))
 
 define "Frailty Diagnosis or Symptoms":
   ((["Diagnosis": "HEDIS; Frailty Diagnosis"]
   union ["Diagnosis": "HEDIS; Frailty Symptom"])FrailDxSx
     where FrailDxSx.prevalencePeriod overlaps "Measurement Period")
+      and FrailDxSx.supplemental = false
 
 define "Frailty Encounter":
   ["Encounter, Performed": "HEDIS; Frailty Encounter"]FrailEnc
     where FrailEnc.relevantPeriod overlaps "Measurement Period"
+      and FrailEnc.supplemental = false
 
 define "Frailty Device":
   ((["Device, Applied": "HEDIS; Frailty Device"]
   union ["Device, Order": "HEDIS; Frailty Device"]
   union ["Device, Recommended": "HEDIS; Frailty Device"])FrailDevice
-    where FrailDevice.relevantPeriod overlaps "Measurement Period"
-    or FrailDevice.authorDatetime during "Measurement Period")
+    where (FrailDevice.relevantPeriod overlaps "Measurement Period"
+      or FrailDevice.authorDatetime during "Measurement Period")
+      and FrailDevice.supplemental = false)
 
 define "Frailty":
   "Frailty Diagnosis or Symptoms"
@@ -116,9 +123,16 @@ define "Denominator":
   and not exists("Hospice" I
     where I.relevantPeriod starts during "Measurement Period")
 
+define "Exclusion: Hospice":
+  /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice" Hospice
+     where Hospice.relevantPeriod starts during "Measurement Period")
+
 define "Denominator Exclusion: Colectomy or Cancer":
   /*
-   * config_link_id: exclusion_1
+   * config_link_id: exclusion_optional_colon
    */
   exists(["Diagnosis": "HEDIS; Colorectal Cancer"] D
     where D.prevalencePeriod starts before end of "Measurement Period")
@@ -136,7 +150,7 @@ define "Denominator Exclusion: Colectomy or Cancer":
 
 define "Denominator Exclusion: Frailty or Advanced Illness":
   /*
-   * config_link_id: exclusion_2
+   * config_link_id: exclusion_required_frailty
    */
 
   "Advanced Illness Exists"

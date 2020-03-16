@@ -60,12 +60,17 @@ define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 24
   and AgeInYearsAt(end of "Measurement Period") < 65
   and "Patient Characteristic Sex" = "Female"
-  and not exists("Hospice" I
-    where I.relevantPeriod starts during "Measurement Period")
+
+define "Exclusion: Hospice":
+  /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice" Hospice
+     where Hospice.relevantPeriod starts during "Measurement Period")
 
 define "Denominator Exclusion":
   /*
-   * config_link_id: exclusion_1
+   * config_link_id: exclusion_optional_cervix
    */
   exists(["Procedure, Performed": "HEDIS; Hysterectomy With No Residual Cervix"] P
     where P.relevantPeriod starts before end of "Measurement Period")

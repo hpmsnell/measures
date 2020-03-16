@@ -1,6 +1,6 @@
 ---
 measure:
-  name: 19.HEDIS.Ccs1
+  name: 20.HEDIS.Ccs
   required:
     display_title: Cervical Cancer Screening
     inverse: false
@@ -22,19 +22,23 @@ measure:
 denominator:
   description: Women 24–64 years as of December 31 of the measurement year.
   component_groups:
-  - logical_operator: NOT
-    components:
-    - display_title: Hospice Service
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: HEDIS; Hospice Encounter
-      - model: ClinicalActivity
-        value_set: HEDIS; Hospice Intervention
 exclusion:
   description:
   reasons:
-  - config_link_id: exclusion_1
+  - config_link_id: exclusion_required_hospice
+    code_value:
+    display_title: Hospice
+    description: Advance care planning performed during the measurement year
+    component_groups:
+    - components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Intervention
+  - config_link_id: exclusion_optional_cervix
     code_value:
     display_title: Absence of Cervix
     description: Patient excluded due to absence of cervix
@@ -80,7 +84,7 @@ performance_met:
         - model: LaboratoryTestPerformed
           value_set: HEDIS; High Risk HPV Lab Test
         - model: LaboratoryTestPerformed
-          value_set: HEDIS; High Risk HPV Test Results or Finding
+          value_set: HEDIS; High Risk HPV Test Result or Finding
 performance_not_met:
   description:
   reasons:
