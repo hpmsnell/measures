@@ -28,6 +28,7 @@ context Patient
 
 define "Advance Care Planning":
   ["Procedure, Performed": "HEDIS; Advance Care Planning"]
+  union ["Diagnosis": "HEDIS; Advance Care Planning"]
   union ["Procedure, Performed": "Able; Advance Directive"]
   union ["Procedure, Performed": "Able; Advance Directive Discussed"]
 
