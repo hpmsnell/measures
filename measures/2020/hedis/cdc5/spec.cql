@@ -28,15 +28,16 @@ valueset "HEDIS; Unilateral Eye Enucleation": '2.16.840.1.113883.3.464.1004.1454
 valueset "HEDIS; Unilateral Eye Enucleation Left": '2.16.840.1.113883.3.464.1004.1455'
 valueset "HEDIS; Unilateral Eye Enucleation Right": '2.16.840.1.113883.3.464.1004.1455'
 valueset "HEDIS; Diabetes Mellitus Without Complications": '2.16.840.1.113883.3.464.1004.1407'
-valueset "HEDIS; Diabetes Medications"
+valueset "HEDIS; Diabetes Medications": ''
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
-valueset "HEDIS; Frailty"
-valueset "HEDIS; Advanced Illness"
-valueset "HEDIS; Outpatient"
-valueset "HEDIS; Observation"
-valueset "HEDIS; ED"
-valueset "HEDIS; Nonacute Inpatient"
-valueset "HEDIS; Acute Inpatient"
+valueset "HEDIS; Frailty Device": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Frailty Diagnosis": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Frailty Encounter": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Frailty Symptom": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Advanced Illness": '2.16.840.1.113883.3.464.1004.1465'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
+
 
 // VSAC value sets
 
@@ -68,6 +69,13 @@ define "Two Unilateral Enucleations Exist":
 
 define "Denominator":
   "HEDIS CDC1: Denominator"
+
+/*
+ * config_link_id: exclusion_required_hospice
+ */
+define "Exclusion: Hospice":
+  "HEDIS CDC1: Exclusion: Hospice"
+
 
 define "Denominator Exclusion: Diagnosis"
   /*

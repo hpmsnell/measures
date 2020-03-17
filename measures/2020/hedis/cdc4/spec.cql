@@ -22,28 +22,29 @@ valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
 valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1189'
 valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
 valueset "HEDIS; HbA1c Tests": '2.16.840.1.113883.3.464.1004.1116'
-valueset "HEDIS; Diabetes Medications"
+valueset "HEDIS; Diabetes Medications": ''
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
-valueset "HEDIS; CABG": ''
-valueset "HEDIS; PCI": ''
-valueset "HEDIS; Chronic Heart Failure": ''
-valueset "HEDIS; MI ": ''
-valueset "HEDIS; ESRD": ''
-valueset "HEDIS; ESRD Obsolete": ''
-valueset "HEDIS; CKD Stage 4": ''
-valueset "HEDIS; Dementia": ''
-valueset "HEDIS; Frontotemporal Dementia": ''
-valueset "HEDIS; Blindness": ''
-valueset "HEDIS; Lower Extremity Amputation": ''
-valueset "HEDIS; IVD": ''
-valueset "HEDIS; Thoracic Aortic Aneurysm": ''
-valueset "HEDIS; Frailty"
-valueset "HEDIS; Advanced Illness"
-valueset "HEDIS; Outpatient"
-valueset "HEDIS; Observation"
-valueset "HEDIS; ED"
-valueset "HEDIS; Nonacute Inpatient"
-valueset "HEDIS; Acute Inpatient"
+valueset "HEDIS; CABG": '2.16.840.1.113883.3.464.1004.1048,'
+valueset "HEDIS; PCI": '2.16.840.1.113883.3.464.1004.1204'
+valueset "HEDIS; Chronic Heart Failure": '2.16.840.1.113883.3.464.1004.1051'
+valueset "HEDIS; MI ": '2.16.840.1.113883.3.464.1004.1157'
+valueset "HEDIS; ESRD": '2.16.840.1.113883.3.464.1004.1089'
+valueset "HEDIS; ESRD Obsolete": '2.16.840.1.113883.3.464.1004.1090'
+valueset "HEDIS; CKD Stage 4": '4,2.16.840.1.113883.3.464.1004.1052'
+valueset "HEDIS; Dementia": '2.16.840.1.113883.3.464.1004.1074'
+valueset "HEDIS; Frontotemporal Dementia": '2.16.840.1.113883.3.464.1004.1263'
+valueset "HEDIS; Blindness": '2.16.840.1.113883.3.464.1004.1045'
+valueset "HEDIS; Lower Extremity Amputation": '2.16.840.1.113883.3.464.1004.1154'
+valueset "HEDIS; IVD": '2.16.840.1.113883.3.464.1004.1137'
+valueset "HEDIS; Thoracic Aortic Aneurysm": '2.16.840.1.113883.3.464.1004.1248'
+valueset "HEDIS; Frailty Device": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Frailty Diagnosis": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Frailty Encounter": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Frailty Symptom": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Advanced Illness": '2.16.840.1.113883.3.464.1004.1465'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
+
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -99,6 +100,12 @@ define "Aneurysm Exists During Measurement Period and Year Prior":
 
 define "Denominator":
   "HEDIS CDC1: Denominator"
+
+/*
+ * config_link_id: exclusion_required_hospice
+ */
+define "Exclusion: Hospice":
+  "HEDIS CDC1: Exclusion: Hospice"
 
 define "Denominator Exclusion: Diagnosis"
   /*

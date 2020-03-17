@@ -22,18 +22,19 @@ valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
 valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1189'
 valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
 valueset "HEDIS; HbA1c Tests": '2.16.840.1.113883.3.464.1004.1116'
-valueset "HEDIS; Diabetes Medications"
+valueset "HEDIS; Diabetes Medications": ''
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
-valueset "HEDIS; HbA1c Level Less Than 7.0"
-valueset "HEDIS; HbA1c Level 7.0-9.0"
-valueset "HEDIS; HbA1c Level Greater Than 9.0"
-valueset "HEDIS; Frailty"
-valueset "HEDIS; Advanced Illness"
-valueset "HEDIS; Outpatient"
-valueset "HEDIS; Observation"
-valueset "HEDIS; ED"
-valueset "HEDIS; Nonacute Inpatient"
-valueset "HEDIS; Acute Inpatient"
+valueset "HEDIS; HbA1c Level Less Than 7.0": '2.16.840.1.113883.3.464.1004.1115'
+valueset "HEDIS; HbA1c Level 7.0-9.0": '2.16.840.1.113883.3.464.1004.1113'
+valueset "HEDIS; HbA1c Level Greater Than 9.0": '2.16.840.1.113883.3.464.1004.1114'
+valueset "HEDIS; Frailty Device": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Frailty Diagnosis": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Frailty Encounter": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Frailty Symptom": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Advanced Illness": '2.16.840.1.113883.3.464.1004.1465'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
+
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -53,6 +54,13 @@ define "Eligible HbA1c Procedures":
 
 define "Denominator":
   "HEDIS CDC1: Denominator"
+
+/*
+ * config_link_id: exclusion_required_hospice
+ */
+define "Exclusion: Hospice":
+  "HEDIS CDC1: Exclusion: Hospice"
+
 
 define "Denominator Exclusion: Diagnosis"
   /*

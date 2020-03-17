@@ -16,20 +16,20 @@ using QDM
 
 valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Diabetes": '2.16.840.1.113883.3.464.1004.1077'
+valueset "HEDIS; HbA1c Tests": '2.16.840.1.113883.3.464.1004.1116'
+valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
+valueset "HEDIS; Frailty Device": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Frailty Diagnosis": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Frailty Encounter": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Frailty Symptom": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Advanced Illness": '2.16.840.1.113883.3.464.1004.1465'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
 valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1189'
 valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
-valueset "HEDIS; HbA1c Tests": '2.16.840.1.113883.3.464.1004.1116'
-valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
-valueset "HEDIS; Frailty"
-valueset "HEDIS; Advanced Illness"
-valueset "HEDIS; Outpatient"
-valueset "HEDIS; Observation"
-valueset "HEDIS; ED"
-valueset "HEDIS; Nonacute Inpatient"
-valueset "HEDIS; Acute Inpatient"
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
 
 // NCQA medication list value sets
 
@@ -99,7 +99,12 @@ define "Advanced Illness Exists":
   or exists(["Medication, Dispensed": "NCQA; Dementia Medications"] M
     where M.relevantPeriod starts during "Measurement Period")
 
+define "Hospice":
+  ["Intervention, Performed": "HEDIS; Hospice Intervention"]
+  union ["Encounter, Performed": "HEDIS; Hospice Encounter"]
+
 /* Populations */
+
 
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 18
@@ -107,6 +112,14 @@ define "Denominator":
   and "Patient Has Diabetes"
   and not exists("Hospice" I
     where I.relevantPeriod starts during "Measurement Period")
+
+/*
+ * config_link_id: exclusion_required_hospice
+ */
+define "Exclusion: Hospice":
+  exists("Hospice" Hospice
+    where Hospice.relevantPeriod overlaps "Measurement Period")
+
 
  define "Denominator Exclusion: Diagnosis"
    /*

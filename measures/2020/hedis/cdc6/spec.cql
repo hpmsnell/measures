@@ -30,15 +30,16 @@ valueset "HEDIS; Nephropathy Treatment": '2.16.840.1.113883.3.464.1004.1184'
 valueset "HEDIS; CKD Stage 4": '2.16.840.1.113883.3.464.1004.1052'
 valueset "HEDIS; ESRD": '2.16.840.1.113883.3.464.1004.1089'
 valueset "HEDIS; Kidney Transplant": '2.16.840.1.113883.3.464.1004.1141'
-valueset "HEDIS; Diabetes Medications"
+valueset "HEDIS; Diabetes Medications": ''
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
-valueset "HEDIS; Frailty"
-valueset "HEDIS; Advanced Illness"
-valueset "HEDIS; Outpatient"
-valueset "HEDIS; Observation"
-valueset "HEDIS; ED"
-valueset "HEDIS; Nonacute Inpatient"
-valueset "HEDIS; Acute Inpatient"
+valueset "HEDIS; Frailty Device": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Frailty Diagnosis": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Frailty Encounter": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Frailty Symptom": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Advanced Illness": '2.16.840.1.113883.3.464.1004.1465'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
+
 
 // NCQA medication list value sets
 
@@ -61,6 +62,13 @@ define "Nephropathy Diagnoses":
 
 define "Denominator":
   "HEDIS CDC1: Denominator"
+
+/*
+ * config_link_id: exclusion_required_hospice
+ */
+define "Exclusion: Hospice":
+  "HEDIS CDC1: Exclusion: Hospice"
+
 
 define "Denominator Exclusion: Diagnosis"
   /*
