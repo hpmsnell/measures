@@ -224,7 +224,7 @@ define "Exclusion: Hospice":
 
 define "Denominator Exclusion: ESRD":
   /*
-   * config_link_id: exclusion_1
+   * config_link_id: exclusion_esrd
    */
   exists(["Diagnosis": "HEDIS; ESRD"] D
     where D.prevalencePeriod starts before end of "Measurement Period")
@@ -233,7 +233,7 @@ define "Denominator Exclusion: ESRD":
 
 define "Denominator Exclusion: Pregnancy":
   /*
-   * config_link_id: exclusion_2
+   * config_link_id: exclusion_pregnancy
    */
   //exists (["Patient Characteristic Sex": "Female"])
   exists(["Diagnosis": "HEDIS; Pregnancy"] D
@@ -241,7 +241,7 @@ define "Denominator Exclusion: Pregnancy":
 
 define "Denominator Exclusion: Nonacute Inpatient Visit":
   /*
-   * config_link_id: exclusion_3
+   * config_link_id: exclusion_nonacute_inpatient_visit
    */
   exists(["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] E
     where E.admissionDate during "Measurement Period")

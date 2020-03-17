@@ -69,13 +69,13 @@ test_set_keys:
       denominator_exception:
       numerator: no_blood_pressure
     - name: ExclusionHospice Lower
-      denominator:
-      denominator_exclusion:
+      denominator: 1
+      denominator_exclusion: exclusion_required_hospice
       denominator_exception:
       numerator:
     - name: ExclusionHospice Upper
-      denominator:
-      denominator_exclusion:
+      denominator: 1
+      denominator_exclusion: exclusion_required_hospice
       denominator_exception:
       numerator:
     - name: ExclusionHospice After
@@ -85,7 +85,7 @@ test_set_keys:
       numerator: no_blood_pressure
     - name: ExclusionESRD Before
       denominator: 1
-      denominator_exclusion: exclusion_1
+      denominator_exclusion: exclusion_esrd
       denominator_exception:
       numerator:
     - name: ExclusionESRD After
@@ -100,12 +100,12 @@ test_set_keys:
       numerator: no_blood_pressure
     - name: ExclusionPregnancy Lower
       denominator: 1
-      denominator_exclusion: exclusion_2
+      denominator_exclusion: exclusion_pregnancy
       denominator_exception:
       numerator:
     - name: ExclusionPregnancy Upper
       denominator: 1
-      denominator_exclusion: exclusion_2
+      denominator_exclusion: exclusion_pregnancy
       denominator_exception:
       numerator:
     - name: ExclusionPregnancy After
@@ -120,12 +120,12 @@ test_set_keys:
       numerator: no_blood_pressure
     - name: ExclusionInpatient Lower
       denominator: 1
-      denominator_exclusion: exclusion_3
+      denominator_exclusion: exclusion_nonacute_inpatient_visit
       denominator_exception:
       numerator:
     - name: ExclusionInpatient Upper
       denominator: 1
-      denominator_exclusion: exclusion_3
+      denominator_exclusion: exclusion_nonacute_inpatient_visit
       denominator_exception:
       numerator:
     - name: ExclusionInpatient After
@@ -140,12 +140,12 @@ test_set_keys:
       numerator: no_blood_pressure
     - name: ExclusionNonacute Lower
       denominator: 1
-      denominator_exclusion: exclusion_3
+      denominator_exclusion: exclusion_nonacute_inpatient_visit
       denominator_exception:
       numerator:
     - name: ExclusionNonacute Upper
       denominator: 1
-      denominator_exclusion: exclusion_3
+      denominator_exclusion: exclusion_nonacute_inpatient_visit
       denominator_exception:
       numerator:
     - name: ExclusionNonacute After
@@ -299,7 +299,7 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2017-12-31
       stop_date: 2017-12-31
-    clinical_activities: 
+    clinical_activities:
     - code_type: CPT #first visit before window
       code_value: 99201
       start_date: 2017-12-31
@@ -320,7 +320,7 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2018-01-01
       stop_date: 2018-01-01
-    clinical_activities: 
+    clinical_activities:
     - code_type: CPT #first visit is lower bound
       code_value: 99201
       start_date: 2018-01-01
@@ -341,7 +341,7 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2019-12-31
       stop_date: 2019-12-31
-    clinical_activities: 
+    clinical_activities:
     - code_type: CPT #upper bound visit 1
       code_value: 99201
       start_date: 2019-12-31
@@ -362,7 +362,7 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2019-01-01
       stop_date: 2019-01-01
-    clinical_activities: 
+    clinical_activities:
     - code_type: CPT #first visit in window
       code_value: 99201
       start_date: 2019-01-01
@@ -383,7 +383,7 @@ patients:
       code_value: I10 # Hypertension before window
       start_date: 2017-01-31
       stop_date: 2017-01-31
-    clinical_activities: 
+    clinical_activities:
     - code_type: CPT #visit 1
       code_value: 99201
       start_date: 2018-02-01
@@ -404,7 +404,7 @@ patients:
       code_value: I10 # Hypertension window lower bound
       start_date: 2018-01-01
       stop_date: 2018-01-01
-    clinical_activities: 
+    clinical_activities:
     - code_type: CPT #visit 1
       code_value: 99201
       start_date: 2018-02-01
@@ -446,7 +446,7 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2020-01-01
       stop_date: 2020-01-01
-    clinical_activities: 
+    clinical_activities:
     - code_type: CPT #visit 1
       code_value: 99201
       start_date: 2018-02-01

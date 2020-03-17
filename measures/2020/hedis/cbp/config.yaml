@@ -1,6 +1,6 @@
 ---
 measure:
-  name: 19.HEDIS.Cbp
+  name: 20.HEDIS.Cbp
   required:
     display_title: Controlling High Blood Pressure
     inverse: false
@@ -23,7 +23,7 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Patients 18–85 years as of December 31 of the measurement year with at 
+  description: Patients 18–85 years as of December 31 of the measurement year with at
     least two visits with a diagnosis of hypertension during the measurement period or the year prior
   component_groups:
   - components:
@@ -54,7 +54,20 @@ denominator:
 exclusion:
   description:
   reasons:
-  - config_link_id: exclusion_1
+ - config_link_id: exclusion_required_hospice
+    code_value:
+    display_title: Hospice
+    description: Advance care planning performed during the measurement year
+    component_groups:
+    - components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Intervention
+  - config_link_id: exclusion_esrd
     code_value:
     display_title: ESRD
     description: Patient excluded due to End Stage Renal Disease (ESRD) on or prior
@@ -78,7 +91,7 @@ exclusion:
           value_set: HEDIS; Nephrectomy
         - model: ClinicalActivity
           value_set: HEDIS; History of Kidney Transplant
-  - config_link_id: exclusion_2
+  - config_link_id: exclusion_pregnancy
     code_value:
     display_title: Pregnancy
     description: Patient excluded due to pregnancy during the measurement year
@@ -89,7 +102,7 @@ exclusion:
         records:
         - model: Diagnosis
           value_set: HEDIS; Pregnancy
-  - config_link_id: exclusion_3
+  - config_link_id: exclusion_nonacute_inpatient_visit
     code_value:
     display_title: Inpatient Admission
     description: Patient excluded due a nonacute inpatient admission during the measurement
