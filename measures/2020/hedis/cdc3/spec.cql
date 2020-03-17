@@ -22,7 +22,7 @@ valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
 valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1189'
 valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
 valueset "HEDIS; HbA1c Tests": '2.16.840.1.113883.3.464.1004.1116'
-valueset "HEDIS; Diabetes Medications": ''
+valueset "HEDIS; Diabetes Medications": '2.16.840.1.113883.3.464.1004.2050'
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
 valueset "HEDIS; HbA1c Level Less Than 7.0": '2.16.840.1.113883.3.464.1004.1115'
 valueset "HEDIS; HbA1c Level 7.0-9.0": '2.16.840.1.113883.3.464.1004.1113'
@@ -34,7 +34,11 @@ valueset "HEDIS; Frailty Symptom": '2.16.840.1.113883.3.464.1004.1530'
 valueset "HEDIS; Advanced Illness": '2.16.840.1.113883.3.464.1004.1465'
 valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
 valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
-
+valueset "HEDIS; Telehealth POS": '2.16.840.1.113883.3.464.1004.1460'
+valueset "HEDIS; Telehealth Modifier": '2.16.840.1.113883.3.464.1004.1445'
+valueset "HEDIS; Telephone Visits": '2.16.840.1.113883.3.464.1004.1246'
+valueset "HEDIS; Online Assessments": '2.16.840.1.113883.3.464.1004.1446'
+valueset "Dementia Medications": '2.16.840.1.113883.3.464.1004.1729'
 
 valueset "MIPS; Performance Not Met: 3044F" //HbA1c <7
 

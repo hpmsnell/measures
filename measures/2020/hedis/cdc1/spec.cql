@@ -30,6 +30,12 @@ valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1189'
 valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
 valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
 valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
+valueset "HEDIS; Telehealth POS": '2.16.840.1.113883.3.464.1004.1460'
+valueset "HEDIS; Telehealth Modifier": '2.16.840.1.113883.3.464.1004.1445'
+valueset "HEDIS; Telephone Visits": '2.16.840.1.113883.3.464.1004.1246'
+valueset "HEDIS; Online Assessments": '2.16.840.1.113883.3.464.1004.1446'
+valueset "HEDIS; Diabetes Medications": '2.16.840.1.113883.3.464.1004.2050'
+valueset "HEDIS; Dementia Medications": '2.16.840.1.113883.3.464.1004.1729'
 
 // NCQA medication list value sets
 
@@ -45,59 +51,114 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Nonacute Visit":
-  ["Encounter, Performed": "HEDIS; Outpatient"]
-  union ["Encounter, Performed": "HEDIS; Observation"]
-  union ["Encounter, Performed": "HEDIS; ED"]
-  union ["Encounter, Performed": "HEDIS; Nonacute Inpatient"] E
-    where not E.code.modifier in {'GT','95'}
-    and not E.placeOfService in {'02'}
+define "Inpatient Visits with Diabetes":
+  distinct(((((["Encounter, Performed": "HEDIS; Acute Inpatient"] E
+      with ["Diagnosis": "HEDIS; Diabetes"] D
+        such that D.prevalencePeriod starts during E.relevantPeriod
+  ) QualifyingEncounter
+  where QualifyingEncounter.relevantPeriod overlaps Interval[end of "Measurement Period" - 24 months, end of "Measurement Period"]
+    and not QualifyingEncounter.placeOfService in "HEDIS; Telehealth POS"
+    and not QualifyingEncounter.code.modifier in "HEDIS; Telehealth Modifier").relevantPeriod) start) date)
 
-define "Nonacute Visit with Diabetes":
-  "Nonacute Visit" E
-    where E.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"]
-    with ["Diagnosis": "HEDIS; Diabetes"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod
+define "Other Visits with Diabetes - Non-Telehealth":
+  distinct((((((["Encounter, Performed": "HEDIS; Outpatient"]
+    union ["Encounter, Performed": "HEDIS; Observation"]
+    union ["Encounter, Performed": "HEDIS; ED"]
+    union ["Encounter, Performed": "HEDIS; Nonacute Inpatient"]
+      ) E
+      with ["Diagnosis": "HEDIS; Diabetes"] D
+        such that D.prevalencePeriod starts during E.relevantPeriod
+  ) QualifyingEncounter
+  where QualifyingEncounter.relevantPeriod overlaps Interval[end of "Measurement Period" - 24 months, end of "Measurement Period"]
+    and not QualifyingEncounter.placeOfService in "HEDIS; Telehealth POS"
+    and not QualifyingEncounter.code.modifier in "HEDIS; Telehealth Modifier").relevantPeriod) start) date)
+
+define "Other Visits with Diabetes - Telehealth":
+  distinct((((((["Encounter, Performed": "HEDIS; Telephone Visits"]
+	    union ["Encounter, Performed": "HEDIS; Online Assessments"]
+      ) E
+      with ["Diagnosis": "HEDIS; Diabetes"] D
+        such that D.prevalencePeriod starts during E.relevantPeriod
+  ) QualifyingEncounter
+  where QualifyingEncounter.relevantPeriod overlaps Interval[end of "Measurement Period" - 24 months, end of "Measurement Period"]
+    and ( QualifyingEncounter.placeOfService in "HEDIS; Telehealth POS"
+    or QualifyingEncounter.code.modifier in "HEDIS; Telehealth Modifier")).relevantPeriod) start) date)
+
+define "Met Number of Eligible Visits":
+  if
+    Count("Inpatient Visits with Diabetes") >= 1
+    or Count(
+      //we only allow a max of ONE telehealth over the period - and we need to make sure it doesn't intersect with non-telehealth
+      //we're going to count the # of telehealth encounters REMOVING the non-telehealth encounters - taking the FIRST element and then converting it to a list
+      {First("Other Visits with Diabetes - Telehealth" except "Other Visits with Diabetes - Non-Telehealth")}
+      union "Other Visits with Diabetes - Non-Telehealth"
+    ) >= 2
+  then true
+  else false
+
+define "Received Diabetic Medications":
+  exists(["Medication, Dispensed": "NCQA; Diabetes Medications"] M
+    where M.relevantPeriod overlaps Interval[end of "Measurement Period" - 24 months, end of "Measurement Period"])
 
 define "Patient Has Diabetes":
-  exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
-    where E.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"]
-      and not E.code.modifier in {'GT','95'}
-      and not E.placeOfService in {'02'})
-    with ["Diagnosis": "HEDIS; Diabetes"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod)
-  or exists("Nonacute Visit with Diabetes" E1
-    with "Nonacute Visit with Diabetes" E2
-      such that start of E2.relevantPeriod != start of E1.relevantPeriod
-      and not E.code.modifier in {'GT','95'}
-      and not E.placeOfService in {'02'})
-  or exists(["Medication, Dispensed": "NCQA; Diabetes Medications"] M
-    where M.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
+  "Met Number of Eligible Visits" or "Received Diabetic Medications"
 
-define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
 
-define "Visit":
-  ["Encounter, Performed": "HEDIS; Outpatient"]
-  union ["Encounter, Performed": "HEDIS; Observation"]
-  union ["Encounter, Performed": "HEDIS; ED"]
-  union ["Encounter, Performed": "HEDIS; Nonacute Inpatient"]
+define "Exclusion - Acute Visits with Advanced Illness":
+  distinct(((((["Encounter, Performed": "HEDIS; Acute Inpatient"] E
+      with ["Diagnosis": "HEDIS; Advanced Illness"] D
+        such that D.prevalencePeriod starts during E.relevantPeriod
+  ) QualifyingEncounter
+  where QualifyingEncounter.relevantPeriod overlaps Interval[end of "Measurement Period" - 24 months, end of "Measurement Period"]).relevantPeriod) start) date)
 
-define "Visit with Advanced Illness":
-  "Visit" E
-    where E.relevantPeriod starts during "Measurement Period"
-    with ["Diagnosis": "HEDIS; Advanced Illness"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod
+define "Exclusion - Outpatient Visits with Advanced Illness":
+  distinct(((((
+      ( ["Encounter, Performed": "HEDIS; Outpatient"]
+        union ["Encounter, Performed": "HEDIS; Observation"]
+        union ["Encounter, Performed": "HEDIS; ED"]
+        union ["Encounter, Performed": "HEDIS; Nonacute Inpatient"]
+      ) E
+      with ["Diagnosis": "HEDIS; Advanced Illness"] D
+        such that D.prevalencePeriod starts during E.relevantPeriod
+  ) QualifyingEncounter
+  where QualifyingEncounter.relevantPeriod overlaps Interval[end of "Measurement Period" - 24 months, end of "Measurement Period"]).relevantPeriod) start) date)
 
-define "Advanced Illness Exists":
-  exists("Visit with Advanced Illness" E1
-    with "Visit with Advanced Illness" E2
-      such that E1.relevantPeriod starts after E2.relevantPeriod)
-  or exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
-    with ["Diagnosis": "HEDIS; Advanced Illness"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod)
-  or exists(["Medication, Dispensed": "NCQA; Dementia Medications"] M
-    where M.relevantPeriod starts during "Measurement Period")
+define "Exclusion - Received Dementia Medications":
+  exists(["Medication, Dispensed": "HEDIS; Dementia Medications"] M
+    where M.relevantPeriod overlaps Interval[end of "Measurement Period" - 24 months, end of "Measurement Period"])
+
+define "Exclusion - Advanced Illness Exists":
+  Count("Exclusion - Outpatient Visits with Advanced Illness") >= 2
+  or Count("Exclusion - Acute Visits with Advanced Illness") >= 1
+  or "Exclusion - Received Dementia Medications"
+
+define "Qualifying Exclusion Age":
+  AgeInYearsAt(end of "Measurement Period") >= 66
+
+define "Frailty Diagnosis or Symptoms":
+  (["Diagnosis": "HEDIS; Frailty Diagnosis"]
+  union ["Diagnosis": "HEDIS; Frailty Symptom"]) FrailDxSx
+    where FrailDxSx.prevalencePeriod overlaps "Measurement Period"
+      and FrailDxSx.supplemental = false
+
+define "Frailty Encounter":
+  ["Encounter, Performed": "HEDIS; Frailty Encounter"]FrailEnc
+    where FrailEnc.relevantPeriod overlaps "Measurement Period"
+      and FrailEnc.supplemental = false
+
+define "Frailty Device":
+  ((["Device, Applied": "HEDIS; Frailty Device"]
+  union ["Device, Order": "HEDIS; Frailty Device"]
+  union ["Device, Recommended": "HEDIS; Frailty Device"])FrailDevice
+    where (FrailDevice.relevantPeriod overlaps "Measurement Period"
+      or FrailDevice.authorDatetime during "Measurement Period")
+      and FrailDevice.supplemental = false)
+
+define "Frailty":
+  "Frailty Diagnosis or Symptoms"
+  union "Frailty Encounter"
+  union "Frailty Device"
+
 
 define "Hospice":
   ["Intervention, Performed": "HEDIS; Hospice Intervention"]
@@ -121,27 +182,23 @@ define "Exclusion: Hospice":
     where Hospice.relevantPeriod overlaps "Measurement Period")
 
 
- define "Denominator Exclusion: Diagnosis"
-   /*
-    * config_link_id: exclusion_1
-    */
-   not exists(["Diagnosis": "HEDIS; Diabetes"] D
-    where D.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
-   and exists(["Diagnosis": "HEDIS; Diabetes Exclusions"] D
-    where D.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
+//define "Denominator Exclusion: Diagnosis"
+// /*
+//  * config_link_id: exclusion_1
+//  */
+//   not exists(["Diagnosis": "HEDIS; Diabetes"] D
+//    where D.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
+//   and exists(["Diagnosis": "HEDIS; Diabetes Exclusions"] D
+//    where D.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
 
-define "Denominator Exclusion: Frailty and Advanced Illness":
+
+define "Denominator Exclusion: Frailty or Advanced Illness":
   /*
-   * config_link_id: exclusion_2
+   * config_link_id: exclusion_required_frailty
    */
-  AgeInYearsAt(end of "Measurement Period") >= 66
-  and (
-    exists(["Diagnosis": "HEDIS; Frailty"] D
-      where D.prevalencePeriod starts during "Measurement Period")
-    or exists(["Procedure, Performed": "HEDIS; Frailty"] D
-      where D.prevalencePeriod starts during "Measurement Period")
-  )
-  and "Advanced Illness Exists"
+  "Qualifying Exclusion Age"
+  and "Exclusion - Advanced Illness Exists"
+    and exists("Frailty")
 
 define "Numerator Performance Met":
   /*

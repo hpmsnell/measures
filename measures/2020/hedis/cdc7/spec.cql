@@ -21,7 +21,7 @@ valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
 valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1189'
 valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
-valueset "HEDIS; Diabetes Medications": ''
+valueset "HEDIS; Diabetes Medications": '2.16.840.1.113883.3.464.1004.2050'
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
 valueset "HEDIS; Systolic Less Than 140": '2.16.840.1.113883.3.464.1004'
 valueset "HEDIS; Systolic Greater Than or Equal To 140": '2.16.840.1.113883.3.464.1004'
@@ -35,7 +35,11 @@ valueset "HEDIS; Frailty Symptom": '2.16.840.1.113883.3.464.1004.1530'
 valueset "HEDIS; Advanced Illness": '2.16.840.1.113883.3.464.1004.1465'
 valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
 valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
-
+valueset "HEDIS; Telehealth POS": '2.16.840.1.113883.3.464.1004.1460'
+valueset "HEDIS; Telehealth Modifier": '2.16.840.1.113883.3.464.1004.1445'
+valueset "HEDIS; Telephone Visits": '2.16.840.1.113883.3.464.1004.1246'
+valueset "HEDIS; Online Assessments": '2.16.840.1.113883.3.464.1004.1446'
+valueset "Dementia Medications": '2.16.840.1.113883.3.464.1004.1729'
 
 // VSAC value sets
 
@@ -47,18 +51,18 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Visit":
-  ["Encounter, Performed": "Outpatient"]
-  union ["Encounter, Performed": "Nonacute Inpatient"]
+  ["Encounter, Performed": "HEDIS; Outpatient"]
+  union ["Encounter, Performed": "HEDIS; Nonacute Inpatient"]
 
 define "Systolic":
   ["Assessment, Performed": "HEDIS; Systolic Less Than 140"]
-  union ["Assessment, Performed": "HEDIS; Systolic Greater Than/Equal To 140"]
+  union ["Assessment, Performed": "HEDIS; Systolic Greater Than or Equal To 140"]
   union ["Assessment, Performed": "VSAC; Systolic Blood Pressure"]
 
 define "Diastolic":
   ["Assessment, Performed": "HEDIS; Diastolic Less Than 80"]
-  union ["Assessment, Performed": "HEDIS; 80-89"]
-  union ["Assessment, Performed": "HEDIS; Diastolic Greater Than 90"]
+  union ["Assessment, Performed": "HEDIS; Diastolic 80-89"]
+  union ["Assessment, Performed": "HEDIS; Diastolic Greater Than or Equal To 90"]
   union ["Assessment, Performed": "VSAC; Diastolic Blood Pressure"] A
 
 define "Most Recent Systolic":

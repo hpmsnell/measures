@@ -30,7 +30,7 @@ valueset "HEDIS; Nephropathy Treatment": '2.16.840.1.113883.3.464.1004.1184'
 valueset "HEDIS; CKD Stage 4": '2.16.840.1.113883.3.464.1004.1052'
 valueset "HEDIS; ESRD": '2.16.840.1.113883.3.464.1004.1089'
 valueset "HEDIS; Kidney Transplant": '2.16.840.1.113883.3.464.1004.1141'
-valueset "HEDIS; Diabetes Medications": ''
+valueset "HEDIS; Diabetes Medications": '2.16.840.1.113883.3.464.1004.2050'
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
 valueset "HEDIS; Frailty Device": '2.16.840.1.113883.3.464.1004.1530'
 valueset "HEDIS; Frailty Diagnosis": '2.16.840.1.113883.3.464.1004.1530'
@@ -39,7 +39,11 @@ valueset "HEDIS; Frailty Symptom": '2.16.840.1.113883.3.464.1004.1530'
 valueset "HEDIS; Advanced Illness": '2.16.840.1.113883.3.464.1004.1465'
 valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
 valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
-
+valueset "HEDIS; Telehealth POS": '2.16.840.1.113883.3.464.1004.1460'
+valueset "HEDIS; Telehealth Modifier": '2.16.840.1.113883.3.464.1004.1445'
+valueset "HEDIS; Telephone Visits": '2.16.840.1.113883.3.464.1004.1246'
+valueset "HEDIS; Online Assessments": '2.16.840.1.113883.3.464.1004.1446'
+valueset "Dementia Medications": '2.16.840.1.113883.3.464.1004.1729'
 
 // NCQA medication list value sets
 

@@ -22,7 +22,7 @@ valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
 valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1189'
 valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
 valueset "HEDIS; HbA1c Tests": '2.16.840.1.113883.3.464.1004.1116'
-valueset "HEDIS; Diabetes Medications": ''
+valueset "HEDIS; Diabetes Medications": '2.16.840.1.113883.3.464.1004.2050'
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
 valueset "HEDIS; CABG": '2.16.840.1.113883.3.464.1004.1048,'
 valueset "HEDIS; PCI": '2.16.840.1.113883.3.464.1004.1204'
@@ -44,7 +44,11 @@ valueset "HEDIS; Frailty Symptom": '2.16.840.1.113883.3.464.1004.1530'
 valueset "HEDIS; Advanced Illness": '2.16.840.1.113883.3.464.1004.1465'
 valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
 valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
-
+valueset "HEDIS; Telehealth POS": '2.16.840.1.113883.3.464.1004.1460'
+valueset "HEDIS; Telehealth Modifier": '2.16.840.1.113883.3.464.1004.1445'
+valueset "HEDIS; Telephone Visits": '2.16.840.1.113883.3.464.1004.1246'
+valueset "HEDIS; Online Assessments": '2.16.840.1.113883.3.464.1004.1446'
+valueset "Dementia Medications": '2.16.840.1.113883.3.464.1004.1729'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -73,8 +77,8 @@ define "Historical Excluded Diagnosis":
   union ["Diagnosis": "HEDIS; Lower Extremity Amputation"]
 
 define "Encounter":
-  ["Encounter": "HEDIS; Outpatient"]
-  union ["Encounter": "HEDIS; Acute Inpatient"]
+  ["Encounter, Performed": "HEDIS; Outpatient"]
+  union ["Encounter, Performed": "HEDIS; Acute Inpatient"]
 
 define "IVD Exists During Measurement Period and Year Prior":
   exists("Encounter" E

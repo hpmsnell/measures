@@ -28,7 +28,7 @@ valueset "HEDIS; Unilateral Eye Enucleation": '2.16.840.1.113883.3.464.1004.1454
 valueset "HEDIS; Unilateral Eye Enucleation Left": '2.16.840.1.113883.3.464.1004.1455'
 valueset "HEDIS; Unilateral Eye Enucleation Right": '2.16.840.1.113883.3.464.1004.1455'
 valueset "HEDIS; Diabetes Mellitus Without Complications": '2.16.840.1.113883.3.464.1004.1407'
-valueset "HEDIS; Diabetes Medications": ''
+valueset "HEDIS; Diabetes Medications": '2.16.840.1.113883.3.464.1004.2050'
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
 valueset "HEDIS; Frailty Device": '2.16.840.1.113883.3.464.1004.1530'
 valueset "HEDIS; Frailty Diagnosis": '2.16.840.1.113883.3.464.1004.1530'
@@ -37,7 +37,11 @@ valueset "HEDIS; Frailty Symptom": '2.16.840.1.113883.3.464.1004.1530'
 valueset "HEDIS; Advanced Illness": '2.16.840.1.113883.3.464.1004.1465'
 valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
 valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
-
+valueset "HEDIS; Telehealth POS": '2.16.840.1.113883.3.464.1004.1460'
+valueset "HEDIS; Telehealth Modifier": '2.16.840.1.113883.3.464.1004.1445'
+valueset "HEDIS; Telephone Visits": '2.16.840.1.113883.3.464.1004.1246'
+valueset "HEDIS; Online Assessments": '2.16.840.1.113883.3.464.1004.1446'
+valueset "Dementia Medications": '2.16.840.1.113883.3.464.1004.1729'
 
 // VSAC value sets
 
