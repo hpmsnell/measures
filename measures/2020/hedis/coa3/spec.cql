@@ -54,7 +54,7 @@ define "Numerator Performance Met":
    */
   exists("Functional Status Assessment" FSA
     where FSA.relevantPeriod starts during "Measurement Period"
-      and FSA.code.placeOfService in "HEDIS; Acute Inpatient POS"
+      and FSA.code.placeOfService not in "HEDIS; Acute Inpatient POS"
     without ["Procedure, Performed": "HEDIS; Acute Inpatient"] Inpatient
       such that FSA.claimId = Inpatient.claimId)
 

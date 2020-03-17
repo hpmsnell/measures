@@ -61,7 +61,7 @@ define "Numerator Performance Met":
    */
   exists("Pain Assessment" PA
     where PA.relevantPeriod starts during "Measurement Period"
-      and PA.code.placeOfService in "HEDIS; Acute Inpatient POS"
+      and PA.code.placeOfService not in "HEDIS; Acute Inpatient POS"
     without ["Procedure, Performed": "HEDIS; Acute Inpatient"] Inpatient
       such that PA.claimId = Inpatient.claimId)
 
