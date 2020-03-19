@@ -156,8 +156,8 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-01-31
-      stop_date: 2016-01-31
+      admission_date: 2016-01-31
+      discharge_date: 2016-01-31
 - name: Age Lower
   attributes:
     date_of_birth: 1998-12-31 # Lower bound
@@ -168,8 +168,8 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-01-31
-      stop_date: 2016-01-31
+      admission_date: 2016-01-31
+      discharge_date: 2016-01-31
 - name: DenominatorDischarge Before
   attributes:
     date_of_birth: 1990-01-01
@@ -180,8 +180,8 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2015-12-31
-      stop_date: 2015-12-31  # Too early
+      admission_date: 2015-12-31
+      discharge_date: 2015-12-31  # Too early
 - name: DenominatorDischarge Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -192,8 +192,8 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-01-01
-      stop_date: 2016-01-01  # Lower bound
+      admission_date: 2016-01-01
+      discharge_date: 2016-01-01  # Lower bound
 - name: DenominatorDischarge Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -204,8 +204,8 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-12-01
-      stop_date: 2016-12-01  # Upper bound
+      admission_date: 2016-12-01
+      discharge_date: 2016-12-01  # Upper bound
 - name: DenominatorDischarge After
   attributes:
     date_of_birth: 1990-01-01
@@ -216,8 +216,8 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-12-02
-      stop_date: 2016-12-02  # Too late
+      admission_date: 2016-12-02
+      discharge_date: 2016-12-02  # Too late
 - name: DenominatorDischarge 30Days
   attributes:
     date_of_birth: 1990-01-01
@@ -228,20 +228,20 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-01-01
-      stop_date: 2016-01-01 # Within 30 days before
+      admission_date: 2016-01-01
+      discharge_date: 2016-01-01 # Within 30 days before
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-01-02
-      stop_date: 2016-01-02  # Last discharge in series
+      admission_date: 2016-01-02
+      discharge_date: 2016-01-02  # Last discharge in series
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-11-30
-      stop_date: 2016-11-30  # Within 30 days before
+      admission_date: 2016-11-30
+      discharge_date: 2016-11-30  # Within 30 days before
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-12-02
-      stop_date: 2016-12-02  # Too late
+      admission_date: 2016-12-02
+      discharge_date: 2016-12-02  # Too late
 - name: Denominator ExclusionBefore
   attributes:
     date_of_birth: 1990-01-01
@@ -252,8 +252,8 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-02-20
-      stop_date: 2016-03-01
+      admission_date: 2016-02-20
+      discharge_date: 2016-03-01
       provider: Rachel
     - code_type: CPT
       code_value: G9691 # Hospice service
@@ -268,8 +268,8 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-02-20
-      stop_date: 2016-03-01
+      admission_date: 2016-02-20
+      discharge_date: 2016-03-01
     - code_type: CPT
       code_value: G9691 # Hospice service
       start_date: 2016-01-01 # Lower bound
@@ -283,8 +283,8 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-02-20
-      stop_date: 2016-03-01
+      admission_date: 2016-02-20
+      discharge_date: 2016-03-01
     - code_type: CPT
       code_value: G9691 # Hospice service
       start_date: 2016-12-31 # Upper bound
@@ -298,8 +298,8 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'
-      start_date: 2016-02-20
-      stop_date: 2016-03-01
+      admission_date: 2016-02-20
+      discharge_date: 2016-03-01
     - code_type: CPT
       code_value: G9691 # Hospice service
       start_date: 2017-01-01 # Too late
@@ -313,29 +313,29 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-02-20
-      stop_date: 2016-03-01
+      admission_date: 2016-02-20
+      discharge_date: 2016-03-01
     - code_type: CPT
       code_value: 1111F # Performance met
       start_date: 2016-02-28 # Too early
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-04-20
-      stop_date: 2016-05-01
+      admission_date: 2016-04-20
+      discharge_date: 2016-05-01
     - code_type: CPT
       code_value: 1111F # Performance met
       start_date: 2016-05-01 # Lower bound
     - code_type: UB
       code_value: '0100' # Discharge
-      start_date: 2016-06-20
-      stop_date: 2016-07-01
+      admission_date: 2016-06-20
+      discharge_date: 2016-07-01
     - code_type: CPT
       code_value: 1111F # Performance met
       start_date: 2016-07-31 # Upper bound
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-08-20
-      stop_date: 2016-09-01
+      admission_date: 2016-08-20
+      Discharge_date: 2016-09-01
     - code_type: CPT
       code_value: 1111F # Performance met
       start_date: 2016-10-02 # Too late
@@ -349,29 +349,29 @@ patients:
     clinical_activities:
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-02-20
-      stop_date: 2016-03-01
+      admission_date: 2016-02-20
+      discharge_date: 2016-03-01
     - code_type: SNOMEDCT
       code_value: 430193006 # Medication reconciliation
       start_date: 2016-02-28 # Too early
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-04-20
-      stop_date: 2016-05-01
+      admission_date: 2016-04-20
+      discharge_date: 2016-05-01
     - code_type: SNOMEDCT
       code_value: 430193006 # Medication reconciliation
       start_date: 2016-05-01 # Lower bound
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-06-20
-      stop_date: 2016-07-01
+      admission_date: 2016-06-20
+      discharge_date: 2016-07-01
     - code_type: SNOMEDCT
       code_value: 430193006 # Medication reconciliation
       start_date: 2016-07-31 # Upper bound
     - code_type: UB
       code_value: '0100'  # Discharge
-      start_date: 2016-08-20
-      stop_date: 2016-09-01
+      admission_date: 2016-08-20
+      discharge_date: 2016-09-01
     - code_type: SNOMEDCT
       code_value: 430193006 # Medication reconciliation
       start_date: 2016-10-02 # Too late

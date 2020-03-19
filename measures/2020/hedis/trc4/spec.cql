@@ -33,14 +33,13 @@ context Patient
 define "Discharge":
   ["Encounter, Performed": "HEDIS; Inpatient Stay"]
   union ["Encounter, Performed": "Able; Able Discharge"]
-  union "Nonacute Overlaps"
 
 define "Qualifying Discharge":
   "Discharge" E1
-    where E1.relevantPeriod starts during [start of "Measurement Period", 30 days before end of "Measurement Period"]
+    where E1.discharge_date in Interval [start of "Measurement Period", start of "Measurement Period" + 30 days]
       and AgeInYearsAt(end of "Measurement Period") >= 18
-    without "Discharge" E2
-      such that E2.relevantPeriod starts 30 days or less after start of E1.relevantPeriod
+  and not exists "Discharge" E2
+    where E2.admission_date starts 30 days or less after E1.discharge_date
 
 define "Nonacute Overlaps":
   ((["Encounter, Performed": "HEDIS; Inpatient Stay"])InpatientStay
@@ -70,7 +69,7 @@ define "Numerator Performance Met":
    */
   exists "Medication Reconciliation" P
     with "Qualifying Discharge" E
-      such that P.relevantPeriod during Interval[end of E.relevantPeriod, end of E.relevantPeriod + 31 days)
+      such that P.relevantPeriod in Interval [E.discharge_date, E.discharge_date + 31 days)
 
 define "Numerator Performance Not Met":
   /*
