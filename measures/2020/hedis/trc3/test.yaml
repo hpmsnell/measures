@@ -71,14 +71,14 @@ test_set_keys:
         numerator: performance_not_met
       - name: Denominator ExclusionLower # Lower
         start_date: 2016-02-20
-        denominator:
-        denominator_exclusion:
+        denominator: 1
+        denominator_exclusion: exclusion_required_hospice
         denominator_exception:
         numerator:
       - name: Denominator ExclusionUpper # Upper
         start_date: 2016-02-20
-        denominator:
-        denominator_exclusion:
+        denominator: 1
+        denominator_exclusion: exclusion_required_hospice
         denominator_exception:
         numerator:
       - name: Denominator ExclusionAfter # After

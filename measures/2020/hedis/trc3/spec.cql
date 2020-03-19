@@ -22,24 +22,21 @@ valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Telephone Visits": '2.16.840.1.113883.3.464.1004.1246'
 valueset "HEDIS; Transitional Care Management Services": '2.16.840.1.113883.3.464.1004.1462'
 
-// Able value sets
-
-valueset "Able; Able Discharge"
-
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 define "Discharge":
-  ["Encounter, Performed": "HEDIS; Inpatient Stay"]
-  union ["Encounter, Performed": "Able; Able Discharge"]
+  ["Encounter, Performed": "HEDIS; Inpatient Stay"] Discharge
+    where Discharge.supplemental = false
 
 define "Qualifying Discharge":
-  "Discharge" E1
-    where E1.discharge_date in Interval [start of "Measurement Period", start of "Measurement Period" + 335 days]
-    and AgeInYearsAt(end of "Measurement Period") >= 18
-  and not exists "Discharge" E2
-    where E2.admission_date starts 30 days or less after E1.discharge_date
+  "Discharge" Discharge
+    where Discharge.dischargeDate in Interval [start of "Measurement Period", end of "Measurement Period" - 30 days]
+      and AgeInYearsAt(end of "Measurement Period") >= 18
+    without "Discharge" Readmission
+      such that Readmission.admissionDate starts on or 30 days or less after Discharge.dischargeDate
+        and Discharge.claimId != Readmission.claimId
 
 define "Hospice":
   (["Intervention, Performed": "HEDIS; Hospice Encounter"]
@@ -56,6 +53,12 @@ define "Patient Engagement":
 define "Denominator":
   exists "Qualifying Discharge"
   and not exists "Hospice"
+
+define "Denominator Exclusion: Hospice"
+  /*
+   * config_link_id: exclusion_required_hospice
+   */
+  exists "Hospice"
 
 define "Numerator Performance Met":
   /*
