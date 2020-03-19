@@ -52,7 +52,6 @@ define "Patient Engagement":
 
 define "Denominator":
   exists "Qualifying Discharge"
-  and not exists "Hospice"
 
 define "Denominator Exclusion: Hospice"
   /*
