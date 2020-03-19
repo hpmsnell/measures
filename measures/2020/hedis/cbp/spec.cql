@@ -66,18 +66,13 @@ define "Hospice":
   ["Intervention, Performed": "HEDIS; Hospice Intervention"]
   union ["Encounter, Performed": "HEDIS; Hospice Encounter"]
 
-define "Encounter with Hypertension":
-  ["Encounter, Performed": "HEDIS; Outpatient Without UBREV"] E
-    with ["Diagnosis": "HEDIS; Essential Hypertension"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod
-        where E.relevantPeriod starts 2 years or less before end of "Measurement Period"
-
 define "Distinct Dates of Telehealth Encounters with Hypertension":
    distinct(((
      ((["Encounter, Performed": "HEDIS; Telephone Visits"]
 	    union ["Encounter, Performed": "HEDIS; Online Assessments"]
-	    union ["Encounter, Performed": "HEDIS; Telehealth Modifier"]
-	    union ["Encounter, Performed": "HEDIS; Telehealth POS"]) E
+      union ["Encounter, Performed": "HEDIS; Outpatient Without UBREV"] UBREV
+          where UBREV..... pos, etc. //FIXME
+      ) E
 	      with ["Diagnosis": "HEDIS; Essential Hypertension"] D
 	        such that D.prevalencePeriod starts during E.relevantPeriod
 	           where E.relevantPeriod starts 2 years or less before end of "Measurement Period"
@@ -90,6 +85,7 @@ define "Distinct Dates of Non-Telehealth Encounters with Hypertension":
 	        such that D.prevalencePeriod starts during E.relevantPeriod
 	           where E.relevantPeriod starts 2 years or less before end of "Measurement Period"
       ).relevantPeriod) start) date)
+      return day of start of E.relevantPeriod
 
 define "Count of Visits with Hypertension Diagnosis":
     //we only allow a max of ONE telehealth over the period - and we need to make sure it doesn't intersect with non-telehealth
@@ -98,6 +94,25 @@ define "Count of Visits with Hypertension Diagnosis":
     	{First("Distinct Dates of Telehealth Encounters with Hypertension" except "Distinct Dates of Non-Telehealth Encounters with Hypertension")}
     	union "Distinct Dates of Non-Telehealth Encounters with Hypertension"
     )
+
+define "Visit with Hypertension":
+  "Visit" Visit
+    where Visit.relevantPeriod starts during "Measurement Period"
+    with ["Diagnosis": "HEDIS; Hypertension"] Hypertension
+      such that Hypertension.claimId = Visit.claimId
+
+define "Non-Telehealth Visit with Hypertension":
+  ["Encounter, Performed": "HEDIS; Outpatient without UBREV"] Visit
+    where Visit.relevantPeriod starts during "Measurement Period"
+      and not Visit.code.modifiers in "HEDIS; "
+      and not Visit.placeOfService in "HEDIS; "
+    with ["Diagnosis": "HEDIS; Hypertension"] Hypertension
+      such that Hypertension.claimId = Visit.claimId
+
+define "Visits with Hypertension Exist":
+  exists("Visit With Hypertension" Visit
+    with "Non-Telehealth Visit with Hypertension" NonTelehealth
+      such that start of Visit.relevantPeriod != start of NonTelehealth.relevantPeriod)
 
 define "Second Hypertension Diagnosis":
   (["Diagnosis": "HEDIS; Essential Hypertension"] D sort by start of prevalencePeriod asc)[1] //prevalencePeriod //note we want the second element here
@@ -142,9 +157,9 @@ define "Normal Systolic Blood Pressure Procedure":
 define "Qualifying Systolic Blood Pressure Reading":
   "Systolic Blood Pressure" A
     with "Encounters On or After Second Hypertension Diagnosis" E
-      such that A.authorDatetime during E.relevantPeriod
-    where A.authorDatetime during "Measurement Period"
-    sort by authorDatetime desc
+      such that A.relevantDateTime during E.relevantPeriod
+    where A.relevantDateTime during "Measurement Period"
+    sort by relevantDateTime desc
 
 define "Diastolic Blood Pressure":
   ["Assessment, Performed": "VSAC; Diastolic Blood Pressure"]
@@ -166,18 +181,18 @@ define "Normal Diastolic Blood Pressure Procedure":
 define "Qualifying Diastolic Blood Pressure Reading":
   "Diastolic Blood Pressure" A
     with "Encounters On or After Second Hypertension Diagnosis" E
-      such that A.authorDatetime during E.relevantPeriod
-    where A.authorDatetime during "Measurement Period"
-    sort by authorDatetime desc
+      such that A.relevantDateTime during E.relevantPeriod
+    where A.relevantDateTime during "Measurement Period"
+    sort by relevantDateTime desc
 
 define "Blood Pressure Days":
   (
     ( "Qualifying Diastolic Blood Pressure Reading" DBPExam
-      return date from DBPExam.authorDatetime
+      return date from DBPExam.relevantDateTime
       )
     intersect
     ( "Qualifying Systolic Blood Pressure Reading" SBPExam
-      return date from SBPExam.authorDatetime
+      return date from SBPExam.relevantDateTime
       )
   )
 
@@ -186,14 +201,14 @@ define "Most Recent Blood Pressure Day":
 
 define "Lowest Diastolic Reading on Most Recent Blood Pressure Day":
   First("Qualifying Diastolic Blood Pressure Reading" DBPReading
-    where DBPReading.authorDatetime same day as "Most Recent Blood Pressure Day"
-    sort by(result as Quantity)
+    where DBPReading.relevantDateTime same day as "Most Recent Blood Pressure Day"
+    sort by(result as Quantity) asc
   )
 
 define "Lowest Systolic Reading on Most Recent Blood Pressure Day":
   First("Qualifying Systolic Blood Pressure Reading" SBPReading
-    where SBPReading.authorDatetime same day as "Most Recent Blood Pressure Day"
-    sort by(result as Quantity)
+    where SBPReading.relevantDateTime same day as "Most Recent Blood Pressure Day"
+    sort by(result as Quantity) asc
   )
 
 
@@ -212,7 +227,6 @@ define "Blood Pressure < 140/90":
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 18
   and AgeInYearsAt(end of "Measurement Period") < 86
-  and exists("Encounter with Hypertension")
   and "Count of Visits with Hypertension Diagnosis" >= 2
 
 define "Exclusion: Hospice":
@@ -235,16 +249,18 @@ define "Denominator Exclusion: Pregnancy":
   /*
    * config_link_id: exclusion_pregnancy
    */
-  //exists (["Patient Characteristic Sex": "Female"])
-  exists(["Diagnosis": "HEDIS; Pregnancy"] D
+  exists (["Patient Characteristic Sex": "Female"])
+  and exists(["Diagnosis": "HEDIS; Pregnancy"] D
     where D.prevalencePeriod overlaps "Measurement Period")
 
 define "Denominator Exclusion: Nonacute Inpatient Visit":
   /*
    * config_link_id: exclusion_nonacute_inpatient_visit
    */
-  exists(["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] E
-    where E.admissionDate during "Measurement Period")
+  exists(["Encounter, Performed": "HEDIS; Inpatient Stay"] Inpatient
+    where Inpatient.admissionDate during "Measurement Period"
+    with ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] Nonacute
+      such that Inpatient.claimId = Nonacute.claimId)
 
 define "Numerator Performance Met":
   /*
@@ -252,14 +268,16 @@ define "Numerator Performance Met":
    */
   "Blood Pressure < 140/90"
 
+
+//FIXME: address the CPT II codes
 define "Numerator Performance Not Met: Out of Range":
   /*
    * config_link_id: out_of_range
    */
   exists("Systolic Blood Pressure" A
-    where A.authorDatetime during "Measurement Period")
+    where A.relevantDateTime during "Measurement Period")
   and exists("Diastolic Blood Pressure" A
-    where A.authorDatetime during "Measurement Period")
+    where A.relevantDateTime during "Measurement Period")
 
 define "Numerator Performance Not Met: No Blood Pressure":
   /*
