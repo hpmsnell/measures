@@ -36,7 +36,7 @@ define "Discharge":
 
 define "Qualifying Discharge":
   "Discharge" E1
-    where E1.discharge_date in Interval [start of "Measurement Period", "Measurement Period" + 335 days]
+    where E1.discharge_date in Interval [start of "Measurement Period", start of "Measurement Period" + 335 days]
     and AgeInYearsAt(end of "Measurement Period") >= 18
   and not exists "Discharge" E2
     where E2.admission_date starts 30 days or less after E1.discharge_date
