@@ -69,9 +69,12 @@ define "Patient <20 with BMI Percentile":
 
 // Populations
 
-define "Denominator":
+define "Initial Population":
   AgeInYearsAt(24 months before end of "Measurement Period") >= 18
   and AgeInYearsAt(end of "Measurement Period") < 75
+
+define "Denominator":
+  "Initial Population"
   and exists(["Encounter, Performed": "HEDIS; Outpatient"] E
     where E.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
       and E.supplemental = false
