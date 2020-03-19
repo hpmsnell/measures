@@ -31,26 +31,20 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Discharge":
-  "Nonacute Overlaps"
-  union ["Encounter, Performed": "HEDIS; Inpatient Stay"]
+  ["Encounter, Performed": "HEDIS; Inpatient Stay"]
   union ["Encounter, Performed": "Able; Able Discharge"]
 
 define "Qualifying Discharge":
-   "Discharge" E1
-    where E1.relevantPeriod starts during [start of "Measurement Period", 30 days before end of "Measurement Period"]
+  "Discharge" E1
+    where E1.discharge_date in Interval [start of "Measurement Period", "Measurement Period" + 335 days]
     and AgeInYearsAt(end of "Measurement Period") >= 18
-    without "Discharge" E2
-      such that E2.relevantPeriod starts 30 days or less after start of E1.relevantPeriod
-
-define "Nonacute Overlaps":
-  ((["Encounter, Performed": "HEDIS; Inpatient Stay"])InpatientStay
-    with (["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"])NonacuteIPStay
-    such that InpatientStay.relevantPeriod during NonacuteIPStay.relevantPeriod)
+  and not exists "Discharge" E2
+    where E2.admission_date starts 30 days or less after E1.discharge_date
 
 define "Hospice":
   (["Intervention, Performed": "HEDIS; Hospice Encounter"]
-  union ["Intervention, Performed": "HEDIS; Hospice Intervention"])HospiceEnc
-    where HospiceEnc.relevantPeriod overlaps "Measurement Period"
+  union ["Intervention, Performed": "HEDIS; Hospice Intervention"])Hospice
+    where Hospice.relevantPeriod overlaps "Measurement Period"
 
 define "Patient Engagement":
   ["Encounter, Performed": "HEDIS; Outpatient"]
@@ -68,8 +62,8 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   exists("Patient Engagement" P
-    with " Qualifying Discharge" E
-      such that P.relevantPeriod starts 30 days or less after end of E.relevantPeriod)
+    with "Qualifying Discharge" E
+      such that P.relevantPeriod starts 30 days or less after E.discharge_date)
 
 define "Numerator Performance Not Met":
   /*
