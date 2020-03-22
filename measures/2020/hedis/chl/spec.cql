@@ -29,7 +29,8 @@ valueset "HEDIS; Chlamydia Tests": '2.16.840.1.113883.3.464.1004.1060'
 
 // NCQA medication list value sets
 
-valueset "HEDIS; Retinoid Medications"
+valueset "NCQA; Retinoid Medications"
+valueset "NCQA; Contraceptive Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -52,6 +53,8 @@ define "Sexual Activity Exists":
     where P.relevantPeriod starts during "Measurement Period")
   or exists("Denominator Diagnosis" D
     where D.prevalencePeriod starts during "Measurement Period")
+  or exists(["Medication, Dispensed": "NCQA; Contraceptive Medications"] M
+    where M.relevantPeriod starts during "Measurement Period")
 
 define "Only Pregnancy Test Exists":
   not exists(["Procedure, Performed": "HEDIS; Sexual Activity"] P
