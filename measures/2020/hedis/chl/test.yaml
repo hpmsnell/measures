@@ -358,9 +358,10 @@ patients:
     sex: female
   clinical_models:
     medications:
-    - code_type: RXNORM
-      code_value: 1000126 # Contraceptive medication (sexual activity)
+    - code_type: NDC
+      code_value: 00009062601 # Contraceptive medication (sexual activity)
       start_date: 2015-04-01
+      dispensed: true
       stop_date: 2015-12-31 # Lower bound
 - name: SexualActivityMedication Lower
   attributes:
@@ -370,9 +371,10 @@ patients:
     sex: female
   clinical_models:
     medications:
-    - code_type: RXNORM
-      code_value: 1000126 # Contraceptive medication (sexual activity)
+    - code_type: NDC
+      code_value: 00009062601 # Contraceptive medication (sexual activity)
       start_date: 2015-04-01
+      dispensed: true
       stop_date: 2016-01-01 # Lower bound
 - name: SexualActivityMedication Upper
   attributes:
@@ -382,9 +384,10 @@ patients:
     sex: female
   clinical_models:
     medications:
-    - code_type: RXNORM
-      code_value: 1000126 # Contraceptive medication (sexual activity)
+    - code_type: NDC
+      code_value: 00009062601 # Contraceptive medication (sexual activity)
       start_date: 2016-12-31 # Upper bound
+      dispensed: true
 - name: SexualActivityMedication After
   attributes:
     date_of_birth: 1998-01-01
@@ -393,9 +396,10 @@ patients:
     sex: female
   clinical_models:
     medications:
-    - code_type: RXNORM
-      code_value: 1000126 # Contraceptive medication (sexual activity)
+    - code_type: NDC
+      code_value: 00009062601 # Contraceptive medication (sexual activity)
       start_date: 2017-01-01 # Too late
+      dispensed: true
 - name: ExclusionHospice Before
   attributes:
     date_of_birth: 1998-01-01
