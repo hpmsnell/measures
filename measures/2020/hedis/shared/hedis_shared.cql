@@ -176,7 +176,10 @@ define function "Advanced Illness: Acute Inpatient DISCHARGE During Period"(Peri
     and QualifyingEncounters.supplemental = false
     and QualifyingEncounters.dischargeDate during Period
 
-
+/*
+–	At least two outpatient visits ...
+  on different dates of service, with an advanced illness diagnosis 
+*/
 define function "Advanced Illness: Count of Distinct Visit Dates During Period"(MeasureID String, Period Interval<DateTime>): //returns Integer:
   Count(distinct((((
        ("Advanced Illness: Visit During Period"(MeasureID, Period)) E1
