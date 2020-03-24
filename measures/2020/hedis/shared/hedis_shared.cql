@@ -206,8 +206,7 @@ define function "Advanced Illness"(MeasureID String, Period Interval<DateTime>) 
         ("Advanced Illness: Count of Distinct Visit Dates During Period"(MeasureID, Period)) >= 2
         // At least one acute inpatient ENCOUNTER (Acute Inpatient Value Set) with an advanced illness diagnosis (Advanced Illness Value Set).
         or exists(
-          ("Advanced Illness: Acute Inpatient Encounter During Period"(Period)) E
-            where E.relevantPeriod ends during Period
+          "Advanced Illness: Acute Inpatient Encounter During Period"(Period)
         )
         // A dispensed dementia medication (Dementia Medications List).
         or exists(
