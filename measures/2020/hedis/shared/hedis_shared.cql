@@ -178,7 +178,7 @@ define function "Advanced Illness: Acute Inpatient DISCHARGE During Period"(Peri
 
 /*
 –	At least two outpatient visits ...
-  on different dates of service, with an advanced illness diagnosis 
+  on different dates of service, with an advanced illness diagnosis
 */
 define function "Advanced Illness: Count of Distinct Visit Dates During Period"(MeasureID String, Period Interval<DateTime>): //returns Integer:
   Count(distinct((((
@@ -194,6 +194,11 @@ define function "Advanced Illness: Dementia Medication During Period"(Period Int
   where M.relevantPeriod starts during Period
     and M.supplemental = false
 
+/*
+  Accepts the MeasureID for the measure and the requested logic period.
+
+  The MeasureID governs the logic used to meet the specific measure criteria.
+*/
 define function "Advanced Illness"(MeasureID String, Period Interval<DateTime>) returns Boolean:
   case
     when MeasureID = 'BCS' then
