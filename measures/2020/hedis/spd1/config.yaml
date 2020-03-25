@@ -182,6 +182,45 @@ exclusion:
         records:
         - model: Diagnosis
           value_set: HEDIS; Diabetes Exclusions
+  - config_link_id: exclusion_frailty_advanced_illness
+    code_value:
+    display_title: Frailty and Advanced Illness
+    description: Patient excluded due to frailty and advanced illness
+    component_groups:
+    - components:
+      - display_title: Frailty
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Frailty
+        - model: ClinicalActivity
+          value_set: HEDIS; Frailty
+    - logical_operator: AND
+      components:
+      - display_title: Dementia Medication
+        show_codes: false
+        records:
+        - model: Medication
+          value_set: NCQA; Dementia Medications
+      - logical_operator: 'OR BOTH:'
+        display_title: Visit
+        show_codes: true
+        annotation: 'Two visits are required if visit is not an acute inpatient visit'
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Outpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Observation
+        - model: ClinicalActivity
+          value_set: HEDIS; ED
+        - model: ClinicalActivity
+          value_set: HEDIS; Nonacute Inpatient
+      - logical_operator: AND
+        display_title: Advanced Illness
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Advanced Illness
 exception:
   description:
   reasons:

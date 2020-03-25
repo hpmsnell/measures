@@ -12,6 +12,8 @@ library HEDIS_ART_2020 version '1'
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // HEDIS value sets
 
 valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
@@ -49,10 +51,6 @@ define "Discharge with Arthritis":
     with ["Diagnosis": "Rheumatoid Arthritis"] D
       such that D.prevalencePeriod starts during E1.relevantPeriod
 
-define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
-
-
 define "HIV":
   ["Diagnosis": "HEDIS; HIV"]
   union ["Diagnosis": "HEDIS; HIV Type 2"]
@@ -62,8 +60,6 @@ define "HIV":
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 18
   count("Visit with Arthritis") >= 2 // Should have different start dates
-  and not exists("Hospice" I
-    where I.relevantPeriod starts during "Measurement Period")
 
 define "Denominator Exclusion: HIV":
   /*
@@ -79,6 +75,38 @@ define "Denominator Exclusion: Pregnancy":
   exists(["Diagnosis"; "HEDIS; Pregnancy"] D
     where D.prevalencePeriod overlaps "Measurement Period")
 
+define "Exclusion: Hospice":
+   /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice During Period"("Measurement Period"))
+
+
+define "Denominator Exclusion: Frailty and Advanced Illness":
+  /*
+   * config_link_id: exclusion_frailty_advanced_illness
+   */
+   (
+     AgeInYearsAt(end of "Measurement Period") >= 66
+     and (
+        "LTI During Period"("Measurement Period")
+        or "SNP"
+     )
+   )
+   or (
+     AgeInYearsAt(end of "Measurement Period") between 66 and 80
+     and (
+        "LTI During Period"("Measurement Period")
+        or "SNP"
+        or ("Advanced Illness"("Measurement Period")
+             and ("Frailty: Claim During Period"("Measurement Period")))
+     )
+   )
+   or (
+     AgeInYearsAt(end of "Measurement Period") >= 81
+     and ("Frailty: Claim During Period"("Measurement Period"))
+   )
+   
 define "Numerator Performance Met":
   /*
    * config_link_id: performance_met

@@ -124,7 +124,7 @@ define "Denominator Exclusion: Mastectomy":
 
 define "Denominator Exclusion: Frailty and Advanced Illness":
   /*
-   * config_link_id: exclusion_2
+   * config_link_id: exclusion_frailty_advanced_illness
    */
    (
      AgeInYearsAt(end of "Measurement Period") >= 66
@@ -134,17 +134,13 @@ define "Denominator Exclusion: Frailty and Advanced Illness":
      )
    )
    or (
-     AgeInYearsAt(end of "Measurement Period") between 66 and 80
+     AgeInYearsAt(end of "Measurement Period") >= 66
      and (
         "LTI During Period"("Measurement Period")
         or "SNP"
-        or ("Advanced Illness"('BCS', "Measurement Period")
+        or ("Advanced Illness"("Measurement Period")
              and ("Frailty: Claim During Period"("Measurement Period")))
      )
-   )
-   or (
-     AgeInYearsAt(end of "Measurement Period") >= 81
-     and ("Frailty: Claim During Period"("Measurement Period"))
    )
 
 

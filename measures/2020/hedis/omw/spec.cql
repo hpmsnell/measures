@@ -12,6 +12,8 @@ library HEDIS_OMW_2020 version '1'
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // MIPS value sets
 
 valueset "MIPS; Performance Met: 3095F" //Bone Mineral Density Tests
@@ -37,9 +39,6 @@ valueset "NCQA; Osteoporosis Medications"
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
-
-define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "Encounter":
   ["Encounter, Performed": "HEDIS; Outpatient"]
@@ -83,10 +82,41 @@ define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 67
   and AgeInYearsAt(end of "Measurement Period") < 86
   and "Patient Characteristic Sex" = "Female"
-  and not exists("Hospice" E
-    where E.relevantPeriod starts during "Measurement Period")
   and "Fracture During Index Period Exists"
   and not "First Fracture During Index Period Has Prior Diagnosis"
+
+define "Exclusion: Hospice":
+   /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice During Period"("Measurement Period"))
+
+
+define "Denominator Exclusion: Frailty and Advanced Illness":
+  /*
+   * config_link_id: exclusion_frailty_advanced_illness
+   */
+   (
+     AgeInYearsAt(end of "Measurement Period") >= 67
+     and (
+        "LTI During Period"("Measurement Period")
+        or "SNP"
+     )
+   )
+   or (
+     AgeInYearsAt(end of "Measurement Period") between 67 and 80
+     and (
+        "LTI During Period"("Measurement Period")
+        or "SNP"
+        or ("Advanced Illness"("Measurement Period")
+             and ("Frailty: Claim During Period"("Measurement Period")))
+     )
+   )
+   or (
+     AgeInYearsAt(end of "Measurement Period") >= 81
+     and ("Frailty: Claim During Period"("Measurement Period"))
+   )
+
 
 define "Denominator Exclusion: Prior Treatment":
   /*

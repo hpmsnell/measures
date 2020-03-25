@@ -12,6 +12,8 @@ library HEDIS_SPD1_2020 version '1'
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // HEDIS value sets
 
 valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
@@ -46,8 +48,6 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "IVD Exists During Measurement Year and Prior Year":
   exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
@@ -79,8 +79,35 @@ define "Denominator":
   "HEDIS CDC1: Denominator"
   and AgeInYearsAt(end of "Measurement Period") >= 40
   and AgeInYearsAt(end of "Measurement Period") < 76
-and not exists("Hospice" I
-where I.relevantPeriod starts during "Measurement Period")
+
+
+define "Exclusion: Hospice":
+   /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice During Period"("Measurement Period"))
+
+
+define "Denominator Exclusion: Frailty and Advanced Illness":
+/*
+ * config_link_id: exclusion_frailty_advanced_illness
+ */
+ (
+   AgeInYearsAt(end of "Measurement Period") >= 66
+   and (
+      "LTI During Period"("Measurement Period")
+      or "SNP"
+   )
+ )
+ or (
+   AgeInYearsAt(end of "Measurement Period") >= 66
+   and (
+      "LTI During Period"("Measurement Period")
+      or "SNP"
+      or ("Advanced Illness"("Measurement Period")
+           and ("Frailty: Claim During Period"("Measurement Period")))
+   )
+ )
 
 define "Denominator Exclusion: Condition"
   /*

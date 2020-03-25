@@ -12,6 +12,8 @@ library HEDIS_SPD2_2020 version '1'
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // HEDIS value sets
 
 valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
@@ -46,8 +48,6 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "IVD Exists During Measurement Year and Prior Year":
   exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
@@ -105,6 +105,18 @@ define "Treatment Period":
 
 define "Denominator":
   "HEDIS SPD1: Performance Met"
+
+define "Exclusion: Hospice"
+  /*
+  * config_link_id: exclusion_required_hospice
+  */
+  "HEDIS SPD1: Exclusion: Hospice"
+
+define "Denominator Exclusion: Frailty and Advanced Illness"
+  /*
+  * config_link_id: exclusion_frailty_advanced_illness
+  */
+  "HEDIS SPD1: Denominator Exclusion: Frailty and Advanced Illness"
 
 define "Denominator Exclusion: Condition"
   /*

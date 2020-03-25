@@ -12,6 +12,8 @@ library HEDIS_CDC1_2020 version '1'
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // HEDIS value sets
 
 valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
@@ -74,39 +76,42 @@ define "Patient Has Diabetes":
   or exists(["Medication, Dispensed": "NCQA; Diabetes Medications"] M
     where M.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
 
-define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
-
-define "Visit":
-  ["Encounter, Performed": "HEDIS; Outpatient"]
-  union ["Encounter, Performed": "HEDIS; Observation"]
-  union ["Encounter, Performed": "HEDIS; ED"]
-  union ["Encounter, Performed": "HEDIS; Nonacute Inpatient"]
-
-define "Visit with Advanced Illness":
-  "Visit" E
-    where E.relevantPeriod starts during "Measurement Period"
-    with ["Diagnosis": "HEDIS; Advanced Illness"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod
-
-define "Advanced Illness Exists":
-  exists("Visit with Advanced Illness" E1
-    with "Visit with Advanced Illness" E2
-      such that E1.relevantPeriod starts after E2.relevantPeriod)
-  or exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
-    with ["Diagnosis": "HEDIS; Advanced Illness"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod)
-  or exists(["Medication, Dispensed": "NCQA; Dementia Medications"] M
-    where M.relevantPeriod starts during "Measurement Period")
 
 /* Populations */
+
+define "Exclusion: Hospice":
+   /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice During Period"("Measurement Period"))
+
+
+define "Denominator Exclusion: Frailty and Advanced Illness":
+  /*
+   * config_link_id: exclusion_frailty_advanced_illness
+   */
+   (
+     AgeInYearsAt(end of "Measurement Period") >= 66
+     and (
+        "LTI During Period"("Measurement Period")
+        or "SNP"
+     )
+   )
+   or (
+     AgeInYearsAt(end of "Measurement Period") >= 66
+     and (
+        "LTI During Period"("Measurement Period")
+        or "SNP"
+        or ("Advanced Illness"("Measurement Period")
+             and ("Frailty: Claim During Period"("Measurement Period")))
+     )
+   )
+
 
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 18
   and AgeInYearsAt(end of "Measurement Period") < 76
   and "Patient Has Diabetes"
-  and not exists("Hospice" I
-    where I.relevantPeriod starts during "Measurement Period")
 
  define "Denominator Exclusion: Diagnosis"
    /*
@@ -116,19 +121,6 @@ define "Denominator":
     where D.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
    and exists(["Diagnosis": "HEDIS; Diabetes Exclusions"] D
     where D.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
-
-define "Denominator Exclusion: Frailty and Advanced Illness":
-  /*
-   * config_link_id: exclusion_2
-   */
-  AgeInYearsAt(end of "Measurement Period") >= 66
-  and (
-    exists(["Diagnosis": "HEDIS; Frailty"] D
-      where D.prevalencePeriod starts during "Measurement Period")
-    or exists(["Procedure, Performed": "HEDIS; Frailty"] D
-      where D.prevalencePeriod starts during "Measurement Period")
-  )
-  and "Advanced Illness Exists"
 
 define "Numerator Performance Met":
   /*

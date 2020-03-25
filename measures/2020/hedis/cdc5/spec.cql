@@ -12,6 +12,8 @@ library HEDIS_CDC5_2020 version '1'
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // HEDIS value sets
 
 valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
@@ -75,11 +77,18 @@ define "Denominator Exclusion: Diagnosis"
   */
   "HEDIS CDC1: Denominator Exclusion: Diagnosis"
 
+define "Exclusion: Hospice":
+   /*
+   * config_link_id: exclusion_required_hospice
+   */
+   "HEDIS CDC1: Exclusion: Hospice"
+
 define "Denominator Exclusion: Frailty or Advanced Illness"
   /*
-  * config_link_id: exclusion_2
+  * config_link_id: exclusion_frailty_advanced_illness
   */
-  "HEDIS CDC1: Denominator Exclusion: Frailty or Advanced Illness"
+  "HEDIS CDC1: Denominator Exclusion: Frailty and Advanced Illness"
+
 
 define "Numerator Performance Met":
   /*
