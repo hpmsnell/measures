@@ -6,17 +6,17 @@ library hedis_shared version '1'
  * ID:
  * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Eric Whitley
  *
   */
 
 /*
 Supports:
   - Hospice
-  - Frailty (general without age qualification)
-
-To do:
   - LTI
+  - SNP
+  - Frailty (general without age qualification)
+  - Advanced Illness
 */
 
 using QDM
@@ -88,6 +88,39 @@ define function "LTI During Period"(Period Interval<DateTime>):
 
 
 /*--------------------------------------------------
+FRAILTY
+----------------------------------------------------*/
+
+define function "Frailty: Diagnosis or Symptoms During Period"(Period Interval<DateTime>):
+  ((["Diagnosis": "HEDIS; Frailty Diagnosis"]
+  union ["Diagnosis": "HEDIS; Frailty Symptom"])FrailDxSx
+    where FrailDxSx.prevalencePeriod starts during Period)
+      and FrailDxSx.supplemental = false
+
+define function "Frailty: Encounter During Period"(Period Interval<DateTime>):
+  ["Encounter, Performed": "HEDIS; Frailty Encounter"]FrailEnc
+    where FrailEnc.relevantPeriod starts during Period
+      and FrailEnc.supplemental = false
+
+define function "Frailty: Device During Period"(Period Interval<DateTime>):
+  (["Device, Applied": "HEDIS; Frailty Device"]
+  union ["Device, Order": "HEDIS; Frailty Device"]
+  union ["Device, Recommended": "HEDIS; Frailty Device"])FrailDevice
+    where FrailDevice.relevantPeriod starts during Period
+      and FrailDevice.supplemental = false
+
+/*
+  At least one claim/encounter for frailty (Frailty Device Value Set; Frailty Diagnosis Value Set; Frailty Encounter Value Set; Frailty Symptom Value Set)
+  during specified period
+*/
+define function "Frailty: Claim During Period"(Period Interval<DateTime>) returns Boolean:
+    exists "Frailty: Diagnosis or Symptoms During Period"(Period)
+    or exists "Frailty: Encounter During Period"(Period)
+    or exists "Frailty: Device During Period"(Period)
+
+
+
+/*--------------------------------------------------
 ADVANCED ILLNESS
 --------------------------------------------------*/
 
@@ -103,14 +136,9 @@ To identify a nonacute inpatient discharge:
 2.	Confirm the stay was for nonacute care based on the presence of a nonacute code (Nonacute Inpatient Stay Value Set) on the claim.
 3.	Identify the discharge date for the stay.
 ----------------------------------------------------*/
-define function "Advanced Illness: Visit During Period"(MeasureID String, Period Interval<DateTime>):
-  case
-    when MeasureID = 'BCS' then
-      ("Advanced Illness: Visit During Period - Outpatient, Obs, ED, Non-Acute Inpatient Encounters"(Period))Visits
-    else
-      ("Advanced Illness: Visit During Period - Outpatient, Obs, ED, Non-Acute Inpatient Encounters"(Period))Visits
-      union ("Advanced Illness: Non-Acute Inpatient DISCHARGE During Period"(Period))Visits
-  end
+define function "Advanced Illness: Visit During Period"(Period Interval<DateTime>):
+    ("Advanced Illness: Visit During Period - Outpatient, Obs, ED, Non-Acute Inpatient Encounters"(Period))Visits
+    union ("Advanced Illness: Non-Acute Inpatient DISCHARGE During Period"(Period))Visits
 
 /*
 most visits - EXCLUDING non-acute inpatient DISCHARGES
@@ -181,9 +209,9 @@ define function "Advanced Illness: Acute Inpatient DISCHARGE During Period"(Peri
 –	At least two outpatient visits ...
   on different dates of service, with an advanced illness diagnosis
 */
-define function "Advanced Illness: Count of Distinct Visit Dates During Period"(MeasureID String, Period Interval<DateTime>): //returns Integer:
+define function "Advanced Illness: Count of Distinct Visit Dates During Period"(Period Interval<DateTime>): //returns Integer:
   Count(distinct((((
-       "Advanced Illness: Visit During Period"(MeasureID, Period)
+       "Advanced Illness: Visit During Period"(Period)
   ).relevantPeriod) start) date))
 
 // A dispensed dementia medication (Dementia Medications List).
@@ -192,60 +220,12 @@ define function "Advanced Illness: Dementia Medication During Period"(Period Int
   where M.relevantPeriod starts during Period
     and M.supplemental = false
 
-/*
-  Accepts the MeasureID for the measure and the requested logic period.
-
-  The MeasureID governs the logic used to meet the specific measure criteria.
-*/
-define function "Advanced Illness"(MeasureID String, Period Interval<DateTime>) returns Boolean:
-  case
-    when MeasureID = 'BCS' then
-        // At least two outpatient visits..
-        ("Advanced Illness: Count of Distinct Visit Dates During Period"(MeasureID, Period)) >= 2
-        // At least one acute inpatient ENCOUNTER (Acute Inpatient Value Set) with an advanced illness diagnosis (Advanced Illness Value Set).
-        or exists("Advanced Illness: Acute Inpatient Encounter During Period"(Period))
-        // A dispensed dementia medication (Dementia Medications List).
-        or exists("Advanced Illness: Dementia Medication During Period"(Period))
-    when MeasureID in {'CBP', 'PBH', 'CDC', 'SPC', 'SPD', 'ART', 'SAA', 'OMW'} then
-      // At least two outpatient visits...
-      ("Advanced Illness: Count of Distinct Visit Dates During Period"(MeasureID, Period)) >= 2
-      // At least one acute inpatient ENCOUNTER (Acute Inpatient Value Set) with an advanced illness diagnosis (Advanced Illness Value Set).
-      or exists("Advanced Illness: Acute Inpatient Encounter During Period"(Period))
-      //At least one acute inpatient DISCHARGE with an advanced illness diagnosis (Advanced Illness Value Set).
-      or exists ("Advanced Illness: Acute Inpatient DISCHARGE During Period"(Period))
-      // A dispensed dementia medication (Dementia Medications List).
-      or exists("Advanced Illness: Dementia Medication During Period"(Period))
-    else false
-  end
-
-
-/*--------------------------------------------------
-FRAILTY
-----------------------------------------------------*/
-
-define function "Frailty: Diagnosis or Symptoms During Period"(Period Interval<DateTime>):
-  ((["Diagnosis": "HEDIS; Frailty Diagnosis"]
-  union ["Diagnosis": "HEDIS; Frailty Symptom"])FrailDxSx
-    where FrailDxSx.prevalencePeriod starts during Period)
-      and FrailDxSx.supplemental = false
-
-define function "Frailty: Encounter During Period"(Period Interval<DateTime>):
-  ["Encounter, Performed": "HEDIS; Frailty Encounter"]FrailEnc
-    where FrailEnc.relevantPeriod starts during Period
-      and FrailEnc.supplemental = false
-
-define function "Frailty: Device During Period"(Period Interval<DateTime>):
-  (["Device, Applied": "HEDIS; Frailty Device"]
-  union ["Device, Order": "HEDIS; Frailty Device"]
-  union ["Device, Recommended": "HEDIS; Frailty Device"])FrailDevice
-    where FrailDevice.relevantPeriod starts during Period
-      and FrailDevice.supplemental = false
-
-/*
-  At least one claim/encounter for frailty (Frailty Device Value Set; Frailty Diagnosis Value Set; Frailty Encounter Value Set; Frailty Symptom Value Set)
-  during specified period
-*/
-define function "Frailty: Claim During Period"(Period Interval<DateTime>) returns Boolean:
-    exists "Frailty: Diagnosis or Symptoms During Period"(Period)
-    or exists "Frailty: Encounter During Period"(Period)
-    or exists "Frailty: Device During Period"(Period)
+define function "Advanced Illness"(Period Interval<DateTime>) returns Boolean:
+    // At least two outpatient visits...
+    ("Advanced Illness: Count of Distinct Visit Dates During Period"(Period)) >= 2
+    // At least one acute inpatient ENCOUNTER (Acute Inpatient Value Set) with an advanced illness diagnosis (Advanced Illness Value Set).
+    or exists("Advanced Illness: Acute Inpatient Encounter During Period"(Period))
+    //At least one acute inpatient DISCHARGE with an advanced illness diagnosis (Advanced Illness Value Set).
+    or exists ("Advanced Illness: Acute Inpatient DISCHARGE During Period"(Period))
+    // A dispensed dementia medication (Dementia Medications List).
+    or exists("Advanced Illness: Dementia Medication During Period"(Period))

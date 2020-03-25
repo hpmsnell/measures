@@ -23,19 +23,25 @@ measure:
 denominator:
   description: Women 52–74 years as of December 31 of the measurement year.
   component_groups:
-  - logical_operator: NOT
-    components:
-    - display_title: Hospice Service
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: HEDIS; Hospice Intervention
-      - model: ClinicalActivity
-        value_set: HEDIS; Hospice Encounter
 exclusion:
   description: Bilateral mastectomy any time during the member’s history through December
     31 of the measurement year.
   reasons:
+  - config_link_id: exclusion_required_hospice
+    code_value:
+    display_title: Hospice
+    description: Advance care planning performed during the measurement year
+    component_groups:
+    - components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Intervention
+        - model: ClinicalActivity
+          value_set: Able; MMDF Hospice
   - config_link_id: exclusion_1
     code_value:
     display_title: History of Mastectomy
@@ -89,6 +95,13 @@ exclusion:
     description: Patient excluded due to frailty and advanced illness
     component_groups:
     - components:
+      - display_title: LTI
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: Able; MMDF LTI
+    - logical_operator: 'OR BOTH OF THE FOLLOWING'
+      components:
       - display_title: Frailty
         show_codes: true
         records:

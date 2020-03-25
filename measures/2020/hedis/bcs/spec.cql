@@ -12,12 +12,15 @@ library HEDIS_BCS_2020 version '1'
 
 using QDM
 
-// MIPS value sets
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
+// MIPS value sets
 valueset "MIPS; Performance Met: G9899"
 
-// HEDIS value sets
 
+
+// HEDIS value sets
 valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
 valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
 valueset "HEDIS; Bilateral Mastectomy": '2.16.840.1.113883.3.464.1004.1042'
@@ -56,36 +59,6 @@ context Patient
 define "Qualifying Exclusion Age":
 AgeInYearsAt(end of "Measurement Period") >= 66
 
-define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice Intervention"]
-  union ["Encounter, Performed": "HEDIS; Hospice Encounter"]
-
-define "Visit":
-  ["Encounter, Performed": "HEDIS; Outpatient"]
-  union ["Encounter, Performed": "HEDIS; Observation"]
-  union ["Encounter, Performed": "HEDIS; ED"]
-  union ((["Encounter, Performed": "HEDIS; Nonacute Inpatient"])NonacuteIP
-    with (["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"])NonacuteIPFlag
-    such that NonacuteIP.claimId = NonacuteIPFlag.claimId)
-  union ((["Encounter, Performed": "HEDIS; InpatientStay"])Inpatient
-    with (["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"])NonacuteIPFlag
-    such that Inpatient.claimId = NonacuteIPFlag.claimId)
-
-define "Visit with Advanced Illness":
-"Visit" ExcludeQualVisit
-  where exists (ExcludeQualVisit.diagnoses Diagnosis
-    where Diagnosis.code in "HEDIS; Advanced Illness"
-    )
-     and ExcludeQualVisit.relevantPeriod starts 2 years or less before end of "Measurement Period"
-
-define "Advanced Illness Exists":
-"Qualifying Exclusion Age"
-  and (Count("Visit with Advanced Illness")>=2
-    or exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
-      with ["Diagnosis": "HEDIS; Advanced Illness"] D
-        such that D.prevalencePeriod starts during E.relevantPeriod)
-    or exists(["Medication, Dispensed": "NCQA; Dementia Medications"] M
-      where M.relevantPeriod starts during "Measurement Period"))
 
 define "Absence of Left Breast":
   ["Diagnosis": "HEDIS; Absence of Left Breast"]
@@ -128,35 +101,18 @@ define "Absence of Left and Right Breast Confirmed":
   exists "Absence of Left Breast Confirmed"
   and exists "Absence of Right Breast Confirmed"
 
-  define "Frailty Diagnosis or Symptoms":
-    ((["Diagnosis": "HEDIS; Frailty Diagnosis"]
-    union ["Diagnosis": "HEDIS; Frailty Symptom"])FrailDxSx
-      where FrailDxSx.prevalencePeriod overlaps "Measurement Period")
-
-  define "Frailty Encounter":
-    ["Encounter, Performed": "HEDIS; Frailty Encounter"]FrailEnc
-        where FrailEnc.relevantPeriod overlaps "Measurement Period"
-
-  define "Frailty Device":
-    ((["Device, Applied": "HEDIS; Frailty Device"]
-    union ["Device, Order": "HEDIS; Frailty Device"]
-    union ["Device, Recommended": "HEDIS; Frailty Device"])FrailDevice
-      where FrailDevice.relevantPeriod overlaps "Measurement Period"
-        or FrailDevice.authorDatetime during "Measurement Period")
-
-  define "Frailty":
-    "Frailty Diagnosis or Symptoms"
-    union "Frailty Encounter"
-    union "Frailty Device"
-
 // Populations
 
 define "Denominator":
   "Patient Characteristic Sex" = "Female"
   and AgeInYearsAt(end of "Measurement Period") >= 52
   and AgeInYearsAt(end of "Measurement Period") < 75
-  and not exists("Hospice" I
-    where I.relevantPeriod starts during "Measurement Period")
+
+define "Exclusion: Hospice":
+   /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice During Period"("Measurement Period"))
 
 define "Denominator Exclusion: Mastectomy":
   /*
@@ -170,8 +126,27 @@ define "Denominator Exclusion: Frailty and Advanced Illness":
   /*
    * config_link_id: exclusion_2
    */
-   "Advanced Illness Exists"
-     and exists("Frailty")
+   (
+     AgeInYearsAt(end of "Measurement Period") >= 66
+     and (
+        "LTI During Period"("Measurement Period")
+        or "SNP"
+     )
+   )
+   or (
+     AgeInYearsAt(end of "Measurement Period") between 66 and 80
+     and (
+        "LTI During Period"("Measurement Period")
+        or "SNP"
+        or ("Advanced Illness"('BCS', "Measurement Period")
+             and ("Frailty: Claim During Period"("Measurement Period")))
+     )
+   )
+   or (
+     AgeInYearsAt(end of "Measurement Period") >= 81
+     and ("Frailty: Claim During Period"("Measurement Period"))
+   )
+
 
 define "Numerator Performance Met":
   /*

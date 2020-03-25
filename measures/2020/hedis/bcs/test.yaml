@@ -28,19 +28,39 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
+    - name: ExclusionLTI Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionLTI Lower
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionLTI Upper
+      denominator: 1
+      denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: ExclusionLTI After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
     - name: ExclusionHospice Before
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
     - name: ExclusionHospice Lower
-      denominator:
-      denominator_exclusion:
+      denominator: 1
+      denominator_exclusion: exclusion_required_hospice
       denominator_exception:
       numerator:
     - name: ExclusionHospice Upper
-      denominator:
-      denominator_exclusion:
+      denominator: 1
+      denominator_exclusion: exclusion_required_hospice
       denominator_exception:
       numerator:
     - name: ExclusionHospice After
@@ -269,6 +289,50 @@ patients:
     family_name: Male
     sex: male
   clinical_models:
+- name: ExclusionLTI Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionLTI
+    family_name: Before
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: ABLE
+      code_value: LTI # LTI
+      start_date: 2015-12-31 # Too early
+- name: ExclusionLTI Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionLTI
+    family_name: Lower
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: ABLE
+      code_value: LTI # LTI
+      start_date: 2016-01-01 # Lower bound
+- name: ExclusionLTI Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionLTI
+    family_name: Upper
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: ABLE
+      code_value: LTI # LTI
+      start_date: 2016-12-31 # Upper bound
+- name: ExclusionLTI After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionLTI
+    family_name: After
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: ABLE
+      code_value: LTI # LTI
+      start_date: 2017-01-01 # Too late
 - name: ExclusionHospice Before
   attributes:
     date_of_birth: 1950-01-01
