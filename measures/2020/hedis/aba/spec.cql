@@ -91,7 +91,7 @@ define "Denominator Exclusion":
    * config_link_id: exclusion_optional_pregnancy
    */
   exists(["Diagnosis": "HEDIS; Pregnancy"] D
-    where D.prevalencePeriod overlaps [12 months before start of "Measurement Period", end of "Measurement Period"])
+    where D.prevalencePeriod starts during [12 months before start of "Measurement Period", end of "Measurement Period"])
 
 define "Numerator Performance Met":
   /*
