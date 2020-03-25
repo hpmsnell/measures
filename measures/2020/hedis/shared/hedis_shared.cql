@@ -46,7 +46,8 @@ valueset "HEDIS; Frailty Symptom": '2.16.840.1.113883.3.464.1004.1533'
 
 valueset "Able; Payer I-SNP": ''
 
-valueset "Able; LTI": ''
+valueset "Able; MMDF LTI": ''
+valueset "Able; MMDF Hospice": ''
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -57,12 +58,13 @@ HOSPICE
 ----------------------------------------------------*/
 define "Hospice":
   ["Intervention, Performed": "HEDIS; Hospice Intervention"]
+  union ["Intervention, Performed": "Able; MMDF Hospice"]
   union ["Encounter, Performed": "HEDIS; Hospice Encounter"]
 
 define function "Hospice During Period"(Period Interval<DateTime>):
   exists(
     "Hospice" H
-      where H.relevantPeriod overlaps Period
+      where H.relevantPeriod starts during Period
   )
 
 /*--------------------------------------------------
@@ -78,7 +80,11 @@ LTI
 –	Living long-term in an institution ... as identified by the LTI flag in the Monthly Membership Detail Data File.
   Use the run date of the file to determine if a member had an LTI flag (during requested period)
 ----------------------------------------------------*/
-//TODO: implement LTI
+define function "LTI During Period"(Period Interval<DateTime>):
+  exists(
+    ["Intervention, Performed": "Able; MMDF LTI"] LTI
+      where LTI.relevantPeriod starts during Period
+  )
 
 
 /*--------------------------------------------------
@@ -114,27 +120,22 @@ most visits - EXCLUDING non-acute inpatient DISCHARGES
 ... with an advanced illness diagnosis (Advanced Illness Value Set)...
 */
 define function "Advanced Illness: Visit During Period - Outpatient, Obs, ED, Non-Acute Inpatient Encounters"(Period Interval<DateTime>):
-  (
     //outpatient visits (Outpatient Value Set)
-    (["Encounter, Performed": "HEDIS; Outpatient"] Outpatient
-      where Outpatient.relevantPeriod overlaps Period)
     //observation visits (Observation Value Set)
-    union (["Encounter, Performed": "HEDIS; Observation"] Obs
-      where Obs.relevantPeriod overlaps Period)
     //ED visits (ED Value Set)
-    union (["Encounter, Performed": "HEDIS; ED"] ED
-      where ED.relevantPeriod overlaps Period)
     //nonacute inpatient encounters (Nonacute Inpatient Value Set)
-    union ((["Encounter, Performed": "HEDIS; Nonacute Inpatient"])NonacuteIP
-      with (["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"])NonacuteIPFlag
-        such that NonacuteIP.claimId = NonacuteIPFlag.claimId
-          where NonacuteIP.relevantPeriod overlaps Period)
-  ) QualifyingEncounters
-  where exists (QualifyingEncounters.diagnoses Diagnosis
-    where Diagnosis.code in "HEDIS; Advanced Illness"
-      and Diagnosis.supplemental = false
-    )
-    and QualifyingEncounters.supplemental = false
+    (["Encounter, Performed": "HEDIS; Outpatient"]
+      union ["Encounter, Performed": "HEDIS; Observation"]
+      union ["Encounter, Performed": "HEDIS; ED"]
+      union ["Encounter, Performed": "HEDIS; Nonacute Inpatient"]
+    ) QualifyingEncounters
+      where QualifyingEncounters.relevantPeriod starts during Period
+      and exists (
+        QualifyingEncounters.diagnoses Diagnosis
+        where Diagnosis.code in "HEDIS; Advanced Illness"
+          and Diagnosis.supplemental = false
+      )
+      and QualifyingEncounters.supplemental = false
 
 /*
 non-acute inpatient DISCHARGES
@@ -164,7 +165,7 @@ define function "Advanced Illness: Acute Inpatient Encounter During Period"(Peri
       and Diagnosis.supplemental = false
   )
   and QualifyingEncounters.supplemental = false
-  and QualifyingEncounters.relevantPeriod overlaps Period
+  and QualifyingEncounters.relevantPeriod starts during Period
 
 //–	Acute inpatient DISCHARGE with an advanced illness diagnosis (Advanced Illness Value Set)
 define function "Advanced Illness: Acute Inpatient DISCHARGE During Period"(Period Interval<DateTime>):
@@ -182,10 +183,7 @@ define function "Advanced Illness: Acute Inpatient DISCHARGE During Period"(Peri
 */
 define function "Advanced Illness: Count of Distinct Visit Dates During Period"(MeasureID String, Period Interval<DateTime>): //returns Integer:
   Count(distinct((((
-       ("Advanced Illness: Visit During Period"(MeasureID, Period)) E1
-       with ("Advanced Illness: Visit During Period"(MeasureID, Period)) E2 //EWW: I'm not clear on why we're joining like this, but it was in the example
-         such that E1.relevantPeriod starts after E2.relevantPeriod
-          where E1.relevantPeriod starts during Period
+       "Advanced Illness: Visit During Period"(MeasureID, Period)
   ).relevantPeriod) start) date))
 
 // A dispensed dementia medication (Dementia Medications List).
@@ -205,28 +203,18 @@ define function "Advanced Illness"(MeasureID String, Period Interval<DateTime>) 
         // At least two outpatient visits..
         ("Advanced Illness: Count of Distinct Visit Dates During Period"(MeasureID, Period)) >= 2
         // At least one acute inpatient ENCOUNTER (Acute Inpatient Value Set) with an advanced illness diagnosis (Advanced Illness Value Set).
-        or exists(
-          "Advanced Illness: Acute Inpatient Encounter During Period"(Period)
-        )
+        or exists("Advanced Illness: Acute Inpatient Encounter During Period"(Period))
         // A dispensed dementia medication (Dementia Medications List).
-        or exists(
-          "Advanced Illness: Dementia Medication During Period"(Period)
-        )
+        or exists("Advanced Illness: Dementia Medication During Period"(Period))
     when MeasureID in {'CBP', 'PBH', 'CDC', 'SPC', 'SPD', 'ART', 'SAA', 'OMW'} then
       // At least two outpatient visits...
       ("Advanced Illness: Count of Distinct Visit Dates During Period"(MeasureID, Period)) >= 2
       // At least one acute inpatient ENCOUNTER (Acute Inpatient Value Set) with an advanced illness diagnosis (Advanced Illness Value Set).
-      or exists(
-        "Advanced Illness: Acute Inpatient Encounter During Period"(Period)
-      )
+      or exists("Advanced Illness: Acute Inpatient Encounter During Period"(Period))
       //At least one acute inpatient DISCHARGE with an advanced illness diagnosis (Advanced Illness Value Set).
-      or exists (
-        "Advanced Illness: Acute Inpatient DISCHARGE During Period"(Period)
-      )
+      or exists ("Advanced Illness: Acute Inpatient DISCHARGE During Period"(Period))
       // A dispensed dementia medication (Dementia Medications List).
-      or exists(
-        "Advanced Illness: Dementia Medication During Period"(Period)
-      )
+      or exists("Advanced Illness: Dementia Medication During Period"(Period))
     else false
   end
 
@@ -238,21 +226,20 @@ FRAILTY
 define function "Frailty: Diagnosis or Symptoms During Period"(Period Interval<DateTime>):
   ((["Diagnosis": "HEDIS; Frailty Diagnosis"]
   union ["Diagnosis": "HEDIS; Frailty Symptom"])FrailDxSx
-    where FrailDxSx.prevalencePeriod overlaps Period)
+    where FrailDxSx.prevalencePeriod starts during Period)
       and FrailDxSx.supplemental = false
 
 define function "Frailty: Encounter During Period"(Period Interval<DateTime>):
   ["Encounter, Performed": "HEDIS; Frailty Encounter"]FrailEnc
-    where FrailEnc.relevantPeriod overlaps Period
+    where FrailEnc.relevantPeriod starts during Period
       and FrailEnc.supplemental = false
 
 define function "Frailty: Device During Period"(Period Interval<DateTime>):
   (["Device, Applied": "HEDIS; Frailty Device"]
   union ["Device, Order": "HEDIS; Frailty Device"]
   union ["Device, Recommended": "HEDIS; Frailty Device"])FrailDevice
-    where (FrailDevice.relevantPeriod overlaps Period
-      or FrailDevice.authorDatetime during Period)
-      and FrailDevice.supplemental = false)
+    where FrailDevice.relevantPeriod starts during Period
+      and FrailDevice.supplemental = false
 
 /*
   At least one claim/encounter for frailty (Frailty Device Value Set; Frailty Diagnosis Value Set; Frailty Encounter Value Set; Frailty Symptom Value Set)
