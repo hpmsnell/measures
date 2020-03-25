@@ -18,8 +18,6 @@ include "../shared/hedis_shared" version '1' called HedisShared
 // MIPS value sets
 valueset "MIPS; Performance Met: G9899"
 
-
-
 // HEDIS value sets
 valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
 valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
