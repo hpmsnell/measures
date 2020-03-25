@@ -46,6 +46,9 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
+define "Measurement Period and Year Prior":
+  Interval[start of "Measurement Period" - 1 years, end of "Measurement Period"]
+
 
 define "Statin in Measurement Period":
   ["Medication, Dispensed": "NCQA; High and Moderate-Intensity Statin Medications"] M
@@ -83,29 +86,13 @@ define "Exclusion: Hospice":
    /*
    * config_link_id: exclusion_required_hospice
    */
-   exists("Hospice During Period"("Measurement Period"))
-
+   "HEDIS SPC1: Hospice"
 
 define "Denominator Exclusion: Frailty and Advanced Illness":
   /*
    * config_link_id: exclusion_frailty_advanced_illness
    */
-   (
-     AgeInYearsAt(end of "Measurement Period") >= 66
-     and (
-        "LTI During Period"("Measurement Period")
-        or "SNP"
-     )
-   )
-   or (
-     AgeInYearsAt(end of "Measurement Period") >= 66
-     and (
-        "LTI During Period"("Measurement Period")
-        or "SNP"
-        or ("Advanced Illness"("Measurement Period")
-             and ("Frailty: Claim During Period"("Measurement Period")))
-     )
-   )
+   "HEDIS SPC1: Denominator Exclusion: Frailty and Advanced Illness"
 
 define "Denominator":
   "HEDIS SPC1: Performance Met"

@@ -51,6 +51,9 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
+define "Measurement Period and Year Prior":
+  Interval[start of "Measurement Period" - 1 years, end of "Measurement Period"]
+
 define "Last HbA1c Result":
   Last(["Laboratory Test, Performed": "HEDIS; HbA1c Tests"] L
     where L.resultDateTime during "Measurement Year"

@@ -40,6 +40,25 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
+/*
+  A 12-month (1 year) window that...
+    - begins on July 1 of the year prior to the measurement year and
+    - ends on June 30 of the measurement year.
+*/
+define "Intake Period":
+  (year from start of "Measurement Period")IntakeYear
+  return Interval[Date(IntakeYear -1, 7, 1), Date(IntakeYear, 6, 30)]
+
+/*
+  intake period through the end of the measurement year
+*/
+define "Intake Period Through End of Measurement Period":
+  Interval[start of "Intake Period", end of "Measurement Period"]
+
+define "Measurement Period and Year Prior":
+  Interval[start of "Measurement Period" - 1 years, end of "Measurement Period"]
+
+
 define "Encounter":
   ["Encounter, Performed": "HEDIS; Outpatient"]
   union ["Encounter, Performed": "HEDIS; Observation"]
@@ -55,7 +74,7 @@ define "Encounter With Fracture":
     with "Fracture" D
       such that D.prevalencePeriod starts during E.relevantPeriod
 
-define "Fracture During Index Period"
+define "Fracture During Index Period":
   "Encounter With Fracture" E
     where E.relevantPeriod starts during [18 months before end of "Measurement Period", 6 months before end of "Measurement Period"]
 
@@ -99,7 +118,7 @@ define "Denominator Exclusion: Frailty and Advanced Illness":
    (
      AgeInYearsAt(end of "Measurement Period") >= 67
      and (
-        "LTI During Period"("Measurement Period")
+        "LTI During Period"("Intake Period Through End of Measurement Period")
         or "SNP"
      )
    )
@@ -108,13 +127,13 @@ define "Denominator Exclusion: Frailty and Advanced Illness":
      and (
         "LTI During Period"("Measurement Period")
         or "SNP"
-        or ("Advanced Illness"("Measurement Period")
-             and ("Frailty: Claim During Period"("Measurement Period")))
+        or ("Advanced Illness"("Measurement Period and Year Prior")
+             and ("Frailty: Claim During Period"("Intake Period Through End of Measurement Period")))
      )
    )
    or (
      AgeInYearsAt(end of "Measurement Period") >= 81
-     and ("Frailty: Claim During Period"("Measurement Period"))
+     and ("Frailty: Claim During Period"("Intake Period Through End of Measurement Period"))
    )
 
 

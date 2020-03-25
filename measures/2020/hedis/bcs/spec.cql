@@ -54,6 +54,10 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
+define "Measurement Period and Year Prior":
+  Interval[start of "Measurement Period" - 1 years, end of "Measurement Period"]
+
+
 define "Qualifying Exclusion Age":
 AgeInYearsAt(end of "Measurement Period") >= 66
 
@@ -136,7 +140,7 @@ define "Denominator Exclusion: Frailty and Advanced Illness":
      and (
         "LTI During Period"("Measurement Period")
         or "SNP"
-        or ("Advanced Illness"("Measurement Period")
+        or ("Advanced Illness"("Measurement Period and Year Prior")
              and ("Frailty: Claim During Period"("Measurement Period")))
      )
    )
