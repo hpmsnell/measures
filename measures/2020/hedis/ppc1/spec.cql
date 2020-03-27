@@ -49,9 +49,8 @@ define "Hospice":
 
 define "Prenatal Bundle Not Delivery":
   ["Procedure, Performed": "HEDIS; Prenatal Bundled Services"] PreNatBund
-    where not exists ( "Live Delivery" D
-      where D.relevantPeriod starts during PreNatBund.relevantPeriod
-  )
+    without "Live Delivery" D
+      such that D.relevantPeriod starts during PreNatBund.relevantPeriod
 
 define "Complete Prenatal Service":
   "Prenatal Bundle Not Delivery"
@@ -63,19 +62,19 @@ define "Complete Prenatal Service":
 // Populations
 
 define "Denominator":
-  "Patient Characteristic Sex" = 'Female'
-  and exists "Live Delivery" LD1
-  and not exists" Live Delivery" LD2
-   where LD1.relevantPeriod ends within 6 months of P2.relevantPeriod
-  and not exists "Hospice"
+
+  "Live Delivery" LD1
+    without "Live Delivery" LD2
+      such that LD1.relevantPeriod ends within 6 months of LD2.relevantPeriod
+    where not exists "Hospice"
 
 define "Numerator Performance Met":
   /*
    * config_link_id: single
    */
   "Live Delivery" P
-  and exists "Complete Prenatal Service" E
-   where E.relevantPeriod in Interval [end of P.relevantPeriod - 280 days, end of P.relevantPeriod - 176 days]
+    with "Complete Prenatal Service" E
+     such that E.relevantPeriod during Interval [end of P.relevantPeriod - 280 days, end of P.relevantPeriod - 176 days]
 
 define "Numerator Performance Not Met":
   /*
