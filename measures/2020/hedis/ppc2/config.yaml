@@ -83,20 +83,10 @@ performance_met:
       components:
       - display_title: Postpartum Bundled Service
         show_codes: true
-        annotation: 'Postpartum Bundled Services may be used only if the claim form indicates when postpartum care was rendered'
+        annotation: 'Postpartum Bundled Services may be used only if the claim form indicates when postpartum care was rendered. Postpartum care done during acute inpatient encounter are excluded'
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Postpartum Bundled Services
-    - logical_operator: AND NOT
-      components:
-      - display_title: Acute Inpatient
-        show_codes: true
-        annotation: 'postpartum care done during acute inpatient encounter are excluded'
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Acute inpatient
-        - model: ClinicalActivity
-          value_set: HEDIS; Acute inpatient POS
 performance_not_met:
   description:
   reasons:

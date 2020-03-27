@@ -52,9 +52,8 @@ define "Cervical Cytology with Results":
 
 define "Postpartum Bundle Not Delivery":
   ["Procedure, Performed": "HEDIS; Postpartum Bundled Services"] PPBundle
-    where not exists ("Live Delivery" Delivered
-    where Delivered.relevantPeriod during PPBundle.relevantPeriod
-  )
+    without "Live Delivery" Delivered
+      such that Delivered.relevantPeriod during PPBundle.relevantPeriod
 
 define "Acute Inpatient":
   ["Encounter, Performed": "HEDIS; Acute Inpatient"]
@@ -65,26 +64,25 @@ define "Postpartum Visit":
   union "Cervical Cytology with Results"
   union ["Encounter, Performed": "HEDIS; Postpartum Visits"]
   union ["Diagnosis": "HEDIS; Postpartum Visits"])PPVisits
-  and not exists "Acute Inpatient" AcuteIP
-    where PPVisits.relevantPeriod during AcuteIP.relevantPeriod
+    without "Acute Inpatient" AcuteIP
+      such that PPVisits.relevantPeriod during AcuteIP.relevantPeriod
 
 
 // Populations
 
 define "Denominator":
-  "Patient Characteristic Sex" = 'Female'
-  and exists "Live Delivery" LD1
-  and not exists ("Live Delivery") LD2
-    where LD1.relevantPeriod ends within 6 months of P2.relevantPeriod
-  and not exists "Hospice" I
+  "Live Delivery" LD1
+    without "Live Delivery" LD2
+      such that LD1.relevantPeriod ends within 6 months of LD2.relevantPeriod
+    where not exists "Hospice"
 
 define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
   "Live Delivery" Delivery
-  and exists "Postpartum Visit" PPVisit
-    where Delivery.relevantPeriod in Interval [end of Delivery.relevantPeriod + 7 days, end of Delivery.relevantPeriod + 84 days]
+    with "Postpartum Visit" PPVisit
+      such that Delivery.relevantPeriod during Interval [end of Delivery.relevantPeriod + 7 days, end of Delivery.relevantPeriod + 84 days]
 
 define "Numerator Performance Not Met":
   /*
