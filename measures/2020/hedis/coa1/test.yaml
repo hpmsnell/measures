@@ -53,6 +53,11 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
+    - name: CarePlanning 1PModifier
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
 providers:
   - given_name: Rachel
     family_name: Katz
@@ -167,3 +172,15 @@ patients:
     - code_type: CPT
       code_value: 1123F
       start_date: 2017-01-01 # Too late
+- name: CarePlanning 1PModifier
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: CarePlanning
+    family_name: 1PModifier
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 1123F
+      code_modifiers: ['1P']
+      start_date: 2016-02-01
