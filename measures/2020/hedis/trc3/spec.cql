@@ -12,10 +12,10 @@ library HEDIS_TRC3_2020 version '1'
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // HEDIS value sets
 
-valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
-valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
 valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
 valueset "HEDIS; Nonacute Inpatient Stay": '2.16.840.1.113883.3.464.1004.1398'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
@@ -38,11 +38,6 @@ define "Qualifying Discharge":
       such that Readmission.admissionDate starts on or 30 days or less after Discharge.dischargeDate
         and Discharge.claimId != Readmission.claimId
 
-define "Hospice":
-  (["Intervention, Performed": "HEDIS; Hospice Encounter"]
-  union ["Intervention, Performed": "HEDIS; Hospice Intervention"])Hospice
-    where Hospice.relevantPeriod overlaps "Measurement Period"
-
 define "Patient Engagement":
   ["Encounter, Performed": "HEDIS; Outpatient"]
   union ["Encounter, Performed": "HEDIS; Telephone Visits"]
@@ -53,11 +48,11 @@ define "Patient Engagement":
 define "Denominator":
   exists "Qualifying Discharge"
 
-define "Denominator Exclusion: Hospice"
-  /*
-   * config_link_id: exclusion_required_hospice
-   */
-  exists "Hospice"
+define "Exclusion: Hospice":
+	   /*
+	   * config_link_id: exclusion_required_hospice
+	   */
+	   exists("Hospice During Period"("Measurement Period"))
 
 define "Numerator Performance Met":
   /*

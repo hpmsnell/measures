@@ -37,8 +37,18 @@ denominator:
         value_set: HEDIS; Sexual Activity
       - model: ClinicalActivity
         value_set: HEDIS; Sexual Activity
-      - model: Medication
-        value_set: NCQA; Contraceptive Medications
+        - model: Medication
+        value_set: VSAC; Contraceptive Medications
+      - model: LaboratoryTestPerformed
+        value_set: VSAC; Pregnancy Test
+      - model: LaboratoryTestPerformed
+        value_set: VSAC; Pap Test
+      - model: ClinicalActivity
+        value_set: VSAC; Delivery Live Births
+      - model: LaboratoryTestPerformed
+        value_set: VSAC; Lab Tests During Pregnancy
+      - model: LaboratoryTestPerformed
+        value_set: VSAC; Lab Tests for Sexually Transmitted Infections
 exclusion:
   description:
   reasons:
