@@ -12,6 +12,8 @@ library HEDIS_ABA_2020 version '1'
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // MIPS value sets
 
 valueset "MIPS; Performance Met: G8420"
@@ -22,7 +24,6 @@ valueset "MIPS; Performance Not Met: G8419"
 
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; BMI": '2.16.840.1.113883.3.464.1004.1037'
 valueset "HEDIS; BMI Percentile": '2.16.840.1.113883.3.464.1004.1038'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
@@ -36,9 +37,6 @@ valueset "VSAC; BMI percentile": '2.16.840.1.113883.3.464.1003.121.12.1012'
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
-
-define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "BMI":
   ["Assessment, Performed": "VSAC; BMI LOINC Value"]
@@ -83,8 +81,7 @@ define "Exclusion: Hospice":
   /*
    * config_link_id: exclusion_required_hospice
    */
-   exists("Hospice" Hospice
-     where Hospice.relevantPeriod starts during "Measurement Period")
+   exists("Hospice During Period"("Measurement Period"))
 
 define "Denominator Exclusion":
   /*
