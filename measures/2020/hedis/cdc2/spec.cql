@@ -12,9 +12,10 @@ library HEDIS_CDC2_2020 version '1'
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Diabetes": '2.16.840.1.113883.3.464.1004.1077'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
@@ -50,6 +51,14 @@ define "Eligible HbA1c Procedures":
   ["Procedure, Performed": "HEDIS; HbA1c Level Less Than 7.0"]
   union ["Procedure, Performed": "HEDIS; HbA1c Level 7.0-9.0"]
   union ["Procedure, Performed": "HEDIS; HbA1c Level Greater Than 9.0"]
+
+/* Populations */
+
+define "Exclusion: Hospice":
+	   /*
+	   * config_link_id: exclusion_required_hospice
+	   */
+	   exists("Hospice During Period"("Measurement Period"))
 
 define "Denominator":
   "HEDIS CDC1: Denominator"
