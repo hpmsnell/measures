@@ -54,7 +54,18 @@ define "Numerator Performance Met":
       and FSA.placeOfService != '81'
       and FSA.code.modifiers not in "HEDIS; CPT CAT II Modifier"
     without ["Procedure, Performed": "HEDIS; Acute Inpatient"] Inpatient
-      such that FSA.claimId = Inpatient.claimId)
+      such that (
+        (
+          FSA.claimId != null
+          and FSA.claimId = Inpatient.claimId
+        )
+        or (
+          FSA.claimId == null
+          and FSA.startDate = Inpatient.startDate
+
+        )
+      )
+    )
 
 define "Numerator Performance Not Met":
   /*

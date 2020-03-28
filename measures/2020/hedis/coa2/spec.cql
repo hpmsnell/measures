@@ -33,14 +33,20 @@ define "Medication List":
   (["Procedure, Performed": "HEDIS; Medication List"]
   union ["Procedure, Performed": "VSAC; Current Medications Documented SNMD"]) MedList
     where MedList.relevantPeriod starts during "Measurement Period"
-      and MedList.signingProvider.prescribing = true
+      and (
+        MedReview.signingProvider.prescribing = true
+        or MedReview.signingProvider.pharmacyProvider = true
+      )
       and MedList.placeOfService != '81'
       and MedList.code.modifiers not in "HEDIS; CPT CAT II Modifier"
 
 define "Medication Review":
   ["Procedure, Performed": "HEDIS; Medication Review"] MedReview
     where MedReview.relevantPeriod starts during "Measurement Period"
-      and MedReview.signingProvider.prescribing = true
+      and (
+        MedReview.signingProvider.prescribing = true
+        or MedReview.signingProvider.pharmacyProvider = true
+      )
       and MedReview.placeOfService != '81'
       and MedReview.code.modifiers not in "HEDIS; CPT CAT II Modifier"
 
