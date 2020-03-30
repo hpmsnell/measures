@@ -12,9 +12,10 @@ library HEDIS_SPR_2020 version '1'
 
 using QDM
 
+	include "../shared/hedis_shared" version '1' called HedisShared
+
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
@@ -28,9 +29,6 @@ valueset "HEDIS; Spirometry":
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
-
-define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]  
 
 define "Encounter":
   ["Encounter, Performed": "HEDIS; Outpatient"]
@@ -68,10 +66,14 @@ define "First COPD During Index Period Has Prior Diagnosis":
 
 /* Populations */
 
+define "Exclusion: Hospice":
+	   /*
+	   * config_link_id: exclusion_required_hospice
+	   */
+	   exists("Hospice During Period"("Measurement Period"))
+
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 40
-  and not exists("Hospice" E
-    where E.relevantPeriod starts during "Measurement Period")
   and "COPD During Index Period Exists"
   and not "First COPD During Index Period Has Prior Diagnosis"
 
