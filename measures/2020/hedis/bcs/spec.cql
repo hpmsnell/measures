@@ -118,7 +118,7 @@ define "Exclusion: Hospice":
 
 define "Denominator Exclusion: Mastectomy":
   /*
-   * config_link_id: exclusion_1
+   * config_link_id: exclusion_optional_mastectomy
    */
   exists "Bilateral Mastectomy Procedure"
     or exists "Bilateral Mastectomy Clinical Info"
