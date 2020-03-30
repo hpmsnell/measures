@@ -94,9 +94,12 @@ define "Absence of Left Breast":
     where P.code.modifier in "HEDIS; Clinical Left Modifier")
 
 define "Absence of Left Breast Confirmed":
-  "Absence of Left Breast" AbsentLt
-    where AbsentLt.prevalencePeriod starts before end of "Measurement Period"
+  ("Absence of Left Breast" AbsentLt
+    where (
+      AbsentLt.prevalencePeriod starts before end of "Measurement Period"
       or AbsentLt.relevantPeriod starts before end of "Measurement Period"
+    )
+      and AbsentLt.placeOfService != '81'
 
 define "Absence of Right Breast":
   ["Diagnosis": "HEDIS; Absence of Right Breast"]
@@ -106,8 +109,11 @@ define "Absence of Right Breast":
 
 define "Absence of Right Breast Confirmed":
   "Absence of Right Breast" AbsentRt
-    where AbsentRt.prevalencePeriod starts before end of "Measurement Period"
+    where (
+      AbsentRt.prevalencePeriod starts before end of "Measurement Period"
       or AbsentRt.relevantPeriod starts before end of "Measurement Period"
+    )
+      and AbsentRt.placeOfService != '81'
 
 define "Bilateral Mastectomy Procedure":
   (["Procedure, Performed": "HEDIS; Bilateral Mastectomy"]
@@ -117,12 +123,14 @@ define "Bilateral Mastectomy Procedure":
     where PUniMast.code.modifier in "HEDIS; Bilateral Modifier")
   union ["Procedure, Performed": "HEDIS; History of Bilateral Mastectomy"])PBilatMast
   where PBilatMast.relevantPeriod starts before end of "Measurement Period"
+    and PBilatMast.placeOfService != '81'
 
 define "Bilateral Mastectomy Clinical Info":
-  ((["Diagnosis": "HEDIS; Clinical Unilateral Mastectomy"] DxClinUni
+  (["Diagnosis": "HEDIS; Clinical Unilateral Mastectomy"] DxClinUni
     where DxClinUni.code.modifier in "HEDIS; Clinical Bilateral Modifier")
   union (["Diagnosis": "HEDIS; History of Bilateral Mastectomy"])DxBilatMast
-    where DxBilatMast.prevalencePeriod starts before end of "Measurement Period")
+    where DxBilatMast.prevalencePeriod starts before end of "Measurement Period"
+      and DxBilatMast.placeOfService != '81'
 
 define "Absence of Left and Right Breast Confirmed":
   exists "Absence of Left Breast Confirmed"
