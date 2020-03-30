@@ -12,9 +12,10 @@ library HEDIS_AMM1_2020 version '1'
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
 valueset "HEDIS; Inpatient Stay"
 valueset "HEDIS; AMM Visits"
@@ -81,8 +82,12 @@ define "Medication Duration":
 define "Denominator":
   AgeInYearsAt(8 months before end of "Measurement Period") >= 18
   and exists("Medication in Index Period")
-  and not exists("Hospice" I
-    where I.relevantPeriod starts during "Measurement Period")
+
+define "Exclusion: Hospice":
+	   /*
+	   * config_link_id: exclusion_required_hospice
+	   */
+	   exists("Hospice During Period"("Measurement Period"))
 
 define "Denominator Exclusion: No Depression":
   /*

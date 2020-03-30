@@ -12,6 +12,8 @@ library HEDIS_OMW_2020 version '1'
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // MIPS value sets
 
 valueset "MIPS; Performance Met: 3095F" //Bone Mineral Density Tests
@@ -20,7 +22,6 @@ valueset "MIPS; Performance Met: G8399" //DXA
 
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
@@ -37,9 +38,6 @@ valueset "NCQA; Osteoporosis Medications"
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
-
-define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "Encounter":
   ["Encounter, Performed": "HEDIS; Outpatient"]
@@ -83,10 +81,14 @@ define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 67
   and AgeInYearsAt(end of "Measurement Period") < 86
   and "Patient Characteristic Sex" = "Female"
-  and not exists("Hospice" E
-    where E.relevantPeriod starts during "Measurement Period")
   and "Fracture During Index Period Exists"
   and not "First Fracture During Index Period Has Prior Diagnosis"
+
+define "Exclusion: Hospice":
+	   /*
+	   * config_link_id: exclusion_required_hospice
+	   */
+	   exists("Hospice During Period"("Measurement Period"))
 
 define "Denominator Exclusion: Prior Treatment":
   /*
