@@ -88,7 +88,7 @@ define "Exclusion: Hospice":
 
 define "Denominator Exclusion: Frailty or Advanced Illness"
   /*
-  * config_link_id: exclusion_frailty_advanced_illness
+  * config_link_id: exclusion_required_frailty
   */
   "HEDIS CDC1: Denominator Exclusion: Frailty and Advanced Illness"
 

@@ -28,46 +28,6 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
-    - name: ExclusionLTI Before
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: ExclusionLTI Lower
-      denominator: 1
-      denominator_exclusion: exclusion_frailty_advanced_illness
-      denominator_exception:
-      numerator:
-    - name: ExclusionLTI Upper
-      denominator: 1
-      denominator_exclusion: exclusion_frailty_advanced_illness
-      denominator_exception:
-      numerator:
-    - name: ExclusionLTI After
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: ExclusionHospice Before
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: ExclusionHospice Lower
-      denominator: 1
-      denominator_exclusion: exclusion_required_hospice
-      denominator_exception:
-      numerator:
-    - name: ExclusionHospice Upper
-      denominator: 1
-      denominator_exclusion: exclusion_required_hospice
-      denominator_exception:
-      numerator:
-    - name: ExclusionHospice After
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
     - name: ExclusionBilateralMastectomy Before
       denominator: 1
       denominator_exclusion: exclusion_1
@@ -133,6 +93,66 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
+    - name: Mammography Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: Mammography Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Mammography Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: Mammography After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionHospice Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionHospice Lower
+      denominator: 1
+      denominator_exclusion: exclusion_required_hospice
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice Upper
+      denominator: 1
+      denominator_exclusion: exclusion_required_hospice
+      denominator_exception:
+      numerator:
+    - name: ExclusionHospice After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionLTI Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: ExclusionLTI Lower
+      denominator: 1
+      denominator_exclusion: exclusion_required_frailty
+      denominator_exception:
+      numerator:
+    - name: ExclusionLTI Upper
+      denominator: 1
+      denominator_exclusion: exclusion_required_frailty
+      denominator_exception:
+      numerator:
+    - name: ExclusionLTI After
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
     - name: ExclusionFrailty Before
       denominator: 1
       denominator_exclusion:
@@ -140,12 +160,12 @@ test_set_keys:
       numerator: performance_not_met
     - name: ExclusionFrailty Lower
       denominator: 1
-      denominator_exclusion: exclusion_frailty_advanced_illness
+      denominator_exclusion: exclusion_required_frailty
       denominator_exception:
       numerator:
     - name: ExclusionFrailty Upper
       denominator: 1
-      denominator_exclusion: exclusion_frailty_advanced_illness
+      denominator_exclusion: exclusion_required_frailty
       denominator_exception:
       numerator:
     - name: ExclusionFrailty After
@@ -170,12 +190,12 @@ test_set_keys:
       numerator: performance_not_met
     - name: ExclusionAdvancedIllness Lower
       denominator: 1
-      denominator_exclusion: exclusion_frailty_advanced_illness
+      denominator_exclusion: exclusion_required_frailty
       denominator_exception:
       numerator:
     - name: ExclusionAdvancedIllness Upper
       denominator: 1
-      denominator_exclusion: exclusion_frailty_advanced_illness
+      denominator_exclusion: exclusion_required_frailty
       denominator_exception:
       numerator:
     - name: ExclusionAdvancedIllness After
@@ -185,7 +205,7 @@ test_set_keys:
       numerator: performance_not_met
     - name: ExclusionAdvancedIllness NonacutePlusStayCodeSameClaim
       denominator: 1
-      denominator_exclusion: exclusion_frailty_advanced_illness
+      denominator_exclusion: exclusion_required_frailty
       denominator_exception:
       numerator:
     - name: ExclusionAdvancedIllness NonacutePlusStayCodeDiffClaim
@@ -195,7 +215,7 @@ test_set_keys:
       numerator: performance_not_met
     - name: ExclusionAdvancedIllness InpatientPlusStayCodeSameClaim
       denominator: 1
-      denominator_exclusion: exclusion_frailty_advanced_illness
+      denominator_exclusion: exclusion_required_frailty
       denominator_exception:
       numerator:
     - name: ExclusionAdvancedIllness InpatientPlusStayCodeDiffClaim
@@ -210,35 +230,15 @@ test_set_keys:
       numerator: performance_not_met
     - name: ExclusionDementiaMedication Lower
       denominator: 1
-      denominator_exclusion: exclusion_frailty_advanced_illness
+      denominator_exclusion: exclusion_required_frailty
       denominator_exception:
       numerator:
     - name: ExclusionDementiaMedication Upper
       denominator: 1
-      denominator_exclusion: exclusion_frailty_advanced_illness
+      denominator_exclusion: exclusion_required_frailty
       denominator_exception:
       numerator:
     - name: ExclusionDementiaMedication After
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: Mammography Before
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: Mammography Lower
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_met
-    - name: Mammography Upper
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_met
-    - name: Mammography After
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -289,50 +289,6 @@ patients:
     family_name: Male
     sex: male
   clinical_models:
-- name: ExclusionLTI Before
-  attributes:
-    date_of_birth: 1950-01-01
-    given_name: ExclusionLTI
-    family_name: Before
-    sex: female
-  clinical_models:
-    clinical_activities:
-    - code_type: ABLE
-      code_value: LTI # LTI
-      start_date: 2015-12-31 # Too early
-- name: ExclusionLTI Lower
-  attributes:
-    date_of_birth: 1950-01-01
-    given_name: ExclusionLTI
-    family_name: Lower
-    sex: female
-  clinical_models:
-    clinical_activities:
-    - code_type: ABLE
-      code_value: LTI # LTI
-      start_date: 2016-01-01 # Lower bound
-- name: ExclusionLTI Upper
-  attributes:
-    date_of_birth: 1950-01-01
-    given_name: ExclusionLTI
-    family_name: Upper
-    sex: female
-  clinical_models:
-    clinical_activities:
-    - code_type: ABLE
-      code_value: LTI # LTI
-      start_date: 2016-12-31 # Upper bound
-- name: ExclusionLTI After
-  attributes:
-    date_of_birth: 1950-01-01
-    given_name: ExclusionLTI
-    family_name: After
-    sex: female
-  clinical_models:
-    clinical_activities:
-    - code_type: ABLE
-      code_value: LTI # LTI
-      start_date: 2017-01-01 # Too late
 - name: ExclusionHospice Before
   attributes:
     date_of_birth: 1950-01-01
@@ -532,6 +488,50 @@ patients:
       code_value: Z90.11 # Absence of right breast
       start_date: 2017-01-01 # Too late
       stop_date: 2017-01-01
+- name: ExclusionLTI Before
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionLTI
+    family_name: Before
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: ABLE
+      code_value: LTI # LTI
+      start_date: 2015-12-31 # Too early
+- name: ExclusionLTI Lower
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionLTI
+    family_name: Lower
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: ABLE
+      code_value: LTI # LTI
+      start_date: 2016-01-01 # Lower bound
+- name: ExclusionLTI Upper
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionLTI
+    family_name: Upper
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: ABLE
+      code_value: LTI # LTI
+      start_date: 2016-12-31 # Upper bound
+- name: ExclusionLTI After
+  attributes:
+    date_of_birth: 1950-01-01
+    given_name: ExclusionLTI
+    family_name: After
+    sex: female
+  clinical_models:
+    clinical_activities:
+    - code_type: ABLE
+      code_value: LTI # LTI
+      start_date: 2017-01-01 # Too late
 - name: ExclusionFrailty Before
   attributes:
     date_of_birth: 1950-01-01

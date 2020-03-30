@@ -126,7 +126,7 @@ define "Denominator Exclusion: Mastectomy":
 
 define "Denominator Exclusion: Frailty and Advanced Illness":
   /*
-   * config_link_id: exclusion_frailty_advanced_illness
+   * config_link_id: exclusion_required_frailty
    */
    (
      AgeInYearsAt(end of "Measurement Period") >= 66
