@@ -68,9 +68,11 @@ define "Denominator Exclusion":
    * config_link_id: exclusion_optional_cervix
    */
   exists(["Procedure, Performed": "HEDIS; Hysterectomy With No Residual Cervix"] P
-    where P.relevantPeriod starts before end of "Measurement Period")
+    where P.relevantPeriod starts before end of "Measurement Period"
+      and P.placeOfService != '81')
   or exists(["Diagnosis": "HEDIS; Absence of Cervix Diagnosis"] D
-    where D.prevalencePeriod starts before end of "Measurement Period")
+    where D.prevalencePeriod starts before end of "Measurement Period"
+      and D.placeOfService != '81')
 
 define "Numerator Performance Met":
   /*

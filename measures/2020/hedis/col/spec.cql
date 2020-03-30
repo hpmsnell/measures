@@ -134,19 +134,14 @@ define "Denominator Exclusion: Colectomy or Cancer":
   /*
    * config_link_id: exclusion_optional_colon
    */
-  exists(["Diagnosis": "HEDIS; Colorectal Cancer"] D
-    where D.prevalencePeriod starts before end of "Measurement Period")
-  or exists(["Procedure, Performed": "HEDIS; Colorectal Cancer"] P
-    where P.relevantPeriod starts before end of "Measurement Period")
-  or exists(["Procedure, Performed": "HEDIS; Total Colectomy"] P
-    where P.relevantPeriod starts before end of "Measurement Period")
-  or exists(["Procedure, Performed": "MIPS; History of Total Colectomy or Colorectal Cancer"] P
-    where P.relevantPeriod starts before end of "Measurement Period")
-  or exists(["Procedure, Performed": "HEDIS; History of Total Colectomy"] P
-    where P.relevantPeriod starts before end of "Measurement Period")
-  or exists(["Diagnosis": "HEDIS; History of Total Colectomy"] D
-    where D.prevalencePeriod starts before end of "Measurement Period")
-
+  exists(["Diagnosis": "HEDIS; Colorectal Cancer"]
+    union ["Procedure, Performed": "HEDIS; Colorectal Cancer"]
+    union ["Procedure, Performed": "HEDIS; Total Colectomy"]
+    union ["Procedure, Performed": "MIPS; History of Total Colectomy or Colorectal Cancer"]
+    union ["Procedure, Performed": "HEDIS; History of Total Colectomy"]
+    union ["Diagnosis": "HEDIS; History of Total Colectomy"]) Exclusion
+    where Exclusion.prevalencePeriod starts on or before end of "Measurement Period"
+      and Exclusion.placeOfService != '81')
 
 define "Denominator Exclusion: Frailty or Advanced Illness":
   /*

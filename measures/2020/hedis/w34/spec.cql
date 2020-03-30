@@ -31,7 +31,8 @@ define "Qualifying Encounter during Measurement Period":
   where QualifyingEncounter.relevantPeriod starts during "Measurement Period"
     and QualifyingEncounter.signingProvider.primaryCareProvider = true
     and not QualifyingEncounter.placeOfService in "HEDIS; Telehealth POS"
-    and not QualifyingEncounter.code.modifier in "HEDIS; Telehealth Modifier")
+    and not QualifyingEncounter.code.modifier in "HEDIS; Telehealth Modifier"
+    and QualifyingEncounter.placeOfService != '81')
 
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 3

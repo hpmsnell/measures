@@ -83,11 +83,13 @@ define "Numerator Performance Met":
   or exists("Nephropathy Procedures" P
     where P.relevantPeriod starts during "Measurement Year")
   or exists("Nephropathy Diagnoses" D
-    where D.prevalencePeriod overlaps "Measurement Year")
+    where D.prevalencePeriod overlaps "Measurement Year"
+      and D.placeOfService != '81')
   or exists(["Medication, Dispensed": "NCQA; ACE Inhibitor/ARB Medications"] M
     where M.relevantPeriod starts during "Measurement Year")
   or exists(["Procedure": "MIPS; Performance Met: G8506"] P
-    where P.relevantPeriod starts during "Measurement Year")
+    where P.relevantPeriod starts during "Measurement Year"
+      and P.placeOfService != '81')
 
 define "Numerator Performance Not Met":
   /*

@@ -46,9 +46,11 @@ define "Denominator Procedure":
 
 define "Sexual Activity Exists":
   exists("Denominator Procedure" P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+      and P.placeOfService != '81')
   or exists("Denominator Diagnosis" D
-    where D.prevalencePeriod starts during "Measurement Period")
+    where D.prevalencePeriod starts during "Measurement Period"
+      and D.placeOfService != '81')
   or exists(["Medication, Dispensed": "NCQA; Contraceptive Medications"] M
     where M.relevantPeriod starts during "Measurement Period")
 

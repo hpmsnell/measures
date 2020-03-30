@@ -70,7 +70,9 @@ define "Numerator Performance Met: Controlled HbA1c":
    */
   "Last HbA1c Result" < 8
   or exists([Procedure, Performed: "MIPS; Performance Not Met: 3044F"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+      and P.code.modifier not in "HEDIS; CPT Cat II Modifier"
+      and P.placeOfService != '81')
 
 define "Numerator Performance Not Met: High HbA1c":
   /*

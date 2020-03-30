@@ -63,8 +63,9 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   exists "Medication Reconciliation" MedRec
+    where MedRec.placeOfService != '81'
     with "Qualifying Discharge" Discharge
-      such that MedRec.relevantPeriod in Interval [Discharge.dischargeDate, Discharge.dischargeDate + 30 days)
+      such that MedRec.relevantPeriod starts during Interval [Discharge.dischargeDate, Discharge.dischargeDate + 30 days)
 
 define "Numerator Performance Not Met":
   /*

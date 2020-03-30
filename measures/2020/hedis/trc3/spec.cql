@@ -58,9 +58,10 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists("Patient Engagement" P
-    with "Qualifying Discharge" E
-      such that P.relevantPeriod starts 30 days or less after E.discharge_date)
+  exists("Patient Engagement" Engagement
+    where Engagement.placeOfService != '81'
+    with "Qualifying Discharge" Discharge
+      such that Engagement.relevantPeriod starts during Interval [Discharge.dischargeDate, Discharge.dischargeDate + 30 days)
 
 define "Numerator Performance Not Met":
   /*

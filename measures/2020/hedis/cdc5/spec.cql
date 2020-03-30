@@ -53,12 +53,15 @@ define "Eye Exam":
 define "Unilateral Enucleation":
   ["Assessment, Performed": "HEDIS; Unilateral Eye Enucleation"] A
     where A.authorDateTime before end of "Measurement Year"
+      and A.placeOfService != '81'
 
 define "Left and Right Enucleations Exist":
   exists(["Assessment, Performed": "HEDIS; Unilateral Eye Enucleation Left"] A
-    where A.authorDateTime before end of "Measurement Year")
+    where A.authorDateTime before end of "Measurement Year"
+      and A.placeOfService != '81')
   and exists(["Assessment, Performed": "HEDIS; Unilateral Eye Enucleation Right"] A
-    where A.authorDateTime before end of "Measurement Year")
+    where A.authorDateTime before end of "Measurement Year"
+      and A.placeOfService != '81')
 
 define "Two Unilateral Enucleations Exist":
   exists("Unilateral Enucleation" A1
@@ -87,22 +90,29 @@ define "Numerator Performance Met":
    */
   exists("Eye Exam" A
     where A.authorDateTime during "Measurement Year"
-      and A.signingProvider.specialty in ['Ophthalmology', 'Optometry'])
+      and A.signingProvider.specialty in ['Ophthalmology', 'Optometry']
+      and A.placeOfService != '81')
   or exists("Eye Exam" A
     where A.authorDateTime during [12 months before start of "Measurement Year", start of "Measurement Year"]
       and A.signingProvider.specialty in ['Ophthalmology', 'Optometry']
-      and A.result = 'Negative')
+      and A.result = 'Negative'
+      and A.placeOfService != '81')
   or exists(["Assessment, Performed": "HEDIS; Diabetic Retinal Screening Negative"] A
-    where A.authorDateTime during [12 months before start of "Measurement Year", start of "Measurement Year"])
+    where A.authorDateTime during [12 months before start of "Measurement Year", start of "Measurement Year"]
+      and A.placeOfService != '81')
   or exists("Eye Exam" A
     where A.authorDateTime during [12 months before start of "Measurement Year", start of "Measurement Year"]
       and A.signingProvider.specialty in ['Ophthalmology', 'Optometry']
+      and A.placeOfService != '81'
     with ["Diagnosis": "HEDIS; Diabetes Mellitus Without Complications"] D
+    where D.placeOfService != '81'
       such that D.prevalencePeriod starts at A.authorDateTime)
   or exists(["Assessment, Performed": "HEDIS; Diabetic Retinal Screening with Eye Care Professional"] A
-    where A.authorDateTime during "Measurement Year")
+    where A.authorDateTime during "Measurement Year"
+    and A.placeOfService != '81')
   or exists ("Unilateral Enucleation" A
-    where A.code.modifier in {'50'})
+    where A.code.modifier in {'50'}
+    and A.placeOfService != '81')
   or "Two Unilateral Enucleations Exist"
 
 define "Numerator Performance Not Met":

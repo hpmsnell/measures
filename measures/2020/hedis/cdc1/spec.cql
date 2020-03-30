@@ -138,12 +138,12 @@ define "Numerator Performance Met":
     where L.resultDateTime during "Measurement Year")
   or exists(["Procedure, Performed": "HEDIS; HbA1c Tests"] P
     where P.relevantPeriod starts during "Measurement Year")
-  or exists(["Procedure, Performed": "MIPS; Performance Met: 3046F"] P
-    where P.relevantPeriod starts during "Measurement Year")
-  or exists(["Procedure, Performed": "MIPS; Performance Not Met: 3045F"] P
-    where P.relevantPeriod starts during "Measurement Year")
-  or exists(["Procedure, Performed": "MIPS; Performance Not Met: 3044F"] P
-    where P.relevantPeriod starts during "Measurement Year")
+  or exists(["Procedure, Performed": "MIPS; Performance Met: 3046F"]
+    union ["Procedure, Performed": "MIPS; Performance Not Met: 3045F"]
+    union ["Procedure, Performed": "MIPS; Performance Not Met: 3044F"]) P
+    where P.relevantPeriod starts during "Measurement Year"
+      and P.code.modifier not in "HEDIS; CPT Cat II Modifier"
+      and P.placeOfService != '81')
 
 define "Numerator Performance Not Met":
   /*

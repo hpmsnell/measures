@@ -50,15 +50,15 @@ define "Visit":
   union ["Encounter, Performed": "Nonacute Inpatient"]
 
 define "Systolic":
-  ["Assessment, Performed": "HEDIS; Systolic Less Than 140"]
-  union ["Assessment, Performed": "HEDIS; Systolic Greater Than/Equal To 140"]
-  union ["Assessment, Performed": "VSAC; Systolic Blood Pressure"]
+  (["Assessment, Performed": "HEDIS; Systolic Less Than 140"]
+  union ["Assessment, Performed": "HEDIS; Systolic Greater Than/Equal To 140"]) Systolic
+    where Systolic.placeOfService != '81'
 
 define "Diastolic":
-  ["Assessment, Performed": "HEDIS; Diastolic Less Than 80"]
+  (["Assessment, Performed": "HEDIS; Diastolic Less Than 80"]
   union ["Assessment, Performed": "HEDIS; 80-89"]
-  union ["Assessment, Performed": "HEDIS; Diastolic Greater Than 90"]
-  union ["Assessment, Performed": "VSAC; Diastolic Blood Pressure"] A
+  union ["Assessment, Performed": "HEDIS; Diastolic Greater Than 90"]) Diastolic
+     where Diastolic.placeOfService != '81'
 
 define "Most Recent Systolic":
   First("Systolic" A
