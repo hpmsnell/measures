@@ -29,17 +29,12 @@ valueset "HEDIS; BMI Percentile": '2.16.840.1.113883.3.464.1004.1038'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Pregnancy": '2.16.840.1.113883.3.464.1004.1219'
 
-// VSAC value sets
-
-valueset "VSAC; BMI LOINC Value": '2.16.840.1.113883.3.600.1.681'
-valueset "VSAC; BMI percentile": '2.16.840.1.113883.3.464.1003.121.12.1012'
-
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 define "BMI":
-  ["Assessment, Performed": "VSAC; BMI LOINC Value"]
+  ["Assessment, Performed": "HEDIS; BMI"]
   union ["Diagnosis": "HEDIS; BMI"]
   union ["Procedure, Performed": "MIPS; Performance Met: G8420"]
   union ["Procedure, Performed": "MIPS; Performance Met: G8417"]
@@ -48,22 +43,24 @@ define "BMI":
   union ["Procedure, Performed": "MIPS; Performance Not Met: G8419"]
 
 define "Patient 20+ with BMI":
-  exists(["Encounter, Performed": "HEDIS; Outpatient"] E
-    where E.relevantPeriod starts during "Measurement Period"
-      and AgeInYearsAt(start of E.relevantPeriod) >= 20)
-  and exists("BMI" P
-    where P.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
+  exists(["Encounter, Performed": "HEDIS; Outpatient"] Outpatient
+    where Outpatient.relevantPeriod starts during "Measurement Period"
+      and AgeInYearsAt(start of Outpatient.relevantPeriod) >= 20)
+  and exists("BMI" BMI
+    where BMI.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"]
+      and BMI.placeOfService != '81')
 
 define "BMI Percentile":
   ["Diagnosis": "HEDIS; BMI Percentile"]
-  union ["Assessment, Performed": "VSAC; BMI percentile"]
+  union ["Assessment, Performed": "HEDIS; BMI Percentile"]
 
 define "Patient <20 with BMI Percentile":
-  exists(["Encounter, Performed": "HEDIS; Outpatient"] E
-    where E.relevantPeriod starts during "Measurement Period"
-      and AgeInYearsAt(start of E.relevantPeriod) < 20)
-  and exists("BMI Percentile" P
-    where P.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
+  exists(["Encounter, Performed": "HEDIS; Outpatient"] Outpatient
+    where Outpatient.relevantPeriod starts during "Measurement Period"
+      and AgeInYearsAt(start of Outpatient.relevantPeriod) < 20)
+  and exists("BMI Percentile" BMIPercentile
+    where BMIPercentile.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"]
+      and BMIPercentile.placeOfService != '81')
 
 // Populations
 
@@ -73,22 +70,23 @@ define "Initial Population":
 
 define "Denominator":
   "Initial Population"
-  and exists(["Encounter, Performed": "HEDIS; Outpatient"] E
-    where E.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
-      and E.supplemental = false
+  and exists(["Encounter, Performed": "HEDIS; Outpatient"] Outpatient
+    where Outpatient.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
+      and Outpatient.supplemental = false
 
 define "Exclusion: Hospice":
   /*
    * config_link_id: exclusion_required_hospice
    */
-   exists("Hospice During Period"("Measurement Period"))
+  exists("Hospice During Period"("Measurement Period"))
 
 define "Denominator Exclusion":
   /*
    * config_link_id: exclusion_optional_pregnancy
    */
-  exists(["Diagnosis": "HEDIS; Pregnancy"] D
-    where D.prevalencePeriod starts during [12 months before start of "Measurement Period", end of "Measurement Period"])
+  exists(["Diagnosis": "HEDIS; Pregnancy"] Pregnancy
+    where Pregnancy.prevalencePeriod starts during [12 months before start of "Measurement Period", end of "Measurement Period"]
+      and Pregnancy.supplemental == null)
 
 define "Numerator Performance Met":
   /*
