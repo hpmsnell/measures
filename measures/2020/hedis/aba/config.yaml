@@ -37,7 +37,7 @@ exclusion:
   - config_link_id: exclusion_required_hospice
     code_value:
     display_title: Hospice
-    description: Advance care planning performed during the measurement year
+    description: Patient in hospice during the measurement year
     component_groups:
     - components:
       - display_title: Hospice Service
@@ -47,6 +47,8 @@ exclusion:
           value_set: HEDIS; Hospice Encounter
         - model: ClinicalActivity
           value_set: HEDIS; Hospice Intervention
+        - model: ClinicalActivity
+          value_set: Able; MMDF Hospice
   - config_link_id: exclusion_optional_pregnancy
     code_value:
     display_title: Pregnancy

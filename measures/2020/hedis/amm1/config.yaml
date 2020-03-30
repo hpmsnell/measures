@@ -36,16 +36,24 @@ denominator:
         value_set: HEDIS; Antidepressant Medications
       - model: Medication
         value_set: NCQA; Antidepressant Medications
-  - logical_operator: AND NOT
-    components:
-    - display_title: Hospice Service
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: HEDIS; Hospice
 exclusion:
   description:
   reasons:
+  - config_link_id: exclusion_required_hospice
+    code_value:
+    display_title: Hospice
+    description: Patient in hospice during the measurement year
+    component_groups:
+    - components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Intervention
+        - model: ClinicalActivity
+          value_set: Able; MMDF Hospice
   - config_link_id: exclusion_1
     code_value:
     display_title: No Depression
