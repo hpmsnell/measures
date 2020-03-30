@@ -13,8 +13,8 @@ library hedis_shared version '1'
 /*
 Supports:
   - Hospice
-  - LTI
-  - SNP
+  - SNP: Enrolled in an Institutional SNP (I-SNP)
+  - LTI: Living long-term in an institution
   - Frailty (general without age qualification)
   - Advanced Illness
 */
