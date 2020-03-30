@@ -36,11 +36,8 @@ valueset "HEDIS; Observation"
 valueset "HEDIS; ED"
 valueset "HEDIS; Nonacute Inpatient"
 valueset "HEDIS; Acute Inpatient"
-
-// VSAC value sets
-
-valueset "VSAC; Diastolic Blood Pressure": '2.16.840.1.113883.3.526.3.1033'
-valueset "VSAC; Systolic Blood Pressure": '2.16.840.1.113883.3.526.3.1032'
+valueset "HEDIS; Diastolic Blood Pressure"
+valueset "HEDIS; Systolic Blood Pressure"
 
 parameter "Measurement Period" Interval<DateTime>
 

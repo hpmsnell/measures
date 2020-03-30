@@ -72,7 +72,7 @@ exclusion:
         - model: ClinicalActivity
           value_set: HEDIS; Hospice Intervention
         - model: ClinicalActivity
-          value_set: Able; MMDF Hospice    
+          value_set: Able; MMDF Hospice
   - config_link_id: exclusion_1
     code_value:
     display_title: Excluded Diabetes
@@ -151,7 +151,7 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: VSAC; Systolic Blood Pressure
+          value_set: HEDIS; Systolic Blood Pressure
       - display_title: Systolic Blood Pressure < 140
         logical_operator: OR
         show_codes: true
@@ -165,7 +165,7 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: VSAC; Diastolic Blood Pressure
+          value_set: HEDIS; Diastolic Blood Pressure
       - display_title: Diastolic Blood Pressure < 90
         logical_operator: OR
         show_codes: true
@@ -198,7 +198,7 @@ performance_not_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: VSAC; Systolic Blood Pressure
+          value_set: HEDIS; Systolic Blood Pressure
       - display_title: Systolic Blood Pressure ≥ 140
         logical_operator: OR
         show_codes: true
@@ -211,7 +211,7 @@ performance_not_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: VSAC; Diastolic Blood Pressure
+          value_set: HEDIS; Diastolic Blood Pressure
       - display_title: Diastolic Blood Pressure ≥ 90
         logical_operator: OR
         show_codes: true
