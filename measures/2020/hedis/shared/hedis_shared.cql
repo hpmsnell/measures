@@ -57,9 +57,10 @@ context Patient
 HOSPICE
 ----------------------------------------------------*/
 define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice Intervention"]
+  (["Intervention, Performed": "HEDIS; Hospice Intervention"]
   union ["Intervention, Performed": "Able; MMDF Hospice"]
-  union ["Encounter, Performed": "HEDIS; Hospice Encounter"]
+  union ["Encounter, Performed": "HEDIS; Hospice Encounter"]) Hospice
+  where Hospice.placeOfService != '81'
 
 define function "Hospice During Period"(Period Interval<DateTime>):
   exists(
@@ -96,11 +97,14 @@ define function "Frailty: Diagnosis or Symptoms During Period"(Period Interval<D
   union ["Diagnosis": "HEDIS; Frailty Symptom"])FrailDxSx
     where FrailDxSx.prevalencePeriod starts during Period)
       and FrailDxSx.supplemental = false
+      and FrailDxSx.placeOfService != '81'
+
 
 define function "Frailty: Encounter During Period"(Period Interval<DateTime>):
   ["Encounter, Performed": "HEDIS; Frailty Encounter"]FrailEnc
     where FrailEnc.relevantPeriod starts during Period
       and FrailEnc.supplemental = false
+      and FrailEnc.placeOfService != '81'
 
 define function "Frailty: Device During Period"(Period Interval<DateTime>):
   (["Device, Applied": "HEDIS; Frailty Device"]
@@ -108,6 +112,7 @@ define function "Frailty: Device During Period"(Period Interval<DateTime>):
   union ["Device, Recommended": "HEDIS; Frailty Device"])FrailDevice
     where FrailDevice.relevantPeriod starts during Period
       and FrailDevice.supplemental = false
+      and FrailDevice.placeOfService != '81'
 
 /*
   At least one claim/encounter for frailty (Frailty Device Value Set; Frailty Diagnosis Value Set; Frailty Encounter Value Set; Frailty Symptom Value Set)
@@ -162,8 +167,10 @@ define function "Advanced Illness: Visit During Period - Outpatient, Obs, ED, No
         QualifyingEncounters.diagnoses Diagnosis
         where Diagnosis.code in "HEDIS; Advanced Illness"
           and Diagnosis.supplemental = false
+          and Diagnosis.placeOfService != '81'
       )
       and QualifyingEncounters.supplemental = false
+      and QualifyingEncounters.placeOfService != '81'
 
 /*
 non-acute inpatient DISCHARGES
@@ -176,13 +183,16 @@ define function "Advanced Illness: Non-Acute Inpatient DISCHARGE During Period"(
       with (["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"])NonacuteIPFlag
         such that Inpatient.claimId = NonacuteIPFlag.claimId
           where Inpatient.dischargeDate during Period //NOTE: we're filtering by DISCHARGE DATE here
+          and Inpatient.placeOfService != '81'
       )
   ) QualifyingEncounters
   where exists (QualifyingEncounters.diagnoses Diagnosis
     where Diagnosis.code in "HEDIS; Advanced Illness"
       and Diagnosis.supplemental = false
+      and Diagnosis.placeOfService != '81'
     )
     and QualifyingEncounters.supplemental = false
+    and QualifyingEncounters.placeOfService != '81'
 
 //–	At least one acute inpatient encounter (Acute Inpatient Value Set) with an advanced illness diagnosis (Advanced Illness Value Set)
 define function "Advanced Illness: Acute Inpatient Encounter During Period"(Period Interval<DateTime>):
@@ -191,9 +201,11 @@ define function "Advanced Illness: Acute Inpatient Encounter During Period"(Peri
     QualifyingEncounters.diagnoses Diagnosis
     where Diagnosis.code in "HEDIS; Advanced Illness"
       and Diagnosis.supplemental = false
+      and Diagnosis.placeOfService != '81'
   )
   and QualifyingEncounters.supplemental = false
   and QualifyingEncounters.relevantPeriod starts during Period
+  and QualifyingEncounters.placeOfService != '81'
 
 //–	Acute inpatient DISCHARGE with an advanced illness diagnosis (Advanced Illness Value Set)
 define function "Advanced Illness: Acute Inpatient DISCHARGE During Period"(Period Interval<DateTime>):
@@ -201,9 +213,11 @@ define function "Advanced Illness: Acute Inpatient DISCHARGE During Period"(Peri
   where exists (QualifyingEncounters.diagnoses Diagnosis
     where Diagnosis.code in "HEDIS; Advanced Illness"
       and Diagnosis.supplemental = false
+      and Diagnosis.placeOfService != '81'
     )
     and QualifyingEncounters.supplemental = false
     and QualifyingEncounters.dischargeDate during Period
+    and QualifyingEncounters.placeOfService != '81'
 
 /*
 –	At least two outpatient visits ...
