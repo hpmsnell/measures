@@ -1,6 +1,6 @@
 ---
 measure:
-  name: 20.HEDIS.Bcs
+  name: 19.HEDIS.Bcs1
   required:
     display_title: Breast Cancer Screening
     inverse: false
@@ -23,38 +23,72 @@ measure:
 denominator:
   description: Women 52–74 years as of December 31 of the measurement year.
   component_groups:
+  - logical_operator: NOT
+    components:
+    - display_title: Hospice Service
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice Intervention
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice Encounter
 exclusion:
   description: Bilateral mastectomy any time during the member’s history through December
     31 of the measurement year.
   reasons:
-  - config_link_id: exclusion_required_hospice
+  - config_link_id: exclusion_1
     code_value:
-    display_title: Hospice
-    description: Patient in hospice during the measurement year
+    display_title: History of Mastectomy
+    description: Patient excluded due to history of mastectomy
     component_groups:
     - components:
-      - display_title: Hospice Service
+      - display_title: Bilateral Mastectomy
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Hospice Encounter
+          value_set: HEDIS; Bilateral Mastectomy
+        - model: Diagnosis
+          value_set: HEDIS; History of Bilateral Mastectomy
+    - logical_operator: OR
+      components:
+      - display_title: 2 Unilateral Mastectomies
+        show_codes: true
+        records:
         - model: ClinicalActivity
-          value_set: HEDIS; Hospice Intervention
+          value_set: HEDIS; Unilateral Mastectomy
+    - logical_operator: OR
+      components:
+      - display_title: Mastectomy with Bilateral Modifier
+        show_codes: true
+        annotation: 'with Clinical Bilateral Modifier'
+        records:
         - model: ClinicalActivity
-          value_set: Able; MMDF Hospice
-  - config_link_id: exclusion_required_frailty
+        value_set: HEDIS; Clinical Unilateral Mastectomy
+    - logical_operator: OR
+      components:
+      - display_title: Absence of Left Breast
+        show_codes: true
+        annotation: 'Unilateral Mastectomy Left with Clinical Left Modifier'
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Absence of Left Breast
+        - model: ClinicalActivity
+          value_set: HEDIS; Unilateral Mastectomy Left
+      - display_title: Absence of Right Breast
+        logical_operator: AND
+        show_codes: true
+        annotation: 'Unilateral Mastectomy Right with Clinical Right Modifier'
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Absence of Right Breast
+        - model: ClinicalActivity
+          value_set: HEDIS; Unilateral Mastectomy Right
+  - config_link_id: exclusion_2
     code_value:
     display_title: Frailty and Advanced Illness
     description: Patient excluded due to frailty and advanced illness
     component_groups:
     - components:
-      - display_title: LTI
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: Able; MMDF LTI
-    - logical_operator: 'OR BOTH OF THE FOLLOWING'
-      components:
       - display_title: Frailty
         show_codes: true
         records:
@@ -96,44 +130,6 @@ exclusion:
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Advanced Illness
-  - config_link_id: exclusion_optional_mastectomy
-    code_value:
-    display_title: Mastectomy
-    description: Patient had a bilateral mastectomy any time during the member’s history through December
-      31 of the measurement year.
-    component_groups:
-    - components:
-      - display_title: Bilateral Mastectomy
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Bilateral Mastectomy
-        - model: Diagnosis
-          value_set: HEDIS; History of Bilateral Mastectomy
-    - logical_operator: OR
-      components:
-      - display_title: 2 Unilateral Mastectomies
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Unilateral Mastectomy
-    - logical_operator: OR
-      components:
-      - display_title: Absence of Left Breast
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: HEDIS; Absence of Left Breast
-        - model: ClinicalActivity
-          value_set: HEDIS; Unilateral Mastectomy Left
-      - display_title: Absence of Right Breast
-        logical_operator: AND
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: HEDIS; Absence of Right Breast
-        - model: ClinicalActivity
-          value_set: HEDIS; Unilateral Mastectomy Right
 exception:
   description:
   reasons:

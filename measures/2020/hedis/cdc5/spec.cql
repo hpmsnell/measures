@@ -16,7 +16,6 @@ include "../shared/hedis_shared" version '1' called HedisShared
 
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Diabetes": '2.16.840.1.113883.3.464.1004.1077'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
@@ -48,9 +47,6 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Measurement Period and Year Prior":
-  Interval[start of "Measurement Period" - 1 years, end of "Measurement Period"]
-
 define "Eye Exam":
   ["Assessment, Performed": "HEDIS; Diabetic Retinal Screening"]
   union ["Assessment, Performed": "VSAC; Retinal or Dilated Eye Exam"]
@@ -58,18 +54,29 @@ define "Eye Exam":
 define "Unilateral Enucleation":
   ["Assessment, Performed": "HEDIS; Unilateral Eye Enucleation"] A
     where A.authorDateTime before end of "Measurement Year"
+      and A.placeOfService != '81'
 
 define "Left and Right Enucleations Exist":
   exists(["Assessment, Performed": "HEDIS; Unilateral Eye Enucleation Left"] A
-    where A.authorDateTime before end of "Measurement Year")
+    where A.authorDateTime before end of "Measurement Year"
+      and A.placeOfService != '81')
   and exists(["Assessment, Performed": "HEDIS; Unilateral Eye Enucleation Right"] A
-    where A.authorDateTime before end of "Measurement Year")
+    where A.authorDateTime before end of "Measurement Year"
+      and A.placeOfService != '81')
 
 define "Two Unilateral Enucleations Exist":
   exists("Unilateral Enucleation" A1
     with "Unilateral Enucleation" A2
       such that A1.authorDateTime 14 days or more after A2.authorDateTime)
   or "Left and Right Enucleations Exist"
+
+/* Populations */
+
+define "Exclusion: Hospice":
+	   /*
+	   * config_link_id: exclusion_required_hospice
+	   */
+	   exists("Hospice During Period"("Measurement Period"))
 
 define "Denominator":
   "HEDIS CDC1: Denominator"
@@ -80,18 +87,11 @@ define "Denominator Exclusion: Diagnosis"
   */
   "HEDIS CDC1: Denominator Exclusion: Diagnosis"
 
-define "Exclusion: Hospice":
-   /*
-   * config_link_id: exclusion_required_hospice
-   */
-   "HEDIS CDC1: Exclusion: Hospice"
-
 define "Denominator Exclusion: Frailty or Advanced Illness"
   /*
-  * config_link_id: exclusion_required_frailty
+  * config_link_id: exclusion_2
   */
-  "HEDIS CDC1: Denominator Exclusion: Frailty and Advanced Illness"
-
+  "HEDIS CDC1: Denominator Exclusion: Frailty or Advanced Illness"
 
 define "Numerator Performance Met":
   /*
@@ -99,22 +99,29 @@ define "Numerator Performance Met":
    */
   exists("Eye Exam" A
     where A.authorDateTime during "Measurement Year"
-      and A.signingProvider.specialty in ['Ophthalmology', 'Optometry'])
+      and A.signingProvider.specialty in ['Ophthalmology', 'Optometry']
+      and A.placeOfService != '81')
   or exists("Eye Exam" A
     where A.authorDateTime during [12 months before start of "Measurement Year", start of "Measurement Year"]
       and A.signingProvider.specialty in ['Ophthalmology', 'Optometry']
-      and A.result = 'Negative')
+      and A.result = 'Negative'
+      and A.placeOfService != '81')
   or exists(["Assessment, Performed": "HEDIS; Diabetic Retinal Screening Negative"] A
-    where A.authorDateTime during [12 months before start of "Measurement Year", start of "Measurement Year"])
+    where A.authorDateTime during [12 months before start of "Measurement Year", start of "Measurement Year"]
+      and A.placeOfService != '81')
   or exists("Eye Exam" A
     where A.authorDateTime during [12 months before start of "Measurement Year", start of "Measurement Year"]
       and A.signingProvider.specialty in ['Ophthalmology', 'Optometry']
+      and A.placeOfService != '81'
     with ["Diagnosis": "HEDIS; Diabetes Mellitus Without Complications"] D
+    where D.placeOfService != '81'
       such that D.prevalencePeriod starts at A.authorDateTime)
   or exists(["Assessment, Performed": "HEDIS; Diabetic Retinal Screening with Eye Care Professional"] A
-    where A.authorDateTime during "Measurement Year")
+    where A.authorDateTime during "Measurement Year"
+    and A.placeOfService != '81')
   or exists ("Unilateral Enucleation" A
-    where A.code.modifier in {'50'})
+    where A.code.modifier in {'50'}
+    and A.placeOfService != '81')
   or "Two Unilateral Enucleations Exist"
 
 define "Numerator Performance Not Met":

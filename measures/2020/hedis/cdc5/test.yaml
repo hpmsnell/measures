@@ -631,64 +631,48 @@ patients:
       start_date: 2016-12-31 # Upper bound
 - name: ExclusionHospice Before
   attributes:
-    date_of_birth: 1970-01-01
+    date_of_birth: 1950-01-01
     given_name: ExclusionHospice
     family_name: Before
-    sex: Male
+    sex: female
   clinical_models:
     clinical_activities:
     - code_type: CPT
       code_value: 99377 # Hospice
       start_date: 2015-12-31 # Too early
-    medications:
-    - code_type: NDC
-      code_value: '00054014225'
-      start_date: 2016-01-01
 - name: ExclusionHospice Lower
   attributes:
-    date_of_birth: 1970-01-01
+    date_of_birth: 1950-01-01
     given_name: ExclusionHospice
     family_name: Lower
-    sex: Male
+    sex: female
   clinical_models:
     clinical_activities:
     - code_type: CPT
       code_value: 99377 # Hospice
       start_date: 2016-01-01 # Lower bound
-    medications:
-    - code_type: NDC
-      code_value: '00054014225'
-      start_date: 2016-01-01
 - name: ExclusionHospice Upper
   attributes:
-    date_of_birth: 1970-01-01
+    date_of_birth: 1950-01-01
     given_name: ExclusionHospice
     family_name: Upper
-    sex: Male
+    sex: female
   clinical_models:
     clinical_activities:
     - code_type: CPT
       code_value: 99377 # Hospice
       start_date: 2016-12-31 # Upper bound
-    medications:
-    - code_type: NDC
-      code_value: '00054014225'
-      start_date: 2016-01-01
 - name: ExclusionHospice After
   attributes:
-    date_of_birth: 1970-01-01
+    date_of_birth: 1950-01-01
     given_name: ExclusionHospice
     family_name: After
-    sex: Male
+    sex: female
   clinical_models:
     clinical_activities:
     - code_type: CPT
       code_value: 99377 # Hospice
-      start_date: 2017-01-01 # Too late
-    medications:
-    - code_type: NDC
-      code_value: '00054014225'
-      start_date: 2016-01-01
+            start_date: 2017-01-01 # Too late
 - name: ExclusionDiagnosis Before
   attributes:
     date_of_birth: 1970-01-01

@@ -22,7 +22,6 @@ valueset "MIPS; Performance Met: G8399" //DXA
 
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
@@ -40,25 +39,6 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-/*
-  A 12-month (1 year) window that...
-    - begins on July 1 of the year prior to the measurement year and
-    - ends on June 30 of the measurement year.
-*/
-define "Intake Period":
-  (year from start of "Measurement Period")IntakeYear
-  return Interval[Date(IntakeYear -1, 7, 1), Date(IntakeYear, 6, 30)]
-
-/*
-  intake period through the end of the measurement year
-*/
-define "Intake Period Through End of Measurement Period":
-  Interval[start of "Intake Period", end of "Measurement Period"]
-
-define "Measurement Period and Year Prior":
-  Interval[start of "Measurement Period" - 1 years, end of "Measurement Period"]
-
-
 define "Encounter":
   ["Encounter, Performed": "HEDIS; Outpatient"]
   union ["Encounter, Performed": "HEDIS; Observation"]
@@ -74,7 +54,7 @@ define "Encounter With Fracture":
     with "Fracture" D
       such that D.prevalencePeriod starts during E.relevantPeriod
 
-define "Fracture During Index Period":
+define "Fracture During Index Period"
   "Encounter With Fracture" E
     where E.relevantPeriod starts during [18 months before end of "Measurement Period", 6 months before end of "Measurement Period"]
 
@@ -105,37 +85,10 @@ define "Denominator":
   and not "First Fracture During Index Period Has Prior Diagnosis"
 
 define "Exclusion: Hospice":
-   /*
-   * config_link_id: exclusion_required_hospice
-   */
-   exists("Hospice During Period"("Measurement Period"))
-
-
-define "Denominator Exclusion: Frailty and Advanced Illness":
-  /*
-   * config_link_id: exclusion_required_frailty
-   */
-   (
-     AgeInYearsAt(end of "Measurement Period") >= 67
-     and (
-        "LTI During Period"("Intake Period Through End of Measurement Period")
-        or "SNP"
-     )
-   )
-   or (
-     AgeInYearsAt(end of "Measurement Period") between 67 and 80
-     and (
-        "LTI During Period"("Measurement Period")
-        or "SNP"
-        or ("Advanced Illness"("Measurement Period and Year Prior")
-             and ("Frailty: Claim During Period"("Intake Period Through End of Measurement Period")))
-     )
-   )
-   or (
-     AgeInYearsAt(end of "Measurement Period") >= 81
-     and ("Frailty: Claim During Period"("Intake Period Through End of Measurement Period"))
-   )
-
+	   /*
+	   * config_link_id: exclusion_required_hospice
+	   */
+	   exists("Hospice During Period"("Measurement Period"))
 
 define "Denominator Exclusion: Prior Treatment":
   /*

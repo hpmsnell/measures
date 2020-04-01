@@ -71,7 +71,7 @@ define "Patient <20 with BMI Percentile":
 // Populations
 
 define "Denominator":
-  AgeInYearsAt(24 months before end of "Measurement Period") >= 18
+  AgeInYearsAt(12 months before start of "Measurement Period") >= 18
   and AgeInYearsAt(end of "Measurement Period") < 75
   and exists(["Encounter, Performed": "HEDIS; Outpatient"] E
     where E.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])

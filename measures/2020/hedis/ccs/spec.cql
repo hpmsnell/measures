@@ -12,10 +12,10 @@ library HEDIS_CCS_2020 version '1'
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // HEDIS value sets
 
-valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
-valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
 valueset "HEDIS; Cervical Cytology Lab Test": '2.16.840.1.113883.3.464.1004.1525'
 valueset "HEDIS; Cervical Cytology Result or Finding": '2.16.840.1.113883.3.464.1004.1524'
 valueset "HEDIS; High Risk HPV Lab Test": '2.16.840.1.113883.3.464.1004.1527'
@@ -26,10 +26,6 @@ valueset "HEDIS; Absence of Cervix Diagnosis": '2.16.840.1.113883.3.464.1004.152
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
-
-define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice Encounter"]
-  union ["Encounter, Performed": "HEDIS; Hospice Encounter"]
 
 define "Cervical Cytology with Results":
   ["Procedure, Performed": "HEDIS; Cervical Cytology Lab Test"]
@@ -62,20 +58,21 @@ define "Denominator":
   and "Patient Characteristic Sex" = "Female"
 
 define "Exclusion: Hospice":
-  /*
-   * config_link_id: exclusion_required_hospice
-   */
-   exists("Hospice" Hospice
-     where Hospice.relevantPeriod starts during "Measurement Period")
+	   /*
+	   * config_link_id: exclusion_required_hospice
+	   */
+	   exists("Hospice During Period"("Measurement Period"))
 
 define "Denominator Exclusion":
   /*
    * config_link_id: exclusion_optional_cervix
    */
   exists(["Procedure, Performed": "HEDIS; Hysterectomy With No Residual Cervix"] P
-    where P.relevantPeriod starts before end of "Measurement Period")
+    where P.relevantPeriod starts before end of "Measurement Period"
+      and P.placeOfService != '81')
   or exists(["Diagnosis": "HEDIS; Absence of Cervix Diagnosis"] D
-    where D.prevalencePeriod starts before end of "Measurement Period")
+    where D.prevalencePeriod starts before end of "Measurement Period"
+      and D.placeOfService != '81')
 
 define "Numerator Performance Met":
   /*

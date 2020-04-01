@@ -118,9 +118,9 @@ define "Denominator Exclusion 1":
   exists(["Procedure, Performed": "Clinical Exclusion: G9231"] I
     where I.relevantPeriod starts during "Measurement Period")
   or exists("Excluded Diagnoses" D
-    where D.prevalencePeriod starts before end "Measurement Period")
+    where D.prevalencePeriod starts on or before end "Measurement Period")
   or exists("Excluded Procedures" P
-    where P.relevantPeriod starts before end "Measurement Period")
+    where P.relevantPeriod starts on or before end "Measurement Period")
   or exists(["Diagnosis": "VSAC; Pregnancy"] D
     where D.prevalencePeriod overlaps "Measurement Period")
 

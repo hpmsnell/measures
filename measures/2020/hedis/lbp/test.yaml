@@ -457,7 +457,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: CPT
-      code_value: G0182 # Hospice
+      code_value: G9687 # Hospice
       start_date: 2015-12-31 # Too early
     diagnoses:
     - code_type: ICD10CM
@@ -477,7 +477,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: CPT
-      code_value: G0182 # Hospice
+      code_value: G9687 # Hospice
       start_date: 2016-01-01 # Lower bound
     diagnoses:
     - code_type: ICD10CM
@@ -497,7 +497,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: CPT
-      code_value: G0182 # Hospice
+      code_value: G9687 # Hospice
       start_date: 2016-12-31 # Upper bound
     diagnoses:
     - code_type: ICD10CM
@@ -517,7 +517,7 @@ patients:
       start_date: 2016-02-01
       stop_date: 2016-02-01
     - code_type: CPT
-      code_value: G0182 # Hospice
+      code_value: G9687 # Hospice
       start_date: 2017-01-01 # Too late
     diagnoses:
     - code_type: ICD10CM
@@ -917,7 +917,7 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1005830 # Corticosteroid
-      start_date: 2015-11-02 # 90 days before
+      start_date: 2015-11-03 # 90 days before
 - name: ExclusionCorticosteroid After
   attributes:
     date_of_birth: 1980-01-01
@@ -938,7 +938,7 @@ patients:
     medications:
     - code_type: RXNORM
       code_value: 1005830 # Corticosteroid
-      start_date: 2015-11-03 # Less than 90 days
+      start_date: 2015-11-04 # Less than 90 days
 - name: ExclusionCorticosteroid 89Days
   attributes:
     date_of_birth: 1980-01-01
@@ -1190,4 +1190,3 @@ patients:
       code_value: M47.26 # Low back pain
       start_date: 2016-06-30
       stop_date: 2016-06-30
-
