@@ -37,7 +37,8 @@ NOTE: Despite the logic saying "well-child visit," it includes procedures and di
 define "Qualifying Encounter during Measurement Period":
   (
     //well-care encounter
-    (["Physical Exam, Performed": "HEDIS; Well-Care"]) WellCareEncounter
+    ["Physical Exam, Performed": "HEDIS; Well-Care"]
+    union ["Diagnosis, Performed": "HEDIS; Well-Care"]
     union (
         //well-care dx or well-care procedure to ANY encounter, NOT just well-care visit
         (["Encounter, Performed"]) AnyVisit //NOTE: NOT valid CQL, but ANY ENCOUNTER counts here
@@ -45,7 +46,7 @@ define "Qualifying Encounter during Measurement Period":
           union ["Physical Exam, Performed": "HEDIS; Well-Care"]) QualifyingEvent
         such that AnyVisit.relevantPeriod starts same day as start of QualifyingEvent.relevantPeriod
         where QualifyingEvent.placeOfService != '81' //just in case place of service says lab, filter it out
-      ) EncounterWithWellCareEvent
+      )
   ) QualifyingEncounter
   where QualifyingEncounter.relevantPeriod starts during "Measurement Period"
   and QualifyingEncounter.signingProvider.primaryCareProvider = true
