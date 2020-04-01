@@ -29,34 +29,47 @@ valueset "HEDIS; Chlamydia Tests": '2.16.840.1.113883.3.464.1004.1060'
 
 // NCQA medication list value sets
 
-valueset "NCQA; Retinoid Medications"
-valueset "NCQA; Contraceptive Medications"
+valueset "NCQA; Retinoid Medications": '2.16.840.1.113883.3.464.1004.2172'
+valueset "NCQA; Contraceptive Medications": '2.16.840.1.113883.3.464.1004.2048'
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Denominator Diagnosis":
-  ["Diagnosis": "HEDIS; Pregnancy"]
-  union ["Diagnosis": "HEDIS; Sexual Activity"]
 
-define "Denominator Procedure":
-  ["Procedure, Performed": "HEDIS; Pregnancy Tests"]
-  union ["Procedure, Performed": "HEDIS; Sexual Activity"]
+define "Denominator Pregnancy":
+  (["Diagnosis": "HEDIS; Pregnancy"]) P
+    where P.prevalencePeriod overlaps "Measurement Period"
+
+define "Denominator Sexual Activity":
+  ((["Diagnosis": "HEDIS; Sexual Activity"]) P
+    where P.prevalencePeriod overlaps "Measurement Period")
+  union ((["Procedure, Performed": "HEDIS; Sexual Activity"]) P
+    where P.relevantPeriod starts during "Measurement Period")
+
+define "Denominator Pregnancy Tests":
+  (["Procedure, Performed": "HEDIS; Pregnancy Tests"]) P
+    where P.relevantPeriod starts during "Measurement Period"
+
+define "Denominator Contraceptive Medications":
+  (["Medication, Dispensed": "NCQA; Contraceptive Medications"]) P
+    where P.relevantPeriod starts during "Measurement Period"
 
 define "Sexual Activity Exists":
-  exists("Denominator Procedure" P
-    where P.relevantPeriod starts during "Measurement Period")
-  or exists("Denominator Diagnosis" D
-    where D.prevalencePeriod starts during "Measurement Period")
-  or exists(["Medication, Dispensed": "NCQA; Contraceptive Medications"] M
-    where M.relevantPeriod starts during "Measurement Period")
+  exists (
+    "Denominator Pregnancy"
+    union "Denominator Sexual Activity"
+    union "Denominator Pregnancy Tests"
+    union "Denominator Contraceptive Medications"
+  )
 
 define "Only Pregnancy Test Exists":
-  not exists(["Procedure, Performed": "HEDIS; Sexual Activity"] P
-    where P.relevantPeriod starts during "Measurement Period")
-  and not exists("Denominator Diagnosis" D
-    where D.relevantPeriod overlaps "Measurement Period")
+  exists ("Denominator Pregnancy Tests")
+  and not exists (
+    "Denominator Pregnancy"
+    union "Denominator Sexual Activity"
+    union "Denominator Contraceptive Medications"
+  )
 
 define "Pregnancy Test Exclusion":
   ["Procedure, Performed": "HEDIS; Pregnancy Test Exclusion"]
