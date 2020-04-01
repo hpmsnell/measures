@@ -39,21 +39,28 @@ context Patient
 
 define "Denominator Pregnancy":
   (["Diagnosis": "HEDIS; Pregnancy"]) P
-    where P.prevalencePeriod overlaps "Measurement Period"
+    where P.prevalencePeriod starts during "Measurement Period"
+    and P.supplemental = false
 
 define "Denominator Sexual Activity":
   ((["Diagnosis": "HEDIS; Sexual Activity"]) P
-    where P.prevalencePeriod overlaps "Measurement Period")
+    where P.prevalencePeriod starts during "Measurement Period"
+      and P.supplemental = false
+    )
   union ((["Procedure, Performed": "HEDIS; Sexual Activity"]) P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+      and P.supplemental = false
+    )
 
 define "Denominator Pregnancy Tests":
   (["Procedure, Performed": "HEDIS; Pregnancy Tests"]) P
     where P.relevantPeriod starts during "Measurement Period"
+      and P.supplemental = false
 
 define "Denominator Contraceptive Medications":
   (["Medication, Dispensed": "NCQA; Contraceptive Medications"]) P
     where P.relevantPeriod starts during "Measurement Period"
+      and P.supplemental = false
 
 define "Sexual Activity Exists":
   exists (
