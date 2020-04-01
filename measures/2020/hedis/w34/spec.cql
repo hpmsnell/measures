@@ -19,10 +19,6 @@ include "../shared/hedis_shared" version '1' called HedisShared
 valueset "HEDIS; Well-Care": '2.16.840.1.113883.3.464.1004.1262'
 valueset "HEDIS; Telehealth POS": '2.16.840.1.113883.3.464.1004.1460'
 valueset "HEDIS; Telehealth Modifier": '2.16.840.1.113883.3.464.1004.1445'
-valueset "HEDIS; Ambulatory Visits": '2.16.840.1.113883.3.464.1004.1022'
-valueset "HEDIS; Other Ambulatory Visits": '2.16.840.1.113883.3.464.1004.1198'
-valueset "HEDIS; Telephone Visits": '2.16.840.1.113883.3.464.1004.1246'
-valueset "HEDIS; Online Assessments": '2.16.840.1.113883.3.464.1004.1446'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -44,7 +40,7 @@ define "Qualifying Encounter during Measurement Period":
     (["Physical Exam, Performed": "HEDIS; Well-Care"]) WellCareEncounter
     union (
         //well-care dx or well-care procedure to ANY encounter, NOT just well-care visit
-        ("Any Visit") AnyVisit
+        (["Encounter, Performed"]) AnyVisit //NOTE: NOT valid CQL, but ANY ENCOUNTER counts here
         with (["Diagnosis": "HEDIS; Well-Care"]
           union ["Physical Exam, Performed": "HEDIS; Well-Care"]) QualifyingEvent
         such that AnyVisit.relevantPeriod starts same day as start of QualifyingEvent.relevantPeriod
@@ -56,13 +52,6 @@ define "Qualifying Encounter during Measurement Period":
   and not QualifyingEncounter.placeOfService in "HEDIS; Telehealth POS"
   and not QualifyingEncounter.code.modifier in "HEDIS; Telehealth Modifier"
   and QualifyingEncounter.placeOfService != '81'
-
-define "Any Visit":
-  ["Diagnosis": "HEDIS; Well-Care"]
-  union ["Encounter, Performed": "HEDIS; Ambulatory Visits"]
-  union ["Encounter, Performed": "HEDIS; Other Ambulatory Visits"]
-  union ["Encounter, Performed": "HEDIS; Telephone Visits"]
-  union ["Encounter, Performed": "HEDIS; Online Assessments"]
 
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 3
