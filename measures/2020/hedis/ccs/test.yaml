@@ -231,6 +231,7 @@ patients:
     - code_type: LOINC
       code_value: 10524-7 # Cervical cytology
       start_date: 2014-01-01 # Lower bound
+      result: 1
 - name: Cytology Upper
   attributes:
     date_of_birth: 1970-01-01
@@ -242,6 +243,7 @@ patients:
     - code_type: LOINC
       code_value: 10524-7 # Cervical cytology
       start_date: 2016-12-31 # Upper bound
+      result: 1
 - name: Cytology After
   attributes:
     date_of_birth: 1970-01-01
@@ -263,7 +265,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 87622 # HPV Test
-      start_date: 2012-02-09 # Too early
+      start_date: 2011-12-31 # Too early
 - name: HPV Lower
   attributes:
     date_of_birth: 1970-01-01
@@ -296,7 +298,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 87622 # HPV Test
-      start_date: 2012-02-19 # Too late
+      start_date: 2017-01-01 # Too late
 - name: HPV TooYoung
   attributes:
     date_of_birth: 1983-02-15 # Too young
