@@ -41,6 +41,7 @@ define "Denominator Pregnancy":
   (["Diagnosis": "HEDIS; Pregnancy"]) P
     where P.prevalencePeriod starts during "Measurement Period"
     and P.supplemental = false
+    and P.placeOfService != 81
 
 define "Denominator Sexual Activity":
   ((["Diagnosis": "HEDIS; Sexual Activity"]) P
