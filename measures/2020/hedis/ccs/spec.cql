@@ -28,8 +28,8 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Cervical Cytology 24-64 within 3 years":
-  ["Procedure, Performed": "HEDIS; Cervical Cytology Lab Test"]
-  union (["Laboratory Test, Performed": "HEDIS; Cervical Cytology Lab Test"]
+  (["Procedure, Performed": "HEDIS; Cervical Cytology Lab Test"]
+  union ["Laboratory Test, Performed": "HEDIS; Cervical Cytology Lab Test"]
   union ["Laboratory Test, Performed": "HEDIS; Cervical Cytology Result or Finding"]) CervicalCytology
     where CervicalCytology.result is not null
       and AgeInYearsAt(end of "Measurement Period") >= 24
@@ -37,8 +37,8 @@ define "Cervical Cytology 24-64 within 3 years":
       and CervicalCytology.relevantPeriod starts 36 months or less before end of "Measurement Period"
 
 define "HPV Test 30-64 within 5 years":
-  ["Procedure, Performed": "HEDIS; High Risk HPV Lab Test"]
-  union (["Laboratory Test, Performed": "HEDIS; High Risk HPV Lab Test"]
+  (["Procedure, Performed": "HEDIS; High Risk HPV Lab Test"]
+  union ["Laboratory Test, Performed": "HEDIS; High Risk HPV Lab Test"]
   union ["Laboratory Test, Performed": "HEDIS; High Risk HPV Test Result or Finding"])HPVTest
     where HPVTest.result is not null
       and AgeInYearsAt(end of "Measurement Period") >= 30
