@@ -75,6 +75,7 @@ define "Denominator":
     without "Live Delivery" LD2
       such that LD1.relevantPeriod ends within 6 months of LD2.relevantPeriod
     where not exists "Hospice"
+    //exists (["Patient Characteristic Sex": "Female"])
 
 define "Numerator Performance Met":
   /*
