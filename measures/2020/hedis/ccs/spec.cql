@@ -27,28 +27,26 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Cervical Cytology with Results":
-  ["Procedure, Performed": "HEDIS; Cervical Cytology Lab Test"]
-  union (["Laboratory Test, Performed": "HEDIS; Cervical Cytology Lab Test"]
-  union ["Laboratory Test, Performed": "HEDIS; Cervical Cytology Result or Finding"])CervicalCytology
+define "Cervical Cytology 24-64 within 3 years":
+  (["Procedure, Performed": "HEDIS; Cervical Cytology Lab Test"]
+  union ["Procedure, Performed": "HEDIS; Cervical Cytology Result or Finding"]
+  union ["Laboratory Test, Performed": "HEDIS; Cervical Cytology Lab Test"]
+  union ["Laboratory Test, Performed": "HEDIS; Cervical Cytology Result or Finding"]) CervicalCytology
     where CervicalCytology.result is not null
+      and AgeInYearsAt(end of "Measurement Period") >= 24
+      and AgeInYearsAt(end of "Measurement Period") <= 64
+      and CervicalCytology.relevantPeriod starts 36 months or less before end of "Measurement Period"
 
-define "Cervical Cytology within 3 years":
-  "Cervical Cytology with Results" PapDone
-  where PapDone.relevantPeriod starts 36 months or less before end of "Measurement Period"
-
-define "HPV Test within 5 years":
-  ["Procedure, Performed": "HEDIS; High Risk HPV Lab Test"]
-  union (["Laboratory Test, Performed": "HEDIS; High Risk HPV Lab Test"]
+define "HPV Test 30-64 within 5 years":
+  (["Procedure, Performed": "HEDIS; High Risk HPV Lab Test"]
+  union ["Procedure, Performed": "HEDIS; High Risk HPV Test Result or Finding"]
+  union ["Laboratory Test, Performed": "HEDIS; High Risk HPV Lab Test"]
   union ["Laboratory Test, Performed": "HEDIS; High Risk HPV Test Result or Finding"])HPVTest
-    where AgeInYearsAt(start of HPVTest.relevantPeriod) >= 30
-    and HPVTest.result is not null
-    and HPVTest.relevantPeriod starts 60 months or less before end of "Measurement Period"
-
-define "Patient 30-64 with Cervical Cytology and HPV Test":
-  "Cervical Cytology with Results" PapTest
-    where AgeInYearsAt(start of PapTest.relevantPeriod) >= 30
-    and exists "HPV Test within 5 years" P2
+    where HPVTest.result is not null
+      and AgeInYearsAt(end of "Measurement Period") >= 30
+      and AgeInYearsAt(end of "Measurement Period") <= 64
+      and AgeInYearsAt(start of HPVTest.relevantPeriod) >= 30
+      and HPVTest.relevantPeriod starts 60 months or less before end of "Measurement Period"
 
 // Populations
 
@@ -78,8 +76,8 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  "Cervical Cytology within 3 years"
-  union "Patient 30-64 with Cervical Cytology and HPV Test"
+  "Cervical Cytology 24-64 within 3 years"
+    union "HPV Test 30-64 within 5 years"
 
 define "Numerator Performance Not Met":
   /*
