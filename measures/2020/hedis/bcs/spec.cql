@@ -23,6 +23,8 @@ valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
 valueset "HEDIS; Bilateral Mastectomy": '2.16.840.1.113883.3.464.1004.1042'
 valueset "HEDIS; History of Bilateral Mastectomy": '2.16.840.1.113883.3.464.1004.1331'
 valueset "HEDIS; Unilateral Mastectomy": '2.16.840.1.113883.3.464.1004.1256'
+valueset "HEDIS; Left Modifier": '2.16.840.1.113883.6.12'
+valueset "HEDIS; Right Modifier": '2.16.840.1.113883.6.12'
 valueset "HEDIS; Absence of Left Breast": '2.16.840.1.113883.3.464.1004.1329'
 valueset "HEDIS; Absence of Right Breast": '2.16.840.1.113883.3.464.1004.1330'
 valueset "HEDIS; Unilateral Mastectomy Left": '2.16.840.1.113883.3.464.1004.1334'
@@ -90,8 +92,10 @@ define "Advanced Illness Exists":
 define "Absence of Left Breast":
   ["Diagnosis": "HEDIS; Absence of Left Breast"]
   union ["Procedure, Performed": "HEDIS; Unilateral Mastectomy Left"]
-  union (["Procedure, Performed": "HEDIS; Unilateral Mastectomy"] P
+  union (["Procedure, Performed": "HEDIS; Clinical Unilateral Mastectomy"] P
     where P.code.modifier in "HEDIS; Clinical Left Modifier")
+  union (["Procedure, Performed": "HEDIS; Unilateral Mastectomy"] P
+    where P.code.modifier in "HEDIS; Left Modifier")
 
 define "Absence of Left Breast Confirmed":
   ("Absence of Left Breast" AbsentLt
@@ -104,8 +108,10 @@ define "Absence of Left Breast Confirmed":
 define "Absence of Right Breast":
   ["Diagnosis": "HEDIS; Absence of Right Breast"]
   union ["Procedure, Performed": "HEDIS; Unilateral Mastectomy Right"]
-  union (["Procedure, Performed": "HEDIS; Unilateral Mastectomy"] P
+  union (["Procedure, Performed": "HEDIS; Clinical Unilateral Mastectomy"] P
     where P.code.modifier in "HEDIS; Clinical Right Modifier")
+  union (["Procedure, Performed": "HEDIS; Unilateral Mastectomy"] P
+    where P.code.modifier in "HEDIS; Right Modifier")
 
 define "Absence of Right Breast Confirmed":
   "Absence of Right Breast" AbsentRt
