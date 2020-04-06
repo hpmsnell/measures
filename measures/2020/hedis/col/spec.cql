@@ -40,9 +40,6 @@ valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1189'
 valueset "HEDIS; Nonacute Inpatient Stay": '2.16.840.1.113883.3.464.1004.1398'
 valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1810'
 
-// NCQA medication list value sets
-
-valueset "NCQA; Dementia Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
