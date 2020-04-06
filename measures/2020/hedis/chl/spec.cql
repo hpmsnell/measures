@@ -39,9 +39,13 @@ context Patient
 
 define "Denominator Pregnancy":
   (["Diagnosis": "HEDIS; Pregnancy"]) P
+    with (["Encounter, Performed"]) E //ANY encounter
+      such that start of P.prevalencePeriod = start of E.relevantPeriod
     where P.prevalencePeriod starts during "Measurement Period"
     and P.supplemental = false
     and P.placeOfService != 81
+    and E.supplemental = false
+    and E.placeOfService != 81
 
 define "Denominator Sexual Activity":
   ((["Diagnosis": "HEDIS; Sexual Activity"]) P
