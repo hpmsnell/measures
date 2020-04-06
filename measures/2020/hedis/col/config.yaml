@@ -76,13 +76,6 @@ exclusion:
     description: Patient excluded due to frailty and advanced illness
     component_groups:
     - components:
-      - display_title: LTI
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: Able; MMDF LTI
-    - logical_operator: 'OR BOTH OF THE FOLLOWING'
-      components:
       - display_title: Frailty
         show_codes: true
         records:
@@ -104,7 +97,7 @@ exclusion:
       - logical_operator: 'OR BOTH:'
         display_title: Visit
         show_codes: true
-        annotation: 'Two visits are required if visit is not an acute inpatient visit', during the measurement year or the year prior to the measurement year (count services that occur over both years)'
+        annotation: 'Two visits are required if visit is not an acute inpatient visit, during the measurement year or the year prior to the measurement year (count services that occur over both years)'
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Outpatient
@@ -116,8 +109,6 @@ exclusion:
           value_set: HEDIS; Nonacute Inpatient
         - model: ClinicalActivity
           value_set: HEDIS; Nonacute Inpatient Stay
-        - model: ClinicalActivity
-          value_set: HEDIS; Inpatient Stay
       - logical_operator: AND
         display_title: Advanced Illness
         show_codes: true
