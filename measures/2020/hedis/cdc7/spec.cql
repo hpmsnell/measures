@@ -16,6 +16,7 @@ include "../shared/hedis_shared" version '1' called HedisShared
 
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Diabetes": '2.16.840.1.113883.3.464.1004.1077'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
@@ -36,27 +37,33 @@ valueset "HEDIS; Observation"
 valueset "HEDIS; ED"
 valueset "HEDIS; Nonacute Inpatient"
 valueset "HEDIS; Acute Inpatient"
-valueset "HEDIS; Diastolic Blood Pressure"
-valueset "HEDIS; Systolic Blood Pressure"
+
+// VSAC value sets
+
+valueset "VSAC; Diastolic Blood Pressure": '2.16.840.1.113883.3.526.3.1033'
+valueset "VSAC; Systolic Blood Pressure": '2.16.840.1.113883.3.526.3.1032'
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
+
+define "Measurement Period and Year Prior":
+  Interval[start of "Measurement Period" - 1 years, end of "Measurement Period"]
 
 define "Visit":
   ["Encounter, Performed": "Outpatient"]
   union ["Encounter, Performed": "Nonacute Inpatient"]
 
 define "Systolic":
-  (["Assessment, Performed": "HEDIS; Systolic Less Than 140"]
-  union ["Assessment, Performed": "HEDIS; Systolic Greater Than/Equal To 140"]) Systolic
-    where Systolic.placeOfService != '81'
+  ["Assessment, Performed": "HEDIS; Systolic Less Than 140"]
+  union ["Assessment, Performed": "HEDIS; Systolic Greater Than/Equal To 140"]
+  union ["Assessment, Performed": "VSAC; Systolic Blood Pressure"]
 
 define "Diastolic":
-  (["Assessment, Performed": "HEDIS; Diastolic Less Than 80"]
+  ["Assessment, Performed": "HEDIS; Diastolic Less Than 80"]
   union ["Assessment, Performed": "HEDIS; 80-89"]
-  union ["Assessment, Performed": "HEDIS; Diastolic Greater Than 90"]) Diastolic
-     where Diastolic.placeOfService != '81'
+  union ["Assessment, Performed": "HEDIS; Diastolic Greater Than 90"]
+  union ["Assessment, Performed": "VSAC; Diastolic Blood Pressure"] A
 
 define "Most Recent Systolic":
   First("Systolic" A
@@ -99,12 +106,6 @@ define "Most Recent Diastolic Is Normal"
 
 /* Populations */
 
-define "Exclusion: Hospice":
-	   /*
-	   * config_link_id: exclusion_required_hospice
-	   */
-	   exists("Hospice During Period"("Measurement Period"))
-
 define "Denominator":
   "HEDIS CDC1: Denominator"
 
@@ -114,11 +115,18 @@ define "Denominator Exclusion: Diagnosis"
   */
   "HEDIS CDC1: Denominator Exclusion: Diagnosis"
 
+define "Exclusion: Hospice":
+   /*
+   * config_link_id: exclusion_required_hospice
+   */
+   "HEDIS CDC1: Exclusion: Hospice"
+
 define "Denominator Exclusion: Frailty or Advanced Illness"
   /*
-  * config_link_id: exclusion_2
+  * config_link_id: exclusion_required_frailty
   */
-  "HEDIS CDC1: Denominator Exclusion: Frailty or Advanced Illness"
+  "HEDIS CDC1: Denominator Exclusion: Frailty and Advanced Illness"
+
 
 define "Numerator Performance Met: Normal Blood Pressure":
   /*

@@ -12,8 +12,6 @@ library HEDIS_COA4_2020 version '1'
 
 using QDM
 
-include "../shared/hedis_shared" version '1' called HedisShared
-
 // MIPS value sets
 
 valueset "MIPS; Performance Met: G8730" //Pain Assessment
@@ -21,8 +19,9 @@ valueset "MIPS; Performance Met: G8731" //Pain Assessment
 
 // HEDIS value sets
 
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
 valueset "HEDIS; Pain Assessment": '2.16.840.1.113883.3.464.1004.1104'
-valueset "HEDIS; CPT CAT II Modifier": '2.16.840.1.113883.3.464.1004.1464'
 
 // Able value sets
 
@@ -40,6 +39,10 @@ define "Pain Assessment":
   union ["MIPS; Performance Met: G8730"]
   union ["MIPS; Performance Met: G8731"]
 
+define "Hospice":
+  ["Intervention, Performed": "HEDIS; Hospice Intervention"]
+  union ["Encounter, Performed": "HEDIS; Hospice Encounter"]
+
 /* Populations */
 
 define "Denominator":
@@ -49,7 +52,8 @@ define "Exclusion: Hospice":
   /*
    * config_link_id: exclusion_required_hospice
    */
-   exists("Hospice During Period"("Measurement Period"))
+   exists("Hospice" Hospice
+     where Hospice.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Met":
   /*
@@ -58,21 +62,8 @@ define "Numerator Performance Met":
   exists("Pain Assessment" PA
     where PA.relevantPeriod starts during "Measurement Period"
       and PA.code.placeOfService not in "HEDIS; Acute Inpatient POS"
-      and PA.placeOfService != '81'
-      and PA.code.modifiers not in "HEDIS; CPT CAT II Modifier"
     without ["Procedure, Performed": "HEDIS; Acute Inpatient"] Inpatient
-      such that (
-        (
-          FSA.claimId != null
-          and FSA.claimId = Inpatient.claimId
-        )
-        or (
-          FSA.claimId == null
-          and FSA.startDate = Inpatient.startDate
-
-        )
-      )
-    )
+      such that PA.claimId = Inpatient.claimId)
 
 define "Numerator Performance Not Met":
   /*

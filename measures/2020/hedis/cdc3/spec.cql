@@ -16,6 +16,7 @@ include "../shared/hedis_shared" version '1' called HedisShared
 
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Diabetes": '2.16.840.1.113883.3.464.1004.1077'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
@@ -43,20 +44,15 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
+define "Measurement Period and Year Prior":
+  Interval[start of "Measurement Period" - 1 years, end of "Measurement Period"]
+
 define "Last HbA1c Result":
   Last(["Laboratory Test, Performed": "HEDIS; HbA1c Tests"] L
     where L.resultDateTime during "Measurement Year"
       and not L.result = null
     sort by L.resultDateTime asc
     return L.result)
-
-/* Populations */
-
-define "Exclusion: Hospice":
-	   /*
-	   * config_link_id: exclusion_required_hospice
-	   */
-	   exists("Hospice During Period"("Measurement Period"))
 
 define "Denominator":
   "HEDIS CDC1: Denominator"
@@ -67,11 +63,18 @@ define "Denominator Exclusion: Diagnosis"
   */
   "HEDIS CDC1: Denominator Exclusion: Diagnosis"
 
+define "Exclusion: Hospice":
+   /*
+   * config_link_id: exclusion_required_hospice
+   */
+   "HEDIS CDC1: Exclusion: Hospice"
+
 define "Denominator Exclusion: Frailty or Advanced Illness"
   /*
-  * config_link_id: exclusion_2
+  * config_link_id: exclusion_required_frailty
   */
-  "HEDIS CDC1: Denominator Exclusion: Frailty or Advanced Illness"
+  "HEDIS CDC1: Denominator Exclusion: Frailty and Advanced Illness"
+
 
 define "Numerator Performance Met: Controlled HbA1c":
   /*
@@ -79,9 +82,7 @@ define "Numerator Performance Met: Controlled HbA1c":
    */
   "Last HbA1c Result" < 8
   or exists([Procedure, Performed: "MIPS; Performance Not Met: 3044F"] P
-    where P.relevantPeriod starts during "Measurement Period"
-      and P.code.modifier not in "HEDIS; CPT Cat II Modifier"
-      and P.placeOfService != '81')
+    where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met: High HbA1c":
   /*

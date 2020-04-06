@@ -51,7 +51,7 @@ exclusion:
   - config_link_id: exclusion_required_hospice
     code_value:
     display_title: Hospice
-    description: Patient in hospice during the measurement year
+    description: Advance care planning performed during the measurement year
     component_groups:
     - components:
       - display_title: Hospice Service
@@ -87,6 +87,60 @@ exclusion:
           value_set: 'MIPS; Performance Met: G8633'
         - model: ClinicalActivity
           value_set: "MIPS; Performance Met: G8399"
+  - config_link_id: exclusion_required_frailty
+    code_value:
+    display_title: Frailty and Advanced Illness
+    description: Patient excluded due to frailty and advanced illness
+    component_groups:
+    - components:
+      - display_title: LTI
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: Able; MMDF LTI
+    - logical_operator: 'OR BOTH OF THE FOLLOWING'
+      components:
+      - display_title: Frailty
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Frailty Diagnosis
+        - model: Diagnosis
+          value_set: HEDIS; Frailty Symptom
+        - model: ClinicalActivity
+          value_set: HEDIS; Frailty Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Frailty Device
+    - logical_operator: AND
+      components:
+      - display_title: Dementia Medication
+        show_codes: false
+        records:
+        - model: Medication
+          value_set: NCQA; Dementia Medications
+      - logical_operator: 'OR BOTH:'
+        display_title: Visit
+        show_codes: true
+        annotation: 'Two visits are required if visit is not an acute inpatient visit', during the measurement year or the year prior to the measurement year (count services that occur over both years)'
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Outpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Observation
+        - model: ClinicalActivity
+          value_set: HEDIS; ED
+        - model: ClinicalActivity
+          value_set: HEDIS; Nonacute Inpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Nonacute Inpatient Stay
+        - model: ClinicalActivity
+          value_set: HEDIS; Inpatient Stay
+      - logical_operator: AND
+        display_title: Advanced Illness
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Advanced Illness
 exception:
   description:
   reasons:

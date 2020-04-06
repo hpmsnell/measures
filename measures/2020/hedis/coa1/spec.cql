@@ -12,12 +12,11 @@ library HEDIS_COA1_2020 version '1'
 
 using QDM
 
-include "../shared/hedis_shared" version '1' called HedisShared
-
 // HEDIS value sets
 
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
 valueset "HEDIS; Advance Care Planning": '2.16.840.1.113883.3.464.1004.1020'
-valueset "HEDIS; CPT CAT II Modifier": '2.16.840.1.113883.3.464.1004.1464'
 
 // Able Value Sets
 
@@ -34,6 +33,10 @@ define "Advance Care Planning":
   union ["Procedure, Performed": "Able; Advance Directive"]
   union ["Procedure, Performed": "Able; Advance Directive Discussed"]
 
+define "Hospice":
+  ["Intervention, Performed": "HEDIS; Hospice Intervention"]
+  union ["Encounter, Performed": "HEDIS; Hospice Encounter"]
+
 /* Populations */
 
 define "Denominator":
@@ -43,16 +46,15 @@ define "Exclusion: Hospice":
   /*
    * config_link_id: exclusion_required_hospice
    */
-  exists("Hospice During Period"("Measurement Period"))
+   exists("Hospice" Hospice
+     where Hospice.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists("Advance Care Planning" CarePlan
-    where CarePlan.relevantPeriod starts during "Measurement Period"
-      and CarePlan.placeOfService != '81'
-      and CarePlan.code.modifiers not in "HEDIS; CPT CAT II Modifier")
+  exists("Advance Care Planning" P
+    where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met":
   /*

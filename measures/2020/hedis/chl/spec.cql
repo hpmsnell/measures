@@ -12,14 +12,14 @@ library HEDIS_CHL_2020 version '1'
 
 using QDM
 
-include "../shared/hedis_shared" version '1' called HedisShared
-
 // MIPS value sets
 
 valueset "MIPS; Performance Met: G9820" //Chlamydia Screening
 
 // HEDIS value sets
 
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
 valueset "HEDIS; Pregnancy": '2.16.840.1.113883.3.464.1004.1219'
 valueset "HEDIS; Pregnancy Tests": '2.16.840.1.113883.3.464.1004.1221'
 valueset "HEDIS; Sexual Activity": '2.16.840.1.113883.3.464.1004.1238'
@@ -29,12 +29,15 @@ valueset "HEDIS; Chlamydia Tests": '2.16.840.1.113883.3.464.1004.1060'
 
 // NCQA medication list value sets
 
-valueset "NCQA; Retinoid Medications"
-valueset "NCQA; Contraceptive Medications"
+valueset "HEDIS; Retinoid Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
+
+define "Hospice":
+  ["Intervention, Performed": "HEDIS; Hospice Intervention"]
+  union ["Encounter, Performed": "HEDIS; Hospice Encounter"]
 
 define "Denominator Diagnosis":
   ["Diagnosis": "HEDIS; Pregnancy"]
@@ -46,13 +49,9 @@ define "Denominator Procedure":
 
 define "Sexual Activity Exists":
   exists("Denominator Procedure" P
-    where P.relevantPeriod starts during "Measurement Period"
-      and P.placeOfService != '81')
+    where P.relevantPeriod starts during "Measurement Period")
   or exists("Denominator Diagnosis" D
-    where D.prevalencePeriod starts during "Measurement Period"
-      and D.placeOfService != '81')
-  or exists(["Medication, Dispensed": "NCQA; Contraceptive Medications"] M
-    where M.relevantPeriod starts during "Measurement Period")
+    where D.prevalencePeriod starts during "Measurement Period")
 
 define "Only Pregnancy Test Exists":
   not exists(["Procedure, Performed": "HEDIS; Sexual Activity"] P
@@ -82,10 +81,11 @@ define "Denominator":
   and "Sexual Activity Exists"
 
 define "Exclusion: Hospice":
-	   /*
-	   * config_link_id: exclusion_required_hospice
-	   */
-	   exists("Hospice During Period"("Measurement Period"))
+  /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice" Hospice
+     where Hospice.relevantPeriod starts during "Measurement Period")
 
 define "Denominator Exclusion":
   /*

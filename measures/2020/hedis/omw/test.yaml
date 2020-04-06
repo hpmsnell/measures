@@ -424,47 +424,79 @@ patients:
       stop_date: 2016-02-03
 - name: ExclusionHospice Before
   attributes:
-    date_of_birth: 1950-01-01
+    date_of_birth: 1940-01-01
     given_name: ExclusionHospice
     family_name: Before
-    sex: female
+    sex: Female
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 99377 # Hospice
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: G0182 # Hospice
       start_date: 2015-12-31 # Too early
 - name: ExclusionHospice Lower
   attributes:
-    date_of_birth: 1950-01-01
+    date_of_birth: 1940-01-01
     given_name: ExclusionHospice
     family_name: Lower
-    sex: female
+    sex: Female
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 99377 # Hospice
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: G0182 # Hospice
       start_date: 2016-01-01 # Lower bound
 - name: ExclusionHospice Upper
   attributes:
-    date_of_birth: 1950-01-01
+    date_of_birth: 1940-01-01
     given_name: ExclusionHospice
     family_name: Upper
-    sex: female
+    sex: Female
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 99377 # Hospice
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: G0182 # Hospice
       start_date: 2016-12-31 # Upper bound
 - name: ExclusionHospice After
   attributes:
-    date_of_birth: 1950-01-01
+    date_of_birth: 1940-01-01
     given_name: ExclusionHospice
     family_name: After
-    sex: female
+    sex: Female
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 99377 # Hospice
+      code_value: 99201 # Outpatient encounter
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 21811 # Fracture
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: G0182 # Hospice
       start_date: 2017-01-01 # Too late
 - name: ExclusionPriorEncounter Before
   attributes:

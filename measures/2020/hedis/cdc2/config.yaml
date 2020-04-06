@@ -61,7 +61,7 @@ exclusion:
   - config_link_id: exclusion_required_hospice
     code_value:
     display_title: Hospice
-    description: Patient in hospice during the measurement year
+    description: Advance care planning performed during the measurement year
     component_groups:
     - components:
       - display_title: Hospice Service
@@ -85,7 +85,7 @@ exclusion:
         records:
         - model: Diagnosis
           value_set: HEDIS; Diabetes Exclusions
-  - config_link_id: exclusion_2
+  - config_link_id: exclusion_required_frailty
     code_value:
     display_title: Frailty and Advanced Illness
     description: Patient excluded due to frailty and advanced illness
