@@ -88,8 +88,9 @@ define "Pregnancy Test Exclusion":
   union ["Laboratory Test, Performed": "HEDIS; Pregnancy Test Exclusion"]
 
 define "Retinoid or Diagnostic Radiology":
-  ["Procedure, Performed": "HEDIS; Diagnostic Radiology"]
-  union ["Medication, Dispensed": "NCQA; Retinoid Medications"]
+  (["Procedure, Performed": "HEDIS; Diagnostic Radiology"]) Radiology
+    where Radiology.placeOfService != 81
+  union (["Medication, Dispensed": "NCQA; Retinoid Medications"]) Meds
 
 define "Chlamydia Tests":
   ["Procedure, Performed": "HEDIS; Chlamydia Tests"]
