@@ -40,7 +40,7 @@ context Patient
 define "Denominator Pregnancy":
   (["Diagnosis": "HEDIS; Pregnancy"]) P
     with (["Encounter, Performed"]) E //ANY encounter
-      such that start of P.prevalencePeriod = start of E.relevantPeriod
+      such that P.claimId = E.claimId
     where P.prevalencePeriod starts during "Measurement Period"
     and P.supplemental = false
     and P.placeOfService != 81
