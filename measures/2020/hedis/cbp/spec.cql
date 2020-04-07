@@ -12,6 +12,8 @@ library HEDIS_CBP_2020 version '1'
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // MIPS value sets
 
 valueset "MIPS; Performance Met: G8752" //Systolic BP <140
@@ -26,6 +28,7 @@ valueset "MIPS; Performance Not Met: G8952" //Hypertensive BP
 
 valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
 valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
+valueset "Able; MMDF Hospice": ''
 valueset "HEDIS; Outpatient Without UBREV": '2.16.840.1.113883.3.464.1004.1203'
 valueset "HEDIS; Essential Hypertension": '2.16.840.1.113883.3.464.1004.1122'
 valueset "HEDIS; ESRD": '2.16.840.1.113883.3.464.1004.1089'
@@ -62,30 +65,72 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice Intervention"]
-  union ["Encounter, Performed": "HEDIS; Hospice Encounter"]
+/*
+  we need to count the DISTINCT DATES of service for the following criteria
 
+  Members who had at least two visits on different dates of service
+  with a diagnosis of hypertension
+  during the measurement year or the year prior to the measurement year
+  (count services that occur over both years).
+*/
 define "Distinct Dates of Telehealth Encounters with Hypertension":
    distinct(((
-     ((["Encounter, Performed": "HEDIS; Telephone Visits"]
-	    union ["Encounter, Performed": "HEDIS; Online Assessments"]
-      union ["Encounter, Performed": "HEDIS; Outpatient Without UBREV"] UBREV
-          where UBREV..... pos, etc. //FIXME
-      ) E
-	      with ["Diagnosis": "HEDIS; Essential Hypertension"] D
-	        such that D.prevalencePeriod starts during E.relevantPeriod
-	           where E.relevantPeriod starts 2 years or less before end of "Measurement Period"
+     (
+       /*
+       •	A telephone visit (Telephone Visits Value Set) with any diagnosis of hypertension (Essential Hypertension Value Set).
+       •	An online assessment (Online Assessments Value Set) with any diagnosis of hypertension (Essential Hypertension Value Set).
+       */
+       //telephone visits or online assessments
+      ((["Encounter, Performed": "HEDIS; Telephone Visits"]
+	     union ["Encounter, Performed": "HEDIS; Online Assessments"]
+      ) TelephoneOrOnlineEncounters
+      with ["Diagnosis": "HEDIS; Essential Hypertension"] D
+        such that D.claimId = TelephoneOrOnlineEncounters.claimId
+      where TelephoneOrOnlineEncounters.relevantPeriod starts 2 years or less before end of "Measurement Period"
+        and E.placeOfService != 81
+        and E.supplmental = false
+        and D.placeOfService != 81
+        and D.supplmental = false
+        //NOTE: not sure if we need to filter by telehealth pos/modifier here as well - leaving be for now
+      )
+
+      /*
+        Identify outpatient telehealth visits by the presence of
+          - a telehealth modifier (Telehealth Modifier Value Set)
+          - or the presence of a telehealth POS code (Telehealth POS Value Set)
+        associated with the outpatient visit
+      */
+      //outpatient telehealth
+      union (["Encounter, Performed": "HEDIS; Outpatient Without UBREV"] UBREV
+        with ["Diagnosis": "HEDIS; Essential Hypertension"] D
+          such that D.claimId = E.claimId
+        where E.relevantPeriod starts 2 years or less before end of "Measurement Period"
+          and E.supplmental = false
+          and (
+              //MUST BE either telehealth POS or modifier
+              E.placeOfService in "HEDIS; Telehealth POS"
+              or E.code.modifier in "HEDIS; Telehealth Modifier"
+            )
+          and D.placeOfService != 81
+          and D.supplmental = false
+      )
+
       ).relevantPeriod) start) date)
 
+/*
+  we need to count the DISTINCT DATES of service for the following criteria
+*/
 define "Distinct Dates of Non-Telehealth Encounters with Hypertension":
     distinct(((
       ((["Encounter, Performed": "HEDIS; Outpatient Without UBREV"]) E
 	      with ["Diagnosis": "HEDIS; Essential Hypertension"] D
-	        such that D.prevalencePeriod starts during E.relevantPeriod
-	           where E.relevantPeriod starts 2 years or less before end of "Measurement Period"
+	        such that D.claimId = E.claimId
+        where E.relevantPeriod starts 2 years or less before end of "Measurement Period"
+          and D.placeOfService != 81
+          and E.supplmental = false
+          and not E.placeOfService in {81, "HEDIS; Telehealth POS"} //DO NOT INCLUDE telehealth or lab
+          and not E.code.modifier in "HEDIS; Telehealth Modifier" //DO NOT INCLUDE telehealth
       ).relevantPeriod) start) date)
-      return day of start of E.relevantPeriod
 
 define "Count of Visits with Hypertension Diagnosis":
     //we only allow a max of ONE telehealth over the period - and we need to make sure it doesn't intersect with non-telehealth
@@ -95,27 +140,15 @@ define "Count of Visits with Hypertension Diagnosis":
     	union "Distinct Dates of Non-Telehealth Encounters with Hypertension"
     )
 
-define "Visit with Hypertension":
-  "Visit" Visit
-    where Visit.relevantPeriod starts during "Measurement Period"
-    with ["Diagnosis": "HEDIS; Hypertension"] Hypertension
-      such that Hypertension.claimId = Visit.claimId
-
-define "Non-Telehealth Visit with Hypertension":
-  ["Encounter, Performed": "HEDIS; Outpatient without UBREV"] Visit
-    where Visit.relevantPeriod starts during "Measurement Period"
-      and not Visit.code.modifiers in "HEDIS; "
-      and not Visit.placeOfService in "HEDIS; "
-    with ["Diagnosis": "HEDIS; Hypertension"] Hypertension
-      such that Hypertension.claimId = Visit.claimId
-
-define "Visits with Hypertension Exist":
-  exists("Visit With Hypertension" Visit
-    with "Non-Telehealth Visit with Hypertension" NonTelehealth
-      such that start of Visit.relevantPeriod != start of NonTelehealth.relevantPeriod)
-
 define "Second Hypertension Diagnosis":
-  (["Diagnosis": "HEDIS; Essential Hypertension"] D sort by start of prevalencePeriod asc)[1] //prevalencePeriod //note we want the second element here
+  ((["Diagnosis": "HEDIS; Essential Hypertension"] D
+      with ["Encounter, Performed"]  E //ANY encounter
+        such that D.claimId = E.claimId
+      where
+        D.placeOfService != 81
+        and E.placeOfService != 81
+  ) HypertensionDX
+  sort by start of prevalencePeriod asc)[1] //prevalencePeriod //note we want the second element here
 
 define "Encounters On or After Second Hypertension Diagnosis":
   (["Encounter, Performed": "HEDIS; Outpatient Without UBREV"]
@@ -133,11 +166,7 @@ define "ESRD Procedure":
   union ["Procedure, Performed": "HEDIS; Nephrectomy"]
   union ["Procedure, Performed": "HEDIS; History of Kidney Transplant"]
 
-define "Nonacute Visit":
-  ["Encounter, Performed": "HEDIS; Outpatient"]
-  union ["Encounter, Performed": "HEDIS; Observation"]
-  union ["Encounter, Performed": "HEDIS; ED"]
-  union ["Encounter, Performed": "HEDIS; Nonacute Inpatient"]
+
 
 define "Systolic Blood Pressure":
   ["Assessment, Performed": "VSAC; Systolic Blood Pressure"]
@@ -211,7 +240,6 @@ define "Lowest Systolic Reading on Most Recent Blood Pressure Day":
     sort by(result as Quantity) asc
   )
 
-
 define "Systolic Blood Pressure < 140":
   "Lowest Systolic Reading on Most Recent Blood Pressure Day".result < 140 'mm[Hg]'
 
@@ -229,38 +257,95 @@ define "Denominator":
   and AgeInYearsAt(end of "Measurement Period") < 86
   and "Count of Visits with Hypertension Diagnosis" >= 2
 
+
 define "Exclusion: Hospice":
-  /*
+   /*
    * config_link_id: exclusion_required_hospice
    */
-   exists("Hospice" Hospice
-     where Hospice.relevantPeriod overlaps "Measurement Period")
+   exists("Hospice During Period"("Measurement Period"))
 
+define "Denominator Exclusion: Frailty and Advanced Illness":
+  /*
+   * config_link_id: exclusion_required_frailty
+   */
+   (
+     AgeInYearsAt(end of "Measurement Period") >= 66
+     and (
+        "LTI During Period"("Measurement Period")
+        or "SNP"
+     )
+   )
+   or (
+     AgeInYearsAt(end of "Measurement Period") between 67 and 80
+     and (
+        ("Advanced Illness"("Measurement Period and Year Prior")
+        and ("Frailty: Claim During Period"("Measurement Period")))
+     )
+   )
+   or (
+        AgeInYearsAt(end of "Measurement Period") >= 81
+        and ("Frailty: Claim During Period"("Intake Period Through End of Measurement Period"))
+      )
+
+/*
+•	Exclude from the eligible population all members with
+  - evidence of end-stage renal disease (ESRD) (ESRD Diagnosis Value Set),
+  - dialysis (Dialysis Procedure Value Set),
+  - nephrectomy (Nephrectomy Value Set)
+  - or kidney transplant (Kidney Transplant Value Set; History of Kidney Transplant Value Set)
+
+  on or prior to December 31 of the measurement year
+*/
 define "Denominator Exclusion: ESRD":
   /*
    * config_link_id: exclusion_esrd
    */
-  exists(["Diagnosis": "HEDIS; ESRD"] D
-    where D.prevalencePeriod starts before end of "Measurement Period")
+  exists(["Diagnosis": "HEDIS; ESRD"] Dx
+    with ["Encounter, Performed"] Enc //ANY encounters
+      such that Dx.claimId = Enc.claimID
+    where Dx.prevalencePeriod starts before end of "Measurement Period"
+      and Dx.placeOfService != 81
+      and Enc.placeOfService != 81
+    )
   or exists("ESRD Procedure" P
-    where P.relevantPeriod starts before end of "Measurement Period")
+    where P.relevantPeriod starts before end of "Measurement Period"
+      and P.placeOfService != 81 //FIXME: unclear if we need to correlate w/ an encounter
+    )
 
+/*
+•	Exclude from the eligible population female members with a diagnosis of pregnancy (Pregnancy Value Set)
+  during the measurement year.
+*/
 define "Denominator Exclusion: Pregnancy":
   /*
    * config_link_id: exclusion_pregnancy
    */
   exists (["Patient Characteristic Sex": "Female"])
   and exists(["Diagnosis": "HEDIS; Pregnancy"] D
-    where D.prevalencePeriod overlaps "Measurement Period")
+    with ["Encounter", "Performed"] E // ANY encounters
+      such that D.claimId = E.claimId
+    where D.prevalencePeriod overlaps "Measurement Period"
+      and D.placeOfService != 81
+      and E.placeOfService != 81
+    )
 
+/*
+Exclude from the eligible population all members who had a nonacute inpatient admission during the measurement year.
+1.	Identify all acute and nonacute inpatient stays (Inpatient Stay Value Set).
+2.	Confirm the stay was for nonacute care based on the presence of a nonacute code (Nonacute Inpatient Stay Value Set) on the claim.
+3.	Identify the admission date for the stay
+*/
 define "Denominator Exclusion: Nonacute Inpatient Visit":
   /*
    * config_link_id: exclusion_nonacute_inpatient_visit
    */
   exists(["Encounter, Performed": "HEDIS; Inpatient Stay"] Inpatient
-    where Inpatient.admissionDate during "Measurement Period"
     with ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] Nonacute
-      such that Inpatient.claimId = Nonacute.claimId)
+      such that Inpatient.claimId = Nonacute.claimId
+    where Inpatient.admissionDate during "Measurement Period"
+      and Inpatient.placeOfService != 81
+      and Nonacute.placeOfService != 81
+    )
 
 define "Numerator Performance Met":
   /*
