@@ -163,7 +163,6 @@ define "Numerator Performance Met":
   (["Procedure, Performed": "HEDIS; Mammography"]
   union ["Procedure, Performed": "MIPS; Performance Met: G9899"]) Mammogram
     where Mammogram.relevantPeriod ends 27months or less before end of "Measurement Period"
-      and Mammogram.placeOfService != '81'
 
 define "Numerator Performance Not Met":
   /*
