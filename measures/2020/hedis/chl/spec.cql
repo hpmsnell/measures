@@ -39,9 +39,13 @@ context Patient
 
 define "Denominator Pregnancy":
   (["Diagnosis": "HEDIS; Pregnancy"]) P
+    with (["Encounter, Performed"]) E //ANY encounter
+      such that P.claimId = E.claimId
     where P.prevalencePeriod starts during "Measurement Period"
     and P.supplemental = false
     and P.placeOfService != 81
+    and E.supplemental = false
+    and E.placeOfService != 81
 
 define "Denominator Sexual Activity":
   ((["Diagnosis": "HEDIS; Sexual Activity"]) P
@@ -84,8 +88,9 @@ define "Pregnancy Test Exclusion":
   union ["Laboratory Test, Performed": "HEDIS; Pregnancy Test Exclusion"]
 
 define "Retinoid or Diagnostic Radiology":
-  ["Procedure, Performed": "HEDIS; Diagnostic Radiology"]
-  union ["Medication, Dispensed": "NCQA; Retinoid Medications"]
+  (["Procedure, Performed": "HEDIS; Diagnostic Radiology"]) Radiology
+    where Radiology.placeOfService != 81
+  union (["Medication, Dispensed": "NCQA; Retinoid Medications"]) Meds
 
 define "Chlamydia Tests":
   ["Procedure, Performed": "HEDIS; Chlamydia Tests"]
