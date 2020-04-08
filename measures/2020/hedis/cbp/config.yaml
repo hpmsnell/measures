@@ -72,6 +72,12 @@ exclusion:
         records:
         - model: ClinicalActivity
           value_set: Able; MMDF LTI
+      - logical_operator: OR
+        - display_title: SNP
+          show_codes: true
+          records:
+          - model: ClinicalActivity
+            value_set: Able; SNP
     - logical_operator: 'OR BOTH OF THE FOLLOWING'
       components:
       - display_title: Frailty
