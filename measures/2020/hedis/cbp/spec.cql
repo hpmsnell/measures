@@ -166,8 +166,6 @@ define "ESRD Procedure":
   union ["Procedure, Performed": "HEDIS; Nephrectomy"]
   union ["Procedure, Performed": "HEDIS; History of Kidney Transplant"]
 
-
-
 define "Systolic Blood Pressure":
   ["Assessment, Performed": "VSAC; Systolic Blood Pressure"]
   union ["Procedure, Performed": "HEDIS; Systolic Less Than 140"]
