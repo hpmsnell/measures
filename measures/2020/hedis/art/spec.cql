@@ -109,7 +109,7 @@ define "Count of Visits with Rheumatoid Arthritis Diagnosis":
     //we only allow a max of ONE telehealth over the period - and we need to make sure it doesn't intersect with non-telehealth
     //we're going to count the # of telehealth encounters REMOVING the non-telehealth encounters - taking the FIRST element and then converting it to a list
     Count(
-    	{First("Distinct Dates of Telehealth Encounters Rheumatoid Arthritis" except "Distinct Dates of Non-Telehealth Encounters with Rheumatoid Arthritis")}
+    	{First("Distinct Dates of Telehealth Encounters with Rheumatoid Arthritis" except "Distinct Dates of Non-Telehealth Encounters with Rheumatoid Arthritis")}
     	union "Distinct Dates of Non-Telehealth Encounters with Rheumatoid Arthritis"
     )
 
