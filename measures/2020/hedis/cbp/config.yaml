@@ -47,20 +47,20 @@ exclusion:
   description:
   reasons:
   - config_link_id: exclusion_required_hospice
-      code_value:
-      display_title: Hospice
-      description: Patient in hospice during the measurement year
-      component_groups:
-      - components:
-        - display_title: Hospice Service
-          show_codes: true
-          records:
-          - model: ClinicalActivity
-            value_set: HEDIS; Hospice Encounter
-          - model: ClinicalActivity
-            value_set: HEDIS; Hospice Intervention
-          - model: ClinicalActivity
-            value_set: Able; MMDF Hospice
+    code_value:
+    display_title: Hospice
+    description: Patient in hospice during the measurement year
+    component_groups:
+    - components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Intervention
+        - model: ClinicalActivity
+          value_set: Able; MMDF Hospice
   - config_link_id: exclusion_required_frailty
     code_value:
     display_title: Frailty and Advanced Illness
@@ -73,6 +73,7 @@ exclusion:
         - model: ClinicalActivity
           value_set: Able; MMDF LTI
       - logical_operator: OR
+        components:
         - display_title: SNP
           show_codes: true
           records:
@@ -101,7 +102,7 @@ exclusion:
       - logical_operator: 'OR BOTH:'
         display_title: Visit
         show_codes: true
-        annotation: 'Two visits are required if visit is not an acute inpatient visit', during the measurement year or the year prior to the measurement year (count services that occur over both years)'
+        annotation: 'Two visits are required if visit is not an acute inpatient visit, during the measurement year or the year prior to the measurement year (count services that occur over both years)'
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Outpatient
