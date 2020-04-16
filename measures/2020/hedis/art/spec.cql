@@ -81,7 +81,7 @@ define "Distinct Dates of Telehealth Encounters with Arthritis":
 */
 define "Distinct Dates of Non-Telehealth Encounters with Rheumatoid Arthritis":
     distinct(((
-      ((["Encounter, Performed": "HEDIS; Outpatient"]) E
+      ( ["Encounter, Performed": "HEDIS; Outpatient"] E
 	      with ["Diagnosis": "HEDIS; Rheumatoid Arthritis"] D
 	        such that D.claimId = E.claimId
         where E.relevantPeriod during [start of "Measurement Period", 1 month before end of "Measurement Period"]
@@ -94,14 +94,14 @@ define "Distinct Dates of Non-Telehealth Encounters with Rheumatoid Arthritis":
           Identify nonacute inpatient discharges with any diagnosis of rheumatoid arthritis on the discharge claim
           with associated nonacute care based on the presence of a nonacute code on the claim
         */
-        union (["Encounter, Performed": "HEDIS; Inpatient Stay"] E1
+        union ["Encounter, Performed": "HEDIS; Inpatient Stay"] E1
             where E1.relevantPeriod starts during [start of "Measurement Period", 1 month before end of "Measurement Period"]
             with ["Encounter, Performed": "Nonacute Inpatient Stay"] E2
               such that E2.relevantPeriod starts during E1.relevantPeriod
                   such that D.claimId = E.claimId
             with ["Diagnosis": "Rheumatoid Arthritis"] D
-              such that D.prevalencePeriod starts during E1.relevantPeriod)
-        )
+              such that D.prevalencePeriod starts during E1.relevantPeriod
+
 
       ).relevantPeriod) start) date)
 
