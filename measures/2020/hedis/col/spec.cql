@@ -6,7 +6,7 @@ library HEDIS_COL_2020 version '1'
  * ID: COL
  * Year: 2020
  * Version: 1
- * Author: Chana West
+ * Author: Merrill Tingey
  *
  */
 
@@ -37,33 +37,39 @@ define "Measurement Period and Year Prior":
 
 // Numerator Criteria
 define "Fecal occult blood test":
-  exists(["Laboratory Test, Performed": "HEDIS; FOBT Lab Test"]
-    union ["Laboratory Test, Performed": "HEDIS; FOBT Test Result or Finding"] FOBTLab
-      where FOBTLab.relevantPeriod during "Measurement Period")
+  exists((["Laboratory Test, Performed": "HEDIS; FOBT Lab Test"] FB
+    union ["Laboratory Test, Performed": "HEDIS; FOBT Test Result or Finding"] FBR
+      where FBR.placeOfService != '81') FOBTLab
+        where FOBTLab.relevantPeriod during "Measurement Period")
   or exists(["Procedure, Performed": "HEDIS; FOBT Lab Test"]
     union ["Procedure, Performed": "HEDIS; FOBT Test Result or Finding"] FOBTProc
       where FOBTProc.relevantPeriod during "Measurement Period")
 
 define "Flexible sigmoidoscopy":
   exists(["Procedure, Performed": "HEDIS; Flexible Sigmoidoscopy"] FS
-    where FS.relevantPeriod starts 5 years or less before end of "Measurement Period")
+    where FS.relevantPeriod starts 5 years or less before end of "Measurement Period"
+      and FS.placeOfService != '81')
   or exists(["Diagnosis": "HEDIS; History of Flexible Sigmoidoscopy"] HFS
-    where HFS.prevalencePeriod starts 5 years or less before end of "Measurement Period")
+    where HFS.prevalencePeriod starts 5 years or less before end of "Measurement Period"
+      and HFS.placeOfService != '81')
 
 define "Colonoscopy":
   exists(["Procedure, Performed": "HEDIS; Colonoscopy"] COLO
-    where COLO.relevantPeriod starts 10 years or less before end of "Measurement Period")
+    where COLO.relevantPeriod starts 10 years or less before end of "Measurement Period"
+      and COLO.placeOfService != '81')
   or exists(["Diagnosis": "HEDIS; History of Colonoscopy"] HistCOLO
-    where HistCOLO.prevalencePeriod starts 10 years or less before end of "Measurement Period")
+    where HistCOLO.prevalencePeriod starts 10 years or less before end of "Measurement Period"
+      and HistCOLO.placeOfService != '81')
 
 define "CT colonography":
   exists(["Procedure, Performed": "HEDIS; CT Colonography"] CTColo
     where CTColo.relevantPeriod starts 5 years or less before end of "Measurement Period")
 
 define "FIT-DNA test":
-  exists(["Laboratory Test, Performed": "HEDIS; FIT-DNA Lab Test"]
-    union ["Laboratory Test, Performed": "HEDIS; FIT-DNA Test Result or Finding"] FITLab
-      where FITLab.relevantPeriod 3 years or less before end of "Measurement Period")
+  exists((["Laboratory Test, Performed": "HEDIS; FIT-DNA Lab Test"] FT
+    union ["Laboratory Test, Performed": "HEDIS; FIT-DNA Test Result or Finding"] FTR
+      where FTR.placeOfService != '81') FITLab
+        where FITLab.relevantPeriod 3 years or less before end of "Measurement Period")
   or exists(["Procedure, Performed": "HEDIS; FIT-DNA Lab Test"]
     union ["Procedure, Performed": "HEDIS; FIT-DNA Test Result or Finding"] FITLabResult
       where FITLabResult.relevantPeriod 3 years or less before end of "Measurement Period")
