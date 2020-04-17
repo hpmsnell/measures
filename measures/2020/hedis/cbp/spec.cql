@@ -26,9 +26,6 @@ valueset "MIPS; Performance Not Met: G8952" //Hypertensive BP
 
 // HEDIS value sets
 
-valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
-valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
-valueset "Able; MMDF Hospice": ''
 valueset "HEDIS; Outpatient Without UBREV": '2.16.840.1.113883.3.464.1004.1203'
 valueset "HEDIS; Essential Hypertension": '2.16.840.1.113883.3.464.1004.1122'
 valueset "HEDIS; ESRD": '2.16.840.1.113883.3.464.1004.1089'

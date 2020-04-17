@@ -336,20 +336,20 @@ patients:
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-02-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2016-02-01
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_date: 2015-02-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT
       code_value: 99201
       start_date: 2016-02-01
-      claimd_id: 234
+      claim_id: 234
 - name: Age Lower
   attributes:
     date_of_birth: 1998-12-31 # Lower bound
@@ -361,20 +361,20 @@ patients:
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-02-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2016-02-01
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_date: 2015-02-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT
       code_value: 99201
       start_date: 2016-02-01
-      claimd_id: 234
+      claim_id: 234
 - name: Age Upper
   attributes:
     date_of_birth: 1931-01-01 # Upper bound
@@ -386,20 +386,20 @@ patients:
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-02-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2016-02-01
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_date: 2015-02-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT
       code_value: 99201
       start_date: 2016-02-01
-      claimd_id: 234
+      claim_id: 234
 - name: Too Old
   attributes:
     date_of_birth: 1930-12-31 # Too early
@@ -411,20 +411,20 @@ patients:
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-02-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2016-02-01
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT
       code_value: 99201
       start_date: 2015-02-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT
       code_value: 99201
       start_date: 2016-02-01
-      claimd_id: 234
+      claim_id: 234
 - name: Encounter Before
   attributes:
     date_of_birth: 1938-01-01
@@ -437,23 +437,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2014-12-31
       stop_date: 2014-12-31
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit before window
       code_value: 99201
       start_date: 2014-12-31
       stop_date: 2014-12-31
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit in window
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 234
+      claim_id: 234
 - name: Encounter Lower
   attributes:
     date_of_birth: 1938-01-01
@@ -466,23 +466,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit is lower bound
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
 - name: Encounter Upper
   attributes:
     date_of_birth: 1938-01-01
@@ -495,23 +495,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2016-12-31
       stop_date: 2016-12-31
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2016-01-01
       stop_date: 2016-01-01
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #upper bound visit 1
       code_value: 99201
       start_date: 2016-12-31
       stop_date: 2016-12-31
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #in window visit 2
       code_value: 99201
       start_date: 2016-01-01
       stop_date: 2016-01-01
-      claimd_id: 234
+      claim_id: 234
 - name: Encounter After
   attributes:
     date_of_birth: 1938-01-01
@@ -524,23 +524,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2016-01-01
       stop_date: 2016-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2017-01-01
       stop_date: 2017-01-01
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit in window
       code_value: 99201
       start_date: 2016-01-01
       stop_date: 2016-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit past window (future)
       code_value: 99201
       start_date: 2017-01-01
       stop_date: 2017-01-01
-      claimd_id: 234
+      claim_id: 234
 - name: Encounter AppropriateTelehealthPOS
   attributes:
     date_of_birth: 1938-01-01
@@ -553,23 +553,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit is lower bound
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
       place_of_service: '02' #telehealth
 - name: Encounter AppropriateTelehealthModifier
   attributes:
@@ -583,23 +583,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit is lower bound
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
       code_modifiers: ['95'] #telehealth
 - name: Encounter TooManyTelehealthPOS
   attributes:
@@ -613,24 +613,24 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit is lower bound
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
       place_of_service: '02' #telehealth
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
       place_of_service: '02' #telehealth
 - name: Encounter TooManyTelehealthModifier
   attributes:
@@ -644,24 +644,24 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit is lower bound
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
       code_modifiers: ['95'] #telehealth
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
       code_modifiers: ['95'] #telehealth
 - name: ExclusionHospice Before #during MP = valid
   attributes:
@@ -675,23 +675,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT
       code_value: G0182 # Hospice
       start_date: 2015-12-31 # Too early
@@ -707,23 +707,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT
       code_value: G0182 # Hospice
       start_date: 2016-01-01 # Lower bound
@@ -739,23 +739,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT
       code_value: G0182 # Hospice
       start_date: 2016-12-31 # Upper bound
@@ -771,23 +771,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT
       code_value: G0182 # Hospice
       start_date: 2017-01-01 # Too late
@@ -803,23 +803,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT
       code_value: 90940 # ESRD
       start_date: 2016-12-31 # Before end of MP
@@ -835,23 +835,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT
       code_value: 90940 # ESRD
       start_date: 2017-01-01 # After end of MP
@@ -866,33 +866,33 @@ patients:
     - code_type: ICD10CM
       code_value: O00.00 # Pregnancy
       start_date: 2015-12-31
-      claimd_id: 345
+      claim_id: 345
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT # Pregnancy encounter
       code_value: 99201
       start_date: 2015-12-31
       stop_date: 2015-12-31
-      claimd_id: 345
+      claim_id: 345
 - name: ExclusionPregnancy Lower
   attributes:
     date_of_birth: 1938-01-01
@@ -904,32 +904,32 @@ patients:
     - code_type: ICD10CM
       code_value: O00.00 # Pregnancy
       start_date: 2016-01-01
-      claimd_id: 345
+      claim_id: 345
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT #pregnancy visit
       code_value: 99201
       start_date: 2016-01-01
-      claimd_id: 345
+      claim_id: 345
 - name: ExclusionPregnancy Upper
   attributes:
     date_of_birth: 1938-01-01
@@ -945,23 +945,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT #pregnancy encounter
       code_value: 99201
       start_date: 2016-12-31
@@ -976,32 +976,32 @@ patients:
     - code_type: ICD10CM
       code_value: O00.00 # Pregnancy
       start_date: 2017-01-01 # Too late
-      claimd_id: 345
+      claim_id: 345
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT #pregnancy encounter
       code_value: 99201
       start_date: 2017-01-01
-      claimd_id: 345
+      claim_id: 345
 - name: ExclusionInpatient Before
   attributes:
     date_of_birth: 1938-01-01
@@ -1014,23 +1014,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: UB
       code_value: '0100' # Inpatient
       start_date: 2015-12-31 # Too early
@@ -1051,23 +1051,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: UB
       code_value: '0100' # Inpatient
       start_date: 2016-01-01 # Lower bound
@@ -1088,23 +1088,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: UB
       code_value: '0100' # Inpatient
       start_date: 2016-12-31 # Upper bound
@@ -1125,23 +1125,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: UB
       code_value: '0100' # Inpatient
       start_date: 2017-01-01 # Too late
@@ -1162,23 +1162,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: UB
       code_value: '0100' # Inpatient
       start_date: 2015-12-31
@@ -1200,23 +1200,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: UB
       code_value: '0100' # Inpatient
       start_date: 2016-01-01
@@ -1238,23 +1238,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: UB
       code_value: '0100' # Inpatient
       start_date: 2016-12-31
@@ -1276,23 +1276,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: UB
       code_value: '0100' # Inpatient
       start_date: 2017-01-01
@@ -1315,38 +1315,38 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT #bp visit
       code_value: 99201
       start_date: 2015-12-31
       stop_date: 2015-12-31
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8480-6 # Systolic
       start_date: 2015-12-31 # Too early
       result_as_decimal: 139
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8462-4 # Diastolic
       start_date: 2015-12-31
       result_as_decimal: 89
-      claimd_id: 345
+      claim_id: 345
 - name: NormalSystolic Lower
   attributes:
     date_of_birth: 1955-12-31 # 59 years old
@@ -1359,43 +1359,43 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT #bp visit
       code_value: 99201
       start_date: 2016-01-01
       stop_date: 2016-01-01
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8480-6 # Systolic
       start_date: 2016-01-01 # Lower bound
       result_as_decimal: 139
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8462-4 # Diastolic
       start_date: 2016-01-01
       result_as_decimal: 90
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8462-4 # Diastolic
       start_date: 2016-01-01
       result_as_decimal: 89 # Multiple on the same day
-      claimd_id: 345
+      claim_id: 345
 - name: NormalSystolic Upper
   attributes:
     date_of_birth: 1955-12-31 # 59 years old
@@ -1408,38 +1408,38 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT #bp visit
       code_value: 99201
       start_date: 2016-12-31
       stop_date: 2016-12-31
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8480-6 # Systolic
       start_date: 2016-12-31 # Upper bound
       result_as_decimal: 139
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8462-4 # Diastolic
       start_date: 2016-12-31
       result_as_decimal: 89
-      claimd_id: 345
+      claim_id: 345
 - name: NormalSystolic After
   attributes:
     date_of_birth: 1955-12-31 # 59 years old
@@ -1452,38 +1452,38 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT #bp visit
       code_value: 99201
       start_date: 2017-01-01
       stop_date: 2017-01-01
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8480-6 # Systolic
       start_date: 2017-01-01 # Too late
       result_as_decimal: 139
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8462-4 # Diastolic
       start_date: 2017-01-01
       result_as_decimal: 89
-      claimd_id: 345
+      claim_id: 345
 - name: Systolic MultipleHigh
   attributes:
     date_of_birth: 1955-12-31 # 59 years old
@@ -1496,48 +1496,48 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT #bp visit
       code_value: 99201
       start_date: 2016-03-01
       stop_date: 2016-03-01
-      claimd_id: 345
+      claim_id: 345
     - code_type: CPT #bp visit
       code_value: 99201
       start_date: 2016-03-01
       stop_date: 2016-03-01
-      claimd_id: '4'
+      claim_id: '4'
     - code_type: LOINC
       code_value: 8480-6 # Systolic
       start_date: 2016-03-01
       result_as_decimal: 140 # High
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8480-6 # Systolic
       start_date: 2016-03-01
       result_as_decimal: 139
-      claimd_id: '4'
+      claim_id: '4'
     - code_type: LOINC
       code_value: 8462-4 # Diastolic
       start_date: 2016-03-01
       result_as_decimal: 89
-      claimd_id: 345
+      claim_id: 345
 - name: Systolic MultipleNoResult
   attributes:
     date_of_birth: 1955-12-31 # 59 years old
@@ -1550,48 +1550,48 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT #bp visit
       code_value: 99201
       start_date: 2016-03-01
       stop_date: 2016-03-01
-      claimd_id: 345
+      claim_id: 345
     - code_type: CPT #bp visit
       code_value: 99201
       start_date: 2016-03-01
       stop_date: 2016-03-01
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8480-6 # Systolic
       start_date: 2016-03-01
       result_as_decimal: # No reult
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8480-6 # Systolic
       start_date: 2016-03-01
       result_as_decimal: 139
-      claimd_id: '4'
+      claim_id: '4'
     - code_type: LOINC
       code_value: 8462-4 # Diastolic
       start_date: 2016-03-01
       result_as_decimal: 89
-      claimd_id: 345
+      claim_id: 345
 - name: NormalDiastolic Before
   attributes:
     date_of_birth: 1955-12-31 # 59 years old
@@ -1604,38 +1604,38 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-12-31
       stop_date: 2015-12-31
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8480-6 # Systolic
       start_date: 2015-12-31
       result_as_decimal: 139
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8462-4 # Diastolic
       start_date: 2015-12-31 # Too early
       result_as_decimal: 89
-      claimd_id: 345
+      claim_id: 345
 - name: NormalDiastolic Lower
   attributes:
     date_of_birth: 1955-12-31 # 59 years old
@@ -1648,28 +1648,28 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT #bp visit
       code_value: 99201
       start_date: 2016-01-01
       stop_date: 2016-01-01
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8480-6 # Systolic
       start_date: 2016-01-01
@@ -1690,38 +1690,38 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2016-12-31
       stop_date: 2016-12-31
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8480-6 # Systolic
       start_date: 2016-12-31
       result_as_decimal: 139
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8462-4 # Diastolic
       start_date: 2016-12-31 # Upper bound
       result_as_decimal: 89
-      claimd_id: 345
+      claim_id: 345
 - name: NormalDiastolic After
   attributes:
     date_of_birth: 1955-12-31 # 59 years old
@@ -1734,38 +1734,38 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2017-01-01
       stop_date: 2017-01-01
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8480-6 # Systolic
       start_date: 2017-01-01
       result_as_decimal: 139
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8462-4 # Diastolic
       start_date: 2017-01-01 # Too late
       result_as_decimal: 89
-      claimd_id: 345
+      claim_id: 345
 - name: Diastolic MultipleHigh
   attributes:
     date_of_birth: 1955-12-31 # 59 years old
@@ -1778,48 +1778,48 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2016-03-01
       stop_date: 2016-03-01
-      claimd_id: 345
+      claim_id: 345
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2016-03-01
       stop_date: 2016-03-01
-      claimd_id: '4'
+      claim_id: '4'
     - code_type: LOINC
       code_value: 8462-4 # Diastolic
       start_date: 2016-03-01
       result_as_decimal: 140 # High
-      claimd_id: 345
+      claim_id: 345
     - code_type: LOINC
       code_value: 8462-4 # Diastolic
       start_date: 2016-03-01
       result_as_decimal: 139
-      claimd_id: '4'
+      claim_id: '4'
     - code_type: LOINC
       code_value: 8480-6 # Systolic
       start_date: 2016-03-01
       result_as_decimal: 89
-      claimd_id: 345
+      claim_id: 345
 - name: ExclusionLTI Before
   attributes:
     date_of_birth: 1950-01-01
@@ -1832,23 +1832,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ABLE
       code_value: LTI # LTI
       start_date: 2015-12-31 # Too early
@@ -1864,23 +1864,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ABLE
       code_value: LTI # LTI
       start_date: 2016-01-01 # Lower bound
@@ -1896,23 +1896,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ABLE
       code_value: LTI # LTI
       start_date: 2016-12-31 # Upper bound
@@ -1928,23 +1928,23 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     clinical_activities:
     - code_type: CPT #first visit
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ABLE
       code_value: LTI # LTI
       start_date: 2017-01-01 # Too late
@@ -1965,12 +1965,12 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234    - code_type: ICD10CM
+      claim_id: 234    - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2015-12-31 # Too early
       stop_date: 2015-12-31 # Too early
@@ -1979,12 +1979,12 @@ patients:
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
 - name: ExclusionFrailty Lower
   attributes:
     date_of_birth: 1950-01-01
@@ -2002,12 +2002,12 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-01-01 # Lower bound
@@ -2017,12 +2017,12 @@ patients:
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
 - name: ExclusionFrailty Upper
   attributes:
     date_of_birth: 1950-01-01
@@ -2040,12 +2040,12 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-12-31 # Upper bound
@@ -2054,12 +2054,12 @@ patients:
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
 - name: ExclusionFrailty After
   attributes:
     date_of_birth: 1950-01-01
@@ -2077,12 +2077,12 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2017-01-01 # Too late
@@ -2091,12 +2091,12 @@ patients:
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
 - name: ExclusionAdvancedIllness Before
   attributes:
     date_of_birth: 1950-01-01
@@ -2109,12 +2109,12 @@ patients:
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT
       code_value: 99201 # Outpatient
       start_date: 2016-02-01
@@ -2129,12 +2129,12 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -2158,12 +2158,12 @@ patients:
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT
       code_value: 99201 # Outpatient
       start_date: 2016-02-01
@@ -2179,12 +2179,12 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -2208,12 +2208,12 @@ patients:
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT
       code_value: 99201 # Outpatient
       start_date: 2016-02-01
@@ -2229,12 +2229,12 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -2258,12 +2258,12 @@ patients:
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT
       code_value: 99201 # Outpatient
       start_date: 2016-02-01
@@ -2279,12 +2279,12 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -2308,12 +2308,12 @@ patients:
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT
       code_value: 99201 # Outpatient
       start_date: 2016-02-01
@@ -2329,12 +2329,12 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -2358,12 +2358,12 @@ patients:
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT
       code_value: 99201 # Outpatient
       start_date: 2016-02-01
@@ -2379,12 +2379,12 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -2408,12 +2408,12 @@ patients:
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT
       code_value: 99337 # Nonacute Inpatient
       start_date: 2016-02-01
@@ -2434,12 +2434,12 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -2463,12 +2463,12 @@ patients:
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: CPT
       code_value: 99337 # Nonacute Inpatient
       start_date: 2016-02-01
@@ -2489,12 +2489,12 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -2518,12 +2518,12 @@ patients:
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: UBREV
       code_value: 0100 # Inpatient Stay
       start_date: 2016-02-01
@@ -2544,12 +2544,12 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -2573,12 +2573,12 @@ patients:
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: UBREV
       code_value: 0100 # Inpatient Stay
       start_date: 2016-02-01
@@ -2599,12 +2599,12 @@ patients:
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -2633,23 +2633,23 @@ patients:
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     diagnoses:
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -2670,23 +2670,23 @@ patients:
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     diagnoses:
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -2707,23 +2707,23 @@ patients:
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     diagnoses:
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -2744,23 +2744,23 @@ patients:
       code_value: 99201
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: CPT #second visit
       code_value: 99201
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     diagnoses:
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-01
       stop_date: 2015-01-01
-      claimd_id: 123
+      claim_id: 123
     - code_type: ICD10CM
       code_value: I10 # Hypertension
       start_date: 2015-01-02
       stop_date: 2015-01-02
-      claimd_id: 234
+      claim_id: 234
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
