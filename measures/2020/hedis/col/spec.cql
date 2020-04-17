@@ -41,9 +41,10 @@ define "Fecal occult blood test":
     union ["Laboratory Test, Performed": "HEDIS; FOBT Test Result or Finding"] FBR
       where FBR.placeOfService != '81') FOBTLab
         where FOBTLab.relevantPeriod during "Measurement Period")
-  or exists(["Procedure, Performed": "HEDIS; FOBT Lab Test"]
-    union ["Procedure, Performed": "HEDIS; FOBT Test Result or Finding"] FOBTProc
-      where FOBTProc.relevantPeriod during "Measurement Period")
+  or exists((["Procedure, Performed": "HEDIS; FOBT Lab Test"] FB
+    union ["Procedure, Performed": "HEDIS; FOBT Test Result or Finding"] FBR
+      where FBR.placeOfService != '81') FOBTProc
+        where FOBTProc.relevantPeriod during "Measurement Period")
 
 define "Flexible sigmoidoscopy":
   exists(["Procedure, Performed": "HEDIS; Flexible Sigmoidoscopy"] FS
@@ -70,24 +71,28 @@ define "FIT-DNA test":
     union ["Laboratory Test, Performed": "HEDIS; FIT-DNA Test Result or Finding"] FTR
       where FTR.placeOfService != '81') FITLab
         where FITLab.relevantPeriod 3 years or less before end of "Measurement Period")
-  or exists(["Procedure, Performed": "HEDIS; FIT-DNA Lab Test"]
-    union ["Procedure, Performed": "HEDIS; FIT-DNA Test Result or Finding"] FITLabResult
-      where FITLabResult.relevantPeriod 3 years or less before end of "Measurement Period")
+  or exists((["Procedure, Performed": "HEDIS; FIT-DNA Lab Test"] FT
+    union ["Procedure, Performed": "HEDIS; FIT-DNA Test Result or Finding"] FTR
+      where FTR.placeOfService != '81') FITLabResult
+        where FITLabResult.relevantPeriod 3 years or less before end of "Measurement Period")
 
 // Denominator Exclusion Criteria
 define "Colorectal cancer":
   exists(["Procedure, Performed": "HEDIS; Colorectal Cancer"] P
-    where P.relevantPeriod starts before end of "Measurement Period")
+    where P.relevantPeriod starts before end of "Measurement Period"
+      and P.placeOfService != '81')
   or exists(["Diagnosis": "HEDIS; Colorectal Cancer"] D
-      where D.prevalencePeriod starts before end of "Measurement Period")
+    where D.prevalencePeriod starts before end of "Measurement Period"
+      and D.placeOfService != '81')
 
 define "Total colectomy":
-  exists(["Procedure, Performed": "HEDIS; Total Colectomy"] P
-    where P.relevantPeriod starts before end of "Measurement Period")
-  or exists(["Procedure, Performed": "HEDIS; History of Total Colectomy"] P
-    where P.relevantPeriod starts before end of "Measurement Period")
-  or exists(["Diagnosis": "HEDIS; History of Total Colectomy"] D
-    where D.prevalencePeriod starts before end of "Measurement Period")
+  exists(["Procedure, Performed": "HEDIS; Total Colectomy"]
+    union ["Procedure, Performed": "HEDIS; History of Total Colectomy"]) P
+      where P.relevantPeriod starts before end of "Measurement Period"
+        and P.placeOfService != '81'
+  or exists["Diagnosis": "HEDIS; History of Total Colectomy"] D
+    where D.prevalencePeriod starts before end of "Measurement Period"
+      and D.placeOfService != '81'
 
 
 /* POPULATIONS */
