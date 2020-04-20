@@ -279,7 +279,7 @@ define "Denominator Exclusion: Frailty and Advanced Illness":
    )
    or (
         AgeInYearsAt(end of "Measurement Period") >= 81
-        and ("Frailty: Claim During Period"("Intake Period Through End of Measurement Period"))
+        and ("Frailty: Claim During Period"("Measurement Period"))
       )
 
 /*
