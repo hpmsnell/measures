@@ -62,6 +62,8 @@ define "Visit":
 
 define "Absence of Left Breast":
   ["Diagnosis": "HEDIS; Absence of Left Breast"]
+  union (["Diagnosis": "HEDIS; Clinical Unilateral Mastectomy"] P
+    where P.code.modifier in "HEDIS; Clinical Left Modifier")
   union ["Procedure, Performed": "HEDIS; Unilateral Mastectomy Left"]
   union (["Procedure, Performed": "HEDIS; Clinical Unilateral Mastectomy"] P
     where P.code.modifier in "HEDIS; Clinical Left Modifier")
@@ -78,6 +80,8 @@ define "Absence of Left Breast Confirmed":
 
 define "Absence of Right Breast":
   ["Diagnosis": "HEDIS; Absence of Right Breast"]
+  union (["Diagnosis": "HEDIS; Clinical Unilateral Mastectomy"] P
+    where P.code.modifier in "HEDIS; Clinical Right Modifier")
   union ["Procedure, Performed": "HEDIS; Unilateral Mastectomy Right"]
   union (["Procedure, Performed": "HEDIS; Clinical Unilateral Mastectomy"] P
     where P.code.modifier in "HEDIS; Clinical Right Modifier")
