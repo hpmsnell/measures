@@ -8,7 +8,7 @@ measure:
     set: HEDIS
     external_id: CCS
   optional:
-    description: The percentage of women 21–64 years of age who were screened for
+    description: The percentage of women 24–64 years of age who were screened for
       cervical cancer.
     version: 2020
     mips_measure_type:
@@ -67,22 +67,26 @@ performance_met:
     - components:
       - display_title: Cervical Cytology
         show_codes: true
-        annotation: Patient is 21-64 years in age
+        annotation: Patient is 24-64 years in age
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Cervical Cytology Lab Test
+        - model: ClinicalActivity
+          value_set: HEDIS; Cervical Cytology Result or Finding
         - model: LaboratoryTestPerformed
           value_set: HEDIS; Cervical Cytology Lab Test
         - model: LaboratoryTestPerformed
           value_set: HEDIS; Cervical Cytology Result or Finding
     - logical_operator: OR
       components:
-      - display_title: Cytology/HPV Co-testing
+      - display_title: HPV Testing
         show_codes: true
-        annotation: Patient is 34-64 years in age
+        annotation: Patient is 30-64 years in age
         records:
         - model: ClinicalActivity
           value_set: HEDIS; High Risk HPV Lab Test
+        - model: ClinicalActivity
+          value_set: HEDIS; High Risk HPV Test Result or Finding
         - model: LaboratoryTestPerformed
           value_set: HEDIS; High Risk HPV Lab Test
         - model: LaboratoryTestPerformed
