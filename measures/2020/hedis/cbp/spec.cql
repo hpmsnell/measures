@@ -85,9 +85,9 @@ define "Distinct Dates of Telehealth Encounters with Hypertension":
         such that D.claimId = TelephoneOrOnlineEncounters.claimId
       where TelephoneOrOnlineEncounters.relevantPeriod starts 2 years or less before end of "Measurement Period"
         and E.placeOfService != 81
-        and E.supplmental = false
+        and E.supplemental = false
         and D.placeOfService != 81
-        and D.supplmental = false
+        and D.supplemental = false
         //NOTE: not sure if we need to filter by telehealth pos/modifier here as well - leaving be for now
       )
 
@@ -102,14 +102,15 @@ define "Distinct Dates of Telehealth Encounters with Hypertension":
         with ["Diagnosis": "HEDIS; Essential Hypertension"] D
           such that D.claimId = E.claimId
         where E.relevantPeriod starts 2 years or less before end of "Measurement Period"
-          and E.supplmental = false
+          and E.placeOfService != 81
+          and E.supplemental = false
           and (
               //MUST BE either telehealth POS or modifier
               E.placeOfService in "HEDIS; Telehealth POS"
               or E.code.modifier in "HEDIS; Telehealth Modifier"
             )
           and D.placeOfService != 81
-          and D.supplmental = false
+          and D.supplemental = false
       )
 
       ).relevantPeriod) start) date)
@@ -124,7 +125,7 @@ define "Distinct Dates of Non-Telehealth Encounters with Hypertension":
 	        such that D.claimId = E.claimId
         where E.relevantPeriod starts 2 years or less before end of "Measurement Period"
           and D.placeOfService != 81
-          and E.supplmental = false
+          and E.supplemental = false
           and not E.placeOfService in {81, "HEDIS; Telehealth POS"} //DO NOT INCLUDE telehealth or lab
           and not E.code.modifier in "HEDIS; Telehealth Modifier" //DO NOT INCLUDE telehealth
       ).relevantPeriod) start) date)
