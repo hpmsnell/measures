@@ -182,9 +182,9 @@ define "Normal Systolic Blood Pressure Procedure":
 define "Qualifying Systolic Blood Pressure Reading":
   "Systolic Blood Pressure" A
     with "Encounters On or After Second Hypertension Diagnosis" E
-      such that A.relevantDateTime during E.relevantPeriod
-    where A.relevantDateTime during "Measurement Period"
-    sort by relevantDateTime desc
+      such that start of A.relevantPeriod during E.relevantPeriod
+    where start of A.relevantPeriod during "Measurement Period"
+    sort by start of relevantPeriod desc
 
 define "Diastolic Blood Pressure":
   ["Assessment, Performed": "VSAC; Diastolic Blood Pressure"]
@@ -206,18 +206,18 @@ define "Normal Diastolic Blood Pressure Procedure":
 define "Qualifying Diastolic Blood Pressure Reading":
   "Diastolic Blood Pressure" A
     with "Encounters On or After Second Hypertension Diagnosis" E
-      such that A.relevantDateTime during E.relevantPeriod
-    where A.relevantDateTime during "Measurement Period"
-    sort by relevantDateTime desc
+      such that start of A.relevantPeriod during E.relevantPeriod
+    where start of A.relevantPeriod during "Measurement Period"
+    sort by start of relevantPeriod desc
 
 define "Blood Pressure Days":
   (
     ( "Qualifying Diastolic Blood Pressure Reading" DBPExam
-      return date from DBPExam.relevantDateTime
+      return date from start of DBPExam.relevantPeriod
       )
     intersect
     ( "Qualifying Systolic Blood Pressure Reading" SBPExam
-      return date from SBPExam.relevantDateTime
+      return date from start of SBPExam.relevantPeriod
       )
   )
 
@@ -226,13 +226,13 @@ define "Most Recent Blood Pressure Day":
 
 define "Lowest Diastolic Reading on Most Recent Blood Pressure Day":
   First("Qualifying Diastolic Blood Pressure Reading" DBPReading
-    where DBPReading.relevantDateTime same day as "Most Recent Blood Pressure Day"
+    where start of DBPReading.relevantPeriod same day as "Most Recent Blood Pressure Day"
     sort by(result as Quantity) asc
   )
 
 define "Lowest Systolic Reading on Most Recent Blood Pressure Day":
   First("Qualifying Systolic Blood Pressure Reading" SBPReading
-    where SBPReading.relevantDateTime same day as "Most Recent Blood Pressure Day"
+    where start of SBPReading.relevantPeriod same day as "Most Recent Blood Pressure Day"
     sort by(result as Quantity) asc
   )
 
@@ -356,9 +356,9 @@ define "Numerator Performance Not Met: Out of Range":
    * config_link_id: out_of_range
    */
   exists("Systolic Blood Pressure" A
-    where A.relevantDateTime during "Measurement Period")
+    where start of A.relevantPeriod during "Measurement Period")
   and exists("Diastolic Blood Pressure" A
-    where A.relevantDateTime during "Measurement Period")
+    where start of A.relevantPeriod during "Measurement Period")
 
 define "Numerator Performance Not Met: No Blood Pressure":
   /*
