@@ -47,9 +47,9 @@ define "Distinct Dates of Telehealth Encounters with Arthritis":
         such that D.claimId = TelephoneOrOnlineEncounters.claimId // not sure this is necessary
       where TelephoneOrOnlineEncounters.relevantPeriod starts during [start of "Measurement Period", 1 month before end of "Measurement Period"]
         and E.placeOfService != 81
-        and E.supplmental = false
+        and E.supplemental = false
         and D.placeOfService != 81
-        and D.supplmental = false
+        and D.supplemental = false
         //NOTE: not sure if we need to filter by telehealth pos/modifier here as well - leaving be for now
       )
 
@@ -64,14 +64,16 @@ define "Distinct Dates of Telehealth Encounters with Arthritis":
         with ["Diagnosis": "HEDIS; Rheumatoid Arthritis"] D
           such that D.claimId = E.claimId // not sure this is necessary
         where E.relevantPeriod during [start of "Measurement Period", 1 month before end of "Measurement Period"]
-          and E.supplmental = false
+          and E.supplemental = false
           and (
               //MUST BE either telehealth POS or modifier
               E.placeOfService in "HEDIS; Telehealth POS"
               or E.code.modifier in "HEDIS; Telehealth Modifier"
             )
+          and E.placeOfService != 81
+          and E.supplemental = false
           and D.placeOfService != 81
-          and D.supplmental = false
+          and D.supplemental = false
       )
 
       ).relevantPeriod) start) date)
@@ -86,7 +88,7 @@ define "Distinct Dates of Non-Telehealth Encounters with Rheumatoid Arthritis":
 	        such that D.claimId = E.claimId
         where E.relevantPeriod during [start of "Measurement Period", 1 month before end of "Measurement Period"]
           and D.placeOfService != 81
-          and E.supplmental = false
+          and E.supplemental = false
           and not E.placeOfService in {81, "HEDIS; Telehealth POS"} //DO NOT INCLUDE telehealth or lab
           and not E.code.modifier in "HEDIS; Telehealth Modifier" //DO NOT INCLUDE telehealth
 
@@ -133,21 +135,12 @@ define "Denominator Exclusion: Frailty or Advanced Illness":
   /*
    * config_link_id: exclusion_required_frailty
    */
-   (
-     AgeInYearsAt(end of "Measurement Period") >= 66
-     and (
-        "LTI During Period"("Measurement Period")
-        or "SNP"
-     )
-   )
-   or (
-     AgeInYearsAt(end of "Measurement Period") >= 66
-     and (
-        "LTI During Period"("Measurement Period")
-        or "SNP"
-        or ("Advanced Illness"("Measurement Period and Year Prior")
-             and ("Frailty: Claim During Period"("Measurement Period")))
-     )
+   AgeInYearsAt(end of "Measurement Period") >= 66
+   and (
+      "LTI During Period"("Measurement Period")
+      or "SNP"
+      or ("Advanced Illness"("Measurement Period and Year Prior")
+           and ("Frailty: Claim During Period"("Measurement Period")))
    )
 
 define "Denominator Exclusion: HIV":
