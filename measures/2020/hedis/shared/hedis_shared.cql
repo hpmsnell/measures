@@ -74,7 +74,12 @@ SNP
 ----------------------------------------------------*/
 define "SNP":
   exists
-    ["Patient Characteristic Payer": "Able; Payer I-SNP"]
+    ["Payer": "Able; Payer I-SNP"] payer //refer to the multiple payers
+    where payer.startDate <= end of "Measurement Period"
+      and (
+          payer.endDate >= start of "Measurement Period"
+          or payer.endDate is null
+        )
 
 /*--------------------------------------------------
 LTI
