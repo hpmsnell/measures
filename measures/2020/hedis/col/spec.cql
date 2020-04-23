@@ -116,22 +116,13 @@ define "Denominator Exclusion: Frailty or Advanced Illness":
   /*
    * config_link_id: exclusion_required_frailty
    */
-   (
-     AgeInYearsAt(end of "Measurement Period") >= 66
-     and (
-        "LTI During Period"("Measurement Period")
-        or "SNP"
-     )
-   )
-   or (
-     AgeInYearsAt(end of "Measurement Period") >= 66
-     and (
-        "LTI During Period"("Measurement Period")
-        or "SNP"
-        or ("Advanced Illness"("Measurement Period and Year Prior")
-             and ("Frailty: Claim During Period"("Measurement Period")))
-     )
-   )
+   AgeInYearsAt(end of "Measurement Period") >= 66
+    and ("LTI During Period"("Measurement Period")
+          or "SNP"
+          or ("Advanced Illness"("Measurement Period and Year Prior")
+              and "Frailty: Claim During Period"("Measurement Period")
+            )
+      )
 
 define "Numerator Performance Met":
   /*
