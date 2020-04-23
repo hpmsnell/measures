@@ -35,22 +35,22 @@ denominator:
         value_set: Able; Able Discharge
 exclusion:
   description:
-    reasons:
-    - config_link_id: exclusion_required_hospice
-      code_value:
-      display_title: Hospice
-      description: Patient in hospice during the measurement year
-      component_groups:
-      - components:
-        - display_title: Hospice Service
-          show_codes: true
-          records:
-          - model: ClinicalActivity
-            value_set: HEDIS; Hospice Encounter
-          - model: ClinicalActivity
-            value_set: HEDIS; Hospice Intervention
-          - model: ClinicalActivity
-            value_set: Able; MMDF Hospice
+  reasons:
+  - config_link_id: exclusion_required_hospice
+    code_value:
+    display_title: Hospice
+    description: Advance care planning performed during the measurement year
+    component_groups:
+    - components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Intervention
+        - model: ClinicalActivity
+          value_set: Able; MMDF Hospice
 exception:
   description:
   reasons:
@@ -69,7 +69,9 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Medication Reconciliation
+          value_set: HEDIS; Medication Reconciliation Intervention
+        - model: ClinicalActivity
+          value_set: HEDIS; Medication Reconciliation Encounter
         - model: ClinicalActivity
           value_set: Able; Medication Reconciliation
 performance_not_met:
@@ -79,5 +81,5 @@ performance_not_met:
     code_value:
     display_title: No Medication Reconciliation
     description: Discharge medications not reconciled with the current medication
-      list in outpatient medical record, reason not otherwise specified
+      list in outpatient medical record, reconciled more than 31days post-discharge, or reason not otherwise specified
     component_groups:
