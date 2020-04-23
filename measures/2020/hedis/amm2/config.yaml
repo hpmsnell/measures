@@ -66,17 +66,28 @@ exclusion:
       components:
       - display_title: Encounter
         show_codes: true
+        annotation: 'for Visit Setting Unspecified', placeOfService codes in Outpatient POS, Partial Hospitalization POS, Community Health Center POS, Telehealth POS, ED POS'
         records:
         - model: ClinicalActivity
           value_set: HEDIS; ED
         - model: ClinicalActivity
-          value_set: HEDIS; AMM Stand Alone Visits
+          value_set: HEDIS; Acute Inpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Nonacute Inpatient
         - model: ClinicalActivity
           value_set: HEDIS; Telephone Visits
         - model: ClinicalActivity
-          value_set: HEDIS; AMM Visits
+          value_set: HEDIS; Visit Setting Unspecified
         - model: ClinicalActivity
           value_set: HEDIS; Inpatient Stay
+        - model: ClinicalActivity
+          value_set: HEDIS; BH Outpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Partial Hospitalization or Intensive Outpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Electroconvulsive Therapy
+        - model: ClinicalActivity
+          value_set: HEDIS; Transcranial Magnetic Stimulation
       - display_title: Depression
         logical_operator: AND
         show_codes: true
