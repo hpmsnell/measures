@@ -118,7 +118,7 @@ define "Denominator Exclusion: Frailty or Advanced Illness":
    */
    AgeInYearsAt(end of "Measurement Period") >= 66
     and ("LTI During Period"("Measurement Period")
-          or "SNP"("MeasurementPeriod")
+          or "SNP"("Measurement Period")
           or ("Advanced Illness"("Measurement Period and Year Prior")
               and "Frailty: Claim During Period"("Measurement Period")
             )
