@@ -74,8 +74,13 @@ define "Denominator":
   "Live Delivery" LD1
     without "Live Delivery" LD2
       such that LD1.relevantPeriod ends within 6 months of LD2.relevantPeriod
-    where not exists "Hospice"
-    //exists (["Patient Characteristic Sex": "Female"])
+    where exists (["Patient Characteristic Sex": "Female"])
+
+define "Exclusion: Hospice":
+   /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice During Period"("Measurement Period"))
 
 define "Numerator Performance Met":
   /*
