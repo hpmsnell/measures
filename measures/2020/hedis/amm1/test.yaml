@@ -55,7 +55,7 @@ test_set_keys:
       numerator: performance_not_met
     - name: ExclusionEncounter Before
       denominator: 1
-      denominator_exclusion: exclusion_1
+      denominator_exclusion: exclusion_required_depression
       denominator_exception:
       numerator:
     - name: ExclusionEncounter Lower
@@ -70,17 +70,17 @@ test_set_keys:
       numerator: performance_not_met
     - name: ExclusionEncounter After
       denominator: 1
-      denominator_exclusion: exclusion_1
+      denominator_exclusion: exclusion_required_depression
       denominator_exception:
       numerator:
     - name: ExclusionEncounter NoCondition
       denominator: 1
-      denominator_exclusion: exclusion_1
+      denominator_exclusion: exclusion_required_depression
       denominator_exception:
       numerator:
     - name: ExclusionEncounter InvalidPOS
       denominator: 1
-      denominator_exclusion: exclusion_1
+      denominator_exclusion: exclusion_required_depression
       denominator_exception:
       numerator:
     - name: ExclusionMedication Before
@@ -436,7 +436,7 @@ patients:
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 90791 # AMM visit (not standalone)
+      code_value: 90845 # Visit Setting Unspecified
       place_of_service: '01' # Invalid place of service
       start_date: 2016-02-01
       stop_date: 2016-02-01
