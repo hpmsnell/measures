@@ -9,7 +9,7 @@ measure:
     external_id: PPC2
   optional:
     description: The percentage of deliveries that had a postpartum visit on or between
-      21 and 56 days after delivery.
+      7 and 84 days after delivery.
     gap_resolution_action:
     version: 2020
     mips_measure_type:
@@ -21,8 +21,8 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Delivered a live birth on or between November 6 of the year prior to
-    the measurement year and November 5 of the measurement year. Patients who delivered
+  description: Delivered a live birth on or between October 8 of the year prior to
+    the measurement year and October 7 of the measurement year. Patients who delivered
     in any setting should be included in this measure.
   component_groups:
   - components:
@@ -44,7 +44,9 @@ denominator:
       show_codes: true
       records:
       - model: ClinicalActivity
-        value_set: HEDIS; Hospice
+        value_set: HEDIS; Hospice Encounter
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice Intervention
 exclusion:
   description:
   reasons:
@@ -58,7 +60,7 @@ performance_met:
     code_value:
     display_title: Postpartum Visit
     description: A postpartum visit for a pelvic exam or postpartum care on or between
-      21 and 56 days after delivery.
+      7 and 84 days after delivery, excluding services provided in an acute inpatient setting
     component_groups:
     - components:
       - display_title: Postpartum Visit
@@ -72,13 +74,16 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Cervical Cytology
+          value_set: HEDIS; Cervical Cytology Lab Test
         - model: LaboratoryTestPerformed
-          value_set: HEDIS; Cervical Cytology
+          value_set: HEDIS; Cervical Cytology Lab Test
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; Cervical Cytology Result or Finding
     - logical_operator: OR
       components:
       - display_title: Postpartum Bundled Service
         show_codes: true
+        annotation: 'Postpartum Bundled Services may be used only if the claim form indicates when postpartum care was rendered. Postpartum care done during acute inpatient encounter are excluded'
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Postpartum Bundled Services
@@ -88,5 +93,5 @@ performance_not_met:
   - config_link_id: performance_not_met
     code_value:
     display_title: No Postpartum Visit
-    description: No postpartum visit found between 21 and 56 days after delivery
+    description: No postpartum visit found between 4 and 84 days after delivery
     component_groups:

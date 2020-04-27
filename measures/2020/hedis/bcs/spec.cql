@@ -12,14 +12,14 @@ library HEDIS_BCS_2020 version '1'
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // MIPS value sets
 
 valueset "MIPS; Performance Met: G9899"
 
 // HEDIS value sets
 
-valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
-valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
 valueset "HEDIS; Bilateral Mastectomy": '2.16.840.1.113883.3.464.1004.1042'
 valueset "HEDIS; History of Bilateral Mastectomy": '2.16.840.1.113883.3.464.1004.1331'
 valueset "HEDIS; Unilateral Mastectomy": '2.16.840.1.113883.3.464.1004.1256'
@@ -30,11 +30,6 @@ valueset "HEDIS; Absence of Right Breast": '2.16.840.1.113883.3.464.1004.1330'
 valueset "HEDIS; Unilateral Mastectomy Left": '2.16.840.1.113883.3.464.1004.1334'
 valueset "HEDIS; Unilateral Mastectomy Right": '2.16.840.1.113883.3.464.1004.1335'
 valueset "HEDIS; Mammography": '2.16.840.1.113883.3.464.1004.1168'
-valueset "HEDIS; Frailty Device": '2.16.840.1.113883.3.464.1004.1530'
-valueset "HEDIS; Frailty Diagnosis": '2.16.840.1.113883.3.464.1004.1530'
-valueset "HEDIS; Frailty Encounter": '2.16.840.1.113883.3.464.1004.1530'
-valueset "HEDIS; Frailty Symptom": '2.16.840.1.113883.3.464.1004.1530'
-valueset "HEDIS; Advanced Illness": '2.16.840.1.113883.3.464.1004.1465'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
@@ -47,20 +42,12 @@ valueset "HEDIS; Clinical Right Modifier": '2.16.840.1.113883.3.464.1004.1950'
 valueset "HEDIS; Clinical Unilateral Mastectomy": '2.16.840.1.113883.3.464.1004.1948'
 valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
 
-// NCQA medication list value sets
-
-valueset "NCQA; Dementia Medications"
-
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Qualifying Exclusion Age":
-AgeInYearsAt(end of "Measurement Period") >= 66
-
-define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice Intervention"]
-  union ["Encounter, Performed": "HEDIS; Hospice Encounter"]
+define "Measurement Period and Year Prior":
+  Interval[start of "Measurement Period" - 1 years, end of "Measurement Period"]
 
 define "Visit":
   ["Encounter, Performed": "HEDIS; Outpatient"]
@@ -73,24 +60,10 @@ define "Visit":
     with (["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"])NonacuteIPFlag
     such that Inpatient.claimId = NonacuteIPFlag.claimId)
 
-define "Visit with Advanced Illness":
-"Visit" ExcludeQualVisit
-  where exists (ExcludeQualVisit.diagnoses Diagnosis
-    where Diagnosis.code in "HEDIS; Advanced Illness"
-    )
-     and ExcludeQualVisit.relevantPeriod starts 2 years or less before end of "Measurement Period"
-
-define "Advanced Illness Exists":
-"Qualifying Exclusion Age"
-  and (Count("Visit with Advanced Illness")>=2
-    or exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
-      with ["Diagnosis": "HEDIS; Advanced Illness"] D
-        such that D.prevalencePeriod starts during E.relevantPeriod)
-    or exists(["Medication, Dispensed": "NCQA; Dementia Medications"] M
-      where M.relevantPeriod starts during "Measurement Period"))
-
 define "Absence of Left Breast":
   ["Diagnosis": "HEDIS; Absence of Left Breast"]
+  union (["Diagnosis": "HEDIS; Clinical Unilateral Mastectomy"] P
+    where P.code.modifier in "HEDIS; Clinical Left Modifier")
   union ["Procedure, Performed": "HEDIS; Unilateral Mastectomy Left"]
   union (["Procedure, Performed": "HEDIS; Clinical Unilateral Mastectomy"] P
     where P.code.modifier in "HEDIS; Clinical Left Modifier")
@@ -98,7 +71,7 @@ define "Absence of Left Breast":
     where P.code.modifier in "HEDIS; Left Modifier")
 
 define "Absence of Left Breast Confirmed":
-  ("Absence of Left Breast" AbsentLt
+   "Absence of Left Breast" AbsentLt
     where (
       AbsentLt.prevalencePeriod starts before end of "Measurement Period"
       or AbsentLt.relevantPeriod starts before end of "Measurement Period"
@@ -107,6 +80,8 @@ define "Absence of Left Breast Confirmed":
 
 define "Absence of Right Breast":
   ["Diagnosis": "HEDIS; Absence of Right Breast"]
+  union (["Diagnosis": "HEDIS; Clinical Unilateral Mastectomy"] P
+    where P.code.modifier in "HEDIS; Clinical Right Modifier")
   union ["Procedure, Performed": "HEDIS; Unilateral Mastectomy Right"]
   union (["Procedure, Performed": "HEDIS; Clinical Unilateral Mastectomy"] P
     where P.code.modifier in "HEDIS; Clinical Right Modifier")
@@ -142,35 +117,18 @@ define "Absence of Left and Right Breast Confirmed":
   exists "Absence of Left Breast Confirmed"
   and exists "Absence of Right Breast Confirmed"
 
-  define "Frailty Diagnosis or Symptoms":
-    ((["Diagnosis": "HEDIS; Frailty Diagnosis"]
-    union ["Diagnosis": "HEDIS; Frailty Symptom"])FrailDxSx
-      where FrailDxSx.prevalencePeriod overlaps "Measurement Period")
-
-  define "Frailty Encounter":
-    ["Encounter, Performed": "HEDIS; Frailty Encounter"]FrailEnc
-        where FrailEnc.relevantPeriod overlaps "Measurement Period"
-
-  define "Frailty Device":
-    ((["Device, Applied": "HEDIS; Frailty Device"]
-    union ["Device, Order": "HEDIS; Frailty Device"]
-    union ["Device, Recommended": "HEDIS; Frailty Device"])FrailDevice
-      where FrailDevice.relevantPeriod overlaps "Measurement Period"
-        or FrailDevice.authorDatetime during "Measurement Period")
-
-  define "Frailty":
-    "Frailty Diagnosis or Symptoms"
-    union "Frailty Encounter"
-    union "Frailty Device"
-
 // Populations
 
 define "Denominator":
   "Patient Characteristic Sex" = "Female"
   and AgeInYearsAt(end of "Measurement Period") >= 52
   and AgeInYearsAt(end of "Measurement Period") < 75
-  and not exists("Hospice" I
-    where I.relevantPeriod starts during "Measurement Period")
+
+define "Exclusion: Hospice":
+   /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice During Period"("Measurement Period"))
 
 define "Denominator Exclusion: Mastectomy":
   /*
@@ -178,14 +136,18 @@ define "Denominator Exclusion: Mastectomy":
    */
   exists "Bilateral Mastectomy Procedure"
     or exists "Bilateral Mastectomy Clinical Info"
-    or exists "Absence of Left and Right Breast Exists"
+    or exists "Absence of Left and Right Breast Confirmed"
 
 define "Denominator Exclusion: Frailty and Advanced Illness":
-  /*
-   * config_link_id: exclusion_2
-   */
-   "Advanced Illness Exists"
-     and exists("Frailty")
+   /*
+    * config_link_id: exclusion_required_frailty
+    */
+      AgeInYearsAt(end of "Measurement Period") >= 66
+      and ("LTI During Period"("Measurement Period")
+         or "SNP"("Measurement Period")
+         or ("Advanced Illness"("Measurement Period and Year Prior")
+              and "Frailty: Claim During Period"("Measurement Period")
+            )
 
 define "Numerator Performance Met":
   /*
@@ -194,7 +156,6 @@ define "Numerator Performance Met":
   (["Procedure, Performed": "HEDIS; Mammography"]
   union ["Procedure, Performed": "MIPS; Performance Met: G9899"]) Mammogram
     where Mammogram.relevantPeriod ends 27months or less before end of "Measurement Period"
-      and Mammogram.placeOfService != '81'
 
 define "Numerator Performance Not Met":
   /*

@@ -20,6 +20,7 @@ valueset "HEDIS; Nonacute Inpatient Stay": '2.16.840.1.113883.3.464.1004.1398'
 valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
 valueset "HEDIS; Medication Reconciliation Encounter": '2.16.840.1.113883.3.464.1004.1528'
 valueset "HEDIS; Medication Reconciliation Intervention": '2.16.840.1.113883.3.464.1004.1529'
+valueset "HEDIS; CPT CAT II Modifier": '2.16.840.1.113883.3.464.1004.1464'
 
 // Able value sets
 
@@ -64,6 +65,7 @@ define "Numerator Performance Met":
    */
   exists "Medication Reconciliation" MedRec
     where MedRec.placeOfService != '81'
+      and MedRec.code.modifiers not in "HEDIS; CPT CAT II Modifier")
     with "Qualifying Discharge" Discharge
       such that MedRec.relevantPeriod starts during Interval [Discharge.dischargeDate, Discharge.dischargeDate + 30 days)
 

@@ -65,14 +65,14 @@ test_set_keys:
       numerator: performance_not_met
     - name: ExclusionHospice Lower
       start_date: 2016-01-01
-      denominator:
-      denominator_exclusion:
+      denominator: 1
+      denominator_exclusion: exclusion_required_hospice
       denominator_exception:
       numerator:
     - name: ExclusionHospice Upper
       start_date: 2016-01-01
-      denominator:
-      denominator_exclusion:
+      denominator: 1
+      denominator_exclusion: exclusion_required_hospice
       denominator_exception:
       numerator:
     - name: ExclusionHospice After
@@ -153,6 +153,25 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
+    - name: AcuteCare BeforePPVisit
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: AcuteCare DuringPPVisit
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: AcuteCare AfterPPVisit
+      start_date: 2016-01-01
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+
 providers:
   - given_name: Rachel
     family_name: Katz
@@ -413,7 +432,7 @@ patients:
     laboratory_test_performeds:
     - code_type: LOINC
       code_value: 10524-7 # Cytology
-      start_date: 2016-01-21 # Too early
+      start_date: 2016-01-07 # Too early
 - name: Cytology Lower
   attributes:
     date_of_birth: 1970-01-01
@@ -428,7 +447,7 @@ patients:
     laboratory_test_performeds:
     - code_type: LOINC
       code_value: 10524-7 # Cytology
-      start_date: 2016-01-22 # Lower bound
+      start_date: 2016-01-08 # Lower bound
 - name: Cytology Upper
   attributes:
     date_of_birth: 1970-01-01
@@ -472,7 +491,7 @@ patients:
       start_date: 2016-01-01
     - code_type: CPT
       code_value: 58300 # Postpartum visit
-      start_date: 2016-01-21 # Too early
+      start_date: 2016-01-07 # Too early
 - name: PostpartumVisit Lower
   attributes:
     date_of_birth: 1970-01-01
@@ -486,7 +505,7 @@ patients:
       start_date: 2016-01-01
     - code_type: CPT
       code_value: 58300 # Postpartum visit
-      start_date: 2016-01-22 # Lower bound
+      start_date: 2016-01-08 # Lower bound
 - name: PostpartumVisit Upper
   attributes:
     date_of_birth: 1970-01-01
@@ -500,7 +519,7 @@ patients:
       start_date: 2016-01-01
     - code_type: CPT
       code_value: 58300 # Postpartum visit
-      start_date: 2016-02-26 # Upper bound
+      start_date: 2016-03-25 # Upper bound
 - name: PostpartumVisit After
   attributes:
     date_of_birth: 1970-01-01
@@ -514,4 +533,58 @@ patients:
       start_date: 2016-01-01
     - code_type: CPT
       code_value: 58300 # Postpartum visit
-      start_date: 2016-02-27 # Too late
+      start_date: 2016-03-26 # Too late
+- name: AcuteCare BeforePPVisit
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: AcuteCare
+    family_name: BeforePPVisit
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 58300 # Postpartum visit
+      start_date: 2016-03-25 # Upper bound
+    - code_type: CPT
+      code_value: 99222 # Acute Inpatient
+      start_date: 2016-03-20
+      end_date: 2016-03-23 # Before PP visit
+- name: AcuteCare DuringPPVisit
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: AcuteCare
+    family_name: DuringPPVisit
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 58300 # Postpartum visit
+      start_date: 2016-03-25 # Upper bound
+    - code_type: CPT
+      code_value: 99222 # Acute Inpatient
+      start_date: 2016-03-20
+      end_date: 2016-03-26 # Overlaps PP visit
+- name: AcuteCare AfterPPVisit
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: AcuteCare
+    family_name: AfterPPVisit
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 59400 # Delivery
+      start_date: 2016-01-01
+    - code_type: CPT
+      code_value: 58300 # Postpartum visit
+      start_date: 2016-03-25 # Upper bound
+    - code_type: CPT
+      code_value: 99222 # Acute Inpatient
+      start_date: 2016-03-26
+      end_date: 2016-03-29 # After PP visit

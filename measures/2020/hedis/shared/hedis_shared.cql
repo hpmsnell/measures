@@ -72,9 +72,14 @@ define function "Hospice During Period"(Period Interval<DateTime>):
 SNP
 –	Enrolled in an Institutional SNP (I-SNP)
 ----------------------------------------------------*/
-define "SNP":
+define "SNP"(Period Interval<DateTime>):
   exists
-    ["Patient Characteristic Payer": "Able; Payer I-SNP"]
+    ["Payer": "Able; Payer I-SNP"] payer //refer to the multiple payers
+    where payer.startDate <= end of Period
+      and (
+          payer.endDate >= start of Period
+          or payer.endDate is null
+        )
 
 /*--------------------------------------------------
 LTI

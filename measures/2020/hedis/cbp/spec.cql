@@ -85,9 +85,9 @@ define "Distinct Dates of Telehealth Encounters with Hypertension":
         such that D.claimId = TelephoneOrOnlineEncounters.claimId
       where TelephoneOrOnlineEncounters.relevantPeriod starts 2 years or less before end of "Measurement Period"
         and E.placeOfService != 81
-        and E.supplmental = false
+        and E.supplemental = false
         and D.placeOfService != 81
-        and D.supplmental = false
+        and D.supplemental = false
         //NOTE: not sure if we need to filter by telehealth pos/modifier here as well - leaving be for now
       )
 
@@ -102,14 +102,15 @@ define "Distinct Dates of Telehealth Encounters with Hypertension":
         with ["Diagnosis": "HEDIS; Essential Hypertension"] D
           such that D.claimId = E.claimId
         where E.relevantPeriod starts 2 years or less before end of "Measurement Period"
-          and E.supplmental = false
+          and E.placeOfService != 81
+          and E.supplemental = false
           and (
               //MUST BE either telehealth POS or modifier
               E.placeOfService in "HEDIS; Telehealth POS"
               or E.code.modifier in "HEDIS; Telehealth Modifier"
             )
           and D.placeOfService != 81
-          and D.supplmental = false
+          and D.supplemental = false
       )
 
       ).relevantPeriod) start) date)
@@ -124,7 +125,7 @@ define "Distinct Dates of Non-Telehealth Encounters with Hypertension":
 	        such that D.claimId = E.claimId
         where E.relevantPeriod starts 2 years or less before end of "Measurement Period"
           and D.placeOfService != 81
-          and E.supplmental = false
+          and E.supplemental = false
           and not E.placeOfService in {81, "HEDIS; Telehealth POS"} //DO NOT INCLUDE telehealth or lab
           and not E.code.modifier in "HEDIS; Telehealth Modifier" //DO NOT INCLUDE telehealth
       ).relevantPeriod) start) date)
@@ -181,9 +182,9 @@ define "Normal Systolic Blood Pressure Procedure":
 define "Qualifying Systolic Blood Pressure Reading":
   "Systolic Blood Pressure" A
     with "Encounters On or After Second Hypertension Diagnosis" E
-      such that A.relevantDateTime during E.relevantPeriod
-    where A.relevantDateTime during "Measurement Period"
-    sort by relevantDateTime desc
+      such that start of A.relevantPeriod during E.relevantPeriod
+    where start of A.relevantPeriod during "Measurement Period"
+    sort by start of relevantPeriod desc
 
 define "Diastolic Blood Pressure":
   ["Assessment, Performed": "VSAC; Diastolic Blood Pressure"]
@@ -205,18 +206,18 @@ define "Normal Diastolic Blood Pressure Procedure":
 define "Qualifying Diastolic Blood Pressure Reading":
   "Diastolic Blood Pressure" A
     with "Encounters On or After Second Hypertension Diagnosis" E
-      such that A.relevantDateTime during E.relevantPeriod
-    where A.relevantDateTime during "Measurement Period"
-    sort by relevantDateTime desc
+      such that start of A.relevantPeriod during E.relevantPeriod
+    where start of A.relevantPeriod during "Measurement Period"
+    sort by start of relevantPeriod desc
 
 define "Blood Pressure Days":
   (
     ( "Qualifying Diastolic Blood Pressure Reading" DBPExam
-      return date from DBPExam.relevantDateTime
+      return date from start of DBPExam.relevantPeriod
       )
     intersect
     ( "Qualifying Systolic Blood Pressure Reading" SBPExam
-      return date from SBPExam.relevantDateTime
+      return date from start of SBPExam.relevantPeriod
       )
   )
 
@@ -225,13 +226,13 @@ define "Most Recent Blood Pressure Day":
 
 define "Lowest Diastolic Reading on Most Recent Blood Pressure Day":
   First("Qualifying Diastolic Blood Pressure Reading" DBPReading
-    where DBPReading.relevantDateTime same day as "Most Recent Blood Pressure Day"
+    where start of DBPReading.relevantPeriod same day as "Most Recent Blood Pressure Day"
     sort by(result as Quantity) asc
   )
 
 define "Lowest Systolic Reading on Most Recent Blood Pressure Day":
   First("Qualifying Systolic Blood Pressure Reading" SBPReading
-    where SBPReading.relevantDateTime same day as "Most Recent Blood Pressure Day"
+    where start of SBPReading.relevantPeriod same day as "Most Recent Blood Pressure Day"
     sort by(result as Quantity) asc
   )
 
@@ -279,7 +280,7 @@ define "Denominator Exclusion: Frailty and Advanced Illness":
    )
    or (
         AgeInYearsAt(end of "Measurement Period") >= 81
-        and ("Frailty: Claim During Period"("Intake Period Through End of Measurement Period"))
+        and ("Frailty: Claim During Period"("Measurement Period"))
       )
 
 /*
@@ -303,7 +304,7 @@ define "Denominator Exclusion: ESRD":
       and Enc.placeOfService != 81
     )
   or exists("ESRD Procedure" P
-    where P.relevantPeriod starts before end of "Measurement Period"
+    where P.relevantPeriod starts on or before end of "Measurement Period"
       and P.placeOfService != 81 //FIXME: unclear if we need to correlate w/ an encounter
     )
 
@@ -355,9 +356,9 @@ define "Numerator Performance Not Met: Out of Range":
    * config_link_id: out_of_range
    */
   exists("Systolic Blood Pressure" A
-    where A.relevantDateTime during "Measurement Period")
+    where start of A.relevantPeriod during "Measurement Period")
   and exists("Diastolic Blood Pressure" A
-    where A.relevantDateTime during "Measurement Period")
+    where start of A.relevantPeriod during "Measurement Period")
 
 define "Numerator Performance Not Met: No Blood Pressure":
   /*
