@@ -8,6 +8,7 @@ measure:
     subject_type: Patient
     set: HEDIS
     external_id: AMM3
+    internal_version: 2
   optional:
     description: The percentage of members 18 years of age and older who were treated
       with antidepressant medication, had a diagnosis of major depression and who
@@ -55,7 +56,7 @@ exclusion:
           value_set: HEDIS; Hospice Intervention
         - model: ClinicalActivity
           value_set: Able; MMDF Hospice
-  - config_link_id: exclusion_1
+  - config_link_id: exclusion_required_depression
     code_value:
     display_title: No Depression
     description: Patient excluded due to no encounter with a diagnosis of major depression
@@ -66,7 +67,8 @@ exclusion:
       components:
       - display_title: Encounter
         show_codes: true
-        annotation: 'for Visit Setting Unspecified', placeOfService codes in Outpatient POS, Partial Hospitalization POS, Community Health Center POS, Telehealth POS, ED POS'
+        annotation: 'For encounters with an unspecified visit setting, place of service must indicate Outpatient,
+          Partial Hospitalization, Community Health Center, Telehealth, or ED'
         records:
         - model: ClinicalActivity
           value_set: HEDIS; ED
@@ -94,7 +96,7 @@ exclusion:
         records:
         - model: Diagnosis
           value_set: HEDIS; Major Depression
-  - config_link_id: exclusion_2
+  - config_link_id: exclusion_required_medication
     code_value:
     display_title: Prior Medication
     description: Patient excluded due to a prior antidepressant medication dispensing

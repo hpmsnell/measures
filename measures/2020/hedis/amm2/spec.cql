@@ -45,15 +45,13 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Medication in Index Period":
-  ["Medication, Dispensed": "NCQA; Antidepressant Medications"] M
-      where M.relevantDatetime 8 months or less before start of "Measurement Period"
-      or M.relevantDatetime 4 months or less after start of "Measurement Period"
+  ["Medication, Dispensed": "NCQA; Antidepressant Medications"] Medication
+    where Medication.relevantDatetime starts 8 months or less before start of "Measurement Period"
+      or Medication.relevantDatetime starts 4 months or less after start of "Measurement Period"
 
 define "First Medication in Index Period":
-  First(["Medication, Dispensed": "NCQA; Antidepressant Medications"] FirstDispensed
-    where FirstDispensed.relevantDatetime 8 months or less before start of "Measurement Period"
-      or FirstDispensed.relevantDatetime 4 months or less after start of "Measurement Period"
-    sort by relevantDatetime
+  First("Medication in Index Period" FirstDispensed
+    sort by FirstDispensed.relevantDatetime
   )
 
 define "Encounter":
@@ -118,13 +116,13 @@ define "Exclusion: Hospice":
 
 define "Denominator Exclusion: No Depression":
   /*
-   * config_link_id: exclusion_1
+   * config_link_id: exclusion_required_depression
    */
   not exists ("Encounter with Depression Prior to First Medication in Index Period")
 
 define "Denominator Exclusion: Prior Medication":
   /*
-   * config_link_id: exclusion_2
+   * config_link_id: exclusion_required_medication
    */
   exists("Medication Prior to First Medication in Index Period")
 
