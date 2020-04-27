@@ -8,6 +8,7 @@ measure:
     subject_type: Patient
     set: HEDIS
     external_id: AMM3
+    internal_version: 2
   optional:
     description: The percentage of members 18 years of age and older who were treated
       with antidepressant medication, had a diagnosis of major depression and who
@@ -55,7 +56,7 @@ exclusion:
           value_set: HEDIS; Hospice Intervention
         - model: ClinicalActivity
           value_set: Able; MMDF Hospice
-  - config_link_id: exclusion_1
+  - config_link_id: exclusion_required_depression
     code_value:
     display_title: No Depression
     description: Patient excluded due to no encounter with a diagnosis of major depression
@@ -66,24 +67,36 @@ exclusion:
       components:
       - display_title: Encounter
         show_codes: true
+        annotation: 'For encounters with an unspecified visit setting, place of service must indicate Outpatient,
+          Partial Hospitalization, Community Health Center, Telehealth, or ED'
         records:
         - model: ClinicalActivity
           value_set: HEDIS; ED
         - model: ClinicalActivity
-          value_set: HEDIS; AMM Stand Alone Visits
+          value_set: HEDIS; Acute Inpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Nonacute Inpatient
         - model: ClinicalActivity
           value_set: HEDIS; Telephone Visits
         - model: ClinicalActivity
-          value_set: HEDIS; AMM Visits
+          value_set: HEDIS; Visit Setting Unspecified
         - model: ClinicalActivity
           value_set: HEDIS; Inpatient Stay
+        - model: ClinicalActivity
+          value_set: HEDIS; BH Outpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Partial Hospitalization or Intensive Outpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Electroconvulsive Therapy
+        - model: ClinicalActivity
+          value_set: HEDIS; Transcranial Magnetic Stimulation
       - display_title: Depression
         logical_operator: AND
         show_codes: true
         records:
         - model: Diagnosis
           value_set: HEDIS; Major Depression
-  - config_link_id: exclusion_2
+  - config_link_id: exclusion_required_medication
     code_value:
     display_title: Prior Medication
     description: Patient excluded due to a prior antidepressant medication dispensing
