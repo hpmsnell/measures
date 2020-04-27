@@ -21,9 +21,9 @@ measure:
     mips_stratum:
     mips_objective:
 denominator:
-  description: Delivered a live birth on or between November 6 of the year prior to
-    the measurement year and November 5 of the measurement year. Patients who delivered
-    in any setting should be included in this measure.
+  description: Delivered a live birth on or between October 8 of the year prior to
+    the measurement year and October 7 of the measurement year. Patients who delivered
+    in any setting should be included in this measure. Do not count visits that occur on the delivery date
   component_groups:
   - components:
     - display_title: Delivery
@@ -44,7 +44,9 @@ denominator:
       show_codes: true
       records:
       - model: ClinicalActivity
-        value_set: HEDIS; Hospice
+        value_set: HEDIS; Hospice Intervention
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice Encounter
 exclusion:
   description:
   reasons:
@@ -75,66 +77,14 @@ performance_met:
     - components:
       - display_title: Complete Prenatal Service
         show_codes: true
+        annotation: 'Prenatal Visits must include a pregnancy diagnosis, Prenatal Bundled Services cannot be on date of delivery'
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Prenatal Bundled Services
         - model: ClinicalActivity
           value_set: HEDIS; Stand Alone Prenatal Visits
-  - config_link_id: multiple
-    code_value:
-    display_title: Multiple Services
-    description: Patient received a prenatal visit with one or more additional eligible
-      services
-    component_groups:
-    - components:
-      - display_title: Prenatal Visit
-        show_codes: true
-        records:
         - model: ClinicalActivity
           value_set: HEDIS; Prenatal Visits
-    - logical_operator: AND
-      components:
-      - display_title: Obstetric Panel
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Obstetric Panel
-      - display_title: Prenatal Ultrasound
-        logical_operator: OR
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Prenatal Ultrasound
-      - display_title: Antibody Tests
-        logical_operator: OR
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Toxoplasma Antibody
-        - model: LaboratoryTestPerformed
-          value_set: HEDIS; Toxoplasma Antibody
-        - model: ClinicalActivity
-          value_set: HEDIS; Rubella Antibody
-        - model: LaboratoryTestPerformed
-          value_set: HEDIS; Rubella Antibody
-        - model: ClinicalActivity
-          value_set: HEDIS; Cytomegalovirus Antibody
-        - model: LaboratoryTestPerformed
-          value_set: HEDIS; Cytomegalovirus Antibody
-        - model: ClinicalActivity
-          value_set: HEDIS; Herpes Simplex Antibody
-        - model: LaboratoryTestPerformed
-          value_set: HEDIS; Herpes Simplex Antibody
-        - model: ClinicalActivity
-          value_set: HEDIS; ABO
-        - model: LaboratoryTestPerformed
-          value_set: HEDIS; ABO
-        - model: ClinicalActivity
-          value_set: HEDIS; Rh
-        - model: LaboratoryTestPerformed
-          value_set: HEDIS; Rh
-        - model: LaboratoryTestPerformed
-          value_set: HEDIS; ABO and Rh
 performance_not_met:
   description:
   reasons:

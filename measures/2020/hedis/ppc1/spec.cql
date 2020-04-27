@@ -6,7 +6,7 @@ library HEDIS_PPC1_2020 version '1'
  * ID: PPC1
  * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Chana West
  *
   */
 
@@ -14,21 +14,17 @@ using QDM
 
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
+valueset "HEDIS; Cervical Cytology Lab Test": '2.16.840.1.113883.3.464.1004.1525'
+valueset "HEDIS; Cervical Cytology Result or Finding": '2.16.840.1.113883.3.464.1004.1524'
+valueset "HEDIS; Postpartum Bundled Services": '2.16.840.1.113883.3.464.1004.1217'
+valueset "HEDIS; Postpartum Visits": '2.16.840.1.113883.3.464.1004.1218'
 valueset "HEDIS; Deliveries": '2.16.840.1.113883.3.464.1004.1072'
 valueset "HEDIS; Non-Live Births": '2.16.840.1.113883.3.464.1004.1187'
 valueset "HEDIS; Prenatal Bundled Services": '2.16.840.1.113883.3.464.1004.1223'
 valueset "HEDIS; Stand Alone Prenatal Visits": '2.16.840.1.113883.3.464.1004.1240'
 valueset "HEDIS; Prenatal Visits": '2.16.840.1.113883.3.464.1004.1225'
-valueset "HEDIS; Obstetric Panel": '2.16.840.1.113883.3.464.1004.1192'
-valueset "HEDIS; Prenatal Ultrasound": '2.16.840.1.113883.3.464.1004.1224'
-valueset "HEDIS; Toxoplasma Antibody": '2.16.840.1.113883.3.464.1004.1253'
-valueset "HEDIS; Rubella Antibody": '2.16.840.1.113883.3.464.1004.1233'
-valueset "HEDIS; Cytomegalovirus Antibody": '2.16.840.1.113883.3.464.1004.1069'
-valueset "HEDIS; Herpes Simplex Antibody": '2.16.840.1.113883.3.464.1004.1119'
-valueset "HEDIS; ABO": '2.16.840.1.113883.3.464.1004.1001'
-valueset "HEDIS; Rh": '2.16.840.1.113883.3.464.1004.1228'
-valueset "HEDIS; ABO and Rh": '2.16.840.1.113883.3.464.1004.1002'
 valueset "HEDIS; Pregnancy Diagnosis": '2.16.840.1.113883.3.464.1004.1220'
 
 // VSAC value sets
@@ -39,93 +35,47 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Delivery":
-  ["Procedure, Performed": "HEDIS; Deliveries"] P1
-    where P1.relevantPeriod starts during [56 days before start of "Measurement Period", 56 days before end of "Measurement Period"]
+define "Live Delivery":
+  ["Procedure, Performed": "HEDIS; Deliveries"] Delivery
+    where Delivery.relevantPeriod starts 85 days or less before start of "Measurement Period"
+      and Delivery.relevantPeriod ends 86 days or less before end of "Measurement Period"
+  and not exists ["Diagnosis": "HEDIS; Non-Live Births"] Nonlive
+      where Nonlive.prevalencePeriod starts during Delivery.relevantPeriod
 
 define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
+  (["Intervention, Performed": "HEDIS; Hospice Intervention"]
+  union ["Encounter, Performed": "HEDIS; Hospice Encounter"])Hospice
+    where Hospice.relevantPeriod overlaps "Measurement Period"
 
-define "Delivery with Prenatal Visit":
-  "Delivery" P
-    with ["Encounter, Performed": "HEDIS; Prenatal Visits"] E
-      such that E.relevantPeriod starts during [9 months before start of P.relevantPeriod, 6 months before start of P.relevantPeriod]
+define "Prenatal Bundle Not Delivery":
+  ["Procedure, Performed": "HEDIS; Prenatal Bundled Services"] PreNatBund
+    without "Live Delivery" D
+      such that D.relevantPeriod starts during PreNatBund.relevantPeriod
 
 define "Complete Prenatal Service":
-  ["Procedure, Performed": "HEDIS; Prenatal Bundled Services"]
-  union ["Encounter, Performed": "HEDIS; Prenatal Visits"]
-
-define "Prenatal Assessment":
-  ["Assessment, Performed": "HEDIS; Obstetric Panel"]
-  union ["Assessment, Performed": "HEDIS; Prenatal Ultrasound"]
-
-define "Toxoplasma Antibody Test":
-  ["Assessment, Performed": "HEDIS; Toxoplasma Antibody"]
-  union ["Laboratory Test, Performed": "HEDIS; Toxoplasma Antibody"]
-
-define "Rubella Antibody Test":
-  ["Assessment, Performed": "HEDIS; Rubella Antibody"]
-  union ["Laboratory Test, Performed": "HEDIS; Rubella Antibody"]
-
-define "Cytomegalovirus Antibody Test":
-  ["Assessment, Performed": "HEDIS; Cytomegalovirus Antibody"]
-  union ["Laboratory Test, Performed": "HEDIS; Cytomegalovirus Antibody"]
-
-define "Herpes Simplex Antibody Test":
-  ["Assessment, Performed": "HEDIS; Herpes Simplex Antibody"]
-  union ["Laboratory Test, Performed": "HEDIS; Herpes Simplex Antibody"]
-
-define "ABO or Rh Test":
-  ["Assessment, Performed": "HEDIS; ABO"]
-  union ["Laboratory Test, Performed": "HEDIS; ABO"]
-  union ["Assessment, Performed": "HEDIS; Rh"]
-  union ["Laboratory Test, Performed": "HEDIS; Rh"]
-  union ["Laboratory Test, Performed": "HEDIS; ABO and Rh"]
+  "Prenatal Bundle Not Delivery"
+  union ["Encounter, Performed": "HEDIS; Stand Alone Prenatal Visits"]
+  union ((["Encounter, Performed": "HEDIS; Prenatal Visits"])PNV
+    with (["Diagnosis": "HEDIS; Pregnancy Diagnosis"])PregDx
+      such that PregDx.prevalencePeriod overlaps PNV.relevantPeriod)
 
 // Populations
 
 define "Denominator":
-  "Delivery" P1
-    where "Patient Characteristic Sex" = 'Female'
-    without ["Diagnosis": "HEDIS; Non-Live Births"] D
-      such that D.prevalencePeriod starts during P1.relevantPeriod
-    without "Delivery" P2
-      such that P1.relevantPeriod starts during 6 months or less before start of P2.relevantPeriod
-    without "Hospice" I
-      such that I.authorDateTime during "Measurement Period"
 
-define "Numerator Performance Met: Single Service":
+  "Live Delivery" LD1
+    without "Live Delivery" LD2
+      such that LD1.relevantPeriod ends within 6 months of LD2.relevantPeriod
+    where not exists "Hospice"
+    //exists (["Patient Characteristic Sex": "Female"])
+
+define "Numerator Performance Met":
   /*
    * config_link_id: single
    */
-  "Delivery" P
+  "Live Delivery" P
     with "Complete Prenatal Service" E
-      such that E.relevantPeriod starts during [9 months before start of P.relevantPeriod, 6 months before start of P.relevantPeriod]
-
-define "Numerator Performance Met: Multiple Services":
-  /*
-   * config_link_id: multiple
-   */
-  "Delivery with Prenatal Visit" P
-    with ["Diagnosis"; "HEDIS; Pregnancy Diagnosis"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod
-  or "Delivery with Prenatal Visit" P
-    with "Prenatal Assessment" A
-      such that A.authorDateTime during [9 months before start of P.relevantPeriod, 6 months before start of P.relevantPeriod]
-  or "Delivery with Prenatal Visit" P
-    with "Toxoplasma Antibody Test" A1
-      such that A1.authorDateTime during [9 months before start of P.relevantPeriod, 6 months before start of P.relevantPeriod]
-    with "Rubella Antibody Test" A2
-      such that A2.authorDateTime during [9 months before start of P.relevantPeriod, 6 months before start of P.relevantPeriod]
-    with "Cytomegalovirus Antibody Test" A3
-      such that A3.authorDateTime during [9 months before start of P.relevantPeriod, 6 months before start of P.relevantPeriod]
-    with "Herpes Simplex Antibody Test" A4
-      such that A4.authorDateTime during [9 months before start of P.relevantPeriod, 6 months before start of P.relevantPeriod]
-  or "Delivery with Prenatal Visit" P
-    with "ABO or Rh Test" A1
-      such that A1.authorDateTime during [9 months before start of P.relevantPeriod, 6 months before start of P.relevantPeriod]
-    with "Rubella Antibody Test" A2
-      such that A2.authorDateTime during [9 months before start of P.relevantPeriod, 6 months before start of P.relevantPeriod]
+     such that E.relevantPeriod during Interval [end of P.relevantPeriod - 280 days, end of P.relevantPeriod - 176 days]
 
 define "Numerator Performance Not Met":
   /*
