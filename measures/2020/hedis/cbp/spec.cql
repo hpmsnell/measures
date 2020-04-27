@@ -304,7 +304,7 @@ define "Denominator Exclusion: ESRD":
       and Enc.placeOfService != 81
     )
   or exists("ESRD Procedure" P
-    where P.relevantPeriod starts before end of "Measurement Period"
+    where P.relevantPeriod starts on or before end of "Measurement Period"
       and P.placeOfService != 81 //FIXME: unclear if we need to correlate w/ an encounter
     )
 
