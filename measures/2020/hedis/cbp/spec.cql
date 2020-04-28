@@ -108,14 +108,14 @@ define "Distinct Dates of Telehealth Encounters with Hypertension":
       //outpatient telehealth
       union (["Encounter, Performed": "HEDIS; Outpatient Without UBREV"] UBREV
         with ["Diagnosis": "HEDIS; Essential Hypertension"] D
-          such that D.claimId = E.claimId
+          such that D.claimId = UBREV.claimId
             or (
-              end of E.relevantPeriod != null
-              and start of D.prevalencePeriod during E.relevantPeriod
+              end of UBREV.relevantPeriod != null
+              and start of D.prevalencePeriod during UBREV.relevantPeriod
             )
             or (
-              E.stopDate = null
-              and start of D.prevalencePeriod same day as start of E.relevantPeriod
+              UBREV.stopDate = null
+              and start of D.prevalencePeriod same day as start of UBREV.relevantPeriod
             )
         where E.relevantPeriod starts 2 years or less before end of "Measurement Period"
           and E.placeOfService != 81
