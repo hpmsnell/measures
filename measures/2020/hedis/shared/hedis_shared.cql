@@ -44,8 +44,6 @@ valueset "HEDIS; Frailty Diagnosis": '2.16.840.1.113883.3.464.1004.1531'
 valueset "HEDIS; Frailty Encounter": '2.16.840.1.113883.3.464.1004.1532'
 valueset "HEDIS; Frailty Symptom": '2.16.840.1.113883.3.464.1004.1533'
 
-valueset "Able; Payer I-SNP": ''
-
 valueset "Able; MMDF LTI": ''
 valueset "Able; MMDF Hospice": ''
 
@@ -74,8 +72,10 @@ SNP
 ----------------------------------------------------*/
 define "SNP"(Period Interval<DateTime>):
   exists
-    ["Payer": "Able; Payer I-SNP"] payer //refer to the multiple payers
-    where payer.startDate <= end of Period
+    ["Payer": "ALL PAYERS"] payer //ALL payers, don't restrict by value set
+    where
+      payer.value = 'SN2'
+      and payer.startDate <= end of Period
       and (
           payer.endDate >= start of Period
           or payer.endDate is null
