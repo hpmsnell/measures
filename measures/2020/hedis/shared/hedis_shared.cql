@@ -44,8 +44,6 @@ valueset "HEDIS; Frailty Diagnosis": '2.16.840.1.113883.3.464.1004.1531'
 valueset "HEDIS; Frailty Encounter": '2.16.840.1.113883.3.464.1004.1532'
 valueset "HEDIS; Frailty Symptom": '2.16.840.1.113883.3.464.1004.1533'
 
-valueset "Able; Payer I-SNP": ''
-
 valueset "Able; MMDF LTI": ''
 valueset "Able; MMDF Hospice": ''
 
@@ -74,8 +72,10 @@ SNP
 ----------------------------------------------------*/
 define "SNP"(Period Interval<DateTime>):
   exists
-    ["Payer": "Able; Payer I-SNP"] payer //refer to the multiple payers
-    where payer.startDate <= end of Period
+    ["Payer": "ALL PAYERS"] payer //ALL payers, don't restrict by value set
+    where
+      payer.value = 'SN2'
+      and payer.startDate <= end of Period
       and (
           payer.endDate >= start of Period
           or payer.endDate is null
@@ -178,8 +178,10 @@ define function "Advanced Illness: Visit During Period - Outpatient, Obs, ED, No
       and QualifyingEncounters.placeOfService != '81'
 
 /*
-non-acute inpatient DISCHARGES
-... with an advanced illness diagnosis (Advanced Illness Value Set)...
+To identify a nonacute inpatient discharge:
+1.	Identify all acute and nonacute inpatient stays (Inpatient Stay Value Set).
+2.	Confirm the stay was for nonacute care based on the presence of a nonacute code (Nonacute Inpatient Stay Value Set) on the claim.
+3.	Identify the discharge date for the stay.
 */
 define function "Advanced Illness: Non-Acute Inpatient DISCHARGE During Period"(Period Interval<DateTime>):
   (
@@ -199,7 +201,10 @@ define function "Advanced Illness: Non-Acute Inpatient DISCHARGE During Period"(
     and QualifyingEncounters.supplemental = false
     and QualifyingEncounters.placeOfService != '81'
 
-//–	At least one acute inpatient encounter (Acute Inpatient Value Set) with an advanced illness diagnosis (Advanced Illness Value Set)
+/*
+–	At least one acute inpatient encounter (Acute Inpatient Value Set)
+  with an advanced illness diagnosis (Advanced Illness Value Set).
+*/
 define function "Advanced Illness: Acute Inpatient Encounter During Period"(Period Interval<DateTime>):
   ["Encounter, Performed": "HEDIS; Acute Inpatient"] QualifyingEncounters
   where exists (
@@ -207,14 +212,21 @@ define function "Advanced Illness: Acute Inpatient Encounter During Period"(Peri
     where Diagnosis.code in "HEDIS; Advanced Illness"
       and Diagnosis.supplemental = false
       and Diagnosis.placeOfService != '81'
-  )
-  and QualifyingEncounters.supplemental = false
-  and QualifyingEncounters.relevantPeriod starts during Period
-  and QualifyingEncounters.placeOfService != '81'
+      )
+    and QualifyingEncounters.supplemental = false
+    and QualifyingEncounters.relevantPeriod starts during Period
+    and QualifyingEncounters.placeOfService != '81'
 
+/*
 //–	Acute inpatient DISCHARGE with an advanced illness diagnosis (Advanced Illness Value Set)
+–	At least one acute inpatient discharge with an advanced illness diagnosis (Advanced Illness Value Set).
+To identify an acute inpatient discharge:
+1.	Identify all acute and nonacute inpatient stays (Inpatient Stay Value Set).
+2.	Exclude nonacute inpatient stays (Nonacute Inpatient Stay Value Set).
+3.	Identify the discharge date for the stay.
+*/
 define function "Advanced Illness: Acute Inpatient DISCHARGE During Period"(Period Interval<DateTime>):
-  ["Encounter, Performed": "HEDIS; Acute Inpatient"] QualifyingEncounters
+  ["Encounter, Performed": "HEDIS; Inpatient Stay"] QualifyingEncounters
   where exists (QualifyingEncounters.diagnoses Diagnosis
     where Diagnosis.code in "HEDIS; Advanced Illness"
       and Diagnosis.supplemental = false
@@ -223,6 +235,13 @@ define function "Advanced Illness: Acute Inpatient DISCHARGE During Period"(Peri
     and QualifyingEncounters.supplemental = false
     and QualifyingEncounters.dischargeDate during Period
     and QualifyingEncounters.placeOfService != '81'
+    and not exists (
+      //There will be secondary non-acute inpatient Encounters
+      //we have find ONLY the encounters where there is NOT
+      //a related non-acute stay on the same claim
+      ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] Nonacute
+      such that QualifyingEncounters.claimId = Nonacute.claimId
+    )
 
 /*
 –	At least two outpatient visits ...
