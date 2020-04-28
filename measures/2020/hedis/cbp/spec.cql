@@ -83,6 +83,14 @@ define "Distinct Dates of Telehealth Encounters with Hypertension":
       ) TelephoneOrOnlineEncounters
       with ["Diagnosis": "HEDIS; Essential Hypertension"] D
         such that D.claimId = TelephoneOrOnlineEncounters.claimId
+        or (
+          end of TelephoneOrOnlineEncounters.relevantPeriod != null
+          and start of D.prevalencePeriod during TelephoneOrOnlineEncounters.relevantPeriod
+        )
+        or (
+          TelephoneOrOnlineEncounters.stopDate = null
+          and start of D.prevalencePeriod same day as start of TelephoneOrOnlineEncounters.relevantPeriod
+        )
       where TelephoneOrOnlineEncounters.relevantPeriod starts 2 years or less before end of "Measurement Period"
         and E.placeOfService != 81
         and E.supplemental = false
@@ -101,6 +109,14 @@ define "Distinct Dates of Telehealth Encounters with Hypertension":
       union (["Encounter, Performed": "HEDIS; Outpatient Without UBREV"] UBREV
         with ["Diagnosis": "HEDIS; Essential Hypertension"] D
           such that D.claimId = E.claimId
+            or (
+              end of E.relevantPeriod != null
+              and start of D.prevalencePeriod during E.relevantPeriod
+            )
+            or (
+              E.stopDate = null
+              and start of D.prevalencePeriod same day as start of E.relevantPeriod
+            )
         where E.relevantPeriod starts 2 years or less before end of "Measurement Period"
           and E.placeOfService != 81
           and E.supplemental = false
@@ -123,6 +139,14 @@ define "Distinct Dates of Non-Telehealth Encounters with Hypertension":
       ((["Encounter, Performed": "HEDIS; Outpatient Without UBREV"]) E
 	      with ["Diagnosis": "HEDIS; Essential Hypertension"] D
 	        such that D.claimId = E.claimId
+          or (
+            end of E.relevantPeriod != null
+            and start of D.prevalencePeriod during E.relevantPeriod
+          )
+          or (
+            E.stopDate = null
+            and start of D.prevalencePeriod same day as start of E.relevantPeriod
+          )
         where E.relevantPeriod starts 2 years or less before end of "Measurement Period"
           and D.placeOfService != 81
           and E.supplemental = false
@@ -141,7 +165,15 @@ define "Count of Visits with Hypertension Diagnosis":
 define "Second Hypertension Diagnosis":
   ((["Diagnosis": "HEDIS; Essential Hypertension"] D
       with ["Encounter, Performed"]  E //ANY encounter
-        such that D.claimId = E.claimId
+        such that E.claimId = D.claimId
+        or (
+          end of E.relevantPeriod != null
+          and start of D.prevalencePeriod during E.relevantPeriod
+        )
+        or (
+          E.stopDate = null
+          and start of D.prevalencePeriod same day as start of E.relevantPeriod
+        )
       where
         D.placeOfService != 81
         and E.placeOfService != 81
@@ -268,7 +300,7 @@ define "Denominator Exclusion: Frailty and Advanced Illness":
      AgeInYearsAt(end of "Measurement Period") >= 66
      and (
         "LTI During Period"("Measurement Period")
-        or "SNP"
+        or "SNP"("Measurement Period")
      )
    )
    or (
@@ -298,7 +330,15 @@ define "Denominator Exclusion: ESRD":
    */
   exists(["Diagnosis": "HEDIS; ESRD"] Dx
     with ["Encounter, Performed"] Enc //ANY encounters
-      such that Dx.claimId = Enc.claimID
+      such that Enc.claimId = Dx.claimId
+      or (
+        end of Enc.relevantPeriod != null
+        and start of Dx.prevalencePeriod during Enc.relevantPeriod
+      )
+      or (
+        Enc.stopDate = null
+        and start of Dx.prevalencePeriod same day as start of Enc.relevantPeriod
+      )
     where Dx.prevalencePeriod starts before end of "Measurement Period"
       and Dx.placeOfService != 81
       and Enc.placeOfService != 81
@@ -319,7 +359,15 @@ define "Denominator Exclusion: Pregnancy":
   exists (["Patient Characteristic Sex": "Female"])
   and exists(["Diagnosis": "HEDIS; Pregnancy"] D
     with ["Encounter", "Performed"] E // ANY encounters
-      such that D.claimId = E.claimId
+      such that E.claimId = D.claimId
+      or (
+        end of E.relevantPeriod != null
+        and start of D.prevalencePeriod during E.relevantPeriod
+      )
+      or (
+        E.stopDate = null
+        and start of D.prevalencePeriod same day as start of E.relevantPeriod
+      )
     where D.prevalencePeriod overlaps "Measurement Period"
       and D.placeOfService != 81
       and E.placeOfService != 81
