@@ -178,8 +178,10 @@ define function "Advanced Illness: Visit During Period - Outpatient, Obs, ED, No
       and QualifyingEncounters.placeOfService != '81'
 
 /*
-non-acute inpatient DISCHARGES
-... with an advanced illness diagnosis (Advanced Illness Value Set)...
+To identify a nonacute inpatient discharge:
+1.	Identify all acute and nonacute inpatient stays (Inpatient Stay Value Set).
+2.	Confirm the stay was for nonacute care based on the presence of a nonacute code (Nonacute Inpatient Stay Value Set) on the claim.
+3.	Identify the discharge date for the stay.
 */
 define function "Advanced Illness: Non-Acute Inpatient DISCHARGE During Period"(Period Interval<DateTime>):
   (
@@ -237,7 +239,7 @@ define function "Advanced Illness: Acute Inpatient DISCHARGE During Period"(Peri
       //There will be secondary non-acute inpatient Encounters
       //we have find ONLY the encounters where there is NOT
       //a related non-acute stay on the same claim
-      ["Encounter, Performed": "HEDIS; Inpatient Stay"] Nonacute
+      ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] Nonacute
       such that QualifyingEncounters.claimId = Nonacute.claimId
     )
 
