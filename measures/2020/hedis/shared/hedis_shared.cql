@@ -167,15 +167,21 @@ define function "Advanced Illness: Visit During Period - Outpatient, Obs, ED, No
       union ["Encounter, Performed": "HEDIS; ED"]
       union ["Encounter, Performed": "HEDIS; Nonacute Inpatient"]
     ) QualifyingEncounters
+      with ["Diagnosis": "HEDIS; Advanced Illness"] D
+        such that D.claimId = QualifyingEncounters.claimId
+        or (
+          end of QualifyingEncounters.relevantPeriod != null
+          and start of D.prevalencePeriod during QualifyingEncounters.relevantPeriod
+        )
+        or (
+          QualifyingEncounters.stopDate = null
+          and start of D.prevalencePeriod same day as start of QualifyingEncounters.relevantPeriod
+        )
       where QualifyingEncounters.relevantPeriod starts during Period
-      and exists (
-        QualifyingEncounters.diagnoses Diagnosis
-        where Diagnosis.code in "HEDIS; Advanced Illness"
-          and Diagnosis.supplemental = false
-          and Diagnosis.placeOfService != '81'
-      )
-      and QualifyingEncounters.supplemental = false
-      and QualifyingEncounters.placeOfService != '81'
+        and Diagnosis.supplemental = false
+        and Diagnosis.placeOfService != '81'
+        and QualifyingEncounters.supplemental = false
+        and QualifyingEncounters.placeOfService != '81'
 
 /*
 To identify a nonacute inpatient discharge:
@@ -193,11 +199,18 @@ define function "Advanced Illness: Non-Acute Inpatient DISCHARGE During Period"(
           and Inpatient.placeOfService != '81'
       )
   ) QualifyingEncounters
-  where exists (QualifyingEncounters.diagnoses Diagnosis
-    where Diagnosis.code in "HEDIS; Advanced Illness"
-      and Diagnosis.supplemental = false
-      and Diagnosis.placeOfService != '81'
+  with ["Diagnosis": "HEDIS; Advanced Illness"] D
+    such that D.claimId = QualifyingEncounters.claimId
+    or (
+      end of QualifyingEncounters.relevantPeriod != null
+      and start of D.prevalencePeriod during QualifyingEncounters.relevantPeriod
     )
+    or (
+      QualifyingEncounters.stopDate = null
+      and start of D.prevalencePeriod same day as start of QualifyingEncounters.relevantPeriod
+    )
+  where Diagnosis.supplemental = false
+    and Diagnosis.placeOfService != '81'
     and QualifyingEncounters.supplemental = false
     and QualifyingEncounters.placeOfService != '81'
 
@@ -207,12 +220,19 @@ define function "Advanced Illness: Non-Acute Inpatient DISCHARGE During Period"(
 */
 define function "Advanced Illness: Acute Inpatient Encounter During Period"(Period Interval<DateTime>):
   ["Encounter, Performed": "HEDIS; Acute Inpatient"] QualifyingEncounters
-  where exists (
-    QualifyingEncounters.diagnoses Diagnosis
-    where Diagnosis.code in "HEDIS; Advanced Illness"
-      and Diagnosis.supplemental = false
-      and Diagnosis.placeOfService != '81'
-      )
+  with ["Diagnosis": "HEDIS; Advanced Illness"] D
+    such that D.claimId = QualifyingEncounters.claimId
+    or (
+      end of QualifyingEncounters.relevantPeriod != null
+      and start of D.prevalencePeriod during QualifyingEncounters.relevantPeriod
+    )
+    or (
+      QualifyingEncounters.stopDate = null
+      and start of D.prevalencePeriod same day as start of QualifyingEncounters.relevantPeriod
+    )
+  where
+    Diagnosis.supplemental = false
+    and Diagnosis.placeOfService != '81'
     and QualifyingEncounters.supplemental = false
     and QualifyingEncounters.relevantPeriod starts during Period
     and QualifyingEncounters.placeOfService != '81'
@@ -227,11 +247,19 @@ To identify an acute inpatient discharge:
 */
 define function "Advanced Illness: Acute Inpatient DISCHARGE During Period"(Period Interval<DateTime>):
   ["Encounter, Performed": "HEDIS; Inpatient Stay"] QualifyingEncounters
-  where exists (QualifyingEncounters.diagnoses Diagnosis
-    where Diagnosis.code in "HEDIS; Advanced Illness"
-      and Diagnosis.supplemental = false
-      and Diagnosis.placeOfService != '81'
+  with ["Diagnosis": "HEDIS; Advanced Illness"] D
+    such that D.claimId = QualifyingEncounters.claimId
+    or (
+      end of QualifyingEncounters.relevantPeriod != null
+      and start of D.prevalencePeriod during QualifyingEncounters.relevantPeriod
     )
+    or (
+      QualifyingEncounters.stopDate = null
+      and start of D.prevalencePeriod same day as start of QualifyingEncounters.relevantPeriod
+    )
+  where
+    Diagnosis.supplemental = false
+    and Diagnosis.placeOfService != '81'
     and QualifyingEncounters.supplemental = false
     and QualifyingEncounters.dischargeDate during Period
     and QualifyingEncounters.placeOfService != '81'
