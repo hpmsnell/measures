@@ -232,6 +232,7 @@ define function "Advanced Illness: Acute Inpatient Encounter During Period"(Peri
     )
   where
     Diagnosis.supplemental = false
+    and Diagnosis.placeOfService != '81'
     and QualifyingEncounters.supplemental = false
     and QualifyingEncounters.relevantPeriod starts during Period
     and QualifyingEncounters.placeOfService != '81'
