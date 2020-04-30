@@ -44,15 +44,24 @@ define "Outpatient Encounter":
 		where not Enc.placeOfService in "HEDIS; Telehealth POS"
 			and not Enc.code.modifier in "HEDIS; Telehealth Modifier"
 			and not ["Encounter, Performed": "HEDIS; Inpatient Stay"] InptStay
-					where Enc.relevantPeriod ends 1 hour or less before start of InptStay.relevantPeriod
+					where Enc.relevantPeriod ends 1 day or less before start of InptStay.relevantPeriod
+			and not ["Encounter, Performed": "HEDIS; Inpatient Stay"] InptStay
+					where inpatient.claimID = Enc.claimID
 // Do not include telehealth AND Do not include outpatient, ED or observation visits that result in an inpatient stay
-// While specifications do not include timing reference, used 1hr window because it's both clinically relevant and standard across other eCQMs in CMS programs
-// If there is a way to otherwise technically discern when ED or Observation encounters become inpatient encounters, then please do modify
+// While specifications do not include timing reference for ED/Obs resulting in inpatient stay, NCQA inquiry resulted in the following response: "Per General Guideline 45, when an outpatient, ED or observation visit and an inpatient stay are billed on separate claims, the visit results in an inpatient stay when the outpatient/ED/observation date of service occurs on the day prior to the admission date or any time during the admission (admission date through discharge date). We also create a scenario where an ED/outpatient/observation and an inpatient are billed on the same claim with the same ClaimID. We expect this to be treated as one logical claim where the ED/outpatient/observation resulted in an inpatient stay - there must be an Inpatient Stay Value Set code."
 
 define "Acute Inpatient Encounter":
-["Encounter, Performed": "HEDIS; Inpatient Stay"] InptStay
-	without ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] NonacuteInptStay
-		such that NonacuteInptStay.relevantPeriod starts during InptStay.relevantPeriod
+	(["Encounter, Performed": "HEDIS; Inpatient Stay"]) InptStay
+		without "Nonacute Inpatient Visit")
+
+define "Nonacute Inpatient Visit":
+	exists(["Encounter, Performed": "HEDIS; Inpatient Stay"] Inpatient
+		with ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] Nonacute
+			such that Inpatient.claimId = Nonacute.claimId
+		where Inpatient.admissionDate during "Measurement Period"
+			and Inpatient.placeOfService != 81
+			and Nonacute.placeOfService != 81
+		)
 
 define "Qualifying Encounter":
 	"Outpatient Encounter"
@@ -94,7 +103,9 @@ define "Negative Diagnosis Outpatient Encounter":
 	union ["Encounter, Performed": "HEDIS; Telephone Visits"]
 	union ["Encounter, Performed": "HEDIS; Online Assessments"])Enc
 		without ["Encounter, Performed": "HEDIS; Inpatient Stay"] InptStay
-			such that Enc.relevantPeriod ends 1 hour or less before start of InptStay.relevantPeriod
+			such that Enc.relevantPeriod ends 1 day or less before start of InptStay.relevantPeriod
+		without ["Encounter, Performed": "HEDIS; Inpatient Stay"] InptStay
+			such that InptStay.claimID = Enc.claimID
 
 define "Negative Diagnosis Qualifying Encounters":
 	"Negative Diagnosis Outpatient Encounter"
@@ -130,10 +141,10 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-   exists("First COPD During Index Period" FirstIndex
-     with ["Assessment, Performed": "HEDIS; Spirometry"] Spirometry
-       such that Spirometry.authorDateTime starts 730 days or less before start of FirstIndex.relevantPeriod
-			 or Spirometry.authorDateTime starts 180 days after start of FirstIndex.relevantPeriod)
+  exists("First COPD During Index Period" FirstIndex
+    with ["Assessment, Performed": "HEDIS; Spirometry"] Spirometry
+     such that Spirometry.authorDateTime starts 730 days or less before start of FirstIndex.relevantPeriod
+			or Spirometry.authorDateTime starts 180 days after start of FirstIndex.relevantPeriod)
 
 
 define "Numerator Performance Not Met":
