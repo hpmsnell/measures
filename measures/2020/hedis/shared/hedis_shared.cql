@@ -170,11 +170,15 @@ define function "Advanced Illness: Visit During Period - Outpatient, Obs, ED, No
       with ["Diagnosis": "HEDIS; Advanced Illness"] D
         such that D.claimId = QualifyingEncounters.claimId
         or (
-          end of QualifyingEncounters.relevantPeriod != null
+          D.claimId = null
+          and QualifyingEncounters.claimId = null
+          and end of QualifyingEncounters.relevantPeriod != null
           and start of D.prevalencePeriod during QualifyingEncounters.relevantPeriod
         )
         or (
-          QualifyingEncounters.stopDate = null
+          D.claimId = null
+          and QualifyingEncounters.claimId = null
+          and QualifyingEncounters.stopDate = null
           and start of D.prevalencePeriod same day as start of QualifyingEncounters.relevantPeriod
         )
       where QualifyingEncounters.relevantPeriod starts during Period
@@ -202,11 +206,15 @@ define function "Advanced Illness: Non-Acute Inpatient DISCHARGE During Period"(
   with ["Diagnosis": "HEDIS; Advanced Illness"] D
     such that D.claimId = QualifyingEncounters.claimId
     or (
-      end of QualifyingEncounters.relevantPeriod != null
+      D.claimId = null
+      and QualifyingEncounters.claimId = null
+      and end of QualifyingEncounters.relevantPeriod != null
       and start of D.prevalencePeriod during QualifyingEncounters.relevantPeriod
     )
     or (
-      QualifyingEncounters.stopDate = null
+      D.claimId = null
+      and QualifyingEncounters.claimId = null
+      and QualifyingEncounters.stopDate = null
       and start of D.prevalencePeriod same day as start of QualifyingEncounters.relevantPeriod
     )
   where Diagnosis.supplemental = false
@@ -223,11 +231,15 @@ define function "Advanced Illness: Acute Inpatient Encounter During Period"(Peri
   with ["Diagnosis": "HEDIS; Advanced Illness"] D
     such that D.claimId = QualifyingEncounters.claimId
     or (
-      end of QualifyingEncounters.relevantPeriod != null
+      D.claimId = null
+      and QualifyingEncounters.claimId = null
+      and end of QualifyingEncounters.relevantPeriod != null
       and start of D.prevalencePeriod during QualifyingEncounters.relevantPeriod
     )
     or (
-      QualifyingEncounters.stopDate = null
+      D.claimId = null
+      and QualifyingEncounters.claimId = null
+      and QualifyingEncounters.stopDate = null
       and start of D.prevalencePeriod same day as start of QualifyingEncounters.relevantPeriod
     )
   where
@@ -250,11 +262,15 @@ define function "Advanced Illness: Acute Inpatient DISCHARGE During Period"(Peri
   with ["Diagnosis": "HEDIS; Advanced Illness"] D
     such that D.claimId = QualifyingEncounters.claimId
     or (
-      end of QualifyingEncounters.relevantPeriod != null
+      D.claimId = null
+      and QualifyingEncounters.claimId = null
+      and end of QualifyingEncounters.relevantPeriod != null
       and start of D.prevalencePeriod during QualifyingEncounters.relevantPeriod
     )
     or (
-      QualifyingEncounters.stopDate = null
+      D.claimId = null
+      and QualifyingEncounters.claimId = null
+      and QualifyingEncounters.stopDate = null
       and start of D.prevalencePeriod same day as start of QualifyingEncounters.relevantPeriod
     )
   where
