@@ -27,7 +27,7 @@ denominator:
     year
   component_groups:
   - components:
-    - display_title: Visit or Inpatient Stay
+    - display_title: Outpatient or Acute Inpatient Visit
       show_codes: true
       records:
       - model: ClinicalActivity
@@ -49,6 +49,17 @@ denominator:
         value_set: HEDIS; Emphysema
       - model: Diagnosis
         value_set: HEDIS; Chronic Bronchitis
+  - logical_operator: AND NOT
+    components:
+    - display_title: Telehealth or Inpatient Stay
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Telehealth POS
+      - model: ClinicalActivity
+        value_set: HEDIS; Telehealth modifier
+      - model: ClinicalActivity
+        value_set: HEDIS; Nonacute Inpatient Visit
 exclusion:
   description:
   reasons:
