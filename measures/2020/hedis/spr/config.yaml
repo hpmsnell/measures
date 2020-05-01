@@ -29,6 +29,7 @@ denominator:
   - components:
     - display_title: Outpatient or Acute Inpatient Visit
       show_codes: true
+      annotation: Without telehealth modifier or place of service
       records:
       - model: ClinicalActivity
         value_set: HEDIS; Outpatient
@@ -38,6 +39,13 @@ denominator:
         value_set: HEDIS; ED
       - model: ClinicalActivity
         value_set: HEDIS; Inpatient Stay
+  - logical_operator: AND NOT
+    components:
+    - display_title: Inpatient Stay
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Nonacute Inpatient Visit
   - logical_operator: AND
     components:
     - display_title: COPD
@@ -49,17 +57,6 @@ denominator:
         value_set: HEDIS; Emphysema
       - model: Diagnosis
         value_set: HEDIS; Chronic Bronchitis
-  - logical_operator: AND NOT
-    components:
-    - display_title: Telehealth or Inpatient Stay
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: HEDIS; Telehealth POS
-      - model: ClinicalActivity
-        value_set: HEDIS; Telehealth modifier
-      - model: ClinicalActivity
-        value_set: HEDIS; Nonacute Inpatient Visit
 exclusion:
   description:
   reasons:
