@@ -1,0 +1,222 @@
+---
+measure:
+  name: 20.MIPS.Mips001
+  required:
+    display_title: 'Diabetes: Hemoglobin A1c (HbA1c) Poor Control (>9%)'
+    inverse: true
+    subject_type: Patient
+    set: MIPS
+    external_id: '001'
+    version:
+    internal_version: 1
+  optional:
+    description: Percentage of patients 18-75 years of age with diabetes who had hemoglobin
+      A1c > 9.0% during the measurement period
+    end_to_end_bonus_disabled: true
+    gap_resolution_action: Patient is due for an HbA1c test or needs attention for
+      an uncontrolled lab result
+    mips_measure_type: Intermediate Outcome
+    mips_high_priority: true
+    mips_specialty_sets: Internal Medicine, Preventive Medicine, General Practice/Family
+      Medicine
+    mips_seven_point_max: false
+    source_specification_url: https://qpp.cms.gov/docs/QPP_quality_measure_specifications/CQM-Measures/2020_Measure_001_MIPSCQM.pdf
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+    version: 2020
+denominator:
+  description: Patients 18 - 75 years of age with diabetes with a visit during the
+    measurement period
+  component_groups:
+  - components:
+    - display_title: Encounter
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 001 Encounter
+  - logical_operator: AND
+    components:
+    - display_title: Diabetes
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; Diabetes
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: Hospice Service
+    description: Patient excluded due to hospice service
+    component_groups:
+    - components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: MIPS; MIPS Hospice Service
+        - model: ClinicalActivity
+          value_set: VSAC; Palliative Care
+  - config_link_id: exclusion_frailty_lti
+    code_value:
+    display_title: Frailty or LTI
+    description: Patient age 66 and older in Institutional Special Needs Plan, residing in
+      long-term care for more than 90 days during the measurement period, or a claim/encounter for frailty with advanced illness
+      or a dementia medication dispensed during the measurement year or year prior to the measurement year
+    component_groups:
+    - components:
+      - display_title: Long-Term Care
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: MIPS; LTI
+      - logical_operator: OR
+        display_title: Frailty and Dementia Medication
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: MIPS; Frailty and Dementia Medication
+      - logical_operator: OR
+        display_title: Frailty and Advanced Illness
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: MIPS; Frailty and Advanced Illness
+    - logical_operator: OR
+      components:
+      - display_title: Long-Term Facility
+        show_codes: false
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Care Services in Long-Term Residential Facility
+        - model: ClinicalActivity
+          value_set: VSAC; Nursing Facility Visit
+    - logical_operator: OR
+      components:
+      - display_title: Frailty
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: VSAC; Frailty Diagnosis
+        - model: ClinicalActivity
+          value_set: VSAC; Frailty Encounter
+      - logical_operator: AND
+        display_title: Dementia Medication
+        show_codes: false
+        records:
+        - model: Medication
+          value_set: VSAC; Dementia Medications
+    - logical_operator: OR
+      components:
+      - display_title: Frailty
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: VSAC; Frailty Diagnosis
+        - model: ClinicalActivity
+          value_set: VSAC; Frailty Encounter
+      - logical_operator: AND
+        display_title: Encounter
+        show_codes: false
+        annotation: 'Two encounters required if outpatient'
+        records:
+        - model: ClinicalActivity
+          value_set: VSAC; Outpatient
+        - model: ClinicalActivity
+          value_set: VSAC; Observation
+        - model: ClinicalActivity
+          value_set: VSAC; ED
+        - model: ClinicalActivity
+          value_set: VSAC; Nonacute Inpatient
+        - model: ClinicalActivity
+          value_set: VSAC; Acute Inpatient
+      - logical_operator: AND
+        display_title: Advanced Illness
+        show_codes: false
+        records:
+        - model: Medication
+          value_set: VSAC; Advanced Illness
+exception:
+  description:
+  reasons:
+performance_met:
+  description: Patients whose most recent HbA1c level (performed during the measurement
+    period) is > 9.0%
+  reasons:
+  - config_link_id: 3046F
+    code_value: 3046F
+    display_title: 3046F
+    description: Most recent hemoglobin A1c level > 9.0%
+    component_groups:
+    - components:
+      - display_title: 'Quality Data Code: 3046F'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: 3046F'
+          modifier: None
+    - logical_operator: OR
+      components:
+      - display_title: HbA1c Level > 9.0%
+        show_codes: true
+        annotation: 'With result: > 9.0%'
+        records:
+        - model: LaboratoryTestPerformed
+          value_set: VSAC; HbA1c Laboratory Test
+  - config_link_id: 3046F-8P
+    code_value: 3046F-8P
+    display_title: 3046F-8P
+    description: Hemoglobin A1c level was not performed during the measurement period
+      (12 months)
+    component_groups:
+    - components:
+      - display_title: 'Quality Data Code: 3046F-8P'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: 3046F-8P'
+          modifier: 8P
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: 3044F
+    code_value: 3044F
+    display_title: 3044F
+    description: Most recent hemoglobin A1c (HbA1c) level < 7.0% (3044F)
+    component_groups:
+    - components:
+      - display_title: 'Quality Data Code: 3044F'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: 3044F'
+          modifier: None
+    - logical_operator: OR
+      components:
+      - display_title: HbA1c Level < 7.0%
+        show_codes: true
+        annotation: 'With result: < 7.0%'
+        records:
+        - model: LaboratoryTestPerformed
+          value_set: VSAC; HbA1c Laboratory Test
+  - config_link_id: 3045F
+    code_value: 3045F
+    display_title: 3045F
+    description: Most recent hemoglobin A1c (HbA1c) level 7.0 to 9.0%
+    component_groups:
+    - components:
+      - display_title: 'Quality Data Code: 3045F'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: 3045F'
+          modifier: None
+    - logical_operator: OR
+      components:
+      - display_title: HbA1c Level 7.0% - 9.0%
+        show_codes: true
+        annotation: 'With result: 7.0% - 9.0%'
+        records:
+        - model: LaboratoryTestPerformed
+          value_set: VSAC; HbA1c Laboratory Test
