@@ -37,10 +37,11 @@ context Patient
 
 define "Live Delivery":
   ["Procedure, Performed": "HEDIS; Deliveries"] Delivery
-    where Delivery.relevantPeriod starts 85 days or less before start of "Measurement Period"
-      and Delivery.relevantPeriod ends 86 days or less before end of "Measurement Period"
-  and not exists ["Diagnosis": "HEDIS; Non-Live Births"] Nonlive
-      where Nonlive.prevalencePeriod starts during Delivery.relevantPeriod
+    where Delivery.relevantPeriod starts during [85 days or less before start of "Measurement Period",86 days or less before end of "Measurement Period"]
+      and not Delivery.supplemental = true
+      and not Delivery.placeOfService = '81'
+    without ["Diagnosis": "HEDIS; Non-Live Births"] Nonlive
+      such that Nonlive.prevalencePeriod starts during Delivery.relevantPeriod
 
 define "Hospice":
   (["Intervention, Performed": "HEDIS; Hospice Intervention"]
@@ -65,7 +66,7 @@ define "Denominator":
 
   "Live Delivery" LD1
     without "Live Delivery" LD2
-      such that LD1.relevantPeriod ends within 6 months of LD2.relevantPeriod
+      such that LD1.relevantPeriod starts during [start of LD2.relevantPeriod - 6 months, start of LD1.relevantPeriod - 1 day]
     where exists (["Patient Characteristic Sex": "Female"])
 
 define "Exclusion: Hospice":
@@ -78,9 +79,9 @@ define "Numerator Performance Met":
   /*
    * config_link_id: single
    */
-  "Live Delivery" P
-    with "Complete Prenatal Service" E
-     such that E.relevantPeriod during Interval [end of P.relevantPeriod - 280 days, end of P.relevantPeriod - 176 days]
+  "Live Delivery" Delivery
+    with "Complete Prenatal Service" Service
+     such that Service.relevantPeriod starts during Interval [start of Delivery.relevantPeriod - 280 days, start of Delivery.relevantPeriod - 176 days]
 
 define "Numerator Performance Not Met":
   /*
