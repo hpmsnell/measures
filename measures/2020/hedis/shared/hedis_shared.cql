@@ -99,7 +99,8 @@ FRAILTY
 
 define function "Frailty: Diagnosis or Symptoms During Period"(Period Interval<DateTime>):
   ((["Diagnosis": "HEDIS; Frailty Diagnosis"]
-  union ["Diagnosis": "HEDIS; Frailty Symptom"])FrailDxSx
+  union ["Diagnosis": "HEDIS; Frailty Symptom"]
+  union ["Procedure, Performed": "HEDIS; Frailty Symptom"])FrailDxSx
     where FrailDxSx.prevalencePeriod starts during Period)
       and FrailDxSx.supplemental = false
       and FrailDxSx.placeOfService != '81'
