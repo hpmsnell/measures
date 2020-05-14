@@ -1,0 +1,177 @@
+---
+measure:
+  name: 20.MIPS.Mips005Rate1
+  required:
+    display_title: 'Heart Failure (HF): Angiotensin-Converting Enzyme (ACE) Inhibitor
+      or Angiotensin Receptor Blocker (ARB) or Angiotensin Receptor-Neprilysin Inhibitor (ARNI) Therapy for Left Ventricular Systolic
+      Dysfunction (LVSD): Outpatient Encounter'
+    inverse: false
+    subject_type: Patient
+    set: MIPS
+    external_id: '005'
+    rate_id: '1'
+    version:
+    internal_version: 1
+  optional:
+    description: Percentage of patients aged 18 years and older with a diagnosis of
+      heart failure (HF) with a current or prior left ventricular ejection fraction
+      (LVEF) < 40% who were prescribed ACE inhibitor or ARB or ARNI therapy either within
+      a 12 month period when seen in the outpatient setting with two denominator eligible
+      visits
+    end_to_end_bonus_disabled: true
+    gap_resolution_action:
+    mips_measure_type: Process
+    mips_high_priority: false
+    mips_specialty_sets: Internal Medicine, Cardiology, Hospitalists, General Practice/Family
+      Medicine
+    mips_seven_point_max: false
+    source_specification_url: https://qpp.cms.gov/docs/QPP_quality_measure_specifications/CQM-Measures/2020_Measure_005_MIPSCQM.pdf
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+    version: 2020
+denominator:
+  description: All patients aged 18 years and older with a diagnosis of heart failure
+    with a current or prior LVEF < 40%
+  component_groups:
+  - components:
+    - display_title: Encounter
+      show_codes: true
+      annotation: 'Without telehealth modifier: GQ, GT, POS 02'
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; MIPS 005 Outpatient Encounter
+  - logical_operator: AND
+    components:
+    - display_title: Heart Failure
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: MIPS; Heart Failure
+  - logical_operator: AND
+    components:
+    - display_title: LVEF < 40%
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: MIPS; LVEF <40%
+    - display_title: LVEF
+      logical_operator: OR
+      annotation: 'With result: <40%'
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: Able; LVEF
+    - display_title: Moderate or Severe LVSD
+      logical_operator: OR
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: VSAC; Moderate or Severe LVSD
+      - model: ClinicalActivity
+        value_set: ABLE; Moderate or Severe LVSD
+exclusion:
+  description:
+  reasons:
+exception:
+  description:
+  reasons:
+  - config_link_id: G2093
+    code_value: G2093
+    display_title: G2093
+    description: Documentation of medical reason(s) for not prescribing ACE inhibitor
+      or ARB or ARNI therapy (e.g., hypotensive patients who are at immediate risk of cardiogenic
+      shock, hospitalized patients who have experienced marked azotemia, allergy,
+      intolerance, other medical reasons)
+    component_groups:
+    - components:
+      - display_title: 'Quality Data Code: G2093'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G2093'
+          modifier: 1P
+    - logical_operator: OR
+      components:
+      - display_title: Allergy to ACE Inhibitor, ARB, or ARNI
+        show_codes: false
+        records:
+        - model: Allergy
+          value_set: VSAC; ACE Inhibitor or ARB Ingredient
+        - model: Allergy
+          value_set: Able; ACE Inhibitor or ARB Ingredient NDFRT
+        - model: Diagnosis
+          value_set: VSAC; Allergy to ACE Inhibitor or ARB
+    - logical_operator: OR
+      components:
+      - display_title: Hypotension
+        show_codes: false
+        records:
+        - model: Diagnosis
+          value_set: VSAC; Hypotension
+  - config_link_id: G2094
+    code_value: G2094
+    display_title: G2094
+    description: Documentation of patient reason(s) for not prescribing ACE inhibitor
+      or ARB or ARNI therapy (e.g., patient declined, other patient reasons)
+    component_groups:
+    - components:
+      - display_title: 'Quality Data Code: G2094'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G2094'
+          modifier: 2P
+  - config_link_id: G2095
+    code_value: G2095
+    display_title: G2095
+    description: Documentation of system reason(s) for not prescribing ACE inhibitor
+      or ARB or ARNI therapy (e.g., other system reasons)
+    component_groups:
+    - components:
+      - display_title: 'Quality Data Code: G2095'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Denominator Exception: G2095'
+          modifier: 3P
+performance_met:
+  description: Patients who were prescribed ACE inhibitor or ARB or ARNI therapy within a
+    12 month period when seen in the outpatient setting
+  reasons:
+  - config_link_id: G2092
+    code_value: G2092
+    display_title: G2092
+    description: Angiotensin Converting Enzyme (ACE) Inhibitor or Angiotensin Receptor
+      Blocker (ARB) or Angiotensin Receptor-Neprilysin Inhibitor (ARNI) therapy prescribed or currently being taken
+    component_groups:
+    - components:
+      - display_title: 'Quality Data Code: G2092'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Met: G2092'
+          modifier: None
+    - logical_operator: OR
+      components:
+      - display_title: ACE Inhibitor, ARB, or ARNI
+        show_codes: false
+        records:
+        - model: Medication
+          value_set: VSAC; Ace Inhibitor or ARB
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: G2096
+    code_value: G2096
+    display_title: G2096
+    description: Angiotensin converting enzyme (ACE) inhibitor or angiotensin receptor
+      blocker (ARB) or Angiotensin Receptor-Neprilysin Inhibitor (ARNI) therapy was not prescribed, reason not otherwise specified
+    component_groups:
+    - components:
+      - display_title: 'Quality Data Code: G2096'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: 'MIPS; Performance Not Met: G2096'
+          modifier: 8P
