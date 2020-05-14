@@ -68,8 +68,6 @@ define "Denominator Encounter":
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
-      and not E.code.modifier in {'GQ', 'GT'}
-      and not E.placeOfService in {'02'}
 
 define "Denominator":
   exists("Denominator Encounter with Diagnosis")
