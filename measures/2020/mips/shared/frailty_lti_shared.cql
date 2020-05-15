@@ -98,3 +98,8 @@ define "Inpatient Encounter with Advanced Illness":
 define "Dementia Medications In Year Before or During Measurement Period":
   ["Medication, Prescribed": "VSAC; Dementia Medications"] DementiaMed
     where DementiaMed.relevantPeriod during Interval[start of "Measurement Period" - 1 year, end of "Measurement Period"]
+
+define CumulativeDays(Intervals List<Interval<DateTime>>):
+    Sum((collapse Intervals)CollapsedInterval
+    		return all duration in days of CollapsedInterval
+    )
