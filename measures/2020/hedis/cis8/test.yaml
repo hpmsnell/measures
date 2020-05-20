@@ -152,6 +152,16 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineHepAProcedure Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineHepAProcedure Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
       numerator: performance_met
     - name: VaccineHepAProcedure After
       denominator: 1
@@ -159,6 +169,16 @@ test_set_keys:
       denominator_exception:
       numerator: performance_not_met
     - name: VaccineHepAMedication Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineHepAMedication Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineHepAMedication Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -596,7 +616,31 @@ patients:
     medications:
     - code_type: CVX
       code_value: 31 # HepA vaccine
-      start_date: 2014-03-14 # Before deadline
+      start_date: 2015-01-31 # Before deadline
+      start_date: 2014-03-16
+- name: VaccineHepAMedication Lower
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineHepAMedication
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: CVX
+      code_value: 31 # HepA vaccine
+      start_date: 2015-02-01 # lower
+      start_date: 2014-03-16
+- name: VaccineHepAMedication Upper
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineHepAMedication
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: CVX
+      code_value: 31 # HepA vaccine
+      start_date: 2016-02-01 # upper
       start_date: 2014-03-16
 - name: VaccineHepAMedication After
   attributes:
