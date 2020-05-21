@@ -53,7 +53,7 @@ performance_met:
   - config_link_id: performance_met
     code_value:
     display_title: Hepatitis A Vaccine
-    description: Hepatitis A vaccination administered before the child's second birthday
+    description: Hepatitis A vaccination administered on or between the child’s first and second birthdays
       or patient has a history of hepatitis A
     component_groups:
     - components:
@@ -61,9 +61,9 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Hepatitis A Vaccine Administered
+          value_set: HEDIS; Hepatitis A Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Hepatitis A Vaccine Administered
+          value_set: HEDIS; Hepatitis A Immunization
     - logical_operator: OR
       components:
       - display_title: Hepatitis A
@@ -77,5 +77,5 @@ performance_not_met:
   - config_link_id: performance_not_met
     code_value:
     display_title: Missing Vaccines
-    description: No hepatitis A vaccination found on before the patient's second birthday
+    description: No hepatitis A vaccination found on or between the child’s first and second birthdays
     component_groups:
