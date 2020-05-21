@@ -9,7 +9,7 @@ measure:
     external_id: CISVZV
   optional:
     description: The percentage of children 2 years of age who had a chicken pox (VZV)
-      vaccine by their second birthday.
+      vaccine between their first and second birthday.
     gap_resolution_action: Patient is missing a varicella zoster vaccine
     version: 2020
     mips_measure_type:
@@ -75,7 +75,7 @@ performance_met:
   - config_link_id: performance_met
     code_value:
     display_title: Varicella Zoster (VZV) Vaccine
-    description: Varicella zoster vaccination administered before the child's second
+    description: Varicella zoster vaccination administered on or after the child's first birthday and before the second
       birthday or patient has a history of varicella zoster
     component_groups:
     - components:
@@ -83,9 +83,9 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Varicella Zoster (VZV) Vaccine Administered
+          value_set: HEDIS; Varicella Zoster (VZV) Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Varicella Zoster (VZV) Vaccine Administered
+          value_set: HEDIS; Varicella Zoster (VZV) Immunization
     - logical_operator: OR
       components:
       - display_title: Varicella Zoster

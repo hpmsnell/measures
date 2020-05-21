@@ -152,17 +152,27 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_not_met
     - name: VaccineVZVProcedure After
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
-    - name: VaccineVZVMedication Before
+    - name: VaccineVZVProcedure Lower
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_met
+    - name: VaccineVZVProcedure Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineVZVMedication Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
     - name: VaccineVZVMedication After
       denominator: 1
       denominator_exclusion:
@@ -419,7 +429,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 90716 # VZV vaccine Procedure
-      start_date: 2015-01-01
+      start_date: 2015-02-01
 - name: ExclusionAllergyInfluenza PerformanceMet
   attributes:
     date_of_birth: 2014-02-01
@@ -574,7 +584,29 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 90710 # VZV vaccine procedure
-      start_date: 2014-03-14 # Before deadline
+      start_date: 2015-01-31 # Before deadline
+- name: VaccineVZVProcedure Lower
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineVZVProcedure
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90710 # VZV vaccine procedure
+      start_date: 2015-02-01 # lower
+- name: VaccineVZVProcedure Upper
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineVZVProcedure
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90710 # VZV vaccine procedure
+      start_date: 2016-02-01 # upper
 - name: VaccineVZVProcedure After
   attributes:
     date_of_birth: 2014-02-01
@@ -596,8 +628,30 @@ patients:
     medications:
     - code_type: CVX
       code_value: 21 # VZV vaccine
-      start_date: 2014-03-14 # Before deadline
+      start_date: 2015-01-31 # Before deadline
       start_date: 2014-03-16
+- name: VaccineVZVMedication Lower
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineVZVMedication
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: CVX
+      code_value: 21 # VZV vaccine
+      start_date: 2015-02-01 # lower
+- name: VaccineVZVMedication Upper
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineVZVMedication
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: CVX
+      code_value: 21 # VZV vaccine
+      start_date: 2016-02-01 # upper
 - name: VaccineVZVMedication After
   attributes:
     date_of_birth: 2014-02-01
@@ -619,7 +673,7 @@ patients:
     diagnoses:
     - code_type: ICD10CM
       code_value: B01.0 # VZV
-      start_date: 2014-03-14 # Before deadline
+      start_date: 2015-02-02 # Before deadline
 - name: DiagnosisVZV After
   attributes:
     date_of_birth: 2014-02-01
