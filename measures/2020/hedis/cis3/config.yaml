@@ -9,7 +9,7 @@ measure:
     external_id: CISMMR
   optional:
     description: The percentage of children 2 years of age who had an measles, mumps
-      and rubella (MMR) vaccine by their second birthday.
+      and rubella (MMR) vaccine on or between the child's first and second birthdays.
     gap_resolution_action: Patient is missing a measles, mumps, and/or rubella vaccine
     version: 2020
     mips_measure_type:
@@ -45,15 +45,15 @@ exclusion:
         - model: Diagnosis
           value_set: HEDIS; Anaphylactic Reaction Due to Vaccination
         - model: Allergy
-          value_set: HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered
+          value_set: HEDIS; Measles, Mumps and Rubella (MMR) Immunization
         - model: Allergy
-          value_set: HEDIS; Measles/Rubella Vaccine Administered
+          value_set: HEDIS; Measles/Rubella Immunization
         - model: Allergy
-          value_set: HEDIS; Mumps Vaccine Administered
+          value_set: HEDIS; Mumps Vaccine Immunization
         - model: Allergy
-          value_set: HEDIS; Measles Vaccine Administered
+          value_set: HEDIS; Measles Vaccine Immunization
         - model: Allergy
-          value_set: HEDIS; Rubella Vaccine Administered
+          value_set: HEDIS; Rubella Vaccine Immunization
         - model: Allergy
           value_set: Able; Neomycin Ingredient
     - logical_operator: OR
@@ -78,33 +78,32 @@ performance_met:
   - config_link_id: performance_met
     code_value:
     display_title: MMR Vaccine
-    description: Measles, mumps, and rubella vaccinations administered between 42
-      days and 2 years of age
+    description: Measles, mumps, and rubella vaccinations administered between 1 and 2 years of age
     component_groups:
     - components:
       - display_title: MMR Vaccine
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered
+          value_set: HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Measles, Mumps and Rubella (MMR) Vaccine Administered
+          value_set: HEDIS; Measles, Mumps and Rubella (MMR) Immunization
         - model: ClinicalActivity
-          value_set: HEDIS; Measles/Rubella Vaccine Administered
+          value_set: HEDIS; Measles/Rubella Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Measles/Rubella Vaccine Administered
+          value_set: HEDIS; Measles/Rubella Immunization
         - model: ClinicalActivity
-          value_set: HEDIS; Mumps Vaccine Administered
+          value_set: HEDIS; Mumps Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Mumps Vaccine Administered
+          value_set: HEDIS; Mumps Vaccine Immunization
         - model: ClinicalActivity
-          value_set: HEDIS; Measles Vaccine Administered
+          value_set: HEDIS; Measles Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Measles Vaccine Administered
+          value_set: HEDIS; Measles Vaccine Immunization
         - model: ClinicalActivity
-          value_set: HEDIS; Rubella Vaccine Administered
+          value_set: HEDIS; Rubella Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Rubella Vaccine Administered
+          value_set: HEDIS; Rubella Immunization
       - display_title: History of MMR
         show_codes: true
         logical_operator: OR
@@ -113,11 +112,13 @@ performance_met:
           value_set: HEDIS; Measles
         - model: Diagnosis
           value_set: HEDIS; Rubella
+        - model: Diagnosis
+          value_set: HEDIS; Mumps
 performance_not_met:
   description:
   reasons:
   - config_link_id: performance_not_met
     code_value:
     display_title: Missing Vaccines
-    description: No MMR vaccination found on between 42 days and 2 years of age
+    description: No MMR vaccination found on between 1 and 2 years of age
     component_groups:

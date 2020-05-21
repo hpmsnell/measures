@@ -152,6 +152,16 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineMMRProcedure Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineMMRProcedure Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
       numerator: performance_met
     - name: VaccineMMRProcedure After
       denominator: 1
@@ -159,6 +169,16 @@ test_set_keys:
       denominator_exception:
       numerator: performance_not_met
     - name: VaccineMMRMedication Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineMMRMedication Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineMMRMedication Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -172,6 +192,16 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineMeaslesRubellaProcedure Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineMeaslesRubellaProcedure Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
       numerator: performance_met
     - name: VaccineMeaslesRubellaProcedure After
       denominator: 1
@@ -182,13 +212,23 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_not_met
     - name: VaccineMeaslesRubellaMedication After
       denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
     - name: VaccineMeaslesProcedure Before
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineMeaslesProcedure Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineMeaslesProcedure Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
@@ -202,7 +242,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_not_met
     - name: VaccineMeaslesMedication After
       denominator: 1
       denominator_exclusion:
@@ -222,6 +262,16 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineMumpsProcedure Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineMumpsProcedure Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
       numerator: performance_met
     - name: VaccineMumpsProcedure After
       denominator: 1
@@ -232,7 +282,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_not_met
     - name: VaccineMumpsMedication After
       denominator: 1
       denominator_exclusion:
@@ -252,6 +302,16 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
+      numerator: performance_not_met
+    - name: VaccineRubellaProcedure Lower
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: VaccineRubellaProcedure Upper
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
       numerator: performance_met
     - name: VaccineRubellaProcedure After
       denominator: 1
@@ -262,7 +322,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
+      numerator: performance_not_met
     - name: VaccineRubellaMedication After
       denominator: 1
       denominator_exclusion:
@@ -504,7 +564,7 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 90707 # MMR vaccine Procedure
-      start_date: 2015-01-01
+      start_date: 2015-03-01
 - name: ExclusionAllergyVZV PerformanceMet
   attributes:
     date_of_birth: 2014-02-01
@@ -674,7 +734,29 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 90707 # MMR vaccine Procedure
-      start_date: 2014-03-14 # Before deadline
+      start_date: 2015-01-31 # Before deadline
+- name: VaccineMMRProcedure Lower
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMMRProcedure
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90707 # MMR vaccine Procedure
+      start_date: 2015-02-01 # lower boundary
+- name: VaccineMMRProcedure Upper
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMMRProcedure
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90707 # MMR vaccine Procedure
+      start_date: 2016-02-01 # upper boundary
 - name: VaccineMMRProcedure After
   attributes:
     date_of_birth: 2014-02-01
@@ -696,7 +778,29 @@ patients:
     medications:
     - code_type: CVX
       code_value: '03' # MMR vaccine
-      start_date: 2014-03-14 # Before deadline
+      start_date: 2015-01-31 # Before deadline
+- name: VaccineMMRMedication Lower
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMMRMedication
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: CVX
+      code_value: '03' # MMR vaccine
+      start_date: 2015-02-01 # lower boundary
+- name: VaccineMMRMedication Upper
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMMRMedication
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: CVX
+      code_value: '03' # MMR vaccine
+      start_date: 2016-02-01 # Upper boundary
 - name: VaccineMMRMedication After
   attributes:
     date_of_birth: 2014-02-01
@@ -718,10 +822,38 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 90708 # Measles/Rubella vaccine Procedure
-      start_date: 2014-03-14 # Before deadline
+      start_date: 2015-01-31 # Before deadline
     - code_type: CPT
       code_value: 90704 # Mumps vaccine Procedure
-      start_date: 2014-03-14
+      start_date: 2015-01-31
+- name: VaccineMeaslesRubellaProcedure Lower
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMeaslesRubellaProcedure
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90708 # Measles/Rubella vaccine Procedure
+      start_date: 2015-02-01 # lower
+    - code_type: CPT
+      code_value: 90704 # Mumps vaccine Procedure
+      start_date: 2015-03-31
+- name: VaccineMeaslesRubellaProcedure Upper
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMeaslesRubellaProcedure
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90708 # Measles/Rubella vaccine Procedure
+      start_date: 2016-02-01 # upper
+    - code_type: CPT
+      code_value: 90704 # Mumps vaccine Procedure
+      start_date: 2015-03-31
 - name: VaccineMeaslesRubellaProcedure After
   attributes:
     date_of_birth: 2014-02-01
@@ -735,7 +867,7 @@ patients:
       start_date: 2016-02-02 # After deadline
     - code_type: CPT
       code_value: 90704 # Mumps vaccine Procedure
-      start_date: 2014-03-14
+      start_date: 2015-03-14
 - name: VaccineMeaslesRubellaMedication Before
   attributes:
     date_of_birth: 2014-02-01
@@ -746,10 +878,10 @@ patients:
     medications:
     - code_type: CVX
       code_value: '04' # Measles/Rubella vaccine
-      start_date: 2014-03-14 # Before deadline
+      start_date: 2015-01-31 # Before deadline
     - code_type: CVX
       code_value: '07' # Mumps vaccine
-      start_date: 2014-03-14
+      start_date: 2015-01-31
 - name: VaccineMeaslesRubellaMedication After
   attributes:
     date_of_birth: 2014-02-01
@@ -763,7 +895,7 @@ patients:
       start_date: 2016-02-02 # After deadline
     - code_type: CVX
       code_value: '07' # Mumps vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
 - name: VaccineMeaslesProcedure Before
   attributes:
     date_of_birth: 2014-02-01
@@ -774,13 +906,47 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 90705 # Measles vaccine Procedure
-      start_date: 2014-03-14 # Before deadline
+      start_date: 2015-01-31 # Before deadline
     - code_type: CPT
       code_value: 90704 # Mumps vaccine Procedure
-      start_date: 2014-03-14
+      start_date: 2015-02-14
     - code_type: CPT
       code_value: 90706 # Rubella vaccine Procedure
-      start_date: 2014-03-14
+      start_date: 2015-03-14
+- name: VaccineMeaslesProcedure Lower
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMeaslesProcedure
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90705 # Measles vaccine Procedure
+      start_date: 2015-02-01 # lower
+    - code_type: CPT
+      code_value: 90704 # Mumps vaccine Procedure
+      start_date: 2015-02-14
+    - code_type: CPT
+      code_value: 90706 # Rubella vaccine Procedure
+      start_date: 2015-03-14
+- name: VaccineMeaslesProcedure Upper
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMeaslesProcedure
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90705 # Measles vaccine Procedure
+      start_date: 2016-02-01 # upper
+    - code_type: CPT
+      code_value: 90704 # Mumps vaccine Procedure
+      start_date: 2015-02-14
+    - code_type: CPT
+      code_value: 90706 # Rubella vaccine Procedure
+      start_date: 2015-03-14
 - name: VaccineMeaslesProcedure After
   attributes:
     date_of_birth: 2014-02-01
@@ -794,10 +960,10 @@ patients:
       start_date: 2016-02-02 # After deadline
     - code_type: CPT
       code_value: 90704 # Mumps vaccine Procedure
-      start_date: 2014-03-14
+      start_date: 2015-03-14
     - code_type: CPT
       code_value: 90706 # Rubella vaccine Procedure
-      start_date: 2014-03-14
+      start_date: 2015-03-14
 - name: VaccineMeaslesMedication Before
   attributes:
     date_of_birth: 2014-02-01
@@ -808,13 +974,13 @@ patients:
     medications:
     - code_type: CVX
       code_value: '05' # Measles vaccine
-      start_date: 2014-03-14 # Before deadline
+      start_date: 2015-01-31 # Before deadline
     - code_type: CVX
       code_value: '07' # Mumps vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
     - code_type: CVX
       code_value: '06' # Rubella vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
 - name: VaccineMeaslesMedication After
   attributes:
     date_of_birth: 2014-02-01
@@ -829,10 +995,10 @@ patients:
     - code_type: CVX
       code_value: '07' # Mumps vaccine
       start_date: 2014-03-14
-      start_date: 2014-03-14
+      start_date: 2015-03-14
     - code_type: CVX
       code_value: '06' # Rubella vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
 - name: VaccineMeaslesDiagnosis Before
   attributes:
     date_of_birth: 2014-02-01
@@ -848,10 +1014,10 @@ patients:
     medications:
     - code_type: CVX
       code_value: '07' # Mumps vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
     - code_type: CVX
       code_value: '06' # Rubella vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
 - name: VaccineMeaslesDiagnosis After
   attributes:
     date_of_birth: 2014-02-01
@@ -881,13 +1047,47 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 90704 # Mumps vaccine Procedure
-      start_date: 2014-03-14 # Before deadline
+      start_date: 2015-01-31 # Before deadline
     - code_type: CPT
       code_value: 90705 # Measles vaccine Procedure
-      start_date: 2014-03-14
+      start_date: 2015-03-14
     - code_type: CPT
       code_value: 90706 # Rubella vaccine Procedure
-      start_date: 2014-03-14
+      start_date: 2015-03-14
+- name: VaccineMumpsProcedure Lower
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineMumpsProcedure
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90704 # Mumps vaccine Procedure
+      start_date: 2015-02-01 # lower
+    - code_type: CPT
+      code_value: 90705 # Measles vaccine Procedure
+      start_date: 2015-03-14
+    - code_type: CPT
+      code_value: 90706 # Rubella vaccine Procedure
+      start_date: 2015-03-14
+  - name: VaccineMumpsProcedure Upper
+    attributes:
+      date_of_birth: 2014-02-01
+      given_name: VaccineMumpsProcedure
+      family_name: Upper
+      sex: Male
+    clinical_models:
+      clinical_activities:
+      - code_type: CPT
+        code_value: 90704 # Mumps vaccine Procedure
+        start_date: 2016-02-01 # upper
+      - code_type: CPT
+        code_value: 90705 # Measles vaccine Procedure
+        start_date: 2015-03-14
+      - code_type: CPT
+        code_value: 90706 # Rubella vaccine Procedure
+        start_date: 2015-03-14
 - name: VaccineMumpsProcedure After
   attributes:
     date_of_birth: 2014-02-01
@@ -901,10 +1101,10 @@ patients:
       start_date: 2016-02-02 # After deadline
     - code_type: CPT
       code_value: 90705 # Measles vaccine Procedure
-      start_date: 2014-03-14
+      start_date: 2015-03-14
     - code_type: CPT
       code_value: 90706 # Rubella vaccine Procedure
-      start_date: 2014-03-14
+      start_date: 2015-03-14
 - name: VaccineMumpsMedication Before
   attributes:
     date_of_birth: 2014-02-01
@@ -915,13 +1115,13 @@ patients:
     medications:
     - code_type: CVX
       code_value: '07' # Mumps vaccine
-      start_date: 2014-03-14 # Before deadline
+      start_date: 2015-01-31 # Before deadline
     - code_type: CVX
       code_value: '05' # Measles vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
     - code_type: CVX
       code_value: '06' # Rubella vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
 - name: VaccineMumpsMedication After
   attributes:
     date_of_birth: 2014-02-01
@@ -935,10 +1135,10 @@ patients:
       start_date: 2016-02-02 # After deadline
     - code_type: CVX
       code_value: '05' # Measles vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
     - code_type: CVX
       code_value: '06' # Rubella vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
 - name: VaccineMumpsDiagnosis Before
   attributes:
     date_of_birth: 2014-02-01
@@ -954,10 +1154,10 @@ patients:
     medications:
     - code_type: CVX
       code_value: '05' # Measles vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
     - code_type: CVX
       code_value: '06' # Rubella vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
 - name: VaccineMumpsDiagnosis After
   attributes:
     date_of_birth: 2014-02-01
@@ -973,10 +1173,10 @@ patients:
     medications:
     - code_type: CVX
       code_value: '05' # Measles vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
     - code_type: CVX
       code_value: '06' # Rubella vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
 - name: VaccineRubellaProcedure Before
   attributes:
     date_of_birth: 2014-02-01
@@ -987,13 +1187,47 @@ patients:
     clinical_activities:
     - code_type: CPT
       code_value: 90706 # Rubella vaccine Procedure
-      start_date: 2014-03-14 # Before deadline
+      start_date: 2015-01-31 # Before deadline
     - code_type: CPT
       code_value: 90705 # Measles vaccine Procedure
-      start_date: 2014-03-14
+      start_date: 2015-03-14
     - code_type: CPT
       code_value: 90704 # Mumps vaccine Procedure
-      start_date: 2014-03-14
+      start_date: 2015-03-14
+- name: VaccineRubellaProcedure Lower
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineRubellaProcedure
+    family_name: Lower
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90706 # Rubella vaccine Procedure
+      start_date: 2015-02-01 # lower
+    - code_type: CPT
+      code_value: 90705 # Measles vaccine Procedure
+      start_date: 2015-03-14
+    - code_type: CPT
+      code_value: 90704 # Mumps vaccine Procedure
+      start_date: 2015-03-14
+- name: VaccineRubellaProcedure Upper
+  attributes:
+    date_of_birth: 2014-02-01
+    given_name: VaccineRubellaProcedure
+    family_name: Upper
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90706 # Rubella vaccine Procedure
+      start_date: 2016-02-01 # upper
+    - code_type: CPT
+      code_value: 90705 # Measles vaccine Procedure
+      start_date: 2015-03-14
+    - code_type: CPT
+      code_value: 90704 # Mumps vaccine Procedure
+      start_date: 2015-03-14
 - name: VaccineRubellaProcedure After
   attributes:
     date_of_birth: 2014-02-01
@@ -1007,10 +1241,10 @@ patients:
       start_date: 2016-02-02 # After deadline
     - code_type: CPT
       code_value: 90705 # Measles vaccine Procedure
-      start_date: 2014-03-14
+      start_date: 2015-03-14
     - code_type: CPT
       code_value: 90704 # Mumps vaccine Procedure
-      start_date: 2014-03-14
+      start_date: 2015-03-14
 - name: VaccineRubellaMedication Before
   attributes:
     date_of_birth: 2014-02-01
@@ -1021,13 +1255,13 @@ patients:
     medications:
     - code_type: CVX
       code_value: '06' # Rubella vaccine
-      start_date: 2014-03-14 # Before deadline
+      start_date: 2015-01-14 # Before deadline
     - code_type: CVX
       code_value: '05' # Measles vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
     - code_type: CVX
       code_value: '07' # Mumps vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
 - name: VaccineRubellaMedication After
   attributes:
     date_of_birth: 2014-02-01
@@ -1041,10 +1275,10 @@ patients:
       start_date: 2016-02-02 # After deadline
     - code_type: CVX
       code_value: '05' # Measles vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
     - code_type: CVX
       code_value: '07' # Mumps vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
 - name: VaccineRubellaDiagnosis Before
   attributes:
     date_of_birth: 2014-02-01
@@ -1060,10 +1294,10 @@ patients:
     medications:
     - code_type: CVX
       code_value: '05' # Measles vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
     - code_type: CVX
       code_value: '07' # Mumps vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
 - name: VaccineRubellaDiagnosis After
   attributes:
     date_of_birth: 2014-02-01
@@ -1079,7 +1313,7 @@ patients:
     medications:
     - code_type: CVX
       code_value: '05' # Measles vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
     - code_type: CVX
       code_value: '07' # Mumps vaccine
-      start_date: 2014-03-14
+      start_date: 2015-03-14
