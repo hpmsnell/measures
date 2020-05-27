@@ -42,8 +42,33 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
-    - name: DenominatorMedication SameDateOfService # 2 medications but on the same date of service
-      denominator:
+    - name: DenominatorMedication SameMedOverlappingSupply # 2 same medications overlapping dispense dates
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorMedication DiffMedOverlappingSupply # 2 diff medications overlapping dispense, use longest supplied
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorMedication DiffMedLongestSupply # 2 diff medications overlapping dispense dates
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorMedication DiffMedLongestSupplyBefore # 2 diff medications overlapping dispense dates
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorMedication DiffMedLongestSupplyUpper # 2 diff medications overlapping dispense dates
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: DenominatorMedication DiffMedLongestSupplyAfter # 2 diff medications overlapping dispense dates
+      denominator: 1
       denominator_exclusion:
       denominator_exception:
       numerator:
@@ -236,22 +261,132 @@ patients:
       prescribed: true
       start_date: 2016-01-02
       stop_date: 2016-01-04 # 2 days
-- name: DenominatorMedication SameDateOfService
+- name: DenominatorMedication SameMedOverlappingSupply
   attributes:
     date_of_birth: 1990-01-01
     given_name: DenominatorMedication
-    family_name: SameDateOfService
+    family_name: SameMedOverlappingSupply
     sex: Male
   clinical_models:
     medications:
     - code_type: NDC
       code_value: 00591264101 # Opioid
       prescribed: true
-      start_date: 2016-01-01
+      start_date: 2016-01-01 # overlapping
+      stop_date: 2016-01-05 #5 days
     - code_type: NDC
       code_value: 00591264101 # Opioid
       prescribed: true
-      start_date: 2016-01-01 # Same date
+      start_date: 2016-01-01 # overlapping
+      stop_date: 2016-01-06 # 6 days
+- name: DenominatorMedication DiffMedOverlappingSupply
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorMedication
+    family_name: DiffMedOverlappingSupply
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value:  # Opioid (needs to be different med code)
+      prescribed: true
+      start_date: 2016-01-01 # overlapping
+      stop_date: 2016-01-05 #0 days because overlapping
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-01 # overlapping
+      stop_date: 2016-01-06 # 6 days
+- name: DenominatorMedication DiffMedLongestSupply
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorMedication
+    family_name: DiffMedLongestSupply
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value:  # Opioid (needs to be different med code)
+      prescribed: true
+      start_date: 2016-01-01 # overlapping
+      stop_date: 2016-01-05 # 5 days longest supply
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-03 #
+      stop_date: 2016-01-07 # shortest supply
+- name: DenominatorMedication DiffMedLongestSupplyBefore
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorMedication
+    family_name: DiffMedLongestSupplyBefore
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value:  # Opioid (needs to be different med code)
+      prescribed: true
+      start_date: 2016-01-01 # overlapping
+      stop_date: 2016-01-05 # 5 days longest supply
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-01-03
+      stop_date: 2016-01-07 # 0 days shortest supply
+- name: DenominatorMedication DiffMedLongestSupplyBefore
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorMedication
+    family_name: DiffMedLongestSupplyBefore
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value:  # Opioid (needs to be different med code)
+      prescribed: true
+      start_date: 2016-12-25
+      stop_date: 2016-12-30 # 5 days longest supply
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-12-25
+      stop_date: 2016-12-27 # 0 days, shortest supply
+- name: DenominatorMedication DiffMedLongestSupplyUpper
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorMedication
+    family_name: DiffMedLongestSupplyUpper
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value:  # Opioid (needs to be different med code)
+      prescribed: true
+      start_date: 2016-12-25
+      stop_date: 2016-12-30 # 0 days shortest supply
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-12-25 # 6 days (longest supply)
+      stop_date: 2016-12-31 # upper
+- name: DenominatorMedication DiffMedLongestSupplyAfter
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: DenominatorMedication
+    family_name: DiffMedLongestSupplyAfter
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value:  # Opioid (needs to be different med code)
+      prescribed: true
+      start_date: 2016-12-25
+      stop_date: 2016-12-30 # 0 days
+    - code_type: NDC
+      code_value: 00591264101 # Opioid
+      prescribed: true
+      start_date: 2016-12-25 # 6 days (longest supply)
+      stop_date: 2017-01-07 # 6 days in measurement period
 - name: ExclusionHospice Before
   attributes:
     date_of_birth: 1940-01-01

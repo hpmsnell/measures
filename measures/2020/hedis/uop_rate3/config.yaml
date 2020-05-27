@@ -35,16 +35,17 @@ denominator:
       records:
       - model: Medication
         value_set: NCQA; Opioid Medications
-  - logical_operator: AND NOT
-    components:
-    - display_title: Hospice Service
+exclusion:
+  - config_link_id: exclusion_required_hospice
+    code_value:
+    -  display_title: Hospice Service
+    description: Patient in hospice during the measurement year
       show_codes: true
       records:
       - model: ClinicalActivity
-        value_set: HEDIS; Hospice
-exclusion:
-  description:
-  reasons:
+        value_set: HEDIS; Hospice Intervention
+      - model: ClinicalActivity
+        value_set: HEDIS; Hospice Encounter
 exception:
   description:
   reasons:
@@ -63,7 +64,67 @@ performance_met:
         annotation: At least four different prescribers and pharmacies
         records:
         - model: Medication
-          value_set: NCQA; Opioid Medications
+          value_set: NCQA; Buprenorphine Medications
+        - model: Medication
+          value_set: NCQA; Butorphanol Medications
+        - model: Medication
+          value_set: NCQA; Acetaminophen Butalbital Caffeine Codeine Medications
+        - model: Medication
+          value_set: NCQA; Acetaminophen Codeine Medications
+        - model: Medication
+          value_set: NCQA; Aspirin Butalbital Caffeine Codeine Medications
+        - model: Medication
+          value_set: NCQA; Aspirin Carisoprodol Codeine Medications
+        - model: Medication
+          value_set: NCQA; Codeine Sulfate Medications
+        - model: Medication
+          value_set: NCQA; Acetaminophen Caffeine Dihydrocodeine Medications
+        - model: Medication
+          value_set: NCQA; Aspirin Caffeine Dihydrocodeine Medications
+        - model: Medication
+          value_set: NCQA; Fentanyl Medications
+        - model: Medication
+          value_set: NCQA; Acetaminophen Hydrocodone Medications
+        - model: Medication
+          value_set: NCQA; Hydrocodone Medications
+        - model: Medication
+          value_set: NCQA; Hydrocodone Ibuprofen Medications
+        - model: Medication
+          value_set: NCQA; Hydromorphone Medications
+        - model: Medication
+          value_set: NCQA; Levorphanol Medications
+        - model: Medication
+          value_set: NCQA; Meperidine Medications
+        - model: Medication
+          value_set: NCQA; Meperidine Promethazine Medications
+        - model: Medication
+          value_set: NCQA; Methadone Medications
+        - model: Medication
+          value_set: NCQA; Morphine Medications
+        - model: Medication
+          value_set: NCQA; Morphine Naltrexone Medications
+        - model: Medication
+          value_set: NCQA; Belladonna Opium Medications
+        - model: Medication
+           value_set: NCQA; Opium Medications
+        - model: Medication
+          value_set: NCQA; Acetaminophen Oxycodone Medications
+        - model: Medication
+          value_set: NCQA; Aspirin Oxycodone Medications
+        - model: Medication
+          value_set: NCQA; Ibuprofen Oxycodone Medications
+        - model: Medication
+          value_set: NCQA; Oxycodone Medications
+        - model: Medication
+          value_set: NCQA; Oxymorphone Medications
+        - model: Medication
+          value_set: NCQA; Naloxone Pentazocine Medications
+        - model: Medication
+          value_set: NCQA; Tapentadol Medications
+        - model: Medication
+          value_set: NCQA; Acetaminophen Tramadol Medications
+        - model: Medication
+          value_set: NCQA; Tramadol Medications
 performance_not_met:
   description:
   reasons:
