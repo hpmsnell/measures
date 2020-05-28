@@ -102,7 +102,7 @@ define "Multiple Different Opioids Same Day - Longest Supply Date":
   return OpMed1.relevantPeriod
           intersect "Measurement Period"
 
-define "Multiple Different Opioids Same Day - Overlapping Supply":
+define "Multiple Different Opioids Diff Day - Overlapping Supply":
 //For multiple different prescriptions dispensed on different days with overlapping days supply, count each day in the measurement year only once toward the denominator
 //distinct is intended to eliminate duplicate days in measurement period
   distinct (from
@@ -110,7 +110,7 @@ define "Multiple Different Opioids Same Day - Overlapping Supply":
         "Opioid Medication in Measurement Period" OpMed2
         where OpMed1.code != OpMed2.code
           and OpMed1.relevantPeriod overlaps OpMed2.relevantPeriod
-        return all Interval[OpMed1.relevantPeriod, OpMed1.relevantPeriod]
+        return all [OpMed1.relevantPeriod, OpMed1.relevantPeriod]
     )
 
 define "Same Opioids - Overlapping Supply":
@@ -120,7 +120,7 @@ define "Same Opioids - Overlapping Supply":
   "Opioid Medication in Measurement Period" OpMed2
     where OpMed1.code ~ OpMed2.code
     and OpMed1.relevantPeriod overlaps OpMed2.relevantPeriod
-  return all Interval[OpMed1.relevantPeriod, OpMed1.relevantPeriod]
+  return all [OpMed1.relevantPeriod, OpMed1.relevantPeriod]
 
 define "Non-overlapping Opioids":
 // Identifies all intervals of opioid medications, associated with the measurement period

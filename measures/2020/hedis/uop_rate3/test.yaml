@@ -323,13 +323,13 @@ patients:
     - code_type: NDC
       code_value:  # Opioid (needs to be different med code)
       prescribed: true
-      start_date: 2016-01-01 # overlapping
-      stop_date: 2016-01-05 # 5 days longest supply
+      start_date: 2016-01-01 # same start
+      stop_date: 2016-01-05 # 0 days shortest supply; specs indicate if two meds starting same day, use the longest supply date to calculate
     - code_type: NDC
       code_value: 00591264101 # Opioid
       prescribed: true
-      start_date: 2016-01-03 #
-      stop_date: 2016-01-07 # shortest supply
+      start_date: 2016-01-01 #
+      stop_date: 2016-01-07 # 7 days longest supply
 - name: DenominatorMedication DiffMedLongestSupplyBefore
   attributes:
     date_of_birth: 1990-01-01
@@ -341,31 +341,13 @@ patients:
     - code_type: NDC
       code_value:  # Opioid (needs to be different med code)
       prescribed: true
-      start_date: 2016-01-01 # overlapping
-      stop_date: 2016-01-05 # 5 days longest supply
-    - code_type: NDC
-      code_value: 00591264101 # Opioid
-      prescribed: true
-      start_date: 2016-01-03
-      stop_date: 2016-01-07 # 0 days shortest supply
-- name: DenominatorMedication DiffMedLongestSupplyBefore
-  attributes:
-    date_of_birth: 1990-01-01
-    given_name: DenominatorMedication
-    family_name: DiffMedLongestSupplyBefore
-    sex: Male
-  clinical_models:
-    medications:
-    - code_type: NDC
-      code_value:  # Opioid (needs to be different med code)
-      prescribed: true
-      start_date: 2016-12-25
+      start_date: 2016-12-25 # same start
       stop_date: 2016-12-30 # 5 days longest supply
     - code_type: NDC
       code_value: 00591264101 # Opioid
       prescribed: true
-      start_date: 2016-12-25
-      stop_date: 2016-12-27 # 0 days, shortest supply
+      start_date: 2016-12-25 # same start
+      stop_date: 2016-12-27 # 0 days, shortest supply; specs indicate if two meds starting same day, use the longest supply date to calculate
 - name: DenominatorMedication DiffMedLongestSupplyUpper
   attributes:
     date_of_birth: 1990-01-01
@@ -377,12 +359,12 @@ patients:
     - code_type: NDC
       code_value:  # Opioid (needs to be different med code)
       prescribed: true
-      start_date: 2016-12-25
-      stop_date: 2016-12-30 # 0 days shortest supply
+      start_date: 2016-12-25 # same start
+      stop_date: 2016-12-30 # 0 days shortest supply; specs indicate if two meds starting same day, use the longest supply date to calculate
     - code_type: NDC
       code_value: 00591264101 # Opioid
       prescribed: true
-      start_date: 2016-12-25 # 6 days (longest supply)
+      start_date: 2016-12-25 # 6 days (same start; longest supply)
       stop_date: 2016-12-31 # upper
 - name: DenominatorMedication DiffMedLongestSupplyAfter
   attributes:
@@ -395,12 +377,12 @@ patients:
     - code_type: NDC
       code_value:  # Opioid (needs to be different med code)
       prescribed: true
-      start_date: 2016-12-25
-      stop_date: 2016-12-30 # 0 days
+      start_date: 2016-12-25 # same start
+      stop_date: 2016-12-30 # 0 days; specs indicate if two meds starting same day, use the longest supply date to calculate
     - code_type: NDC
       code_value: 00591264101 # Opioid
       prescribed: true
-      start_date: 2016-12-25 # 6 days (longest supply)
+      start_date: 2016-12-25 # 6 days (same start; longest supply)
       stop_date: 2017-01-07 # 6 days in measurement period
 - name: ExclusionHospice Before
   attributes:
