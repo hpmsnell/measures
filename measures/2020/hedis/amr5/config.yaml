@@ -36,13 +36,37 @@ denominator:
     - display_title: Asthma
       logical_operator: AND
       show_codes: true
+      annotation: with rank 1 (principal diagnosis only)
       records:
       - model: Diagnosis
         value_set: HEDIS; Asthma
   - logical_operator: OR
     components:
-    - display_title: 4 Outpatient Visits
+    - display_title: Acute Inpatient No Telehealth
       show_codes: true
+      annotation: Without telehealth modifier or place of service
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Acute Inpatient
+    - display_title: Asthma
+      logical_operator: AND
+      show_codes: true
+      annotation: with rank 1 (principal diagnosis only)
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Asthma
+  - logical_operator: AND NOT
+    components:
+    - display_title: Nonacute Inpatient Visit
+      show_codes: true
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Nonacute Inpatient Stay
+  - logical_operator: OR
+    components:
+    - display_title: Outpatient Visit without Telehealth
+      show_codes: true
+      annotation: '4 or more without telehealth POS or modifier'
       records:
       - model: ClinicalActivity
         value_set: HEDIS; Outpatient
@@ -54,33 +78,183 @@ denominator:
       records:
       - model: Diagnosis
         value_set: HEDIS; Asthma
-    - display_title: Asthma Medication
+    - display_title: At Least Two Dispensing Events
       logical_operator: AND
       show_codes: true
       records:
       - model: Medication
-        value_set: NCQA; Asthma Reliever Medications
+        value_set: NCQA; Dyphylline Guaifenesin Medications
       - model: Medication
-        value_set: NCQA; Asthma Controller Medications
+        value_set: NCQA; Budesonide Formoterol Medications
+      - model: Medication
+        value_set: NCQA; Fluticasone Salmeterol Medications
+      - model: Medication
+        value_set: NCQA; Beclomethasone Medications
+      - model: Medication
+        value_set: NCQA; Ciclesonide Medications
+      - model: Medication
+        value_set: NCQA; Flunisolide Medications
+      - model: Medication
+        value_set: NCQA; Mometasone Medications
+      - model: Medication
+        value_set: NCQA; Theophylline Medications
+      - model: Medication
+        value_set: NCQA; Fluticasone Vilanterol Medications
+      - model: Medication
+        value_set: NCQA; Formoterol Mometasone Medications
+      - model: Medication
+        value_set: NCQA; Budesonide Medications
+      - model: Medication
+        value_set: NCQA; Fluticasone Medications
+      - model: Medication
+        value_set: NCQA; Levalbuterol Medications
+      - model: Medication
+        value_set: NCQA; Albuterol Medications
+      - model: Medication
+        value_set: NCQA; Omalizumab Medications
+      - model: Medication
+        value_set: NCQA; Montelukast Medications
+      - model: Medication
+        value_set: NCQA; Zafirlukast Medications
+      - model: Medication
+        value_set: NCQA; Zileuton Medications
   - logical_operator: OR
     components:
-    - display_title: 4 Asthma Medication Events
+    - display_title: Outpatient Visit with Telehealth
       show_codes: true
-      records:
-      - model: Medication
-        value_set: NCQA; Asthma Reliever Medications
-      - model: Medication
-        value_set: NCQA; Asthma Controller Medications
-  - logical_operator: AND NOT
-    components:
-    - display_title: Hospice Service
-      show_codes: true
+      annotation: 'up to three with telehealth POS or modifier plus difference Outpatient Visit without Telehealth to equal 4 visits'
       records:
       - model: ClinicalActivity
-        value_set: HEDIS; Hospice
+        value_set: HEDIS; Outpatient
+      - model: ClinicalActivity
+        value_set: HEDIS; Observation
+      - model: ClinicalActivity
+        value_set: HEDIS; Telephone Visits
+      - model: ClinicalActivity
+        value_set: HEDIS; Online Assessments
+    - display_title: Asthma
+      logical_operator: AND
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Asthma
+    - display_title: At Least Two Dispensing Events
+      logical_operator: AND
+      show_codes: true
+      records:
+      - model: Medication
+        value_set: NCQA; Dyphylline Guaifenesin Medications
+      - model: Medication
+        value_set: NCQA; Budesonide Formoterol Medications
+      - model: Medication
+        value_set: NCQA; Fluticasone Salmeterol Medications
+      - model: Medication
+        value_set: NCQA; Beclomethasone Medications
+      - model: Medication
+        value_set: NCQA; Ciclesonide Medications
+      - model: Medication
+        value_set: NCQA; Flunisolide Medications
+      - model: Medication
+        value_set: NCQA; Mometasone Medications
+      - model: Medication
+        value_set: NCQA; Theophylline Medications
+      - model: Medication
+        value_set: NCQA; Fluticasone Vilanterol Medications
+      - model: Medication
+        value_set: NCQA; Formoterol Mometasone Medications
+      - model: Medication
+        value_set: NCQA; Budesonide Medications
+      - model: Medication
+        value_set: NCQA; Fluticasone Medications
+      - model: Medication
+        value_set: NCQA; Levalbuterol Medications
+      - model: Medication
+        value_set: NCQA; Albuterol Medications
+      - model: Medication
+        value_set: NCQA; Omalizumab Medications
+      - model: Medication
+        value_set: NCQA; Montelukast Medications
+      - model: Medication
+        value_set: NCQA; Zafirlukast Medications
+      - model: Medication
+        value_set: NCQA; Zileuton Medications
+  - logical_operator: OR
+    components:
+    - display_title: At Least Four Dispensing Events
+      show_codes: true
+      records:
+      - model: Medication
+        value_set: NCQA; Dyphylline Guaifenesin Medications
+      - model: Medication
+        value_set: NCQA; Budesonide Formoterol Medications
+      - model: Medication
+        value_set: NCQA; Fluticasone Salmeterol Medications
+      - model: Medication
+        value_set: NCQA; Beclomethasone Medications
+      - model: Medication
+        value_set: NCQA; Ciclesonide Medications
+      - model: Medication
+        value_set: NCQA; Flunisolide Medications
+      - model: Medication
+        value_set: NCQA; Mometasone Medications
+      - model: Medication
+        value_set: NCQA; Theophylline Medications
+      - model: Medication
+        value_set: NCQA; Fluticasone Vilanterol Medications
+      - model: Medication
+        value_set: NCQA; Formoterol Mometasone Medications
+      - model: Medication
+        value_set: NCQA; Budesonide Medications
+      - model: Medication
+        value_set: NCQA; Fluticasone Medications
+      - model: Medication
+        value_set: NCQA; Levalbuterol Medications
+      - model: Medication
+        value_set: NCQA; Albuterol Medications
+      - model: Medication
+        value_set: NCQA; Omalizumab Medications
+      - model: Medication
+        value_set: NCQA; Montelukast Medications
+      - model: Medication
+        value_set: NCQA; Zafirlukast Medications
+      - model: Medication
+        value_set: NCQA; Zileuton Medications
+  - logical_operator: OR
+    components:
+    - display_title: Four Leukotriene Modifiers or Antibody Inhibitors Medications: Persistent
+      show_codes: true
+      annotation: diagnosis in the same year as the leukotriene modifier or antibody
+      records:
+      - model: Medication
+        value_set: NCQA; Omalizumab Medications
+      - model: Medication
+        value_set: NCQA; Montelukast Medications
+      - model: Medication
+        value_set: NCQA; Zafirlukast Medications
+      - model: Medication
+        value_set: NCQA; Zileuton Medications
+    - display_title: Asthma
+      logical_operator: AND
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Asthma
 exclusion:
   description:
   reasons:
+  - config_link_id: exclusion_required_hospice
+    code_value:
+    display_title: Hospice
+    description: Patient in hospice during the measurement year
+    component_groups:
+    - components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Intervention
   - config_link_id: exclusion_1
     code_value:
     display_title: Condition
@@ -115,10 +289,42 @@ exclusion:
       - display_title: Asthma Medication
         show_codes: true
         records:
-        - model: Medication
-          value_set: NCQA; Asthma Reliever Medications
-        - model: Medication
-          value_set: NCQA; Asthma Controller Medications
+      - model: Medication
+        value_set: NCQA; Dyphylline Guaifenesin Medications
+      - model: Medication
+        value_set: NCQA; Budesonide Formoterol Medications
+      - model: Medication
+        value_set: NCQA; Fluticasone Salmeterol Medications
+      - model: Medication
+        value_set: NCQA; Beclomethasone Medications
+      - model: Medication
+        value_set: NCQA; Ciclesonide Medications
+      - model: Medication
+        value_set: NCQA; Flunisolide Medications
+      - model: Medication
+        value_set: NCQA; Mometasone Medications
+      - model: Medication
+        value_set: NCQA; Theophylline Medications
+      - model: Medication
+        value_set: NCQA; Fluticasone Vilanterol Medications
+      - model: Medication
+        value_set: NCQA; Formoterol Mometasone Medications
+      - model: Medication
+        value_set: NCQA; Budesonide Medications
+      - model: Medication
+        value_set: NCQA; Fluticasone Medications
+      - model: Medication
+        value_set: NCQA; Levalbuterol Medications
+      - model: Medication
+        value_set: NCQA; Albuterol Medications
+      - model: Medication
+        value_set: NCQA; Omalizumab Medications
+      - model: Medication
+        value_set: NCQA; Montelukast Medications
+      - model: Medication
+        value_set: NCQA; Zafirlukast Medications
+      - model: Medication
+        value_set: NCQA; Zileuton Medications
 exception:
   description:
   reasons:
