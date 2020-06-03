@@ -280,13 +280,11 @@ define function "Advanced Illness: Acute Inpatient DISCHARGE During Period"(Peri
     and QualifyingEncounters.supplemental = false
     and QualifyingEncounters.dischargeDate during Period
     and QualifyingEncounters.placeOfService != '81'
-    and not exists (
+  without ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] Nonacute
+    such that QualifyingEncounters.claimId = Nonacute.claimId
       //There will be secondary non-acute inpatient Encounters
       //we have find ONLY the encounters where there is NOT
       //a related non-acute stay on the same claim
-      ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] Nonacute
-      such that QualifyingEncounters.claimId = Nonacute.claimId
-    )
 
 /*
 –	At least two outpatient visits ...
