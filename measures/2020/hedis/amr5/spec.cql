@@ -162,12 +162,12 @@ define "Outpatient Telehealth Visit: >=1 Qualifying Visit"
 define "Qualifying Outpatient Visits":
 // Only three of the min of four visits may be an outpatient telehealth visit, a telephone visit or an online assessment
   "Outpatient Visit without Telehealth: >=4 Qualifying Visits"
-  or "Outpatient Visit without Telehealth: >=3 Qualifying Visits"
-    with "Outpatient Telehealth Visit: >=1 Qualifying Visit"
-  or "Outpatient Visit without Telehealth: >=2 Qualifying Visits"
-    with "Outpatient Telehealth Visit: >=2 Qualifying Visits"
-  or "Outpatient Visit without Telehealth: >=1 Qualifying Visits"
-    with "Outpatient Telehealth Visit: >=3 Qualifying Visits"
+  or ("Outpatient Visit without Telehealth: >=3 Qualifying Visits"
+    and "Outpatient Telehealth Visit: >=1 Qualifying Visit")
+  or ("Outpatient Visit without Telehealth: >=2 Qualifying Visits"
+    and "Outpatient Telehealth Visit: >=2 Qualifying Visits")
+  or ("Outpatient Visit without Telehealth: >=1 Qualifying Visits"
+    and "Outpatient Telehealth Visit: >=3 Qualifying Visits")
 
 define "At Least Two Dispensing Events":
 // Needed to ensure that outpatient encounters also have had 2 or more dispensing events within two year window
@@ -305,6 +305,7 @@ define "Numerator Performance Not Met":
   /*
    * config_link_id: performance_not_met
    */
-  not "Denominator Exclusion: Condition"
+  not "Denominator Exclusion: Hospice"
+  and not "Denominator Exclusion: Condition"
   and not "Denominator Exclusion: No Medication"
   and not "Numerator Performance Met"
