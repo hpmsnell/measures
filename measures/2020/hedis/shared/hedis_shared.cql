@@ -229,26 +229,25 @@ define function "Advanced Illness: Non-Acute Inpatient DISCHARGE During Period"(
 */
 define function "Advanced Illness: Acute Inpatient Encounter During Period"(Period Interval<DateTime>):
   ["Encounter, Performed": "HEDIS; Acute Inpatient"] QualifyingEncounters
-  with ["Diagnosis": "HEDIS; Advanced Illness"] D
-    such that D.claimId = QualifyingEncounters.claimId
-    or (
-      D.claimId = null
-      and QualifyingEncounters.claimId = null
-      and end of QualifyingEncounters.relevantPeriod != null
-      and start of D.prevalencePeriod during QualifyingEncounters.relevantPeriod
-    )
-    or (
-      D.claimId = null
-      and QualifyingEncounters.claimId = null
-      and QualifyingEncounters.stopDate = null
-      and start of D.prevalencePeriod same day as start of QualifyingEncounters.relevantPeriod
-    )
-  where
-    Diagnosis.supplemental = false
-    and Diagnosis.placeOfService != '81'
-    and QualifyingEncounters.supplemental = false
-    and QualifyingEncounters.relevantPeriod starts during Period
-    and QualifyingEncounters.placeOfService != '81'
+    where QualifyingEncounters.supplemental = false
+      and QualifyingEncounters.relevantPeriod starts during Period
+      and QualifyingEncounters.placeOfService != '81'
+    with ["Diagnosis": "HEDIS; Advanced Illness"] AdvancedIllness
+      where AdvancedIllness.supplemental = false
+        and AdvancedIllness.placeOfService != '81'
+      such that AdvancedIllness.claimId = QualifyingEncounters.claimId
+        or (
+          AdvancedIllness.claimId = null
+          and QualifyingEncounters.claimId = null
+          and end of QualifyingEncounters.relevantPeriod != null
+          and start of AdvancedIllness.prevalencePeriod during QualifyingEncounters.relevantPeriod
+        )
+        or (
+          AdvancedIllness.claimId = null
+          and QualifyingEncounters.claimId = null
+          and QualifyingEncounters.stopDate = null
+          and start of AdvancedIllness.prevalencePeriod same day as start of QualifyingEncounters.relevantPeriod
+        )
 
 /*
 //–	Acute inpatient DISCHARGE with an advanced illness diagnosis (Advanced Illness Value Set)
