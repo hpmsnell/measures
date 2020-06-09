@@ -57,9 +57,6 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
-
 define "Opioid Medication in Measurement Period":
   (["Medication, Dispensed": "NCQA; Buprenorphine Medications"]
   union ["Medication, Dispensed": "NCQA; Butorphanol Medications"]
@@ -145,15 +142,15 @@ define "Cumulative Medication Duration Greater than or Equal to 15 days"
 
 /* Populations */
 
+define "Denominator":
+  AgeInYearsAt(start of "Measurement Period") >= 18
+  and "Cumulative Medication Duration Greater than or Equal to 15 days"
+
 define "Exclusion: Hospice":
    /*
    * config_link_id: exclusion_required_hospice
    */
    exists("Hospice During Period"("Measurement Period"))
-
-define "Denominator":
-  AgeInYearsAt(start of "Measurement Period") >= 18
-  and "Cumulative Medication Duration Greater than or Equal to 15 days"
 
 define "Numerator Performance Met":
   /*
