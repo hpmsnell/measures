@@ -131,7 +131,7 @@ define "Non-overlapping Opioids":
 
 define "Opioids Dispensed Relevant Periods":
     "Multiple Different Opioids Same Day - Longest Supply Date"
-    and "Multiple Different Opioids Same Day - Overlapping Supply"
+    and "Multiple Different Opioids Diff Day - Overlapping Supply"
     and "Same Opioids - Overlapping Supply"
     and "Non-overlapping Opioids"
 
@@ -155,13 +155,13 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists("Opioid" M1
-    with "Opioid" M2
+  exists("Opioid Medication in Measurement Period" M1
+    with "Opioid Medication in Measurement Period" M2
       such that M2.pharmacyNPI != M1.pharmacyNPI
-    with "Opioid" M3
+    with "Opioid Medication in Measurement Period" M3
       such that M3.pharmacyNPI != M1.pharmacyNPI
         and M3.pharmacyNPI != M2.pharmacyNPI
-    with "Opioid" M4
+    with "Opioid Medication in Measurement Period" M4
       such that M4.pharmacyNPI != M1.pharmacyNPI
         and M4.pharmacyNPI != M2.pharmacyNPI
         and M4.pharmacyNPI != M3.pharmacyNPI)

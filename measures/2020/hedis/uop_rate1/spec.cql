@@ -132,7 +132,7 @@ define "Non-overlapping Opioids":
 
 define "Opioids Dispensed Relevant Periods":
     "Multiple Different Opioids Same Day - Longest Supply Date"
-    and "Multiple Different Opioids Same Day - Overlapping Supply"
+    and "Multiple Different Opioids Diff Day - Overlapping Supply"
     and "Same Opioids - Overlapping Supply"
     and "Non-overlapping Opioids"
 
