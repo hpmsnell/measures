@@ -67,7 +67,7 @@ define "Denominator":
   and exists(["Diagnosis": "MIPS; Diabetes"] D
     where D.prevalencePeriod overlaps "Denominator Period")
 
-define "Denominator Exclusion":
+define "Denominator Exclusion: Hospice":
   /*
    * config_link_id: exclusion_1
    */
@@ -76,7 +76,7 @@ define "Denominator Exclusion":
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
     where I.relevantPeriod overlaps "Denominator Period")
 
-define "Denominator Exclusion":
+define "Denominator Exclusion: Frailty/LTI":
   /*
    * config_link_id: exclusion_frailty_lti
    */
