@@ -43,7 +43,7 @@ define "Frailty/LTI Exclusion Exists":
     AgeInYearsAt(start of "Measurement Period") >= 65
     and (
       "Has Spent More Than 90 Days in Long Term Care"
-      and (
+      or (
         "Has Criteria Indicating Frailty"
         and ( Count("Outpatient Encounters with Advanced Illness")>= 2
           or exists( "Inpatient Encounter with Advanced Illness" )
