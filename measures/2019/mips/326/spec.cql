@@ -140,7 +140,6 @@ define "CHADS-VASc >= 2"
 
 define "Denominator":
   exists("Denominator Encounter")
-  and "High Risk Factors for Thromboembolism Exist"
 
 define "Denominator Exclusion 1":
   /*
