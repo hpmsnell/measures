@@ -132,7 +132,7 @@ define "Abnormal Most Recent Systolic Blood Pressure Exists":
 define "Denominator":
   exists("Denominator Encounter")
   and exists(["Diagnosis": "MIPS; Hypertension"] D
-    where D.prevalencePeriod starts before end of "Measurement Period" - 6 months)
+    where D.prevalencePeriod overlaps "Measurement Period")
 
 define "Denominator Exclusion: Hospice":
   /*
