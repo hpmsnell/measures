@@ -37,7 +37,19 @@ valueset "VSAC; Other Services Related to Dialysis": '2.16.840.1.113883.3.464.10
 valueset "VSAC; Dialysis Education": '2.16.840.1.113883.3.464.1003.109.12.1016'
 valueset "VSAC; Diastolic Blood Pressure": '2.16.840.1.113883.3.526.3.1033'
 valueset "VSAC; Systolic Blood Pressure": '2.16.840.1.113883.3.526.3.1032'
+valueset "VSAC; Acute Inpatient": '2.16.840.1.113883.3.464.1003.101.12.1083'
+valueset "VSAC; Advanced Illness": '2.16.840.1.113883.3.464.1003.110.12.1082'
 valueset "VSAC; Care Services in Long-Term Residential Facility": '2.16.840.1.113883.3.464.1003.101.12.1014'
+valueset "VSAC; Dementia Medications": '2.16.840.1.113883.3.464.1003.196.12.1510'
+valueset "VSAC; Encounter Inpatient": '2.16.840.1.113883.3.666.5.307'
+valueset "VSAC; Frailty Diagnosis": '2.16.840.1.113883.3.464.1003.113.12.1074'
+valueset "VSAC; Frailty Encounter": '2.16.840.1.113883.3.464.1003.101.12.1088'
+valueset "VSAC; Nonacute Inpatient": '2.16.840.1.113883.3.464.1003.101.12.1084'
+valueset "VSAC; Nursing Facility Visit": '2.16.840.1.113883.3.464.1003.101.12.1012'
+valueset "VSAC; Observation": '2.16.840.1.113883.3.464.1003.101.12.1086'
+valueset "VSAC; Outpatient": '2.16.840.1.113883.3.464.1003.101.12.1087'
+valueset "VSAC; Encounter Inpatient": '2.16.840.1.113883.3.666.5.307'
+valueset "VSAC; ED": '2.16.840.1.113883.3.464.1003.101.12.1085'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -63,37 +75,57 @@ define "Excluded Procedures":
   union ["Intervention, Performed": "VSAC; Other Services Related to Dialysis"]
   union ["Intervention, Performed": "VSAC; Dialysis Education"]
 
-define "Good Most Recent Diastolic Blood Pressure":
-  Last("Encounter, Performed": "VSAC; Adult Outpatient Visit") E
-    where E.relevantPeriod starts during "Measurement Period"
-    with ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] D
-      such that
-        D.relevantPeriod starts during E.relevantPeriod
-        and D.result < 90
+define "Diastolic Blood Pressure":
+  ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"]
+  union ["Procedure, Performed": "MIPS; Performance Met: G8754"]
+  union ["Procedure, Performed": "MIPS; Performance Not Met: G8755"]
 
-define "Bad Most Recent Diastolic Blood Pressure":
-  Last("Encounter, Performed": "VSAC; Adult Outpatient Visit") E
-    where E.relevantPeriod starts during "Measurement Period"
-    with ["Physical Exam, Performed": "VSAC; Diastolic Blood Pressure"] D
-      such that
-        D.relevantPeriod starts during E.relevantPeriod
-        and D.result >= 90
+define "Systolic Blood Pressure":
+  ["Physical Exam, Performed": "VSAC; Sytolic Blood Pressure"]
+  union ["Procedure, Performed": "MIPS; Performance Met: G8752"]
+  union ["Procedure, Performed": "MIPS; Performance Not Met: G8753"]
 
-define "Good Most Recent Systolic Blood Pressure":
-  Last("Encounter, Performed": "VSAC; Adult Outpatient Visit") E
-    where E.relevantPeriod starts during "Measurement Period"
-    with ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] S
-      such that
-        S.relevantPeriod starts during E.relevantPeriod
-        and S.result < 140
+define "Inpatient Encounter":
+  ["Encounter, Performed": "VSAC; Encounter Inpatient"]
+  union ["Encounter, Performed": "VSAC; ED"]
 
-define "Bad Most Recent Systolic Blood Pressure":
-  Last("Encounter, Performed": "VSAC; Adult Outpatient Visit") E
-    where E.relevantPeriod starts during "Measurement Period"
-    with ["Physical Exam, Performed": "VSAC; Systolic Blood Pressure"] S
-      such that
-        S.relevantPeriod starts during E.relevantPeriod
-        and S.result >= 140
+define "Most Recent Diastolic Blood Pressure"
+  Last("Diastolic Blood Pressure" BloodPressure
+    where BloodPressure.relevantPeriod starts during "Measurement Period"
+    without "Inpatient Encounter" Encounter
+      such that BloodPressure.authorDatetime during Encounter.relevantPeriod
+    sort by BloodPressure.authorDatetime asc)
+
+define "Most Recent Systolic Blood Pressure"
+  Last("Systolic Blood Pressure" BloodPressure
+    where BloodPressure.relevantPeriod starts during "Measurement Period"
+    without "Inpatient Encounter" Encounter
+      such that BloodPressure.authorDatetime during Encounter.relevantPeriod
+    sort by BloodPressure.authorDatetime asc)
+
+define "Normal Most Recent Diastolic Blood Pressure Exists":
+  exists("Most Recent Diastolic Blood Pressure" BloodPressure
+    where BloodPressure.result < 90)
+  or exists("Most Recent Diastolic Blood Pressure" BloodPressure
+    where BloodPressure.code in "MIPS; Performance Met: G8754")
+
+define "Abnormal Most Recent Diastolic Blood Pressure Exists":
+  exists("Most Recent Diastolic Blood Pressure" BloodPressure
+    where BloodPressure.result >= 90)
+  or exists("Most Recent Diastolic Blood Pressure" BloodPressure
+    where BloodPressure.code in "MIPS; Performance Not Met: G8755")
+
+define "Normal Most Recent Systolic Blood Pressure Exists":
+  exists("Most Recent Systolic Blood Pressure" BloodPressure
+    where BloodPressure.result < 140)
+  or exists("Most Recent Systolic Blood Pressure" BloodPressure
+    where BloodPressure.code in "MIPS; Performance Met: G8752")
+
+define "Abnormal Most Recent Systolic Blood Pressure Exists":
+  exists("Most Recent Systolic Blood Pressure" BloodPressure
+    where BloodPressure.result >= 140)
+  or exists("Most Recent Systolic Blood Pressure" BloodPressure
+    where BloodPressure.code in "MIPS; Performance Not Met: G8753")
 
 /* Populations */
 
@@ -102,7 +134,7 @@ define "Denominator":
   and exists(["Diagnosis": "MIPS; Hypertension"] D
     where D.prevalencePeriod starts before end of "Measurement Period" - 6 months)
 
-define "Denominator Exclusion 1":
+define "Denominator Exclusion: Hospice":
   /*
    * config_link_id: exclusion_1
    */
@@ -111,7 +143,7 @@ define "Denominator Exclusion 1":
  or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
    where I.relevantPeriod overlaps "Measurement Period")
 
- define "Denominator Exclusion 2":
+ define "Denominator Exclusion: Clinical":
    /*
     * config_link_id: exclusion_2
     */
@@ -124,77 +156,39 @@ define "Denominator Exclusion 1":
   or exists(["Diagnosis": "VSAC; Pregnancy"] D
     where D.prevalencePeriod overlaps "Measurement Period")
 
-define "Denominator Exclusion 3":
+define "Denominator Exclusion: Frailty/LTI":
   /*
-   * config_link_id: exclusion_3
+   * config_link_id: exclusion_frailty_lti
    */
-  exists(["Procedure, Performed": "MIPS; Institutional Exclusion"] P
-    where P.relevantPeriod starts during "Measurement Period"
-      and AgeInyearsAt(start of P.relevantPeriod) >= 65)
-  exists(["Procedure, Performed": "VSAC; Care Services in Long-Term Residential Facility"] P
-    where P.relevantPeriod starts during "Measurement Period"
-      and P.placeOfService in {'32', '33', '34', '54', '56'}
-      and AgeInyearsAt(start of P.relevantPeriod) >= 65)
+  FrailtyLTIShared."Frailty/LTI Exclusion Exists"
 
 define "Numerator Performance Met: G8752 and G8754":
   /*
    * config_link_id: G8752/G8754
    */
-  (
-    exists(["Procedure, Performed": "MIPS; Performance Met: G8752"] P
-      where P.relevantPeriod starts during "Measurement Period")
-    or exists("Good Most Recent Systolic Blood Pressure")
-  )
-  and (
-    exists(["Procedure, Performed": "MIPS; Performance Met: G8754"] P
-      where P.relevantPeriod starts during "Measurement Period")
-    or exists("Good Most Recent Diastolic Blood Pressure")
-  )
+  "Normal Most Recent Systolic Blood Pressure Exists"
+  and "Normal Most Recent Diastolic Blood Pressure Exists"
 
 define "Numerator Performance Not Met: G8753 and G8754":
   /*
    * config_link_id: G8753/G8754
    */
-   (
-     exists(["Procedure, Performed": "MIPS; Performance Met: G8753"] P
-       where P.relevantPeriod starts during "Measurement Period")
-     or exists("Bad Most Recent Systolic Blood Pressure")
-   )
-   and (
-     exists(["Procedure, Performed": "MIPS; Performance Met: G8754"] P
-       where P.relevantPeriod starts during "Measurement Period")
-     or exists("Good Most Recent Diastolic Blood Pressure")
-   )
+   "Abnormal Most Recent Systolic Blood Pressure Exists"
+   and "Normal Most Recent Diastolic Blood Pressure Exists"
 
 define "Numerator Performance Not Met: G8752 and G8755":
   /*
    * config_link_id: G8752/G8755
    */
-   (
-     exists(["Procedure, Performed": "MIPS; Performance Met: G8752"] P
-       where P.relevantPeriod starts during "Measurement Period")
-     or exists("Good Most Recent Systolic Blood Pressure")
-   )
-   and (
-     exists(["Procedure, Performed": "MIPS; Performance Met: G8755"] P
-       where P.relevantPeriod starts during "Measurement Period")
-     or exists("Bad Most Recent Diastolic Blood Pressure")
-   )
+   "Normal Most Recent Systolic Blood Pressure Exists"
+   and "Abnormal Most Recent Diastolic Blood Pressure Exists"
 
 define "Numerator Performance Not Met: G8753 and G8755":
   /*
    * config_link_id: G8753/G8755
    */
-   (
-     exists(["Procedure, Performed": "MIPS; Performance Met: G8753"] P
-       where P.relevantPeriod starts during "Measurement Period")
-     or exists("Bad Most Recent Systolic Blood Pressure")
-   )
-   and (
-     exists(["Procedure, Performed": "MIPS; Performance Met: G8755"] P
-       where P.relevantPeriod starts during "Measurement Period")
-     or exists("Bad Most Recent Diastolic Blood Pressure")
-   )
+   "Abnormal Most Recent Systolic Blood Pressure Exists"
+   and "Abnormal Most Recent Diastolic Blood Pressure Exists"
 
 define "Numerator Performance Not Met: G8756":
   /*
