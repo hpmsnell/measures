@@ -77,7 +77,8 @@ define "Numerator Performance Met: G2102":
    * config_link_id: G2102
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G2102"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+      and P.code.modifier = null)
   or exists(["Physical Exam, Performed": "VSAC; Retinal or Dilated Eye Exam"] P
     where P.relevantPeriod starts during "Measurement Period")
 
@@ -86,21 +87,24 @@ define "Numerator Performance Met: G2103":
    * config_link_id: G2103
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G2103"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+      and P.code.modifier = null)
 
 define "Numerator Performance Met: G2104":
   /*
    * config_link_id: G2104
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G2104"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+      and P.code.modifier = null)
 
 define "Numerator Performance Met: 3072F":
   /*
    * config_link_id: 3072F
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 3072F"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+      and P.code.modifier = null)
   or (
     exists(["Physical Exam, Performed": "VSAC; Retinal or Dilated Eye Exam"] P
       where P.relevantPeriod starts 12 months or less before start "Measurement Period")
@@ -113,14 +117,16 @@ define "Numerator Performance Not Met: G2102-8P":
    * config_link_id: G2102-8P
    */
   exists(["Procedure, Performed": "MIPS; Performance Not Met: G2102-8P"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+      and P.code.modifier = '8P')
 
 define "Numerator Performance Not Met: G2103-8P":
  /*
   * config_link_id: G2103-8P
   */
   exists(["Procedure, Performed": "MIPS; Performance Not Met: G2103-8P"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+      and P.code.modifier = '8P')
 
 define "Numerator Performance Not Met: G2104-8P":
   /*
