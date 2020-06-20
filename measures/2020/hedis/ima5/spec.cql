@@ -6,20 +6,28 @@ library HEDIS_IMA5_2020 version '1'
  * ID: IMA Combination 2
  * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Chana West
  *
   */
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
-valueset "HEDIS; Meningococcal Vaccine Administered": '2.16.840.1.113883.3.464.1004.1177'
-valueset "HEDIS; HPV Vaccine Administered": '2.16.840.1.113883.3.464.1004.1112'
-valueset "HEDIS; Tdap Vaccine Administered": '2.16.840.1.113883.3.464.1004.1245'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
+valueset "HEDIS; Meningococcal Immunization": '2.16.840.1.113883.3.464.1004.1777'
+valueset "HEDIS; Meningococcal Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1778'
+valueset "HEDIS; HPV Immunization": '2.16.840.1.113883.3.464.1004.1763'
+valueset "HEDIS; HPV Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1764'
+valueset "HEDIS; Tdap Immunization": '2.16.840.1.113883.3.464.1004.1791'
+valueset "HEDIS; Tdap Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1792'
 valueset "HEDIS; Analphylactic Reaction Due to Vaccination": '2.16.840.1.113883.3.464.1004.1024'
 valueset "HEDIS; Anaphylactic Reaction Due to Serum": '2.16.840.1.113883.3.464.1004.1023'
+valueset "HEDIS; Encephalopathy Due To Vaccination": '2.16.840.1.113883.3.464.1004.1092'
+
 
 parameter "Measurement Period" Interval<DateTime>
 
