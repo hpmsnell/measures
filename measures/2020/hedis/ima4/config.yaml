@@ -24,13 +24,6 @@ measure:
 denominator:
   description: Adolescents who turn 13 years of age during the measurement year
   component_groups:
-  - logical_operator: NOT
-    components:
-    - display_title: Hospice Service
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: HEDIS; Hospice
 exclusion:
   description:
   reasons:
@@ -44,13 +37,28 @@ exclusion:
         show_codes: true
         records:
         - model: Allergy
-          value_set: HEDIS; Meningococcal Vaccine Administered
+          value_set: HEDIS; Meningococcal Immunization
         - model: Allergy
-          value_set: HEDIS; Tdap Vaccine Administered
+          value_set: HEDIS; Tdap Immunization
         - model: Diagnosis
           value_set: HEDIS; Anaphylactic Reaction Due to Vaccination
         - model: Diagnosis
           value_set: HEDIS; Anaphylactic Reaction Due to Serum
+        - model: Diagnosis
+          value_set: HEDIS; Encephalopathy Due To Vaccination
+    - config_link_id: exclusion_required_hospice
+    code_value:
+    display_title: Exclusion: Hospice
+    description: Hospice services during measurement year
+    component_groups:
+    - components:
+      - display_title:
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Intervention
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Encounter
 exception:
   description:
   reasons:
@@ -69,18 +77,18 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Meningococcal Vaccine Administered
+          value_set: HEDIS; Meningococcal Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Meningococcal Vaccine Administered
+          value_set: HEDIS; Meningococcal Immunization
     - logical_operator: AND
       components:
       - display_title: Tdap Vaccine
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Tdap Vaccine Administered
+          value_set: HEDIS; Tdap Vaccine Procedure
         - model: Medication
-          value_set: HEDIS; Tdap Vaccine Administered
+          value_set: HEDIS; Tdap Immunization
 performance_not_met:
   description:
   reasons:
