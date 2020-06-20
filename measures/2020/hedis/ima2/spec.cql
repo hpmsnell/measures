@@ -6,20 +6,27 @@ library HEDIS_IMA2_2020 version '1'
  * ID: IMA2
  * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Chana West
  *
   */
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
-valueset "HEDIS; Meningococcal Vaccine Administered": '2.16.840.1.113883.3.464.1004.1177'
-valueset "HEDIS; HPV Vaccine Administered": '2.16.840.1.113883.3.464.1004.1112'
-valueset "HEDIS; Tdap Vaccine Administered": '2.16.840.1.113883.3.464.1004.1245'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
+valueset "HEDIS; Meningococcal Immunization": '2.16.840.1.113883.3.464.1004.1777'
+valueset "HEDIS; Meningococcal Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1778'
+valueset "HEDIS; HPV Immunization": '2.16.840.1.113883.3.464.1004.1763'
+valueset "HEDIS; HPV Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1764'
+valueset "HEDIS; Tdap Immunization": '2.16.840.1.113883.3.464.1004.1791'
+valueset "HEDIS; Tdap Vaccine Procedure": '2.16.840.1.113883.3.464.1004.1792'
 valueset "HEDIS; Analphylactic Reaction Due to Vaccination": '2.16.840.1.113883.3.464.1004.1024'
 valueset "HEDIS; Anaphylactic Reaction Due to Serum": '2.16.840.1.113883.3.464.1004.1023'
+valueset "HEDIS; Encephalopathy Due To Vaccination": '2.16.840.1.113883.3.464.1004.1092'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -36,14 +43,19 @@ define "Denominator Exclusion":
    */
   "HEDIS IMA1: Denominator Exclusion"
 
+define "Exclusion: Hospice":
+   /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice During Period"("Measurement Period"))
+
 define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists(["Procedure, Performed": "HEDIS; Tdap Vaccine Administered"] P
-    where P.relevantPeriod starts during ["Patient Characteristic Birthdate" + 10 years, "Patient Characteristic Birthdate" + 13 years])
-  or exists(["Medication, Administered": "HEDIS; Tdap Vaccine Administered"] M
-    where A.authorDateTime during ["Patient Characteristic Birthdate" + 10 years, "Patient Characteristic Birthdate" + 13 years])
+  (["Immunization, Administered": "HEDIS; Tdap Immunization"]
+  union ["Procedure Performed": "HEDIS; Tdap Vaccine Procedure]) Tdap
+    where Tdap.relevantDateTime in Interval["Patient Characteristic Birthdate" + 10 years, "Patient Characteristic Birthdate" + 13 years]
 
 define "Numerator Performance Not Met":
   /*
