@@ -42,22 +42,22 @@ define "Meningococcal Vaccination":
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") = 13
 
-define "Denominator Exclusion":
-  /*
-   * config_link_id: exclusion_optional_allergy
-   */
-  exists(["Diagnosis": "HEDIS; Analphylactic Reaction Due to Vaccination"] D
-    where D.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 13 years)
-  or exists(["Diagnosis": "HEDIS; Analphylactic Reaction Due to Serum"] D
-    where D.prevalencePeriod starts before end of "Measurement Period" - 63 months)
-  or exists(["Diagnosis": "HEDIS; Encephalopathy Due To Vaccination"] D
-    where D.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 13 years)
-
-define "Exclusion: Hospice":
+define "Denominator Exclusion: Hospice":
    /*
    * config_link_id: exclusion_required_hospice
    */
    exists("Hospice During Period"("Measurement Period"))
+
+define "Denominator Exclusion: Allergy":
+   /*
+    * config_link_id: exclusion_optional_allergy
+    */
+   exists(["Diagnosis": "HEDIS; Analphylactic Reaction Due to Vaccination"] D
+     where D.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 13 years)
+   or exists(["Diagnosis": "HEDIS; Analphylactic Reaction Due to Serum"] D
+     where D.prevalencePeriod starts before end of "Measurement Period" - 63 months)
+   or exists(["Diagnosis": "HEDIS; Encephalopathy Due To Vaccination"] D
+     where D.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 13 years)
 
 define "Numerator Performance Met":
   /*
@@ -70,5 +70,6 @@ define "Numerator Performance Not Met":
   /*
    * config_link_id: performance_not_met
    */
-  not "Denominator Exclusion"
+  not "Denominator Exclusion: Hospice"
+  and not "Denominator Exclusion: Allergy"
   and not "Numerator Performance Met"
