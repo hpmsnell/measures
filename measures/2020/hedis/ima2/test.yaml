@@ -30,12 +30,12 @@ test_set_keys:
       numerator: performance_not_met
     - name: ExclusionHospice Lower
       denominator:
-      denominator_exclusion:
+      denominator_exclusion: exclusion_required_hospice
       denominator_exception:
       numerator:
     - name: ExclusionHospice Upper
       denominator:
-      denominator_exclusion:
+      denominator_exclusion: exclusion_required_hospice
       denominator_exception:
       numerator:
     - name: ExclusionHospice After
@@ -45,7 +45,7 @@ test_set_keys:
       numerator: performance_not_met
     - name: ExclusionAllergy Before
       denominator: 1
-      denominator_exclusion: exclusion_1
+      denominator_exclusion: exclusion_optional_allergy
       denominator_exception:
       numerator:
     - name: ExclusionAllergy After
@@ -55,7 +55,7 @@ test_set_keys:
       numerator: performance_not_met
     - name: ExclusionAllergyVaccine Before
       denominator: 1
-      denominator_exclusion: exclusion_1
+      denominator_exclusion: exclusion_optional_allergy
       denominator_exception:
       numerator:
     - name: ExclusionAllergyVaccine After
@@ -70,12 +70,12 @@ test_set_keys:
       numerator: performance_not_met
     - name: ExclusionAllergySerum Lower
       denominator: 1
-      denominator_exclusion: exclusion_1
+      denominator_exclusion: exclusion_optional_allergy
       denominator_exception:
       numerator:
     - name: ExclusionAllergySerum Upper
       denominator: 1
-      denominator_exclusion: exclusion_1
+      denominator_exclusion: exclusion_optional_allergy
       denominator_exception:
       numerator:
     - name: ExclusionAllergySerum After
