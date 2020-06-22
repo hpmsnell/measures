@@ -44,7 +44,7 @@ define "Denominator":
 
 define "Denominator Exclusion":
   /*
-   * config_link_id: exclusion_1
+   * config_link_id: exclusion_optional_allergy
    */
   exists(["Diagnosis": "HEDIS; Analphylactic Reaction Due to Vaccination"] D
     where D.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 13 years)
