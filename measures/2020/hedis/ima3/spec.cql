@@ -35,7 +35,7 @@ context Patient
 
 define "Vaccine Administered Between 9th and 13th Birthday":
   (["Immunization, Administered": "HEDIS; HPV Immunization"]
-  union ["Procedure Performed": "HEDIS; HPV Vaccine Procedure]) HPVVacc
+  union ["Procedure Performed": "HEDIS; HPV Vaccine Procedure"]) HPVVacc
     where HPVVacc.relevantDateTime during Interval["Patient Characteristic Birthdate" + 9 years, "Patient Characteristic Birthdate" + 13 years]
 
 // Populations
@@ -45,7 +45,7 @@ define "Denominator":
 
 define "Denominator Exclusion":
   /*
-   * config_link_id: exclusion_1
+   * config_link_id: exclusion_optional_allergy
    */
   "HEDIS IMA1: Denominator Exclusion"
 
