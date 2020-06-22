@@ -39,7 +39,7 @@ define "Denominator":
 
 define "Denominator Exclusion":
   /*
-   * config_link_id: exclusion_1
+   * config_link_id: exclusion_optional_allergy
    */
   "HEDIS IMA1: Denominator Exclusion"
 
@@ -54,7 +54,7 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   (["Immunization, Administered": "HEDIS; Tdap Immunization"]
-  union ["Procedure Performed": "HEDIS; Tdap Vaccine Procedure]) Tdap
+  union ["Procedure Performed": "HEDIS; Tdap Vaccine Procedure"]) Tdap
     where Tdap.relevantDateTime in Interval["Patient Characteristic Birthdate" + 10 years, "Patient Characteristic Birthdate" + 13 years]
 
 define "Numerator Performance Not Met":
