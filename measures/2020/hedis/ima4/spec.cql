@@ -38,11 +38,17 @@ context Patient
 define "Denominator":
   "HEDIS IMA1: Denominator"
 
-define "Denominator Exclusion":
-  /*
-   * config_link_id: exclusion_1
+define "Denominator Exclusion: Hospice":
+   /*
+   * config_link_id: exclusion_required_hospice
    */
-  "HEDIS IMA1: Denominator Exclusion"
+   exists("Hospice During Period"("Measurement Period"))
+
+define "Denominator Exclusion: Allergy":
+  /*
+   * config_link_id: exclusion_optional_allergy
+   */
+  "HEDIS IMA1: Denominator Exclusion: Allergy"
 
 define "Numerator Performance Met":
   /*
@@ -55,5 +61,6 @@ define "Numerator Performance Not Met":
   /*
    * config_link_id: performance_not_met
    */
-  not "Denominator Exclusion"
+  not "Denominator Exclusion: Hospice"
+  and not "Denominator Exclusion: Allergy"
   and not "Numerator Performance Met"

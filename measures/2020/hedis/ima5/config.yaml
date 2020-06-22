@@ -1,6 +1,6 @@
 ---
 measure:
-  name: 19.HEDIS.Ima5
+  name: 20.HEDIS.Imacmb2
   required:
     display_title: 'Immunizations for Adolescents: Meningococcal, Tdap, HPV'
     inverse: false
@@ -28,33 +28,12 @@ denominator:
 exclusion:
   description:
   reasons:
-  - config_link_id: exclusion_1
-    code_value:
-    display_title: Allergy to Vaccine
-    description: Patient excluded due to allergy to vaccine on or before 13th birthday
-    component_groups:
-    - components:
-      - display_title: Allergy to Vaccine
-        show_codes: true
-        records:
-        - model: Allergy
-          value_set: HEDIS; Meningococcal Immunization
-        - model: Allergy
-          value_set: HEDIS; HPV Immunization
-        - model: Allergy
-          value_set: HEDIS; Tdap Immunization
-        - model: Diagnosis
-          value_set: HEDIS; Anaphylactic Reaction Due to Vaccination
-        - model: Diagnosis
-          value_set: HEDIS; Anaphylactic Reaction Due to Serum
-        - model: Diagnosis
-          value_set: HEDIS; Encephalopathy Due To Vaccination
-  - config_link_id: exclusion_required_hospice
-    code_value:
-    display_title: Exclusion: Hospice
-    description: Hospice services during measurement year
-    component_groups:
-    - components:
+    - config_link_id: exclusion_required_hospice
+      code_value:
+      display_title: Exclusion: Hospice
+      description: Hospice services during measurement year
+      component_groups:
+      - components:
       - display_title:
         show_codes: true
         records:
@@ -62,6 +41,21 @@ exclusion:
           value_set: HEDIS; Hospice Intervention
         - model: ClinicalActivity
           value_set: HEDIS; Hospice Encounter
+    - config_link_id: exclusion_optional_allergy
+      code_value:
+      display_title: Allergy to Vaccine
+      description: Patient excluded due to allergy to vaccine
+      component_groups:
+      - components:
+        - display_title:
+          show_codes: true
+          records:
+          - model: Diagnosis
+            value_set: HEDIS; Anaphylactic Reaction Due to Vaccination
+          - model: Diagnosis
+            value_set: HEDIS; Anaphylactic Reaction Due to Serum
+          - model: Diagnosis
+            value_set: HEDIS; Encephalopathy Due To Vaccination
 exception:
   description:
   reasons:
