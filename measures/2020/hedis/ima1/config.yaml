@@ -1,6 +1,6 @@
 ---
 measure:
-  name: 19.HEDIS.Ima1
+  name: 20.HEDIS.Ima1
   required:
     display_title: 'Immunizations for Adolescents: Meningococcal'
     inverse: false
@@ -23,33 +23,15 @@ measure:
 denominator:
   description: Adolescents who turn 13 years of age during the measurement year
   component_groups:
-
 exclusion:
   description:
   reasons:
-  - config_link_id: exclusion_1
-    code_value:
-    display_title: Allergy to Vaccine
-    description: Patient excluded due to allergy to vaccine
-    component_groups:
-    - components:
-      - display_title:
-        show_codes: true
-        records:
-        - model: Allergy
-          value_set: HEDIS; Meningococcal Immunization
-        - model: Diagnosis
-          value_set: HEDIS; Anaphylactic Reaction Due to Vaccination
-        - model: Diagnosis
-          value_set: HEDIS; Anaphylactic Reaction Due to Serum
-        - model: Diagnosis
-          value_set: HEDIS; Encephalopathy Due To Vaccination
-  - config_link_id: exclusion_required_hospice
-    code_value:
-    display_title: Exclusion: Hospice
-    description: Hospice services during measurement year
-    component_groups:
-    - components:
+    - config_link_id: exclusion_required_hospice
+      code_value:
+      display_title: Exclusion: Hospice
+      description: Hospice services during measurement year
+      component_groups:
+      - components:
       - display_title:
         show_codes: true
         records:
@@ -57,6 +39,21 @@ exclusion:
           value_set: HEDIS; Hospice Intervention
         - model: ClinicalActivity
           value_set: HEDIS; Hospice Encounter
+    - config_link_id: exclusion_1
+      code_value:
+      display_title: Allergy to Vaccine
+      description: Patient excluded due to allergy to vaccine
+      component_groups:
+      - components:
+        - display_title:
+          show_codes: true
+          records:
+          - model: Diagnosis
+            value_set: HEDIS; Anaphylactic Reaction Due to Vaccination
+          - model: Diagnosis
+            value_set: HEDIS; Anaphylactic Reaction Due to Serum
+          - model: Diagnosis
+            value_set: HEDIS; Encephalopathy Due To Vaccination
 exception:
   description:
   reasons:
@@ -66,8 +63,8 @@ performance_met:
   - config_link_id: performance_met
     code_value:
     display_title: Meningococcal Vaccine
-    description: Meningococcal vaccine administered between patient's 11th and 13th
-      birthdays
+    description: "Meningococcal vaccine administered between patient's 11th and 13th
+      birthdays"
     component_groups:
     - components:
       - display_title: Meningococcal Vaccine
@@ -75,8 +72,6 @@ performance_met:
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Meningococcal Vaccine Procedure
-        - model: ClinicalActivity
-          value_set: HEDIS; Meningococcal Immunization
         - model: Medication
           value_set: HEDIS; Meningococcal Immunization
 performance_not_met:
@@ -85,6 +80,6 @@ performance_not_met:
   - config_link_id: performance_not_met
     code_value:
     display_title: No Meningococcal Vaccine
-    description: No meningococcal vaccination found between the patient's 11th and
-      13th birthdays
+    description: "No meningococcal vaccination found between the patient's 11th and
+      13th birthdays"
     component_groups:

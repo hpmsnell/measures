@@ -34,13 +34,8 @@ context Patient
 
 define "Meningococcal Vaccination":
   (["Immunization, Administered": "HEDIS; Meningococcal Immunization"]
-  union ["Procedure Performed": "HEDIS; Meningococcal Vaccine Procedure]) MeningVacc
+  union ["Procedure Performed": "HEDIS; Meningococcal Vaccine Procedure"]) MeningVacc
     where MeningVacc.relevantDateTime during Interval["Patient Characteristic Birthdate" + 11 year, "Patient Characteristic Birthdate" + 13 years]
-
-define "Vaccine Allergy":
-  ["Allergy/Intolerance": "HEDIS; Meningococcal Immunization"]
-  union ["Allergy/Intolerance": "HEDIS; HPV Immunization"]
-  union ["Allergy/Intolerance": "HEDIS; Tdap Immunization"]
 
 // Populations
 
@@ -53,8 +48,6 @@ define "Denominator Exclusion":
    */
   exists(["Diagnosis": "HEDIS; Analphylactic Reaction Due to Vaccination"] D
     where D.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 13 years)
-  or exists("Vaccine Allergy" A
-    where A.prevalencePeriod starts on or before "Patient Characteristic Birthdate" + 13 years)
   or exists(["Diagnosis": "HEDIS; Analphylactic Reaction Due to Serum"] D
     where D.prevalencePeriod starts before end of "Measurement Period" - 63 months)
   or exists(["Diagnosis": "HEDIS; Encephalopathy Due To Vaccination"] D
