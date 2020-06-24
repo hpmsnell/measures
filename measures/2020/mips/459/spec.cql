@@ -17,7 +17,7 @@ using QDM
 valueset "MIPS; MIPS 459 Procedure"
 valueset "MIPS; Herniated Disc"
 valueset "MIPS; Other Spine Procedure"
-valueset "MIPS; Denominator Exclusion: G9945"
+valueset "MIPS; Lumbar Disorder"
 valueset "MIPS; Lumbar Spine Region Cancer"
 valueset "MIPS; Lumbar Spine Region Fracture"
 valueset "MIPS; Lumbar Spine Region Infection"
@@ -83,7 +83,7 @@ define "Denominator Exclusion: Diagnosis":
   /*
    * config_link_id: exclusion_diagnosis
    */
-  exists(["Procedure, Performed": "MIPS; Denominator Exclusion: G9945"] P
+  exists(["Procedure, Performed": "MIPS; Lumbar Disorder"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts during E.relevantPeriod)
   or exists("Excluded Diagnosis" D
