@@ -3,7 +3,7 @@ library MIPS_471_2020 version '1'
 /*
  *
  * Source: MIPS
- * ID: 471 Rate 1
+ * ID: 471
  * Year: 2020
  * Version: 1
  * Written by: Steve Daniels
@@ -81,7 +81,7 @@ define "Denominator Exclusion: Spine Procedure":
     with "Denominator Encounter" E
       such that P.relevantPeriod starts during E.relevantPeriod)
 
-define "Denominator Exclusion Diagnosis":
+define "Denominator Exclusion: Diagnosis":
   /*
    * config_link_id: exclusion_diagnosis
    */
