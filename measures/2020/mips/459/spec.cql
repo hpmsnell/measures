@@ -15,7 +15,6 @@ using QDM
 // MIPS value sets
 
 valueset "MIPS; MIPS 459 Procedure"
-valueset "MIPS; Herniated Disc"
 valueset "MIPS; Other Spine Procedure"
 valueset "MIPS; Lumbar Disorder"
 valueset "MIPS; Lumbar Spine Region Cancer"
@@ -42,8 +41,6 @@ define "Denominator Encounter":
     where E.relevantPeriod starts during [1 year before start of "Measurement Period", 1 year before end of "Measurement Period"]
       and AgeInYearsAt(1 year before start of "Measurement Period") >= 18
       and E.signingProvider.hasMeasureMembership = true
-    with ["Diagnosis": "MIPS; Herniated Disc"] D
-      such that D.prevalencePeriod overlaps E.relevantPeriod
 
 define "Excluded Diagnosis":
   ["Diagnosis": "MIPS; Lumbar Spine Region Cancer"]
