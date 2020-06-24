@@ -15,12 +15,13 @@ using QDM
 // MIPS value sets
 
 valueset "MIPS; MIPS 473 Encounter"
-valueset "MIPS; Denominator Exclusion: M1041"
+valueset "MIPS; Lumbar Disorder"
 valueset "MIPS; Lumbar Spine Region Cancer"
 valueset "MIPS; Lumbar Spine Region Fracture"
 valueset "MIPS; Lumbar Spine Region Infection"
 valueset "MIPS; Lumbar Idiopathic or Congenital Scoliosis"
-valueset "MIPS; Performance Met: M1053"
+valueset "MIPS; Performance Met: G2146"
+valueset "MIPS; Performance Not Met: G2147"
 valueset "MIPS; Performance Not Met: M1052"
 
 // Able value sets
@@ -43,13 +44,17 @@ define "Excluded Diagnosis":
   union ["Diagnosis": "MIPS; Lumbar Spine Region Infection"]
   union ["Diagnosis": "MIPS; Lumbar Idiopathic or Congenital Scoliosis"]
 
-define "Leg Visual Analog Scale Exists":
-  exists(["Procedure, Performed": "Able; Leg Visual Analog Scale"] A
+define "Preoperative Leg Visual Analog Scale Result":
+  ["Procedure, Performed": "Able; Leg Visual Analog Scale"] A
     with "Denominator Encounter" E
-      such that A.authorDateTime on or 3 months or less before start of E.relevantPeriod)
-  and exists(["Procedure, Performed": "Able; Leg Visual Analog Scale"] A
+      such that A.authorDateTime on or 3 months or less before start of E.relevantPeriod
+    return A.result
+
+define "Postoperative Leg Visual Analog Scale Result":
+  ["Procedure, Performed": "Able; Leg Visual Analog Scale"] A
     with "Denominator Encounter" E
-      such that A.authorDateTime during [9 months after start of E.relevantPeriod, 15 months after start of E.relevantPeriod])
+      such that A.authorDateTime during [9 months after start of E.relevantPeriod, 15 months after start of E.relevantPeriod]
+    return A.result
 
 /* POPULATIONS */
 
@@ -67,18 +72,32 @@ define "Denominator Exclusion":
     with "Denominator Encounter" E
       such that D.prevalencePeriod overlaps E.relevantPeriod)
 
-define "Numerator Performance Met: M1053":
+define "Numerator Performance Met: G2146":
   /*
-   * config_link_id: M1053
+   * config_link_id: G2146
    */
-  exists(["Procedure, Performed": "MIPS; Performance Met: M1053"] P
+  exists(["Procedure, Performed": "MIPS; Performance Met: G2146"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 15 weeks or less after start of E.relevantPeriod)
-  or "Leg Visual Analog Scale Exists"
+  or "Postoperative Leg Visual Analog Scale Result" <= 3
+  or "Preoperative Leg Visual Analog Scale Result" - "Postoperative Leg Visual Analog Scale Result" >= 5
+
+define "Numerator Performance Not Met: G2147":
+  /*
+  * config_link_id: G2146
+  */
+  exists(["Procedure, Performed": "MIPS; Performance Met: G2146"] P
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts on or 15 weeks or less after start of E.relevantPeriod)
+  or (
+    "Postoperative Leg Visual Analog Scale Result" > 3
+    and "Preoperative Leg Visual Analog Scale Result" - "Postoperative Leg Visual Analog Scale Result" < 5
+  )
 
 define "Numerator Performance Not Met: M1052":
   /*
    * config_link_id: M1052
    */
   not "Denominator Exclusion"
-  and not "Numerator Performance Met: M1053"
+  and not "Numerator Performance Met: G2146"
+  and not "Numerator Performance Met: G2147"
