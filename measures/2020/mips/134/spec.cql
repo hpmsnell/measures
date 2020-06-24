@@ -39,13 +39,14 @@ valueset "VSAC; Depression medications - adolescent": '2.16.840.1.113883.3.600.4
 valueset "VSAC; Depression medications - adult": '2.16.840.1.113883.3.600.470'
 
 parameter "Measurement Period" Interval<DateTime>
-parameter "Denominator Period" Interval<DateTime>
 
 context Patient
 
+/* Definitions */
+
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 134 Encounter"] E
-    where E.relevantPeriod starts during "Denominator Period"
+    where E.relevantPeriod starts during "Measurement Period"
       and not E.code.modifier = "MIPS; Telehealth Modifier"
       and E.signingProvider.hasMeasureMembership = true
 
@@ -57,48 +58,48 @@ define "Positive Adolescent Screening Exists":
   exists(["Assessment, Performed": "VSAC; Adolescent Depression Screening"] P
     where result = 'positive'
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod
+      such that P.relevantPeriod starts during [14 days before start of E.relevantPeriod, end of E.relevantPeriod]
         and AgeInYearsAt(start of E.relevantPeriod < 18))
   or exists(["Assessment, Performed": "VSAC; PHQ-9"] P
     where result >= 5
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod
+      such that P.relevantPeriod starts during [14 days before start of E.relevantPeriod, end of E.relevantPeriod]
         and AgeInYearsAt(start of E.relevantPeriod < 18))
 
 define "Positive Adult Screening Exists":
   exists(["Assessment, Performed": "VSAC; Adult Depression Screening"] P
     where result = 'positive'
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod
+      such that P.relevantPeriod starts during [14 days before start of E.relevantPeriod, end of E.relevantPeriod]
         and AgeInYearsAt(start of E.relevantPeriod < 18))
   or exists(["Assessment, Performed": "VSAC; PHQ-9"] P
     where result >= 5
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod
+      such that P.relevantPeriod starts during [14 days before start of E.relevantPeriod, end of E.relevantPeriod]
         and AgeInYearsAt(start of E.relevantPeriod < 18))
 
 define "Negative Adolescent Screening Exists":
   exists(["Assessment, Performed": "VSAC; Adolescent Depression Screening"] P
     where result = 'negative'
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod
+      such that P.relevantPeriod starts during [14 days before start of E.relevantPeriod, end of E.relevantPeriod]
         and AgeInYearsAt(start of E.relevantPeriod < 18))
   or exists(["Assessment, Performed": "VSAC; PHQ-9"] P
     where result < 5
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod
+      such that P.relevantPeriod starts during [14 days before start of E.relevantPeriod, end of E.relevantPeriod]
         and AgeInYearsAt(start of E.relevantPeriod < 18))
 
 define "Negative Adult Screening Exists":
   exists(["Assessment, Performed": "VSAC; Adult Depression Screening"] P
     where result = 'negative'
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod
+      such that P.relevantPeriod starts during [14 days before start of E.relevantPeriod, end of E.relevantPeriod]
         and AgeInYearsAt(start of E.relevantPeriod >= 18))
   or exists(["Assessment, Performed": "VSAC; PHQ-9"] P
     where result < 5
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod
+      such that P.relevantPeriod starts during [14 days before start of E.relevantPeriod, end of E.relevantPeriod]
         and AgeInYearsAt(start of E.relevantPeriod >= 18))
 
 define "Adolescent Follow-Up Procedure":
@@ -145,6 +146,8 @@ define "Positive Adult Screening and Follow-Up Exist":
   and exists("Adult Follow-Up" P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts during E.relevantPeriod)
+
+/* Populations */
 
 define "Denominator":
   AgeInYearsAt(start of "Measurement Period") > 12
