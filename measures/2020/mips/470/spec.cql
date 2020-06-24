@@ -16,6 +16,7 @@ using QDM
 
 valueset "MIPS; MIPS 470 Procedure"
 valueset "MIPS; Performance Met: M1045"
+valueset "MIPS; Performance Not Met: M1141"
 valueset "MIPS; Performance Not Met: M1046"
 
 // Able value sets
@@ -32,13 +33,17 @@ define "Denominator Encounter":
       and AgeInYearsAt(15 months before start of "Measurement Period") >= 18
       and E.signingProvider.hasMeasureMembership = true
 
-define "Oxford Knee Score Exists":
-  exists(["Procedure, Performed": "Able; Oxford Knee Score"] A
+define "Preoperative Oxford Knee Scale Result":
+  ["Procedure, Performed": "Able; Oxford Knee Score"] A
     with "Denominator Encounter" E
-      such that A.authorDateTime on or 3 months or less before start of E.relevantPeriod)
-  and exists(["Procedure, Performed": "Able; Oxford Knee Score"] A
+      such that A.authorDateTime on or 3 months or less before start of E.relevantPeriod
+    return A.result
+
+define "Postoperative Oxford Knee Scale Result":
+  ["Procedure, Performed": "Able; Oxford Knee Score"] A
     with "Denominator Encounter" E
-      such that A.authorDateTime during [9 months after start of E.relevantPeriod, 15 months after start of E.relevantPeriod])
+      such that A.authorDateTime during [9 months after start of E.relevantPeriod, 15 months after start of E.relevantPeriod]
+    return A.result
 
 /* POPULATIONS */
 
@@ -52,11 +57,20 @@ define "Numerator Performance Met: M1045":
   exists(["Procedure, Performed": "MIPS; Performance Met: M1045"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 15 weeks or less after start of E.relevantPeriod)
-  or "Oxford Knee Score Exists"
+  or "Postoperative Oxford Knee Score Result" >= 37
 
 define "Numerator Performance Not Met: M1046":
   /*
    * config_link_id: M1046
    */
-  not "Denominator Exclusion"
-  and not "Numerator Performance Met: M1045"
+  exists(["Procedure, Performed": "MIPS; Performance Met: M1046"] P
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts on or 15 weeks or less after start of E.relevantPeriod)
+  or "Postoperative Oxford Knee Score Result" < 37
+
+define "Numerator Performance Not Met: M1141":
+  /*
+   * config_link_id: M1141
+   */
+  not "Numerator Performance Met: M1045"
+  and not not "Numerator Performance Not Met: M1046"
