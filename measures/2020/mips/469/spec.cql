@@ -3,7 +3,7 @@ library MIPS_469_2020 version '1'
 /*
  *
  * Source: MIPS
- * ID: 469 Rate 1
+ * ID: 469
  * Year: 2020
  * Version: 1
  * Written by: Steve Daniels
