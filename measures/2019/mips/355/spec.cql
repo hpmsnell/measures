@@ -29,7 +29,7 @@ define "Denominator Procedure":
   ["Procedure, Performed": "MIPS; MIPS 355 Procedure"] P
     where P.relevantPeriod starts during "Encounter Interval"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
-      and not E.code.modifier in {'51', '80'}
+      and not E.code.modifier in {'51', '80', '78'}
       and E.signingProvider.hasMeasureMembership = true
 
 define "Denominator":
