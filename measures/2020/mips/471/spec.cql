@@ -18,7 +18,6 @@ valueset "MIPS; MIPS 471 Procedure"
 valueset "MIPS; Herniated Disc"
 valueset "MIPS; Other Spine Procedure"
 valueset "MIPS; Denominator Exclusion: G9945"
-valueset "MIPS; Denominator Exclusion: M1051"
 valueset "MIPS; Lumbar Spine Region Cancer"
 valueset "MIPS; Lumbar Spine Region Fracture"
 valueset "MIPS; Lumbar Spine Region Infection"
@@ -86,9 +85,6 @@ define "Denominator Exclusion: Diagnosis":
    * config_link_id: exclusion_diagnosis
    */
   exists(["Procedure, Performed": "MIPS; Denominator Exclusion: G9945"] P
-    with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod)
-  or exists(["Procedure, Performed": "MIPS; Denominator Exclusion: M1051"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts during E.relevantPeriod)
   or exists("Excluded Diagnosis" D
