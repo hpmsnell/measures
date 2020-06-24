@@ -53,7 +53,7 @@ define "Preoperative Oswestry Disability Index Result":
 define "Postoperative Oswestry Disability Index Result":
   ["Procedure, Performed": "Able; Oswestry Disability Index"] A
     with "Denominator Encounter" E
-      such that A.authorDateTime during [6 weeks after start of E.relevantPeriod, 20 weeks after start of E.relevantPeriod]
+      such that A.authorDateTime during [9 months after start of E.relevantPeriod, 15 months after start of E.relevantPeriod]
     return A.result
 
 /* POPULATIONS */
@@ -88,7 +88,7 @@ define "Numerator Performance Not Met: G2143":
   */
   exists(["Procedure, Performed": "MIPS; Performance Not Met: G2143"] P
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts on or 20 weeks or less after start of E.relevantPeriod)
+      such that P.relevantPeriod starts on or 15 weeks or less after start of E.relevantPeriod)
   or (
     "Postoperative Oswestry Disability Index Result" > 22
     and "Preoperative Oswestry Disability Index Result" - "Postoperative Oswestry Disability Index Result" < 30
