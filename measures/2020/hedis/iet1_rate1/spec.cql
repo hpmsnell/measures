@@ -63,8 +63,6 @@ define "Nonacute or Acute Inpatient Encounter with AOD":
 
 define "AOD":
   ["Diagnosis": "HEDIS; Alcohol Abuse and Dependence"]
-  union ["Diagnosis": "HEDIS; Opioid Abuse and Dependence"]
-  union ["Diagnosis": "HEDIS; Other Drug Abuse and Dependence"]
 
 define "Encounter with AOD":
   "Other Encounter with AOD"
@@ -85,8 +83,6 @@ define "First AOD During Index Period":
 
 define "MAT":
   ["Procedure, Performed": "HEDIS; AOD Medication Treatment"]
-  union ["Medication, Dispensed": "NCQA; Alcohol Use Disorder Treatment Medications"]
-  union ["Medication, Dispensed": "NCQA; Opioid Use Disorder Treatment Medications"]
 
 define "Diagnosis History":
   ["Diagnosis": "HEDIS; AOD Abuse and Dependence"]
