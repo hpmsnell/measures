@@ -31,8 +31,7 @@ denominator:
   - components:
     - display_title: Visit or Inpatient Stay
       show_codes: true
-      annotation: 'IET Visits Group 1 with place of service: '02','03','05','07','09','11','12','13','14','15','16','17','18','19','20','22','33','49','50','52','53','57','71','72' ("HEDIS; IET POS Group 2")
-      annotation: 'IET Visits Group 2 with place of service: '02','52','53' ("HEDIS; IET POS Group 2")
+      annotation: 'See HEDIS specification for place of service requirements'
       records:
       - model: ClinicalActivity
         value_set: HEDIS; IET Stand Alone Visits
@@ -91,11 +90,11 @@ exclusion:
           value_set: Able; MMDF Hospice
   - config_link_id: exclusion_inpatient_index
     code_value:
-    display_title: LateInpatientInitiation
+    display_title: Inpatient Initiation
     description: Patient index initiation encounter discharged after November 27th
     component_groups:
     - components:
-      - display_title: exclusion_late_inpatient_index
+      - display_title: exclusion_required_inpatient
         show_codes: true
         records:
         - model: ClinicalActivity

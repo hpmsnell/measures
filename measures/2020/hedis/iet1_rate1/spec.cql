@@ -108,12 +108,12 @@ define "Denominator":
 define "Exclusion: Inpatient Discharge After November 27 Measurement Year":
 // Exclude the member from the denominator if the initiation of treatment event is an inpatient stay with a discharge date after November 27 of the measurement year.
   /*
-  * config_link_id: exclusion_late_inpatient_index
+  * config_link_id: exclusion_required_inpatient
   */
 
   exists("Encounter with AOD During Index Period" E
     where E.code in ["Encounter, Performed": "HEDIS; Inpatient Stay"]
-      and IPIndex.relevantPeriod ends on or before "Measurement Period" + 331)
+      and IPIndex.relevantPeriod ends on or before end of "Measurement Period" - 34 days)
 
 define "Exclusion: Hospice":
    /*
