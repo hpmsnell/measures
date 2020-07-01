@@ -42,6 +42,16 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
+    - name: DenominatorIETGroup1 PlaceOfService
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: DenominatorIETGroup1 NoPlaceOfService
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
     - name: DenominatorDiagnosis Upper
       denominator: 1
       denominator_exclusion:
@@ -97,6 +107,21 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_met
+    - name: InpatientExclusion UpperBefore
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_met
+    - name: InpatientExclusion After
+      denominator:
+      denominator_exclusion: 1
+      denominator_exception:
+      numerator:
+    - name: Inpatient FirstAODDiffClaim
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
     - name: Inpatient AfterFirstAOD
       denominator: 1
       denominator_exclusion:
@@ -236,6 +261,44 @@ patients:
       code_value: F10.10 # Alcohol abuse
       start_date: 2016-01-01
       stop_date: 2016-01-01
+name: DenominatorIETGroup1 PlaceOfService
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: DenominatorIETGroup1
+    family_name: PlaceOfService
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791 # IET Group 1
+      provider: Rachel
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      place_of_service: '02'
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: F11.10 # Opioid abuse
+      start_date: 2016-02-01 # Lower bound of encounter
+      stop_date: 2016-02-01
+- name: DenominatorIETGroup1 NoPlaceOfService
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: DenominatorIETGroup1
+    family_name: NoPlaceOfService
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 90791 # IET Group 1
+      provider: Rachel
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      place_of_service:  #no place of service
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: F11.10 # Opioid abuse
+      start_date: 2016-02-01 # Lower bound of encounter
+      stop_date: 2016-02-01
 - name: DenominatorEncounter Upper
   attributes:
     date_of_birth: 1940-01-01
@@ -549,11 +612,73 @@ patients:
       provider: Rachel
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1 #same claim
     diagnoses:
     - code_type: ICD10CM
       code_value: F10.10 # Alcohol abuse
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1 #same claim
+- name: Inpatient FirstAODDiffClaim
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: Inpatient
+    family_name: FirstAODDiffClaim
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: UB
+      code_value: '0100' # Inpatient stay
+      provider: Rachel
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      claim_id: 1
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: F10.10 # Alcohol abuse
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      claim_id: 2 #diff claim id
+- name: InpatientExclusion UpperBefore
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: InpatientExclusion
+    family_name: UpperBefore
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: UB
+      code_value: '0100' # Inpatient stay
+      provider: Rachel
+      start_date: 2016-11-13
+      stop_date: 2016-11-27
+      claim_id: 1
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: F10.10 # Alcohol abuse
+      start_date: 2016-11-13
+      stop_date: 2016-11-27
+      claim_id: 1
+- name: InpatientExclusion After
+  attributes:
+    date_of_birth: 1940-01-01
+    given_name: InpatientExclusion
+    family_name: After
+    sex: Female
+  clinical_models:
+    clinical_activities:
+    - code_type: UB
+      code_value: '0100' # Inpatient stay
+      provider: Rachel
+      start_date: 2016-11-13
+      stop_date: 2016-11-28
+      claim_id: 1
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: F10.10 # Alcohol abuse
+      start_date: 2016-11-13
+      stop_date: 2016-11-28
+      claim_id: 1
 - name: Inpatient AfterFirstAOD
   attributes:
     date_of_birth: 1940-01-01
@@ -572,6 +697,7 @@ patients:
       provider: Rachel
       start_date: 2016-04-01 # Not the first encounter
       stop_date: 2016-04-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: F10.10 # Alcohol abuse
@@ -581,6 +707,7 @@ patients:
       code_value: F10.10 # Alcohol abuse
       start_date: 2016-04-01
       stop_date: 2016-04-01
+      claim_id: 1
 - name: TreatmentEncounter Before
   attributes:
     date_of_birth: 1940-01-01
