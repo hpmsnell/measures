@@ -33,12 +33,6 @@ define "Denominator Encounter":
       and AgeInYearsAt(15 months before start of "Measurement Period") >= 18
       and E.signingProvider.hasMeasureMembership = true
 
-define "Preoperative Oxford Knee Scale Result":
-  ["Procedure, Performed": "Able; Oxford Knee Score"] A
-    with "Denominator Encounter" E
-      such that A.authorDateTime on or 3 months or less before start of E.relevantPeriod
-    return A.result
-
 define "Postoperative Oxford Knee Scale Result":
   ["Procedure, Performed": "Able; Oxford Knee Score"] A
     with "Denominator Encounter" E
@@ -63,7 +57,7 @@ define "Numerator Performance Not Met: M1046":
   /*
    * config_link_id: M1046
    */
-  exists(["Procedure, Performed": "MIPS; Performance Met: M1046"] P
+  exists(["Procedure, Performed": "MIPS; Performance Not Met: M1046"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 15 weeks or less after start of E.relevantPeriod)
   or "Postoperative Oxford Knee Score Result" < 37

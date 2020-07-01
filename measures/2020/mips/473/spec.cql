@@ -84,9 +84,9 @@ define "Numerator Performance Met: G2146":
 
 define "Numerator Performance Not Met: G2147":
   /*
-  * config_link_id: G2146
+  * config_link_id: G2147
   */
-  exists(["Procedure, Performed": "MIPS; Performance Met: G2146"] P
+  exists(["Procedure, Performed": "MIPS; Performance Not Met: G2147"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 15 weeks or less after start of E.relevantPeriod)
   or (
