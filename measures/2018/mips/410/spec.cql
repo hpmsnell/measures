@@ -46,9 +46,11 @@ define "Psoriasis Medication":
 
 define "Psoriasis Medication Exists":
   exists(["Procedure, Performed": "MIPS; Medication for Psoriasis"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+      and E.signingProvider.hasMeasureMembership = true)
   or exists("Psoriasis Medication" M
-    where M.relevantPeriod overlaps "Measurement Period")
+    where M.relevantPeriod overlaps "Measurement Period"
+      and E.signingProvider.hasMeasureMembership = true)
 
 define "Denominator":
   exists("Denominator Encounter")
