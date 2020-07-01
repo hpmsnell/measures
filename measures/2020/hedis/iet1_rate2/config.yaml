@@ -31,6 +31,7 @@ denominator:
   - components:
     - display_title: Visit or Inpatient Stay
       show_codes: true
+      annotation: 'See HEDIS specification for place of service requirements'
       records:
       - model: ClinicalActivity
         value_set: HEDIS; IET Stand Alone Visits
@@ -69,16 +70,35 @@ denominator:
         value_set: NCQA; Medication Treatment for Alcohol Abuse or Dependence Medications
       - model: Medication
         value_set: NCQA; Medication Treatment for Opioid Abuse or Dependence Medications
-  - logical_operator: AND NOT
-    components:
-    - display_title: Hospice Service
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: HEDIS; Hospice
 exclusion:
   description:
   reasons:
+  - config_link_id: exclusion_required_hospice
+    code_value:
+    display_title: Hospice
+    description: Patient in hospice during the measurement year
+    component_groups:
+    - components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Intervention
+        - model: ClinicalActivity
+          value_set: Able; MMDF Hospice
+  - config_link_id: exclusion_inpatient_index
+    code_value:
+    display_title: Inpatient Initiation
+    description: Patient index initiation encounter discharged after November 27th
+    component_groups:
+    - components:
+      - display_title: exclusion_required_inpatient
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Inpatient Stay
 exception:
   description:
   reasons:
@@ -120,15 +140,15 @@ performance_met:
           value_set: HEDIS; Opioid Abuse and Dependence
     - logical_operator: OR
       components:
-      - display_title: Medication Assisted Traetment
+      - display_title: Medication Assisted Treatment
         show_codes: true
         records:
         - model: ClinicalActivity
           value_set: HEDIS; Medication Assisted Treatment
         - model: Medication
-          value_set: NCQA; Medication Treatment for Alcohol Abuse or Dependence Medications
+          value_set: NCQA; Alcohol Use Disorder Treatment Medications
         - model: Medication
-          value_set: NCQA; Medication Treatment for Opioid Abuse or Dependence Medications
+          value_set: NCQA; Opioid Use Disorder Treatment Medications
 performance_not_met:
   description:
   reasons:

@@ -64,6 +64,10 @@ define "Nonacute or Acute Inpatient Encounter with AOD":
 define "AOD":
   ["Diagnosis": "HEDIS; Alcohol Abuse and Dependence"]
 
+define "Alcohol or Opioid":
+  ["Diagnosis": "HEDIS; Alcohol Abuse and Dependence"]
+  union ["Diagnosis": "HEDIS; Opioid Abuse and Dependence"]
+
 define "Encounter with AOD":
   "Other Encounter with AOD"
   union "Nonacute or Acute Inpatient Encounter with AOD"
