@@ -87,6 +87,7 @@ define "First AOD During Index Period":
 
 define "MAT":
   ["Procedure, Performed": "HEDIS; AOD Medication Treatment"]
+  union ["Medication, Dispensed": "NCQA; Alcohol Use Disorder Treatment Medications"]
 
 define "Diagnosis History":
   ["Diagnosis": "HEDIS; AOD Abuse and Dependence"]

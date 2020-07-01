@@ -88,7 +88,7 @@ define "First AOD During Index Period":
     sort by start of E.relevantPeriod asc)
 
 define "MAT":
-  ["Procedure, Performed": "HEDIS; Medication Assisted Treatement"]
+  ["Procedure, Performed": "HEDIS; AOD Medication Treatment"]
   union ["Medication, Dispensed": "NCQA; Alcohol Use Disorder Treatment Medications"]
   union ["Medication, Dispensed": "NCQA; Opioid Use Disorder Treatment Medications"]
 
