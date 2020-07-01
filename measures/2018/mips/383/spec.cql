@@ -115,7 +115,7 @@ define "Treatment Period":
 define "Denominator":
   AgeInYearsAt(start of "Measurement Period") >= 18
   and "Denominator Encounters Exist"
-  and "Medication Exists"
+  and exists("Antipsychotic Medication in Measurement Period")
 
 define "Denominator Exclusion: Dementia"
   /*
