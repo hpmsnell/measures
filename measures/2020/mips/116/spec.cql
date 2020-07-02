@@ -81,7 +81,7 @@ define "Denominator Exclusion: Inpatient Stay":
    */
   exists("Denominator Encounter" E1
     with ["Encounter, Performed": "HEDIS; Inpatient Stay"] E2
-      such that E2.relevantPeriod starts on or 1 days or less after start of E1.relevantPeriod)
+    such that E2.relevantPeriod starts during Interval[1 days before start of E1.relevantPeriod, end of E1.relevantPeriod])
 
 
 define "Denominator Exclusion: Competing Condition":
