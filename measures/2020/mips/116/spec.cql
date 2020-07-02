@@ -1,10 +1,10 @@
-library MIPS_116_2018 version '1'
+library MIPS_116_2020 version '1'
 
 /*
  *
  * Source: MIPS
  * ID: 116
- * Year: 2018
+ * Year: 2020
  * Version: 1
  * Written by: Steve Daniels
  *
@@ -82,6 +82,7 @@ define "Denominator Exclusion: Inpatient Stay":
   exists("Denominator Encounter" E1
     with ["Encounter, Performed": "HEDIS; Inpatient Stay"] E2
       such that E2.relevantPeriod starts on or 1 days or less after start of E1.relevantPeriod)
+
 
 define "Denominator Exclusion: Competing Condition":
   /*
