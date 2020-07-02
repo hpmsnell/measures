@@ -92,7 +92,7 @@ define "Numerator Performance Not Met: G2141":
       such that P.relevantPeriod starts on or 20 weeks or less after start of E.relevantPeriod)
   or (
     "Postoperative Leg Visual Analog Scale Result" > 3
-    and "Preoperative Leg Visual Analog Scale Result" - "Postoperative Leg Visual Analog Scale Result" < 5
+    and "Preoperative Leg Visual Analog Scale Result" - "Postoperative Leg Visual Analog Scale Result" < 5)
 
 define "Numerator Performance Not Met: G9949":
       /*
