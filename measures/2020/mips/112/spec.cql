@@ -1,22 +1,23 @@
-library MIPS_112_2019 version '1'
+library MIPS_112_2020 version '1'
 
 /*
  * Source: MIPS
  * ID: 112
- * Year: 2019
+ * Year: 2020
  * Version: 1
- * Written by: Steve Daniels
+ * Written by: Patrick Clark
  *
   */
 
 using QDM
+
+include "../shared/frailty_lti_shared" version '1' called FrailtyLTIShared
 
 // Able Custom Value Sets
 
 valueset "MIPS; MIPS 112 Encounter"
 valueset "MIPS; History of Mastectomy: G9708"
 valueset "MIPS; MIPS Hospice Service"
-valueset "MIPS; Denominator Exclusion: G9898"
 valueset "MIPS; Performance Met: G9899"
 valueset "MIPS; Performance Not Met: G9900"
 
@@ -55,8 +56,9 @@ define "Denominator":
 
 define "Denominator Exclusion 1":
   /*
-   * config_link_id: exclusion_1
+   *  config_link_id: exclusion_1
    */
+
   exists(["Procedure, Performed": "MIPS; History of Bilateral Mastectomy: G9708"] P
     where P.relevantPeriod starts before end "Measurement Period")
   or exists(["Procedure, Performed": "VSAC; Bilateral Mastectomy"] P
@@ -87,12 +89,13 @@ define "Denominator Exclusion 2":
   or exists(["Intervention, Performed": "MIPS; MIPS Hospice Service"] I
     where I.relevantPeriod overlaps "Measurement Period")
 
-define "Denominator Exclusion 3":
- /*
-  * config_link_id: exclusion_3
-  */
- exists(["Procedure, Performed": "MIPS; Denominator Exclusion: G9898"] P
-   where P.relevantPeriod starts during "Measurement Period")
+ define "Denominator Exclusion: Frailty/LTI":
+   /*
+    * config_link_id: exclusion_frailty_lti
+    */
+  FrailtyLTIShared."Frailty/LTI Exclusion Exists"
+
+
 
 define "Numerator Performance Met: G9899":
   /*
@@ -109,5 +112,5 @@ define "Numerator Performance Not Met: G9900":
    */
   not "Denominator Exclusion 1"
   and not "Denominator Exclusion 2"
-  and not "Denominator Exclusion 3"
   and not "Numerator Performance Met: G9899"
+  and not "Denominator Exclusion: Frailty/LTI"
