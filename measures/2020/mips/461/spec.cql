@@ -1,14 +1,14 @@
-library MIPS_461_RATE_1_2019 version '1'
+library MIPS_461_RATE_1_2020 version '1'
 
 /*
  *
  * Source: MIPS
- * ID: 461 Rate 1
- * Year: 2019
+ * ID: 461
+ * Year: 2020
  * Version: 1
  * Written by: Steve Daniels
  *
-  */
+ */
 
 using QDM
 
@@ -17,9 +17,13 @@ using QDM
 valueset "MIPS; MIPS 461 Procedure"
 valueset "MIPS; Herniated Disc"
 valueset "MIPS; Other Spine Procedure"
-valueset "MIPS; Performance Met: G9947"
+valueset "MIPS; Lumbar Spine Region Cancer"
+valueset "MIPS; Lumbar Spine Region Fracture"
+valueset "MIPS; Lumbar Spine Region Infection"
+valueset "MIPS; Lumbar Idiopathic or Congenital Scoliosis"
+valueset "MIPS; Performance Met: G2140"
 valueset "MIPS; Performance Not Met: G9949"
-
+valueset "MIPS; Performance Not Met: G2141"
 // Able value sets
 
 valueset "Able; Other Spine Procedure"
@@ -34,43 +38,66 @@ define "Denominator Encounter":
     where E.relevantPeriod starts during [1 year before start of "Measurement Period", 1 year before end of "Measurement Period"]
       and AgeInYearsAt(1 year before start of "Measurement Period") >= 18
       and E.signingProvider.hasMeasureMembership = true
-    with ["Diagnosis": "MIPS; Herniated Disc"] D
-      such that D.prevalencePeriod overlaps E.relevantPeriod
 
-define "Leg Visual Analog Scale Exists":
-  exists(["Procedure, Performed": "Able; Leg Visual Analog Scale"] A
+define "Excluded Diagnosis":
+  ["Diagnosis": "MIPS; Lumbar Spine Region Cancer"]
+    union ["Diagnosis": "MIPS; Lumbar Spine Region Fracture"]
+    union ["Diagnosis": "MIPS; Lumbar Spine Region Infection"]
+    union ["Diagnosis": "MIPS; Lumbar Idiopathic or Congenital Scoliosis"]
+
+define "Preoperative Leg Visual Analog Scale Result":
+  ["Procedure, Performed": "Able; Leg Visual Analog Scale"] A
     with "Denominator Encounter" E
-      such that A.authorDateTime on or 3 months or less before start of E.relevantPeriod)
-  and exists(["Procedure, Performed": "Able; Leg Visual Analog Scale"] A
+      such that A.authorDateTime on or 3 months or less before start of E.relevantPeriod
+    return A.result
+
+define "Postoperative Leg Visual Analog Scale Result":
+  ["Procedure, Performed": "Able; Leg Visual Analog Scale"] A
     with "Denominator Encounter" E
-      such that A.authorDateTime during [6 weeks after start of E.relevantPeriod, 20 weeks after start of E.relevantPeriod])
+      such that A.authorDateTime during [6 weeks after start of E.relevantPeriod, 20 weeks after start of E.relevantPeriod]]
+    return A.result
+
+    /* Populations */
 
 define "Denominator":
-  "Denominator Encounter"
+    "Denominator Encounter"
 
 define "Denominator Exclusion":
   /*
    * config_link_id: exclusion_1
    */
-  exists(["Procedure, Performed": "MIPS; Other Spine Procedure"] P
+  exists(["Procedure, Performed": "MIPS; Lumbar Disorder"] P
     with "Denominator Encounter" E
-      such that P.relevantPeriod starts during of E.relevantPeriod)
-  exists(["Procedure, Performed": "Able; Other Spine Procedure"] P
-    with "Denominator Encounter" E
-      such that P.relevantPeriod starts during of E.relevantPeriod)
+      such that P.relevantPeriod starts during E.relevantPeriod)
+    or exists("Excluded Diagnosis" D
+      with "Denominator Encounter" E
+      such that D.prevalencePeriod overlaps E.relevantPeriod)
 
-define "Numerator Performance Met: G9947":
+define "Numerator Performance Met: G2140":
   /*
-   * config_link_id: G9947
+   * config_link_id: G2140
    */
-  exists(["Procedure, Performed": "MIPS; Performance Met: G9947"] P
+  exists(["Procedure, Performed": "MIPS; Performance Met: G2140"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts on or 20 weeks or less after start of E.relevantPeriod)
-  or "Leg Visual Analog Scale Exists"
+    or "Postoperative Leg Visual Analog Scale Result" <= 3
+    or "Preoperative Leg Visual Analog Scale Result" - "Postoperative Leg Visual Analog Scale Result" >= 5
+
+define "Numerator Performance Not Met: G2141":
+      /*
+      * config_link_id: G2141
+      */
+  exists(["Procedure, Performed": "MIPS; Performance Not Met: G2141"] P
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts on or 20 weeks or less after start of E.relevantPeriod)
+  or (
+    "Postoperative Leg Visual Analog Scale Result" > 3
+    and "Preoperative Leg Visual Analog Scale Result" - "Postoperative Leg Visual Analog Scale Result" < 5
 
 define "Numerator Performance Not Met: G9949":
-  /*
-   * config_link_id: G9949
-   */
+      /*
+       * config_link_id: G9949
+       */
   not "Denominator Exclusion"
-  and not "Numerator Performance Met: G9947"
+  and not "Numerator Performance Met: G2140"
+  and not "MIPS; Performance Not Met: G2141"
