@@ -30,9 +30,14 @@ denominator:
   - components:
     - display_title: 2 Visits or Discharges
       show_codes: true
+      annotation: 'Outpatient can include telehealth POS or modifier'
       records:
       - model: ClinicalActivity
         value_set: HEDIS; Outpatient
+      - model: ClinicalActivity
+        value_set: HEDIS; Telephone
+      - model: ClinicalActivity
+        value_set: HEDIS; Online Assessments  
       - model: ClinicalActivity
         value_set: HEDIS; Inpatient Stay
       - model: ClinicalActivity
