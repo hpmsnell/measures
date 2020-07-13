@@ -1,16 +1,18 @@
-library MIPS_119_2017 version '1'
+library MIPS_119_2020 version '1'
 
 /*
  * Source: MIPS
  * ID: 119
  * Year: 2017
- * Version: 2
- * Written By: Steve Daniels
- * Reviewed By: Rachel Katz
+ * Version: 1
+ * Written By: Patrick Clark
+ * Reviewed By:
  *
   */
 
 using QDM
+
+include "../shared/frailty_lti_shared" version '1' called FrailtyLTIShared
 
 // Able Custom Value Sets
 
@@ -165,6 +167,14 @@ define "Numerator Performance Not Met: 3061F-8P":
   exists(["Procedure, Performed": "MIPS; Performance Not Met: 3061F-8P"] P
     where P.relevantPeriod starts during "Measurement Period")
 
+define "Denominator Exclusion: Frailty/LTI":
+  /*
+   * config_link_id: exclusion_frailty_lti
+   */
+  FrailtyLTIShared."Frailty/LTI Exclusion Exists"
+
+
+
 define "Numerator Performance Not Met: 3062F-8P":
   /*
    * config_link_id: 3062F-8P
@@ -177,3 +187,4 @@ define "Numerator Performance Not Met: 3062F-8P":
    and not "Numerator Performance Met: G8506"
    and not "Numerator Performance Not Met: 3060F-8P"
    and not "Numerator Performance Not Met: 3061F-8P"
+   and not "Denominator Exclusion: Frailty/LTI"
