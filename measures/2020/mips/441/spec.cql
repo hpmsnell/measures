@@ -1,10 +1,10 @@
-library MIPS_441_2019 version '1'
+library MIPS_441_2020 version '1'
 
 /*
  * Source: MIPS
  * ID: 441
- * Year: 2019
- * Written By: Steve Daniels
+ * Year: 2020
+ * Written By: Patrick Clark
  *
   */
 
@@ -23,9 +23,10 @@ valueset "MIPS; Performance Met: G9788"
 valueset "MIPS; Performance Met: G9791"
 valueset "MIPS; Performance Met: G9793"
 valueset "MIPS; Performance Met: G9796"
-valueset "MIPS; Performance Met: G9794"
+valueset "MIPS; Performance Met: G2128"
 valueset "MIPS; Performance Met: G9940"
 valueset "MIPS; Denominator Exception: G9789"
+valueset "MIPS; Denominator Exception: G2129"
 valueset "MIPS; Performance Not Met: G9790"
 valueset "MIPS; Performance Not Met: G9792"
 valueset "MIPS; Performance Not Met: G9795"
@@ -96,6 +97,8 @@ define "Numerator Component 1":
     where P.relevantPeriod starts during "Measurement Period")
   or exists(["Procedure, Performed": "MIPS; Denominator Exception: G9789"] P
     where P.relevantPeriod starts during "Measurement Period")
+  or exists(["Procedure, Performed": "MIPS; Denominator Exception: G2129"] P2
+    where P2.relevantPeriod starts during "Measurement Period")
   or "Normal Blood Pressure Exists"
 
 define "Numerator Component 2":
@@ -110,7 +113,7 @@ define "Numerator Component 2":
 define "Numerator Component 3":
   exists(["Procedure, Performed": "MIPS; Performance Met: G9793"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists(["Procedure, Performed": "MIPS; Performance Met: G9794"] P
+  or exists(["Procedure, Performed": "MIPS; Performance Met: G2128"] P
     where P.relevantPeriod starts during "Measurement Period")
   or exists(["Medication": "VSAC; Aspirin and Other Antiplatelets"] M
     where M.relevantPeriod overlaps "Measurement Period")
@@ -177,3 +180,4 @@ define "Numerator Performance Not Met":
    * config_link_id: G8785
    */
   not "Numerator Performance Met"
+  and not "Denominator Exclusion"
