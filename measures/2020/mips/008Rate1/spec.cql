@@ -1,12 +1,12 @@
-library MIPS_008Rate1_2018 version '1'
+library MIPS_008Rate1_2020 version '1'
 
 /*
  *
  * Source: MIPS
  * ID: 008Rate1
- * Year: 2018
+ * Year: 2020
  * Version: 1
- * Written by: Becky Weber
+ * Written by: Patrick Clark
  *
   */
 
@@ -71,11 +71,18 @@ define "Medical Exception":
   union ["Diagnosis": "VSAC; Asthma"]
   union ["Diagnosis": "VSAC; Bradycardia"]
 
+
+  define "Denominator Encounter with Telehealth":
+    ["Encounter, Performed": "MIPS; MIPS 008 Encounter"] E
+      where E.relevantPeriod starts during "Measurement Period"
+        and AgeInYearsAt(start of E.relevantPeriod) >= 18
+        and E.signingProvider.hasMeasureMembership = true
+
 /* Populations */
 
 define "Denominator":
   exists("Denominator Encounter with Diagnosis")
-  and count("Denominator Encounter") >= 2
+  and count("Denominator Encounter with Telehealth") >= 2
 
 define "Numerator Performance Met: G8450":
   /*
