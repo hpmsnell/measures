@@ -1,12 +1,12 @@
-library MIPS_007Rate1_2018 version '1'
+library MIPS_007Rate1_2020 version '1'
 
 /*
  *
  * Source: MIPS
  * ID: 007Rate1
- * Year: 2018
+ * Year: 2020
  * Version: 1
- * Written by: Becky Weber
+ * Written by: Patrick Clark
  *
   */
 
@@ -83,7 +83,7 @@ define "Denominator Encounter":
     where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and E.signingProvider.hasMeasureMembership = true
-      and not E.code.modifier in {'GQ', 'GT'}
+
 
 /* Populations */
 

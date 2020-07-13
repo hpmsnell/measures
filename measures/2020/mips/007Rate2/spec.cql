@@ -1,12 +1,12 @@
-library MIPS_007Rate2_2018 version '1'
+library MIPS_007Rate2_2020 version '1'
 
 /*
  *
  * Source: MIPS
  * ID: 007Rate2
- * Year: 2018
+ * Year: 2020
  * Version: 1
- * Written by: Becky Weber
+ * Written by: Patrick Clark
  *
   */
 
