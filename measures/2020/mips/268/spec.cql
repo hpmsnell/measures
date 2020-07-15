@@ -1,11 +1,11 @@
-library MIPS_268_2019 version '1'
+library MIPS_268_2020 version '1'
 
 /*
  * Source: MIPS
  * ID: 268
- * Year: 2019
+ * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Patrick Clark
  *
   */
 
@@ -16,22 +16,12 @@ using QDM
 valueset "MIPS; MIPS 268 Encounter"
 valueset "MIPS; Epilepsy"
 valueset "MIPS; Performance Met: 4340F"
-valueset "MIPS; Denominator Exception: 4340F-1P"
 valueset "MIPS; Performance Not Met: 4340F-8P"
 valueset "MIPS; Denominator Exclusion: M1016"
 
 // VSAC value sets
 
 valueset "VSAC; Absence of Cervix"
-valueset "VSAC; ADHD"
-valueset "VSAC; Autism Spectrum and Related Disorders"
-valueset "VSAC; Intellectual Disabilities"
-valueset "VSAC; Tourette's Syndrome"
-valueset "VSAC; Schizophrenia or Psychotic Disorder"
-valueset "VSAC; Neonatal Severe Neurological Complications"
-valueset "VSAC; Cerebral Palsy"
-valueset "VSAC; Brain Injury"
-valueset "VSAC; Dementia & Mental Degenerations"
 
 // Able value sets
 
@@ -48,25 +38,12 @@ context Patient
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 268 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
+      and AgeInYearsAt(start of E.relevantPeriod) >= 12
       and not E.code.modifier in {'GQ','GT','95'}
       and not E.placeOfService in {'02'}
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Epilepsy"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod
-
-define "Neurological Disorder":
-  ["Diagnosis": "VSAC; ADHD"]
-  union ["Diagnosis": "VSAC; Autism Spectrum and Related Disorders"]
-  union ["Diagnosis": "Able; Dyslexia"]
-  union ["Diagnosis": "VSAC; Intellectual Disabilities"]
-  union ["Diagnosis": "VSAC; Tourette's Syndrome"]
-  union ["Diagnosis": "Able; Genetic Neurodevelopmental Disorder"]
-  union ["Diagnosis": "VSAC; Schizophrenia or Psychotic Disorder"]
-  union ["Diagnosis": "VSAC; Neonatal Severe Neurological Complications"]
-  union ["Diagnosis": "Able; Encephalopathy"]
-  union ["Diagnosis": "VSAC; Cerebral Palsy"]
-  union ["Diagnosis": "VSAC; Brain Injury"]
-  union ["Diagnosis": "VSAC; Dementia & Mental Degenerations"]
 
 /* POPULATIONS */
 
@@ -98,16 +75,7 @@ define "Numerator Performance Met: 4340F":
   exists(["Procedure, Performed": "MIPS; Performance Met: 4340F"] P
     where P.relevantPeriod starts during "Measurement Period")
 
-define "Denominator Exception: 4340F-1P":
-  /*
-   * config_link_id: 4340F-1P
-   */
-  exists(["Procedure, Performed": "MIPS; Denominator Exception: 4340F-1P"] P
-    with "Denominator Encounter" E
-      such that P.relevantPeriod starts during E.relevantPeriod)
-  or exists("Neurological Disorder" D
-    with "Denominator Encounter" E
-      such that D.prevalencePeriod overlaps E.relevantPeriod)
+
 
 define "Numerator Performance Not Met: 4340F-8P":
  /*
@@ -115,4 +83,3 @@ define "Numerator Performance Not Met: 4340F-8P":
   */
  not "Denominator Exclusion: M1016"
  and not "Numerator Performance Met: 4340F"
- and not "Denominator Exception: 4340F-1P"
