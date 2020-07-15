@@ -95,10 +95,6 @@ define "Normal Blood Pressure Exists":
 define "Numerator Component 1":
   exists(["Procedure, Performed": "MIPS; Performance Met: G9788"] P
     where P.relevantPeriod starts during "Measurement Period")
-  or exists(["Procedure, Performed": "MIPS; Denominator Exception: G9789"] P
-    where P.relevantPeriod starts during "Measurement Period")
-  or exists(["Procedure, Performed": "MIPS; Denominator Exception: G2129"] P2
-    where P2.relevantPeriod starts during "Measurement Period")
   or "Normal Blood Pressure Exists"
 
 define "Numerator Component 2":
@@ -157,7 +153,15 @@ define "Denominator":
     where E.relevantPeriod starts during "Measurement Year")
   and "Eligible Condition or Procedure Exists"
 
-define "Denominator Exclusion":
+define "Denominator Exclusion: BP Inpatient Stay":
+   exists(["Procedure, Performed": "MIPS; Denominator Exception: G9789"] P
+    where P.relevantPeriod starts during "Measurement Period")
+
+define "Denominator Exclusion: BP not taken Outpatient Visit"
+  or exists(["Procedure, Performed": "MIPS; Denominator Exception: G2129"] P2
+    where P2.relevantPeriod starts during "Measurement Period")
+
+define "Denominator Exclusion: Hospice":
 /*
  * config_link_id: exclusion_1
  */
@@ -179,5 +183,7 @@ define "Numerator Performance Not Met":
   /*
    * config_link_id: G8785
    */
-  not "Numerator Performance Met"
-  and not "Denominator Exclusion"
+  not "Denominator Exclusion: BP Inpatient Stay"
+  and not "Denominator Exclusion: BP not taken Outpatient Visit"
+  and not "Denominator Exclusion: Hospice"
+  and not "Numerator Performance Met"
