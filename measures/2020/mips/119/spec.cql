@@ -66,20 +66,6 @@ define "Denominator Encounter":
       and AgeInYearsAt(start of E.relevantPeriod) < 75
       and E.signingProvider.hasMeasureMembership = true
 
-define "Denominator":
-  exists("Denominator Encounter")
-  and exists(["Diagnosis": "MIPS; Diabetes"] D
-    where D.prevalencePeriod overlaps "Denominator Period")
-
-define "Denominator Exclusion":
-  /*
-   * config_link_id: exclusion_1
-   */
-  exists(["Procedure, Performed": "MIPS; MIPS Hospice Service"] P
-    where P.relevantPeriod starts during "Denominator Period")
-  or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
-    where I.relevantPeriod overlaps "Denominator Period")
-
 define "Microalbumin Tests": //Ranges can be found here: https://www.mayoclinic.org/tests-procedures/microalbumin/about/pac-20384640
   ["Laboratory Test, Performed": "ABLE; Microalbumin Test"]
   union ["Laboratory Test, Performed": "VSAC; Urine Protein Tests"]
@@ -99,6 +85,30 @@ define "Nephropathy Diagnoses":
   union ["Diagnosis": "VSAC; Hypertensive Chronic Kidney Disease"]
   union ["Diagnosis": "VSAC; Kidney Failure"]
   union ["Diagnosis": "VSAC; Proteinuria"]
+
+/* Populations */
+
+define "Denominator":
+  exists("Denominator Encounter")
+  and exists(["Diagnosis": "MIPS; Diabetes"] D
+    where D.prevalencePeriod overlaps "Denominator Period")
+
+define "Denominator Exclusion: Hospice":
+  /*
+   * config_link_id: exclusion_1
+   */
+  exists(["Procedure, Performed": "MIPS; MIPS Hospice Service"] P
+    where P.relevantPeriod starts during "Denominator Period")
+  or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
+    where I.relevantPeriod overlaps "Denominator Period")
+
+
+define "Denominator Exclusion: Frailty/LTI":
+    /*
+     * config_link_id: exclusion_frailty_lti
+     */
+  FrailtyLTIShared."Frailty/LTI Exclusion Exists"
+
 
 define "Numerator Performance Met: 3060F":
   /*
@@ -167,19 +177,13 @@ define "Numerator Performance Not Met: 3061F-8P":
   exists(["Procedure, Performed": "MIPS; Performance Not Met: 3061F-8P"] P
     where P.relevantPeriod starts during "Measurement Period")
 
-define "Denominator Exclusion: Frailty/LTI":
-  /*
-   * config_link_id: exclusion_frailty_lti
-   */
-  FrailtyLTIShared."Frailty/LTI Exclusion Exists"
-
-
 
 define "Numerator Performance Not Met: 3062F-8P":
   /*
    * config_link_id: 3062F-8P
    */
-   not "Denominator Exclusion"
+   not "Denominator Exclusion: Hospice"
+   and not "Denominator Exclusion: Frailty/LTI"
    and not "Numerator Performance Met: 3060F"
    and not "Numerator Performance Met: 3061F"
    and not "Numerator Performance Met: 3062F"
@@ -187,4 +191,3 @@ define "Numerator Performance Not Met: 3062F-8P":
    and not "Numerator Performance Met: G8506"
    and not "Numerator Performance Not Met: 3060F-8P"
    and not "Numerator Performance Not Met: 3061F-8P"
-   and not "Denominator Exclusion: Frailty/LTI"
