@@ -72,7 +72,7 @@ define "Medical Exception":
   union ["Diagnosis": "VSAC; Bradycardia"]
 
 
-  define "Denominator Encounter with Telehealth":
+  define "Denominator Encounter Includes Telehealth":
     ["Encounter, Performed": "MIPS; MIPS 008 Encounter"] E
       where E.relevantPeriod starts during "Measurement Period"
         and AgeInYearsAt(start of E.relevantPeriod) >= 18
@@ -82,7 +82,7 @@ define "Medical Exception":
 
 define "Denominator":
   exists("Denominator Encounter with Diagnosis")
-  and count("Denominator Encounter with Telehealth") >= 2
+  and count("Denominator Encounter Includes Telehealth") >= 2
 
 define "Numerator Performance Met: G8450":
   /*
