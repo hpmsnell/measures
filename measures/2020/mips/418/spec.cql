@@ -91,17 +91,6 @@ define "Denominator Exclusion: Osteoporosis Treatment":
     with ["Medication": "Able; Osteoporosis Medication"] M
       such that M.relevantPeriod overlaps [12 months before start of E.relevantPeriod, 1 day before start of E.relevantPeriod]
 
-define "Denominator Exclusion 3":
-  /*
-   * config_link_id: exclusion_3
-   */
-  exists(["Procedure, Performed": "MIPS; Institutional Exclusion"] P
-    where P.relevantPeriod starts during "Measurement Period"
-      and AgeInyearsAt(start of P.relevantPeriod) >= 66)
-  exists(["Procedure, Performed": "VSAC; Care Services in Long-Term Residential Facility"] P
-    where P.relevantPeriod starts during "Measurement Period"
-      and P.placeOfService in {'32', '33', '34', '54', '56'}
-      and AgeInyearsAt(start of P.relevantPeriod) >= 66)
 
 define "Denominator Exclusion: Frailty/LTI":
   /*
@@ -139,7 +128,6 @@ define "Numerator Performance Not Met: 3095F-8P":
   */
   not "Denominator Exclusion: Hospice Service"
   and not "Denominator Exclusion: Osteoporosis Treatment"
-  and not "Denominator Exclusion: Institutional"
   and not "Denominator Exclusion: Frailty/LTI"
   and not "Numerator Performance Met: 3095F"
   and not "Numerator Performance Met: G8633"
