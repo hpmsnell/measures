@@ -153,14 +153,6 @@ define "Denominator":
     where E.relevantPeriod starts during "Measurement Year")
   and "Eligible Condition or Procedure Exists"
 
-define "Denominator Exclusion: BP Inpatient Stay":
-   exists(["Procedure, Performed": "MIPS; Denominator Exception: G9789"] P
-    where P.relevantPeriod starts during "Measurement Period")
-
-define "Denominator Exclusion: BP not taken Outpatient Visit"
-  or exists(["Procedure, Performed": "MIPS; Denominator Exception: G2129"] P2
-    where P2.relevantPeriod starts during "Measurement Period")
-
 define "Denominator Exclusion: Hospice":
 /*
  * config_link_id: exclusion_1
@@ -172,18 +164,35 @@ or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
 
 define "Numerator Performance Met":
   /*
-   * config_link_id:
+   * config_link_id: performance_met
    */
   "Numerator Component 1"
   and "Numerator Component 2"
   and "Numerator Component 3"
   and "Numerator Component 4"
 
+define "Denominator Exception: BP Inpatient Stay":
+  /*
+   * config_link_id: G9789
+   */
+   exists(["Procedure, Performed": "MIPS; Denominator Exception: G9789"] P
+    where P.relevantPeriod starts during "Measurement Period")
+
+
+
+define "Denominator Exception: BP not taken Outpatient Visit"
+  /*
+   * config_link_id: G2129
+   */
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: G2129"] P2
+    where P2.relevantPeriod starts during "Measurement Period")
+
+
 define "Numerator Performance Not Met":
   /*
    * config_link_id: G8785
    */
-  not "Denominator Exclusion: BP Inpatient Stay"
-  and not "Denominator Exclusion: BP not taken Outpatient Visit"
-  and not "Denominator Exclusion: Hospice"
+  not "Denominator Exclusion: Hospice"
   and not "Numerator Performance Met"
+  and not "Denominator Exception: BP Inpatient Stay"
+  and not "Denominator Exception: BP not taken Outpatient Visit"
