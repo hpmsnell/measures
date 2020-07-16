@@ -29,10 +29,10 @@ valueset "MIPS; Denominator Exception: M1110"
 valueset "MIPS; Denominator Exception: G9726"
 valueset "MIPS; Performance Not Met: G8650"
 
-
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
+
 
 define "Denominator Episode":
   ["Encounter, Performed": "MIPS; MIPS 217 Discharge Documented: M1009"] E1
@@ -45,18 +45,22 @@ define "Denominator Episode":
     with ["Diagnosis": "MIPS; MIPS 217 Knee Impairment Functional Deficit"] D
       such that D.prevalencePeriod overlaps E2.relevantPeriod
 
+
 // Populations
 
 define "Denominator":
+
   "Denominator Episode"
 
 define "Denominator Exclusion: Patient Diagnosis of Neuro Condition M1107":
   // config_link_id: M1107
   exists("Denominator Episode" E
+
     with ["Procedure, Performed": "MIPS; MIPS 217 Neuro Diagnosis M1107"] P
       such that P.relevantPeriod starts during E.relevantPeriod)
 
 define "Denominator Exclusion: Patient Inability G9727":
+
   // config_link_id: G9727
   exists("Denominator Episode" E
     with ["Procedure, Performed": "MIPS; MIPS 217 Patient Inability G9727"] P
@@ -64,18 +68,21 @@ define "Denominator Exclusion: Patient Inability G9727":
 
 define "Numerator Performance Met: G8647":
   // config_link_id: G8647
+
   exists("Denominator Episode" E
     with ["Procedure, Performed": "MIPS; Performance Met: G8647"] P
       such that P.relevantPeriod starts during E.relevantPeriod)
 
 define "Numerator Performance Not Met: G8648":
   // config_link_id: G8648
+
   exists("Denominator Episode" E
     with ["Procedure, Performed": "MIPS; Performance Not Met: G8648"] P
       such that P.relevantPeriod starts during E.relevantPeriod)
 
 define "Denominator Exception: Care Not Indicated M1108":
   // config_link_id: M1108
+
   exists("Denominator Episode" E
     with ["Procedure, Performed": "MIPS; Denominator Exception: M1108"] P
       such that P.relevantPeriod starts during E.relevantPeriod)
@@ -88,6 +95,7 @@ define "Denominator Exception: Patient Discharged Medical Event M1109":
 
 define "Denominator Exception: Patient Self Discharge M1110":
   // config_link_id: M1110
+
   exists("Denominator Episode" E
     with ["Procedure, Performed": "MIPS; Denominator Exception: M1110"] P
       such that P.relevantPeriod starts during E.relevantPeriod)
