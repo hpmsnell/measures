@@ -1,16 +1,17 @@
-library MIPS_418_2018 version '1'
+library MIPS_418_2020 version '1'
 
 /*
  * Source: MIPS
  * ID: 418
- * Year: 2018
+ * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Patrick Clark
  *
   */
 
 using QDM
 
+include "../shared/frailty_lti_shared" version '1' called FrailtyLTIShared
 // MIPS Value Sets
 
 valueset "MIPS; MIPS 418 Encounter"
@@ -96,11 +97,17 @@ define "Denominator Exclusion 3":
    */
   exists(["Procedure, Performed": "MIPS; Institutional Exclusion"] P
     where P.relevantPeriod starts during "Measurement Period"
-      and AgeInyearsAt(start of P.relevantPeriod) >= 65)
+      and AgeInyearsAt(start of P.relevantPeriod) >= 66)
   exists(["Procedure, Performed": "VSAC; Care Services in Long-Term Residential Facility"] P
     where P.relevantPeriod starts during "Measurement Period"
       and P.placeOfService in {'32', '33', '34', '54', '56'}
-      and AgeInyearsAt(start of P.relevantPeriod) >= 65)
+      and AgeInyearsAt(start of P.relevantPeriod) >= 66)
+
+define "Denominator Exclusion: Frailty/LTI":
+  /*
+    * config_link_id: exclusion_frailty_lti
+    */
+  FrailtyLTIShared."Frailty/LTI Exclusion Exists"
 
 define "Numerator Performance Met: 3095F":
   /*
@@ -133,6 +140,7 @@ define "Numerator Performance Not Met: 3095F-8P":
   not "Denominator Exclusion: Hospice Service"
   and not "Denominator Exclusion: Osteoporosis Treatment"
   and not "Denominator Exclusion: Institutional"
+  and not "Denominator Exclusion: Frailty/LTI"
   and not "Numerator Performance Met: 3095F"
   and not "Numerator Performance Met: G8633"
   and not "Numerator Performance Not Met: G8635"
