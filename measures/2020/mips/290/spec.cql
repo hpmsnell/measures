@@ -1,11 +1,11 @@
-library MIPS_290_2018 version '1'
+library MIPS_290_2020 version '1'
 
 /*
  * Source: MIPS
  * ID: 290
- * Year: 2017
+ * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Patrick Clark
  *
   */
 
@@ -15,8 +15,8 @@ using QDM
 
 valueset "MIPS; MIPS 290 Encounter"
 valueset "MIPS; Parkinson's Disease"
-valueset "MIPS; Performance Met: G9742"
-valueset "MIPS; Performance Not Met: G9743"
+valueset "MIPS; Performance Met: G2121"
+valueset "MIPS; Performance Not Met: G2122"
 
 // Able value sets
 
@@ -36,7 +36,7 @@ define "Denominator Encounter":
       such that D.prevalencePeriod overlaps E.relevantPeriod
 
 define "Psychiatric Assessment":
-  ["Procedure, Performed": "MIPS; Performance Met: G9742"]
+  ["Procedure, Performed": "MIPS; Performance Met: G2121"]
   union ["Assessment, Performed": "Able; Psychiatric Assessment"]
 
 /* Populations */
@@ -44,16 +44,16 @@ define "Psychiatric Assessment":
 define "Denominator":
   exists("Denominator Encounter")
 
-define "Numerator Performance Met: G9742":
+define "Numerator Performance Met: G2121":
   /*
-   * config_link_id: G9742
+   * config_link_id: G2121
    */
   exists("Psychiatric Assessment" P
     with "Denominator Encounter" E
       such that P.relaventPeriod starts on or 12 months or less before start of E.relevantPeriod
 
-define "Numerator Performance Not Met: G9743":
+define "Numerator Performance Not Met: G2122":
   /*
-   * config_link_id: G9743
+   * config_link_id: G2122
    */
-  not "Numerator Performance Met: G9742"
+  not "Numerator Performance Met: G2121"
