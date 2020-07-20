@@ -1,11 +1,11 @@
-library MIPS_243_2019 version '1'
+library MIPS_243_2020 version '1'
 
 /*
  * Source: MIPS
  * ID: 243
- * Year: 2019
+ * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Patrick Clark
  *
   */
 
@@ -23,6 +23,7 @@ valueset "MIPS; MIPS 243 Cardiac Transplantation"
 valueset "MIPS; MIPS 243 Cardiac Event"
 valueset "MIPS; Performance Met: 4500F"
 valueset "MIPS; Denominator Exception: 4500F-1P"
+valueset "MIPS; Denominator Exception: 4500F-2P"
 valueset "MIPS; Denominator Exception: 4500F-3P"
 valueset "MIPS; Denominator Exception: 4510F"
 valueset "MIPS; Performance Not Met: 4500F-8P"
@@ -77,6 +78,13 @@ define "Denominator Exception: 4500F-1P":
   exists(["Procedure, Performed": "MIPS; Denominator Exception: 4500F-1P"] P
     where P.relevantPeriod starts during "Measurement Period"
 
+define "Denominator Exception: 4500F-2P":
+  /*
+   * config_link_id: 4500F-2P
+   */
+  exists(["Procedure, Performed": "MIPS; Denominator Exception: 4500F-2P"] P
+    where P.relevantPeriod starts during "Measurement Period"
+
 define "Denominator Exception: 4500F-3P":
   /*
    * config_link_id: 4500F-3P
@@ -97,5 +105,6 @@ define "Numerator Performance Not Met: 4500F-8P":
   */
  not "Numerator Performance Met: 4500F"
  and not "Denominator Exception: 4500F-1P"
+ and not "Denominator Exception: 4500F-2P"
  and not "Denominator Exception: 4500F-3P"
  and not "Denominator Exception: 4510F"
