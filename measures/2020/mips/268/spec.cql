@@ -73,7 +73,8 @@ define "Numerator Performance Met: 4340F":
    * config_link_id: 4340F
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 4340F"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+      and P.code.modifier = null)
 
 
 
