@@ -46,41 +46,49 @@ define "Numerator Performance Met: 4192F":
    * config_link_id: 4192F
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: 4192F"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+     and P.code.modifier = null)
 
 define "Numerator Performance Met: G2112":
   /*
    * config_link_id: G2112
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G2112"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+      and P.code.modifier = null)
 
 define "Numerator Performance Met: G2113/0540F":
   /*
    * config_link_id: G2113_0540F
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G2113"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+      and P.code.modifier = null)
   and exists(["Procedure, Performed": "MIPS; Performance Met: 0540F"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+      and P.code.modifier = null)
 
 define "Denominator Exception: G2113/0540F-1P":
   /*
    * config_link_id: G2113_0540F-1P
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G2113"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+      and P.code.modifier = null)
   and exists(["Procedure, Performed": "MIPS; Denominator Exception: 0540F-1P"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+      and P.code.modifier = 1P)
 
 define "Performance Not Met: G2113/0540F-8P":
   /*
    * config_link_id: G2113_0540F-8P
    */
   exists(["Procedure, Performed": "MIPS; Performance Met: G2113"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+      and P.code.modifier = null)
   and exists(["Procedure, Performed": "MIPS; Performance Not Met: 0540F-8P"] P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.relevantPeriod starts during "Measurement Period"
+      and P.code.modifier = 8P)
 
 define "Numerator Performance Not Met: 4194F-8P":
   /*
