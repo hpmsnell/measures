@@ -60,25 +60,26 @@ define "Denominator Exclusion 1":
    */
 
   exists(["Procedure, Performed": "MIPS; History of Bilateral Mastectomy: G9708"] P
-    where P.relevantPeriod starts before end "Measurement Period")
+    where P.relevantPeriod starts on or before end of "Measurement Period")
   or exists(["Procedure, Performed": "VSAC; Bilateral Mastectomy"] P
-    where P.relevantPeriod starts before end "Measurement Period")
+    where P.relevantPeriod starts on or before end of "Measurement Period")
   or exists(["Procedure, Performed": "VSAC; History of bilateral mastectomy"] P
-    where P.relevantPeriod starts before end "Measurement Period")
+    where P.relevantPeriod starts on or before end of "Measurement Period")
   or exists(["Diagnosis": "VSAC; History of bilateral mastectomy"] D
-    where D.prevalencePeriod starts before end "Measurement Period")
+    where D.prevalencePeriod starts on or before end of "Measurement Period")
   or (
-     exists(["Procedure, Performed": "VSAC; Status Post Left Mastectomy"] P
-      where P.relevantPeriod starts before end "Measurement Period")
-     and exists(["Procedure, Performed": "VSAC; Status Post Right Mastectomy"] P
-      where P.relevantPeriod starts before end "Measurement Period")
+    (
+      exists(["Procedure, Performed": "VSAC; Status Post Left Mastectomy"] P
+        where P.relevantPeriod starts on or before end "Measurement Period")
+      or exists(["Diagnosis": "VSAC; Status Post Left Mastectomy"] D
+         where D.prevalencePeriod starts on or before end "Measurement Period")
+    ) and (
+      exists(["Procedure, Performed": "VSAC; Status Post Right Mastectomy"] P
+        where P.relevantPeriod starts on or before end "Measurement Period")
+      or exists(["Diagnosis": "VSAC; Status Post Right Mastectomy"] D
+         where D.prevalencePeriod starts on or before end "Measurement Period")
+    )
   )
-   or (
-     exists(["Diagnosis": "VSAC; Status Post Left Mastectomy"] D
-      where D.prevalencePeriod starts before end "Measurement Period")
-     and exists(["Diagnosis": "VSAC; Status Post Right Mastectomy"] D
-      where D.prevalencePeriod starts before end "Measurement Period")
-   )
 
 define "Denominator Exclusion 2":
   /*
