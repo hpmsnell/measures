@@ -13,28 +13,33 @@ library HEDIS_LBP_2020 version '1'
 using QDM
 
 // HEDIS value sets
-
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
-valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
-valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
+valueset "HEDIS; History of Kidney Transplant": '2.16.840.1.113883.3.464.1004.1908'
+valueset "HEDIS; History of Malignant Neoplasm": '2.16.840.1.113883.3.464.1004.1121'
+valueset "HEDIS; HIV": '2.16.840.1.113883.3.464.1004.1110'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
+valueset "HEDIS; Imaging Study": '2.16.840.1.113883.3.464.1004.1138'
 valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
-valueset "HEDIS; Osteopathic and Chiropractic Manipulative Treatment"
-valueset "HEDIS; Physical Therapy"
-valueset "HEDIS; Telephone Visits"
-valueset "HEDIS; Online Assessments"
-valueset "HEDIS; Uncomplicated Low Back Pain"
-valueset "HEDIS; Malignant Neoplasms"
-valueset "HEDIS; Other Neoplasms"
-valueset "HEDIS; History of Malignant Neoplasm"
-valueset "HEDIS; HIV"
-valueset "HEDIS; Organ Transplant Other Than Kidney"
-valueset "HEDIS; Kidney Transplant"
-valueset "HEDIS; Trauma"
-valueset "HEDIS; IV Drug Abuse"
-valueset "HEDIS; Neurologic Impairment"
-valueset "HEDIS; Spinal Infection"
-valueset "HEDIS; Imaging Study"
+valueset "HEDIS; IV Drug Abuse": '2.16.840.1.113883.3.464.1004.1136'
+valueset "HEDIS; Kidney Transplant": '2.16.840.1.113883.3.464.1004.1141'
+valueset "HEDIS; Malignant Neoplasms": '2.16.840.1.113883.3.464.1004.1167'
+valueset "HEDIS; Neurologic Impairment": '2.16.840.1.113883.3.464.1004.1185'
+valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
+valueset "HEDIS; Online Assessments": '2.16.840.1.113883.3.464.1004.1446'
+valueset "HEDIS; Organ Transplant Other Than Kidney": '2.16.840.1.113883.3.464.1004.1195'
+valueset "HEDIS; Osteopathic and Chiropractic Manipulative Treatment": '2.16.840.1.113883.3.464.1004.1196'
+valueset "HEDIS; Other Malignant Neoplasm of Skin": '2.16.840.1.113883.3.464.1004.1463'
+valueset "HEDIS; Other Neoplasms": '2.16.840.1.113883.3.464.1004.1201'
+valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
+valueset "HEDIS; Physical Therapy": '2.16.840.1.113883.3.464.1004.1403'
+valueset "HEDIS; Spinal Infection": '2.16.840.1.113883.3.464.1004.1404'
+valueset "HEDIS; Telephone Visits": '2.16.840.1.113883.3.464.1004.1246'
+valueset "HEDIS; Trauma": '2.16.840.1.113883.3.464.1004.1254'
+valueset "HEDIS; Uncomplicated Low Back Pain": '2.16.840.1.113883.3.464.1004.1422'
+
+
+
 
 // NCQA medication list value sets
 
