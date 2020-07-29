@@ -44,12 +44,11 @@ define "Denominator Encounter or Procedure":
 
 define "Denominator Encounter":
   "Denominator Encounter or Procedure" E
-    where E.relevantPeriod starts during [start of "Measurement Period", 6 months before end of "Measurement Period"]
+    where E.relevantPeriod starts during [18 months before end of "Measurement Period", 6 months before end of "Measurement Period"]
       and AgeInYearsAt(start of E.relevantPeriod) >= 50
       and AgeInYearsAt(start of E.relevantPeriod) < 85
       and PatientCharacteristicSex = 'Female'
       and E.signingProvider.hasMeasureMembership = true
-      and not E.placeOfService in {'32','33','34','54','56'}
     with ["Diagnosis": "MIPS; Fracture"] D
       such that D.prevalencePeriod starts during E.relevantPeriod
 
@@ -58,7 +57,8 @@ define "Hospice Service":
   union ["Intervention, Performed": "VSAC; Palliative Care"]
 
 define "Bone Density Scan":
-  ["Procedure, Performed": "MIPS; Performance Met: 3095F"]
+  ["Procedure, Performed": "MIPS; Performance Met: 3095F"] P
+    where P.code.modifier = null
   union ["Assessment, Performed": "Able; Axial Dual-Energy X-Ray Absorptiometry (DXA)"]
 
 define "Osteoporosis Medication":
