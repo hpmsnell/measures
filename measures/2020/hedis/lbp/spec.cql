@@ -39,8 +39,6 @@ valueset "HEDIS; Trauma": '2.16.840.1.113883.3.464.1004.1254'
 valueset "HEDIS; Uncomplicated Low Back Pain": '2.16.840.1.113883.3.464.1004.1422'
 
 
-
-
 // NCQA medication list value sets
 
 valueset "NCQA; Corticosteroids Medications"
@@ -66,8 +64,10 @@ define "Encounter With Low Back Pain":
   "Encounter" E1
     with ["Diagnosis": "HEDIS; Uncomplicated Low Back Pain"] D
       such that D.prevalencePeriod starts during E1.relevantPeriod
-    without ["Encounter, Performed": "HEDIS; Inpatient Stay"] E2
-      such that E2.relevantPeriod starts during E1.relevantPeriod
+    without ["Encounter, Performed": "HEDIS; Inpatient Stay"] InptStay
+  		such that E1.relevantPeriod ends 1 day or less before start of InptStay.relevantPeriod
+  	without ["Encounter, Performed": "HEDIS; Inpatient Stay"] InptStay
+  		such that InptStay.claimID = E1.claimID
 
 define "Low Back Pain During Index Period"
   "Encounter With Low Back Pain" E
@@ -110,9 +110,16 @@ define "Corticosteroid Start Date":
   "Corticosteroid in Past Year" M
     return start of M.relevantPeriod
 
-define "Corticosteroid Stop Date":
+define "Corticosteroid Start Date":
   "Corticosteroid in Past Year" M
     return end of M.relevantPeriod
+
+define "Corticosteroid Days":
+  "Corticosteroid in Past Year" M
+    return days between start of M.relevantPeriod and end of M.relevantPeriod
+
+define "Sum of Corticosteroid Days":
+  Sum("Corticosteroid Days")
 
 define "Start of First Low Back Pain":
   "First Low Back Pain During Index Period" E
@@ -144,7 +151,7 @@ define "Denominator Exclusion":
    or exists("First Low Back Pain During Index Period" E
      with "Exclusion in Past Year" D
        such that D.prevalencePeriod overlaps [12 months days before start of E.relevantPeriod, 28 days after start of E.relevantPeriod])
-   or "End of Corticosteroid Period" - "Corticosteroid Start Date" >= 90 days
+   or exists "Sum of Corticosteroid Days" >= 90 days
 
 define "Numerator Performance Met":
   /*
