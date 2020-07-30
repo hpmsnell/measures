@@ -147,7 +147,6 @@ union ["Diagnosis": "VSAC; Traumatic Cataract"]
 union ["Diagnosis": "VSAC; Uveitis"]
 union ["Diagnosis": "VSAC; Vascular Disorders of Iris and Ciliary Body"]
 union ["Diagnosis": "VSAC; Visual Field Defects"]
-union ["Diagnosis": "VSAC; Visual Acuity 20/40 or Better"]
 
 define "Denominator":
   "Cataract Surgery"
