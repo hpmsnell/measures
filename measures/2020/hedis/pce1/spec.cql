@@ -23,12 +23,7 @@ valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
 valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
 valueset "HEDIS; Nonacute Inpatient Stay": '2.16.840.1.113883.3.464.1004.1398'
 
-
-????
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
-valueset "HEDIS; Acute Inpatient Stay"
-
-
+//valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 
 
 // NCQA medication list value sets
@@ -43,6 +38,8 @@ define "Hospice":
   ["Intervention, Performed": "Hospice Intervention"]
   union ["Encounter, Performed": "Hospice Encounter"]
 
+  //plcedit can we union these intervention and encounter. Yes? if they are patient context.
+
 define "Encounter":
   union ["Encounter, Performed": "HEDIS; ED"]
   union ["Encounter, Performed": "HEDIS; Inpatient Stay"]
@@ -54,10 +51,9 @@ define "COPD":
 
 define "Encounter With COPD":
   "Encounter" E1
-    with "COPD" D
-      such that D.prevalencePeriod starts during E1.relevantPeriod
-    without ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] E2
-      such that E2.relevantPeriod starts during E1.relevantPeriod
+    where exists (E1.diagnoses D Where D.code in "COPD" )
+      without ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] E2
+        such that E2.relevantPeriod starts during E1.relevantPeriod
 
 define "COPD During Index Period"
   "Encounter With COPD" E
