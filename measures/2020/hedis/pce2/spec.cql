@@ -6,7 +6,7 @@ library HEDIS_PCE2_2020 version '1'
  * ID: PCE2
  * Year: 2020
  * Version: 1
- * Author: Patrick Clark 
+ * Author: Patrick Clark
  *
   */
 
@@ -14,13 +14,14 @@ using QDM
 
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
+valueset "HEDIS; Chronic Bronchitis": '2.16.840.1.113883.3.464.1004.1061'
+valueset "HEDIS; COPD": '2.16.840.1.113883.3.464.1004.1053'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
+valueset "HEDIS; Emphysema": '2.16.840.1.113883.3.464.1004.1091'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
 valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
-valueset "HEDIS; Acute Inpatient Stay"
-valueset "HEDIS; COPD"
-valueset "HEDIS; Emphysema"
-valueset "HEDIS; Chronic Bronchitis"
+valueset "HEDIS; Nonacute Inpatient Stay": '2.16.840.1.113883.3.464.1004.1398'
 
 // NCQA medication list value sets
 
@@ -31,7 +32,8 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
+  ["Intervention, Performed": "Hospice Intervention"]
+  union ["Encounter, Performed": "Hospice Encounter"]
 
 define "Encounter":
   union ["Encounter, Performed": "HEDIS; ED"]
@@ -44,10 +46,9 @@ define "COPD":
 
 define "Encounter With COPD":
   "Encounter" E1
-    with "COPD" D
-      such that D.prevalencePeriod starts during E1.relevantPeriod
-    without ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] E2
-      such that E2.relevantPeriod starts during E1.relevantPeriod
+    where exists (E1.diagnoses D Where D.code in "COPD" )
+      without ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] E2
+        such that E2.relevantPeriod starts during E1.relevantPeriod
 
 define "COPD During Index Period"
   "Encounter With COPD" E
