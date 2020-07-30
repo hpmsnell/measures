@@ -6,7 +6,7 @@ library HEDIS_PCE2_2020 version '1'
  * ID: PCE2
  * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Patrick Clark 
  *
   */
 
