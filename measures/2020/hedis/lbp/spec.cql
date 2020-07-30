@@ -51,23 +51,30 @@ define "Hospice":
   ["Intervention, Performed": "HEDIS; Hospice"]
 
 
-define "Encounter":
+define "Encounter Set1":
   ["Encounter, Performed": "HEDIS; Outpatient"]
   union ["Encounter, Performed": "HEDIS; Observation"]
   union ["Encounter, Performed": "HEDIS; ED"]
-  union ["Encounter, Performed": "HEDIS; Osteopathic and Chiropractic Manipulative Treatment"]
+
+define "Encounter Set2":
+  ["Encounter, Performed": "HEDIS; Osteopathic and Chiropractic Manipulative Treatment"]
   union ["Encounter, Performed": "HEDIS; Physical Therapy"]
   union ["Encounter, Performed": "HEDIS; Telephone Visits"]
   union ["Encounter, Performed": "HEDIS; Online Assessments"]
 
 define "Encounter With Low Back Pain":
-  "Encounter" E1
-    with ["Diagnosis": "HEDIS; Uncomplicated Low Back Pain"] D
-      such that D.prevalencePeriod starts during E1.relevantPeriod
+  "Encounter Set1" E1
+    where exists (E1.diagnoses D
+      where D.code in "HEDIS; Uncomplicated Low Back Pain"
+      and D.rank = 1)
     without ["Encounter, Performed": "HEDIS; Inpatient Stay"] InptStay
   		such that E1.relevantPeriod ends 1 day or less before start of InptStay.relevantPeriod
   	without ["Encounter, Performed": "HEDIS; Inpatient Stay"] InptStay
   		such that InptStay.claimID = E1.claimID
+  union  "Encounter Set2" E1
+    where exists (E1.diagnoses D
+      where D.code in "HEDIS; Uncomplicated Low Back Pain"
+      and D.rank = 1)
 
 define "Low Back Pain During Index Period"
   "Encounter With Low Back Pain" E
@@ -106,55 +113,59 @@ define "Corticosteroid in Past Year":
     with "First Low Back Pain During Index Period" E
       such that M.relevantPeriod starts during [12 months days before start of E.relevantPeriod, start of E.relevantPeriod]
 
-define "Corticosteroid in Past Year Ordered":
-  "Corticosteroid in Past Year" M
-      sort by M.relevantPeriod asc
-
-define "Sum Corticosteroid days 1 Script"
-    "Corticosteroid in Past Year Ordered" M
-        return sum(days between start of M.relevantPeriod and end of M.relevantPeriod)
-
-define "Sum Corticosteroid days 2 Scripts"
-    "Corticosteroid in Past Year Ordered" M
-        exists  "Corticosteroid in Past Year Ordered" M2
-          such that start of M2.relevantPeriod starts during [start of M.relevantPeriod, end of M.relevantPeriod]
-            return sum(days between start of M.relevantPeriod and end of M2.relevantPeriod)
-
-define "Sum Corticosteroid days 3 Scripts"
-    "Corticosteroid in Past Year Ordered" M
-        exists  "Corticosteroid in Past Year Ordered" M2
-          such that start of M2.relevantPeriod starts during [start of M.relevantPeriod, end of M.relevantPeriod]
-        exists  "Corticosteroid in Past Year Ordered" M3
-          such that start of M3.relevantPeriod starts during [start of M2.relevantPeriod, end of M2.relevantPeriod]
-            return sum(days between start of M.relevantPeriod and end of M3.relevantPeriod)
-
-define "Sum Corticosteroid days 4 Scripts"
-    "Corticosteroid in Past Year Ordered" M
-        exists  "Corticosteroid in Past Year Ordered" M2
-          such that start of M2.relevantPeriod starts during [start of M.relevantPeriod, end of M.relevantPeriod]
-        exists  "Corticosteroid in Past Year Ordered" M3
-          such that start of M3.relevantPeriod starts during [start of M2.relevantPeriod, end of M2.relevantPeriod]
-        exists  "Corticosteroid in Past Year Ordered" M4
-          such that start of M4.relevantPeriod starts during [start of M3.relevantPeriod, end of M3.relevantPeriod]
-            return sum(days between start of M.relevantPeriod and end of M4.relevantPeriod)
-
-define "Corticosteroid Start Date":
-  "Corticosteroid in Past Year" M
-    return end of M.relevantPeriod
-
-define "Corticosteroid Days":
-  "Corticosteroid in Past Year" M
-    return days between start of M.relevantPeriod and end of M.relevantPeriod
-
-define "Sum of Corticosteroid Days":
-  Sum("Corticosteroid Days")
-
-define "Start of First Low Back Pain":
+define "Index Period Stop Date":
   "First Low Back Pain During Index Period" E
     return start of E.relevantPeriod
 
-define "End of Corticosteroid Period":
-  Floor("Corticosteroid Stop Date", "Start of First Low Back Pain")
+// Individual corticosteroid case
+
+define "Prescription Start Date":
+  "Corticosteroid in Past Year" M
+    return start of M.relevantPeriod
+
+define "Prescription Stop Date":
+  "Corticosteroid in Past Year" M
+    return end of M.relevantPeriod
+
+define "Prescription Duration":
+  Min(
+    {
+      days between "Prescription Start Date" and "Prescription Stop Date",
+      days between "Prescription Start Date" and "Index Period Stop Date" // Default to this if Stop Date is null
+    }
+  )
+
+// Multiple overlapping corticosteroid case
+
+define "Overlapping Prescription":
+  "Corticosteroid in Past Year" M1
+    with "Corticosteroid in Past Year" M2
+      such that M1.relevantPeriod overlaps M2.relevantPeriod
+    sort by start of M1.relevantPeriod
+
+define "Overlapping Prescription Start Date":
+  "Overlapping Prescription" M
+    return start of M.relevantPeriod
+
+define "Overlapping Prescription Stop Date":
+  "Overlapping Prescription" M
+    return end of M.relevantPeriod
+
+define "Sum of Overlapping Presription Durations":
+  Sum(days between "Overlapping Prescription Start Date" and "Overlapping Prescription Stop Date")
+
+define "First Overlapping Prescription Start Date":
+  First("Overlapping Prescription") M
+    return start of M.relevantPeriod
+
+define "Sum of Overlappiong Prescription Durations Within Index Period":
+  Min(
+    {
+      Sum("Overlapping Prescription Duration"),
+      days between  "First Overlapping Prescription Start Date" and "Index Period Stop Date"
+    }
+  )
+
 
 /* Populations */
 
@@ -179,10 +190,8 @@ define "Denominator Exclusion":
    or exists("First Low Back Pain During Index Period" E
      with "Exclusion in Past Year" D
        such that D.prevalencePeriod overlaps [12 months days before start of E.relevantPeriod, 28 days after start of E.relevantPeriod])
-   or exists "Sum Corticosteroid days 1 Script" >= 90 days
-   or exists "Sum Corticosteroid days 2 Script" >= 90 days
-   or exists "Sum Corticosteroid days 3 Script" >= 90 days
-   or exists "Sum Corticosteroid days 4 Script" >= 90 days
+    or "Prescription Duration" >= 90 days
+    or "Sum of Overlapping Prescription Durations Within Index Period" >= 90 days
 
 define "Numerator Performance Met":
   /*
