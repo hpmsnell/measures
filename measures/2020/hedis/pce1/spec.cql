@@ -12,6 +12,8 @@ library HEDIS_PCE1_2020 version '1'
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // HEDIS value sets
 
 valueset "HEDIS; Chronic Bronchitis": '2.16.840.1.113883.3.464.1004.1061'
@@ -38,11 +40,6 @@ define "Hospice":
   ["Intervention, Performed": "Hospice Intervention"]
   union ["Encounter, Performed": "Hospice Encounter"]
 
-  //plcedit can we union these intervention and encounter. Yes? if they are patient context.
-
-define "Encounter":
-  union ["Encounter, Performed": "HEDIS; ED"]
-  union ["Encounter, Performed": "HEDIS; Inpatient Stay"]
 
 define "COPD":
   ["Diagnosis": "HEDIS; COPD"]
@@ -50,10 +47,20 @@ define "COPD":
   union ["Diagnosis": "HEDIS; Chronic Bronchitis"]
 
 define "Encounter With COPD":
-  "Encounter" E1
-    where exists (E1.diagnoses D Where D.code in "COPD" )
-      without ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] E2
-        such that E2.relevantPeriod starts during E1.relevantPeriod
+  ["Encounter, Performed": "HEDIS; ED"] E1
+    where exists (E1.diagnoses D
+      where D.code in "COPD"
+        and D.rank = 1)
+    without ["Encounter, Performed": "HEDIS; Inpatient Stay"] E2
+      such that E2.relevantPeriod starts during E1.relevantPeriod
+  union ["Encounter, Performed": "HEDIS; Inpatient Stay"] E1
+    where exists (E1.diagnoses D
+      where D.code in "COPD"
+        and D.rank = 1)
+    without ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] E2
+      such that E2.relevantPeriod starts during E1.relevantPeriod
+
+
 
 define "COPD During Index Period"
   "Encounter With COPD" E
@@ -67,8 +74,13 @@ define "Corticosteroid":
 
 define "Denominator":
   "COPD During Index Period"
-  and not exists("Hospice" E
-    where E.relevantPeriod starts during "Measurement Period")
+
+define "Exclusion: Hospice":
+   /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice During Period"("Measurement Period"))
+
 
 define "Numerator Performance Met":
   /*
@@ -83,4 +95,5 @@ define "Numerator Performance Not Met":
   /*
    * config_link_id: performance_not_met
    */
-  not "Numerator Performance Met"
+  not "Exclusion: Hospice"
+  and not "Numerator Performance Met"
