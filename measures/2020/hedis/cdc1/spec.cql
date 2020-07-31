@@ -92,14 +92,14 @@ define "Patient Has Diabetes":
   or exists(["Encounter, Performed": "HEDIS; Inpatient Stay"])InpatientE
     where InpatientE.dischargeDate during [24 months before end of "Measurement Period", end of "Measurement Period"]
     with ["Diagnosis": "HEDIS; Diabetes"] D
-      such that D.prevalencePeriod starts during InpatientE.relevantPeriod)
-      and InpatientE.claimId = D.claimId
+      such that D.prevalencePeriod starts during InpatientE.relevantPeriod
+        and InpatientE.claimId = D.claimId)
   or exists("Nonacute Visit with Diabetes" E1
     with "Nonacute Visit with Diabetes" E2
       such that start of E2.relevantPeriod != start of E1.relevantPeriod
   or exists("Nonacute Visit with Diabetes" E1
     with "Nonacute Visit Telehealth with Diabetes" E2
-      such that start of E2.relevantPeriod != start of E1.relevantPeriod
+      such that start of E2.relevantPeriod != start of E1.relevantPeriod)
   or exists(["Medication, Dispensed": "NCQA; Diabetes Medications"] M
     where M.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
 
