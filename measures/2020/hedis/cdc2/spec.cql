@@ -40,30 +40,35 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define "HbA1c Lab Test":
-  ["Assessment, Performed": "HEDIS; HbA1c Test Result or Finding"]
-  union "Laboratory Test, Performed": "HEDIS; HbA1c Lab Test"
+  (["Assessment, Performed": "HEDIS; HbA1c Test Result or Finding"]
+  union ["Laboratory Test, Performed": "HEDIS; HbA1c Lab Test"] HbA1cLab
+    where HbA1cLab.result != null) HbA1cTest
+    where HbA1cTest.relevantDatetime during "Measurement Period"
 
-define "Last HbA1c Result":
-  Last("HbA1c Lab Test" L
-    where L.resultDateTime during "Measurement Year"
-      and not L.result = null
-    sort by L.resultDateTime asc
-    return L.result)
+define "Last HbA1c Test":
+  Last("HbA1c Lab Test" LastHbA1cTest
+    sort by LastHbA1cTest.relevantDateTime asc)
 
 define "HbA1C Result Less or Equal to 9":
   ["Assessment, Performed": "HEDIS; HbA1c Level Less Than 7.0"]
-  union ["Assessment, Performed": "HEDIS; HbA1c Level 7.0-9.0"
+  union ["Assessment, Performed": "HEDIS; HbA1c Level 7.0-9.0"]
 
 /* Populations */
 
-define "Exclusion: Hospice":
-	   /*
-	   * config_link_id: exclusion_required_hospice
-	   */
-	   exists("Hospice During Period"("Measurement Period"))
-
 define "Denominator":
   "HEDIS CDC1: Denominator"
+
+define "Exclusion: Hospice":
+   /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice During Period"("Measurement Period"))
+
+define "Denominator Exclusion: Frailty or Advanced Illness"
+  /*
+  * config_link_id: exclusion_required_frailty
+  */
+  "HEDIS CDC1: Denominator Exclusion: Frailty or Advanced Illness"
 
 define "Denominator Exclusion: Diagnosis"
   /*
@@ -71,41 +76,27 @@ define "Denominator Exclusion: Diagnosis"
   */
   "HEDIS CDC1: Denominator Exclusion: Diagnosis"
 
-define "Denominator Exclusion: Frailty or Advanced Illness"
-  /*
-  * config_link_id: exclusion_2
-  */
-  "HEDIS CDC1: Denominator Exclusion: Frailty or Advanced Illness"
-
 define "Numerator Performance Met: High HbA1c":
   /*
    * config_link_id: hba1c_high
    */
-  "Last HbA1c Result" > 9
-  union ["Assessment, Performed": "HEDIS; HbA1c Level Greater Than 9.0"]
+  exists("Last HbA1c Result" A
+    where A.result > 9
+      or A.code in "HEDIS; HbA1c Level Greater Than 9.0")
 
-define "Numerator Performance Met: No HbA1c Completed":
+define "Numerator Performance Met: No HbA1c":
   /*
    * config_link_id: hba1c_none
    */
-  not exists("HbA1c Lab Test" NoLab
-    where NoLab.relevantDateTime during "Measurement Period"
-      or NoLab.authorDateTime during "Measurement Period"
-  )
-
-define "Numerator Performance Met: No HbA1c Result":
-  /*
-   * config_link_id: hba1c_no_result
-   */
-  exists(["Laboratory Test, Performed": "HEDIS; HbA1c Lab Test"] L
-    where L.relevantDateTime during "Measurement Period"
-      and result = null)
+  not exists("HbA1c Lab Test")
 
 define "Numerator Performance Not Met: Controlled HbA1c":
   /*
    * config_link_id: hba1c_controlled
    */
-  "HbA1C Result Less or Equal to 9"
+  not "Exclusion: Hospice"
+  and not "Denominator Exclusion: Frailty or Advanced Illness"
+  and not "Denominator Exclusion: Diagnosis"
+  and not "HbA1C Result Less or Equal to 9"
   and not "Numerator Performance Met: High HbA1c"
-  and not "Numerator Performance Met: No HbA1c Completed"
-  and not "Numerator Performance Met: No HbA1c Result"
+  and not "Numerator Performance Met: No HbA1c"

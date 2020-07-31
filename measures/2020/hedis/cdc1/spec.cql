@@ -36,12 +36,6 @@ valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
 
 valueset "NCQA; Diabetes Medications"
 
-// MIPS value sets
-
-valueset "MIPS; Performance Met: 3046F" //HbA1c Test
-valueset "MIPS; Performance Not Met: 3045F" //HbA1c Test
-valueset "MIPS; Performance Not Met: 3044F" //HbA1c Test
-
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
@@ -103,62 +97,39 @@ define "Patient Has Diabetes":
   or exists(["Medication, Dispensed": "NCQA; Diabetes Medications"] M
     where M.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
 
-define "Visit":
-  ["Encounter, Performed": "HEDIS; Outpatient"]
-  union ["Encounter, Performed": "HEDIS; Observation"]
-  union ["Encounter, Performed": "HEDIS; ED"]
-  union ["Encounter, Performed": "HEDIS; Nonacute Inpatient"]
-
-define "Visit with Advanced Illness":
-  "Visit" E
-    where E.relevantPeriod starts during "Measurement Period"
-    with ["Diagnosis": "HEDIS; Advanced Illness"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod
-
-define "Advanced Illness Exists":
-  exists("Visit with Advanced Illness" E1
-    with "Visit with Advanced Illness" E2
-      such that E1.relevantPeriod starts after E2.relevantPeriod)
-  or exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
-    with ["Diagnosis": "HEDIS; Advanced Illness"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod)
-  or exists(["Medication, Dispensed": "NCQA; Dementia Medications"] M
-    where M.relevantPeriod starts during "Measurement Period")
-
 /* Populations */
-
-define "Exclusion: Hospice":
-	   /*
-	   * config_link_id: exclusion_required_hospice
-	   */
-	   exists("Hospice During Period"("Measurement Period"))
 
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 18
   and AgeInYearsAt(end of "Measurement Period") < 76
   and "Patient Has Diabetes"
 
- define "Denominator Exclusion: Diagnosis"
-   /*
-    * config_link_id: exclusion_1
-    */
-   not exists(["Diagnosis": "HEDIS; Diabetes"] D
+define "Exclusion: Hospice":
+  /*
+  * config_link_id: exclusion_required_hospice
+  */
+  exists("Hospice During Period"("Measurement Period"))
+
+define "Denominator Exclusion: Diagnosis"
+  /*
+  * config_link_id: exclusion_1
+  */
+  not exists(["Diagnosis": "HEDIS; Diabetes"] D
     where D.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
-   and exists(["Diagnosis": "HEDIS; Diabetes Exclusions"] D
+  and exists(["Diagnosis": "HEDIS; Diabetes Exclusions"] D
     where D.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
 
-define "Denominator Exclusion: Frailty and Advanced Illness":
+define "Denominator Exclusion: Frailty or Advanced Illness":
   /*
-   * config_link_id: exclusion_2
-   */
+  * config_link_id: exclusion_required_frailty
+  */
   AgeInYearsAt(end of "Measurement Period") >= 66
-  and (
-    exists(["Diagnosis": "HEDIS; Frailty"] D
-      where D.prevalencePeriod starts during "Measurement Period")
-    or exists(["Procedure, Performed": "HEDIS; Frailty"] D
-      where D.prevalencePeriod starts during "Measurement Period")
-  )
-  and "Advanced Illness Exists"
+    and ("LTI During Period"("Measurement Period")
+         or "SNP"("Measurement Period")
+         or ("Advanced Illness"("Measurement Period and Year Prior")
+             and "Frailty: Claim During Period"("Measurement Period")
+           )
+     )
 
 define "Numerator Performance Met":
   /*
@@ -168,15 +139,12 @@ define "Numerator Performance Met":
     where L.resultDateTime during "Measurement Year")
   or exists(["Procedure, Performed": "HEDIS; HbA1c Lab Test"] P
     where P.relevantDatetime during "Measurement Year")
-  or exists(["Procedure, Performed": "MIPS; Performance Met: 3046F"]
-    union ["Procedure, Performed": "MIPS; Performance Not Met: 3045F"]
-    union ["Procedure, Performed": "MIPS; Performance Not Met: 3044F"]) P
-    where P.relevantPeriod starts during "Measurement Year"
-      and P.code.modifier not in "HEDIS; CPT Cat II Modifier"
-      and P.placeOfService != '81')
 
 define "Numerator Performance Not Met":
   /*
    * config_link_id: performance_not_met
    */
-  not "Numerator Performance Met"
+  not "Exclusion: Hospice"
+  and not "Denominator Exclusion: Frailty or Advanced Illness"
+  and not "Denominator Exclusion: Diagnosis"
+  and not "Numerator Performance Met"
