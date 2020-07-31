@@ -144,13 +144,33 @@ performance_met:
         - model: ClinicalActivity
           value_set: HEDIS; HbA1c Level Greater Than 9.0
         - model: LaboratoryTestPerformed
+          value_set: HEDIS; HbA1c Lab Test
+        - model: ClinicalActivity
+          value_set: HEDIS; HbA1c Test Result or Finding
+        - model: LaboratoryTestPerformed
+          value_set: Vsac; HbA1c Laboratory Test
+        - model: LaboratoryTestPerformed
+          value_set: Able; HbA1c Laboratory Test
+  - config_link_id: hba1c_no_result
+    code_value:
+    display_title: No HbA1c Result
+    description: Test done, but no hemoglobin A1c result was found in the appropriate timeframe
+    component_groups:
+    - components:
+      - display_title: HbA1c No Result
+        annotation: 'Lab test but result is null'
+        show_codes: true
+        records:
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; HbA1c Lab Test
+        - model: LaboratoryTestPerformed
           value_set: Vsac; HbA1c Laboratory Test
         - model: LaboratoryTestPerformed
           value_set: Able; HbA1c Laboratory Test
   - config_link_id: hba1c_none
     code_value:
-    display_title: No HbA1c Result
-    description: No hemoglobin A1c result was found in the appropriate timeframe
+    display_title: No HbA1c Performed
+    description: No hemoglobin A1c lab test was performed in the appropriate timeframe
     component_groups:
 performance_not_met:
   description:

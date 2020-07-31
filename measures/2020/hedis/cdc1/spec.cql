@@ -53,7 +53,7 @@ define "Nonacute Visit No Telehealth":
   union ["Encounter, Performed": "HEDIS; Nonacute Inpatient"]
   union "Nonacute Inpatient Visit")E
     where E1.code.modifier != {'GT','95'}
-          or E1.placeOfService != {'02'}
+          and E1.placeOfService != {'02'}
 
 define "Nonacute Inpatient Visit":
   ["Encounter, Performed": "HEDIS; Inpatient Stay"] Inpatient
@@ -99,7 +99,7 @@ define "Patient Has Diabetes":
       such that start of E2.relevantPeriod != start of E1.relevantPeriod
   or exists("Nonacute Visit with Diabetes" E1
     with "Nonacute Visit Telehealth with Diabetes" E2
-      such that start of E2.relevantPeriod != start of E1.relevantPeriod)
+      such that start of E2.relevantPeriod != start of E1.relevantPeriod
   or exists(["Medication, Dispensed": "NCQA; Diabetes Medications"] M
     where M.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
 
