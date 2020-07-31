@@ -34,7 +34,7 @@ denominator:
         value_set: HEDIS; Diabetes
     - display_title: Encounter
       logical_operator: AND
-      annotation: 2 non-acute visits or 1 acute inpatient encounter
+      annotation: 2 non-acute visits (only 1 telehealth allowed- either telehealth POS, modifier, online assessments or telephone visits) or 1 acute inpatient encounter
       show_codes: true
       records:
       - model: ClinicalActivity
@@ -47,6 +47,14 @@ denominator:
         value_set: HEDIS; ED
       - model: ClinicalActivity
         value_set: HEDIS; Nonacute Inpatient
+      - model: ClinicalActivity
+        value_set: HEDIS; Telephone Visits
+      - model: ClinicalActivity
+        value_set:  HEDIS; Online assessments
+      - model: ClinicalActivity
+        value_set: HEDIS; Nonacute Inpatient stay
+      - model: ClinicalActivity
+        value_set: HEDIS; Inpatient Stay
   - logical_operator: OR
     components:
     - display_title: Diabetes Medication
@@ -94,9 +102,13 @@ exclusion:
         show_codes: true
         records:
         - model: Diagnosis
-          value_set: HEDIS; Frailty
+          value_set: HEDIS; Frailty Diagnosis
+        - model: Diagnosis
+          value_set: HEDIS; Frailty Symptom
         - model: ClinicalActivity
-          value_set: HEDIS; Frailty
+          value_set: HEDIS; Frailty Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Frailty Device
     - logical_operator: AND
       components:
       - display_title: Dementia Medication
@@ -139,7 +151,7 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; HbA1c Tests
+          value_set: HEDIS; HbA1c Test Result or Finding
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Met: 3046F'
         - model: ClinicalActivity
@@ -147,7 +159,7 @@ performance_met:
         - model: ClinicalActivity
           value_set: 'MIPS; Performance Not Met: 3044F'
         - model: LaboratoryTestPerformed
-          value_set: HEDIS; HbA1c Tests
+          value_set: HEDIS; HbA1c Lab Test
         - model: LaboratoryTestPerformed
           value_set: Able; HbA1c Laboratory Test
 performance_not_met:
