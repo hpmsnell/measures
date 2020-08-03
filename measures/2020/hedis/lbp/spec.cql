@@ -13,28 +13,31 @@ library HEDIS_LBP_2020 version '1'
 using QDM
 
 // HEDIS value sets
-
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
-valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
-valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
+valueset "HEDIS; History of Kidney Transplant": '2.16.840.1.113883.3.464.1004.1908'
+valueset "HEDIS; History of Malignant Neoplasm": '2.16.840.1.113883.3.464.1004.1121'
+valueset "HEDIS; HIV": '2.16.840.1.113883.3.464.1004.1110'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
+valueset "HEDIS; Imaging Study": '2.16.840.1.113883.3.464.1004.1138'
 valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
-valueset "HEDIS; Osteopathic and Chiropractic Manipulative Treatment"
-valueset "HEDIS; Physical Therapy"
-valueset "HEDIS; Telephone Visits"
-valueset "HEDIS; Online Assessments"
-valueset "HEDIS; Uncomplicated Low Back Pain"
-valueset "HEDIS; Malignant Neoplasms"
-valueset "HEDIS; Other Neoplasms"
-valueset "HEDIS; History of Malignant Neoplasm"
-valueset "HEDIS; HIV"
-valueset "HEDIS; Organ Transplant Other Than Kidney"
-valueset "HEDIS; Kidney Transplant"
-valueset "HEDIS; Trauma"
-valueset "HEDIS; IV Drug Abuse"
-valueset "HEDIS; Neurologic Impairment"
-valueset "HEDIS; Spinal Infection"
-valueset "HEDIS; Imaging Study"
+valueset "HEDIS; IV Drug Abuse": '2.16.840.1.113883.3.464.1004.1136'
+valueset "HEDIS; Kidney Transplant": '2.16.840.1.113883.3.464.1004.1141'
+valueset "HEDIS; Malignant Neoplasms": '2.16.840.1.113883.3.464.1004.1167'
+valueset "HEDIS; Neurologic Impairment": '2.16.840.1.113883.3.464.1004.1185'
+valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
+valueset "HEDIS; Online Assessments": '2.16.840.1.113883.3.464.1004.1446'
+valueset "HEDIS; Organ Transplant Other Than Kidney": '2.16.840.1.113883.3.464.1004.1195'
+valueset "HEDIS; Osteopathic and Chiropractic Manipulative Treatment": '2.16.840.1.113883.3.464.1004.1196'
+valueset "HEDIS; Other Malignant Neoplasm of Skin": '2.16.840.1.113883.3.464.1004.1463'
+valueset "HEDIS; Other Neoplasms": '2.16.840.1.113883.3.464.1004.1201'
+valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
+valueset "HEDIS; Physical Therapy": '2.16.840.1.113883.3.464.1004.1403'
+valueset "HEDIS; Spinal Infection": '2.16.840.1.113883.3.464.1004.1404'
+valueset "HEDIS; Telephone Visits": '2.16.840.1.113883.3.464.1004.1246'
+valueset "HEDIS; Trauma": '2.16.840.1.113883.3.464.1004.1254'
+valueset "HEDIS; Uncomplicated Low Back Pain": '2.16.840.1.113883.3.464.1004.1422'
+
 
 // NCQA medication list value sets
 
@@ -48,21 +51,30 @@ define "Hospice":
   ["Intervention, Performed": "HEDIS; Hospice"]
 
 
-define "Encounter":
+define "Encounter Set1":
   ["Encounter, Performed": "HEDIS; Outpatient"]
   union ["Encounter, Performed": "HEDIS; Observation"]
   union ["Encounter, Performed": "HEDIS; ED"]
-  union ["Encounter, Performed": "HEDIS; Osteopathic and Chiropractic Manipulative Treatment"]
+
+define "Encounter Set2":
+  ["Encounter, Performed": "HEDIS; Osteopathic and Chiropractic Manipulative Treatment"]
   union ["Encounter, Performed": "HEDIS; Physical Therapy"]
   union ["Encounter, Performed": "HEDIS; Telephone Visits"]
   union ["Encounter, Performed": "HEDIS; Online Assessments"]
 
 define "Encounter With Low Back Pain":
-  "Encounter" E1
-    with ["Diagnosis": "HEDIS; Uncomplicated Low Back Pain"] D
-      such that D.prevalencePeriod starts during E1.relevantPeriod
-    without ["Encounter, Performed": "HEDIS; Inpatient Stay"] E2
-      such that E2.relevantPeriod starts during E1.relevantPeriod
+  "Encounter Set1" E1
+    where exists (E1.diagnoses D
+      where D.code in "HEDIS; Uncomplicated Low Back Pain"
+      and D.rank = 1)
+    without ["Encounter, Performed": "HEDIS; Inpatient Stay"] InptStay
+  		such that E1.relevantPeriod ends 1 day or less before start of InptStay.relevantPeriod
+  	without ["Encounter, Performed": "HEDIS; Inpatient Stay"] InptStay
+  		such that InptStay.claimID = E1.claimID
+  union  "Encounter Set2" E1
+    where exists (E1.diagnoses D
+      where D.code in "HEDIS; Uncomplicated Low Back Pain"
+      and D.rank = 1)
 
 define "Low Back Pain During Index Period"
   "Encounter With Low Back Pain" E
@@ -78,7 +90,7 @@ define "First Low Back Pain During Index Period":
 define "First Low Back Pain During Index Period Has Prior Diagnosis":
   exists("First Low Back Pain During Index Period" E1
     with "Encounter With Low Back Pain" E2
-      such that E2.relevantPeriod starts 180 days or less before start of E1.relevantPeriod
+      such that E2.relevantPeriod starts 180 days or less before start of E1.relevantPeriod)
 
 define "Exclusion Anytime":
   ["Diagnosis": "HEDIS; Malignant Neoplasms"]
@@ -99,22 +111,61 @@ define "Corticosteroid":
 define "Corticosteroid in Past Year":
   "Corticosteroid" M
     with "First Low Back Pain During Index Period" E
-      such that M.relevantPeriod starts during [12 months days before start of E.relevantPeriod, start of E.relevantPeriod])
+      such that M.relevantPeriod starts during [12 months days before start of E.relevantPeriod, start of E.relevantPeriod]
 
-define "Corticosteroid Start Date":
-  "Corticosteroid in Past Year" M
-    return start of M.relevantPeriod
-
-define "Corticosteroid Stop Date":
-  "Corticosteroid in Past Year" M
-    return end of M.relevantPeriod
-
-define "Start of First Low Back Pain":
+define "Index Period Stop Date":
   "First Low Back Pain During Index Period" E
     return start of E.relevantPeriod
 
-define "End of Corticosteroid Period":
-  Floor("Corticosteroid Stop Date", "Start of First Low Back Pain")
+// Individual corticosteroid case
+
+define "Prescription Start Date":
+  "Corticosteroid in Past Year" M
+    return start of M.relevantPeriod
+
+define "Prescription Stop Date":
+  "Corticosteroid in Past Year" M
+    return end of M.relevantPeriod
+
+define "Prescription Duration":
+  Min(
+    {
+      days between "Prescription Start Date" and "Prescription Stop Date",
+      days between "Prescription Start Date" and "Index Period Stop Date" // Default to this if Stop Date is null
+    }
+  )
+
+// Multiple overlapping corticosteroid case
+
+define "Overlapping Prescription":
+  "Corticosteroid in Past Year" M1
+    with "Corticosteroid in Past Year" M2
+      such that M1.relevantPeriod overlaps M2.relevantPeriod
+    sort by start of M1.relevantPeriod
+
+define "Overlapping Prescription Start Date":
+  "Overlapping Prescription" M
+    return start of M.relevantPeriod
+
+define "Overlapping Prescription Stop Date":
+  "Overlapping Prescription" M
+    return end of M.relevantPeriod
+
+define "Sum of Overlapping Presription Durations":
+  Sum(days between "Overlapping Prescription Start Date" and "Overlapping Prescription Stop Date")
+
+define "First Overlapping Prescription Start Date":
+  First("Overlapping Prescription") M
+    return start of M.relevantPeriod
+
+define "Sum of Overlappiong Prescription Durations Within Index Period":
+  Min(
+    {
+      Sum("Overlapping Prescription Duration"),
+      days between  "First Overlapping Prescription Start Date" and "Index Period Stop Date"
+    }
+  )
+
 
 /* Populations */
 
@@ -139,7 +190,8 @@ define "Denominator Exclusion":
    or exists("First Low Back Pain During Index Period" E
      with "Exclusion in Past Year" D
        such that D.prevalencePeriod overlaps [12 months days before start of E.relevantPeriod, 28 days after start of E.relevantPeriod])
-   or "End of Corticosteroid Period" - "Corticosteroid Start Date" >= 90 days
+    or "Prescription Duration" >= 90 days
+    or "Sum of Overlapping Prescription Durations Within Index Period" >= 90 days
 
 define "Numerator Performance Met":
   /*
