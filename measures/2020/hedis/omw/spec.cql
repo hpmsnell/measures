@@ -6,7 +6,7 @@ library HEDIS_OMW_2020 version '1'
  * ID: OMW
  * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Patrick Clark
  *
   */
 
@@ -22,13 +22,12 @@ valueset "MIPS; Performance Met: G8399" //DXA
 
 // HEDIS value sets
 
-valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
-valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
-valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
-valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
-valueset "HEDIS; Fractures": '2.16.840.1.113883.3.464.1004.1103'
+
 valueset "HEDIS; Bone Mineral Density Tests": '2.16.840.1.113883.3.464.1004.1047'
-valueset "HEDIS; Osteoporosis Medications": '2.16.840.1.113883.3.464.1004.1197'
+valueset "HEDIS; Fractures": '2.16.840.1.113883.3.464.1004.1103'
+valueset "HEDIS; Online Assessments": '2.16.840.1.113883.3.464.1004.1446'
+//valueset "HEDIS; Osteoporosis Medications": '2.16.840.1.113883.3.464.1004.1197' plcedit- which of these valuesets should be used?
+//valueset "HEDIS; Long-Acting Osteoporosis Medications": '2.16.840.1.113883.3.464.1004.1396' plcedit- which of these valuesets should be used?
 
 // NCQA medication list value sets
 
