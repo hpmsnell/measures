@@ -11,6 +11,8 @@ library MIPS_117_2020 version '1'
 
 using QDM
 
+include "../shared/frailty_lti_shared" version '1' called FrailtyLTIShared
+
 // MIPS Value Sets
 
 valueset "MIPS; MIPS 117 Encounter"
@@ -29,17 +31,6 @@ valueset "MIPS; Performance Not Met: G2104-8P"
 valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 valueset "VSAC; Retinal or Dilated Eye Exam": '2.16.840.1.113883.3.464.1003.115.12.1088'
 valueset "VSAC; Diabetic Retinopathy": '2.16.840.1.113883.3.526.3.327'
-valueset "VSAC; Acute Inpatient": '2.16.840.1.113883.3.464.1003.101.12.1083'
-valueset "VSAC; Advanced Illness": '2.16.840.1.113883.3.464.1003.110.12.1082'
-valueset "VSAC; Care Services in Long-Term Residential Facility": '2.16.840.1.113883.3.464.1003.101.12.1014'
-valueset "VSAC; Dementia Medications": '2.16.840.1.113883.3.464.1003.196.12.1510'
-valueset "VSAC; Encounter Inpatient": '2.16.840.1.113883.3.666.5.307'
-valueset "VSAC; Frailty Diagnosis": '2.16.840.1.113883.3.464.1003.113.12.1074'
-valueset "VSAC; Frailty Encounter": '2.16.840.1.113883.3.464.1003.101.12.1088'
-valueset "VSAC; Nonacute Inpatient": '2.16.840.1.113883.3.464.1003.101.12.1084'
-valueset "VSAC; Nursing Facility Visit": '2.16.840.1.113883.3.464.1003.101.12.1012'
-valueset "VSAC; Observation": '2.16.840.1.113883.3.464.1003.101.12.1086'
-valueset "VSAC; Outpatient": '2.16.840.1.113883.3.464.1003.101.12.1087'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -133,6 +124,7 @@ define "Numerator Performance Not Met: G2104-8P":
    * config_link_id: G2104-8P
    */
    not "Denominator Exclusion"
+   and not "Denominator Exclusion: Frailty/LTI"
    and not "Numerator Performance Met: G2102"
    and not "Numerator Performance Met: G2103"
    and not "Numerator Performance Met: G2104"
