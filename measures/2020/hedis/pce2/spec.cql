@@ -33,28 +33,25 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Hospice":
-  ["Intervention, Performed": "Hospice Intervention"]
-  union ["Encounter, Performed": "Hospice Encounter"]
 
 define "COPD":
   ["Diagnosis": "HEDIS; COPD"]
   union ["Diagnosis": "HEDIS; Emphysema"]
   union ["Diagnosis": "HEDIS; Chronic Bronchitis"]
 
-  define "Encounter With COPD":
-    ["Encounter, Performed": "HEDIS; ED"] E1
-      where exists (E1.diagnoses D
-        where D.code in "COPD"
-          and D.rank = 1)
-      without ["Encounter, Performed": "HEDIS; Inpatient Stay"] E2
-        such that E2.relevantPeriod starts during E1.relevantPeriod
-    union ["Encounter, Performed": "HEDIS; Inpatient Stay"] E1
-      where exists (E1.diagnoses D
-        where D.code in "COPD"
-          and D.rank = 1)
-      without ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] E2
-        such that E2.relevantPeriod starts during E1.relevantPeriod
+define "Encounter With COPD":
+  ["Encounter, Performed": "HEDIS; ED"] E1
+    where exists (E1.diagnoses D
+      where D.code in "COPD"
+        and D.rank = 1)
+    without ["Encounter, Performed": "HEDIS; Inpatient Stay"] E2
+      such that E2.relevantPeriod starts during E1.relevantPeriod
+  union ["Encounter, Performed": "HEDIS; Inpatient Stay"] E1
+    where exists (E1.diagnoses D
+      where D.code in "COPD"
+        and D.rank = 1)
+    without ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] E2
+      such that E2.relevantPeriod starts during E1.relevantPeriod
 
 
 define "COPD During Index Period"
