@@ -12,13 +12,13 @@ library HEDIS_LBP_2020 version '1'
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // HEDIS value sets
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
 valueset "HEDIS; History of Kidney Transplant": '2.16.840.1.113883.3.464.1004.1908'
 valueset "HEDIS; History of Malignant Neoplasm": '2.16.840.1.113883.3.464.1004.1121'
 valueset "HEDIS; HIV": '2.16.840.1.113883.3.464.1004.1110'
-valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
-valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
 valueset "HEDIS; Imaging Study": '2.16.840.1.113883.3.464.1004.1138'
 valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
 valueset "HEDIS; IV Drug Abuse": '2.16.840.1.113883.3.464.1004.1136'
@@ -46,10 +46,6 @@ valueset "NCQA; Corticosteroids Medications"
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
-
-define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
-
 
 define "Encounter Set1":
   ["Encounter, Performed": "HEDIS; Outpatient"]
@@ -172,10 +168,14 @@ define "Sum of Overlappiong Prescription Durations Within Index Period":
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 19
   AgeInYearsAt(end of "Measurement Period") < 51
-  and not exists("Hospice" E
-    where E.relevantPeriod starts during "Measurement Period")
   and "Low Back Pain During Index Period Exists"
   and not "First Low Back Pain During Index Period Has Prior Diagnosis"
+
+define "Exclusion: Hospice":
+   /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice During Period"("Measurement Period"))
 
 define "Denominator Exclusion":
   /*
@@ -208,5 +208,6 @@ define "Numerator Performance Not Met":
   /*
    * config_link_id: performance_not_met
    */
-  not "Denominator Exclusion"
+  not "Exclusion: Hospice"
+  and not "Denominator Exclusion"
   and not "Numerator Performance Met"
