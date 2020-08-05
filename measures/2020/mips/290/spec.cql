@@ -20,8 +20,6 @@ valueset "MIPS; Performance Not Met: G2122"
 
 // Able value sets
 
-valueset "Able; Psychiatric Assessment"
-
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
@@ -37,7 +35,6 @@ define "Denominator Encounter":
 
 define "Psychiatric Assessment":
   ["Procedure, Performed": "MIPS; Performance Met: G2121"]
-  union ["Assessment, Performed": "Able; Psychiatric Assessment"]
 
 /* Populations */
 
