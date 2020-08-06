@@ -1,11 +1,11 @@
-library MIPS_405_2017 version '1'
+library MIPS_405_2020 version '1'
 
 /*
  * Source: MIPS
  * ID: 405
- * Year: 2017
+ * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Patrick Clark
  *
   */
 
@@ -40,19 +40,15 @@ define "Numerator Performance Met: G9548":
    * config_link_id: G9548
    */
   "Denominator Procedure" E
-    with ["Procedure, Performed": "MIPS; Performance Met: G9548"] P1
+    with ["Procedure, Performed": "MIPS; Performance Met: G9548"] P1 // 2020 follow up not recomended
       such that P1.relevantPeriod starts during E.relevantPeriod
-    without ["Procedure, Performed": "MIPS; Denomiantor Exception: G9549"] P2
-      such that P2.relevantPeriod starts during E.relevantPeriod
 
 define "Denominator Exception: G9549":
   /*
    * config_link_id: G9549
    */
   "Denominator Procedure" E
-    with ["Procedure, Performed": "MIPS; Performance Met: G9548"] P1
-      such that P1.relevantPeriod starts during E.relevantPeriod
-    with ["Procedure, Performed": "MIPS; Denomiantor Exception: G9549"] P2
+    with ["Procedure, Performed": "MIPS; Denomiantor Exception: G9549"] P2 // 2020 followup recomended due to  lymphadenopathy or cancer
       such that P2.relevantPeriod starts during E.relevantPeriod
 
 define "Numerator Performance Not Met: G9550":
@@ -60,7 +56,7 @@ define "Numerator Performance Not Met: G9550":
    * config_link_id: G9550
    */
   "Denominator Procedure" E
-    with ["Procedure, Performed": "MIPS; Performance Not Met: G9550"] P1
+    with ["Procedure, Performed": "MIPS; Performance Not Met: G9550"] P1 // 2020 followup recomended
       such that P1.relevantPeriod starts during E.relevantPeriod
 
 define "Numerator Performance Not Met: No Quality Data Code":
