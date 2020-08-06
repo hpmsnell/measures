@@ -6,7 +6,7 @@ library HEDIS_DDE_RATE_4_2020 version '1'
  * ID: DDE Rate 4
  * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Patrick Clark 
  *
   */
 
