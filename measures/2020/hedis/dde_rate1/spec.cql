@@ -68,7 +68,14 @@ define "Fall or Encounter with Fall":
 
 define "Fall During Index Period"
   "Fall or Encounter with Fall" E
-    where E.relevantPeriod starts during [24 months before end of "Measurement Period", 1 month before end of "Measurement Period"]
+    where (
+      E.dischargeDate = null
+      and E.relevantPeriod starts during [24 months before end of "Measurement Period", 1 month before end of "Measurement Period"]
+    )
+      or (
+        E.dischargeDate != null
+        and E.dischargeDate during [24 months before end of "Measurement Period", 1 month before end of "Measurement Period"]
+      )
 
 define "First Fall During Index Period":
   First("Fall During Index Period" E
@@ -109,9 +116,14 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-   exists("First Fall During Index Period" E // Since the end date is not achored to the first fall, any fall can be used
-     with "Medication" A
-       such that M.relevantPeriod starts during [start of E.relevantPeriod, end of "Measurement Period"])
+  exists("First Fall During Index Period" E // Since the end date is not achored to the first fall, any fall can be used
+    where E.dischargeDate = null
+    with "Medication" A
+      such that M.relevantPeriod starts during [start of E.relevantPeriod, end of "Measurement Period"])
+  or exists("First Fall During Index Period" E // Since the end date is not achored to the first fall, any fall can be used
+    where E.dischargeDate != null
+    with "Medication" A
+      such that M.relevantPeriod starts during [E.dischargeDate, end of "Measurement Period"])
 
 define "Numerator Performance Not Met":
   /*
