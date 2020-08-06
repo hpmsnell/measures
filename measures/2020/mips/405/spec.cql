@@ -40,7 +40,7 @@ define "Numerator Performance Met: G9548":
    * config_link_id: G9548
    */
   "Denominator Procedure" E
-    with ["Procedure, Performed": "MIPS; Performance Met: G9548"] P1 // 2020 follow up not recomended
+    with ["Procedure, Performed": "MIPS; Performance Met: G9548"] P1
       such that P1.relevantPeriod starts during E.relevantPeriod
 
 define "Denominator Exception: G9549":
@@ -48,7 +48,7 @@ define "Denominator Exception: G9549":
    * config_link_id: G9549
    */
   "Denominator Procedure" E
-    with ["Procedure, Performed": "MIPS; Denomiantor Exception: G9549"] P2 // 2020 followup recomended due to  lymphadenopathy or cancer
+    with ["Procedure, Performed": "MIPS; Denomiantor Exception: G9549"] P2
       such that P2.relevantPeriod starts during E.relevantPeriod
 
 define "Numerator Performance Not Met: G9550":
@@ -56,7 +56,7 @@ define "Numerator Performance Not Met: G9550":
    * config_link_id: G9550
    */
   "Denominator Procedure" E
-    with ["Procedure, Performed": "MIPS; Performance Not Met: G9550"] P1 // 2020 followup recomended
+    with ["Procedure, Performed": "MIPS; Performance Not Met: G9550"] P1 
       such that P1.relevantPeriod starts during E.relevantPeriod
 
 define "Numerator Performance Not Met: No Quality Data Code":
