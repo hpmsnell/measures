@@ -22,12 +22,29 @@ valueset "MIPS; Performance Met: G8399" //DXA
 
 // HEDIS value sets
 
-
+valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1810'
+valueset "HEDIS; Advanced Illness": '2.16.840.1.113883.3.464.1004.1465'
 valueset "HEDIS; Bone Mineral Density Tests": '2.16.840.1.113883.3.464.1004.1047'
+valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
 valueset "HEDIS; Fractures": '2.16.840.1.113883.3.464.1004.1103'
+valueset "HEDIS; Frailty Device": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; Frailty Diagnosis": '2.16.840.1.113883.3.464.1004.1531'
+valueset "HEDIS; Frailty Encounter": '2.16.840.1.113883.3.464.1004.1532'
+valueset "HEDIS; Frailty Symptom": '2.16.840.1.113883.3.464.1004.1533'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
+valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
+valueset "HEDIS; Long-Acting Osteoporosis Medications": '2.16.840.1.113883.3.464.1004.1396'
+valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1189'
+valueset "HEDIS; Nonacute Inpatient Stay": '2.16.840.1.113883.3.464.1004.1398'
+valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
 valueset "HEDIS; Online Assessments": '2.16.840.1.113883.3.464.1004.1446'
-//valueset "HEDIS; Osteoporosis Medications": '2.16.840.1.113883.3.464.1004.1197' plcedit- which of these valuesets should be used?
-//valueset "HEDIS; Long-Acting Osteoporosis Medications": '2.16.840.1.113883.3.464.1004.1396' plcedit- which of these valuesets should be used?
+valueset "HEDIS; Osteoporosis Medications": '2.16.840.1.113883.3.464.1004.1197'
+valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
+valueset "HEDIS; Telehealth Modifier": '2.16.840.1.113883.3.464.1004.1445'
+valueset "HEDIS; Telehealth POS": '2.16.840.1.113883.3.464.1004.1460'
+valueset "HEDIS; Telephone Visits": '2.16.840.1.113883.3.464.1004.1246'
+
 
 // NCQA medication list value sets
 
@@ -41,7 +58,11 @@ context Patient
 define "Encounter":
   ["Encounter, Performed": "HEDIS; Outpatient"]
   union ["Encounter, Performed": "HEDIS; Observation"]
-  union ["Encounter, Performed": "HEDIS; ED"]
+  union ["Encounter, Performed": "HEDIS; ED"] E1
+      where E1.code.modifier != "HEDIS; Telehealth Modifier"
+        and E1.placeOfService != "HEDIS; Telehealth POS"
+
+
   union ["Encounter, Performed": "HEDIS; Inpatient Stay"]
 
 define "Fracture":
@@ -52,6 +73,9 @@ define "Encounter With Fracture":
   "Encounter" E
     with "Fracture" D
       such that D.prevalencePeriod starts during E.relevantPeriod
+    without ["Encounter, Performed": "HEDIS; Inpatient Stay"] E2
+      such that E2.relevantPeriod starts during E.relevantPeriod
+
 
 define "Fracture During Index Period"
   "Encounter With Fracture" E
@@ -132,4 +156,5 @@ define "Numerator Performance Not Met":
    * config_link_id: performance_not_met
    */
   not "Denominator Exclusion"
+  and not "Exclusion: Hospice"
   and not "Numerator Performance Met"
