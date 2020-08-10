@@ -6,36 +6,57 @@ library HEDIS_DDE_RATE_3_2020 version '1'
  * ID: DDE Rate 3
  * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Patrick Clark
  *
   */
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
-valueset "HEDIS; ESRD"
-valueset "HEDIS; CKD Stage 4"
-valueset "HEDIS; Kidney Transplant"
+valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1810'
+valueset "HEDIS; Bipolar Disorder": '2.16.840.1.113883.3.464.1004.1044'
+valueset "HEDIS; CKD Stage 4": '2.16.840.1.113883.3.464.1004.1052'
+valueset "HEDIS; Dementia": '2.16.840.1.113883.3.464.1004.1074'
+valueset "HEDIS; Dialysis Procedure": '2.16.840.1.113883.3.464.1004.1952'
+valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
+valueset "HEDIS; ESRD Diagnosis": '2.16.840.1.113883.3.464.1004.1747'
+valueset "HEDIS; Falls": '2.16.840.1.113883.3.464.1004.1101'
+valueset "HEDIS; Hip Fractures": '2.16.840.1.113883.3.464.1004.1264'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
+valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
+valueset "HEDIS; Kidney Transplant": '2.16.840.1.113883.3.464.1004.1141'
+valueset "HEDIS; Major Depression or Dysthymia": '2.16.840.1.113883.3.464.1004.1351'
+valueset "HEDIS; Nephrectomy": '2.16.840.1.113883.3.464.1004.1909'
+valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1189'
+valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
+valueset "HEDIS; Other Bipolar Disorder": '2.16.840.1.113883.3.464.1004.1399'
+valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
+valueset "HEDIS; Psychosis": '2.16.840.1.113883.3.464.1004.1227'
+valueset "HEDIS; Schizophrenia": '2.16.840.1.113883.3.464.1004.1234'
+valueset "HEDIS; Seizure Disorders": '2.16.840.1.113883.3.464.1004.1235'
 
 // NCQA medication list value sets
 
-valueset "NCQA; Cox-2 Selective NSAIDs and Nonaspirin NSAIDs Medications"
+valueset "NCQA; Cox-2 Selective NSAIDs and Nonaspirin NSAIDs Medications": '2.16.840.1.113883.3.464.1004.1733'
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
-
 define "Kidney Disease":
   ["Diagnosis": "HEDIS; CKD Stage 4"]
-  union ["Diagnosis": "HEDIS; ESRD"]
-  union ["Procedure, Performed": "HEDIS; ESRD"]
+  union ["Diagnosis": "HEDIS; ESRD Diagnosis"]
+  union ["Procedure, Performed": "HEDIS; ESRD Diagnosis"]
+  union ["Diagnosis": "HEDIS; Nephrectomy"]
+  union ["Procedure, Performed": "HEDIS; Nephrectomy"]
   union ["Diagnosis": "HEDIS; Kidney Transplant"]
   union ["Procedure, Performed": "HEDIS; Kidney Transplant"]
+  union ["Diagnosis": "HEDIS; Dialysis Procedure"]
+  union ["Procedure, Performed": "HEDIS; Dialysis Procedure"]
 
 define "Kidney Disease During Index Period"
   "Kidney Disease" D
@@ -52,9 +73,13 @@ define "Medication":
 
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 67
-  and not exists("Hospice" E
-    where E.relevantPeriod starts during "Measurement Period")
   and exists("Kidney Disease During Index Period")
+
+define "Exclusion: Hospice":
+   /*
+   * config_link_id: exclusion_required_hospice
+   */
+   exists("Hospice During Period"("Measurement Period"))
 
 define "Numerator Performance Met":
   /*
@@ -68,4 +93,5 @@ define "Numerator Performance Not Met":
   /*
    * config_link_id: performance_not_met
    */
-  not "Numerator Performance Met"
+  not "Exclusion: Hospice"
+  and not "Numerator Performance Met"
