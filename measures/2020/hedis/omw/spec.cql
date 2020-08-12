@@ -55,19 +55,25 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Encounter":
+define "EncounterSet1":
   ["Encounter, Performed": "HEDIS; Outpatient"]
   union ["Encounter, Performed": "HEDIS; Observation"]
   union ["Encounter, Performed": "HEDIS; ED"] E1
       where E1.code.modifier != "HEDIS; Telehealth Modifier"
         and E1.placeOfService != "HEDIS; Telehealth POS"
 
-
-  union ["Encounter, Performed": "HEDIS; Inpatient Stay"]
-
 define "Fracture":
   ["Diagnosis": "HEDIS; Fractures"]
   union ["Procedure, Performed": "HEDIS; Fractures"]
+
+define "EncounterSet2":
+  ["Encounter, Performed": "HEDIS; Inpatient Stay"]
+    where not exists (E1.diagnoses D
+      where D.code in "Fracture")
+
+define "Enounter":
+  ["EncounterSet1"]
+  union ["EncounterSet2"]
 
 define "Encounter With Fracture":
   "Encounter" E
