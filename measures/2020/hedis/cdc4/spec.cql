@@ -142,8 +142,8 @@ define "IVD Exists During Measurement Period and Year Prior":
     with "IVD No Telehealth Encounter - Year Prior")
   or exists("IVD No Telehealth Encounter - Year Prior"
     with "IVD Telehealth Encounter - Measurement Period")
-  or exists("IVD Telehealth Encounter - Year Prior")
-    with "IVD No Telehealth Encounter - Measurement Year"
+  or exists("IVD Telehealth Encounter - Year Prior"
+    with "IVD No Telehealth Encounter - Measurement Year")
 
 define "Aneurysm Exists During Measurement Period and Year Prior":
   exists("Encounter" E
