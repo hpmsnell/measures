@@ -89,14 +89,14 @@ define "Encounter":
 define "IVD Encounter No Telehealth":
   (["Encounter, Performed": "HEDIS; Outpatient"]
   union ["Encounter, Performed": "HEDIS; Acute Inpatient"]
-  union "Nonacute Inpatient Visit") E
+  union "Other Acute Inpatient Visit") E
     where not E.code.modifier in {'GT','95'}
       and not E.placeOfService in {'02'}
 
-define "Nonacute Inpatient Visit":
+define "Other Acute Inpatient Visit":
   ["Encounter, Performed": "HEDIS; Inpatient Stay"] Inpatient
-    with ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] Nonacute
-      such that Inpatient.claimId = Nonacute.claimId
+    without ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] Nonacute
+      such that Inpatient.claimId != Nonacute.claimId
       and Inpatient.placeOfService != 81
       and Nonacute.placeOfService != 81
 
@@ -111,25 +111,29 @@ define "IVD Telehealth Encounter - Measurement Period"
   "IVD Encounter Telehealth" IVDTelehealth
     where IVDTelehealth.relevantPeriod starts during "Measurement Period"
     with ["Diagnosis": "HEDIS; IVD"] D
-      such that D.prevalencePeriod overlaps IVDTelehealth.relevantPeriod)
+      such that D.prevalencePeriod overlaps IVDTelehealth.relevantPeriod
+      and IVDTelehealth.claimId = D.claimId
 
 define "IVD Telehealth Encounter - Year Prior"
   "IVD Encounter Telehealth" IVDTelehealthPrior
     where IVDTelehealthPrior.relevantPeriod starts during [24 months before end of "Measurement Period", start of "Measurement Period"]
     with ["Diagnosis": "HEDIS; IVD"] D
       such that D.prevalencePeriod overlaps IVDTelehealthPrior.relevantPeriod)
+      and IVDTelehealthPrior.claimId = D.claimId
 
 define "IVD No Telehealth Encounter - Measurement Year"
   "IVD Encounter No Telehealth" NoTelehealth
     where NoTelehealth.dischargeDate during "Measurement Period"
     with ["Diagnosis": "HEDIS; IVD"] D
       such that D.prevalencePeriod overlaps NoTelehealth.relevantPeriod)
+      and NoTelehealth.claimId = D.claimId
 
 define "IVD No Telehealth Encounter - Year Prior"
-  "IVD Encounter Telehealth" NoTelehealthPrior
+  "IVD Encounter No Telehealth" NoTelehealthPrior
     where NoTelehealthPrior.dischargeDate during [24 months before end of "Measurement Period", start of "Measurement Period"]
     with ["Diagnosis": "HEDIS; IVD"] D
       such that D.prevalencePeriod overlaps NoTelehealthPrior.relevantPeriod)
+      and NoTelehealthPrior.claimId = D.claimId
 
 define "IVD Exists During Measurement Period and Year Prior":
   // Members who met at least one of the following criteria during both the measurement year and the year prior to the measurement year.
@@ -193,7 +197,7 @@ define "Numerator Performance Met: Controlled HbA1c":
   /*
    * config_link_id: hba1c_controlled
    */
-   exists("Last HbA1c Result" HbA1C
+   exists("Last HbA1c Test" HbA1C
       where HbA1C.result < 8
         or HbA1C.code in "HEDIS; HbA1c Level Less Than 7.0")
 
@@ -201,8 +205,9 @@ define "Numerator Performance Met: High HbA1c":
   /*
    * config_link_id: hba1c_high
    */
-  "Last HbA1c Result" >= 7
-  union "HbA1C Result Greater or Equal to 7.0 "
+  "Last HbA1c Test" HbA1C
+    where HbA1C.result >= 7
+      or HbA1C.code in "HbA1C Result Greater or Equal to 7.0 "
 
 define "Numerator Performance Not Met: No HbA1c":
   /*
