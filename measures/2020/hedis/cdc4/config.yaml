@@ -49,6 +49,8 @@ denominator:
         value_set: HEDIS; ED
       - model: ClinicalActivity
         value_set: HEDIS; Nonacute Inpatient
+      - model: ClinicalActivity
+        value_set: HEDIS; Inpatient Stay
   - logical_operator: OR
     components:
     - display_title: Diabetes Medication
@@ -73,7 +75,7 @@ exclusion:
         - model: ClinicalActivity
           value_set: HEDIS; Hospice Intervention
         - model: ClinicalActivity
-          value_set: Able; MMDF Hospice    
+          value_set: Able; MMDF Hospice
   - config_link_id: exclusion_1
     code_value:
     display_title: Excluded Diabetes
@@ -96,9 +98,13 @@ exclusion:
         show_codes: true
         records:
         - model: Diagnosis
-          value_set: HEDIS; Frailty
+          value_set: HEDIS; Frailty Diagnosis
+        - model: Diagnosis
+          value_set: HEDIS; Frailty Symptom
         - model: ClinicalActivity
-          value_set: HEDIS; Frailty
+          value_set: HEDIS; Frailty Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Frailty Device
     - logical_operator: AND
       components:
       - display_title: Dementia Medication
@@ -180,9 +186,8 @@ exclusion:
         show_codes: true
         records:
         - model: Diagnosis
-          value_set: HEDIS; ESRD
+          value_set: HEDIS; ESRD Diagnosis
         - model: Diagnosis
-          value_set: HEDIS; ESRD Obsolete
         - model: Diagnosis
           value_set: HEDIS; CKD Stage 4
     - logical_operator: OR
@@ -213,11 +218,13 @@ performance_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; HbA1c Tests
+          value_set: HEDIS; HbA1c Test Result or Finding
         - model: LaboratoryTestPerformed
-          value_set: HEDIS; HbA1c Tests
+          value_set: HEDIS; HbA1c Lab Test
         - model: LaboratoryTestPerformed
           value_set: Able; HbA1c Laboratory Test
+        - model: ClinicalActivity
+          value_set: HEDIS; HbA1c Level Less Than 7.0"
 performance_not_met:
   description:
   reasons:
@@ -232,11 +239,17 @@ performance_not_met:
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; HbA1c Tests
+          value_set: HEDIS; HbA1c Test Result or Finding
         - model: LaboratoryTestPerformed
-          value_set: HEDIS; HbA1c Tests
+          value_set: HEDIS; HbA1c Lab Test
         - model: LaboratoryTestPerformed
           value_set: Able; HbA1c Laboratory Test
+        - model: LaboratoryTestPerformed
+          value_set: Vsac; HbA1c Laboratory Test
+        - model: ClinicalActivity
+          value_set: HEDIS; HbA1c Level 7.0-9.0
+        - model: ClinicalActivity
+          value_set: HEDIS; HbA1c Level Greater Than 9.0
   - config_link_id: hba1c_none
     code_value:
     display_title: No HbA1c Result
