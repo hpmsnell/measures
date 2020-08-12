@@ -53,10 +53,6 @@ define "Last HbA1c Test":
   Last("HbA1c Lab Test" LastHbA1cTest
     sort by LastHbA1cTest.relevantDateTime asc)
 
-define "HbA1C Result Unspecific":
-  ["Assessment, Performed": "HEDIS; HbA1c Level Greater Than 9.0"
-  union ["Assessment, Performed": "HEDIS; HbA1c Level 7.0-9.0"]
-
 /* Populations */
 
 define "Exclusion: Hospice":
@@ -96,8 +92,10 @@ define "Numerator Performance Not Met: High HbA1c":
   /*
    * config_link_id: hba1c_high
    */
-  "Last HbA1c Test" >= 8
-  union "HbA1C Result Unspecific"
+  exists("Last HbA1c Test" HbA1C
+     where HbA1C.result >= 8
+      or exists HbA1C.code in "HEDIS; HbA1c Level Greater Than 9.0"
+      or exists HbA1C.code "HEDIS; HbA1c Level 7.0-9.0")
 
 define "Numerator Performance Not Met: No HbA1c":
   /*

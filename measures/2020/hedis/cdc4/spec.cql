@@ -205,9 +205,9 @@ define "Numerator Performance Met: High HbA1c":
   /*
    * config_link_id: hba1c_high
    */
-  "Last HbA1c Test" HbA1C
+  exists("Last HbA1c Test" HbA1C
     where HbA1C.result >= 7
-      or HbA1C.code in "HbA1C Result Greater or Equal to 7.0 "
+      or HbA1C.code in "HbA1C Result Greater or Equal to 7.0")
 
 define "Numerator Performance Not Met: No HbA1c":
   /*
