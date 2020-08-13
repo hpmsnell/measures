@@ -52,34 +52,58 @@ valueset "NCQA; Low-Intensity Statin Medications"
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
+define "IVD Encounter No Telehealth":
+  (["Encounter, Performed": "HEDIS; Outpatient"]
+  union ["Encounter, Performed": "HEDIS; Acute Inpatient"]
+  union "Other Acute Inpatient Visit") E
+    where not E.code.modifier in {'GT','95'}
+      and not E.placeOfService in {'02'}
 
-define "IVD Encounter":
-  ["Encounter, Performed": "HEDIS: Outpatient"]
-  union ["Encounter, Performed": "HEDIS: Telephone Visits"]
-  union ["Encounter, Performed": "HEDIS: Online Assessments"]
-  union ["Encounter, Performed": "HEDIS: Acute Inpatient"] E
-    where E.placeOfService not in "HEDIS; Telehealth POS"
-      and E.code.modifier not in "HEDIS; Telehealth Modifier"
 
-define "Non-TelehealthIVD Encounter":
-  ["Encounter, Performed": "HEDIS: Outpatient"]
-  union ["Encounter, Performed": "HEDIS: Acute Inpatient"] E
+define "IVD Encounter Telehealth":
+  (["Encounter, Performed": "Online Assessments"
+  union ["Encounter, Performed": "HEDIS; Telephone Visits"]
+  union ["Encounter, Performed": "HEDIS; Outpatient"]
+    where Outpt.code.modifier in {'GT','95'}
+      or Outpt.placeOfService in {'02'}) TelehealthEnc
 
-define "IVD Exists":
-  exists("IVD Encounter" E
-    where E.relevantPeriod starts during "Measurement Period"
+define "IVD Telehealth Encounter - Measurement Period"
+  "IVD Encounter Telehealth" IVDTelehealth
+    where IVDTelehealth.relevantPeriod starts during "Measurement Period"
     with ["Diagnosis": "HEDIS; IVD"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod)
-  and exists("IVD Encounter" E
-    where E.relevantPeriod starts during [12 months before start of "Measurement Period", 12 months before end of "Measurement Period"]
+      such that D.prevalencePeriod overlaps IVDTelehealth.relevantPeriod
+      and IVDTelehealth.claimId = D.claimId
+
+define "IVD Telehealth Encounter - Year Prior"
+  "IVD Encounter Telehealth" IVDTelehealthPrior
+    where IVDTelehealthPrior.relevantPeriod starts during [24 months before end of "Measurement Period", start of "Measurement Period"]
     with ["Diagnosis": "HEDIS; IVD"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod)
-  and exists("Non-Telehealth IVD Encounter" E
-    where E.relevantPeriod starts during [12 months before start of "Measurement Period", end of "Measurement Period"]
-      and E.placeOfService not in "HEDIS; Telehealth POS"
-      and E.code.modifier not in "HEDIS; Telehealth Modifier"
+      such that D.prevalencePeriod overlaps IVDTelehealthPrior.relevantPeriod)
+      and IVDTelehealthPrior.claimId = D.claimId
+
+define "IVD No Telehealth Encounter - Measurement Year"
+  "IVD Encounter No Telehealth" NoTelehealth
+    where NoTelehealth.dischargeDate during "Measurement Period"
     with ["Diagnosis": "HEDIS; IVD"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod))
+      such that D.prevalencePeriod overlaps NoTelehealth.relevantPeriod)
+      and NoTelehealth.claimId = D.claimId
+
+define "IVD No Telehealth Encounter - Year Prior"
+  "IVD Encounter No Telehealth" NoTelehealthPrior
+    where NoTelehealthPrior.dischargeDate during [24 months before end of "Measurement Period", start of "Measurement Period"]
+    with ["Diagnosis": "HEDIS; IVD"] D
+      such that D.prevalencePeriod overlaps NoTelehealthPrior.relevantPeriod)
+      and NoTelehealthPrior.claimId = D.claimId
+
+define "IVD Exists During Measurement Period and Year Prior":
+  // Members who met at least one of the following criteria during both the measurement year and the year prior to the measurement year.
+  // Only one of the two visits may be an outpatient telehealth visit, a telephone visit or an online assessment
+  exists("IVD No Telehealth Encounter - Measurement Year"
+    with "IVD No Telehealth Encounter - Year Prior")
+  or exists("IVD No Telehealth Encounter - Year Prior"
+    with "IVD Telehealth Encounter - Measurement Period")
+  or exists("IVD Telehealth Encounter - Year Prior"
+    with "IVD No Telehealth Encounter - Measurement Year")
 
 define "Cardiovascular Procedure":
   ["Procedure, Performed": "HEDIS; PCI"]
@@ -157,13 +181,13 @@ define "Statin":
   define "Denominator":
     AgeInYearsAt(end of "Measurement Period") >= 40
     and AgeInYearsAt(end of "Measurement Period") < 76
-    and "Patient Has Diabetes"
+    and "Patient Has Diabetes" //The definition of a patient with diabetes is the same as CDC1.
 
 define "Denominator Exclusion: Condition"
   /*
   * config_link_id: exclusion_1
   */
-  "IVD Exists"
+  "IVD Exists During Measurement Period and Year Prior" // This definition of IVD is is the same as CDC3.
   or exists(["Encounter, Performed": "HEDIS; Inpatient Stay"] E
     where E.relevantPeriod starts during [12 months before start of "Measurement Period", start of "Measurement Period"]
       and E.diagnoses D
