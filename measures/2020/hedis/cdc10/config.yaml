@@ -1,16 +1,17 @@
 ---
 measure:
-  name: 19.Hedis.Cdc6
+  name: 20.Hedis.Cdc10
   required:
-    display_title: 'Comprehensive Diabetes Care: Medical Attention for Nephropathy'
+    display_title: 'Comprehensive Diabetes Care: HbA1c Control <8.0%'
     inverse: false
     subject_type: Patient
     set: HEDIS
-    external_id: CDC7
+    external_id: CDC10
   optional:
-    description: The percentage of members 18–75 years of age with diabetes (type
-      1 and type 2) who had medical attention for nephropathy.
-    gap_resolution_action: Patient is due for screening or monitoring for nephropathy
+    description: Patients 18–75 years of age with diabetes (type 1 and type 2) whose
+      most recent HbA1c level is <8.0%.
+    gap_resolution_action: Patient is due for an HbA1c test or needs attention for
+      an uncontrolled result
     version: 2020
     mips_measure_type:
     mips_high_priority:
@@ -47,6 +48,8 @@ denominator:
         value_set: HEDIS; ED
       - model: ClinicalActivity
         value_set: HEDIS; Nonacute Inpatient
+      - model: ClinicalActivity
+        value_set: HEDIS; Inpatient Stay
   - logical_operator: OR
     components:
     - display_title: Diabetes Medication
@@ -71,7 +74,7 @@ exclusion:
         - model: ClinicalActivity
           value_set: HEDIS; Hospice Intervention
         - model: ClinicalActivity
-          value_set: Able; MMDF Hospice    
+          value_set: Able; MMDF Hospice
   - config_link_id: exclusion_1
     code_value:
     display_title: Excluded Diabetes
@@ -94,9 +97,13 @@ exclusion:
         show_codes: true
         records:
         - model: Diagnosis
-          value_set: HEDIS; Frailty
+          value_set: HEDIS; Frailty Diagnosis
+        - model: Diagnosis
+          value_set: HEDIS; Frailty Symptom
         - model: ClinicalActivity
-          value_set: HEDIS; Frailty
+          value_set: HEDIS; Frailty Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Frailty Device
     - logical_operator: AND
       components:
       - display_title: Dementia Medication
@@ -129,46 +136,72 @@ exception:
 performance_met:
   description:
   reasons:
-  - config_link_id: performance_met
+  - config_link_id: hba1c_controlled
     code_value:
-    display_title: Attention for Nephropathy
-    description: Patient received screening or monitoring for nephropathy during the measurement year
+    display_title: Controlled HbA1c
+    description: Most recent hemoglobin A1c level during the measurement year <8.0%
     component_groups:
     - components:
-      - display_title: Screening for Nephropathy
+      - display_title: HbA1c <8.0%
+        annotation: 'With result: HbA1c <8.0%'
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Urine Protein Tests
+          value_set: HEDIS; HbA1c Test Result or Finding
         - model: LaboratoryTestPerformed
-          value_set: HEDIS; Urine Protein Tests
-    - logical_operator: OR
-      components:
-      - display_title: Monitoring of Nephropathy
-        show_codes: true
-        records:
+          value_set: HEDIS; HbA1c Lab Test
         - model: ClinicalActivity
-          value_set: HEDIS; Nephropathy Treatment
-        - model: Diagnosis
-          value_set: HEDIS; Nephropathy Treatment
-        - model: Diagnosis
-          value_set: HEDIS; CKD Stage 4
+          value_set: HEDIS; HbA1c Level Less Than 7.0"
         - model: ClinicalActivity
-          value_set: HEDIS; ESRD
-        - model: Diagnosis
-          value_set: HEDIS; ESRD
-        - model: ClinicalActivity
-          value_set: HEDIS; Kidney Transplant
-        - model: Medication
-          value_set: VSAC; ACE Inhibitor or ARB
-        - model: ClinicalActivity
-          value_set: 'MIPS; Performance Met: G8506'
+          value_set: 'MIPS; Performance Not Met: 3044F'
+        - model: LaboratoryTestPerformed
+          value_set: Able; HbA1c Laboratory Test
 performance_not_met:
   description:
   reasons:
-  - config_link_id: performance_not_met
+  - config_link_id: hba1c_high
     code_value:
-    display_title: No Attention for Nephropathy
-    description: No screening or monitoring of nephropathy found in the appropriate
-      timeframe
+    display_title: High Hba1c
+    description: Most recent hemoglobin A1c level ≥8.0%
     component_groups:
+    - components:
+      - display_title: HbA1c ≥8.0%
+        annotation: 'With result: HbA1c ≥8.0'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; HbA1c Test Result or Finding
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; HbA1c Lab Test
+        - model: LaboratoryTestPerformed
+          value_set: Able; HbA1c Laboratory Test
+        - model: ClinicalActivity
+          value_set: HEDIS; HEDIS; HbA1c Level Greater Than 9.0
+        - model: ClinicalActivity
+          value_set: HEDIS; HEDIS; HbA1c Level 7.0-9.0
+  - config_link_id: hba1c_none
+    code_value:
+    display_title: No HbA1c Result
+    description: No hemoglobin A1c test with a result was found in the appropriate timeframe
+    component_groups:
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: hba1c_uncontrolled
+    code_value:
+    display_title: Uncontrolled HbA1c
+    description: Most recent hemoglobin A1c level >=8.0%
+    component_groups:
+    - components:
+      - display_title: HbA1c >=8.0%
+        annotation: 'With result: HbA1c >=8.0% (or CPT code indicating >=8.0%) or HbA1c result unspecific'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; HbA1c Level 7.0-9.0
+        - model: ClinicalActivity
+          value_set: HEDIS; HbA1c Level Greater Than 9.0
+        - model: LaboratoryTestPerformed
+          value_set: Vsac; HbA1c Laboratory Test
+        - model: LaboratoryTestPerformed
+          value_set: Able; HbA1c Laboratory Test

@@ -1,16 +1,17 @@
 ---
 measure:
-  name: 19.Hedis.Cdc5
+  name: 20.Hedis.Cdc9
   required:
-    display_title: 'Comprehensive Diabetes Care: Eye Exam'
+    display_title: 'Comprehensive Diabetes Care: Blood Pressure < 140/90'
     inverse: false
     subject_type: Patient
     set: HEDIS
-    external_id: CDC4
+    external_id: CDC9
   optional:
-    description: Patients 18–75 years of age with diabetes (type 1 and type 2) who
-      had an eye exam (retinal) performed.
-    gap_resolution_action: Patient is due for an diabetic eye exam
+    description: Patients 18–75 years of age with diabetes (type 1 and type 2) whose
+      most recent blood pressure was < 140/90
+    gap_resolution_action: Patient is due for a blood pressure screening or needs
+      attention for uncontrolled blood pressure
     version: 2020
     mips_measure_type:
     mips_high_priority:
@@ -71,7 +72,7 @@ exclusion:
         - model: ClinicalActivity
           value_set: HEDIS; Hospice Intervention
         - model: ClinicalActivity
-          value_set: Able; MMDF Hospice    
+          value_set: Able; MMDF Hospice
   - config_link_id: exclusion_1
     code_value:
     display_title: Excluded Diabetes
@@ -129,83 +130,97 @@ exception:
 performance_met:
   description:
   reasons:
-  - config_link_id: performance_met
+  - config_link_id: normal_blood_pressure
     code_value:
-    display_title: Diabetic Eye Exam
-    description: Patient received dilated or retinal screening during the measurement
-      year, a negative dilated or retinal screening during the year prior to the
-      measurement year, two unilateral eye enucleations no more than 14 days apart
-      anytime before December 31 of the measurement year, or a left and right unilateral
-      eye enucleation on the same or different dates of service.
+    display_title: Normal Blood Pressure
+    description: Most recent blood pressure reading taken during the most recent outpatient
+      visit or nonacute inpatient visit during the measurement period was < 140/90
     component_groups:
     - components:
-      - display_title: Dilated or Retinal Screening
+      - display_title: Visit
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Diabetic Retinal Screening
+          value_set: HEDIS; Outpatient
         - model: ClinicalActivity
-          value_set: HEDIS; Diabetic Retinal Screening with Eye Care Professional
-        - model: ClinicalActivity
-          value_set: HEDIS; Diabetic Retinal Screening Negative
-        - model: ClinicalActivity
-          value_set: VSAC; Retinal or Dilated Eye Exam
-    - logical_operator: OR
+          value_set: HEDIS; Nonacute Inpatient
+    - logical_operator: AND
       components:
-      - display_title: Dilated or Retinal Screening
+      - display_title: Systolic Blood Pressure Vital < 140
+        annotation: 'With result: < 140 mmHg'
         show_codes: true
-        annotation: With negative result
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Diabetic Retinal Screening
+          value_set: HEDIS; Systolic Blood Pressure
+      - display_title: Systolic Blood Pressure < 140
+        logical_operator: OR
+        show_codes: true
+        records:
         - model: ClinicalActivity
-          value_set: HEDIS; Diabetic Retinal Screening with Eye Care Professional
-        - model: ClinicalActivity
-          value_set: HEDIS; Diabetic Retinal Screening Negative
-        - model: ClinicalActivity
-          value_set: VSAC; Retinal or Dilated Eye Exam
-    - logical_operator: OR
+          value_set: HEDIS; Systolic Less Than 140
+    - logical_operator: AND
       components:
-      - display_title: Dilated or Retinal Screening
+      - display_title: Diastolic Blood Pressure Vital < 90
+        annotation: 'With result: < 90 mmHg'
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Diabetic Retinal Screening
-        - model: ClinicalActivity
-          value_set: HEDIS; Diabetic Retinal Screening with Eye Care Professional
-        - model: ClinicalActivity
-          value_set: HEDIS; Diabetic Retinal Screening Negative
-        - model: ClinicalActivity
-          value_set: VSAC; Retinal or Dilated Eye Exam
-      - logical_operator: AND
-        display_title: Diabetes Without Complications
-        show_codes: true
-        records:
-        - model: Diagnosis
-          value_set: HEDIS; Diabetes Mellitus Without Complications
-    - logical_operator: OR
-      components:
-      - display_title: 2 Unilateral Eye Enucleations
+          value_set: HEDIS; Diastolic Blood Pressure
+      - display_title: Diastolic Blood Pressure < 90
+        logical_operator: OR
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Unilateral Eye Enucleation Left
+          value_set: HEDIS; Diastolic Less Than 80
         - model: ClinicalActivity
-          value_set: HEDIS; Unilateral Eye Enucleation Right
-    - logical_operator: OR
-      components:
-      - display_title: Unilateral Eye Enucleation
-        show_codes: true
-        annotation: With Bilateral Modifier
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Unilateral Eye Enucleation
+          value_set: HEDIS; Diastolic 80-89
 performance_not_met:
   description:
   reasons:
-  - config_link_id: performance_not_met
+  - config_link_id: high_blood_pressure
     code_value:
-    display_title: No Diabetic Eye Exam
-    description: No diabetic eye exam by an eye care professional found in the appropriate
-      timeframe
+    display_title: High Blood Pressure
+    description: Most recent blood pressure reading taken during the most recent outpatient
+      visit or nonacute inpatient visit during the measurement period was ≥ 140/90
+    component_groups:
+    - components:
+      - display_title: Visit
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Outpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Nonacute Inpatient
+    - logical_operator: AND
+      components:
+      - display_title: Systolic Blood Pressure Vital ≥ 140
+        annotation: 'With result: ≥ 140 mmHg'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Systolic Blood Pressure
+      - display_title: Systolic Blood Pressure ≥ 140
+        logical_operator: OR
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Systolic Greater Than/Equal To 140
+      - display_title: Diastolic Blood Pressure Vital ≥ 90
+        logical_operator: OR
+        annotation: 'With result: ≥ 90 mmHg'
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Diastolic Blood Pressure
+      - display_title: Diastolic Blood Pressure ≥ 90
+        logical_operator: OR
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Diastolic Greater Than/Equal To 90
+  - config_link_id: no_blood_pressure
+    code_value:
+    display_title: No Blood Pressure
+    description: No blood pressure reading found during an outpatient visit or nonacute
+      inpatient visit during the measurement period
     component_groups:

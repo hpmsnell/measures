@@ -1,4 +1,5 @@
-measure_id: 19.HEDIS.Cdc5
+---
+measure_id: measure.Hedis.2020.Cdc9
 test_set_keys:
   organization_key:
     patients:
@@ -11,12 +12,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: no_blood_pressure
     - name: Age Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: no_blood_pressure
     - name: Too Old
       denominator:
       denominator_exclusion:
@@ -31,13 +32,23 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: no_blood_pressure
     - name: AcuteEncounter Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: no_blood_pressure
     - name: AcuteEncounter After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: AcuteEncounter WithModifier
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: AcuteEncounter WithPOS
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -51,13 +62,38 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: no_blood_pressure
     - name: NonacuteEncounter Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: no_blood_pressure
     - name: NonacuteEncounter After
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: NonacuteEncounter OneWithModifier
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: no_blood_pressure
+    - name: NonacuteEncounter OneWithPOS
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: no_blood_pressure
+    - name: NonacuteEncounter BothWithModifier
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: NonacuteEncounter BothWithPOS
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: NonacuteEncounter SameDate
       denominator:
       denominator_exclusion:
       denominator_exception:
@@ -71,12 +107,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: no_blood_pressure
     - name: EncounterDiagnosis Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: no_blood_pressure
     - name: EncounterDiagnosis After
       denominator:
       denominator_exclusion:
@@ -91,12 +127,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: no_blood_pressure
     - name: Medication Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: no_blood_pressure
     - name: Medication After
       denominator:
       denominator_exclusion:
@@ -126,7 +162,7 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: no_blood_pressure
     - name: ExclusionDiagnosis Lower
       denominator: 1
       denominator_exclusion: exclusion_1
@@ -141,12 +177,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: no_blood_pressure
     - name: ExclusionFrailty Before
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: no_blood_pressure
     - name: ExclusionFrailty Lower
       denominator: 1
       denominator_exclusion: exclusion_2
@@ -161,12 +197,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: no_blood_pressure
     - name: ExclusionAdvancedIllness Before
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: no_blood_pressure
     - name: ExclusionAdvancedIllness Lower
       denominator: 1
       denominator_exclusion: exclusion_2
@@ -181,12 +217,12 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: no_blood_pressure
     - name: ExclusionDementiaMedication Before
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
+      numerator: no_blood_pressure
     - name: ExclusionDementiaMedication Lower
       denominator: 1
       denominator_exclusion: exclusion_2
@@ -201,103 +237,83 @@ test_set_keys:
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
-    - name: Exam Before
+      numerator: no_blood_pressure
+    - name: NormalSystolic Before
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
-    - name: Exam Lower
+      numerator: no_blood_pressure
+    - name: NormalSystolic Lower
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
-    - name: Exam Upper
+      numerator: normal_blood_pressure
+    - name: NormalSystolic Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
-    - name: Exam After
+      numerator: normal_blood_pressure
+    - name: NormalSystolic After
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
-    - name: Exam WrongSpecialty
+      numerator: no_blood_pressure
+    - name: Systolic 139
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
-    - name: ExamWithResult Before
+      numerator: normal_blood_pressure
+    - name: Systolic 140
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
-    - name: ExamWithResult Lower
+      numerator: high_blood_pressure
+    - name: NormalSystolic NotMostRecent
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
-    - name: ExamWithResult Upper
+      numerator: high_blood_pressure
+    - name: NormalDiastolic Before
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
-    - name: ExamWithResult After
+      numerator: no_blood_pressure
+    - name: NormalDiastolic Lower
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
-    - name: ExamWithResult Positive
+      numerator: normal_blood_pressure
+    - name: NormalDiastolic Upper
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
-    - name: EnucleationLeft Upper
+      numerator: normal_blood_pressure
+    - name: NormalDiastolic After
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
-    - name: EnucleationLeft After
+      numerator: no_blood_pressure
+    - name: Diastolic 89
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
-    - name: TwoEnucleationUnilateral Before
+      numerator: normal_blood_pressure
+    - name: Diastolic 90
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_met
-    - name: TwoEnucleationUnilateral Lower
+      numerator: high_blood_pressure
+    - name: NormalDiastolic NotMostRecent
       denominator: 1
       denominator_exclusion:
       denominator_exception:
-      numerator: performance_not_met
-    - name: TwoEnucleationUnilateral Upper
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
-    - name: TwoEnucleationUnilateral After
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_met
-    - name: OneEnucleationUnilateral Modifier
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_met
-    - name: OneEnucleationUnilateral NoModifier
-      denominator: 1
-      denominator_exclusion:
-      denominator_exception:
-      numerator: performance_not_met
+      numerator: high_blood_pressure
 providers:
   - given_name: Rachel
     family_name: Katz
     external_id: '111-111'
     credential: DO
-    primary_specialty: Ophthalmology
+    primary_specialty: Family Medicine
   - given_name: Patty
     family_name: Smith
     external_id: '222-222'
@@ -436,6 +452,40 @@ patients:
       code_value: E13.49
       start_date: 2017-01-01
       stop_date: 2017-01-01
+- name: AcuteEncounter WithModifier
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: AcuteEncounter
+    family_name: WithModifier
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99221 # Acute inpatient
+      start_date: 2016-02-01
+      code_modifiers: ['GT']
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: AcuteEncounter WithPOS
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: AcuteEncounter
+    family_name: WithPOS
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99221 # Acute inpatient
+      start_date: 2016-02-01
+      place_of_service: '02'
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
 - name: NonacuteEncounter Before
   attributes:
     date_of_birth: 1970-01-01
@@ -528,6 +578,127 @@ patients:
       code_value: E13.49
       start_date: 2017-01-01
       stop_date: 2017-01-01
+- name: NonacuteEncounter OneWithModifier
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: NonacuteEncounter
+    family_name: OneWithModifier
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      code_modifiers: ['GT']
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: NonacuteEncounter OneWithPOS
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: NonacuteEncounter
+    family_name: OneWithPOS
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      place_of_service: '02'
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: NonacuteEncounter BothWithModifier
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: NonacuteEncounter
+    family_name: BothWithModifier
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      code_modifiers: ['GT']
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      code_modifiers: ['GT']
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: NonacuteEncounter BothWithPOS
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: NonacuteEncounter
+    family_name: BothWithPOS
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      place_of_service: '02'
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-01-01
+      place_of_service: '02'
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: NonacuteEncounter SameDate
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: NonacuteEncounter
+    family_name: SameDate
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
 - name: EncounterDiagnosis Before
   attributes:
     date_of_birth: 1970-01-01
@@ -629,6 +800,17 @@ patients:
     - code_type: NDC
       code_value: '00054014225'
       start_date: 2016-12-31 # Upper bound
+- name: Medication After
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: Medication
+    family_name: After
+    sex: Male
+  clinical_models:
+    medications:
+    - code_type: NDC
+      code_value: '00054014225'
+      start_date: 2017-01-01 # Too late
 - name: ExclusionHospice Before
   attributes:
     date_of_birth: 1950-01-01
@@ -757,7 +939,7 @@ patients:
       stop_date: 2016-02-01
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
-      start_date: 2015-12-31 # Too early
+      start_date: 2010-12-31
       stop_date: 2015-12-31 # Too early
 - name: ExclusionFrailty Lower
   attributes:
@@ -783,7 +965,7 @@ patients:
       stop_date: 2016-02-01
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
-      start_date: 2016-01-01 # Lower bound
+      start_date: 2010-12-31
       stop_date: 2016-01-01 # Lower bound
 - name: ExclusionFrailty Upper
   attributes:
@@ -1071,29 +1253,26 @@ patients:
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
-- name: Medication After
+- name: NormalSystolic Before
   attributes:
     date_of_birth: 1970-01-01
-    given_name: Medication
-    family_name: After
-    sex: Male
-  clinical_models:
-    medications:
-    - code_type: NDC
-      code_value: '00054014225'
-      start_date: 2017-01-01 # Too late
-- name: Exam Before
-  attributes:
-    date_of_birth: 1970-01-01
-    given_name: Exam
+    given_name: NormalSystolic
     family_name: Before
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 67028
-      provider: Rachel
-      start_date: 2015-12-31 # Too early
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    - code_type: CPT
+      code_value: 3074F # Systolic < 140
+      start_date: 2016-01-31 # Too early
+      stop_date: 2016-01-31
+    - code_type: CPT
+      code_value: 3078F # Diastolic < 90
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
@@ -1103,18 +1282,26 @@ patients:
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
-- name: Exam Lower
+- name: NormalSystolic Lower
   attributes:
     date_of_birth: 1970-01-01
-    given_name: Exam
+    given_name: NormalSystolic
     family_name: Lower
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 67028
-      provider: Rachel
-      start_date: 2016-01-01 # Lower bound
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    - code_type: CPT
+      code_value: 3074F # Systolic < 140
+      start_date: 2016-02-01 # Lower bound
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 3078F # Diastolic < 90
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
@@ -1124,18 +1311,26 @@ patients:
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
-- name: Exam Upper
+- name: NormalSystolic Upper
   attributes:
     date_of_birth: 1970-01-01
-    given_name: Exam
+    given_name: NormalSystolic
     family_name: Upper
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 67028
-      provider: Rachel
-      start_date: 2016-12-31 # Upper bound
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    - code_type: CPT
+      code_value: 3074F # Systolic < 140
+      start_date: 2016-02-01 # Upper bound
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 3078F # Diastolic < 90
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
@@ -1145,18 +1340,26 @@ patients:
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
-- name: Exam After
+- name: NormalSystolic After
   attributes:
     date_of_birth: 1970-01-01
-    given_name: Exam
+    given_name: NormalSystolic
     family_name: After
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 67028
-      provider: Rachel
-      start_date: 2017-01-01 # Too late
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    - code_type: CPT
+      code_value: 3074F # Systolic < 140
+      start_date: 2016-02-03 # Too late
+      stop_date: 2016-02-03
+    - code_type: CPT
+      code_value: 3078F # Diastolic < 90
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
@@ -1166,18 +1369,38 @@ patients:
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
-- name: Exam WrongSpecialty
+- name: NormalSystolic NotMostRecent
   attributes:
     date_of_birth: 1970-01-01
-    given_name: Exam
-    family_name: WrongSpecialty
+    given_name: NormalSystolic
+    family_name: NotMostRecent
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 67028
-      provider: Patty # Not an ophthalmologist
+      code_value: 99201
       start_date: 2016-02-01
+      stop_date: 2016-02-02
+    - code_type: CPT
+      code_value: 3074F # Systolic < 140
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 3078F # Diastolic < 90
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+    - code_type: CPT
+      code_value: 3077F # Systolic > 140 at most recent
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+    - code_type: CPT
+      code_value: 3078F # Diastolic < 90
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
     - code_type: CPT
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
@@ -1187,19 +1410,86 @@ patients:
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
-- name: ExamWithResult Before
+- name: Systolic 139
   attributes:
     date_of_birth: 1970-01-01
-    given_name: ExamWithResult
+    given_name: Systolic
+    family_name: 139
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    - code_type: LOINC
+      code_value: 8480-6 # Systolic
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      result_as_decimal: 139 # Normal
+    - code_type: CPT
+      code_value: 3078F # Diastolic < 90
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 99221 # Acute inpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: Systolic 140
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: Systolic
+    family_name: 140
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    - code_type: LOINC
+      code_value: 8480-6 # Systolic
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      result_as_decimal: 140 # High
+    - code_type: CPT
+      code_value: 3078F # Diastolic < 90
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 99221 # Acute inpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+- name: NormalDiastolic Before
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: NormalDiastolic
     family_name: Before
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 67028
-      provider: Rachel
-      result: Negative
-      start_date: 2014-12-31 # Too early
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    - code_type: CPT
+      code_value: 3074F # Systolic < 140
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 3078F # Diastolic < 90
+      start_date: 2016-01-31 # Too early
+      stop_date: 2016-01-31
     - code_type: CPT
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
@@ -1209,19 +1499,26 @@ patients:
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
-- name: ExamWithResult Lower
+- name: NormalDiastolic Lower
   attributes:
     date_of_birth: 1970-01-01
-    given_name: ExamWithResult
+    given_name: NormalDiastolic
     family_name: Lower
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 67028
-      provider: Rachel
-      result: Negative
-      start_date: 2015-01-01 # Lower bound
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    - code_type: CPT
+      code_value: 3074F # Systolic < 140
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 3078F # Diastolic < 90
+      start_date: 2016-02-01
+      stop_date: 2016-02-01 # Lower bound
     - code_type: CPT
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
@@ -1231,19 +1528,26 @@ patients:
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
-- name: ExamWithResult Upper
+- name: NormalDiastolic Upper
   attributes:
     date_of_birth: 1970-01-01
-    given_name: ExamWithResult
+    given_name: NormalDiastolic
     family_name: Upper
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 67028
-      provider: Rachel
-      result: Negative
-      start_date: 2016-12-31 # Upper bound
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    - code_type: CPT
+      code_value: 3074F # Systolic < 140
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 3078F # Diastolic < 90
+      start_date: 2016-02-01 # Upper bound
+      stop_date: 2016-02-01
     - code_type: CPT
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
@@ -1253,19 +1557,26 @@ patients:
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
-- name: ExamWithResult After
+- name: NormalDiastolic After
   attributes:
     date_of_birth: 1970-01-01
-    given_name: ExamWithResult
+    given_name: NormalDiastolic
     family_name: After
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 67028
-      provider: Rachel
-      result: Negative
-      start_date: 2017-01-01 # Too late
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    - code_type: CPT
+      code_value: 3074F # Systolic < 140
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 3078F # Diastolic < 90
+      start_date: 2016-02-03 # Too late
+      stop_date: 2016-02-03
     - code_type: CPT
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
@@ -1275,19 +1586,38 @@ patients:
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
-- name: ExamWithResult Positive
+- name: NormalDiastolic NotMostRecent
   attributes:
     date_of_birth: 1970-01-01
-    given_name: ExamWithResult
-    family_name: Positive
+    given_name: NormalDiastolic
+    family_name: NotMostRecent
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 67028
-      provider: Rachel
-      result: Positive # Not negative
-    clinical_activities:
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    - code_type: CPT
+      code_value: 3074F # Systolic < 140
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 3078F # Diastolic < 90
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+    - code_type: CPT
+      code_value: 3074F # Systolic < 140
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+    - code_type: CPT
+      code_value: 3080F # Systolic > 90 at most recent
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
     - code_type: CPT
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
@@ -1297,20 +1627,27 @@ patients:
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
-- name: EnucleationLeft Upper
+- name: Diastolic 89
   attributes:
     date_of_birth: 1970-01-01
-    given_name: EnucleationLeft
-    family_name: Upper
+    given_name: Diastolic
+    family_name: 89
     sex: Male
   clinical_models:
     clinical_activities:
-    - code_type: ICD10PCS
-      code_value: '08B00ZX' # Right eye
-      start_date: 2012-01-01
-    - code_type: ICD10PCS
-      code_value: '08B10ZX' # Left eye
-      start_date: 2016-12-31 # Upper bound
+    - code_type: CPT
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+    - code_type: CPT
+      code_value: 3074F # Systolic < 140
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: LOINC
+      code_value: 8462-4 # Diastolic
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      result_as_decimal: 89 # Normal
     - code_type: CPT
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
@@ -1320,153 +1657,27 @@ patients:
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
-- name: EnucleationLeft After
+- name: Diastolic 90
   attributes:
     date_of_birth: 1970-01-01
-    given_name: EnucleationLeft
-    family_name: After
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: ICD10PCS
-      code_value: '08B00ZX' # Right eye
-      start_date: 2012-01-01
-    - code_type: ICD10PCS
-      code_value: '08B10ZX' # Left eye
-      start_date: 2017-01-01 # Too late
-    - code_type: CPT
-      code_value: 99221 # Acute inpatient
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: E13.49
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-- name: TwoEnucleationUnilateral Before
-  attributes:
-    date_of_birth: 1970-01-01
-    given_name: TwoEnucleationUnilateral
-    family_name: Before
+    given_name: Diastolic
+    family_name: 90
     sex: Male
   clinical_models:
     clinical_activities:
     - code_type: CPT
-      code_value: 65091 # Enucleation
-      start_date: 2012-01-01
+      code_value: 99201
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
     - code_type: CPT
-      code_value: 65091 # Enucleation
-      start_date: 2011-12-18 # Before (good)
-    - code_type: CPT
-      code_value: 99221 # Acute inpatient
+      code_value: 3074F # Systolic < 140
       start_date: 2016-02-01
       stop_date: 2016-02-01
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: E13.49
+    - code_type: LOINC
+      code_value: 8462-4 # Diastolic
       start_date: 2016-02-01
       stop_date: 2016-02-01
-- name: TwoEnucleationUnilateral Lower
-  attributes:
-    date_of_birth: 1970-01-01
-    given_name: TwoEnucleationUnilateral
-    family_name: Lower
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 65091 # Enucleation
-      start_date: 2012-01-01
-    - code_type: CPT
-      code_value: 65091 # Enucleation
-      start_date: 2011-12-19 # Lower bound (bad)
-    - code_type: CPT
-      code_value: 99221 # Acute inpatient
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: E13.49
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-- name: TwoEnucleationUnilateral Upper
-  attributes:
-    date_of_birth: 1970-01-01
-    given_name: TwoEnucleationUnilateral
-    family_name: Upper
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 65091 # Enucleation
-      start_date: 2012-01-01
-    - code_type: CPT
-      code_value: 65091 # Enucleation
-      start_date: 2012-01-14 # Upper bound (bad)
-    - code_type: CPT
-      code_value: 99221 # Acute inpatient
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: E13.49
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-- name: TwoEnucleationUnilateral After
-  attributes:
-    date_of_birth: 1970-01-01
-    given_name: TwoEnucleationUnilateral
-    family_name: After
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 65091 # Enucleation
-      start_date: 2012-01-01
-    - code_type: CPT
-      code_value: 65091 # Enucleation
-      start_date: 2011-01-15 # After (good)
-    - code_type: CPT
-      code_value: 99221 # Acute inpatient
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: E13.49
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-- name: OneEnucleationUnilateral Modifier
-  attributes:
-    date_of_birth: 1970-01-01
-    given_name: OneEnucleationUnilateral
-    family_name: Modifier
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 65091 # Enucleation
-      start_date: 2012-01-01
-      code_modifiers: ['50']
-    - code_type: CPT
-      code_value: 99221 # Acute inpatient
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-    diagnoses:
-    - code_type: ICD10CM
-      code_value: E13.49
-      start_date: 2016-02-01
-      stop_date: 2016-02-01
-- name: OneEnucleationUnilateral NoModifier
-  attributes:
-    date_of_birth: 1970-01-01
-    given_name: OneEnucleationUnilateral
-    family_name: NoModifier
-    sex: Male
-  clinical_models:
-    clinical_activities:
-    - code_type: CPT
-      code_value: 65091 # Enucleation
-      start_date: 2011-01-15 # No modifier
+      result_as_decimal: 90 # High
     - code_type: CPT
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01

@@ -1,17 +1,16 @@
 ---
 measure:
-  name: 19.Hedis.Cdc7
+  name: 20.Hedis.Cdc7
   required:
-    display_title: 'Comprehensive Diabetes Care: Blood Pressure < 140/90'
+    display_title: 'Comprehensive Diabetes Care: Medical Attention for Nephropathy'
     inverse: false
     subject_type: Patient
     set: HEDIS
-    external_id: CDC9
+    external_id: CDC7
   optional:
-    description: Patients 18–75 years of age with diabetes (type 1 and type 2) whose
-      most recent blood pressure was < 140/90
-    gap_resolution_action: Patient is due for a blood pressure screening or needs
-      attention for uncontrolled blood pressure
+    description: The percentage of members 18–75 years of age with diabetes (type
+      1 and type 2) who had medical attention for nephropathy.
+    gap_resolution_action: Patient is due for screening or monitoring for nephropathy
     version: 2020
     mips_measure_type:
     mips_high_priority:
@@ -130,97 +129,46 @@ exception:
 performance_met:
   description:
   reasons:
-  - config_link_id: normal_blood_pressure
+  - config_link_id: performance_met
     code_value:
-    display_title: Normal Blood Pressure
-    description: Most recent blood pressure reading taken during the most recent outpatient
-      visit or nonacute inpatient visit during the measurement period was < 140/90
+    display_title: Attention for Nephropathy
+    description: Patient received screening or monitoring for nephropathy during the measurement year
     component_groups:
     - components:
-      - display_title: Visit
+      - display_title: Screening for Nephropathy
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Outpatient
-        - model: ClinicalActivity
-          value_set: HEDIS; Nonacute Inpatient
-    - logical_operator: AND
+          value_set: HEDIS; Urine Protein Tests
+        - model: LaboratoryTestPerformed
+          value_set: HEDIS; Urine Protein Tests
+    - logical_operator: OR
       components:
-      - display_title: Systolic Blood Pressure Vital < 140
-        annotation: 'With result: < 140 mmHg'
+      - display_title: Monitoring of Nephropathy
         show_codes: true
         records:
         - model: ClinicalActivity
-          value_set: HEDIS; Systolic Blood Pressure
-      - display_title: Systolic Blood Pressure < 140
-        logical_operator: OR
-        show_codes: true
-        records:
+          value_set: HEDIS; Nephropathy Treatment
+        - model: Diagnosis
+          value_set: HEDIS; Nephropathy Treatment
+        - model: Diagnosis
+          value_set: HEDIS; CKD Stage 4
         - model: ClinicalActivity
-          value_set: HEDIS; Systolic Less Than 140
-    - logical_operator: AND
-      components:
-      - display_title: Diastolic Blood Pressure Vital < 90
-        annotation: 'With result: < 90 mmHg'
-        show_codes: true
-        records:
+          value_set: HEDIS; ESRD
+        - model: Diagnosis
+          value_set: HEDIS; ESRD
         - model: ClinicalActivity
-          value_set: HEDIS; Diastolic Blood Pressure
-      - display_title: Diastolic Blood Pressure < 90
-        logical_operator: OR
-        show_codes: true
-        records:
+          value_set: HEDIS; Kidney Transplant
+        - model: Medication
+          value_set: VSAC; ACE Inhibitor or ARB
         - model: ClinicalActivity
-          value_set: HEDIS; Diastolic Less Than 80
-        - model: ClinicalActivity
-          value_set: HEDIS; Diastolic 80-89
+          value_set: 'MIPS; Performance Met: G8506'
 performance_not_met:
   description:
   reasons:
-  - config_link_id: high_blood_pressure
+  - config_link_id: performance_not_met
     code_value:
-    display_title: High Blood Pressure
-    description: Most recent blood pressure reading taken during the most recent outpatient
-      visit or nonacute inpatient visit during the measurement period was ≥ 140/90
-    component_groups:
-    - components:
-      - display_title: Visit
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Outpatient
-        - model: ClinicalActivity
-          value_set: HEDIS; Nonacute Inpatient
-    - logical_operator: AND
-      components:
-      - display_title: Systolic Blood Pressure Vital ≥ 140
-        annotation: 'With result: ≥ 140 mmHg'
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Systolic Blood Pressure
-      - display_title: Systolic Blood Pressure ≥ 140
-        logical_operator: OR
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Systolic Greater Than/Equal To 140
-      - display_title: Diastolic Blood Pressure Vital ≥ 90
-        logical_operator: OR
-        annotation: 'With result: ≥ 90 mmHg'
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Diastolic Blood Pressure
-      - display_title: Diastolic Blood Pressure ≥ 90
-        logical_operator: OR
-        show_codes: true
-        records:
-        - model: ClinicalActivity
-          value_set: HEDIS; Diastolic Greater Than/Equal To 90
-  - config_link_id: no_blood_pressure
-    code_value:
-    display_title: No Blood Pressure
-    description: No blood pressure reading found during an outpatient visit or nonacute
-      inpatient visit during the measurement period
+    display_title: No Attention for Nephropathy
+    description: No screening or monitoring of nephropathy found in the appropriate
+      timeframe
     component_groups:
