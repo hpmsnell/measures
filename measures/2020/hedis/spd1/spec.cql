@@ -189,13 +189,13 @@ define "Denominator Exclusion: Condition"
   */
   "IVD Exists During Measurement Period and Year Prior" // This definition of IVD is is the same as CDC3.
   or exists(["Encounter, Performed": "HEDIS; Inpatient Stay"] E
-    where E.relevantPeriod starts during [12 months before start of "Measurement Period", start of "Measurement Period"]
+    where E.relevantPeriod starts during [12 months before start of "Measurement Period", 12 months before end of "Measurement Period"]
       and E.diagnoses D
         where D.code in "HEDIS; MI")
   or exists(["Diagnosis": "HEDIS; Muscular Pain and Disease"] D
     where D.prevalencePeriod starts during "Measurement Period")
   or exists("Cardiovascular Procedure" P
-    where P.relevantPeriod starts during [12 months before start of "Measurement Period", start of "Measurement Period"])
+    where P.relevantPeriod starts during [12 months before start of "Measurement Period", 12 months before end of "Measurement Period"])
   or exists("Kidney/Liver Disease" D
     where D.prevalencePeriod starts during [12 months before start of "Measurement Period", end of "Measurement Period"])
 
