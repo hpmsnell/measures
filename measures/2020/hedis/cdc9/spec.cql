@@ -22,22 +22,16 @@ valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
 valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1189'
 valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
-valueset "HEDIS; Diabetes Medications"
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
-valueset "HEDIS; Systolic Less Than 140": ''
-valueset "HEDIS; Systolic Greater Than/Equal To 140": ''
-valueset "HEDIS; Diastolic Less Than 80": ''
-valueset "HEDIS; Diastolic 80-89": ''
-valueset "HEDIS; Diastolic Greater Than/Equal To 90": ''
-valueset "HEDIS; Frailty"
-valueset "HEDIS; Advanced Illness"
-valueset "HEDIS; Outpatient"
-valueset "HEDIS; Observation"
-valueset "HEDIS; ED"
-valueset "HEDIS; Nonacute Inpatient"
-valueset "HEDIS; Acute Inpatient"
-valueset "HEDIS; Diastolic Blood Pressure"
-valueset "HEDIS; Systolic Blood Pressure"
+valueset "HEDIS; Systolic Less Than 140": '2.16.840.1.113883.3.464.1004.1243'
+valueset "HEDIS; Systolic Greater Than/Equal To 140": '2.16.840.1.113883.3.464.1004.1242'
+valueset "HEDIS; Diastolic Less Than 80": '2.16.840.1.113883.3.464.1004.1084'
+valueset "HEDIS; Diastolic 80-89": '2.16.840.1.113883.3.464.1004.1082'
+valueset "HEDIS; Diastolic Greater Than/Equal To 90": '2.16.840.1.113883.3.464.1004.1083'
+valueset "HEDIS; Diastolic Blood Pressure": '2.16.840.1.113883.3.464.1004.1965'
+valueset "HEDIS; Systolic Blood Pressure": '2.16.840.1.113883.3.464.1004.1964'
+
+valueset "NCQA; Diabetes Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
