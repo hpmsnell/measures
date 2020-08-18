@@ -6,7 +6,7 @@ library HEDIS_CDC7_2020 version '1'
  * ID: CDC7
  * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Chana West
  *
   */
 
@@ -28,22 +28,19 @@ valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1189'
 valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
 valueset "HEDIS; Urine Protein Tests": '2.16.840.1.113883.3.464.1004.1400'
 valueset "HEDIS; Nephropathy Treatment": '2.16.840.1.113883.3.464.1004.1184'
+valueset "HEDIS; Nephrectomy": '2.16.840.1.113883.3.464.1004.1909'
 valueset "HEDIS; CKD Stage 4": '2.16.840.1.113883.3.464.1004.1052'
 valueset "HEDIS; ESRD": '2.16.840.1.113883.3.464.1004.1089'
 valueset "HEDIS; Kidney Transplant": '2.16.840.1.113883.3.464.1004.1141'
-valueset "HEDIS; Diabetes Medications"
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
-valueset "HEDIS; Frailty"
-valueset "HEDIS; Advanced Illness"
-valueset "HEDIS; Outpatient"
-valueset "HEDIS; Observation"
-valueset "HEDIS; ED"
-valueset "HEDIS; Nonacute Inpatient"
-valueset "HEDIS; Acute Inpatient"
+valueset "HEDIS; Telephone Visits": '2.16.840.1.113883.3.464.1004.1246'
+valueset "HEDIS; Telehealth Modifier": '2.16.840.1.113883.3.464.1004.1445'
+valueset "HEDIS; Telehealth POS": '2.16.840.1.113883.3.464.1004.1460'
 
 // NCQA medication list value sets
 
 valueset "NCQA; ACE Inhibitor/ARB Medications"
+valueset "NCQA; Diabetes Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -54,6 +51,7 @@ define "Nephropathy Procedures":
   union ["Procedure, Performed": "HEDIS; Nephropathy Treatment"]
   union ["Procedure, Performed": "HEDIS; ESRD"]
   union ["Procedure, Performed": "HEDIS; Kidney Transplant"]
+  union ["Procedure, Performed": "HEDIS; Nephrectomy"]
 
 define "Nephropathy Diagnoses":
   ["Diagnosis": "HEDIS; CKD Stage 4"]
