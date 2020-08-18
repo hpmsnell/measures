@@ -49,29 +49,16 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-
-define "Statin in Measurement Period":
+define "MedsListFromSpec":
   ["Medication, Dispensed": "NCQA; High and Moderate-Intensity Statin Medications"] M
     where M.relevantPeriod starts during "Measurement Period"
+
+define "Sum of Prescription Durations"
+    "CumulativeDuration"("Medications Dispensed Relevant Periods")
 
 define "Prescription Start Date":
   "Statin in Measurement Period" M
     return start of M.relevantPeriod
-
-define "Prescription Stop Date":
-  "Statin in Measurement Period" M
-    return end of M.relevantPeriod
-
-define "Prescription Duration":
-  Min(
-    {
-      days between "Prescription Start Date" and "Prescription Stop Date",
-      days between "Prescription Start Date" and end of "Measurement Period" // Default to this if Stop Date is null
-    }
-  )
-
-define "Sum of Prescription Durations":
-  Sum("Prescription Duration")
 
 define "First Prescription Start Date":
   First("Prescription Start Date")
@@ -106,7 +93,7 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  "Sum of Prescription Durations" / "Treatment Period" >= 0.8
+   Round(("Sum of Prescription Durations" / "Treatment Period") * 100) >= 80
 
 define "Numerator Performance Not Met":
   /*
