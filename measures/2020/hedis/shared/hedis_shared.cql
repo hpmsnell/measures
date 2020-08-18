@@ -312,3 +312,63 @@ define function "Advanced Illness"(Period Interval<DateTime>) returns Boolean:
     or exists ("Advanced Illness: Acute Inpatient DISCHARGE During Period"(Period))
     // A dispensed dementia medication (Dementia Medications List).
     or exists("Advanced Illness: Dementia Medication During Period"(Period))
+
+
+// the following function takes a interval list duration and sums the total amount of time in days.
+//sample use to get CMD bigger than 15: "CumulativeDuration"("Medications Dispensed Relevant Periods")>= 15
+//in order for this fuction to work a list of medications dispensed will need to be defined as "MedsListFromSpec"
+
+define function CumulativeDuration(Intervals List<Interval<DateTime>>): //returns Integer
+  Sum((collapse Intervals) X return all duration in days of X)
+
+
+//receives medication list named MedsListFromSpec;
+//can be any number of "Medication, Dispensed" lists that are unioned together in the spec.
+define "Medication List in Measurement Period":
+  (["MedsListFromSpec"]) MedicationDispensedList
+    where MedicationDispensedList.relevantPeriod starts during "Measurement Period"
+
+define "Multiple Different Medication Same Day - Longest Supply Date":
+//If multiple prescriptions for different medications are dispensed on the same day, calculate the number of days covered by a medication using the prescriptions with the longest days supply.
+  from
+  "Medication List in Measurement Period" medlist1,
+  "Medication List in Measurement Period" medlist2
+    where medlist1.code != medlist2.code
+    and medlist1.relevantPeriod starts same day as start of medlist2.relevantPeriod
+    and medlist1.relevantPeriod ends 1 day or more after end of medlist2.relevantPeriod
+  return medlist1.relevantPeriod
+          intersect "Measurement Period"
+
+define "Multiple Different Medications Diff Day - Overlapping Supply":
+//For multiple different prescriptions dispensed on different days with overlapping days supply, count each day in the measurement year only once toward the denominator
+//distinct is intended to eliminate duplicate days in measurement period
+  distinct (from
+        ("Medication List in Measurement Period" medlist1,
+        "Medication List in Measurement Period" medlist2
+        	where medlist1.code != medlist2.code
+          	and medlist1.relevantPeriod overlaps medlist2.relevantPeriod)OverlapDiffMeds
+        return all Interval[start of OverlapDiffMeds.relevantPeriod, end of OverlapDiffMeds.relevantPeriod]
+					intersect "Measurement Period"
+    )
+
+define "Same Medication - Overlapping Supply":
+//If multiple prescriptions for the same medication are dispensed on the same day or different days with overlapping days supply, sum the days supply and use the total to calculate the number of days covered by a medication.
+  from
+  ("Medication List in Measurement Period" medlist1,
+  "Medication List in Measurement Period" medlist2
+    where medlist1.code ~ medlist2.code
+    and medlist1.relevantPeriod overlaps medlist2.relevantPeriod)OverlapSameMeds
+  return all Interval[start of OverlapSameMeds.relevantPeriod, end of OverlapSameMeds.relevantPeriod]
+		intersect "Measurement Period"
+
+define "Non-overlapping Medications":
+// Identifies all intervals of medications, associated with the measurement period
+  collapse ( "Medication List in Measurement Period" medicationperiod
+      return medicationperiod.relevantPeriod
+      )
+
+define "Medications Dispensed Relevant Periods":
+    "Multiple Different Medication Same Day - Longest Supply Date"
+    and "Multiple Different Medications Diff Day - Overlapping Supply"
+    and "Same Medication - Overlapping Supply"
+    and "Non-overlapping Medications"
