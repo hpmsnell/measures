@@ -37,6 +37,16 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator: performance_not_met
+    - name: InpatientStayEncounter SameClaim
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator: performance_not_met
+    - name: InpatientStayEncounter DiffClaim
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
     - name: AcuteEncounter After
       denominator:
       denominator_exclusion:
@@ -316,11 +326,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: Age Lower
   attributes:
     date_of_birth: 1998-12-31 # Lower bound
@@ -333,11 +345,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: Age Upper
   attributes:
     date_of_birth: 1941-01-01 # Upper bound
@@ -350,11 +364,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: Too Old
   attributes:
     date_of_birth: 1940-12-31 # Too early
@@ -367,11 +383,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: AcuteEncounter Before
   attributes:
     date_of_birth: 1970-01-01
@@ -383,11 +401,13 @@ patients:
     - code_type: CPT
       code_value: 99221 # Acute inpatient
       start_date: 2014-12-31 # Too early
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2014-12-31
       stop_date: 2014-12-31
+      claim_id: 1
 - name: AcuteEncounter Lower
   attributes:
     date_of_birth: 1970-01-01
@@ -399,11 +419,13 @@ patients:
     - code_type: CPT
       code_value: 99221 # Acute inpatient
       start_date: 2015-01-01 # Lower bound
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2015-01-01
       stop_date: 2015-01-01
+      claim_id: 1
 - name: AcuteEncounter Upper
   attributes:
     date_of_birth: 1970-01-01
@@ -415,11 +437,49 @@ patients:
     - code_type: CPT
       code_value: 99221 # Acute inpatient
       start_date: 2016-12-31 # Upper bound
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-12-31
       stop_date: 2016-12-31
+      claim_id: 1
+- name: InpatientStayEncounter SameClaim
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: InpatientStayEncounter
+    family_name: SameClaim
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: UBREV
+      code_value: 0100 # Inpatient Stay
+      start_date: 2016-12-31 # Upper bound
+      claim_id: 1
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_date: 2016-12-31
+      stop_date: 2016-12-31
+      claim_id: 1 #same claim
+- name: InpatientStayEncounter DiffClaim
+  attributes:
+    date_of_birth: 1970-01-01
+    given_name: InpatientStayEncounter
+    family_name: DiffClaim
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: UBREV
+      code_value: 99221 # Acute inpatient
+      start_date: 2016-12-31 # Upper bound
+      claim_id: 1
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: E13.49
+      start_date: 2016-12-31
+      stop_date: 2016-12-31
+      claim_id: 2 #diff claim
 - name: AcuteEncounter After
   attributes:
     date_of_birth: 1970-01-01
@@ -431,11 +491,13 @@ patients:
     - code_type: CPT
       code_value: 99221 # Acute inpatient
       start_date: 2017-01-01 # Too late
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2017-01-01
       stop_date: 2017-01-01
+      claim_id: 1
 - name: NonacuteEncounter Before
   attributes:
     date_of_birth: 1970-01-01
@@ -447,18 +509,22 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2014-12-31 # Too early
+      claim_id: 1
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
+      claim_id: 2
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-01-01
       stop_date: 2016-01-01
+      claim_id: 2
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2014-12-31
       stop_date: 2014-12-31
+      claim_id: 1
 - name: NonacuteEncounter Lower
   attributes:
     date_of_birth: 1970-01-01
@@ -470,18 +536,22 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2015-01-01 # Lower bound
+      claim_id: 1
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
+      claim_id: 2
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-01-01
       stop_date: 2016-01-01
+      claim_id: 2
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2015-01-01
       stop_date: 2015-01-01
+      claim_id: 1
 - name: NonacuteEncounter Upper
   attributes:
     date_of_birth: 1970-01-01
@@ -493,18 +563,22 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2016-12-31 # Upper bound
+      claim_id: 1
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
+      claim_id: 2
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-01-01
       stop_date: 2016-01-01
+      claim_id: 1
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-12-31
       stop_date: 2016-12-31
+      claim_id: 2
 - name: NonacuteEncounter After
   attributes:
     date_of_birth: 1970-01-01
@@ -516,18 +590,22 @@ patients:
     - code_type: CPT
       code_value: 99201
       start_date: 2017-01-01 # Too late
+      claim_id: 2
     - code_type: CPT
       code_value: 99201
       start_date: 2016-01-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-01-01
       stop_date: 2016-01-01
+      claim_id: 1
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2017-01-01
       stop_date: 2017-01-01
+      claim_id: 2
 - name: EncounterDiagnosis Before
   attributes:
     date_of_birth: 1970-01-01
@@ -540,11 +618,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-01-01
       stop_date: 2016-01-02
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2015-12-31 # Too early
       stop_date: 2015-12-31
+      claim_id: 2
 - name: EncounterDiagnosis Lower
   attributes:
     date_of_birth: 1970-01-01
@@ -557,11 +637,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-01-01
       stop_date: 2016-01-02
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-01-01 # Lower bound
       stop_date: 2016-01-01
+      claim_id: 2
 - name: EncounterDiagnosis Upper
   attributes:
     date_of_birth: 1970-01-01
@@ -574,11 +656,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-01-01
       stop_date: 2016-01-02
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-01-02 # Upper bound
       stop_date: 2016-01-02
+      claim_id: 1
 - name: EncounterDiagnosis After
   attributes:
     date_of_birth: 1970-01-01
@@ -591,11 +675,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-01-01
       stop_date: 2016-01-02
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-01-03 # Too late
       stop_date: 2016-01-03
+      claim_id: 1
 - name: Medication Before
   attributes:
     date_of_birth: 1970-01-01
@@ -750,11 +836,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2015-12-31 # Too early
@@ -776,11 +864,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-01-01 # Lower bound
@@ -802,11 +892,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-12-31 # Upper bound
@@ -827,11 +919,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2017-01-01 # Too late
@@ -855,11 +949,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -889,11 +985,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -923,11 +1021,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -957,11 +1057,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -988,11 +1090,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -1013,11 +1117,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -1038,11 +1144,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -1063,11 +1171,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     - code_type: ICD10CM
       code_value: L89.119 # Frailty
       start_date: 2016-02-01
@@ -1098,11 +1208,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: Exam Lower
   attributes:
     date_of_birth: 1970-01-01
@@ -1119,11 +1231,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: Exam Upper
   attributes:
     date_of_birth: 1970-01-01
@@ -1140,6 +1254,7 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
@@ -1161,11 +1276,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: Exam WrongSpecialty
   attributes:
     date_of_birth: 1970-01-01
@@ -1182,11 +1299,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: ExamWithResult Before
   attributes:
     date_of_birth: 1970-01-01
@@ -1204,11 +1323,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: ExamWithResult Lower
   attributes:
     date_of_birth: 1970-01-01
@@ -1226,11 +1347,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: ExamWithResult Upper
   attributes:
     date_of_birth: 1970-01-01
@@ -1248,11 +1371,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: ExamWithResult After
   attributes:
     date_of_birth: 1970-01-01
@@ -1270,11 +1395,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: ExamWithResult Positive
   attributes:
     date_of_birth: 1970-01-01
@@ -1292,11 +1419,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: EnucleationLeft Upper
   attributes:
     date_of_birth: 1970-01-01
@@ -1315,11 +1444,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: EnucleationLeft After
   attributes:
     date_of_birth: 1970-01-01
@@ -1338,11 +1469,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: TwoEnucleationUnilateral Before
   attributes:
     date_of_birth: 1970-01-01
@@ -1361,11 +1494,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: TwoEnucleationUnilateral Lower
   attributes:
     date_of_birth: 1970-01-01
@@ -1384,11 +1519,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: TwoEnucleationUnilateral Upper
   attributes:
     date_of_birth: 1970-01-01
@@ -1407,11 +1544,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: TwoEnucleationUnilateral After
   attributes:
     date_of_birth: 1970-01-01
@@ -1430,11 +1569,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: OneEnucleationUnilateral Modifier
   attributes:
     date_of_birth: 1970-01-01
@@ -1451,11 +1592,13 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
 - name: OneEnucleationUnilateral NoModifier
   attributes:
     date_of_birth: 1970-01-01
@@ -1471,8 +1614,10 @@ patients:
       code_value: 99221 # Acute inpatient
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: E13.49
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      claim_id: 1
