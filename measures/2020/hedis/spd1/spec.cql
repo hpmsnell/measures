@@ -119,69 +119,69 @@ define "Statin":
   ["Medication, Dispensed": "NCQA; High and Moderate-Intensity Statin Medications"]
   union ["Medication, Dispensed": "NCQA; Low-Intensity Statin Medications"]
 
-  define "Nonacute Visit No Telehealth":
-    (["Encounter, Performed": "HEDIS; Outpatient"]
-    union ["Encounter, Performed": "HEDIS; Observation"]
-    union ["Encounter, Performed": "HEDIS; ED"]
-    union ["Encounter, Performed": "HEDIS; Nonacute Inpatient"]
-    union "Nonacute Inpatient Visit")E
-      where E1.code.modifier != "HEDIS; Telehealth Modifier"
-            and E1.placeOfService != "HEDIS; Telehealth POS"
+define "Nonacute Visit No Telehealth":
+  (["Encounter, Performed": "HEDIS; Outpatient"]
+  union ["Encounter, Performed": "HEDIS; Observation"]
+  union ["Encounter, Performed": "HEDIS; ED"]
+  union ["Encounter, Performed": "HEDIS; Nonacute Inpatient"]
+  union "Nonacute Inpatient Visit")E
+    where E1.code.modifier != "HEDIS; Telehealth Modifier"
+          and E1.placeOfService != "HEDIS; Telehealth POS"
 
-  define "Nonacute Inpatient Visit":
-    ["Encounter, Performed": "HEDIS; Inpatient Stay"] Inpatient
-      with ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] Nonacute
-        such that Inpatient.claimId = Nonacute.claimId
-        and Inpatient.placeOfService != 81
-        and Nonacute.placeOfService != 81
+define "Nonacute Inpatient Visit":
+  ["Encounter, Performed": "HEDIS; Inpatient Stay"] Inpatient
+    with ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] Nonacute
+      such that Inpatient.claimId = Nonacute.claimId
+      and Inpatient.placeOfService != 81
+      and Nonacute.placeOfService != 81
 
-  define "Nonacute Visit Telehealth":
-    ["Encounter, Performed": "HEDIS; Telephone Visits"]
-    union ["Encounter, Performed": "HEDIS Online Assessments"]
-    union "Nonacute Inpatient Visit" Nonacute
-      where Nonacute.code.modifier in "HEDIS; Telehealth Modifier"
-        or Nonacute.placeOfService in "HEDIS; Telehealth POS"
+define "Nonacute Visit Telehealth":
+  ["Encounter, Performed": "HEDIS; Telephone Visits"]
+  union ["Encounter, Performed": "HEDIS Online Assessments"]
+  union "Nonacute Inpatient Visit" Nonacute
+    where Nonacute.code.modifier in "HEDIS; Telehealth Modifier"
+      or Nonacute.placeOfService in "HEDIS; Telehealth POS"
 
-  define "Nonacute Visit with Diabetes":
-    "Nonacute Visit No Telehealth" E
-      where E.dischargeDate during [24 months before end of "Measurement Period", end of "Measurement Period"]
-      with ["Diagnosis": "HEDIS; Diabetes"] D
-        such that D.prevalencePeriod starts during E.relevantPeriod
+define "Nonacute Visit with Diabetes":
+  "Nonacute Visit No Telehealth" E
+    where E.dischargeDate during [24 months before end of "Measurement Period", end of "Measurement Period"]
+    with ["Diagnosis": "HEDIS; Diabetes"] D
+      such that D.prevalencePeriod starts during E.relevantPeriod
 
-  define "Nonacute Visit Telehealth with Diabetes":
-    "Nonacute Visit Telehealth" E
-      where E.dischargeDate during [24 months before end of "Measurement Period", end of "Measurement Period"]
-      with ["Diagnosis": "HEDIS; Diabetes"] D
-        such that D.prevalencePeriod starts during E.relevantPeriod
+define "Nonacute Visit Telehealth with Diabetes":
+  "Nonacute Visit Telehealth" E
+    where E.dischargeDate during [24 months before end of "Measurement Period", end of "Measurement Period"]
+    with ["Diagnosis": "HEDIS; Diabetes"] D
+      such that D.prevalencePeriod starts during E.relevantPeriod
 
-  define "Patient Has Diabetes":
-  // only 1 of 2 "Nonacute Visit with Diabetes" can be outpatient telehealth
-    exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
-      where E.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"]
-        and not E.code.modifier in "HEDIS; Telehealth Modifier"
-        and not E.placeOfService in "HEDIS; Telehealth POS")
-      with ["Diagnosis": "HEDIS; Diabetes"] D
-        such that D.prevalencePeriod starts during E.relevantPeriod)
-    or exists(["Encounter, Performed": "HEDIS; Inpatient Stay"])InpatientE
-      where InpatientE.dischargeDate during [24 months before end of "Measurement Period", end of "Measurement Period"]
-      with ["Diagnosis": "HEDIS; Diabetes"] D
-        such that D.prevalencePeriod starts during InpatientE.relevantPeriod
-          and InpatientE.claimId = D.claimId)
-    or exists("Nonacute Visit with Diabetes" E1
-      with "Nonacute Visit with Diabetes" E2
-        such that start of E2.relevantPeriod != start of E1.relevantPeriod
-    or exists("Nonacute Visit with Diabetes" E1
-      with "Nonacute Visit Telehealth with Diabetes" E2
-        such that start of E2.relevantPeriod != start of E1.relevantPeriod)
-    or exists(["Medication, Dispensed": "NCQA; Diabetes Medications"] M
-      where M.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
+define "Patient Has Diabetes":
+// only 1 of 2 "Nonacute Visit with Diabetes" can be outpatient telehealth
+  exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
+    where E.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"]
+      and not E.code.modifier in "HEDIS; Telehealth Modifier"
+      and not E.placeOfService in "HEDIS; Telehealth POS")
+    with ["Diagnosis": "HEDIS; Diabetes"] D
+      such that D.prevalencePeriod starts during E.relevantPeriod)
+  or exists(["Encounter, Performed": "HEDIS; Inpatient Stay"])InpatientE
+    where InpatientE.dischargeDate during [24 months before end of "Measurement Period", end of "Measurement Period"]
+    with ["Diagnosis": "HEDIS; Diabetes"] D
+      such that D.prevalencePeriod starts during InpatientE.relevantPeriod
+        and InpatientE.claimId = D.claimId)
+  or exists("Nonacute Visit with Diabetes" E1
+    with "Nonacute Visit with Diabetes" E2
+      such that start of E2.relevantPeriod != start of E1.relevantPeriod
+  or exists("Nonacute Visit with Diabetes" E1
+    with "Nonacute Visit Telehealth with Diabetes" E2
+      such that start of E2.relevantPeriod != start of E1.relevantPeriod)
+  or exists(["Medication, Dispensed": "NCQA; Diabetes Medications"] M
+    where M.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
 
-  /* Populations */
+/* Populations */
 
-  define "Denominator":
-    AgeInYearsAt(end of "Measurement Period") >= 40
-    and AgeInYearsAt(end of "Measurement Period") < 76
-    and "Patient Has Diabetes" //The definition of a patient with diabetes is the same as CDC1.
+define "Denominator":
+  AgeInYearsAt(end of "Measurement Period") >= 40
+  and AgeInYearsAt(end of "Measurement Period") < 76
+  and "Patient Has Diabetes" //The definition of a patient with diabetes is the same as CDC1.
 
 define "Denominator Exclusion: Condition"
   /*
