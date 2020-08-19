@@ -57,7 +57,7 @@ define "MedsListFromSpec":
   union ["Medication, Dispensed": "NCQA; Low-Intensity Statin Medications"]
 
 define "Sum of Prescription Durations"
-    "CumulativeDuration"("MedsListFromSpec")
+    "CumulativeDuration"("MedsListFromSpec", "Measurement Period")
 
 define "Prescription Start Date":
   "MedsListFromSpec" M
