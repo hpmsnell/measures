@@ -316,16 +316,17 @@ define function "Advanced Illness"(Period Interval<DateTime>) returns Boolean:
 
 // the following function takes a interval list duration and sums the total amount of time in days.
 //sample use to get CMD bigger than 15: "CumulativeDuration"("Medications Dispensed Relevant Periods")>= 15
-//in order for this fuction to work a list of medications dispensed will need to be defined as "MedsListFromSpec"
+//in order for this fuction to work a list of medications dispensed will need to be defined as "MedsListFromSpec" in the spec.
+//forming the function in this way will give us the flexibility to input any list of medications and handle the days calculation in the spec
 
-define function CumulativeDuration(Intervals List<Interval<DateTime>>): //returns Integer
-  Sum((collapse Intervals) X return all duration in days of X)
-
+define function "CumulativeDuration"(MedsListFromSpec List<Interval<DateTime>>) returns Integer:
+  Sum((collapse "Medications Dispensed Relevant Periods") X
+    return all duration in days of X)
 
 //receives medication list named MedsListFromSpec;
 //can be any number of "Medication, Dispensed" lists that are unioned together in the spec.
 define "Medication List in Measurement Period":
-  (["MedsListFromSpec"]) MedicationDispensedList
+  (MedsListFromSpec) MedicationDispensedList
     where MedicationDispensedList.relevantPeriod starts during "Measurement Period"
 
 define "Multiple Different Medication Same Day - Longest Supply Date":
