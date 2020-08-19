@@ -52,6 +52,7 @@ valueset "NCQA; Low-Intensity Statin Medications"
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
+
 define "IVD Encounter No Telehealth":
   (["Encounter, Performed": "HEDIS; Outpatient"]
   union ["Encounter, Performed": "HEDIS; Acute Inpatient"]
