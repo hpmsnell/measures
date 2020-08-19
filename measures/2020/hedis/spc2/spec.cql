@@ -54,7 +54,7 @@ define "MedsListFromSpec":
     where M.relevantPeriod starts during "Measurement Period"
 
 define "Sum of Prescription Durations"
-    "CumulativeDuration"("Medications Dispensed Relevant Periods")
+    "CumulativeDuration"("MedsListFromSpec")
 
 define "Prescription Start Date":
   "Statin in Measurement Period" M
