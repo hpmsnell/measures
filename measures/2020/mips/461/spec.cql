@@ -6,7 +6,7 @@ library MIPS_461_RATE_1_2020 version '1'
  * ID: 461
  * Year: 2020
  * Version: 1
- * Written by: Steve Daniels
+ * Written by: Patrick Clark
  *
  */
 
@@ -66,6 +66,18 @@ define "Denominator Exclusion":
   /*
    * config_link_id: exclusion_1
    */
+  exists(["Procedure, Performed": "MIPS; Other Spine Procedure"] P
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts during of E.relevantPeriod)
+  exists(["Procedure, Performed": "Able; Other Spine Procedure"] P
+    with "Denominator Encounter" E
+      such that P.relevantPeriod starts during of E.relevantPeriod)
+
+
+define "Denominator Exclusion Lumbar":
+  /*
+   * config_link_id: exclusion_2
+   */
   exists(["Procedure, Performed": "MIPS; Lumbar Disorder"] P
     with "Denominator Encounter" E
       such that P.relevantPeriod starts during E.relevantPeriod)
@@ -99,5 +111,6 @@ define "Numerator Performance Not Met: G9949":
        * config_link_id: G9949
        */
   not "Denominator Exclusion"
+  and not "Denominator Exclusion Lumbar"
   and not "Numerator Performance Met: G2140"
   and not "MIPS; Performance Not Met: G2141"
