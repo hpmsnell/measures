@@ -319,17 +319,17 @@ define function "Advanced Illness"(Period Interval<DateTime>) returns Boolean:
 //in order for this fuction to work a list of medications dispensed will need to be defined as "MedsListFromSpec" in the spec.
 //forming the function in this way will give us the flexibility to input any list of medications and handle the days calculation in the spec
 
-define function "CumulativeDuration"(MedsListFromSpec List<Interval<DateTime>>) returns Integer:
+define function "CumulativeDuration"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>) returns Integer:
   Sum((collapse "Medications Dispensed Relevant Periods") X
     return all duration in days of X)
 
 //receives medication list named MedsListFromSpec;
 //can be any number of "Medication, Dispensed" lists that are unioned together in the spec.
-define "Medication List in Measurement Period":
+define function "Medication List in Measurement Period"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
   (MedsListFromSpec) MedicationDispensedList
-    where MedicationDispensedList.relevantPeriod starts during "Measurement Period"
+    where MedicationDispensedList.relevantPeriod starts during Period
 
-define "Multiple Different Medication Same Day - Longest Supply Date":
+define function "Multiple Different Medication Same Day - Longest Supply Date"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
 //If multiple prescriptions for different medications are dispensed on the same day, calculate the number of days covered by a medication using the prescriptions with the longest days supply.
   from
   "Medication List in Measurement Period" medlist1,
@@ -340,7 +340,7 @@ define "Multiple Different Medication Same Day - Longest Supply Date":
   return medlist1.relevantPeriod
           intersect "Measurement Period"
 
-define "Multiple Different Medications Diff Day - Overlapping Supply":
+define function "Multiple Different Medications Diff Day - Overlapping Supply"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
 //For multiple different prescriptions dispensed on different days with overlapping days supply, count each day in the measurement year only once toward the denominator
 //distinct is intended to eliminate duplicate days in measurement period
   distinct (from
@@ -368,7 +368,7 @@ define "Non-overlapping Medications":
       return medicationperiod.relevantPeriod
       )
 
-define "Medications Dispensed Relevant Periods":
+define function "Medications Dispensed Relevant Periods":
     "Multiple Different Medication Same Day - Longest Supply Date"
     and "Multiple Different Medications Diff Day - Overlapping Supply"
     and "Same Medication - Overlapping Supply"
