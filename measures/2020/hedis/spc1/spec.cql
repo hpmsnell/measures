@@ -112,8 +112,8 @@ define "Cardiovascular Event Exists":
     where P.relevantPeriod starts during [12 months before start of "Measurement Period", 12 months before end of "Measurement Period"])
   or exists(["Encounter, Performed": "Inpatient Stay"] E
     where E.relevantPeriod starts during [12 months before start of "Measurement Period", 12 months before end of "Measurement Period"]
-    with ["Diagnosis": "HEDIS: MI"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod)
+    and E.diagnoses D
+        where D.code in "HEDIS; MI")
 
 define "Kidney/Liver Disease":
   ["Diagnosis": "HEDIS; ESRD"]
