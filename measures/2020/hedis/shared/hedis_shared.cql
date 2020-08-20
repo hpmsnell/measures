@@ -337,7 +337,7 @@ define function "Multiple Different Medication Same Day - Longest Supply Date"(M
     and medlist1.relevantPeriod starts same day as start of medlist2.relevantPeriod
     and medlist1.relevantPeriod ends 1 day or more after end of medlist2.relevantPeriod
   return medlist1.relevantPeriod
-          intersect "Period"
+          intersect Period
 
 define function "Multiple Different Medications Diff Day - Overlapping Supply"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
 //For multiple different prescriptions dispensed on different days with overlapping days supply, count each day in the measurement year only once toward the denominator
@@ -348,7 +348,7 @@ define function "Multiple Different Medications Diff Day - Overlapping Supply"(M
         	where medlist1.code != medlist2.code
           	and medlist1.relevantPeriod overlaps medlist2.relevantPeriod) OverlapDiffMeds
         return all Interval[start of OverlapDiffMeds.relevantPeriod, end of OverlapDiffMeds.relevantPeriod]
-					intersect "Period"
+					intersect Period
     )
 
 define function "Same Medication - Overlapping Supply"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
@@ -359,7 +359,7 @@ define function "Same Medication - Overlapping Supply"(MedsListFromSpec List<"Me
     where medlist1.code ~ medlist2.code
     and medlist1.relevantPeriod overlaps medlist2.relevantPeriod)OverlapSameMeds
   return all Interval[start of OverlapSameMeds.relevantPeriod, end of OverlapSameMeds.relevantPeriod]
-		intersect "Period"
+		intersect Period
 
 define function "Non-overlapping Medications"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
 // Identifies all intervals of medications, associated with the measurement period
@@ -369,6 +369,6 @@ define function "Non-overlapping Medications"(MedsListFromSpec List<"Medication,
 
 define function "Medications Dispensed Relevant Periods"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
     "Multiple Different Medication Same Day - Longest Supply Date"(MedsListFromSpec , Period))
-    and ("Multiple Different Medications Diff Day - Overlapping Supply"(MedsListFromSpec , Period))
-    and ("Same Medication - Overlapping Supply"(MedsListFromSpec , Period))
-    and ("Non-overlapping Medications"(MedsListFromSpec , Period))
+    union ("Multiple Different Medications Diff Day - Overlapping Supply"(MedsListFromSpec , Period))
+    union ("Same Medication - Overlapping Supply"(MedsListFromSpec , Period))
+    union ("Non-overlapping Medications"(MedsListFromSpec , Period))
