@@ -314,17 +314,16 @@ define function "Advanced Illness"(Period Interval<DateTime>) returns Boolean:
     or exists("Advanced Illness: Dementia Medication During Period"(Period))
 
 
-// the following function takes a interval list duration and sums the total amount of time in days.
-//sample use to get CMD bigger than 15: "CumulativeDuration"("Medications Dispensed Relevant Periods")>= 15
-//in order for this fuction to work a list of medications dispensed will need to be defined as "MedsListFromSpec" in the spec.
-//forming the function in this way will give us the flexibility to input any list of medications and handle the days calculation in the spec
+// The following function recieves a list of medication dispensed and a period interval (measurement period, index period, treatment period)
+// and returns the cumlative duration a medication has been dispensed as an Integer
+// sample use would be as follows "CumulativeDuration"(medlist, Peasurement Period)
 
 define function "CumulativeDuration"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>) returns Integer:
-  Sum((collapse "Medications Dispensed Relevant Periods") X
+  Sum((collapse ("Medications Dispensed Relevant Periods"(MedsListFromSpec , Period))) X
     return all duration in days of X)
 
-//receives medication list named MedsListFromSpec;
-//can be any number of "Medication, Dispensed" lists that are unioned together in the spec.
+
+//receives medication list and period from the Medications Dispensed Relevant Periods function
 define function "Medication List in Measurement Period"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
   (MedsListFromSpec) MedicationDispensedList
     where MedicationDispensedList.relevantPeriod starts during Period
@@ -332,44 +331,44 @@ define function "Medication List in Measurement Period"(MedsListFromSpec List<"M
 define function "Multiple Different Medication Same Day - Longest Supply Date"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
 //If multiple prescriptions for different medications are dispensed on the same day, calculate the number of days covered by a medication using the prescriptions with the longest days supply.
   from
-  "Medication List in Measurement Period" medlist1,
-  "Medication List in Measurement Period" medlist2
+  ("Medication List in Measurement Period"(MedsListFromSpec , Period)) medlist1,
+  ("Medication List in Measurement Period"(MedsListFromSpec , Period)) medlist2
     where medlist1.code != medlist2.code
     and medlist1.relevantPeriod starts same day as start of medlist2.relevantPeriod
     and medlist1.relevantPeriod ends 1 day or more after end of medlist2.relevantPeriod
   return medlist1.relevantPeriod
-          intersect "Measurement Period"
+          intersect "Period"
 
 define function "Multiple Different Medications Diff Day - Overlapping Supply"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
 //For multiple different prescriptions dispensed on different days with overlapping days supply, count each day in the measurement year only once toward the denominator
 //distinct is intended to eliminate duplicate days in measurement period
   distinct (from
-        ("Medication List in Measurement Period" medlist1,
-        "Medication List in Measurement Period" medlist2
+        (("Medication List in Measurement Period"(MedsListFromSpec , Period)) medlist1,
+        ("Medication List in Measurement Period"(MedsListFromSpec , Period)) medlist2
         	where medlist1.code != medlist2.code
-          	and medlist1.relevantPeriod overlaps medlist2.relevantPeriod)OverlapDiffMeds
+          	and medlist1.relevantPeriod overlaps medlist2.relevantPeriod) OverlapDiffMeds
         return all Interval[start of OverlapDiffMeds.relevantPeriod, end of OverlapDiffMeds.relevantPeriod]
-					intersect "Measurement Period"
+					intersect "Period"
     )
 
-define "Same Medication - Overlapping Supply":
+define function "Same Medication - Overlapping Supply"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
 //If multiple prescriptions for the same medication are dispensed on the same day or different days with overlapping days supply, sum the days supply and use the total to calculate the number of days covered by a medication.
   from
-  ("Medication List in Measurement Period" medlist1,
-  "Medication List in Measurement Period" medlist2
+  (("Medication List in Measurement Period"(MedsListFromSpec , Period)) medlist1,
+  ("Medication List in Measurement Period"(MedsListFromSpec , Period))) medlist2
     where medlist1.code ~ medlist2.code
     and medlist1.relevantPeriod overlaps medlist2.relevantPeriod)OverlapSameMeds
   return all Interval[start of OverlapSameMeds.relevantPeriod, end of OverlapSameMeds.relevantPeriod]
-		intersect "Measurement Period"
+		intersect "Period"
 
-define "Non-overlapping Medications":
+define function "Non-overlapping Medications"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
 // Identifies all intervals of medications, associated with the measurement period
-  collapse ( "Medication List in Measurement Period" medicationperiod
+  collapse (( "Medication List in Measurement Period"(MedsListFromSpec , Period)) medicationperiod
       return medicationperiod.relevantPeriod
       )
 
-define function "Medications Dispensed Relevant Periods":
-    "Multiple Different Medication Same Day - Longest Supply Date"
-    and "Multiple Different Medications Diff Day - Overlapping Supply"
-    and "Same Medication - Overlapping Supply"
-    and "Non-overlapping Medications"
+define function "Medications Dispensed Relevant Periods"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
+    "Multiple Different Medication Same Day - Longest Supply Date"(MedsListFromSpec , Period))
+    and ("Multiple Different Medications Diff Day - Overlapping Supply"(MedsListFromSpec , Period))
+    and ("Same Medication - Overlapping Supply"(MedsListFromSpec , Period))
+    and ("Non-overlapping Medications"(MedsListFromSpec , Period))
