@@ -125,4 +125,5 @@ define "Numerator Performance Not Met":
   and not "Denominator Exclusion: Pregnancy"
   and not "Denominator Exclusion: Diabetes"
   and not "Exclusion: Hospice"
+  and not "Denominator Exclusion: Frailty or Advanced Illness"
   and not "Numerator Performance Met"
