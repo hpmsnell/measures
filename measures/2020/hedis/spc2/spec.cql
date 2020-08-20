@@ -49,12 +49,12 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "MedsListFromSpec":
+define "Statin in Measurement Period":
   ["Medication, Dispensed": "NCQA; High and Moderate-Intensity Statin Medications"] M
     where M.relevantPeriod starts during "Measurement Period"
 
 define "Sum of Prescription Durations"
-    "CumulativeDuration"("MedsListFromSpec")
+    "CumulativeDuration"("Statin in Measurement Period","Measurement Period" )
 
 define "Prescription Start Date":
   "Statin in Measurement Period" M
