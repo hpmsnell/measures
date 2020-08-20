@@ -135,10 +135,10 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists(["Procedure, Performed": "HEDIS; HbA1c Test Result or Finding"] L
+  exists(["Assessment, Performed": "HEDIS; HbA1c Test Result or Finding"] A
+    where A.relevantDatetime during "Measurement Year")
+  or exists(["Laboratory Test, Performed": "HEDIS; HbA1c Lab Test"] L
     where L.resultDateTime during "Measurement Year")
-  or exists(["Laboratory Test, Performed": "HEDIS; HbA1c Lab Test"] P
-    where P.relevantDatetime during "Measurement Year")
 
 define "Numerator Performance Not Met":
   /*

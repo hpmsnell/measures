@@ -36,17 +36,12 @@ valueset "HEDIS; Telehealth POS": '2.16.840.1.113883.3.464.1004.1460'
 
 valueset "NCQA; Diabetes Medications"
 
-// VSAC value sets
-
-valueset "VSAC; Retinal or Dilated Eye Exam": '2.16.840.1.113883.3.464.1003.115.12.1088'
-
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 define "Eye Exam":
   ["Assessment, Performed": "HEDIS; Diabetic Retinal Screening"]
-  union ["Assessment, Performed": "VSAC; Retinal or Dilated Eye Exam"]
 
 define "Unilateral Enucleation":
   ["Assessment, Performed": "HEDIS; Unilateral Eye Enucleation"] A
@@ -97,11 +92,6 @@ define "Numerator Performance Met":
   exists("Eye Exam" A
     where A.authorDateTime during "Measurement Year"
       and A.signingProvider.specialty in ['Ophthalmology', 'Optometry']
-      and A.placeOfService != '81')
-  or exists("Eye Exam" A
-    where A.authorDateTime during [12 months before start of "Measurement Year", start of "Measurement Year"]
-      and A.signingProvider.specialty in ['Ophthalmology', 'Optometry']
-      and A.result = 'Negative'
       and A.placeOfService != '81')
   or exists(["Assessment, Performed": "HEDIS; Diabetic Retinal Screening Negative"] A
     where A.authorDateTime during [12 months before start of "Measurement Year", start of "Measurement Year"]

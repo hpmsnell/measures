@@ -80,7 +80,7 @@ define "Numerator Performance Met: High HbA1c":
   /*
    * config_link_id: hba1c_high
    */
-  exists("Last HbA1c Result" A
+  exists("Last HbA1c Test" A
     where A.result > 9
       or A.code in "HEDIS; HbA1c Level Greater Than 9.0")
 
