@@ -49,12 +49,15 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Statin in Measurement Period":
+define "Statin":
   ["Medication, Dispensed": "NCQA; High and Moderate-Intensity Statin Medications"] M
+
+define "Statin in Measurement Period":
+  "Statin" M
     where M.relevantPeriod starts during "Measurement Period"
 
 define "Sum of Prescription Durations"
-    "CumulativeDuration"("Statin in Measurement Period","Measurement Period" )
+    "CumulativeDuration"("Statin","Measurement Period" )
 
 define "Prescription Start Date":
   "Statin in Measurement Period" M
@@ -89,6 +92,7 @@ define "Exclusion: Hospice":
    */
    exists("Hospice During Period"("Measurement Period"))
 
+
 define "Denominator Exclusion: Frailty or Advanced Illness":
  /*
   * config_link_id: exclusion_required_frailty
@@ -115,4 +119,5 @@ define "Numerator Performance Not Met":
   not "Denominator Exclusion: Condition"
   and not "Denominator Exclusion: Pregnancy"
   and not "Exclusion: Hospice"
+  and not "Denominator Exclusion: Frailty or Advanced Illness"
   and not "Numerator Performance Met"
