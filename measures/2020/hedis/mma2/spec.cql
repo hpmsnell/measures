@@ -153,7 +153,7 @@ define "Treatment Period":
 /* Populations */
 
 define "Denominator":
-  "HEDIS AMR5: Denominator"
+  "HEDIS AMR: Denominator"
 
 define "Exclusion: Hospice":
   /*
@@ -172,7 +172,7 @@ define "Denominator Exclusion: No Medication":
   /*
    * config_link_id: exclusion_1
    */
-  "HEDIS AMR5: Denominator Exclusion: No Medication"
+  "HEDIS AMR: Denominator Exclusion: No Medication"
 
 define "Numerator Performance Met":
   /*

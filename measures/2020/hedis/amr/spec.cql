@@ -1,9 +1,9 @@
-library HEDIS_AMR5_2020 version '1'
+library HEDIS_AMR_2020 version '1'
 
 /*
  *
  * Source: HEDIS
- * ID: AMR5
+ * ID: AMR
  * Year: 2020
  * Version: 1
  * Author: Chana West
