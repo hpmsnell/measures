@@ -16,7 +16,6 @@ include "../shared/hedis_shared" version '1' called HedisShared
 
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
@@ -59,49 +58,63 @@ valueset "NCQA; Omalizumab Medications"
 valueset "NCQA; Montelukast Medications"
 valueset "NCQA; Zafirlukast Medications"
 valueset "NCQA; Zileuton Medications"
+valueset "NCQA; Benralizumab Medications"
+valueset "NCQA; Mepolizumab Medications"
+valueset "NCQA; Reslizumab Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Acute Inpatient No Telehealth":
+define "ED or Acute Inpatient No Telehealth - Current Year":
 // At least one acute inpatient encounter (Acute Inpatient Value Set), with a principal diagnosis of asthma (Asthma Value Set) without telehealth
-  ["Encounter, Performed": "HEDIS; Acute Inpatient"] Enc
-    where Enc.relevantPeriod in Interval [start of "Measurement Period" - 12 months, end of "Measurement Period"
+  (["Encounter, Performed": "HEDIS; ED"]
+  union ["Encounter, Performed": "HEDIS; Acute Inpatient"]) Enc
+    where Enc.relevantPeriod during "Measurement Period"]
       and not Enc.placeOfService in "HEDIS; Telehealth POS"
       and not Enc.code.modifier in "HEDIS; Telehealth Modifier"
+    where exists(E.Diagnosis Dx
+      where Dx.rank = 1
+        and (Dx.code in "HEDIS; Asthma"
+        )
 
-define "Acute Inpatient, No Nonacute Inpatient":
+define "ED or Acute Inpatient No Telehealth - Prior Year":
+// At least one acute inpatient encounter (Acute Inpatient Value Set), with a principal diagnosis of asthma (Asthma Value Set) without telehealth
+  (["Encounter, Performed": "HEDIS; ED"]
+  union ["Encounter, Performed": "HEDIS; Acute Inpatient"]) Enc
+    where Enc.relevantPeriod in Interval [start of "Measurement Period" - 12 Months, start of "Measurement Period"]
+      and not Enc.placeOfService in "HEDIS; Telehealth POS"
+      and not Enc.code.modifier in "HEDIS; Telehealth Modifier"
+    where exists(E.Diagnosis Dx
+      where Dx.rank = 1
+        and (Dx.code in "HEDIS; Asthma"
+        )
+
+define "Acute Inpatient, No Nonacute Inpatient - Current Year":
 //•	At least one acute inpatient encounter (Acute Inpatient Value Set), with a principal diagnosis of asthma (Asthma Value Set) without telehealth (exclude nonacute inpatient inpatient days, identify discharge date for the stay)
 	["Encounter, Performed": "HEDIS; Inpatient Stay"] AcuteEnc
-    where AcuteEnc.dischargeDate during Interval [start of "Measurement Period" - 12 months, end of "Measurement Period"
+    where AcuteEnc.dischargeDate during "Measurement Period"
     and not "Nonacute Inpatient Visit"
+    where exists(E.Diagnosis Dx
+      where Dx.rank = 1
+        and (Dx.code in "HEDIS; Asthma"
+        )
+
+define "Acute Inpatient, No Nonacute Inpatient - Prior Year":
+//•	At least one acute inpatient encounter (Acute Inpatient Value Set), with a principal diagnosis of asthma (Asthma Value Set) without telehealth (exclude nonacute inpatient inpatient days, identify discharge date for the stay)
+	["Encounter, Performed": "HEDIS; Inpatient Stay"] AcuteEnc
+    where AcuteEnc.dischargeDate during Interval [start of "Measurement Period" - 12 months, start of "Measurement Period"]
+    and not "Nonacute Inpatient Visit"
+    where exists(E.Diagnosis Dx
+      where Dx.rank = 1
+        and (Dx.code in "HEDIS; Asthma"
+        )
 
 define "Nonacute Inpatient Visit":
 	exists(["Encounter, Performed": "HEDIS; Inpatient Stay"] Inpatient
 		with ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] Nonacute
 			such that Inpatient.claimId = Nonacute.claimId
-		where Inpatient.dischargeDate during "Measurement Period"
-		)
-
-define "All Acute Inpatient Encounters":
-  "Acute Inpatient No Telehealth"
-  union "Acute Inpatient, No Nonacute Inpatient"
-
-define "Inpatient or ED Visit":
-  (["Encounter, Performed": "HEDIS; ED"]
-  union "All Inpatient Encounters") IpEDEnc
-    where IpEDEnc.relevantPeriod ends during Interval [start of "Measurement Period" - 12 months, end of "Measurement Period"
-
-define "All Inpatient or ED Visits with Principal Diagnosis Asthma During Qualifying Period":
-// Intended to capture encounter-specific diagnosis that is of highest of importance (i.e., principal diagnosis) during the encounter types detailed
-  ("Inpatient or ED Visit"
-  union "All Acute Inpatient Encounters") E
-    where exists(E.Diagnosis Dx
-      where Dx.rank = 1
-        and (Dx.code in "HEDIS; Asthma"
-        )
-    )
+	)
 
 define "Outpatient Visit without Telehealth":
   (["Encounter, Performed": "HEDIS; Outpatient"]
@@ -117,96 +130,79 @@ define "Outpatient Telehealth Visit":
     where Enc.placeOfService in "HEDIS; Telehealth POS"
 			or Enc.code.modifier in "HEDIS; Telehealth Modifier"]
 
-define "Outpatient Visit without Telehealth: >=4 Qualifying Visits":
-  count("Outpatient Visit without Telehealth" NonTelehealthEnc
-    where NonTelehealthEnc.relevantPeriod starts during Interval [start of "Measurement Period" - 12 months, end of "Measurement Period"]
-    with ["Diagnosis": "HEDIS; Asthma"] D
-      such that D.prevalencePeriod starts during NonTelehealthEnc.relevantPeriod) >= 4
+define "Outpatient Visits Current Year"
+  "Outpatient Visit without Telehealth"
+  union "Outpatient Telehealth Visit") OPVisit
+    where OPVisit.relevantPeriod during during "Measurement Period"
+    with(["Diagnosis": "HEDIS; Asthma"] D
+      such that D.prevalencePeriod starts during OPVisit.relevantPeriod)
 
-define "Outpatient Visit without Telehealth: >=3 Qualifying Visits":
-  count("Outpatient Visit without Telehealth" NonTelehealthEnc
-    where NonTelehealthEnc.relevantPeriod starts during Interval [start of "Measurement Period" - 12 months, end of "Measurement Period"]
-    with ["Diagnosis": "HEDIS; Asthma"] D
-      such that D.prevalencePeriod starts during NonTelehealthEnc.relevantPeriod) >= 3
+define "Outpatient Visits Prior Year":
+  ("Outpatient Visit without Telehealth"
+  union "Outpatient Telehealth Visit") OPVisit
+    where OPVisit.relevantPeriod during during Interval [start of "Measurement Period" -12 months, start of "Measurement Period"]
+    with(["Diagnosis": "HEDIS; Asthma"] D
+      such that D.prevalencePeriod starts during OPVisit.relevantPeriod)
 
-define "Outpatient Visit without Telehealth: >=2 Qualifying Visits":
-  count("Outpatient Visit without Telehealth" NonTelehealthEnc
-    where NonTelehealthEnc.relevantPeriod starts during Interval [start of "Measurement Period" - 12 months, end of "Measurement Period"]
-    with ["Diagnosis": "HEDIS; Asthma"] D
-      such that D.prevalencePeriod starts during NonTelehealthEnc.relevantPeriod) >= 2
-
-define "Outpatient Visit without Telehealth: >=1 Qualifying Visit":
-  count("Outpatient Visit without Telehealth" NonTelehealthEnc
-    where NonTelehealthEnc.relevantPeriod starts during Interval [start of "Measurement Period" - 12 months, end of "Measurement Period"]
-    with ["Diagnosis": "HEDIS; Asthma"] D
-      such that D.prevalencePeriod starts during NonTelehealthEnc.relevantPeriod) >= 1
-
-define "Outpatient Telehealth Visit: >= 3 Qualifying Visits"
-  count("Outpatient Telehealth Visit" TelehealthEnc
-    where TelehealthEnc.relevantPeriod starts during Interval [start of "Measurement Period" - 12 months, end of "Measurement Period"]
-    with ["Diagnosis": "HEDIS; Asthma"] D
-      such that D.prevalencePeriod starts during TelehealthEnc.relevantPeriod) >= 3
-
-define "Outpatient Telehealth Visit: >=2 Qualifying Visits"
-  count("Outpatient Telehealth Visit" TelehealthEnc
-    where TelehealthEnc.relevantPeriod starts during Interval [start of "Measurement Period" - 12 months, end of "Measurement Period"]
-    with ["Diagnosis": "HEDIS; Asthma"] D
-      such that D.prevalencePeriod starts during TelehealthEnc.relevantPeriod) >= 2
-
-define "Outpatient Telehealth Visit: >=1 Qualifying Visit"
-  count("Outpatient Telehealth Visit" TelehealthEnc
-    where TelehealthEnc.relevantPeriod starts during Interval [start of "Measurement Period" - 12 months, end of "Measurement Period"]
-    with ["Diagnosis": "HEDIS; Asthma"] D
-      such that D.prevalencePeriod starts during TelehealthEnc.relevantPeriod) >= 1
-
-define "Qualifying Outpatient Visits":
-// Only three of the min of four visits may be an outpatient telehealth visit, a telephone visit or an online assessment
-  "Outpatient Visit without Telehealth: >=4 Qualifying Visits"
-  or ("Outpatient Visit without Telehealth: >=3 Qualifying Visits"
-    and "Outpatient Telehealth Visit: >=1 Qualifying Visit")
-  or ("Outpatient Visit without Telehealth: >=2 Qualifying Visits"
-    and "Outpatient Telehealth Visit: >=2 Qualifying Visits")
-  or ("Outpatient Visit without Telehealth: >=1 Qualifying Visits"
-    and "Outpatient Telehealth Visit: >=3 Qualifying Visits")
-
-define "At Least Two Dispensing Events":
-// Needed to ensure that outpatient encounters also have had 2 or more dispensing events within two year window
+define "At Least Two Dispensing Events Current Year":
+// Needed to ensure that outpatient encounters also have had 2 or more dispensing events
   count("Asthma Medication" M
-    where M.relevantPeriod starts during Interval [start of "Measurement Period" - 12 months, end of "Measurement Period"]) >=2
+    where M.relevantPeriod starts during "Measurement Period") >=2
 
-define "At Least Four Dispensing Events":
+define "At Least Two Dispensing Events Prior Year":
+// Needed to ensure that outpatient encounters also have had 2 or more dispensing events
+  count("Asthma Medication" M
+    where M.relevantPeriod starts during Interval [start of "Measurement Period" - 12 Months, start of "Measurement Period"]) >=2
+
+define "At Least Four Dispensing Events - Current Year":
 //to meet one definition of persistent asthma
   count("Asthma Medication" M
-    where M.relevantPeriod starts during Interval [start of "Measurement Period" - 12 months, end of "Measurement Period"]) >=4
+    where M.relevantPeriod starts during "Measurement Period") >=4
 
-define "Qualifying Outpatient Visits with Different Days":
+define "At Least Four Dispensing Events - Prior Year":
+//to meet one definition of persistent asthma
+  count("Asthma Medication" M
+    where M.relevantPeriod starts during Interval [start of "Measurement Period" - 12 months, start of "Measurement Period"]) >=4
+
+define "Outpatient Asthma Visits and Dispensing Events - Current Year":
 // on different dates of service; and at least two asthma medication dispensing events for any controller or reliever medication
-  exists("Qualifying Outpatient Visits" OPVisit1
-    and exists "Qualifying Outpatient Visits" OPVisit2
-    and exists "Qualifying Outpatient Visits" OPVisit3
-    and exists "Qualifying Outpatient Visits" OPVisit4
+  exists("Outpatient Visits Current Year" OPVisit1
+    and exists "Outpatient Visits Current Year" OPVisit2
+    and exists "Outpatient Visits Current Year" OPVisit3
+    and exists "Outpatient Visits Current Year" OPVisit4
     where OPVisit1.relevantPeriod 1 day or more before OPVisit2.relevantPeriod
       and OPVisit2.relevantPeriod 1 day or more before OPVisit3.relevantPeriod
-      and OPVisit3.relevantPeriod 1 day or more before OPVisit4.relevantPeriod)
-    and exists "At Least Two Dispensing Events"
+      and OPVisit3.relevantPeriod 1 day or more before OPVisit4.relevantPeriod
+    and exists "Outpatient Visit without Telehealth"
+    and exists "At Least Two Dispensing Events Current Year"
 
-define "Persistent Asthma Criteria":
-  "Qualifying Outpatient Visits with Different Days"
-  union "All Inpatient or ED Visits with Principal Diagnosis Asthma During Qualifying Period"
-  union "At Least Four Dispensing Events"
-  union "Four Leukotriene Modifiers or Antibody Inhibitors Medications: Persistent"
+define "Outpatient Asthma Visits and Dispensing Events - Prior Year":
+// on different dates of service; and at least two asthma medication dispensing events for any controller or reliever medication
+  exists("Outpatient Visits Prior Year" OPVisit1
+    and exists "Outpatient Visits Prior Year" OPVisit2
+    and exists "Outpatient Visits Prior Year" OPVisit3
+    and exists "Outpatient Visits Prior Year" OPVisit4
+    where OPVisit1.relevantPeriod 1 day or more before OPVisit2.relevantPeriod
+      and OPVisit2.relevantPeriod 1 day or more before OPVisit3.relevantPeriod
+      and OPVisit3.relevantPeriod 1 day or more before OPVisit4.relevantPeriod
+    and exists "Outpatient Visit without Telehealth"
+    and exists "At Least Two Dispensing Events Prior Year"
 
-define "Persistent Asthma"
-  exists ("Persistent Asthma Criteria" PAsthma1
-    and exists "Persistent Asthma Criteria" PAsthma2
-    where PAsthma1.relevantPeriod during "Measurement Period"
-    and PAsthma2.relevantPeriod during Interval [start of "Measurement Period" - 12 months, end of end of "Measurement Period" - 12 months])
+define "Persistent Asthma Current Year":
+  "ED or Acute Inpatient No Telehealth - Current Year"
+  union "Acute Inpatient, No Nonacute Inpatient - Current Year"
+  union "Outpatient Asthma Visits and Dispensing Events - Current Year"
+  union "At Least Four Dispensing Events - Current Year"
+  union "Four Leukotriene Modifiers or Antibody Inhibitors Medications in Current Year"
 
-define "Four Leukotriene Modifiers or Antibody Inhibitors Medications: Persistent":
-  "Four Asthma Medications: Leukotriene Modifiers or Antibody Inhibitors in Measurement Period"
-  union "Four Asthma Medications: Leukotriene Modifiers or Antibody Inhibitors in Prior Year"
+define "Persistent Asthma Prior Year"
+    "ED or Acute Inpatient No Telehealth - Prior Year"
+    union "Acute Inpatient, No Nonacute Inpatient - Prior Year"
+    union "Outpatient Asthma Visits and Dispensing Events - Prior Year"
+    union "At Least Four Dispensing Events - Prior Year"
+    union "Four Leukotriene Modifiers or Antibody Inhibitors Medications in Prior Year"
 
-define "Four Asthma Medications: Leukotriene Modifiers or Antibody Inhibitors in Measurement Period":
+define "Four Asthma Medications: Leukotriene Modifiers or Antibody Inhibitors in Current Year":
 // A member identified as having persistent asthma because of at least four asthma medication dispensing events, where leukotriene modifiers or antibody inhibitors were the sole asthma medication dispensed in that year, must also have at least one diagnosis of asthma (Asthma Value Set), in any setting, in the same year as the leukotriene modifier or antibody inhibitor (i.e., the measurement year or the year prior to the measurement year).
   count("Controller Leukotriene Modifiers or Antibody Inhibitors" M
     where M.relevantPeriod starts during "Measurement Period"
@@ -279,7 +275,8 @@ define "All Asthma Medication Quantity":
 define "Denominator":
   AgeInYearsAt(end of "Measurement Period") >= 5
   and AgeInYearsAt(end of "Measurement Period") < 65
-  and "Persistent Asthma"
+  and "Persistent Asthma Current Year"
+  and "Persistent Asthma Prior Year"
 
 define "Exclusion: Hospice":
   /*
