@@ -1,18 +1,18 @@
 ---
 measure:
-  name: 19.HEDIS.Mma2
+  name: 20.HEDIS.Amr
   required:
-    display_title: 'Medication Management for People with Asthma: 75% Compliance'
+    display_title: Asthma Medication Ratio
     inverse: false
     subject_type: Patient
     set: HEDIS
-    external_id: MMAB
+    external_id: AMR
   optional:
-    description: The percentage of members 5–64 years of age during the measurement
-      year who were identified as having persistent asthma and were dispensed appropriate
-      medications that they remained on for at least 75% of their treatment period.
-    gap_resolution_action: Patient needs attention for asthma controller medication
-      compliance
+    description: The percentage of patients 5–64 years of age who were identified
+      as having persistent asthma and had a ratio of controller medications to total
+      asthma medications of ≥0.50 during the measurement year.
+    gap_resolution_action: Patient needs attention for ratio of asthma controller
+      medications to total asthma medications
     version: 2020
     mips_measure_type:
     mips_high_priority:
@@ -28,7 +28,7 @@ denominator:
   - components:
     - display_title: Inpatient or ED Visit
       show_codes: true
-      annotation: 'Acute inpatient visits cannot have telehealth modifier or place of service'
+      annotation: Acute inpatient visits cannot have telehealth modifier or place of service
       records:
       - model: ClinicalActivity
         value_set: HEDIS; ED
@@ -37,7 +37,7 @@ denominator:
     - display_title: Asthma
       logical_operator: AND
       show_codes: true
-      annotation: principal diagnosis
+      annotation: Principal diagnosis
       records:
       - model: Diagnosis
         value_set: HEDIS; Asthma
@@ -63,7 +63,7 @@ denominator:
         value_set: HEDIS; Asthma
   - logical_operator: OR
     components:
-    - display_title: 4 Outpatient Visits
+    - display_title: Outpatient Visit
       show_codes: true
       annotation: '4 visits with up to three with telehealth modifier or place of service'
       records:
@@ -79,6 +79,7 @@ denominator:
         value_set: HEDIS; Asthma
     - display_title: Asthma Medication
       logical_operator: AND
+      annotation: 'At least 2 dispensing events'
       show_codes: true
       records:
       - model: Medication
@@ -125,7 +126,8 @@ denominator:
         value_set:  NCQA; Reslizumab Medications
   - logical_operator: OR
     components:
-    - display_title: 4 Asthma Medication Events
+    - display_title: Asthma Medication
+      annotation: 'At least 4 dispensing events'
       show_codes: true
       records:
       - model: Medication
@@ -165,11 +167,31 @@ denominator:
       - model: Medication
         value_set: NCQA; Zileuton Medications
       - model: Medication
-        value_set:  NCQA; Benralizumab Medications
+          value_set:  NCQA; Benralizumab Medications
       - model: Medication
-        value_set:  NCQA; Mepolizumab Medications
+          value_set:  NCQA; Mepolizumab Medications
       - model: Medication
-        value_set:  NCQA; Reslizumab Medications
+          value_set:  NCQA; Reslizumab Medications
+  - logical_operator: OR
+    components:
+    - display_title: Leukotriene Modifiers or Antibody Inhibitor
+      show_codes: true
+      annotation: At least 4 dispensing events
+      records:
+      - model: Medication
+        value_set: NCQA; Omalizumab Medications
+      - model: Medication
+        value_set: NCQA; Montelukast Medications
+      - model: Medication
+        value_set: NCQA; Zafirlukast Medications
+      - model: Medication
+        value_set: NCQA; Zileuton Medications
+    - display_title: Asthma
+      logical_operator: AND
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Asthma
 exclusion:
   description:
   reasons:
@@ -178,14 +200,14 @@ exclusion:
     display_title: Hospice
     description: Patient in hospice during the measurement year
     component_groups:
-  - components:
-    - display_title: Hospice Service
-      show_codes: true
-      records:
-      - model: ClinicalActivity
-        value_set: HEDIS; Hospice Encounter
-      - model: ClinicalActivity
-        value_set: HEDIS; Hospice Intervention
+    - components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Intervention
   - config_link_id: exclusion_1
     code_value:
     display_title: Condition
@@ -212,16 +234,50 @@ exclusion:
   - config_link_id: exclusion_2
     code_value:
     display_title: No Medication
-    description: Patient excluded due to lack of asthma controller medications dispensed
-      during the measurement year
+    description: Patient excluded due to lack of asthma controller medications dispensed during
+      the measurement year
     component_groups:
     - logical_operator: NOT
       components:
-      - display_title: Asthma Controller Medication
+      - display_title: Asthma Controller
         show_codes: true
         records:
         - model: Medication
-          value_set: HEDIS; Asthma Controller Medications
+          value_set: NCQA; Dyphylline Guaifenesin Medications
+        - model: Medication
+          value_set: NCQA; Budesonide Formoterol Medications
+        - model: Medication
+          value_set: NCQA; Fluticasone Salmeterol Medications
+        - model: Medication
+          value_set: NCQA; Beclomethasone Medications
+        - model: Medication
+          value_set: NCQA; Ciclesonide Medications
+        - model: Medication
+          value_set: NCQA; Flunisolide Medications
+        - model: Medication
+          value_set: NCQA; Mometasone Medications
+        - model: Medication
+          value_set: NCQA; Theophylline Medications
+        - model: Medication
+          value_set: NCQA; Fluticasone Vilanterol Medications
+        - model: Medication
+          value_set: NCQA; Formoterol Mometasone Medications
+        - model: Medication
+          value_set: NCQA; Budesonide Medications
+        - model: Medication
+          value_set: NCQA; Fluticasone Medications
+        - model: Medication
+          value_set: NCQA; Levalbuterol Medications
+        - model: Medication
+          value_set: NCQA; Albuterol Medications
+        - model: Medication
+          value_set: NCQA; Omalizumab Medications
+        - model: Medication
+          value_set: NCQA; Montelukast Medications
+        - model: Medication
+          value_set: NCQA; Zafirlukast Medications
+        - model: Medication
+          value_set: NCQA; Zileuton Medications
 exception:
   description:
   reasons:
@@ -230,102 +286,34 @@ performance_met:
   reasons:
   - config_link_id: performance_met
     code_value:
-    display_title: Medication Compliance ≥75%
-    description: Patient achieved a PDC of at least 75% for their asthma controller
-      medications during the measurement year
+    display_title: Medication Ratio ≥0.50
+    description: The number of patients who have a medication ratio of 0.50 or greater
+      during the measurement year.
     component_groups:
     - components:
-      - display_title: Asthma Controller Medication
-        annotation: 'With proportion of days covered: ≥75%'
+      - display_title: Asthma Medication
+        annotation: 'With ratio: ≥0.50'
         show_codes: true
         records:
-      - model: Medication
-        value_set: NCQA; Dyphylline Guaifenesin Medications
-      - model: Medication
-        value_set: NCQA; Budesonide Formoterol Medications
-      - model: Medication
-        value_set: NCQA; Fluticasone Salmeterol Medications
-      - model: Medication
-        value_set: NCQA; Beclomethasone Medications
-      - model: Medication
-        value_set: NCQA; Ciclesonide Medications
-      - model: Medication
-        value_set: NCQA; Flunisolide Medications
-      - model: Medication
-        value_set: NCQA; Mometasone Medications
-      - model: Medication
-        value_set: NCQA; Theophylline Medications
-      - model: Medication
-        value_set: NCQA; Fluticasone Vilanterol Medications
-      - model: Medication
-        value_set: NCQA; Formoterol Mometasone Medications
-      - model: Medication
-        value_set: NCQA; Budesonide Medications
-      - model: Medication
-        value_set: NCQA; Fluticasone Medications
-      - model: Medication
-        value_set: NCQA; Omalizumab Medications
-      - model: Medication
-        value_set: NCQA; Montelukast Medications
-      - model: Medication
-        value_set: NCQA; Zafirlukast Medications
-      - model: Medication
-        value_set: NCQA; Zileuton Medications
-      - model: Medication
-        value_set:  NCQA; Benralizumab Medications
-      - model: Medication
-        value_set:  NCQA; Mepolizumab Medications
-      - model: Medication
-        value_set:  NCQA; Reslizumab Medications
+        - model: Medication
+          value_set: NCQA; Asthma Reliever Medications
+        - model: Medication
+          value_set: NCQA; Asthma Controller Medications
 performance_not_met:
   description:
   reasons:
   - config_link_id: performance_not_met
     code_value:
-    display_title: Medication Compliance <75%
-    description: Patient did not achieve a PDC of at least 75% for their asthma controller
-      medications during the measurement year
+    display_title: Medication Ratio <0.50
+    description: Patient has a ratio of controller medications to total asthma medications
+      of <0.50 during the measurement period
     component_groups:
     - components:
-      - display_title: Asthma Controller Medication
-        annotation: 'With proportion of days covered: <75%'
+      - display_title: Asthma Medication
+        annotation: 'With ratio: <0.50'
         show_codes: true
         records:
-      - model: Medication
-        value_set: NCQA; Dyphylline Guaifenesin Medications
-      - model: Medication
-        value_set: NCQA; Budesonide Formoterol Medications
-      - model: Medication
-        value_set: NCQA; Fluticasone Salmeterol Medications
-      - model: Medication
-        value_set: NCQA; Beclomethasone Medications
-      - model: Medication
-        value_set: NCQA; Ciclesonide Medications
-      - model: Medication
-        value_set: NCQA; Flunisolide Medications
-      - model: Medication
-        value_set: NCQA; Mometasone Medications
-      - model: Medication
-        value_set: NCQA; Theophylline Medications
-      - model: Medication
-        value_set: NCQA; Fluticasone Vilanterol Medications
-      - model: Medication
-        value_set: NCQA; Formoterol Mometasone Medications
-      - model: Medication
-        value_set: NCQA; Budesonide Medications
-      - model: Medication
-        value_set: NCQA; Fluticasone Medications
-      - model: Medication
-        value_set: NCQA; Omalizumab Medications
-      - model: Medication
-        value_set: NCQA; Montelukast Medications
-      - model: Medication
-        value_set: NCQA; Zafirlukast Medications
-      - model: Medication
-        value_set: NCQA; Zileuton Medications
-      - model: Medication
-        value_set:  NCQA; Benralizumab Medications
-      - model: Medication
-        value_set:  NCQA; Mepolizumab Medications
-      - model: Medication
-        value_set:  NCQA; Reslizumab Medications
+        - model: Medication
+          value_set: NCQA; Asthma Reliever Medications
+        - model: Medication
+          value_set: NCQA; Asthma Controller Medications

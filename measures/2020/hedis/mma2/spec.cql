@@ -6,15 +6,16 @@ library HEDIS_MMA2_2020 version '1'
  * ID: MMA2
  * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Chana West
  *
   */
 
 using QDM
 
+include "../shared/hedis_shared" version '1' called HedisShared
+
 // HEDIS value sets
 
-valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
@@ -28,76 +29,42 @@ valueset "HEDIS; Obstructive Chronic Bronchitis": '2.16.840.1.113883.3.464.1004.
 valueset "HEDIS; Chronic Respiratory Conditions Due to Fumes/Vapors": '2.16.840.1.113883.3.464.1004.1063'
 valueset "HEDIS; Cystic Fibrosis": '2.16.840.1.113883.3.464.1004.1068'
 valueset "HEDIS; Acute Respiratory Failure": '2.16.840.1.113883.3.464.1004.1019'
+valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
+valueset "HEDIS; Online Assessments": '2.16.840.1.113883.3.464.1004.1446'
+valueset "HEDIS; Telehealth Modifier": '2.16.840.1.113883.3.464.1004.1445'
+valueset "HEDIS; Telehealth POS": '2.16.840.1.113883.3.464.1004.1460'
+valueset "HEDIS; Telephone Visits": '2.16.840.1.113883.3.464.1004.1246'
+valueset "HEDIS; Nonacute Inpatient Stay": '2.16.840.1.113883.3.464.1004.1398'
+valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
 
 // NCQA medication list value sets
-
-valueset "NCQA; Asthma Controller Medications"
-valueset "NCQA; Asthma Reliever Medications"
+valueset "NCQA; Dyphylline Guaifenesin Medications"
+valueset "NCQA; Budesonide Formoterol Medications"
+valueset "NCQA; Fluticasone Salmeterol Medications"
+valueset "NCQA; Beclomethasone Medications"
+valueset "NCQA; Ciclesonide Medications"
+valueset "NCQA; Flunisolide Medications"
+valueset "NCQA; Mometasone Medications"
+valueset "NCQA; Theophylline Medications"
+valueset "NCQA; Fluticasone Vilanterol Medications"
+valueset "NCQA; Formoterol Mometasone Medications"
+valueset "NCQA; Budesonide Medications"
+valueset "NCQA; Fluticasone Medications"
+valueset "NCQA; Levalbuterol Medications"
+valueset "NCQA; Albuterol Medications"
+valueset "NCQA; Omalizumab Medications"
+valueset "NCQA; Montelukast Medications"
+valueset "NCQA; Zafirlukast Medications"
+valueset "NCQA; Zileuton Medications"
+valueset "NCQA; Benralizumab Medications"
+valueset "NCQA; Mepolizumab Medications"
+valueset "NCQA; Reslizumab Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Visit or Medication Exists During Measurement Year"
-  "Inpatient Visit with Asthma Exists During Measurement Year"
-  or "Four Outpatient Visits With Asthma and Two Medications Exist During Measurement Year"
-  or "Four Medications Exist During Measurement Year"
-
-define "Visit or Medication Exists During Prior Year"
-  "Inpatient Visit with Asthma Exists During Prior Year"
-  or "Four Outpatient Visits With Asthma and Two Medications Exist During Prior Year"
-  or "Four Medications Exist During Prior Year"
-
-define "Inpatient Visit":
-  ["Encounter, Performed": "HEDIS: ED"]
-  union ["Encounter, Performed": "HEDIS: Acute Inpatient"]
-
-define "Inpatient Visit with Asthma Exists During Measurement Year":
-  exists("Inpatient Visit" E
-    where E.relevantPeriod starts during "Measurement Period"
-    with ["Diagnosis": "HEDIS; Asthma"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod)
-
-define "Inpatient Visit with Asthma Exists During Prior Year":
-  exists("Inpatient Visit" E
-    where E.relevantPeriod starts during [12 months before start of "Measurement Period", start of "Measurement Period"]
-    with ["Diagnosis": "HEDIS; Asthma"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod)
-
-define "Outpatient Visit":
-  ["Encounter, Performed": "HEDIS: Outpatient"]
-  union ["Encounter, Performed": "HEDIS: Observation"]
-
-define "Asthma Medication":
-  ["Medication, Dispensed": "NCQA; Asthma Controller Medications"]
-  union ["Medication, Dispensed": "NCQA; Asthma Reliever Medications"]
-
-define "Four Outpatient Visits With Asthma and Two Medications Exist During Measurement Year":
-  count("Outpatient Visit" E
-    where E.relevantPeriod starts during "Measurement Period"
-    with ["Diagnosis": "HEDIS; Asthma"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod) >= 4
-  and count("Asthma Medication" M
-    where M.relevantPeriod starts during "Measurement Period") >= 2
-
-define "Four Outpatient Visits With Asthma and Two Medications Exist During Prior Year":
-  count("Outpatient Visit" E
-    where E.relevantPeriod starts during [12 months before start of "Measurement Period", start of "Measurement Period"]
-    with ["Diagnosis": "HEDIS; Asthma"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod) >= 4
-  and count("Asthma Medication" M
-    where M.relevantPeriod starts during "Measurement Period") >= 2
-
-define "Four Medications Exist During Measurement Year":
-  count("Asthma Medication" M
-    where M.relevantPeriod starts during "Measurement Period") >= 4
-
-define "Four Medications Exist During Prior Year":
-  count("Asthma Medication" M
-    where M.relevantPeriod starts during [12 months before start of "Measurement Period", start of "Measurement Period"]) >= 4
-
-define "Hospice":
-  ["Intervention, Performed": "HEDIS; Hospice"]
 
 define "Excluded Condition":
   ["Diagnosis": "HEDIS; Emphysema"]
@@ -108,40 +75,91 @@ define "Excluded Condition":
   union ["Diagnosis": "HEDIS; Cystic Fibrosis"]
   union ["Diagnosis": "HEDIS; Acute Respiratory Failure"]
 
-define "Asthma Medication Start Date":
-  ["Medication, Dispensed": "NCQA; Asthma Controller Medications"] M
-    where M.relevantPeriod starts during "Measurement Period"
-    return start of M.relevantPeriod
+define "Asthma Controller Medication in Measurement Period":
+  (["Medication, Dispensed": "NCQA; Dyphylline Guaifenesin Medications"]
+  union ["Medication, Dispensed": "NCQA; Budesonide Formoterol Medications"]
+  union ["Medication, Dispensed": "NCQA; Fluticasone Salmeterol Medications"]
+  union ["Medication, Dispensed": "NCQA; Beclomethasone Medications"]
+  union ["Medication, Dispensed": "NCQA; Ciclesonide Medications"]
+  union ["Medication, Dispensed": "NCQA; Flunisolide Medications"]
+  union ["Medication, Dispensed": "NCQA; Mometasone Medications"]
+  union ["Medication, Dispensed": "NCQA; Theophylline Medications"]
+  union ["Medication, Dispensed": "NCQA; Fluticasone Vilanterol Medications"]
+  union ["Medication, Dispensed": "NCQA; Formoterol Mometasone Medications"]
+  union ["Medication, Dispensed": "NCQA; Budesonide Medication"]
+  union ["Medication, Dispensed": "NCQA; Fluticasone Medications"]
+  union ["Medication, Dispensed": "NCQA; Omalizumab Medications"]
+  union ["Medication, Dispensed": "NCQA; Montelukast Medications"]
+  union ["Medication, Dispensed": "NCQA; Zafirlukast Medications"]
+  union ["Medication, Dispensed": "NCQA; Zileuton Medications"]
+  union ["Medication, Dispensed": "NCQA; Benralizumab Medications"]
+  union ["Medication, Dispensed": "NCQA; Mepolizumab Medications"]
+  union ["Medication, Dispensed": "NCQA; Reslizumab Medications"]) ControllerMedication
+    where ControllerMedication.relevantDatetime starts during "Measurement Period"
 
-define "Asthma Medication Stop Date":
-  ["Medication, Dispensed": "NCQA; Asthma Controller Medications"] M
-    where M.relevantPeriod starts during "Measurement Period"
-    return end of M.relevantPeriod
+define "First Asthma Controller Medication in Measurement Period":
+  First("Asthma Controller Medication in Measurement Period" FirstDispensed
+    sort by start of FirstDispensed.relevantDatetime asc)
+    return start of FirstDispensed.relevantPeriod
 
-define "Asthma Medication Stop Date or End of Measurement Period":
-  Lower("Asthma Medication Stop Date", end of "Measurement Period")
+define "Multiple Different Controllers Same Day - Longest Supply Date":
+//If multiple prescriptions for different medications are dispensed on the same day, calculate the number of days covered by a controller medication using the prescriptions with the longest days supply.
+  from
+  "Asthma Controller Medication in Measurement Period" ControlMed1,
+  "Asthma Controller Medication in Measurement Period" ControlMed2
+    where ControlMed1.code != ControlMed2.code
+    and ControlMed1.relevantPeriod starts same day as start of ControlMed2.relevantPeriod
+    and ControlMed1.relevantPeriod ends 1 day or more after end of ControlMed2.relevantPeriod
+  return ControlMed1.relevantPeriod
+          intersect "Treatment Period"
 
-define "First Asthma Medication Start Date":
-  First(["Medication, Dispensed": "NCQA; Asthma Controller Medications"] M
-    where M.relevantPeriod starts during "Measurement Period"
-    sort by start of M.relevantPeriod asc)
-    return start of M.relevantPeriod
+define "Multiple Different Controllers Diff Day - Overlapping Supply":
+//For multiple different prescriptions dispensed on different days with overlapping days supply, count each day in the treatment period only once toward numerator
+//distinct is intended to eliminate duplicate days in treatment period
+  distinct (from
+        ("Asthma Controller Medication in Measurement Period" ControlMed1,
+        "Asthma Controller Medication in Measurement Period" ControlMed2
+        	where ControlMed1.code != ControlMed2.code
+          	and ControlMed1.relevantPeriod overlaps ControlMed2.relevantPeriod)OverlapDiffMeds
+        return all Interval[start of OverlapDiffMeds.relevantPeriod, end of OverlapDiffMeds.relevantPeriod]
+					intersect "Treatment Period"
+    )
+
+define "Same Controllers - Overlapping Supply":
+//If multiple prescriptions for the same medication are dispensed on the same day or different days with overlapping days supply, sum the days supply and use the total to calculate the number of days covered by a controller medication.
+  from
+  ("Asthma Controller Medication in Measurement Period" ControlMed1,
+  "Asthma Controller Medication in Measurement Period" ControlMed2
+    where ControlMed1.code ~ ControlMed2.code
+    and ControlMed1.relevantPeriod overlaps ControlMed2.relevantPeriod)OverlapSameMeds
+  return all Interval[start of OverlapSameMeds.relevantPeriod, end of OverlapSameMeds.relevantPeriod]
+		intersect "Treatment Period"
+
+define "Non-overlapping Controllers":
+// Identifies all intervals of controller medications, associated with the measurement period
+  collapse ("Asthma Controller Medication in Measurement Period" ControllerPeriod
+      return ControllerPeriod.relevantPeriod
+      )
+
+define "Controllers Dispensed Relevant Periods":
+  "Multiple Different Controllers Same Day - Longest Supply Date"
+  and "Multiple Different Controllers Diff Day - Overlapping Supply"
+  and "Same Controllers - Overlapping Supply"
+  and "Non-overlapping Controllers"
 
 define "Treatment Period":
-  ["First Asthma Medication Start Date", end of "Measurement Period"]
-
-define "Days Covered Per Medication":
-  "Asthma Medication Stop Date or End of Measurement Period" - "Asthma Medication Start Date"
+  ["First Asthma Controller Medication in Measurement Period", end of "Measurement Period"]
 
 /* Populations */
 
 define "Denominator":
-  AgeInYearsAt(end of "Measurement Period") >= 5
-  and AgeInYearsAt(end of "Measurement Period") < 65
-  and "Visit or Medication Exists During Measurement Year"
-  and "Visit or Medication Exists During Prior Year"
-  and not exists("Hospice" I
-    where I.relevantPeriod starts during "Measurement Period")
+  "HEDIS AMR: Denominator"
+
+define "Exclusion: Hospice":
+  /*
+  * config_link_id: exclusion_required_hospice
+  */
+  exists("Hospice During Period"("Measurement Period"))
 
 define "Denominator Exclusion: Condition":
   /*
@@ -154,14 +172,13 @@ define "Denominator Exclusion: No Medication":
   /*
    * config_link_id: exclusion_1
    */
-  not exists(["Medication, Dispensed": "NCQA; Asthma Controller Medications"] M
-    where M.relevantPeriod starts during "Measurement Period")
+  "HEDIS AMR: Denominator Exclusion: No Medication"
 
 define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  Sum("Days Covered Per Medication") / "Treatment Period" >= 0.75
+  Round("Cumulative Medication Duration"("Controllers Dispensed Relevant Periods") / "Treatment Period") >= 0.75
 
 define "Numerator Performance Not Met":
   /*
