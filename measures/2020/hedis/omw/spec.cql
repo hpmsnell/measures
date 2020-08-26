@@ -66,38 +66,88 @@ define "Fracture":
   ["Diagnosis": "HEDIS; Fractures"]
   union ["Procedure, Performed": "HEDIS; Fractures"]
 
-define "EncounterSet2":
-  ["Encounter, Performed": "HEDIS; Inpatient Stay"]
-    where not exists (E1.diagnoses D
-      where D.code in "Fracture")
-
-define "Enounter":
-  ["EncounterSet1"]
-  union ["EncounterSet2"]
-
 define "Encounter With Fracture":
-  "Encounter" E
+  "EncounterSet1" E
     with "Fracture" D
       such that D.prevalencePeriod starts during E.relevantPeriod
     without ["Encounter, Performed": "HEDIS; Inpatient Stay"] E2
       such that E2.relevantPeriod starts during E.relevantPeriod
 
+define "Encounter With Fracture Resulted in Inpatient Stay":
+  "EncounterSet1" E
+    with "Fracture" D
+      such that D.prevalencePeriod starts during E.relevantPeriod
+    with ["Encounter, Performed": "HEDIS; Inpatient Stay"] E2
+      such that E2.relevantPeriod starts during E.relevantPeriod
 
-define "Fracture During Index Period"
+define "EncounterSet2":
+  ["Encounter, Performed": "HEDIS; Inpatient Stay"]
+    where exists (E1.diagnoses D
+      where D.code in "Fracture")
+
+define "Fracture During Index Period EncounterSet1"
   "Encounter With Fracture" E
     where E.relevantPeriod starts during [18 months before end of "Measurement Period", 6 months before end of "Measurement Period"]
+
+define "Fracture During Index Period EncounterSet2"
+  "EncounterSet2" E
+    where E.relevantPeriod ends during [18 months before end of "Measurement Period", 6 months before end of "Measurement Period"]
+
+define "Fracture During Index Period"
+    ["Fracture During Index Period EncounterSet1"]
+    union ["Fracture During Index Period EncounterSet2"]
 
 define "Fracture During Index Period Exists":
   exists("Fracture During Index Period")
 
-define "First Fracture During Index Period":
-  First("Encounter With Fracture" E
-    sort by E.relevantPeriod asc)
+  //negative diagnoses Outpatient Valueset
 
-define "First Fracture During Index Period Has Prior Diagnosis":
-  exists("First Fracture During Index Period" E1
+define "First Fracture During Index Period EncounterSet1":
+  First("Fracture During Index Period EncounterSet1" E
+    sort by start of E.relevantPeriod asc)
+
+define "First Fracture During Index Period EncounterSet2":
+  First("Fracture During Index Period EncounterSet2" E
+    sort by end of E.relevantPeriod asc) // sorted by the end of the Encounter
+
+//define "First Fracture During Index Period":
+//  ["First Fracture During Index Period EncounterSet1"]
+//  union ["First Fracture During Index Period EncounterSet2"]
+
+define "First Fracture During Index Period Has Prior Diagnosis Encounterset1":
+  exists("First Fracture During Index Period EncounterSet1" E1
     with "Encounter With Fracture" E2
-      such that E2.relevantPeriod starts 60 days or less before start of E1.relevantPeriod
+      such that E2.relevantPeriod starts 60 days or less before start of E1.relevantPeriod)
+
+//negative diagnosis Inpatient Valueset
+define "First Fracture During Index Period Has Prior Diagnosis Inpatient Stay":
+  exists("First Fracture During Index Period EncounterSet2" E1
+    with "EncounterSet2" E2
+      such that E2.relevantPeriod starts 60 days or less before end of E1.relevantPeriod)
+
+define "Direct Transfer Inpatient Stay EncounterSet2":
+"EncounterSet2" E
+  with ["Encounter, Performed": "HEDIS; Inpatient Stay"] E2
+    such that E2.relevantPeriod starts during [1 days before end of E.relevantPeriod, end of E.relevantPeriod]
+
+define "First Fracture During Index Period Has Prior Diagnosis Direct Transfer":
+  exists("First Fracture During Index Period EncounterSet2" E1
+    with "Direct Transfer Inpatient Stay EncounterSet2" E2
+      such that E2.relevantPeriod starts 60 days or less before end of E1.relevantPeriod)
+
+define "Encounter With Fracture Resulted in Inpatient Stay":
+  "EncounterSet1" E
+    with "Fracture" D
+      such that D.prevalencePeriod starts during E.relevantPeriod
+    with ["Encounter, Performed": "HEDIS; Inpatient Stay"] E2
+      such that E2.relevantPeriod starts during E.relevantPeriod
+
+define "First Fracture During Index Period Has Prior Diagnosis Direct Transfer":
+  exists("First Fracture During Index Period EncounterSet2" E1
+    with "Encounter With Fracture Resulted in Inpatient Stay" E2
+      such that E2.relevantPeriod starts 60 days or less before end of E1.relevantPeriod)
+
+
 
 define "Bone Density Tests":
   ["Assessment, Performed": "HEDIS; Bone Mineral Density Tests"]
