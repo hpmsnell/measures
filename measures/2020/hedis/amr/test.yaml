@@ -1,4 +1,4 @@
-measure_id: measure.Hedis.2020.Amr5
+measure_id: measure.Hedis.2020.Amr
 test_set_keys:
   organization_key:
     patients:
@@ -30,6 +30,41 @@ test_set_keys:
     - name: InpatientVisitCurrent Lower
       denominator: 1
       denominator_exclusion: exclusion_2
+      denominator_exception:
+      numerator:
+    - name: InpatientVisitCurrent NonacuteSameClaim
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: InpatientVisitCurrent NonacuteDiffClaim
+      denominator:
+      denominator_exclusion: exclusion
+      denominator_exception:
+      numerator:
+    - name: InpatientVisitCurrent NonacuteSameClaimDayBefore
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: InpatientVisitCurrent NonacuteSameClaimDayAfter
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: InpatientVisitCurrent TelehealthModifier
+      denominator:
+      denominator_exclusion: exclusion
+      denominator_exception:
+      numerator:
+    - name: InpatientVisitCurrent TelehealthPOS
+      denominator:
+      denominator_exclusion: exclusion
+      denominator_exception:
+      numerator:
+    - name: InpatientVisitCurrent DiagnosisNotPrincipal
+      denominator:
+      denominator_exclusion:
       denominator_exception:
       numerator:
     - name: InpatientVisitCurrent Upper
@@ -207,6 +242,46 @@ test_set_keys:
       denominator_exclusion:
       denominator_exception:
       numerator:
+    - name: Outpatient OneTelehealthThreeNon
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Outpatient TwoTelehealthTwoNon
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Outpatient ThreeTelehealthOneNon
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Outpatient AllTelehealth
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Outpatient SameDay
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: Outpatient TelehealthPOS
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: AsthmaDxandLeukoController DxSameYear
+      denominator:
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
+    - name: AsthmaDxandLeukoController DxDiffYear
+      denominator: 1
+      denominator_exclusion:
+      denominator_exception:
+      numerator:
     - name: OutpatientAsthmaPrior Lower
       denominator: 1
       denominator_exclusion:
@@ -340,6 +415,7 @@ patients:
       code_value: 99281 # Inpatient visit
       start_date: 2016-02-01
       stop_date: 2016-02-02
+      diagnosis_rank: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: J45.20 # Asthma
@@ -349,6 +425,7 @@ patients:
       code_value: J45.20 # Asthma
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      diagnosis_rank: 1
 - name: Age Lower
   attributes:
     date_of_birth: 2011-12-31 # Lower bound
@@ -370,10 +447,12 @@ patients:
       code_value: J45.20 # Asthma
       start_date: 2015-02-01
       stop_date: 2015-02-01
+      diagnosis_rank: 1
     - code_type: ICD10CM
       code_value: J45.20 # Asthma
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      diagnosis_rank: 1
 - name: Age Upper
   attributes:
     date_of_birth: 1952-01-01 # Upper bound
@@ -390,6 +469,7 @@ patients:
       code_value: 99281 # Inpatient visit
       start_date: 2016-02-01
       stop_date: 2016-02-02
+      diagnosis_rank: 1
     diagnoses:
     - code_type: ICD10CM
       code_value: J45.20 # Asthma
@@ -399,6 +479,7 @@ patients:
       code_value: J45.20 # Asthma
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      diagnosis_rank: 1
 - name: Too Old
   attributes:
     date_of_birth: 1951-12-31 # Too early
@@ -420,10 +501,12 @@ patients:
       code_value: J45.20 # Asthma
       start_date: 2015-02-01
       stop_date: 2015-02-01
+      diagnosis_rank: 1
     - code_type: ICD10CM
       code_value: J45.20 # Asthma
       start_date: 2016-02-01
       stop_date: 2016-02-01
+      diagnosis_rank: 1
 - name: InpatientVisitCurrent Before
   attributes:
     date_of_birth: 1990-01-01
@@ -445,10 +528,12 @@ patients:
       code_value: J45.20 # Asthma
       start_date: 2015-02-01
       stop_date: 2015-02-01
+      diagnosis_rank: 1
     - code_type: ICD10CM
       code_value: J45.20 # Asthma
       start_date: 2015-12-31
       stop_date: 2015-12-31
+      diagnosis_rank: 1
 - name: InpatientVisitCurrent Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -470,10 +555,227 @@ patients:
       code_value: J45.20 # Asthma
       start_date: 2015-02-01
       stop_date: 2015-02-01
+      diagnosis_rank: 1
     - code_type: ICD10CM
       code_value: J45.20 # Asthma
       start_date: 2016-01-01
       stop_date: 2016-01-01
+      diagnosis_rank: 1
+- name: InpatientVisitCurrent NonacuteSameClaim
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: InpatientVisitCurrent
+    family_name: NonacuteSameClaim
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99281 # Inpatient visit
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+      claim_id: 1
+    - code_type: CPT
+      code_value: 99304 # Nonacute inpatient
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+      claim_id: 1 #same claim
+    - code_type: CPT
+      code_value: 99281 # Inpatient visit
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+      diagnosis_rank: 1
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+      diagnosis_rank: 1
+- name: InpatientVisitCurrent NonacuteDiffClaim
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: InpatientVisitCurrent
+    family_name: NonacuteDiffClaim
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99281 # Inpatient visit
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+      claim_id: 1
+    - code_type: CPT
+      code_value: 99304 # Nonacute inpatient
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+      claim_id: 2 #diff claim
+    - code_type: CPT
+      code_value: 99281 # Inpatient visit
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+      diagnosis_rank: 1
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+      diagnosis_rank: 1
+- name: InpatientVisitCurrent NonacuteSameClaimDayBefore
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: InpatientVisitCurrent
+    family_name: NonacuteSameClaimDayBefore
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99281 # Inpatient visit
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+      claim_id: 1
+    - code_type: CPT
+      code_value: 99304 # Nonacute inpatient
+      start_date: 2015-01-30 #before
+      stop_date: 2015-01-30
+      claim_id: 1 #same claim
+    - code_type: CPT
+      code_value: 99281 # Inpatient visit
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+      diagnosis_rank: 1
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+      diagnosis_rank: 1
+- name: InpatientVisitCurrent NonacuteSameClaimDayAfter
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: InpatientVisitCurrent
+    family_name: NonacuteSameClaimDayAfter
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99281 # Inpatient visit
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+      claim_id: 1
+    - code_type: CPT
+      code_value: 99304 # Nonacute inpatient
+      start_date: 2015-02-15 #after
+      stop_date: 2015-02-15
+      claim_id: 1 #same claim
+    - code_type: CPT
+      code_value: 99281 # Inpatient visit
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+      diagnosis_rank: 1
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+      diagnosis_rank: 1
+- name: InpatientVisitCurrent TelehealthModifier
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: InpatientVisitCurrent
+    family_name: TelehealthModifier
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99281 # Inpatient visit
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+      code_modifiers: [95]
+    - code_type: CPT
+      code_value: 99281 # Inpatient visit
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+      diagnosis_rank: 1
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+      diagnosis_rank: 1
+- name: InpatientVisitCurrent TelehealthPOS
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: InpatientVisitCurrent
+    family_name: TelehealthPOS
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99281 # Inpatient visit
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+      place_of_service: '02'
+    - code_type: CPT
+      code_value: 99281 # Inpatient visit
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+      diagnosis_rank: 1
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+      diagnosis_rank: 1
+- name: InpatientVisitCurrent DiagnosisNotPrincipal
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: InpatientVisitCurrent
+    family_name: DiagnosisNotPrincipal
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99281 # Inpatient visit
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+    - code_type: CPT
+      code_value: 99281 # Inpatient visit
+      start_date: 2016-01-01 # Lower bound
+      stop_date: 2016-01-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+      diagnosis_rank: 2 # not principal diagnosis
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-01-01
+      stop_date: 2016-01-01
+      diagnosis_rank: 1
 - name: InpatientVisitCurrent Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -495,10 +797,12 @@ patients:
       code_value: J45.20 # Asthma
       start_date: 2015-02-01
       stop_date: 2015-02-01
+      diagnosis_rank: 1
     - code_type: ICD10CM
       code_value: J45.20 # Asthma
       start_date: 2016-12-31
       stop_date: 2016-12-31
+      diagnosis_rank: 1
 - name: InpatientVisitCurrent After
   attributes:
     date_of_birth: 1990-01-01
@@ -520,10 +824,12 @@ patients:
       code_value: J45.20 # Asthma
       start_date: 2015-02-01
       stop_date: 2015-02-01
+      diagnosis_rank: 1
     - code_type: ICD10CM
       code_value: J45.20 # Asthma
       start_date: 2017-01-01
       stop_date: 2017-01-01
+      diagnosis_rank: 1
 - name: InpatientAsthmaCurrent Before
   attributes:
     date_of_birth: 1990-01-01
@@ -545,10 +851,12 @@ patients:
       code_value: J45.20 # Asthma
       start_date: 2015-02-01
       stop_date: 2015-02-01
+      diagnosis_rank: 1
     - code_type: ICD10CM
       code_value: J45.20 # Asthma
       start_date: 2016-01-31 # Too early
       stop_date: 2016-01-31
+      diagnosis_rank: 1
 - name: InpatientAsthmaCurrent Lower
   attributes:
     date_of_birth: 1990-01-01
@@ -570,10 +878,12 @@ patients:
       code_value: J45.20 # Asthma
       start_date: 2015-02-01
       stop_date: 2015-02-01
+      diagnosis_rank: 1
     - code_type: ICD10CM
       code_value: J45.20 # Asthma
       start_date: 2016-02-01 # Lower bound
       stop_date: 2016-02-01
+      diagnosis_rank: 1
 - name: InpatientAsthmaCurrent Upper
   attributes:
     date_of_birth: 1990-01-01
@@ -595,10 +905,12 @@ patients:
       code_value: J45.20 # Asthma
       start_date: 2015-02-01
       stop_date: 2015-02-01
+      diagnosis_rank: 1
     - code_type: ICD10CM
       code_value: J45.20 # Asthma
       start_date: 2016-02-02 # Upper bound
       stop_date: 2016-02-02
+      diagnosis_rank: 1
 - name: InpatientAsthmaCurrent After
   attributes:
     date_of_birth: 1990-01-01
@@ -620,10 +932,12 @@ patients:
       code_value: J45.20 # Asthma
       start_date: 2015-02-01
       stop_date: 2015-02-01
+      diagnosis_rank: 1
     - code_type: ICD10CM
       code_value: J45.20 # Asthma
       start_date: 2016-02-03 # Too late
       stop_date: 2016-02-03
+      diagnosis_rank: 1
 - name: OutpatientVisitCurrent Before
   attributes:
     date_of_birth: 1990-01-01
@@ -2614,6 +2928,502 @@ patients:
       prescribed: true
       start_date: 2016-03-01
       stop_date: 2016-03-01
+- name: Outpatient OneTelehealthThreeNon
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Outpatient
+    family_name: OneTelehealthThreeNon
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      code_modifiers: [95] # Telehealth
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2016-04-01
+      stop_date: 2016-04-02
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2016-05-01
+      stop_date: 2016-05-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-04-01
+      stop_date: 2016-04-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-05-01
+      stop_date: 2016-05-01
+    medications:
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2015-03-01
+      stop_date: 2015-03-01
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+- name: Outpatient TwoTelehealthTwoNon
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Outpatient
+    family_name: TwoTelehealthTwoNon
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      code_modifiers: [95] # Telehealth
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+      code_modifiers: [95] # Telehealth
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2016-04-01
+      stop_date: 2016-04-02
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2016-05-01
+      stop_date: 2016-05-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-04-01
+      stop_date: 2016-04-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-05-01
+      stop_date: 2016-05-01
+    medications:
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2015-03-01
+      stop_date: 2015-03-01
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+- name: Outpatient ThreeTelehealthOneNon
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Outpatient
+    family_name: ThreeTelehealthOneNon
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      code_modifiers: [95] # Telehealth
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+      code_modifiers: [95] # Telehealth
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2016-04-01
+      stop_date: 2016-04-02
+      code_modifiers: [95] # Telehealth
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2016-05-01
+      stop_date: 2016-05-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-04-01
+      stop_date: 2016-04-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-05-01
+      stop_date: 2016-05-01
+    medications:
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2015-03-01
+      stop_date: 2015-03-01
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+- name: Outpatient AllTelehealth
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Outpatient
+    family_name: AllTelehealth
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      code_modifiers: [95] # Telehealth
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+      code_modifiers: [95] # Telehealth
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2016-04-01
+      stop_date: 2016-04-02
+      code_modifiers: [95] # Telehealth
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2016-05-01
+      stop_date: 2016-05-02
+      code_modifiers: [95] # Telehealth
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2015-02-01
+      stop_date: 2015-02-02
+      code_modifiers: [95] # Telehealth
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2015-03-01
+      stop_date: 2015-03-02
+      code_modifiers: [95] # Telehealth
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2015-04-01
+      stop_date: 2015-04-02
+      code_modifiers: [95] # Telehealth
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2015-05-01
+      stop_date: 2015-05-02
+      code_modifiers: [95] # Telehealth
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-04-01
+      stop_date: 2016-04-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-05-01
+      stop_date: 2016-05-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2015-03-01
+      stop_date: 2015-03-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2015-04-01
+      stop_date: 2015-04-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2015-05-01
+      stop_date: 2015-05-01
+    medications:
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2015-03-01
+      stop_date: 2015-03-01
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+- name: Outpatient SameDay
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Outpatient
+    family_name: SameDay
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+      code_modifiers: [95] # Telehealth
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2016-05-01
+      stop_date: 2016-05-01
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-05-01
+      stop_date: 2016-05-01
+    medications:
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2015-03-01
+      stop_date: 2015-03-01
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+- name: Outpatient TelehealthPOS
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: Outpatient
+    family_name: TelehealthPOS
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient
+      start_date: 2016-02-01
+      stop_date: 2016-02-02
+      place_of_service: '02'
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2016-03-01
+      stop_date: 2016-03-02
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2016-04-01
+      stop_date: 2016-04-02
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2016-05-01
+      stop_date: 2016-05-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-04-01
+      stop_date: 2016-04-01
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-05-01
+      stop_date: 2016-05-01
+    medications:
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2015-03-01
+      stop_date: 2015-03-01
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2016-02-01
+      stop_date: 2016-02-01
+    - code_type: NDC
+      code_value: '24839022601' # Asthma controller
+      prescribed: true
+      start_date: 2016-03-01
+      stop_date: 2016-03-01
+- name: AsthmaDxandLeukoController DxSameYear
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: AsthmaDxandLeukoController
+    family_name: DxSameYear
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2015-05-01
+      stop_date: 2015-05-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2015-05-01
+      stop_date: 2015-05-01
+    medications:
+    - code_type: NDC
+      code_value: # Need to add code for "NCQA; Omalizumab Medications" or "NCQA; Montelukast Medications" or "NCQA; Zafirlukast Medications" or "NCQA; Zileuton Medications"
+      prescribed: true
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+    - code_type: NDC
+      code_value: # Need to add code for "NCQA; Omalizumab Medications" or "NCQA; Montelukast Medications" or "NCQA; Zafirlukast Medications" or "NCQA; Zileuton Medications"
+      prescribed: true
+      start_date: 2015-03-01
+      stop_date: 2015-03-01
+    - code_type: NDC
+      code_value: # Need to add code for "NCQA; Omalizumab Medications" or "NCQA; Montelukast Medications" or "NCQA; Zafirlukast Medications" or "NCQA; Zileuton Medications"
+      prescribed: true
+      start_date: 2015-04-01
+      stop_date: 2015-04-01
+    - code_type: NDC
+      code_value: # Need to add code for "NCQA; Omalizumab Medications" or "NCQA; Montelukast Medications" or "NCQA; Zafirlukast Medications" or "NCQA; Zileuton Medications"
+      prescribed: true
+      start_date: 2015-05-01
+      stop_date: 2015-05-01
+- name: AsthmaDxandLeukoController DxDiffYear
+  attributes:
+    date_of_birth: 1990-01-01
+    given_name: AsthmaDxandLeukoController
+    family_name: DxDiffYear
+    sex: Male
+  clinical_models:
+    clinical_activities:
+    - code_type: CPT
+      code_value: 99201 # Outpatient visit
+      start_date: 2015-05-01
+      stop_date: 2015-05-02
+    diagnoses:
+    - code_type: ICD10CM
+      code_value: J45.20 # Asthma
+      start_date: 2016-05-01 # Diff year than medications
+      stop_date: 2016-05-01
+    medications:
+    - code_type: NDC
+      code_value: # Need to add code for "NCQA; Omalizumab Medications" or "NCQA; Montelukast Medications" or "NCQA; Zafirlukast Medications" or "NCQA; Zileuton Medications"
+      prescribed: true
+      start_date: 2015-02-01
+      stop_date: 2015-02-01
+    - code_type: NDC
+      code_value: # Need to add code for "NCQA; Omalizumab Medications" or "NCQA; Montelukast Medications" or "NCQA; Zafirlukast Medications" or "NCQA; Zileuton Medications"
+      prescribed: true
+      start_date: 2015-03-01
+      stop_date: 2015-03-01
+    - code_type: NDC
+      code_value: # Need to add code for "NCQA; Omalizumab Medications" or "NCQA; Montelukast Medications" or "NCQA; Zafirlukast Medications" or "NCQA; Zileuton Medications"
+      prescribed: true
+      start_date: 2015-04-01
+      stop_date: 2015-04-01
+    - code_type: NDC
+      code_value: # Need to add code for "NCQA; Omalizumab Medications" or "NCQA; Montelukast Medications" or "NCQA; Zafirlukast Medications" or "NCQA; Zileuton Medications"
+      prescribed: true
+      start_date: 2015-05-01
+      stop_date: 2015-05-01
 - name: OutpatientAsthmaPrior Lower
   attributes:
     date_of_birth: 1990-01-01
