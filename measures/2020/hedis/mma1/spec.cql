@@ -102,51 +102,6 @@ define "First Asthma Controller Medication in Measurement Period":
     sort by start of FirstDispensed.relevantDatetime asc)
     return start of FirstDispensed.relevantPeriod
 
-define "Multiple Different Controllers Same Day - Longest Supply Date":
-//If multiple prescriptions for different medications are dispensed on the same day, calculate the number of days covered by a controller medication using the prescriptions with the longest days supply.
-  from
-  "Asthma Controller Medication in Measurement Period" ControlMed1,
-  "Asthma Controller Medication in Measurement Period" ControlMed2
-    where ControlMed1.code != ControlMed2.code
-    and ControlMed1.relevantPeriod starts same day as start of ControlMed2.relevantPeriod
-    and ControlMed1.relevantPeriod ends 1 day or more after end of ControlMed2.relevantPeriod
-  return ControlMed1.relevantPeriod
-          intersect "Treatment Period"
-
-define "Multiple Different Controllers Diff Day - Overlapping Supply":
-//For multiple different prescriptions dispensed on different days with overlapping days supply, count each day in the treatment period only once toward numerator
-//distinct is intended to eliminate duplicate days in treatment period
-  distinct (from
-        ("Asthma Controller Medication in Measurement Period" ControlMed1,
-        "Asthma Controller Medication in Measurement Period" ControlMed2
-        	where ControlMed1.code != ControlMed2.code
-          	and ControlMed1.relevantPeriod overlaps ControlMed2.relevantPeriod)OverlapDiffMeds
-        return all Interval[start of OverlapDiffMeds.relevantPeriod, end of OverlapDiffMeds.relevantPeriod]
-					intersect "Treatment Period"
-    )
-
-define "Same Controllers - Overlapping Supply":
-//If multiple prescriptions for the same medication are dispensed on the same day or different days with overlapping days supply, sum the days supply and use the total to calculate the number of days covered by a controller medication.
-  from
-  ("Asthma Controller Medication in Measurement Period" ControlMed1,
-  "Asthma Controller Medication in Measurement Period" ControlMed2
-    where ControlMed1.code ~ ControlMed2.code
-    and ControlMed1.relevantPeriod overlaps ControlMed2.relevantPeriod)OverlapSameMeds
-  return all Interval[start of OverlapSameMeds.relevantPeriod, end of OverlapSameMeds.relevantPeriod]
-		intersect "Treatment Period"
-
-define "Non-overlapping Controllers":
-// Identifies all intervals of controller medications, associated with the measurement period
-  collapse ("Asthma Controller Medication in Measurement Period" ControllerPeriod
-      return ControllerPeriod.relevantPeriod
-      )
-
-define "Controllers Dispensed Relevant Periods":
-  "Multiple Different Controllers Same Day - Longest Supply Date"
-  and "Multiple Different Controllers Diff Day - Overlapping Supply"
-  and "Same Controllers - Overlapping Supply"
-  and "Non-overlapping Controllers"
-
 define "Treatment Period":
   ["First Asthma Controller Medication in Measurement Period", end of "Measurement Period"]
 
@@ -168,6 +123,7 @@ define "Denominator Exclusion: Condition":
   exists(["Excluded Condition"] D
     where D.prevalencePeriod starts before end of "Measurement Period")
 
+
 define "Denominator Exclusion: No Medication":
   /*
    * config_link_id: exclusion_1
@@ -179,7 +135,8 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   ////CMD = Sum of each calculated interval returned based on relevantPeriods in "Controllers Dispensed Relevant Periods"
-  Round("Cumulative Medication Duration"("Controllers Dispensed Relevant Periods") / "Treatment Period") >= 0.5
+
+  Round("CumulativeDuration"("Asthma Controller Medication in Measurement Period","Measurement Period") / "Treatment Period") >= 0.5
 
 define "Numerator Performance Not Met":
   /*
