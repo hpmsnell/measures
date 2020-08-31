@@ -125,7 +125,7 @@ define "Denominator Exclusion: Condition":
 
 define "Denominator Exclusion: No Medication":
   /*
-   * config_link_id: exclusion_1
+   * config_link_id: exclusion_2
    */
   "HEDIS AMR: Denominator Exclusion: No Medication"
 
