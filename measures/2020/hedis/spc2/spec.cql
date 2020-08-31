@@ -80,16 +80,32 @@ define "Medium Intensity Statin":
   union ["Medication, Dispensed": "Fluvastatin Moderate Intensity Medications"]
   union ["Medication, Dispensed": "Pitavastatin Moderate Intensity Medications"]
 
+
 define "Statin":
   ["High Intensity Statin"]
   union ["Medium Intensity Statin"]
 
+define "Sum of Prescription Durations"
+    Sum((collapse("Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Atorvastatin High Intensity Medications"],"Statin","Measurement Period")
+    union "Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Amlodipine Atorvastatin High Intensity Medications"],"Statin","Measurement Period")
+    union "Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Rosuvastatin High Intensity Medications"],"Statin","Measurement Period")
+    union "Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Simvastatin High Intensity Medications"],"Statin","Measurement Period")
+    union "Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Ezetimibe Simvastatin High Intensity Medications"],"Statin","Measurement Period")
+    union "Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Atorvastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Amlodipine Atorvastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Rosuvastatin High Intensity Medications"],"Statin","Measurement Period")
+    union "Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Simvastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Ezetimibe Simvastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Pravastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Lovastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Fluvastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Pitavastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    ) X
+    return all duration in days of X)
+
 define "Statin in Measurement Period":
   "Statin" M
     where M.relevantPeriod starts during "Measurement Period"
-
-define "Sum of Prescription Durations":
-    "CumulativeDuration"("Statin","Measurement Period" )
 
 define "Prescription Start Date":
   "Statin in Measurement Period" M

@@ -372,3 +372,60 @@ define function "Medications Dispensed Relevant Periods"(MedsListFromSpec List<"
     union ("Multiple Different Medications Diff Day - Overlapping Supply"(MedsListFromSpec , Period))
     union ("Same Medication - Overlapping Supply"(MedsListFromSpec , Period))
     union ("Non-overlapping Medications"(MedsListFromSpec , Period))
+
+
+
+//valueset functions for CMD
+
+define function "Medications Dispensed Relevant Periods Valuesets"(specificMedList List<"Medication, Dispensed">,totalMedList List<"Medication, Dispensed">, Period Interval<DateTime>) returns Integer:
+    collapse (("Different Day Same Med Overlapping Valuesets Interval"(specificMedList, totalMedList, Period)
+      union "Same Day Different Meds Valuesets- Longest Supply Date Interval"(specificMedList, totalMedList, Period)
+      union "Same Day Same Med Valuesets- Total Dispensed Period Interval"(specificMedList, totalMedList, Period)
+      union "Different Day Different Med Overlapping Supply Valuesets- Total of Period"(specificMedList, totalMedList, Period)
+      union "Non-overlapping Medications"(specificMedList, totalMedList, Period)) medicationperiods
+    return medicationperiod.relevantPeriod
+        )
+
+define function "Different Day Same Med Overlapping Valuesets- Multiple intervals"(specificMedList List<"Medication, Dispensed">,totalMedList List<"Medication, Dispensed">, Period Interval<DateTime>):
+    from
+    (("Medication List in Measurement Period Valuesets"(specificMedList, Period)) medlist1,
+    ("Medication List in Measurement Period Valuesets"(specificMedList, Period))) medlist2
+      where medlist1.relevantPeriod overlaps medlist2.relevantPeriod)OverlapSameMeds
+    return all Interval[start of OverlapSameMeds.relevantPeriod, end of OverlapSameMeds.relevantPeriod]
+      intersect Period
+
+define function "Same Day Different Meds Valuesets- Longest Supply Date Interval"(specificMedList List<"Medication, Dispensed">,totalMedList List<"Medication, Dispensed">, Period Interval<DateTime>):
+//If multiple prescriptions for different medications are dispensed on the same day, calculate the number of days covered by a medication using the prescriptions with the longest days supply.
+  from
+  ("Medication List in Measurement Period"(specificMedList , Period)) medlist1,
+  ("Medication List in Measurement Period"(totalMedList , Period)) medlist2
+    where medlist1.relevantPeriod starts same day as start of medlist2.relevantPeriod
+    and medlist1.relevantPeriod ends 1 day or more after end of medlist2.relevantPeriod
+  return medlist1.relevantPeriod
+          intersect Period
+
+define function "Same Day Same Med Valuesets- Total Dispensed Period Interval"(specificMedList List<"Medication, Dispensed">,totalMedList List<"Medication, Dispensed">, Period Interval<DateTime>):
+  from
+  ("Medication List in Measurement Period"(specificMedList , Period)) medlist1,
+  ("Medication List in Measurement Period"(specificMedList , Period)) medlist2
+    where medlist1.relevantPeriod starts same day as start of medlist2.relevantPeriod
+    and medlist1.relevantPeriod ends 1 day or more after end of medlist2.relevantPeriod
+  return all Interval[start of medlist1.relevantPeriod, end of medlist2.relevantPeriod]
+          intersect Period
+
+define function "Different Day Different Med Overlapping Supply Valuesets- Total of Period"(specificMedList List<"Medication, Dispensed">,totalMedList List<"Medication, Dispensed">, Period Interval<DateTime>):
+//For multiple different prescriptions dispensed on different days with overlapping days supply, count each day in the measurement year only once toward the denominator
+//distinct is intended to eliminate duplicate days in measurement period
+  distinct (from
+        (("Medication List in Measurement Period"(specificMedList , Period)) medlist1,
+        ("Medication List in Measurement Period"(totalMedList , Period)) medlist2
+          	where medlist1.relevantPeriod overlaps medlist2.relevantPeriod) OverlapDiffMeds
+        return all Interval[start of OverlapDiffMeds.relevantPeriod, end of OverlapDiffMeds.relevantPeriod]
+					intersect Period
+          )
+
+define function "Non-overlapping Medications"(specificMedList List<"Medication, Dispensed">,totalMedList List<"Medication, Dispensed">, Period Interval<DateTime>):
+  // Identifies all intervals of medications, associated with the measurement period
+    collapse (( "Medication List in Measurement Period"(MedsListFromSpec , Period)) medicationperiod
+        return medicationperiod.relevantPeriod
+        )
