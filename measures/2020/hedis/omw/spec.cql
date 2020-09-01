@@ -127,9 +127,8 @@ define "First Fracture During Index Period Has Prior Diagnosis Outpatient Encoun
 
 //negative diagnosis Inpatient Valueset
 define "First Fracture During Index Period Has Prior Diagnosis Inpatient Stay":
-  exists("First Fracture During Index Period Inpatient EncounterSet Date" E1
-    with "Inpatient Stay with Fracture" E2
-      such that E2.relevantPeriod starts 60 days or less before end of E1.relevantPeriod)
+  exists("Inpatient Stay with Fracture" E
+    where E.relevantPeriod starts 60 days or less before "First Fracture During Index Period Inpatient EncounterSet Date")
 
 define "Direct Transfer Inpatient Stay Inpatient EncounterSet":
   "Inpatient Stay with Fracture" E
@@ -137,14 +136,12 @@ define "Direct Transfer Inpatient Stay Inpatient EncounterSet":
       such that E2.relevantPeriod starts during [1 days before end of E.relevantPeriod, end of E.relevantPeriod]
 
 define "First Fracture During Index Period Has Prior Diagnosis Direct Transfer":
-  exists("First Fracture During Index Period Inpatient EncounterSet Date" E1
-    with "Direct Transfer Inpatient Stay Inpatient EncounterSet" E2
-      such that E2.relevantPeriod starts 60 days or less before end of E1.relevantPeriod)
+      "Direct Transfer Inpatient Stay Inpatient EncounterSet" E
+        where E.relevantPeriod starts 60 days or less before  "First Fracture During Index Period Inpatient EncounterSet Date")
 
 define "Encounter With Fracture Resulted in Inpatient Stay Prior Diagnosis Outpatient Online":
-  exists("First Fracture During Index Period Inpatient EncounterSet Date" E1
-    with "Outpatient Encounter With Fracture Resulted in Inpatient Stay" E2
-      such that E2.relevantPeriod starts 60 days or less before end of E1.relevantPeriod)
+      "Outpatient Encounter With Fracture Resulted in Inpatient Stay" E2
+        where E2.relevantPeriod starts 60 days or less before "First Fracture During Index Period Inpatient EncounterSet Date")
 
 define "First Fracture During Index Period Has Prior Diagnosis":
     "First Fracture During Index Period Has Prior Diagnosis Outpatient Encounterset"
@@ -152,16 +149,6 @@ define "First Fracture During Index Period Has Prior Diagnosis":
     union "First Fracture During Index Period Has Prior Diagnosis Direct Transfer"
     union "Encounter With Fracture Resulted in Inpatient Stay Prior Diagnosis Outpatient Online"
 
-define "First Fracture During Index Period Outpatient and Inpatient No Prior Fracture":
-      "First Fracture Date"
-          without "First Fracture During Index Period Has Prior Diagnosis"
-
-define "First Fracture During Index Period Inpatient No Prior Fracture":
-      "First Fracture Date"
-          without "First Fracture During Index Period Has Prior Diagnosis"
-
-define "Bone Density Tests":
-  ["Assessment, Performed": "HEDIS; Bone Mineral Density Tests"]
 
 /* Populations */
 
@@ -170,7 +157,7 @@ define "Denominator":
   and AgeInYearsAt(end of "Measurement Period") < 86
   and "Patient Characteristic Sex" = "Female"
   and "Fracture During Index Period Exists"
-  and not "First Fracture During Index Period Has Prior Diagnosis"
+  and not exists("First Fracture During Index Period Has Prior Diagnosis")
 
 define "Exclusion: Hospice":
    /*
@@ -200,35 +187,31 @@ define "Denominator Exclusion: Prior Treatment":
     /*
      * config_link_id: exclusion_1
      */
-     exists("First Fracture During Index Period" E
-       with "Bone Density Tests" T
-         such that T.authorDateTime 730 days or less before start of E.relevantPeriod)
-     or exists("First Fracture During Index Period" E
-       with ["Procedure, Performed": "HEDIS; Osteoporosis Medications"] M
-         such that M.relevantPeriod starts 365 days or less before start of E.relevantPeriod)
-     or exists("First Fracture During Index Period" E
-       with ["Medication, Dispensed": "NCQA; Osteoporosis Medications List"] M
-         such that M.relevantPeriod overlaps [365 days before start of E.relevantPeriod, 1 day before start of E.relevantPeriod])
+     exists("Bone Density Tests" T
+              where T.relevantDate 730 days or less before "First Fracture Date")
+     or exists(["Procedure, Performed": "HEDIS; Osteoporosis Medications"] M
+              where M.relevantPeriod starts 365 days or less before "First Fracture Date")
+     or exists(["Medication, Dispensed": "NCQA; Osteoporosis Medications List"] M
+              where M.relevantPeriod starts during [365 days before "First Fracture Date", 1 day before "First Fracture Date"])
 
 define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-   exists("First Fracture During Index Period" E
-     with "Bone Density Tests" T
-       such that T.authorDateTime on or 180 days or less after start of E.relevantPeriod)
-   or exists("First Fracture During Index Period" E
-     with "Bone Density Tests" T
-       such that T.authorDateTime starts during E.relevantPeriod)
-   or exists("First Fracture During Index Period" E
-     with ["Procedure, Performed": "HEDIS; Osteoporosis Medications"] P
-       such that P.relevantPeriod starts on or 180 days after start of E.relevantPeriod)
-   or exists("First Fracture During Index Period" E
-     with ["Medication, Dispensed": "NCQA; Osteoporosis Medications"] M
-       such that M.relevantPeriod starts on or 180 days after start of E.relevantPeriod)
-   or exists("First Fracture During Index Period" E
-     with ["Medication, Dispensed": "NCQA; Long-Acting Osteoporosis Medications"] M
-       such that M.relevantPeriod starts during E.relevantPeriod)
+  exists("Inpatient Stay with Fracture") Inpatient
+    where "First Fracture Date" during [Inpatient.admissionDate,Inpatient.dischargeDate]
+    with ["Medication, Dispensed": "NCQA; Long-Acting Osteoporosis Medications"] M
+      such that M.relevantPeriod starts during  [Inpatient.admissionDate,Inpatient.dischargeDate])
+  or exists("Inpatient Stay with Fracture") Inpatient
+    where "First Fracture Date" during [Inpatient.admissionDate,Inpatient.dischargeDate]
+    with ["Assessment, Performed": "HEDIS; Bone Mineral Density Tests"] Test
+      such that Test.relevantDate during  [Inpatient.admissionDate,Inpatient.dischargeDate])
+  or exists("Bone Density Tests" T
+        where T.relevantDate on or 180 days or less after "First Fracture Date")
+  or exists(["Procedure, Performed": "HEDIS; Osteoporosis Medications"] P
+        where P.relevantPeriod starts on or 180 days after "First Fracture Date")
+  or exists(["Medication, Dispensed": "NCQA; Osteoporosis Medications"] M
+        where M.relevantPeriod starts on or 180 days after "First Fracture Date")
 
 
 define "Numerator Performance Not Met":
