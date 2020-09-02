@@ -14,10 +14,6 @@ using QDM
 
 include "../shared/hedis_shared" version '1' called HedisShared
 
-// MIPS value sets
-
-valueset "MIPS; Performance Met: G8506" //ACE Inhibitor
-
 // HEDIS value sets
 
 valueset "HEDIS; Diabetes": '2.16.840.1.113883.3.464.1004.1077'
@@ -94,9 +90,6 @@ define "Numerator Performance Met":
       and D.placeOfService != '81')
   or exists(["Medication, Dispensed": "NCQA; ACE Inhibitor/ARB Medications"] M
     where M.relevantPeriod starts during "Measurement Year")
-  or exists(["Procedure": "MIPS; Performance Met: G8506"] P
-    where P.relevantPeriod starts during "Measurement Year"
-      and P.placeOfService != '81')
 
 define "Numerator Performance Not Met":
   /*
