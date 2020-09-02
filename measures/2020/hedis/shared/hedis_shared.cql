@@ -365,6 +365,7 @@ define function "Non-overlapping Medications"(MedsListFromSpec List<"Medication,
 // Identifies all intervals of medications, associated with the measurement period
   collapse (( "Medication List in Measurement Period"(MedsListFromSpec , Period)) medicationperiod
       return medicationperiod.relevantPeriod
+      intersect Period
       )
 
 define function "Medications Dispensed Relevant Periods"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
