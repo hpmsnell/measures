@@ -45,16 +45,62 @@ valueset "HEDIS; Telephone Visits": '2.16.840.1.113883.3.464.1004.1246'
 // NCQA medication list value sets
 
 valueset "NCQA; Estrogen Agonists Medications"
-valueset "NCQA; High and Moderate-Intensity Statin Medications"
-valueset "NCQA; Low-Intensity Statin Medications"
+valueset "NCQA; Atorvastatin High Intensity Medications": '2.16.840.1.113883.3.464.1004.1801'
+valueset "NCQA; Amlodipine Atorvastatin High Intensity Medications": '2.16.840.1.113883.3.464.1004.1805'
+valueset "NCQA; Rosuvastatin High Intensity Medications": '2.16.840.1.113883.3.464.1004.1803'
+valueset "NCQA; Simvastatin High Intensity Medications": '2.16.840.1.113883.3.464.1004.1798'
+valueset "NCQA; Ezetimibe Simvastatin High Intensity Medications": '2.16.840.1.113883.3.464.1004.1807'
+valueset "NCQA; Atorvastatin Moderate Intensity Medications": '2.16.840.1.113883.3.464.1004.1800'
+valueset "NCQA; Amlodipine Atorvastatin Moderate Intensity Medications": '2.16.840.1.113883.3.464.1004.1804'
+valueset "NCQA; Rosuvastatin High Intensity Medications": '2.16.840.1.113883.3.464.1004.1803'
+valueset "NCQA; Simvastatin Moderate Intensity Medications": '2.16.840.1.113883.3.464.1004.1797'
+valueset "NCQA; Ezetimibe Simvastatin Moderate Intensity Medications": '2.16.840.1.113883.3.464.1004.1806'
+valueset "NCQA; Pravastatin Moderate Intensity Medications": '2.16.840.1.113883.3.464.1004.1796'
+valueset "NCQA; Lovastatin Moderate Intensity Medications": '2.16.840.1.113883.3.464.1004.1795'
+valueset "NCQA; Fluvastatin Moderate Intensity Medications": '2.16.840.1.113883.3.464.1004.1799'
+valueset "NCQA; Pitavastatin Moderate Intensity Medications": '2.16.840.1.113883.3.464.1004.1808'
+valueset "NCQA; Ezetimibe Simvastatin Low Intensity Medications": '2.16.840.1.113883.3.464.1004.1953'
+valueset "NCQA; Fluvastatin Low Intensity Medications": '2.16.840.1.113883.3.464.1004.1954'
+valueset "NCQA; Lovastatin Low Intensity Medications": '2.16.840.1.113883.3.464.1004.1955'
+valueset "NCQA; Pitavastatin Low Intensity Medications": '2.16.840.1.113883.3.464.1004.1956'
+valueset "NCQA; Pravastatin Low Intensity Medications": '2.16.840.1.113883.3.464.1004.1957'
+valueset "NCQA; Simvastatin Low Intensity Medications": '2.16.840.1.113883.3.464.1004.1958'
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
+define "High Intensity Statin"
+  ["Medication, Dispensed": "Atorvastatin High Intensity Medications"]
+  union ["Medication, Dispensed": "Amlodipine Atorvastatin High Intensity Medications"]
+  union ["Medication, Dispensed": "Rosuvastatin High Intensity Medications"]
+  union ["Medication, Dispensed": "Simvastatin High Intensity Medications"]
+  union ["Medication, Dispensed": "Ezetimibe Simvastatin High Intensity Medications"]
+
+define "Medium Intensity Statin"
+  ["Medication, Dispensed": "Atorvastatin Moderate Intensity Medications"]
+  union ["Medication, Dispensed": "Amlodipine Atorvastatin Moderate Intensity Medications"]
+  union ["Medication, Dispensed": "Rosuvastatin High Intensity Medications"]
+  union ["Medication, Dispensed": "Simvastatin Moderate Intensity Medications"]
+  union ["Medication, Dispensed": "Ezetimibe Simvastatin Moderate Intensity Medications"]
+  union ["Medication, Dispensed": "Pravastatin Moderate Intensity Medications"]
+  union ["Medication, Dispensed": "Lovastatin Moderate Intensity Medications"]
+  union ["Medication, Dispensed": "Fluvastatin Moderate Intensity Medications"]
+  union ["Medication, Dispensed": "Pitavastatin Moderate Intensity Medications"]
+
+define "Low Intensity Statin"
+  ["Medication, Dispensed": "Ezetimibe Simvastatin Low Intensity Medications"]
+  union ["Medication, Dispensed": "Fluvastatin Low Intensity Medications"]
+  union ["Medication, Dispensed": "Lovastatin Low Intensity Medications"]
+  union ["Medication, Dispensed": "Pitavastatin Low Intensity Medications"]
+  union ["Medication, Dispensed": "Pravastatin Low Intensity Medications"]
+  union ["Medication, Dispensed": "Simvastatin Low Intensity Medications"]
+
+
 define "Statin Med List":
-  ["Medication, Dispensed": "NCQA; High and Moderate-Intensity Statin Medications"]
-  union ["Medication, Dispensed": "NCQA; Low-Intensity Statin Medications"]
+  ["High Intensity Statin"]
+  union ["Medium Intensity Statin"]
+  union ["Low Intensity Statin"]
 
 define "Sum of Prescription Durations"
     "CumulativeDuration"("Statin Med List", "Measurement Period")
