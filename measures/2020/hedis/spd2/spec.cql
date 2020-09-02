@@ -97,16 +97,68 @@ define "Low Intensity Statin"
   union ["Medication, Dispensed": "Simvastatin Low Intensity Medications"]
 
 
-define "Statin Med List":
-  ["High Intensity Statin"]
-  union ["Medium Intensity Statin"]
-  union ["Low Intensity Statin"]
+define "Statin":
+  "High Intensity Statin"
+  union "Medium Intensity Statin"
+  union "Low Intensity Statin"
 
-define "Sum of Prescription Durations"
-    "CumulativeDuration"("Statin Med List", "Measurement Period")
+define "Sum of Different Medication Durations":
+    Sum((collapse("Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Atorvastatin High Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Amlodipine Atorvastatin High Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Rosuvastatin High Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Simvastatin High Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Ezetimibe Simvastatin High Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Atorvastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Amlodipine Atorvastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Rosuvastatin High Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Simvastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Ezetimibe Simvastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Pravastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Lovastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Fluvastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Pitavastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Ezetimibe Simvastatin Low Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Fluvastatin Low Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Lovastatin Low Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Pitavastatin Low Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Pravastatin Low Intensity Medications"],"Statin","Measurement Period")
+    union "Different Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Simvastatin Low Intensity Medications"],"Statin","Measurement Period")
+    )) X
+    return all duration in days of X)
+
+define "Sum of Same Medication Durations":
+    Sum(("Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Atorvastatin High Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Amlodipine Atorvastatin High Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Rosuvastatin High Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Simvastatin High Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Ezetimibe Simvastatin High Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Atorvastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Amlodipine Atorvastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Rosuvastatin High Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Simvastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Ezetimibe Simvastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Pravastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Lovastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Fluvastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Pitavastatin Moderate Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Ezetimibe Simvastatin Low Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Fluvastatin Low Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Lovastatin Low Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Pitavastatin Low Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Pravastatin Low Intensity Medications"],"Statin","Measurement Period")
+    union "Same Medications Dispensed Relevant Periods Valuesets"(["Medication, Dispensed": "Simvastatin Low Intensity Medications"],"Statin","Measurement Period")
+    ) X
+    return all duration in days of X)
+
+define "Sum of Non Overlapping Medications":
+    Sum(("Non-overlapping Medications"("Statin","Measurement Period")) X
+        return all duration in days of X)
+
+define "Sum of Prescription Durations":
+    "Sum of Non Overlapping Medications" + "Sum of Same Medication Durations" + "Sum of Different Medication Durations"
 
 define "Prescription Start Date":
-  "Statin Med List" M
+  "Statin" M
     return start of M.relevantPeriod
 
 define "First Prescription Start Date":
