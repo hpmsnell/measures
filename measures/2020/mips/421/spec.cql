@@ -19,6 +19,7 @@ include "../shared/frailty_lti_shared" version '1' called FrailtyLTIShared
 valueset "MIPS; MIPS 421 Procedure: 37191"
 valueset "MIPS; MIPS 421 Intent For Removal: G9539"
 valueset "MIPS; MIPS 421 Patient Alive 3 Months Post Procedure: G95040"
+valueset "MIPS; Performance Met: IVF Removed"
 valueset "MIPS; Performance Met: G9541"
 valueset "MIPS; Performance Met: G9542"
 valueset "MIPS; Performance Met: G9543"
@@ -45,6 +46,10 @@ define "Numerator Performance Met: G9541":
   exists("Denominator Encounter" E
      with ["Procedure, Performed": "MIPS; Performance Met: G9541"] P
        such that P.relevantPeriod starts before 3 months after start of E.relevantPeriod)
+  or exists ("Denominator Encounter"E
+      with ["Procedure, Performed": "MIPS; Performance Met: IVF Removed"] P1
+        such that P.relevantPeriod starts before 3 months after start of E.relevantPeriod)
+
 
 define "Numerator Performance Met: G9542":
  /*
