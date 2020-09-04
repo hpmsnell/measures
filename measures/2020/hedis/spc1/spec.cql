@@ -197,7 +197,7 @@ define "Denominator":
   )
   and (
     "Cardiovascular Event Exists"
-    or "IVD Exists"
+    or "IVD Exists During Measurement Period and Year Prior"
   )
 
 define "Denominator Exclusion: Condition"
