@@ -93,6 +93,12 @@ define "IVD Encounter No Telehealth":
     where not E.code.modifier in {'GT','95'}
       and not E.placeOfService in {'02'}
 
+define "Other Acute Inpatient Visit":
+  ["Encounter, Performed": "HEDIS; Inpatient Stay"] Inpatient
+    without ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] Nonacute
+      such that Inpatient.claimId != Nonacute.claimId
+      and Inpatient.placeOfService != 81
+      and Nonacute.placeOfService != 81
 
 define "IVD Encounter Telehealth":
   (["Encounter, Performed": "Online Assessments"
