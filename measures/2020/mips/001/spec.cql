@@ -5,7 +5,7 @@ library MIPS_001_2020 version '1'
  * Source: MIPS
  * ID: 001
  * Year: 2020
- * Version: 1
+ * Version: 2
  * Author: Steve Daniels
  *
   */
@@ -22,7 +22,7 @@ valueset "MIPS; Diabetes"
 valueset "MIPS; Performance Met: 3046F"
 valueset "MIPS; Performance Met: 3046F-8P"
 valueset "MIPS; Performance Not Met: 3044F"
-valueset "MIPS; Performance Not Met: 3045F"
+valueset "MIPS; Performance Not Met: G2089"
 valueset "MIPS; LTI"
 valueset "MIPS; Frailty and Dementia Medication"
 valueset "MIPS; Frailty and Advanced Illness"
@@ -108,9 +108,9 @@ define "Numerator Performance Not Met: 3044F":
   or exists([Procedure, Performed: "MIPS; Performance Not Met: 3044F"] P
     where P.relevantPeriod starts during "Measurement Period")
 
-define "Numerator Performance Not Met: 3045F":
+define "Numerator Performance Not Met: G2089":
   /*
-   * config_link_id: 3045F
+   * config_link_id: G2089
    */
   not "Numerator Performance Met: 3046F"
   and not "Numerator Performance Met: 3046-8P"
