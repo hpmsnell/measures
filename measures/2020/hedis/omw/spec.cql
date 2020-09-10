@@ -91,9 +91,6 @@ define "Fracture During Index Period":
     ["Fracture During Index Period Outpatient EncounterSet"]
     union ["Fracture During Index Period Inpatient EncounterSet"]
 
-define "Fracture During Index Period Exists":
-  exists("Fracture During Index Period")
-
   //negative diagnoses Outpatient Valueset
 
 define "Negative Diagnoses Outpatient EncounterSet with Fracture":
@@ -115,31 +112,67 @@ define "Negative Diagnoses Outpatient EncounterSet":
 
 
 define "Inpatient Stay with Fracture without Preceding Transfer":
-    "Inpatient Stay with Fracture" Inpatient
-      without ["Encounter, Performed": "HEDIS; Inpatient Stay"] Inpatient2
-        such that Inpatient2.dischargeDate during [1 days before Inpatient.admissionDate, Inpatient.admissionDate]
-      without "Negative Diagnoses Outpatient EncounterSet" Outpatient
-        such that Outpatient.relevantPeriod starts during [1 days before Inpatient.admissionDate, Inpatient.admissionDate]
+  "Inpatient Stay with Fracture" Inpatient
+    without ["Encounter, Performed": "HEDIS; Inpatient Stay"] Inpatient2
+      such that Inpatient2.dischargeDate during [1 days before Inpatient.admissionDate, Inpatient.admissionDate]
+    without "Negative Diagnoses Outpatient EncounterSet" Outpatient
+      such that Outpatient.relevantPeriod starts during [1 days before Inpatient.admissionDate, Inpatient.admissionDate]
 
-
-define "First Fracture During Index Period Outpatient EncounterSet Date":
-  First("Fracture During Index Period Outpatient EncounterSet" Outpatient
+define "Fracture During Index Period Without Negative Diagnosis History Outpatient EncounterSet":
+  "Fracture During Index Period Outpatient EncounterSet" Outpatient
     without "Inpatient Stay with Fracture without Preceding Transfer" Inpatient
       such that Inpatient.admissionDate 60 days or less before start of Outpatient.relevantPeriod
     without "Outpaient Encounter With Fracture" OutpatientwithFracture
       such that OutpatientwithFracture.relevantPeriod starts 60 days or less before  Outpatient.relevantPeriod
-    sort by start of Outpatient.relevantPeriod asc
-    return start of Outpatient.relevantPeriod
-    )
 
-define "First Fracture During Index Period Inpatient EncounterSet Date":
-  First("Fracture During Index Period Inpatient EncounterSet" Inpatient
+define "Fracture During Index Period Without Negative Diagnosis History Inpatient EncounterSet":
+  "Fracture During Index Period Inpatient EncounterSet" Inpatient
   without "Inpatient Stay with Fracture without Preceding Transfer" Inpatient2
     such that Inpatient2.admissionDate 60 days or less before Inpatient.dischargeDate
   without "Outpaient Encounter With Fracture" OutpatientwithFracture
     such that OutpatientwithFracture.relevantPeriod starts 60 days or less before Inpatient.dischargeDate
-  sort by Inpatient.dischargeDate asc
-  return Inpatient.dischargeDate)
+
+define "Fracture During Index Period Without Negative Diagnosis History":
+  "Fracture During Index Period Without Negative Diagnosis History Outpatient EncounterSet"
+  union "Fracture During Index Period Without Negative Diagnosis History Inpatient EncounterSet"
+
+// Prior treatment exclusion
+
+define "Excluded Medication":
+  ["Procedure, Performed": "HEDIS; Osteoporosis Medications"]
+  union ["Medication, Dispensed": "NCQA; Osteoporosis Medications List"]
+
+define "Fracture During Index Period Without Prior Treatment Outpatient EncounterSet":
+  "Fracture During Index Period Without Negative Diagnosis History Outpatient EncounterSet" Fracture
+    without ["Assessment, Performed": "HEDIS; Bone Mineral Density Tests"] Test
+      such that Test.relevantDate 730 days or less before start of Fracture.relevantPeriod
+    without "Excluded Medication" Medication
+      such that start of Medication.relevantPeriod 365 days or less before start of Fracture.relevantPeriod
+
+define "Fracture During Index Period Without Prior Treatment Inpatient EncounterSet":
+  "Fracture During Index Period Without Negative Diagnosis History Inpatient EncounterSet" Fracture
+    without ["Assessment, Performed": "HEDIS; Bone Mineral Density Tests"] Test
+      such that Test.relevantDate 730 days or less before Fracture.admissionDate
+    without "Excluded Medication" Medication
+      such that start of Medication.relevantPeriod 365 days or less before Fracture.admissionDate
+
+define "Fracture During Index Period Without Prior Treatment":
+  "Fracture During Index Period Without Prior Treatment Outpatient EncounterSet"
+  union "Fracture During Index Period Without Prior Treatment Inpatient EncounterSet"
+
+// First fracture date
+
+define "First Fracture During Index Period Outpatient EncounterSet Date":
+  First("Fracture During Index Period Without Prior Treatment Outpatient EncounterSet" Outpatient
+    sort by start of Outpatient.relevantPeriod asc
+    return start of Outpatient.relevantPeriod
+  )
+
+define "First Fracture During Index Period Inpatient EncounterSet Date":
+  First("Fracture During Index Period Without Prior Treatment Inpatient EncounterSet"
+    sort by Inpatient.dischargeDate asc
+    return Inpatient.dischargeDate
+  )
 
 define "First Fracture Date":
   Min(
@@ -147,47 +180,16 @@ define "First Fracture Date":
     union "First Fracture During Index Period Inpatient EncounterSet Date"
   )
 
-define "First Fracture During Index Period Has Prior Diagnosis Outpatient Encounterset":
-  exists("Negative Diagnoses Outpatient EncounterSet with Fracture" E
-    where E.relevantPeriod starts 60 days or less before "First Fracture Date")
-
-//negative diagnosis Inpatient Valueset
-define "First Fracture During Index Period Has Prior Diagnosis Inpatient Stay":
-  exists("Inpatient Stay with Fracture" E
-    where E.relevantPeriod starts 60 days or less before "First Fracture During Index Period Inpatient EncounterSet Date")
-
-define "Direct Transfer Inpatient Stay Inpatient EncounterSet":
-  "Inpatient Stay with Fracture" E
-    with ["Encounter, Performed": "HEDIS; Inpatient Stay"] E2
-      such that E2.relevantPeriod starts during [1 days before end of E.relevantPeriod, end of E.relevantPeriod]
-
-define "First Fracture During Index Period Has Prior Diagnosis Direct Transfer":
-      "Direct Transfer Inpatient Stay Inpatient EncounterSet" E
-        where E.relevantPeriod starts 60 days or less before  "First Fracture During Index Period Inpatient EncounterSet Date")
-
-define "Encounter With Fracture Resulted in Inpatient Stay Prior Diagnosis Outpatient Online":
-      "Outpatient Encounter With Fracture Resulted in Inpatient Stay" E2
-        where E2.relevantPeriod starts 60 days or less before "First Fracture During Index Period Inpatient EncounterSet Date")
-
-define
-
-define "First Fracture During Index Period Has Prior Diagnosis":
-    "First Fracture During Index Period Has Prior Diagnosis Outpatient Encounterset"
-    union "First Fracture During Index Period Has Prior Diagnosis Inpatient Stay"
-    union "First Fracture During Index Period Has Prior Diagnosis Direct Transfer"
-    union "Encounter With Fracture Resulted in Inpatient Stay Prior Diagnosis Outpatient Online"
-
-
-
-
 /* Populations */
 
-define "Denominator":
+define "Initial Population":
   AgeInYearsAt(end of "Measurement Period") >= 67
   and AgeInYearsAt(end of "Measurement Period") < 86
-  and "Patient Characteristic Sex" = "Female"
-  and "Fracture During Index Period Exists"
 
+define "Denominator":
+  "Initial Population"
+  and "Patient Characteristic Sex" = "Female"
+  and exists("Fracture During Index Period Without Negative Diagnosis History")
 
 define "Exclusion: Hospice":
    /*
@@ -217,12 +219,8 @@ define "Denominator Exclusion: Prior Treatment":
     /*
      * config_link_id: exclusion_1
      */
-     exists("Bone Density Tests" T
-              where T.relevantDate 730 days or less before "First Fracture Date")
-     or exists(["Procedure, Performed": "HEDIS; Osteoporosis Medications"] M
-              where M.relevantPeriod starts 365 days or less before "First Fracture Date")
-     or exists(["Medication, Dispensed": "NCQA; Osteoporosis Medications List"] M
-              where M.relevantPeriod starts during [365 days before "First Fracture Date", 1 day before "First Fracture Date"])
+    exists("Fracture During Index Period Without Negative Diagnosis History")
+    and not exists("Fracture During Index Period Without Prior Treatment")
 
 define "Numerator Performance Met":
   /*
@@ -236,7 +234,7 @@ define "Numerator Performance Met":
     where "First Fracture Date" during [Inpatient.admissionDate,Inpatient.dischargeDate]
     with ["Assessment, Performed": "HEDIS; Bone Mineral Density Tests"] Test
       such that Test.relevantDate during  [Inpatient.admissionDate,Inpatient.dischargeDate])
-  or exists("Bone Density Tests" T
+  or exists(["Assessment, Performed": "HEDIS; Bone Mineral Density Tests"] T
         where T.relevantDate on or 180 days or less after "First Fracture Date")
   or exists(["Procedure, Performed": "HEDIS; Osteoporosis Medications"] P
         where P.relevantPeriod starts on or 180 days after "First Fracture Date")
