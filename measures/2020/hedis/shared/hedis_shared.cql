@@ -35,6 +35,7 @@ valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
 valueset "HEDIS; Well-Care": '2.16.840.1.113883.3.464.1004.1262'
 valueset "HEDIS; Telehealth POS": '2.16.840.1.113883.3.464.1004.1460'
 valueset "HEDIS; Telehealth Modifier": '2.16.840.1.113883.3.464.1004.1445'
+valueset "HEDIS; Telephone Visits": '2.16.840.1.113883.3.464.1004.1246'
 valueset "HEDIS; Advanced Illness": '2.16.840.1.113883.3.464.1004.1465'
 
 valueset "NCQA; Dementia Medications": '' //FIXME: add OID
