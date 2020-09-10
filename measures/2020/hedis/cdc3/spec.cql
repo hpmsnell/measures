@@ -96,7 +96,7 @@ define "IVD Encounter No Telehealth":
 define "Other Acute Inpatient Visit":
   ["Encounter, Performed": "HEDIS; Inpatient Stay"] Inpatient
     without ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] Nonacute
-      such that Inpatient.claimId != Nonacute.claimId
+      such that Inpatient.claimId == Nonacute.claimId
       and Inpatient.placeOfService != 81
       and Nonacute.placeOfService != 81
 
