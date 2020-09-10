@@ -40,18 +40,20 @@ context Patient
 
 
 
-define "Denominator Encounter":
+define "Patient Age at Encounter":
   ["Encounter, Performed": "MIPS; MIPS 398 Encounter"] E
     where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 5
       and AgeInYearsAt(start of E.relevantPeriod) < 17
       and E.signingProvider.hasMeasureMembership = true
+    with ["Diagnosis": "HEDIS; Asthma"] D
+      such that D.prevalencePeriod overlaps E.relevantPeriod
 
 define "Diagnosis Asthma"
  ["Diagnosis": "HEDIS; Asthma"] D
     where D.prevalencePeriod during [12 months before start of "Measurement Period", end of "Measurement Period"]
  or ["Diagnosis": "HEDIS; Asthma"] D2
-      where D2.prevalencePeriod during [12 months before start of "Measurement Period", end of "Measurement Period"]
+    where D2.prevalencePeriod during [12 months before start of "Measurement Period", end of "Measurement Period"]
 
 define "Denominator"
   exists("Denominator Encounter")
@@ -73,6 +75,14 @@ define "Denominator Exclusion: Long Term Care"
 define "Denominator Exclusion: Patient Died"
 exists(["Diagnosis": "MIPS; Expired"] D
     where D.prevalencePeriod starts before end of "Measurement Period")
+
+define "Denominator Exclusion: Competing Diagnoses"
+  /*
+  * config_link_id: exclusion_1
+  */
+  exists(["Diagnosis": "MIPS; Competing Conditions for Persistent Asthma"] D
+    where D.prevalencePeriod starts before end of "Denominator Period")
+
 
 define "Asthma Medication":
   ["Medication": "NCQA; Asthma Controller Medications"]
