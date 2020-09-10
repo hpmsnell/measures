@@ -105,15 +105,41 @@ define "Negative Diagnoses Outpatient EncounterSet with Fracture":
     with "Fracture" D
       such that D.prevalencePeriod starts during E1.relevantPeriod
 
+
+define "Negative Diagnoses Outpatient EncounterSet":
+  ["Encounter, Performed": "HEDIS; Outpatient"]
+  union ["Encounter, Performed": "HEDIS; Telephone Visits"]
+  union ["Encounter, Performed": "HEDIS; Online Assessments"]
+  union ["Encounter, Performed": "HEDIS; Observation"]
+  union ["Encounter, Performed": "HEDIS; ED"]
+
+
+define "Inpatient Stay with Fracture without Preceding Transfer":
+    "Inpatient Stay with Fracture" Inpatient
+      without ["Encounter, Performed": "HEDIS; Inpatient Stay"] Inpatient2
+        such that Inpatient2.dischargeDate during [1 days before Inpatient.admissionDate, Inpatient.admissionDate]
+      without "Negative Diagnoses Outpatient EncounterSet" Outpatient
+        such that Outpatient.relevantPeriod starts during [1 days before Inpatient.admissionDate, Inpatient.admissionDate]
+
+
 define "First Fracture During Index Period Outpatient EncounterSet Date":
-  First("Fracture During Index Period Outpatient EncounterSet" E
-    sort by start of E.relevantPeriod asc
-    return start of E.relevantPeriod)
+  First("Fracture During Index Period Outpatient EncounterSet" Outpatient
+    without "Inpatient Stay with Fracture without Preceding Transfer" Inpatient
+      such that Inpatient.admissionDate 60 days or less before start of Outpatient.relevantPeriod
+    without "Outpaient Encounter With Fracture" OutpatientwithFracture
+      such that OutpatientwithFracture.relevantPeriod starts 60 days or less before  Outpatient.relevantPeriod
+    sort by start of Outpatient.relevantPeriod asc
+    return start of Outpatient.relevantPeriod
+    )
 
 define "First Fracture During Index Period Inpatient EncounterSet Date":
-  First("Fracture During Index Period Inpatient EncounterSet" E
-    sort by E.dischargeDate asc
-    return E.dischargeDate)
+  First("Fracture During Index Period Inpatient EncounterSet" Inpatient
+  without "Inpatient Stay with Fracture without Preceding Transfer" Inpatient2
+    such that Inpatient2.admissionDate 60 days or less before Inpatient.dischargeDate
+  without "Outpaient Encounter With Fracture" OutpatientwithFracture
+    such that OutpatientwithFracture.relevantPeriod starts 60 days or less before Inpatient.dischargeDate
+  sort by Inpatient.dischargeDate asc
+  return Inpatient.dischargeDate)
 
 define "First Fracture Date":
   Min(
@@ -143,11 +169,15 @@ define "Encounter With Fracture Resulted in Inpatient Stay Prior Diagnosis Outpa
       "Outpatient Encounter With Fracture Resulted in Inpatient Stay" E2
         where E2.relevantPeriod starts 60 days or less before "First Fracture During Index Period Inpatient EncounterSet Date")
 
+define
+
 define "First Fracture During Index Period Has Prior Diagnosis":
     "First Fracture During Index Period Has Prior Diagnosis Outpatient Encounterset"
     union "First Fracture During Index Period Has Prior Diagnosis Inpatient Stay"
     union "First Fracture During Index Period Has Prior Diagnosis Direct Transfer"
     union "Encounter With Fracture Resulted in Inpatient Stay Prior Diagnosis Outpatient Online"
+
+
 
 
 /* Populations */
@@ -157,7 +187,7 @@ define "Denominator":
   and AgeInYearsAt(end of "Measurement Period") < 86
   and "Patient Characteristic Sex" = "Female"
   and "Fracture During Index Period Exists"
-  and not exists("First Fracture During Index Period Has Prior Diagnosis")
+
 
 define "Exclusion: Hospice":
    /*
