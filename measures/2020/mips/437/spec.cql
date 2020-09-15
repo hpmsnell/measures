@@ -25,12 +25,16 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 //Inverse Measurement
 
-/* Populations */
 
-define "Denominator":
+
+define "Denominator Encounter":
   ["Procedure, Performed": "MIPS; MIPS 437 Procedure"] E
     where E.relevantPeriod starts during "Measurement Period"
       and E.signingProvider.hasMeasureMembership = true
+/* Populations */
+
+define "Denominator":
+  "Denominator Encounter"
 
 define "Denominator Exclusion":
   /*
@@ -38,20 +42,19 @@ define "Denominator Exclusion":
    */
   "Denominator" P
     with ["Procedure, Performed": "MIPS; MIPS 437 Denominator Exclusion G9640"] P1
-      where P1.prevalencePeriod overlaps P.relevantPeriod)
+      where P1.prevalencePeriod starts same day as start of P.relevantPeriod)
 
 define "Numerator Performance Met: G9641":
   /*
    * config_link_id: G9641
    */
-  "Denominator" E
+  "Denominator Encounter" E
     with ["Procedure, Performed": "MIPS; Performance Met: G9641"] P
-      such that P1.relevantPeriod starts during[ end of E.relevantPeriod, 48 hours after end of E.relevantPeriod
+      such that P1.relevantPeriod starts during[ start of E.relevantPeriod, 2 days after end of E.relevantPeriod]
 
 define "Numerator Performance Not Met: G9639":
   /*
    * config_link_id: G9639
    */
-  "Denominator" P
-    with ["Procedure, Performed": "MIPS; Performance Met: G9639"] P1
-      such that P1.relevantPeriod starts during[ end of E.relevantPeriod, 48 hours after end of E.relevantPeriod
+  not "Denominator Exclusion"
+  and not "Numerator Performance Met: G9641"
