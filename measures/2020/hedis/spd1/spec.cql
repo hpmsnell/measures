@@ -6,7 +6,7 @@ library HEDIS_SPD1_2020 version '1'
  * ID: SPD1
  * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Patrick Clark
  *
   */
 
@@ -107,7 +107,7 @@ define "Statin Med List":
 define "Other Acute Inpatient Visit":
   ["Encounter, Performed": "HEDIS; Inpatient Stay"] Inpatient
     without ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] Nonacute
-      such that Inpatient.claimId != Nonacute.claimId
+      such that Inpatient.claimId = Nonacute.claimId
       and Inpatient.placeOfService != 81
       and Nonacute.placeOfService != 81
 
@@ -172,10 +172,6 @@ define "Kidney/Liver Disease":
   ["Diagnosis": "HEDIS; ESRD Diagnosis"]
   union ["Procedure, Performed": "HEDIS; ESRD Diagnosis"]
   union ["Diagnosis": "HEDIS; Cirrhosis"]
-
-define "Statin":
-  ["Medication, Dispensed": "NCQA; High and Moderate-Intensity Statin Medications"]
-  union ["Medication, Dispensed": "NCQA; Low-Intensity Statin Medications"]
 
 define "Nonacute Visit No Telehealth":
   (["Encounter, Performed": "HEDIS; Outpatient"]
@@ -292,7 +288,7 @@ define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
    */
-  exists("Statin" M
+  exists("Statin Med List" M
     where M.relevantPeriod starts during "Measurment Period")
 
 define "Numerator Performance Not Met":
