@@ -16,7 +16,7 @@ using QDM
 
 valueset "MIPS; MIPS 421 Procedure"
 valueset "MIPS; MIPS 421 Intent For Removal: G9539"
-valueset "MIPS; MIPS 421 Patient Alive 3 Months Post Procedure: G95040"
+valueset "MIPS; MIPS 421 Patient Alive 3 Months Post Procedure: G9540"
 valueset "MIPS; Performance Met: G9541"
 valueset "MIPS; Performance Met: G9542"
 valueset "MIPS; Performance Met: G9543"
@@ -33,8 +33,8 @@ define "Denominator Encounter":
       where P1.relevantPeriod starts during Interval[start of "Measurement Period", 3 months before end "Measurement Period"]
       with ["Procedure, Performed": "MIPS; MIPS 421 Intent For Removal: G9539"] P2
           such that P2.relevantPeriod starts same day as start of P1.relevantPeriod
-      with ["Procedure, Performed": "MIPS; MIPS 421 Patient Alive 3 Months Post Procedure: G95040"] P3
-          such that P3.prevalencePeriod starts same day as start of P1.relevantPeriod
+      with ["Procedure, Performed": "MIPS; MIPS 421 Patient Alive 3 Months Post Procedure: G9540"] P3
+          such that P3.relevantPeriod starts on or before 3 months after start of P1.relevantPeriod
 
 /* Populations */
 define "Denominator":
