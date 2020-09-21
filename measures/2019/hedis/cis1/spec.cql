@@ -1,10 +1,10 @@
-library HEDIS_CIS1_2020 version '1'
+library HEDIS_CIS1_2019 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CIS1
- * Year: 2020
+ * Year: 2019
  * Version: 1
  * Author: Chana West
  *

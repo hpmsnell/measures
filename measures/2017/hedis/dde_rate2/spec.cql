@@ -1,10 +1,10 @@
-library HEDIS_DDE_RATE_2_2018 version '1'
+library HEDIS_DDE_RATE_2_2017 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: DDE Rate 2
- * Year: 2018
+ * Year: 2017
  * Version: 1
  * Author: Steve Daniels
  *

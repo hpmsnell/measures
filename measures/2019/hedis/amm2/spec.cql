@@ -1,10 +1,10 @@
-library HEDIS_AMM2_2020 version '1'
+library HEDIS_AMM2_2019 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: AMM2
- * Year: 2020
+ * Year: 2019
  * Version: 1
  * Author: CDQS
  *
@@ -87,7 +87,7 @@ define "Medication Prior to First Medication in Index Period":
 define "Antidepressant within 231 Days":
 //"let" means that you are doing an interim calculation starting with the first medication in the index period (is the earlier of date discontinued or dispensed date + 231 - date medication was dispensed to patient);
 //There may be multiple medications in the record so if they are in the NCQA medication VS, you'll return all of the qualifying antidepressant medication relevant periods which started from index period through 231 days.
-//e.g., would return the following relevantPeriods: First Index medication 01/01/2020 - 02/29/2020 + new medication 03/16/2020-4/16/20 + med#2 refill 4/17/20 - 5/17/2020
+//e.g., would return the following relevantPeriods: First Index medication 01/01/2019 - 02/29/2019 + new medication 03/16/2019-4/16/20 + med#2 refill 4/17/20 - 5/17/2019
 
   ["Medication, Active": "NCQA; Antidepressant Medications"] ActiveAntidepressant
     let FirstDispensed: "First Medication in Index Period"
@@ -97,7 +97,7 @@ define "Antidepressant within 231 Days":
 
 define "Cumulative Medication Duration Greater than or Equal to 180 Days":
 //CMD = Sum of each calculated interval returned based on relevantPeriod in "Antidepressant within 231 Days"
-//e.g., First Index medication 01/01/2020 - 02/29/2020 + refill 03/16/2020-4/16/20, this example would = 91days and should return false
+//e.g., First Index medication 01/01/2019 - 02/29/2019 + refill 03/16/2019-4/16/20, this example would = 91days and should return false
 
   "Cumulative Medication Duration"("Antidepressant within 231 Days")>= 180
 

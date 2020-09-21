@@ -1,10 +1,10 @@
-library HEDIS_IET1_RATE3_2018 version '1'
+library HEDIS_IET1_RATE3_2017 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: IET1 Rate 3
- * Year: 2018
+ * Year: 2017
  * Version: 1
  * Author: Steve Daniels
  *

@@ -1,10 +1,10 @@
-library HEDIS_IMA3_2020 version '1'
+library HEDIS_IMA3_2019 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: IMA3
- * Year: 2020
+ * Year: 2019
  * Version: 1
  * Author: Chana West
  *

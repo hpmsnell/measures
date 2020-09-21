@@ -1,10 +1,10 @@
-library HEDIS_COL_2018 version '1'
+library HEDIS_COL_2017 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: COL
- * Year: 2018
+ * Year: 2017
  * Version: 1
  * Author: Steve Daniels
  *

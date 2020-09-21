@@ -1,10 +1,10 @@
-library HEDIS_ART_2020 version '1'
+library HEDIS_ART_2019 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: ART
- * Year: 2020
+ * Year: 2019
  * Version: 1
  * Author: Jonathan Sams
  *

@@ -1,10 +1,10 @@
-library HEDIS_UOP_RATE1_2019 version '1'
+library HEDIS_UOP_RATE1_2018 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: UOP Rate 1
- * Year: 2019
+ * Year: 2018
  * Version: 1
  * Author: Steve Daniels
  *

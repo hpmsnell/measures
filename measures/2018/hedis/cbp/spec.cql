@@ -1,10 +1,10 @@
-library HEDIS_CBP_2019 version '1'
+library HEDIS_CBP_2018 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CBP
- * Year: 2019
+ * Year: 2018
  * Version: 1
  * Author: Steve Daniels
  *

@@ -1,10 +1,10 @@
-library HEDIS_CIS9_2018 version '1'
+library HEDIS_CIS9_2017 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CIS9
- * Year: 2018
+ * Year: 2017
  * Version: 1
  * Author: Steve Daniels
  *

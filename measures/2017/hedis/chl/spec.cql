@@ -1,10 +1,10 @@
-library HEDIS_CHL_2018 version '1'
+library HEDIS_CHL_2017 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CHL
- * Year: 2018
+ * Year: 2017
  * Version: 1
  * Author: Steve Daniels
  *

@@ -1,10 +1,10 @@
-library HEDIS_PPC1_2018 version '1'
+library HEDIS_PPC1_2017 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: PPC1
- * Year: 2018
+ * Year: 2017
  * Version: 1
  * Author: Steve Daniels
  *

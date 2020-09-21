@@ -1,10 +1,10 @@
-library HEDIS_AMM1`_2018 version '1'
+library HEDIS_AMM1`_2017 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: AMM1`
- * Year: 2018
+ * Year: 2017
  * Version: 2
  * Author: Steve Daniels
  *

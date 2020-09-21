@@ -1,10 +1,10 @@
-library HEDIS_SPC2_2019 version '1'
+library HEDIS_SPC2_2018 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: SPC2
- * Year: 2019
+ * Year: 2018
  * Version: 1
  * Author: Steve Daniels
  *

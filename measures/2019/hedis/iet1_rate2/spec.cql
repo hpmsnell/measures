@@ -1,10 +1,10 @@
-library HEDIS_IET1_RATE2_2020 version '1'
+library HEDIS_IET1_RATE2_2019 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: IET1 Rate 2
- * Year: 2020
+ * Year: 2019
  * Version: 1
  * Author: Chana West
  *

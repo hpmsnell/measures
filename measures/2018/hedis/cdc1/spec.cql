@@ -1,10 +1,10 @@
-library HEDIS_CDC1_2019 version '1'
+library HEDIS_CDC1_2018 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CDC1
- * Year: 2019
+ * Year: 2018
  * Version: 1
  * Author: Steve Daniels
  *

@@ -1,10 +1,10 @@
-library HEDIS_CDC4_2019 version '1'
+library HEDIS_CDC4_2018 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CDC4
- * Year: 2019
+ * Year: 2018
  * Version: 2
  * Author: Steve Daniels
  *

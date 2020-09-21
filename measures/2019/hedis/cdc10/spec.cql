@@ -1,10 +1,10 @@
-library HEDIS_CDC10_2020 version '1'
+library HEDIS_CDC10_2019 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CDC10
- * Year: 2020
+ * Year: 2019
  * Version: 1
  * Author: Chana West
  *

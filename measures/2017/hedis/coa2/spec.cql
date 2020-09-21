@@ -1,10 +1,10 @@
-library HEDIS_COA2_2018 version '1'
+library HEDIS_COA2_2017 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: COA2
- * Year: 2018
+ * Year: 2017
  * Version: 2
  * Author: Steve Daniels
  *

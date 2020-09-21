@@ -1,9 +1,9 @@
-library HEDIS_DSF2_2019 version '1'
+library HEDIS_DSF2_2018 version '1'
 
 /*
  * Source: HEDIS
  * ID: DSF2
- * Year: 2019
+ * Year: 2018
  * Version: 1
  * Written by: Steve Daniels
  *

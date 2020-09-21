@@ -1,10 +1,10 @@
-library HEDIS_CDC5_2018 version '1'
+library HEDIS_CDC5_2017 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CDC5
- * Year: 2018
+ * Year: 2017
  * Version: 2
  * Author: Steve Daniels
  *
