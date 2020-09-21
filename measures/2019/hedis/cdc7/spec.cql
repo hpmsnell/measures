@@ -1,16 +1,18 @@
-library HEDIS_CDC7_2019 version '1'
+library HEDIS_CDC7_2020 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CDC7
- * Year: 2019
+ * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Chana West
  *
   */
 
 using QDM
+
+include "../shared/hedis_shared" version '1' called HedisShared
 
 // HEDIS value sets
 
@@ -20,90 +22,45 @@ valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
 valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1189'
 valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
-valueset "HEDIS; Diabetes Medications"
+valueset "HEDIS; Urine Protein Tests": '2.16.840.1.113883.3.464.1004.1400'
+valueset "HEDIS; Nephropathy Treatment": '2.16.840.1.113883.3.464.1004.1184'
+valueset "HEDIS; Nephrectomy": '2.16.840.1.113883.3.464.1004.1909'
+valueset "HEDIS; CKD Stage 4": '2.16.840.1.113883.3.464.1004.1052'
+valueset "HEDIS; ESRD": '2.16.840.1.113883.3.464.1004.1089'
+valueset "HEDIS; Kidney Transplant": '2.16.840.1.113883.3.464.1004.1141'
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
-valueset "HEDIS; Systolic Less Than 140": ''
-valueset "HEDIS; Systolic Greater Than/Equal To 140": ''
-valueset "HEDIS; Diastolic Less Than 80": ''
-valueset "HEDIS; Diastolic 80-89": ''
-valueset "HEDIS; Diastolic Greater Than/Equal To 90": ''
-valueset "HEDIS; Frailty"
-valueset "HEDIS; Advanced Illness"
-valueset "HEDIS; Outpatient"
-valueset "HEDIS; Observation"
-valueset "HEDIS; ED"
-valueset "HEDIS; Nonacute Inpatient"
-valueset "HEDIS; Acute Inpatient"
-valueset "HEDIS; Hospice"
+valueset "HEDIS; Telephone Visits": '2.16.840.1.113883.3.464.1004.1246'
+valueset "HEDIS; Telehealth Modifier": '2.16.840.1.113883.3.464.1004.1445'
+valueset "HEDIS; Telehealth POS": '2.16.840.1.113883.3.464.1004.1460'
 
-// VSAC value sets
+// NCQA medication list value sets
 
-valueset "VSAC; Diastolic Blood Pressure": '2.16.840.1.113883.3.526.3.1033'
-valueset "VSAC; Systolic Blood Pressure": '2.16.840.1.113883.3.526.3.1032'
-
-// MIPS value sets
-
-valueset "MIPS; MIPS Hospice Service"
+valueset "NCQA; ACE Inhibitor/ARB Medications"
+valueset "NCQA; Diabetes Medications"
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Visit":
-  ["Encounter, Performed": "Outpatient"]
-  union ["Encounter, Performed": "Nonacute Inpatient"]
+define "Nephropathy Procedures":
+  ["Assessment, Performed": "HEDIS; Urine Protein Tests"]
+  union ["Procedure, Performed": "HEDIS; Nephropathy Treatment"]
+  union ["Procedure, Performed": "HEDIS; ESRD"]
+  union ["Procedure, Performed": "HEDIS; Kidney Transplant"]
+  union ["Procedure, Performed": "HEDIS; Nephrectomy"]
 
-define "Systolic":
-  ["Assessment, Performed": "HEDIS; Systolic Less Than 140"]
-  union ["Assessment, Performed": "HEDIS; Systolic Greater Than/Equal To 140"]
-  union ["Assessment, Performed": "VSAC; Systolic Blood Pressure"]
-
-define "Diastolic":
-  ["Assessment, Performed": "HEDIS; Diastolic Less Than 80"]
-  union ["Assessment, Performed": "HEDIS; 80-89"]
-  union ["Assessment, Performed": "HEDIS; Diastolic Greater Than 90"]
-  union ["Assessment, Performed": "VSAC; Diastolic Blood Pressure"] A
-
-define "Most Recent Systolic":
-  First("Systolic" A
-    where A.authorDateTime during "Measurement Period"
-    with "Visit" E
-      such that A.authorDateTime during E.relevantPeriod
-    sort by A.authorDateTime desc)
-
-define "Most Recent Disastolic":
-  First("Diastolic" A
-    where A.authorDateTime during "Measurement Period"
-    with "Visit" E
-      such that A.authorDateTime during E.relevantPeriod
-    sort by A.authorDateTime desc)
-
-/* Blood pressure exists */
-
-define "Systolic Exists":
-  exists("Systolic" A
-    where A.authorDateTime during "Measurement Period"
-    with "Visit" E
-      such that A.authorDateTime during E.relevantPeriod)
-
-define "Diastolic Exists":
-  exists("Diastolic" A
-    where A.authorDateTime during "Measurement Period"
-    with "Visit" E
-      such that A.authorDateTime during E.relevantPeriod)
-
-define "Most Recent Systolic Is Normal"
-  exists("Most Recent Systolic" A
-    where A.code in "HEDIS; Systolic Less Than 140"
-      or A.result < 140)
-
-define "Most Recent Diastolic Is Normal"
-  exists("Most Recent Diastolic" A
-    where A.code in "HEDIS; Diastolic Less Than 80"
-      or A.code in "HEDIS; Diastolic 80-89"
-      or A.result < 90)
+define "Nephropathy Diagnoses":
+  ["Diagnosis": "HEDIS; CKD Stage 4"]
+  union ["Diagnosis": "HEDIS; Nephropathy Treatment"]
+  union ["Diagnosis": "HEDIS; ESRD"]
 
 /* Populations */
+
+define "Exclusion: Hospice":
+	   /*
+	   * config_link_id: exclusion_required_hospice
+	   */
+	   exists("Hospice During Period"("Measurement Period"))
 
 define "Denominator":
   "HEDIS CDC1: Denominator"
@@ -120,25 +77,24 @@ define "Denominator Exclusion: Frailty or Advanced Illness"
   */
   "HEDIS CDC1: Denominator Exclusion: Frailty or Advanced Illness"
 
-define "Numerator Performance Met: Normal Blood Pressure":
+define "Numerator Performance Met":
   /*
-   * config_link_id: normal_blood_pressure
+   * config_link_id: performance_met
    */
-  "Most Recent Systolic Is Normal"
-  and "Most Recent Diastolic Is Normal"
+  exists(["Laboratory Test, Performed": "HEDIS; Urine Protein Tests"] L
+    where L.resultDateTime during "Measurement Year")
+  or exists("Nephropathy Procedures" P
+    where P.relevantPeriod starts during "Measurement Year")
+  or exists("Nephropathy Diagnoses" D
+    where D.prevalencePeriod overlaps "Measurement Year"
+      and D.placeOfService != '81')
+  or exists(["Medication, Dispensed": "NCQA; ACE Inhibitor/ARB Medications"] M
+    where M.relevantPeriod starts during "Measurement Year")
 
-define "Numerator Performance Not Met: High Blood Pressure":
+define "Numerator Performance Not Met":
   /*
-   * config_link_id: high_blood_pressure
-   */
-  "Systolic Exists"
-  and "Diastolic Exists"
-
-define "Numerator Performance Not Met: No Blood Pressure":
-  /*
-   * config_link_id: no_blood_pressure
+   * config_link_id: performance_not_met
    */
   not "Denominator Exclusion: Diagnosis"
   and not "Denominator Exclusion: Frailty or Advanced Illness"
-  and not "Numerator Performance Met: Normal Blood Pressure"
-  and not "Numerator Performance Not Met: High Blood Pressure"
+  and not "Numerator Performance Met"

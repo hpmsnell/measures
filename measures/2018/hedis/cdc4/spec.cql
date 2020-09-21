@@ -1,10 +1,10 @@
-library HEDIS_CDC4_2018 version '1'
+library HEDIS_CDC4_2019 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CDC4
- * Year: 2018
+ * Year: 2019
  * Version: 2
  * Author: Steve Daniels
  *
@@ -36,6 +36,14 @@ valueset "HEDIS; Blindness": ''
 valueset "HEDIS; Lower Extremity Amputation": ''
 valueset "HEDIS; IVD": ''
 valueset "HEDIS; Thoracic Aortic Aneurysm": ''
+valueset "HEDIS; Frailty"
+valueset "HEDIS; Advanced Illness"
+valueset "HEDIS; Outpatient"
+valueset "HEDIS; Observation"
+valueset "HEDIS; ED"
+valueset "HEDIS; Nonacute Inpatient"
+valueset "HEDIS; Acute Inpatient"
+valueset "HEDIS; Hospice"
 
 // VSAC value sets
 
@@ -106,6 +114,12 @@ define "Denominator Exclusion: Diagnosis"
   */
   "HEDIS CDC1: Denominator Exclusion: Diagnosis"
 
+define "Denominator Exclusion: Frailty or Advanced Illness"
+  /*
+  * config_link_id: exclusion_2
+  */
+  "HEDIS CDC1: Denominator Exclusion: Frailty or Advanced Illness"
+
 define "Denominator Exclusion: Selected Population"
   /*
   * config_link_id: exclusion_2
@@ -137,5 +151,7 @@ define "Numerator Performance Not Met: No HbA1c":
   /*
    * config_link_id: hba1c_none
    */
-  not "Numerator Performance Met: Controlled HbA1c"
+  not "Denominator Exclusion: Diagnosis"
+  and not "Denominator Exclusion: Frailty or Advanced Illness"
+  and not "Numerator Performance Met: Controlled HbA1c"
   and not "Numerator Performance Not Met: High HbA1c"

@@ -1,11 +1,11 @@
-library HEDIS_CDC1_2018 version '1'
+library HEDIS_CDC1_2019 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CDC1
- * Year: 2018
- * Version: 2
+ * Year: 2019
+ * Version: 1
  * Author: Steve Daniels
  *
   */
@@ -23,6 +23,14 @@ valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
 valueset "HEDIS; HbA1c Tests": '2.16.840.1.113883.3.464.1004.1116'
 valueset "HEDIS; Diabetes Medications"
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
+valueset "HEDIS; Frailty"
+valueset "HEDIS; Advanced Illness"
+valueset "HEDIS; Outpatient"
+valueset "HEDIS; Observation"
+valueset "HEDIS; ED"
+valueset "HEDIS; Nonacute Inpatient"
+valueset "HEDIS; Acute Inpatient"
+valueset "HEDIS; Hospice"
 
 // VSAC value sets
 
@@ -30,7 +38,6 @@ valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 
 // MIPS value sets
 
-valueset "MIPS; MIPS Hospice Service"
 valueset "MIPS; Performance Met: 3046F" //HbA1c Test
 valueset "MIPS; Performance Not Met: 3045F" //HbA1c Test
 valueset "MIPS; Performance Not Met: 3044F" //HbA1c Test
@@ -43,23 +50,55 @@ define "Nonacute Visit":
   ["Encounter, Performed": "HEDIS; Outpatient"]
   union ["Encounter, Performed": "HEDIS; Observation"]
   union ["Encounter, Performed": "HEDIS; ED"]
-  union ["Encounter, Performed": "HEDIS; Nonacute Inpatient"]
+  union ["Encounter, Performed": "HEDIS; Nonacute Inpatient"] E
+    where not E.code.modifier in {'GT','95'}
+    and not E.placeOfService in {'02'}
+
+define "Nonacute Visit with Diabetes":
+  "Nonacute Visit" E
+    where E.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"]
+    with ["Diagnosis": "HEDIS; Diabetes"] D
+      such that D.prevalencePeriod starts during E.relevantPeriod
 
 define "Patient Has Diabetes":
   exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
     where E.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"]
+      and not E.code.modifier in {'GT','95'}
+      and not E.placeOfService in {'02'})
     with ["Diagnosis": "HEDIS; Diabetes"] D
       such that D.prevalencePeriod starts during E.relevantPeriod)
-  or count("Nonacute Visit" E
-    where E.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"]
-    with ["Diagnosis": "HEDIS; Diabetes"] D
-      such that D.prevalencePeriod starts during E.relevantPeriod) >= 2
+  or exists("Nonacute Visit with Diabetes" E1
+    with "Nonacute Visit with Diabetes" E2
+      such that start of E2.relevantPeriod != start of E1.relevantPeriod
+      and not E.code.modifier in {'GT','95'}
+      and not E.placeOfService in {'02'})
   or exists(["Medication": "HEDIS; Diabetes Medication"] M
     where M.relevantPeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
 
 define "Hospice":
-  ["Intervention, Performed": "MIPS; MIPS Hospice Service"]
-  union ["Intervention, Performed": "VSAC; Palliative Care"]
+  ["Intervention, Performed": "HEDIS; Hospice"]
+
+define "Visit":
+  ["Encounter, Performed": "HEDIS; Outpatient"]
+  union ["Encounter, Performed": "HEDIS; Observation"]
+  union ["Encounter, Performed": "HEDIS; ED"]
+  union ["Encounter, Performed": "HEDIS; Nonacute Inpatient"]
+
+define "Visit with Advanced Illness":
+  "Visit" E
+    where E.relevantPeriod starts during "Measurement Period"
+    with ["Diagnosis": "HEDIS; Advanced Illness"] D
+      such that D.prevalencePeriod starts during E.relevantPeriod
+
+define "Advanced Illness Exists":
+  exists("Visit with Advanced Illness" E1
+    with "Visit with Advanced Illness" E2
+      such that E1.relevantPeriod starts after E2.relevantPeriod)
+  or exists(["Encounter, Performed": "HEDIS; Acute Inpatient"] E
+    with ["Diagnosis": "HEDIS; Advanced Illness"] D
+      such that D.prevalencePeriod starts during E.relevantPeriod)
+  or exists(["Medication, Order": "NCQA; Dementia Medications"] M
+    where M.relevantPeriod starts during "Measurement Period")
 
 /* Populations */
 
@@ -78,6 +117,19 @@ define "Denominator":
     where D.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
    and exists(["Diagnosis": "HEDIS; Diabetes Exclusions"] D
     where D.prevalencePeriod starts during [24 months before end of "Measurement Period", end of "Measurement Period"])
+
+define "Denominator Exclusion: Frailty and Advanced Illness":
+  /*
+   * config_link_id: exclusion_2
+   */
+  AgeInYearsAt(end of "Measurement Period") >= 66
+  and (
+    exists(["Diagnosis": "HEDIS; Frailty"] D
+      where D.prevalencePeriod starts during "Measurement Period")
+    or exists(["Procedure, Performed": "HEDIS; Frailty"] D
+      where D.prevalencePeriod starts during "Measurement Period")
+  )
+  and "Advanced Illness Exists"
 
 define "Numerator Performance Met":
   /*
@@ -98,4 +150,6 @@ define "Numerator Performance Not Met":
   /*
    * config_link_id: performance_not_met
    */
-  not "Numerator Performance Met"
+  not "Denominator Exclusion: Diagnosis"
+  and not "Denominator Exclusion: Frailty or Advanced Illness"
+  and not "Numerator Performance Met"

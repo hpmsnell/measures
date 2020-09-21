@@ -1,10 +1,10 @@
-library HEDIS_CBP_2018 version '1'
+library HEDIS_CBP_2019 version '1'
 
 /*
  *
  * Source: HEDIS
  * ID: CBP
- * Year: 2018
+ * Year: 2019
  * Version: 1
  * Author: Steve Daniels
  *
@@ -52,7 +52,7 @@ define "Hospice":
 
 define "Hypertension Exists":
   exists(["Encounter, Performed": "HEDIS; Outpatient Without UBREV"] E
-    where E.relevantPeriod starts during [start of "Measurement Period", 6 months before end of "Measurement Period"]
+    where E.relevantPeriod starts during [24 months before the start of "Measurement Period", end of "Measurement Period"]
     with ["Diagnosis": "HEDIS; Essential Hypertension"] D
       such that D.prevalencePeriod starts during E.relevantPeriod)
 
