@@ -13,6 +13,7 @@ using QDM
 
 // HEDIS value sets
 
+valueset "HEDIS; Hospice": '2.16.840.1.113883.3.464.1004.1418'
 valueset "HEDIS; Depression"
 valueset "HEDIS; Bipolar Disorder"
 valueset "HEDIS; Beck Depression Inventory Fast Screen total score [BDI]"

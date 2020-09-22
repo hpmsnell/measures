@@ -1,0 +1,176 @@
+---
+measure:
+  name: 19.HEDIS.Art
+  required:
+    display_title: Disease-Modifying Anti-Rheumatic Drug Therapy for Rheumatoid Arthritis
+    inverse: false
+    subject_type: Patient
+    set: HEDIS
+    external_id: ART
+  optional:
+    description: The percentage of patients 18 years of age and older who were diagnosed
+      with rheumatoid arthritis and who were dispensed at least one ambulatory prescription
+      for a disease-modifying anti-rheumatic drug (DMARD).
+    gap_resolution_action:
+    version: 2019
+    mips_measure_type:
+    mips_high_priority:
+    mips_specialty_sets:
+    mips_seven_point_max:
+    source_specification_url:
+    measure_children_names:
+    mips_stratum:
+    mips_objective:
+denominator:
+  description: Patients 18 years and older as of December 31 of the measurement year
+    with two outpatient visits and/or nonacute inpatient discharges with a diagnosis
+    of rheumatoid arthritis on different dates of service on or between January 1
+    and November 30 of the measurement year
+  component_groups:
+  - components:
+    - display_title: 2 Visits or Discharges
+      show_codes: true
+      annotation: 'Outpatient can include telehealth POS or modifier'
+      records:
+      - model: ClinicalActivity
+        value_set: HEDIS; Outpatient
+      - model: ClinicalActivity
+        value_set: HEDIS; Telephone
+      - model: ClinicalActivity
+        value_set: HEDIS; Online Assessments  
+      - model: ClinicalActivity
+        value_set: HEDIS; Inpatient Stay
+      - model: ClinicalActivity
+        value_set: HEDIS; NonAcute Inpatient Stay
+  - logical_operator: AND
+    components:
+    - display_title: Rheumatoid Arthritis
+      show_codes: true
+      records:
+      - model: Diagnosis
+        value_set: HEDIS; Rheumatoid Arthritis
+exclusion:
+  description:
+  reasons:
+  - config_link_id: exclusion_required_hospice
+    code_value:
+    display_title: Hospice
+    description: Patient in hospice during the measurement year
+    component_groups:
+    - components:
+      - display_title: Hospice Service
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Hospice Intervention
+        - model: ClinicalActivity
+          value_set: Able; MMDF Hospice
+  - config_link_id: exclusion_required_frailty
+    code_value:
+    display_title: Frailty and Advanced Illness
+    description: Patient excluded due to frailty and advanced illness
+    component_groups:
+    - components:
+      - display_title: LTI
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: Able; MMDF LTI
+    - logical_operator: 'OR BOTH OF THE FOLLOWING'
+      components:
+      - display_title: Frailty
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Frailty Diagnosis
+        - model: Diagnosis
+          value_set: HEDIS; Frailty Symptom
+        - model: ClinicalActivity
+          value_set: HEDIS; Frailty Encounter
+        - model: ClinicalActivity
+          value_set: HEDIS; Frailty Device
+    - logical_operator: AND
+      components:
+      - display_title: Dementia Medication
+        show_codes: false
+        records:
+        - model: Medication
+          value_set: NCQA; Dementia Medications
+      - logical_operator: 'OR BOTH:'
+        display_title: Visit
+        show_codes: true
+        annotation: 'Two visits are required if visit is not an acute inpatient visit', during the measurement year or the year prior to the measurement year (count services that occur over both years)'
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Outpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Observation
+        - model: ClinicalActivity
+          value_set: HEDIS; ED
+        - model: ClinicalActivity
+          value_set: HEDIS; Nonacute Inpatient
+        - model: ClinicalActivity
+          value_set: HEDIS; Nonacute Inpatient Stay
+        - model: ClinicalActivity
+          value_set: HEDIS; Inpatient Stay
+      - logical_operator: AND
+        display_title: Advanced Illness
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; Advanced Illness
+  - config_link_id: exclusion_1
+    code_value:
+    display_title: HIV
+    description: Patient excluded due to a diagnosis of HIV during measurement year
+    component_groups:
+    - components:
+      - display_title: HIV
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; HIV
+        - model: Diagnosis
+          value_set: HEDIS; HIV Type 2
+  - config_link_id: exclusion_2
+    code_value:
+    display_title: Pregnancy
+    description: Patient excluded due to pregnancy
+    component_groups:
+    - components:
+      - display_title: Pregnancy
+        show_codes: true
+        records:
+        - model: Diagnosis
+          value_set: HEDIS; Pregnancy
+exception:
+  description:
+  reasons:
+performance_met:
+  description:
+  reasons:
+  - config_link_id: performance_met
+    code_value:
+    display_title: DMARD
+    description: Patients who had at least one ambulatory prescription dispensed for
+      a DMARD during the measurement year.
+    component_groups:
+    - components:
+      - display_title: DMARD
+        show_codes: true
+        records:
+        - model: ClinicalActivity
+          value_set: HEDIS; DMARD
+        - model: Medication
+          value_set: Able; DMARD Medication
+performance_not_met:
+  description:
+  reasons:
+  - config_link_id: performance_not_met
+    code_value:
+    display_title: No DMARD
+    description: No ambulatory medication dispensed for DMARD during the measurement
+      year
+    component_groups:

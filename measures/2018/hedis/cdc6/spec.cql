@@ -5,7 +5,7 @@ library HEDIS_CDC6_2018 version '1'
  * Source: HEDIS
  * ID: CDC6
  * Year: 2018
- * Version: 2
+ * Version: 3
  * Author: Steve Daniels
  *
   */
@@ -31,11 +31,22 @@ valueset "HEDIS; ESRD": '2.16.840.1.113883.3.464.1004.1089'
 valueset "HEDIS; Kidney Transplant": '2.16.840.1.113883.3.464.1004.1141'
 valueset "HEDIS; Diabetes Medications"
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
+valueset "HEDIS; Frailty"
+valueset "HEDIS; Advanced Illness"
+valueset "HEDIS; Outpatient"
+valueset "HEDIS; Observation"
+valueset "HEDIS; ED"
+valueset "HEDIS; Nonacute Inpatient"
+valueset "HEDIS; Acute Inpatient"
+valueset "HEDIS; Hospice"
 
 // VSAC value sets
 
-valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 valueset "VSAC; ACE Inhibitor or ARB": '2.16.840.1.113883.3.526.3.1139'
+
+// NCQA value sets
+
+valueset "NCQA; ACE Inhibitor/ARB Medications"
 
 // MIPS value sets
 
@@ -65,6 +76,12 @@ define "Denominator Exclusion: Diagnosis"
   */
   "HEDIS CDC1: Denominator Exclusion: Diagnosis"
 
+define "Denominator Exclusion: Frailty or Advanced Illness"
+  /*
+  * config_link_id: exclusion_2
+  */
+  "HEDIS CDC1: Denominator Exclusion: Frailty or Advanced Illness"
+
 define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
@@ -77,6 +94,8 @@ define "Numerator Performance Met":
     where D.prevalencePeriod overlaps "Measurement Year")
   or exists(["Medication": "VSAC; ACE Inhibitor or ARB"] M
     where M.relevantPeriod starts during "Measurement Year")
+  or exists(["Medication": "NCQA; ACE Inhibitor/ARB Medications"] M
+    where M.relevantPeriod starts during "Measurement Year")
   or exists(["Procedure": "MIPS; Performance Met: G8506"] P
     where P.relevantPeriod starts during "Measurement Year")
 
@@ -84,4 +103,6 @@ define "Numerator Performance Not Met":
   /*
    * config_link_id: performance_not_met
    */
-  not "Numerator Performance Met"
+  not "Denominator Exclusion: Diagnosis"
+  and not "Denominator Exclusion: Frailty or Advanced Illness"
+  and not "Numerator Performance Met"

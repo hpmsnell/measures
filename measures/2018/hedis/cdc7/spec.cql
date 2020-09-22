@@ -27,10 +27,17 @@ valueset "HEDIS; Systolic Greater Than/Equal To 140": ''
 valueset "HEDIS; Diastolic Less Than 80": ''
 valueset "HEDIS; Diastolic 80-89": ''
 valueset "HEDIS; Diastolic Greater Than/Equal To 90": ''
+valueset "HEDIS; Frailty"
+valueset "HEDIS; Advanced Illness"
+valueset "HEDIS; Outpatient"
+valueset "HEDIS; Observation"
+valueset "HEDIS; ED"
+valueset "HEDIS; Nonacute Inpatient"
+valueset "HEDIS; Acute Inpatient"
+valueset "HEDIS; Hospice"
 
 // VSAC value sets
 
-valueset "VSAC; Palliative Care": '2.16.840.1.113883.3.600.1.1579'
 valueset "VSAC; Diastolic Blood Pressure": '2.16.840.1.113883.3.526.3.1033'
 valueset "VSAC; Systolic Blood Pressure": '2.16.840.1.113883.3.526.3.1032'
 
@@ -107,6 +114,12 @@ define "Denominator Exclusion: Diagnosis"
   */
   "HEDIS CDC1: Denominator Exclusion: Diagnosis"
 
+define "Denominator Exclusion: Frailty or Advanced Illness"
+  /*
+  * config_link_id: exclusion_2
+  */
+  "HEDIS CDC1: Denominator Exclusion: Frailty or Advanced Illness"
+
 define "Numerator Performance Met: Normal Blood Pressure":
   /*
    * config_link_id: normal_blood_pressure
@@ -125,5 +138,7 @@ define "Numerator Performance Not Met: No Blood Pressure":
   /*
    * config_link_id: no_blood_pressure
    */
-  not "Numerator Performance Met: Normal Blood Pressure"
+  not "Denominator Exclusion: Diagnosis"
+  and not "Denominator Exclusion: Frailty or Advanced Illness"
+  and not "Numerator Performance Met: Normal Blood Pressure"
   and not "Numerator Performance Not Met: High Blood Pressure"

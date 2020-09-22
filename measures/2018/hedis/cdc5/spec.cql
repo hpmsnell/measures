@@ -29,6 +29,14 @@ valueset "HEDIS; Unilateral Eye Enucleation Right": '2.16.840.1.113883.3.464.100
 valueset "HEDIS; Diabetes Mellitus Without Complications": '2.16.840.1.113883.3.464.1004.1407'
 valueset "HEDIS; Diabetes Medications"
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
+valueset "HEDIS; Frailty"
+valueset "HEDIS; Advanced Illness"
+valueset "HEDIS; Outpatient"
+valueset "HEDIS; Observation"
+valueset "HEDIS; ED"
+valueset "HEDIS; Nonacute Inpatient"
+valueset "HEDIS; Acute Inpatient"
+valueset "HEDIS; Hospice"
 
 // VSAC value sets
 
@@ -72,6 +80,12 @@ define "Denominator Exclusion: Diagnosis"
   */
   "HEDIS CDC1: Denominator Exclusion: Diagnosis"
 
+define "Denominator Exclusion: Frailty or Advanced Illness"
+  /*
+  * config_link_id: exclusion_2
+  */
+  "HEDIS CDC1: Denominator Exclusion: Frailty or Advanced Illness"
+
 define "Numerator Performance Met":
   /*
    * config_link_id: performance_met
@@ -93,11 +107,13 @@ define "Numerator Performance Met":
   or exists(["Assessment, Performed": "HEDIS; Diabetic Retinal Screening with Eye Care Professional"] A
     where A.authorDateTime during "Measurement Year")
   or exists ("Unilateral Enucleation" A
-    where A.code.modifier in {'50','09950'})
+    where A.code.modifier in {'50'})
   or "Two Unilateral Enucleations Exist"
 
 define "Numerator Performance Not Met":
   /*
    * config_link_id: performance_not_met
    */
-  not "Numerator Performance Met"
+  not "Denominator Exclusion: Diagnosis"
+  and not "Denominator Exclusion: Frailty or Advanced Illness"
+  and not "Numerator Performance Met"

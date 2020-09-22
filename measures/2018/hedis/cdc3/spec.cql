@@ -23,6 +23,17 @@ valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
 valueset "HEDIS; HbA1c Tests": '2.16.840.1.113883.3.464.1004.1116'
 valueset "HEDIS; Diabetes Medications"
 valueset "HEDIS; Diabetes Exclusions": '2.16.840.1.113883.3.464.1004.1105'
+valueset "HEDIS; HbA1c Level Less Than 7.0"
+valueset "HEDIS; HbA1c Level 7.0-9.0"
+valueset "HEDIS; HbA1c Level Greater Than 9.0"
+valueset "HEDIS; Frailty"
+valueset "HEDIS; Advanced Illness"
+valueset "HEDIS; Outpatient"
+valueset "HEDIS; Observation"
+valueset "HEDIS; ED"
+valueset "HEDIS; Nonacute Inpatient"
+valueset "HEDIS; Acute Inpatient"
+valueset "HEDIS; Hospice"
 
 // VSAC value sets
 
@@ -54,6 +65,12 @@ define "Denominator Exclusion: Diagnosis"
   */
   "HEDIS CDC1: Denominator Exclusion: Diagnosis"
 
+define "Denominator Exclusion: Frailty or Advanced Illness"
+  /*
+  * config_link_id: exclusion_2
+  */
+  "HEDIS CDC1: Denominator Exclusion: Frailty or Advanced Illness"
+
 define "Numerator Performance Met: Controlled HbA1c":
   /*
    * config_link_id: hba1c_controlled
@@ -72,5 +89,7 @@ define "Numerator Performance Not Met: No HbA1c":
   /*
    * config_link_id: hba1c_none
    */
-  not "Numerator Performance Met: Controlled HbA1c"
+  not "Denominator Exclusion: Diagnosis"
+  and not "Denominator Exclusion: Frailty or Advanced Illness"
+  and not "Numerator Performance Met: Controlled HbA1c"
   and not "Numerator Performance Not Met: High HbA1c"
