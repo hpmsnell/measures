@@ -43,7 +43,7 @@ define "Index Period":
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 370 Encounter"] E
-    where E.relevantPeriod starts during "Measurement Period"
+    where E.relevantPeriod starts during "Index Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 12
       and AgeInYearsAt(start of E.relevantPeriod) < 18
       and E.signingProvider.hasMeasureMembership = true
