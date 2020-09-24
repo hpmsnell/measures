@@ -1,4 +1,4 @@
-library HEDIS_CHL_2020 version '1'
+library HEDIS_CHL_2020
 
 /*
  *
@@ -60,14 +60,14 @@ define "Denominator Exclusion":
   "Only Pregnancy Test Exists"
   and exists("Pregnancy Test Exclusion" L
     with "Retinoid or Diagnostic Radiology" P
-      such that L.resultDateTime on or 6 days or less before start of P.relevantPeriod)
+      such that L.start_date on or 6 days or less before P.start_date)
 
 define "Numerator Performance Met":
   /*
    * Option ID: performance_met
    */
   exists("Chlamydia Tests" P
-    where P.relevantPeriod starts during "Measurement Period")
+    where P.start_date starts during "Measurement Period")
 
 define "Numerator Performance Not Met":
   /*
@@ -79,32 +79,32 @@ define "Numerator Performance Not Met":
 // Definitions
 
 define "Denominator Pregnancy":
-  (["Diagnosis": "HEDIS; Pregnancy"]) P
-    with (["Encounter, Performed"]) E //ANY encounter
-      such that P.claimId = E.claimId
-    where P.prevalencePeriod starts during "Measurement Period"
+  (["Diagnosis": "HEDIS; PREGNANCY"]) P
+    with (["Clinical Activity"]) E //ANY encounter
+      such that P.claim_id = E.claim_id
+    where P.start_date starts during "Measurement Period"
     and P.supplemental = false
-    and P.placeOfService != 81
+    and P.place_of_service != 81
     and E.supplemental = false
-    and E.placeOfService != 81
+    and E.place_of_service != 81
 
 define "Denominator Sexual Activity":
-  ((["Diagnosis": "HEDIS; Sexual Activity"]) P
-    where P.prevalencePeriod starts during "Measurement Period"
+  ((["Diagnosis": "HEDIS; SEXUAL_ACTIVITY"]) P
+    where P.start_date  during "Measurement Period"
       and P.supplemental = false
     )
-  union ((["Clinical Activity": "HEDIS; Sexual Activity"]) P
-    where P.relevantPeriod starts during "Measurement Period"
+  union ((["Clinical Activity": "HEDIS; SEXUAL_ACTIVITY"]) P
+    where P.start_date starts during "Measurement Period"
       and P.supplemental = false
     )
 
 define "Denominator Pregnancy Tests":
-  (["Clinical Activity": "HEDIS; Pregnancy Tests"]) P
-    where P.start_date starts during "Measurement Period"
+  (["Clinical Activity": "HEDIS; PREGNANCY_TESTS"]) P
+    where P.start_date during "Measurement Period"
       and P.supplemental = false
 
 define "Denominator Contraceptive Medications":
-  (["Medication": "NCQA; Contraceptive Medications"]) P
+  (["Medication": "NCQA; CONTRACEPTIVE_MEDICATIONS"]) P
     where P.start_date during "Measurement Period"
       and P.supplemental = false
       and P.dispensed = true
@@ -126,16 +126,16 @@ define "Only Pregnancy Test Exists":
   )
 
 define "Pregnancy Test Exclusion":
-  ["Clinical Activity": "HEDIS; Pregnancy Test Exclusion"]
-  union ["Laboratory Test Performed": "HEDIS; Pregnancy Test Exclusion"]
+  ["Clinical Activity": "HEDIS; PREGNANCY_TEST_EXCLUSION"]
+  union ["Laboratory Test Performed": "HEDIS; PREGNANCY_TEST_EXCLUSION"]
 
 define "Retinoid or Diagnostic Radiology":
-  (["Clinical Activity": "HEDIS; Diagnostic Radiology"]) Radiology
-    where Radiology.placeOfService != 81
-  union (["Medication": "NCQA; Retinoid Medications"]) Meds
+  (["Clinical Activity": "HEDIS; DIAGNOSTIC_RADIOLOGY"]) Radiology
+    where Radiology.place_of_service != 81
+  union (["Medication": "NCQA; RETINOID_MEDICATIONS"]) Meds
     where Meds.dispensed = true
 
 define "Chlamydia Tests":
-  ["Clinical Activity": "HEDIS; Chlamydia Tests"]
-  union ["Laboratory Test Performed": "HEDIS; Chlamydia Tests"]
-  union ["Clinical Activity": "MIPS; Performance Met: G9820"]
+  ["Clinical Activity": "HEDIS; CHLAMYDIA_TESTS"]
+  union ["Laboratory Test Performed": "HEDIS; CHLAMYDIA_TESTS"]
+  union ["Clinical Activity": "MIPS; PERFORMANCE_MET_G9820"]
