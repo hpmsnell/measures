@@ -12,7 +12,7 @@ library HEDIS_COA3_2020
 
 using ADM v1
 
-include "../shared/hedis_shared" version '1' called HedisShared
+include "../shared/hedis_shared" called HedisShared
 
 // HEDIS value sets
 
@@ -21,9 +21,6 @@ valueset "HEDIS; ACUTE_INPATIENT_POS"
 valueset "HEDIS; ACUTE_INPATIENT"
 valueset "HEDIS; CPT_CAT_II_MODIFIER": '2.16.840.1.113883.3.464.1004.1464'
 
-// Able value sets
-
-valueset "Able; FUNCTIONAL_STATUS_ASSESSMENT"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -60,7 +57,7 @@ define "Numerator Performance Met":
         )
         or (
           FSA.claim_id == null
-          and FSA.start_Date = Inpatient.start_Date
+          and FSA.start_date = Inpatient.start_date
 
         )
       )
@@ -70,11 +67,9 @@ define "Numerator Performance Not Met":
   /*
    * Option ID: performance_not_met
    */
-  not "Denominator Exclusion"
-  and not "Numerator Performance Met"
+
 
 // Definitions
 
 define "Functional Status Assessment":
   ["Clinical Activity": "HEDIS; FUNCTIONAL_STATUS_ASSESSMENT"]
-  union ["Clinical Activity": "Able; FUNCTIONAL_STATUS_ASSESSMENT"]

@@ -12,11 +12,7 @@ library HEDIS_COA2_2020
 
 using ADM v1
 
-include "../shared/hedis_shared" version '1' called HedisShared
-
-// VSAC value sets
-
-valueset "VSAC; CURRENT_MEDICATIONS_DOCUMENTED_SNMD"
+include "../shared/hedis_shared" called HedisShared
 
 // HEDIS value sets
 
@@ -49,7 +45,7 @@ define "Numerator Performance Met":
   "Medication Review" MedReview
     with "Medication List" MedList
       such that MedReview.claim_id = MedList.claim_id
-  or exists(["Clinical Activity": "HEDIS; TRANSITIONAL_CARE_MANAGEMENT_SERCICES"] Trans
+  or exists(["Clinical Activity": "HEDIS; TRANSITIONAL_CARE_MANAGEMENT_SERVICES"] Trans
     where Trans.start_date during "Measurement Period"
       and Trans.place_of_service != '81'
       and Trans.code_modifiers not in "HEDIS; CPT_CAT_II_MODIFIER")
@@ -58,28 +54,30 @@ define "Numerator Performance Not Met":
   /*
    * Option ID: performance_not_met
    */
-  not "Denominator Exclusion"
-  and not "Numerator Performance Met"
+
 
 // Definitions
 
 define "Medication List":
-  (["Clinical Activity": "HEDIS; MEDICATION_LIST"]
-  union ["Clinical Activity": "VSAC; CURRENT_MEDICATIONS_DOCUMENTED_SNMD"]) MedList
+  ["Clinical Activity": "HEDIS; MEDICATION_LIST"] MedList
     where MedList.start_date during "Measurement Period"
-      and (
-        MedReview.signingProvider.prescribing = true
-        or MedReview.signingProvider.pharmacyProvider = true
-      )
       and MedList.place_of_service != '81'
-      and MedList.code_modifiers not in "HEDIS; CPT CAT II Modifier"
+      and MedList.code_modifiers not in "HEDIS; CPT_CAT_II_MODIFIER"
+    with (["Provider"] Provider
+      where (
+        Provider.prescribing = true
+        or Provider.pharmacy_provider = true
+      ))
+      such that Provider.external_id = MedList.provider_id
 
 define "Medication Review":
   ["Clinical Activity": "HEDIS; MEDICATION_REVIEW"] MedReview
-    where MedReview.relevantPeriod starts during "Measurement Period"
-      and (
-        MedReview.signingProvider.prescribing = true
-        or MedReview.signingProvider.pharmacyProvider = true
-      )
-      and MedReview.place_of_service != '81'
-      and MedReview.code_modifiers not in "HEDIS; CPT CAT II Modifier"
+  where MedReview.start_date during "Measurement Period"
+    and MedReview.place_of_service != '81'
+    and MedReview.code_modifiers not in "HEDIS; CPT_CAT_II_MODIFIER"
+  with (["Provider"] Provider
+    where (
+      Provider.prescribing = true
+      or Provider.pharmacy_provider = true
+    ))
+    such that Provider.external_id = MedReview.provider_id

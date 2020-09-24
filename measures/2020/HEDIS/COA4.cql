@@ -12,22 +12,15 @@ library HEDIS_COA4_2020
 
 using ADM v1
 
-include "../shared/hedis_shared" version '1' called HedisShared
+include "../shared/hedis_shared" called HedisShared
 
-// MIPS value sets
-
-valueset "MIPS; PERFORMANCE_MET_G8730" //Pain Assessment
-valueset "MIPS; PERFORMANCE_MET_G8731" //Pain Assessment
 
 // HEDIS value sets
 
 valueset "HEDIS; PAIN_ASSESSMENT": '2.16.840.1.113883.3.464.1004.1104'
 valueset "HEDIS; CPT_CAT_II_MODIFIER": '2.16.840.1.113883.3.464.1004.1464'
 
-// Able value sets
 
-valueset "Able; PAIN_ASSESSMENTS"
-valueset "Able; STANDARDIZED_PAIN_ASSESSMENT_TOOL"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -43,13 +36,13 @@ define "Denominator":
 
 define "Exclusion: Hospice":
   /*
-   * config_link_id: exclusion_required_hospice
+   * Option Id: exclusion_required_hospice
    */
    exists("Hospice During Period"("Measurement Period"))
 
 define "Numerator Performance Met":
   /*
-   * config_link_id: performance_met
+   * Option Id: performance_met
    */
   exists("Pain Assessment" PA
     where PA.start_date during "Measurement Period"
@@ -72,16 +65,10 @@ define "Numerator Performance Met":
 
 define "Numerator Performance Not Met":
   /*
-   * config_link_id: performance_not_met
+   * Option Id: performance_not_met
    */
-  not "Denominator Exclusion"
-  and not "Numerator Performance Met"
 
 // Definitions
 
 define "Pain Assessment":
   ["Clinical Activity": "HEDIS; PAIN_ASSESSMENT"]
-  union ["Clinical Activity": "Able; PAIN_ASSESSMENTS"]
-  union ["Clinical Activity": "Able; STANDARDIZED_PAIN_ASSESSMENT_TOOL"]
-  union ["MIPS; PERFORMANCE_MET_G8730"]
-  union ["MIPS; PERFORMANCE_MET_G8731"]

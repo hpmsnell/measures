@@ -12,17 +12,13 @@ library HEDIS_COA1_2020
 
 using ADM v1
 
-include "../shared/hedis_shared" version '1' called HedisShared
+include "../shared/hedis_shared" called HedisShared
 
 // HEDIS value sets
 
 valueset "HEDIS; ADVANCE_CARE_PLANNING": '2.16.840.1.113883.3.464.1004.1020'
 valueset "HEDIS; CPT_CAT_II_MODIFIER": '2.16.840.1.113883.3.464.1004.1464'
 
-// Able Value Sets
-
-valueset "Able; ADVANCE_DIRECTIVE"
-valueset "Able; ADVANCE_DIRECTIVE_DISCUSSED"
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -56,11 +52,10 @@ define "Numerator Performance Not Met":
   /*
    * Option ID: performance_not_met
    */
-  not "Numerator Performance Met"
+
+
 // Definitions
 
 define "Advance Care Planning":
   ["Clinical Activity": "HEDIS; ADVANCE_CARE_PLANNING"]
   union ["Diagnosis": "HEDIS; ADVANCE_CARE_PLANNING"]
-  union ["Clinical Activity": "Able; ADVANCE_DIRECTIVE"]
-  union ["Clinical Activity": "Able; ADVANCE_DIRECTIVE_DISCUSSED"]
