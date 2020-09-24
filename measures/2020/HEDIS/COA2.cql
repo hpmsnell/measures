@@ -1,81 +1,85 @@
-library HEDIS_COA2_2019 version '1'
+library HEDIS_COA2_2020
 
 /*
  *
  * Source: HEDIS
  * ID: COA2
- * Year: 2019
+ * Year: 2020
  * Version: 1
  * Author: Steve Daniels
  *
   */
 
-using QDM
+using ADM v1
 
 include "../shared/hedis_shared" version '1' called HedisShared
 
 // VSAC value sets
 
-valueset "VSAC; Current Medications Documented SNMD"
+valueset "VSAC; CURRENT_MEDICATIONS_DOCUMENTED_SNMD"
 
 // HEDIS value sets
 
-valueset "HEDIS; Medication Review": '2.16.840.1.113883.3.464.1004.1175'
-valueset "HEDIS; Medication List": '2.16.840.1.113883.3.464.1004.1173'
-valueset "HEDIS; Transitional Care Management Services": '2.16.840.1.113883.3.464.1004.1462'
-valueset "HEDIS; CPT CAT II Modifier": '2.16.840.1.113883.3.464.1004.1464'
+valueset "HEDIS; MEDICATION_REVIEW": '2.16.840.1.113883.3.464.1004.1175'
+valueset "HEDIS; MEDICATION_LIST": '2.16.840.1.113883.3.464.1004.1173'
+valueset "HEDIS; TRANSITIONAL_CARE_MANAGEMENT_SERVICES": '2.16.840.1.113883.3.464.1004.1462'
+valueset "HEDIS; CPT_CAT_II_MODIFIER": '2.16.840.1.113883.3.464.1004.1464'
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
-
-define "Medication List":
-  (["Procedure, Performed": "HEDIS; Medication List"]
-  union ["Procedure, Performed": "VSAC; Current Medications Documented SNMD"]) MedList
-    where MedList.relevantPeriod starts during "Measurement Period"
-      and (
-        MedReview.signingProvider.prescribing = true
-        or MedReview.signingProvider.pharmacyProvider = true
-      )
-      and MedList.placeOfService != '81'
-      and MedList.code.modifiers not in "HEDIS; CPT CAT II Modifier"
-
-define "Medication Review":
-  ["Procedure, Performed": "HEDIS; Medication Review"] MedReview
-    where MedReview.relevantPeriod starts during "Measurement Period"
-      and (
-        MedReview.signingProvider.prescribing = true
-        or MedReview.signingProvider.pharmacyProvider = true
-      )
-      and MedReview.placeOfService != '81'
-      and MedReview.code.modifiers not in "HEDIS; CPT CAT II Modifier"
-
 /* Populations */
 
-define "Denominator":
+define "Initial Population":
   AgeInYearsAt(end of "Measurement Period") >= 66
+
+define "Denominator":
+  "Initial Population"
 
 define "Exclusion: Hospice":
   /*
-   * config_link_id: exclusion_required_hospice
+   * Option ID: exclusion_required_hospice
    */
    exists("Hospice During Period"("Measurement Period"))
 
 define "Numerator Performance Met":
   /*
-   * config_link_id: performance_met
+   * Option ID: performance_met
    */
   "Medication Review" MedReview
     with "Medication List" MedList
-      such that MedReview.claimId = MedList.claimId
-  or exists(["Procedure, Performed": "HEDIS; Transitional Care Management Sercices"] Trans
-    where Trans.relevantPeriod starts during "Measurement Period"
-      and Trans.placeOfService != '81'
-      and Trans.code.modifiers not in "HEDIS; CPT CAT II Modifier")
+      such that MedReview.claim_id = MedList.claim_id
+  or exists(["Clinical Activity": "HEDIS; TRANSITIONAL_CARE_MANAGEMENT_SERCICES"] Trans
+    where Trans.start_date during "Measurement Period"
+      and Trans.place_of_service != '81'
+      and Trans.code_modifiers not in "HEDIS; CPT_CAT_II_MODIFIER")
 
 define "Numerator Performance Not Met":
   /*
-   * config_link_id: performance_not_met
+   * Option ID: performance_not_met
    */
   not "Denominator Exclusion"
   and not "Numerator Performance Met"
+
+// Definitions
+
+define "Medication List":
+  (["Clinical Activity": "HEDIS; MEDICATION_LIST"]
+  union ["Clinical Activity": "VSAC; CURRENT_MEDICATIONS_DOCUMENTED_SNMD"]) MedList
+    where MedList.start_date during "Measurement Period"
+      and (
+        MedReview.signingProvider.prescribing = true
+        or MedReview.signingProvider.pharmacyProvider = true
+      )
+      and MedList.place_of_service != '81'
+      and MedList.code_modifiers not in "HEDIS; CPT CAT II Modifier"
+
+define "Medication Review":
+  ["Clinical Activity": "HEDIS; MEDICATION_REVIEW"] MedReview
+    where MedReview.relevantPeriod starts during "Measurement Period"
+      and (
+        MedReview.signingProvider.prescribing = true
+        or MedReview.signingProvider.pharmacyProvider = true
+      )
+      and MedReview.place_of_service != '81'
+      and MedReview.code_modifiers not in "HEDIS; CPT CAT II Modifier"

@@ -1,67 +1,66 @@
-library HEDIS_COA3_2019 version '1'
+library HEDIS_COA3_2020
 
 /*
  *
  * Source: HEDIS
  * ID: COA3
- * Year: 2019
+ * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Patrick Clark
  *
   */
 
-using QDM
+using ADM v1
 
 include "../shared/hedis_shared" version '1' called HedisShared
 
 // HEDIS value sets
 
-valueset "HEDIS; Functional Status Assessment": '2.16.840.1.113883.3.464.1004.1104'
-valueset "HEDIS; Acute Inpatient POS"
-valueset "HEDIS; Acute Inpatient"
-valueset "HEDIS; CPT CAT II Modifier": '2.16.840.1.113883.3.464.1004.1464'
+valueset "HEDIS; FUNCTIONAL_STATUS_ASSESSMENT": '2.16.840.1.113883.3.464.1004.1104'
+valueset "HEDIS; ACUTE_INPATIENT_POS"
+valueset "HEDIS; ACUTE_INPATIENT"
+valueset "HEDIS; CPT_CAT_II_MODIFIER": '2.16.840.1.113883.3.464.1004.1464'
 
 // Able value sets
 
-valueset "Able; Functional Status Assessment"
+valueset "Able; FUNCTIONAL_STATUS_ASSESSMENT"
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Functional Status Assessment":
-  ["Procedure, Performed": "HEDIS; Functional Status Assessment"]
-  union ["Procedure, Performed": "Able; Functional Status Assessment"]
-
 /* Populations */
 
-define "Denominator":
+define "Initial Population":
   AgeInYearsAt(end of "Measurement Period") >= 66
+
+define "Denominator":
+  "Initial Population"
 
 define "Exclusion: Hospice":
   /*
-   * config_link_id: exclusion_required_hospice
+   * Option ID: exclusion_required_hospice
    */
    exists("Hospice During Period"("Measurement Period"))
 
 define "Numerator Performance Met":
   /*
-   * config_link_id: performance_met
+   * Option ID: performance_met
    */
   exists("Functional Status Assessment" FSA
-    where FSA.relevantPeriod starts during "Measurement Period"
-      and FSA.code.placeOfService not in "HEDIS; Acute Inpatient POS"
-      and FSA.placeOfService != '81'
-      and FSA.code.modifiers not in "HEDIS; CPT CAT II Modifier"
-    without ["Procedure, Performed": "HEDIS; Acute Inpatient"] Inpatient
+    where FSA.start_date during "Measurement Period"
+      and FSA.place_of_service not in "HEDIS; ACUTE_INPATIENT_POS"
+      and FSA.place_of_service != '81'
+      and FSA.code_modifiers not in "HEDIS; CPT_CAT_II_MODIFIER"
+    without ["Clinical Activity": "HEDIS; ACUTE_INPATIENT"] Inpatient
       such that (
         (
-          FSA.claimId != null
-          and FSA.claimId = Inpatient.claimId
+          FSA.claim_id != null
+          and FSA.claim_id = Inpatient.claim_id
         )
         or (
-          FSA.claimId == null
-          and FSA.startDate = Inpatient.startDate
+          FSA.claim_id == null
+          and FSA.start_Date = Inpatient.start_Date
 
         )
       )
@@ -69,7 +68,13 @@ define "Numerator Performance Met":
 
 define "Numerator Performance Not Met":
   /*
-   * config_link_id: performance_not_met
+   * Option ID: performance_not_met
    */
   not "Denominator Exclusion"
   and not "Numerator Performance Met"
+
+// Definitions
+
+define "Functional Status Assessment":
+  ["Clinical Activity": "HEDIS; FUNCTIONAL_STATUS_ASSESSMENT"]
+  union ["Clinical Activity": "Able; FUNCTIONAL_STATUS_ASSESSMENT"]

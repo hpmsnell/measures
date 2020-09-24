@@ -1,61 +1,66 @@
-library HEDIS_COA1_2019 version '1'
+library HEDIS_COA1_2020
 
 /*
  *
  * Source: HEDIS
  * ID: COA1
- * Year: 2019
+ * Year: 2020
  * Version: 1
- * Author: Steve Daniels
+ * Author: Patrick Clark
  *
   */
 
-using QDM
+using ADM v1
 
 include "../shared/hedis_shared" version '1' called HedisShared
 
 // HEDIS value sets
 
-valueset "HEDIS; Advance Care Planning": '2.16.840.1.113883.3.464.1004.1020'
-valueset "HEDIS; CPT CAT II Modifier": '2.16.840.1.113883.3.464.1004.1464'
+valueset "HEDIS; ADVANCE_CARE_PLANNING": '2.16.840.1.113883.3.464.1004.1020'
+valueset "HEDIS; CPT_CAT_II_MODIFIER": '2.16.840.1.113883.3.464.1004.1464'
 
 // Able Value Sets
 
-valueset "Able; Advance Directive"
-valueset "Able; Advance Directive Discussed"
+valueset "Able; ADVANCE_DIRECTIVE"
+valueset "Able; ADVANCE_DIRECTIVE_DISCUSSED"
 
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Advance Care Planning":
-  ["Procedure, Performed": "HEDIS; Advance Care Planning"]
-  union ["Diagnosis": "HEDIS; Advance Care Planning"]
-  union ["Procedure, Performed": "Able; Advance Directive"]
-  union ["Procedure, Performed": "Able; Advance Directive Discussed"]
-
 /* Populations */
 
-define "Denominator":
+define "Initial Population":
   AgeInYearsAt(end of "Measurement Period") >= 66
+
+define "Denominator":
+  "Initial Population"
+
 
 define "Exclusion: Hospice":
   /*
-   * config_link_id: exclusion_required_hospice
+   * Option ID: exclusion_required_hospice
    */
   exists("Hospice During Period"("Measurement Period"))
 
 define "Numerator Performance Met":
   /*
-   * config_link_id: performance_met
+   * Option ID: performance_met
    */
   exists("Advance Care Planning" CarePlan
-    where CarePlan.relevantPeriod starts during "Measurement Period"
-      and CarePlan.placeOfService != '81'
-      and CarePlan.code.modifiers not in "HEDIS; CPT CAT II Modifier")
+    where CarePlan.start_date during "Measurement Period"
+      and CarePlan.place_of_service != '81'
+      and CarePlan.code_modifiers not in "HEDIS; CPT_CAT_II_MODIFIER")
 
 define "Numerator Performance Not Met":
   /*
-   * config_link_id: performance_not_met
+   * Option ID: performance_not_met
    */
   not "Numerator Performance Met"
+// Definitions
+
+define "Advance Care Planning":
+  ["Clinical Activity": "HEDIS; ADVANCE_CARE_PLANNING"]
+  union ["Diagnosis": "HEDIS; ADVANCE_CARE_PLANNING"]
+  union ["Clinical Activity": "Able; ADVANCE_DIRECTIVE"]
+  union ["Clinical Activity": "Able; ADVANCE_DIRECTIVE_DISCUSSED"]

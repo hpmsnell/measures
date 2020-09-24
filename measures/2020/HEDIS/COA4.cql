@@ -21,7 +21,7 @@ valueset "MIPS; PERFORMANCE_MET_G8731" //Pain Assessment
 
 // HEDIS value sets
 
-valueset "HEDIS; PAIN ASSESSMENT": '2.16.840.1.113883.3.464.1004.1104'
+valueset "HEDIS; PAIN_ASSESSMENT": '2.16.840.1.113883.3.464.1004.1104'
 valueset "HEDIS; CPT_CAT_II_MODIFIER": '2.16.840.1.113883.3.464.1004.1464'
 
 // Able value sets
@@ -32,13 +32,6 @@ valueset "Able; STANDARDIZED_PAIN_ASSESSMENT_TOOL"
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
-
-define "Pain Assessment":
-  ["Procedure, Performed": "HEDIS; PAIN_ASSESSMENT"]
-  union ["Procedure, Performed": "Able; PAIN_ASSESSMENTS"]
-  union ["Procedure, Performed": "Able; STANDARDIZED_PAIN_ASSESSMENT_TOOL"]
-  union ["MIPS; PERFORMANCE_MET_G8730"]
-  union ["MIPS; PERFORMANCE_MET_G8731"]
 
 /* Populations */
 
@@ -59,19 +52,19 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   exists("Pain Assessment" PA
-    where PA.relevantPeriod starts during "Measurement Period"
-      and PA.code.placeOfService not in "HEDIS; ACUTE_INPATIENT_POS"
-      and PA.placeOfService != '81'
-      and PA.code.modifiers not in "HEDIS; CPT_CAT_II_MODIFIER"
-    without ["Procedure, Performed": "HEDIS; ACUTE_INPATIENT"] Inpatient
+    where PA.start_date during "Measurement Period"
+      and PA.place_of_service not in "HEDIS; ACUTE_INPATIENT_POS"
+      and PA.place_of_service != '81'
+      and PA.code_modifiers not in "HEDIS; CPT_CAT_II_MODIFIER"
+    without ["Clinical Activity": "HEDIS; ACUTE_INPATIENT"] Inpatient
       such that (
         (
-          FSA.claimId != null
-          and FSA.claimId = Inpatient.claimId
+          FSA.claim_id != null
+          and FSA.claim_id = Inpatient.claim_id
         )
         or (
-          FSA.claimId == null
-          and FSA.startDate = Inpatient.startDate
+          FSA.claim_id == null
+          and FSA.start_date = Inpatient.start_date
 
         )
       )
@@ -83,3 +76,12 @@ define "Numerator Performance Not Met":
    */
   not "Denominator Exclusion"
   and not "Numerator Performance Met"
+
+// Definitions
+
+define "Pain Assessment":
+  ["Clinical Activity": "HEDIS; PAIN_ASSESSMENT"]
+  union ["Clinical Activity": "Able; PAIN_ASSESSMENTS"]
+  union ["Clinical Activity": "Able; STANDARDIZED_PAIN_ASSESSMENT_TOOL"]
+  union ["MIPS; PERFORMANCE_MET_G8730"]
+  union ["MIPS; PERFORMANCE_MET_G8731"]
