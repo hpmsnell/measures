@@ -1,8 +1,8 @@
-library MIPS_398Rate1_2020 version '1'
+library MIPS_398Rate3_2020 version '1'
 
 /*
  * Source: MIPS
- * ID: 398Rate1
+ * ID: 398Rate3
  * Year: 2020
  * Version: 1
  * Author: Patrick Clark
@@ -32,8 +32,8 @@ context Patient
 define "Patient Age at Encounter":
   ["Encounter, Performed": "MIPS; MIPS 398 Encounter"] E
     where E.relevantPeriod starts during "Denominator Period"
-      and AgeInYearsAt(start of E.relevantPeriod) >= 5
-      and AgeInYearsAt(start of E.relevantPeriod) < 17
+      and AgeInYearsAt(start of E.relevantPeriod) >= 18
+      and AgeInYearsAt(start of E.relevantPeriod) < 50
       and E.signingProvider.hasMeasureMembership = true
     with ["Diagnosis": "MIPS; Asthma"] D
       such that D.prevalencePeriod overlaps E.relevantPeriod
