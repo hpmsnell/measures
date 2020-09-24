@@ -12,7 +12,7 @@ library HEDIS_CCS_2020
 
 using ADM v1
 
-include "../shared/hedis_shared" version '1' called HedisShared
+include "../shared/hedis_shared" called HedisShared
 
 // HEDIS value sets
 
@@ -28,22 +28,19 @@ valueset "HEDIS; PALLIATIVE_CARE_ENCOUNTER":
 valueset "HEDIS; PALLIATIVE_CARE_INTERVENTION":
 
 
-Palliative Care Intervention
-
-
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
 // Populations
 
-define "Inital Population":
+define "Initial Population":
     AgeInYearsAt(end of "Measurement Period") >= 24
     and AgeInYearsAt(end of "Measurement Period") < 65
     and sex = "Female"
 
 define "Denominator":
-    "Inital Population"
+    "Initial Population"
 
 define "Exclusion: Hospice":
 	   /*
@@ -55,12 +52,12 @@ define "Denominator Exclusion":
   /*
    * Option Id: exclusion_optional_cervix
    */
-  exists(["Clinical Activity": "HEDIS; HYSTERECTOMY_WITH_NO_RESIDUAL_CERVIX"] P
-    where P.start_date before end of "Measurement Period"
-      and P.place_of_Service != '81')
-  or exists(["Diagnosis": "HEDIS; ABSENCE_OF_CERVIX_DIAGNOSIS"] D
-    where D.start_date before end of "Measurement Period"
-      and D.place_of_Service != '81')
+  exists(["Clinical Activity": "HEDIS; HYSTERECTOMY_WITH_NO_RESIDUAL_CERVIX"] hyst_no_cervix
+    where hyst_no_cervix.start_date on or before end of "Measurement Period"
+      and hyst_no_cervix.place_of_service != '81')
+  or exists(["Diagnosis": "HEDIS; ABSENCE_OF_CERVIX_DIAGNOSIS"] diag_no_cervix
+    where diag_no_cervix.start_date on or before end of "Measurement Period"
+      and diag_no_cervix.place_of_service != '81')
 
 define "Denominator Exclusion: Palliative Care":
   /*
@@ -68,23 +65,21 @@ define "Denominator Exclusion: Palliative Care":
    */
   exists((["Clinical Activity": "HEDIS; PALLIATIVE_CARE_ASSESSMENT"]
           union ["Clinical Activity": "HEDIS; PALLIATIVE_CARE_ENCOUNTER"]
-          union ["Clinical Activity": "HEDIS; PALLIATIVE_CARE_INTERVENTION"]) P
-    where P.start_date before end of "Measurement Period"
-      and P.place_of_Service != '81')
+          union ["Clinical Activity": "HEDIS; PALLIATIVE_CARE_INTERVENTION"]) palliativecare
+    where palliativecare.start_date on or before end of "Measurement Period"
+      and palliativecare.place_of_service != '81')
 
 define "Numerator Performance Met":
   /*
    * Option Id: performance_met
    */
-  "Cervical Cytology 24-64 within 3 years"
-    union "HPV Test 30-64 within 5 years"
+  exists ("Cervical Cytology 24-64 within 3 years"
+    union "HPV Test 30-64 within 5 years")
 
 define "Numerator Performance Not Met":
   /*
    * Option Id: performance_not_met
    */
-  not "Denominator Exclusion"
-  and not "Numerator Performance Met"
 
 // Definitions
 
@@ -96,7 +91,7 @@ define "Cervical Cytology 24-64 within 3 years":
     where CervicalCytology.result is not null
       and AgeInYearsAt(end of "Measurement Period") >= 24
       and AgeInYearsAt(end of "Measurement Period") <= 64
-      and CervicalCytology.start_date 36 months or less before end of "Measurement Period"
+      and CervicalCytology.start_date on or 36 months or less before end of "Measurement Period"
 
 define "HPV Test 30-64 within 5 years":
   (["Clinical Activity": "HEDIS; HIGH_RISK_HPV_LAB_TEST"]
@@ -107,4 +102,4 @@ define "HPV Test 30-64 within 5 years":
       and AgeInYearsAt(end of "Measurement Period") >= 30
       and AgeInYearsAt(end of "Measurement Period") <= 64
       and AgeInYearsAt(HPVTest.start_date) >= 30
-      and HPVTest.start_date 60 months or less before end of "Measurement Period"
+      and HPVTest.start_date on or 60 months or less before end of "Measurement Period"
