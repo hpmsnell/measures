@@ -15,7 +15,7 @@ using QDM
 
 valueset "MIPS; MIPS 398 Encounter":
 valueset "MIPS; Asthma":
-valueset "MIPS; Competing Conditions for Persistent Asthma"
+valueset "MIPS; MIPS 398 Competing Conditions for Persistent Asthma"
 valueset "MIPS; Only Urgent Care Visits M0121":
 valueset "MIPS; Hospice Service":
 valueset "MIPS; Performance Met: G9521":
@@ -29,35 +29,34 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Patient Age at Encounter":
+define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 398 Encounter"] E
     where E.relevantPeriod starts during "Denominator Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 18
       and AgeInYearsAt(start of E.relevantPeriod) < 50
       and E.signingProvider.hasMeasureMembership = true
-    with ["Diagnosis": "MIPS; Asthma"] D
-      such that D.prevalencePeriod overlaps E.relevantPeriod
-    with ["Encounter, Performed"] E2
-      such that E2.relevantPeriod overlaps E.relevantPeriod
 
 // Populations
 
 define "Denominator":
-    "Patient Age at Encounter"
+    exists("Denominator Encounter")
+    and exists(["Diagnosis": "MIPS; Asthma"] D
+      where D.prevalencePeriod overlaps "Measurement Period"
+        or D.prevalencePeriod starts during [1 year before start of "Measurement Period", end of "Measurement Period"])
 
 define "Denominator Exclusion: Patient Died"
   /*
    * config_link_id: exclusion_patientdied
    */
   exists(["Diagnosis": "Able; Expired"] D
-    where D.prevalencePeriod starts before end of "Measurement Period")
+    where D.prevalencePeriod starts on or before end of "Measurement Period")
 
 
 define "Denominator Exclusion: Long Term Care"
     /*
      * config_link_id: exclusion_longterm
      */
-      FrailtyLTIShared."Long Term Care Periods During Measurement Period"
+      exists (FrailtyLTIShared."Long Term Care Periods During Measurement Period")
 
 
 define "Denominator Exclusion: Hospice":
@@ -74,8 +73,8 @@ define "Denominator Exclusion: Competing Diagnoses"
   /*
   * config_link_id: competing_diagnosis
   */
-  exists(["Diagnosis": "MIPS; Competing Conditions for Persistent Asthma"] D
-    where D.prevalencePeriod starts before end of "Denominator Period")
+  exists(["Diagnosis": "MIPS; MIPS 398 Competing Conditions for Persistent Asthma"] D
+    where D.prevalencePeriod starts on or before end of "Denominator Period")
 
 
 define "Denominator Exclusion: Only Urgent Care Visits"
