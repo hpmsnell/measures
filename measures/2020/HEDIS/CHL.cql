@@ -54,16 +54,16 @@ define "Denominator Exclusion":
    * Option ID: exclusion_optional_pregnancy
    */
   "Only Pregnancy Test Exists"
-  and exists("Pregnancy Test Exclusion" preg_test
-    with "Retinoid or Diagnostic Radiology" retiniod_rad
-      such that preg_test.start_date on or 6 days or less before retiniod_rad.start_date)
+  and exists("Pregnancy Test Exclusion" PregTest
+    with "Retinoid or Diagnostic Radiology" RetiniodRad
+      such that PregTest.start_date on or 6 days or less before RetiniodRad.start_date)
 
 define "Numerator Performance Met":
   /*
    * Option ID: performance_met
    */
-  exists("Chlamydia Tests" P
-    where P.start_date starts during "Measurement Period")
+  exists("Chlamydia Tests" ChlamydiaTest
+    where ChlamydiaTest.start_date starts during "Measurement Period")
 
 define "Numerator Performance Not Met":
   /*
@@ -73,35 +73,35 @@ define "Numerator Performance Not Met":
 // Definitions
 
 define "Denominator Pregnancy":
-  (["Diagnosis": "HEDIS; PREGNANCY"]) pregnancy
-    with (["Clinical Activity"]) any_encounter //ANY encounter
+  (["Diagnosis": "HEDIS; PREGNANCY"]) Pregnancy
+    with (["Clinical Activity"]) AnyEncounter //ANY encounter
       such that P.claim_id = E.claim_id
-    where pregnancy.start_date starts during "Measurement Period"
-    and pregnancy.supplemental = false
-    and pregnancy.place_of_service != 81
-    and any_encounter.supplemental = false
-    and any_encounter.place_of_service != 81
+    where Pregnancy.start_date starts during "Measurement Period"
+    and Pregnancy.supplemental = false
+    and Pregnancy.place_of_service != 81
+    and AnyEncounter.supplemental = false
+    and AnyEncounter.place_of_service != 81
 
 define "Denominator Sexual Activity":
-  ((["Diagnosis": "HEDIS; SEXUAL_ACTIVITY"]) sexual_activity
-    where sexual_activity.start_date  during "Measurement Period"
-      and sexual_activity.supplemental = false
+  ((["Diagnosis": "HEDIS; SEXUAL_ACTIVITY"]) SexualActivity
+    where SexualActivity.start_date  during "Measurement Period"
+      and SexualActivity.supplemental = false
     )
-  union ((["Clinical Activity": "HEDIS; SEXUAL_ACTIVITY"]) sexual_activity1
-    where sexual_activity1.start_date starts during "Measurement Period"
-      and sexual_activity1.supplemental = false
+  union ((["Clinical Activity": "HEDIS; SEXUAL_ACTIVITY"]) SexualActivity1
+    where SexualActivity1.start_date starts during "Measurement Period"
+      and SexualActivity1.supplemental = false
     )
 
 define "Denominator Pregnancy Tests":
-  (["Clinical Activity": "HEDIS; PREGNANCY_TESTS"]) preg_test
-    where preg_test.start_date during "Measurement Period"
-      and preg_test.supplemental = false
+  (["Clinical Activity": "HEDIS; PREGNANCY_TESTS"]) PregTest
+    where PregTest.start_date during "Measurement Period"
+      and PregTest.supplemental = false
 
 define "Denominator Contraceptive Medications":
-  (["Medication": "NCQA; CONTRACEPTIVE_MEDICATIONS"]) contraceptive_med
-    where contraceptive_med.start_date during "Measurement Period"
-      and contraceptive_med.supplemental = false
-      and contraceptive_med.dispensed = true
+  (["Medication": "NCQA; CONTRACEPTIVE_MEDICATIONS"]) ContraceptiveMed
+    where ContraceptiveMed.start_date during "Measurement Period"
+      and ContraceptiveMed.supplemental = false
+      and ContraceptiveMed.dispensed = true
 
 define "Sexual Activity Exists":
   exists (
