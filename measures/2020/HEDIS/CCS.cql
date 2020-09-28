@@ -60,7 +60,7 @@ define "Denominator Exclusion: Palliative Care":
   /*
    * Option Id: exclusion_palliative_care
    */
-    exists("Denominator Exclusion: Palliative Care"("Measurement Period"))
+    exists("Palliative Care"("Measurement Period"))
 
 define "Numerator Performance Met":
   /*

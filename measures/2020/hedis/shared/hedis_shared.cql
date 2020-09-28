@@ -16,40 +16,39 @@ Supports:
   - SNP: Enrolled in an Institutional SNP (I-SNP)
   - LTI: Living long-term in an institution
   - Frailty (general without age qualification)
-  - Advanced Illness
+  - ADVANCED_ILLNESS
 */
 
 using ADM v1
 
 valueset "HEDIS; OUTPATIENT": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
-valueset "HEDIS; NONACUTE INPATIENT": '2.16.840.1.113883.3.464.1004.1189'
-valueset "HEDIS; ACUTE INPATIENT": '2.16.840.1.113883.3.464.1004.1017'
+valueset "HEDIS; NONACUTE_INPATIENT": '2.16.840.1.113883.3.464.1004.1189'
+valueset "HEDIS; ACUTE_INPATIENT": '2.16.840.1.113883.3.464.1004.1017'
 valueset "HEDIS; OBSERVATION": '2.16.840.1.113883.3.464.1004.1191'
 
-valueset "HEDIS; INPATIENT STAY": '2.16.840.1.113883.3.464.1004.1395'
-valueset "HEDIS; NONACUTE INPATIENT STAY": '2.16.840.1.113883.3.464.1004.1398'
+valueset "HEDIS; INPATIENT_STAY": '2.16.840.1.113883.3.464.1004.1395'
+valueset "HEDIS; NONACUTE_INPATIENT_STAY": '2.16.840.1.113883.3.464.1004.1398'
 
-valueset "HEDIS; HOSPICE ENCOUNTER": '2.16.840.1.113883.3.464.1004.1761'
-valueset "HEDIS; HOSPICE INTERVENTION": '2.16.840.1.113883.3.464.1004.1762'
-valueset "HEDIS; WELL-CARE": '2.16.840.1.113883.3.464.1004.1262'
-valueset "HEDIS; TELEHEALTH POS": '2.16.840.1.113883.3.464.1004.1460'
-valueset "HEDIS; TELEHEALTH MODIFIER": '2.16.840.1.113883.3.464.1004.1445'
-valueset "HEDIS; TELEPHONE VISITS": '2.16.840.1.113883.3.464.1004.1246'
-valueset "HEDIS; ADVANCED ILLNESS": '2.16.840.1.113883.3.464.1004.1465'
+valueset "HEDIS; HOSPICE_ENCOUNTER": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; HOSPICE_INTERVENTION": '2.16.840.1.113883.3.464.1004.1762'
+valueset "HEDIS; WELL_CARE": '2.16.840.1.113883.3.464.1004.1262'
+valueset "HEDIS; TELEHEALTH_POS": '2.16.840.1.113883.3.464.1004.1460'
+valueset "HEDIS; TELEHEALTH_MODIFIER": '2.16.840.1.113883.3.464.1004.1445'
+valueset "HEDIS; TELEPHONE_VISITS": '2.16.840.1.113883.3.464.1004.1246'
+valueset "HEDIS; ADVANCED_ILLNESS": '2.16.840.1.113883.3.464.1004.1465'
 
-valueset "NCQA; DEMENTIA MEDICATIONS": '' //FIXME: add OID
+valueset "NCQA; DEMENTIA_MEDICATIONS": '2.16.840.1.113883.3.464.1004.1729'
 
-valueset "HEDIS; FRAILTY DEVICE": '2.16.840.1.113883.3.464.1004.1530'
-valueset "HEDIS; FRAILTY DIAGNOSIS": '2.16.840.1.113883.3.464.1004.1531'
-valueset "HEDIS; FRAILTY ENCOUNTER": '2.16.840.1.113883.3.464.1004.1532'
-valueset "HEDIS; FRAILTY SYMPTOM": '2.16.840.1.113883.3.464.1004.1533'
+valueset "HEDIS; FRAILTY_DEVICE": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; FRAILTY_DIAGNOSIS": '2.16.840.1.113883.3.464.1004.1531'
+valueset "HEDIS; FRAILTY_ENCOUNTER": '2.16.840.1.113883.3.464.1004.1532'
+valueset "HEDIS; FRAILTY_SYMPTOM": '2.16.840.1.113883.3.464.1004.1533'
 valueset "HEDIS; PALLIATIVE_CARE_ASSESSMENT": ''
 valueset "HEDIS; PALLIATIVE_CARE_ENCOUNTER": ''
 valueset "HEDIS; PALLIATIVE_CARE_INTERVENTION": ''
 
-
-valueset "Able; MMDF LTI": ''
+valueset "Able; MMDF_LTI": ''
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -59,8 +58,8 @@ context Patient
 HOSPICE
 ----------------------------------------------------*/
 define "Hospice":
-  (["Clinical Activity": "HEDIS; Hospice Intervention"]
-  union ["Clinical Activity": "HEDIS; Hospice Encounter"]) Hospice
+  (["Clinical Activity": "HEDIS; HOSPICE_INTERVENTION"]
+  union ["Clinical Activity": "HEDIS; HOSPICE_ENCOUNTER"]) Hospice
   where Hospice.place_of_service != '81'
 
 define function "Hospice During Period"(Period Interval<DateTime>):
@@ -75,7 +74,7 @@ SNP
 ----------------------------------------------------*/
 define "SNP"(Period Interval<DateTime>):
   exists
-    ["Payer": "ALL PAYERS"] payer //ALL payers, don't restrict by value set
+    ["Payer"] payer //ALL payers, don't restrict by value set
     where
       payer.value = 'SN2'
       and payer.start_date <= end of Period
@@ -91,7 +90,7 @@ LTI
 ----------------------------------------------------*/
 define function "LTI During Period"(Period Interval<DateTime>):
   exists(
-    ["Clinical Activity": "Able; MMDF LTI"] LTI
+    ["Clinical Activity": "Able; MMDF_LTI"] LTI
       where LTI.start_date during Period
   )
 
@@ -101,30 +100,30 @@ FRAILTY
 ----------------------------------------------------*/
 
 define function "Frailty: Diagnosis or Symptoms During Period"(Period Interval<DateTime>):
-  ((["Diagnosis": "HEDIS; Frailty Diagnosis"]
-  union ["Diagnosis": "HEDIS; Frailty Symptom"]
-  union ["Clinical Activity": "HEDIS; Frailty Symptom"])FrailDxSx
+  ((["Diagnosis": "HEDIS; FRAILTY_DIAGNOSIS"]
+  union ["Diagnosis": "HEDIS; FRAILTY_SYMPTOM"]
+  union ["Clinical Activity": "HEDIS; FRAILTY_SYMPTOM"])FrailDxSx
     where FrailDxSx.start_date during Period)
       and FrailDxSx.supplemental = false
       and FrailDxSx.place_of_service != '81'
 
 
 define function "Frailty: Encounter During Period"(Period Interval<DateTime>):
-  ["Clinical Activity": "HEDIS; Frailty Encounter"]FrailEnc
+  ["Clinical Activity": "HEDIS; FRAILTY_ENCOUNTER"]FrailEnc
     where Interval[FrailEnc.start_date,FrailEnc.end_date] starts during Period
       and FrailEnc.supplemental = false
       and FrailEnc.place_of_service != '81'
 
 define function "Frailty: Device During Period"(Period Interval<DateTime>):
-  (["Device, Applied": "HEDIS; Frailty Device"]
-  union ["Device, Order": "HEDIS; Frailty Device"]
-  union ["Device, Recommended": "HEDIS; Frailty Device"])FrailDevice
+  (["Device, Applied": "HEDIS; FRAILTY_DEVICE"]
+  union ["Device, Order": "HEDIS; FRAILTY_DEVICE"]
+  union ["Device, Recommended": "HEDIS; FRAILTY_DEVICE"])FrailDevice
     where FrailDevice.start_date during Period
       and FrailDevice.supplemental = false
       and FrailDevice.place_of_service != '81'
 
 /*
-  At least one claim/encounter for frailty (Frailty Device Value Set; Frailty Diagnosis Value Set; Frailty Encounter Value Set; Frailty Symptom Value Set)
+  At least one claim/encounter for frailty (FRAILTY_DEVICE Value Set; FRAILTY_DIAGNOSIS Value Set; FRAILTY_ENCOUNTER Value Set; FRAILTY_SYMPTOM Value Set)
   during specified period
 */
 define function "Frailty: Claim During Period"(Period Interval<DateTime>) returns Boolean:
@@ -135,43 +134,43 @@ define function "Frailty: Claim During Period"(Period Interval<DateTime>) return
 
 
 /*--------------------------------------------------
-ADVANCED ILLNESS
+ADVANCED_ILLNESS
 --------------------------------------------------*/
 
 /*
 –	outpatient visits (Outpatient Value Set), observation visits (Observation Value Set),
 - ED visits (ED Value Set),
-- nonacute inpatient encounters (Nonacute Inpatient Value Set)
-- or nonacute inpatient discharges (instructions below)
-... with an advanced illness diagnosis (Advanced Illness Value Set)...
+- nonACUTE_INPATIENT encounters (NonACUTE_INPATIENT Value Set)
+- or nonACUTE_INPATIENT discharges (instructions below)
+... with an ADVANCED_ILLNESS diagnosis (ADVANCED_ILLNESS Value Set)...
 
-To identify a nonacute inpatient discharge:
-1.	Identify all acute and nonacute inpatient stays (Inpatient Stay Value Set).
-2.	Confirm the stay was for nonacute care based on the presence of a nonacute code (Nonacute Inpatient Stay Value Set) on the claim.
+To identify a nonACUTE_INPATIENT discharge:
+1.	Identify all acute and NONACUTE_INPATIENT_STAYs (INPATIENT_STAY Value Set).
+2.	Confirm the stay was for nonacute care based on the presence of a nonacute code (NONACUTE_INPATIENT_STAY Value Set) on the claim.
 3.	Identify the discharge date for the stay.
 ----------------------------------------------------*/
 define function "Advanced Illness: Visit During Period"(Period Interval<DateTime>):
     ("Advanced Illness: Visit During Period - Outpatient, Obs, ED, Non-Acute Inpatient Encounters"(Period))Visits
-    union ("Advanced Illness: Non-Acute Inpatient DISCHARGE During Period"(Period))Visits
+    union ("Advanced Illness: Non-Acute Inpatient Discharge During Period"(Period))Visits
 
 /*
-most visits - EXCLUDING non-acute inpatient DISCHARGES
+most visits - EXCLUDING non-ACUTE_INPATIENT DISCHARGES
 –	outpatient visits (Outpatient Value Set), observation visits (Observation Value Set),
 - ED visits (ED Value Set),
-- nonacute inpatient encounters (Nonacute Inpatient Value Set)
-... with an advanced illness diagnosis (Advanced Illness Value Set)...
+- nonACUTE_INPATIENT encounters (NonACUTE_INPATIENT Value Set)
+... with an ADVANCED_ILLNESS diagnosis (ADVANCED_ILLNESS Value Set)...
 */
-define function "Advanced Illness: Visit During Period - Outpatient, Obs, ED, Non-Acute Inpatient Encounters"(Period Interval<DateTime>):
+define function "Advanced Illness: Visit During Period - Outpatient, Obs, ED, Non-Acure Inpatient Encounters"(Period Interval<DateTime>):
     //outpatient visits (Outpatient Value Set)
     //observation visits (Observation Value Set)
     //ED visits (ED Value Set)
-    //nonacute inpatient encounters (Nonacute Inpatient Value Set)
-    (["Clinical Activity": "HEDIS; Outpatient"]
-      union ["Clinical Activity": "HEDIS; Observation"]
+    //nonACUTE_INPATIENT encounters (NonACUTE_INPATIENT Value Set)
+    (["Clinical Activity": "HEDIS; OUTPATIENT"]
+      union ["Clinical Activity": "HEDIS; OBSERVATION"]
       union ["Clinical Activity": "HEDIS; ED"]
-      union ["Clinical Activity": "HEDIS; Nonacute Inpatient"]
+      union ["Clinical Activity": "HEDIS; NONACUTE_INPATIENT"]
     ) QualifyingEncounters
-      with ["Diagnosis": "HEDIS; Advanced Illness"] AdvIllness
+      with ["Diagnosis": "HEDIS; ADVANCED_ILLNESS"] AdvIllness
         such that AdvIllness.claim_id = QualifyingEncounters.claim_id
         or (
           AdvIllness.claim_id = null
@@ -192,22 +191,22 @@ define function "Advanced Illness: Visit During Period - Outpatient, Obs, ED, No
         and QualifyingEncounters.place_of_service != '81'
 
 /*
-To identify a nonacute inpatient discharge:
-1.	Identify all acute and nonacute inpatient stays (Inpatient Stay Value Set).
-2.	Confirm the stay was for nonacute care based on the presence of a nonacute code (Nonacute Inpatient Stay Value Set) on the claim.
+To identify a nonACUTE_INPATIENT discharge:
+1.	Identify all acute and NONACUTE_INPATIENT_STAYs (INPATIENT_STAY Value Set).
+2.	Confirm the stay was for nonacute care based on the presence of a nonacute code (NONACUTE_INPATIENT_STAY Value Set) on the claim.
 3.	Identify the discharge date for the stay.
 */
-define function "Advanced Illness: Non-Acute Inpatient DISCHARGE During Period"(Period Interval<DateTime>):
+define function "Advanced Illness: Non-Acute Inpatient Discharge During Period"(Period Interval<DateTime>):
   (
-    //nonacute inpatient discharges
-    ((["Clinical Activity": "HEDIS; Inpatient Stay"])Inpatient
-      with (["Clinical Activity": "HEDIS; Nonacute Inpatient Stay"])NonacuteIPFlag
+    //nonACUTE_INPATIENT discharges
+    ((["Clinical Activity": "HEDIS; INPATIENT_STAY"])Inpatient
+      with (["Clinical Activity": "HEDIS; NONACUTE_INPATIENT_STAY"])NonacuteIPFlag
         such that Inpatient.claim_id = NonacuteIPFlag.claim_id
           where Inpatient.discharge_date during Period //NOTE: we're filtering by DISCHARGE DATE here
           and Inpatient.place_of_service != '81'
       )
   ) QualifyingEncounters
-  with ["Diagnosis": "HEDIS; Advanced Illness"] AdvIllness
+  with ["Diagnosis": "HEDIS; ADVANCED_ILLNESS"] AdvIllness
     such that AdvIllness.claim_id = QualifyingEncounters.claim_id
     or (
       AdvIllness.claim_id = null
@@ -227,12 +226,12 @@ define function "Advanced Illness: Non-Acute Inpatient DISCHARGE During Period"(
     and QualifyingEncounters.place_of_service != '81'
 
 /*
-–	At least one acute inpatient encounter (Acute Inpatient Value Set)
-  with an advanced illness diagnosis (Advanced Illness Value Set).
+–	At least one ACUTE_INPATIENT encounter (ACUTE_INPATIENT Value Set)
+  with an ADVANCED_ILLNESS diagnosis (ADVANCED_ILLNESS Value Set).
 */
 define function "Advanced Illness: Acute Inpatient Encounter During Period"(Period Interval<DateTime>):
-  ["Clinical Activity": "HEDIS; Acute Inpatient"] QualifyingEncounters
-  with ["Diagnosis": "HEDIS; Advanced Illness"] AdvIllness
+  ["Clinical Activity": "HEDIS; ACUTE_INPATIENT"] QualifyingEncounters
+  with ["Diagnosis": "HEDIS; ADVANCED_ILLNESS"] AdvIllness
     such that AdvIllness.claim_id = QualifyingEncounters.claim_id
     or (
       AdvIllness.claim_id = null
@@ -254,16 +253,16 @@ define function "Advanced Illness: Acute Inpatient Encounter During Period"(Peri
     and QualifyingEncounters.place_of_service != '81'
 
 /*
-//–	Acute inpatient DISCHARGE with an advanced illness diagnosis (Advanced Illness Value Set)
-–	At least one acute inpatient discharge with an advanced illness diagnosis (Advanced Illness Value Set).
-To identify an acute inpatient discharge:
-1.	Identify all acute and nonacute inpatient stays (Inpatient Stay Value Set).
-2.	Exclude nonacute inpatient stays (Nonacute Inpatient Stay Value Set).
+//–	ACUTE_INPATIENT DISCHARGE with an ADVANCED_ILLNESS diagnosis (ADVANCED_ILLNESS Value Set)
+–	At least one ACUTE_INPATIENT discharge with an ADVANCED_ILLNESS diagnosis (ADVANCED_ILLNESS Value Set).
+To identify an ACUTE_INPATIENT discharge:
+1.	Identify all acute and NONACUTE_INPATIENT_STAYs (INPATIENT_STAY Value Set).
+2.	Exclude NONACUTE_INPATIENT_STAYs (NONACUTE_INPATIENT_STAY Value Set).
 3.	Identify the discharge date for the stay.
 */
-define function "Advanced Illness: Acute Inpatient DISCHARGE During Period"(Period Interval<DateTime>):
-  ["Clinical Activity": "HEDIS; Inpatient Stay"] QualifyingEncounters
-  with ["Diagnosis": "HEDIS; Advanced Illness"] AdvIllness
+define function "Advanced Illness: Acute Inpatient Discharge During Period"(Period Interval<DateTime>):
+  ["Clinical Activity": "HEDIS; INPATIENT_STAY"] QualifyingEncounters
+  with ["Diagnosis": "HEDIS; ADVANCED_ILLNESS"] AdvIllness
     such that AdvIllness.claim_id = QualifyingEncounters.claim_id
     or (
       AdvIllness.claim_id = null
@@ -284,36 +283,37 @@ define function "Advanced Illness: Acute Inpatient DISCHARGE During Period"(Peri
     and QualifyingEncounters.discharge_date during Period
     and QualifyingEncounters.place_of_service != '81'
     and not exists (
-      //There will be secondary non-acute inpatient Encounters
+      //There will be secondary non-ACUTE_INPATIENT Encounters
       //we have find ONLY the encounters where there is NOT
       //a related non-acute stay on the same claim
-      ["Clinical Activity": "HEDIS; Nonacute Inpatient Stay"] Nonacute
+      ["Clinical Activity": "HEDIS; NONACUTE_INPATIENT_STAY"] Nonacute
       such that QualifyingEncounters.claim_id = Nonacute.claim_id
     )
 
 /*
 –	At least two outpatient visits ...
-  on different dates of service, with an advanced illness diagnosis
+  on different dates of service, with an ADVANCED_ILLNESS diagnosis
 */
 define function "Advanced Illness: Count of Distinct Visit Dates During Period"(Period Interval<DateTime>): //returns Integer:
   Count(distinct((((
        "Advanced Illness: Visit During Period"(Period)
   ).start_date)))
 
-// A dispensed dementia medication (Dementia Medications List).
+// A dispensed dementia medication (DEMENTIA_MEDICATIONS List).
 define function "Advanced Illness: Dementia Medication During Period"(Period Interval<DateTime>):
-  ["Medication, Dispensed": "NCQA; Dementia Medications"] DementiaMed
+  ["Medication": "NCQA; DEMENTIA_MEDICATIONS"] DementiaMed
   where DementiaMed.start_date during Period
     and DementiaMed.supplemental = false
+    and DementiaMed.dispensed = true
 
 define function "Advanced Illness"(Period Interval<DateTime>) returns Boolean:
     // At least two outpatient visits...
     ("Advanced Illness: Count of Distinct Visit Dates During Period"(Period)) >= 2
-    // At least one acute inpatient ENCOUNTER (Acute Inpatient Value Set) with an advanced illness diagnosis (Advanced Illness Value Set).
-    or exists("Advanced Illness: Acute Inpatient Encounter During Period"(Period))
-    //At least one acute inpatient DISCHARGE with an advanced illness diagnosis (Advanced Illness Value Set).
-    or exists ("Advanced Illness: Acute Inpatient DISCHARGE During Period"(Period))
-    // A dispensed dementia medication (Dementia Medications List).
+    // At least one ACUTE_INPATIENT ENCOUNTER (ACUTE_INPATIENT Value Set) with an ADVANCED_ILLNESS diagnosis (ADVANCED_ILLNESS Value Set).
+    or exists("Advanced Illness: ACUTE_INPATIENT Encounter During Period"(Period))
+    //At least one ACUTE_INPATIENT DISCHARGE with an ADVANCED_ILLNESS diagnosis (ADVANCED_ILLNESS Value Set).
+    or exists ("Advanced Illness: ACUTE_INPATIENT DISCHARGE During Period"(Period))
+    // A dispensed dementia medication (DEMENTIA_MEDICATIONS List).
     or exists("Advanced Illness: Dementia Medication During Period"(Period))
 
 
@@ -327,11 +327,12 @@ define function "CumulativeDuration"(MedsListFromSpec List<"Medication, Dispense
 
 
 //receives medication list and period from the Medications Dispensed Relevant Periods function
-define function "Medication List in Measurement Period"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
+define function "Medication List in Measurement Period"(MedsListFromSpec List<"Medication">, Period Interval<DateTime>):
   (MedsListFromSpec) MedicationDispensedList
     where MedicationDispensedList.start_date during Period
+    and MedicationDispensedList.dispensed = true
 
-define function "Multiple Different Medication Same Day - Longest Supply Date"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
+define function "Multiple Different Medication Same Day - Longest Supply Date"(MedsListFromSpec List<"Medication">, Period Interval<DateTime>):
 //If multiple prescriptions for different medications are dispensed on the same day, calculate the number of days covered by a medication using the prescriptions with the longest days supply.
   from
   ("Medication List in Measurement Period"(MedsListFromSpec , Period)) medlist1,
@@ -339,6 +340,7 @@ define function "Multiple Different Medication Same Day - Longest Supply Date"(M
     where medlist1.code != medlist2.code
     and medlist1.start_date same day as medlist2.start_date
     and medlist1.end_date 1 day or more after medlist2.end_date
+    and me
   return Interval [medlist1.start_date, medlist1.end_date]
           intersect Period
 
@@ -422,7 +424,7 @@ define function "Different Day Different Med Overlapping Supply Valuesets- Total
           )
 
 
-define function "Denominator Exclusion: Palliative Care"(Period Interval<DateTime>):
+define function "Palliative Care"(Period Interval<DateTime>):
   exists((["Clinical Activity": "HEDIS; PALLIATIVE_CARE_ASSESSMENT"]
           union ["Clinical Activity": "HEDIS; PALLIATIVE_CARE_ENCOUNTER"]
           union ["Clinical Activity": "HEDIS; PALLIATIVE_CARE_INTERVENTION"]) PalliativeCare
