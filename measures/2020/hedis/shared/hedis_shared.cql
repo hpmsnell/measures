@@ -321,7 +321,7 @@ define function "Advanced Illness"(Period Interval<DateTime>) returns Boolean:
 // and returns the cumlative duration a medication has been dispensed as an Integer
 // sample use would be as follows "CumulativeDuration"(medlist, Peasurement Period)
 
-define function "CumulativeDuration"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>) returns Integer:
+define function "CumulativeDuration"(MedsListFromSpec List<"Medication">, Period Interval<DateTime>) returns Integer:
   Sum((collapse ("Medications Dispensed Relevant Periods"(MedsListFromSpec , Period))) X
     return all duration in days of X)
 
@@ -344,7 +344,7 @@ define function "Multiple Different Medication Same Day - Longest Supply Date"(M
   return Interval [medlist1.start_date, medlist1.end_date]
           intersect Period
 
-define function "Multiple Different Medications Diff Day - Overlapping Supply"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
+define function "Multiple Different Medications Diff Day - Overlapping Supply"(MedsListFromSpec List<"Medication">, Period Interval<DateTime>):
 //For multiple different prescriptions dispensed on different days with overlapping days supply, count each day in the measurement year only once toward the denominator
 //distinct is intended to eliminate duplicate days in measurement period
   distinct (from
@@ -356,7 +356,7 @@ define function "Multiple Different Medications Diff Day - Overlapping Supply"(M
 					intersect Period
     )
 
-define function "Same Medication - Overlapping Supply"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
+define function "Same Medication - Overlapping Supply"(MedsListFromSpec List<"Medication">, Period Interval<DateTime>):
 //If multiple prescriptions for the same medication are dispensed on the same day or different days with overlapping days supply, sum the days supply and use the total to calculate the number of days covered by a medication.
   from
   (("Medication List in Measurement Period"(MedsListFromSpec , Period)) medlist1,
@@ -366,14 +366,14 @@ define function "Same Medication - Overlapping Supply"(MedsListFromSpec List<"Me
   return all Interval[OverlapSameMeds.start_date, OverlapSameMeds.end_date]
 		intersect Period
 
-define function "Non-overlapping Medications"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
+define function "Non-overlapping Medications"(MedsListFromSpec List<"Medication">, Period Interval<DateTime>):
 // Identifies all intervals of medications, associated with the measurement period
   collapse (( "Medication List in Measurement Period"(MedsListFromSpec , Period)) medicationperiod
       return Interval[medicationperiod.start_date, medicationperiod.end_date]
       intersect Period
       )
 
-define function "Medications Dispensed Relevant Periods"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
+define function "Medications Dispensed Relevant Periods"(MedsListFromSpec List<"Medication">, Period Interval<DateTime>):
     "Multiple Different Medication Same Day - Longest Supply Date"(MedsListFromSpec , Period))
     union ("Multiple Different Medications Diff Day - Overlapping Supply"(MedsListFromSpec , Period))
     union ("Same Medication - Overlapping Supply"(MedsListFromSpec , Period))
@@ -382,18 +382,18 @@ define function "Medications Dispensed Relevant Periods"(MedsListFromSpec List<"
 
 //valueset functions for CMD
 
-define function "Different Medications Dispensed Relevant Periods Valuesets"(specificMedList List<"Medication, Dispensed">,totalMedList List<"Medication, Dispensed">, Period Interval<DateTime>) returns Integer:
+define function "Different Medications Dispensed Relevant Periods Valuesets"(specificMedList List<"Medication">,totalMedList List<"Medication">, Period Interval<DateTime>) returns Integer:
     collapse ("Same Day Different Meds Valuesets- Longest Supply Date Interval"(specificMedList, totalMedList, Period)
       union "Different Day Different Med Overlapping Supply Valuesets- Total of Period"(specificMedList, totalMedList, Period)
     return Interval[medicationperiod.start_date, medicationperiod.end_date]
         )
 
-define function "Same Medications Dispensed Relevant Periods Valuesets"(specificMedList List<"Medication, Dispensed">, Period Interval<DateTime>) returns Integer:
+define function "Same Medications Dispensed Relevant Periods Valuesets"(specificMedList List<"Medication">, Period Interval<DateTime>) returns Integer:
     collapse (("Same Med- Multiple intervals"(specificMedList, Period)
     return Interval[medicationperiod.start_date, medicationperiod.end_date]
         ))
 
-define function "Same Med- Multiple intervals"(specificMedList List<"Medication, Dispensed">, Period Interval<DateTime>):
+define function "Same Med- Multiple intervals"(specificMedList List<"Medication">, Period Interval<DateTime>):
     from
     (("Medication List in Measurement Period Valuesets"(specificMedList, Period)) medlist1,
     ("Medication List in Measurement Period Valuesets"(specificMedList, Period))) medlist2
@@ -402,7 +402,7 @@ define function "Same Med- Multiple intervals"(specificMedList List<"Medication,
       intersect Period
 
 
-define function "Same Day Different Meds Valuesets- Longest Supply Date Interval"(specificMedList List<"Medication, Dispensed">,totalMedList List<"Medication, Dispensed">, Period Interval<DateTime>):
+define function "Same Day Different Meds Valuesets- Longest Supply Date Interval"(specificMedList List<"Medication">,totalMedList List<"Medication">, Period Interval<DateTime>):
 //If multiple prescriptions for different medications are dispensed on the same day, calculate the number of days covered by a medication using the prescriptions with the longest days supply.
   from
   ("Medication List in Measurement Period"(specificMedList , Period)) medlist1,
@@ -412,13 +412,13 @@ define function "Same Day Different Meds Valuesets- Longest Supply Date Interval
   return Interval[medlist1.start_date, medlist1.end_date]
           intersect Period
 
-define function "Different Day Different Med Overlapping Supply Valuesets- Total of Period"(specificMedList List<"Medication, Dispensed">,totalMedList List<"Medication, Dispensed">, Period Interval<DateTime>):
+define function "Different Day Different Med Overlapping Supply Valuesets- Total of Period"(specificMedList List<"Medication">,totalMedList List<"Medication">, Period Interval<DateTime>):
 //For multiple different prescriptions dispensed on different days with overlapping days supply, count each day in the measurement year only once toward the denominator
 //distinct is intended to eliminate duplicate days in measurement period
   distinct (from
         (("Medication List in Measurement Period"(specificMedList , Period)) medlist1,
         ("Medication List in Measurement Period"(totalMedList , Period)) medlist2
-          	where Interval[medlist1.start_date,medlist1.end_date] overlaps Interval[medlist2.start_date, medlist2.end_date]) OverlapDiffMeds //plcedit
+          	where Interval[medlist1.start_date,medlist1.end_date] overlaps Interval[medlist2.start_date, medlist2.end_date]) OverlapDiffMeds
         return all Interval[OverlapDiffMeds.start_date, OverlapDiffMeds.end_date]
 					intersect Period
           )
