@@ -1,4 +1,4 @@
-library hedis_shared version '1'
+library hedis_shared
 
 /*
  *
@@ -6,7 +6,7 @@ library hedis_shared version '1'
  * ID:
  * Year: 2020
  * Version: 1
- * Author: Eric Whitley
+ * Author: Patrick Clark
  *
   */
 
@@ -19,34 +19,37 @@ Supports:
   - Advanced Illness
 */
 
-using QDM
+using ADM v1
 
-valueset "HEDIS; Outpatient": '2.16.840.1.113883.3.464.1004.1202'
+valueset "HEDIS; OUTPATIENT": '2.16.840.1.113883.3.464.1004.1202'
 valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
-valueset "HEDIS; Nonacute Inpatient": '2.16.840.1.113883.3.464.1004.1189'
-valueset "HEDIS; Acute Inpatient": '2.16.840.1.113883.3.464.1004.1017'
-valueset "HEDIS; Observation": '2.16.840.1.113883.3.464.1004.1191'
+valueset "HEDIS; NONACUTE INPATIENT": '2.16.840.1.113883.3.464.1004.1189'
+valueset "HEDIS; ACUTE INPATIENT": '2.16.840.1.113883.3.464.1004.1017'
+valueset "HEDIS; OBSERVATION": '2.16.840.1.113883.3.464.1004.1191'
 
-valueset "HEDIS; Inpatient Stay": '2.16.840.1.113883.3.464.1004.1395'
-valueset "HEDIS; Nonacute Inpatient Stay": '2.16.840.1.113883.3.464.1004.1398'
+valueset "HEDIS; INPATIENT STAY": '2.16.840.1.113883.3.464.1004.1395'
+valueset "HEDIS; NONACUTE INPATIENT STAY": '2.16.840.1.113883.3.464.1004.1398'
 
-valueset "HEDIS; Hospice Encounter": '2.16.840.1.113883.3.464.1004.1761'
-valueset "HEDIS; Hospice Intervention": '2.16.840.1.113883.3.464.1004.1762'
-valueset "HEDIS; Well-Care": '2.16.840.1.113883.3.464.1004.1262'
-valueset "HEDIS; Telehealth POS": '2.16.840.1.113883.3.464.1004.1460'
-valueset "HEDIS; Telehealth Modifier": '2.16.840.1.113883.3.464.1004.1445'
-valueset "HEDIS; Telephone Visits": '2.16.840.1.113883.3.464.1004.1246'
-valueset "HEDIS; Advanced Illness": '2.16.840.1.113883.3.464.1004.1465'
+valueset "HEDIS; HOSPICE ENCOUNTER": '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; HOSPICE INTERVENTION": '2.16.840.1.113883.3.464.1004.1762'
+valueset "HEDIS; WELL-CARE": '2.16.840.1.113883.3.464.1004.1262'
+valueset "HEDIS; TELEHEALTH POS": '2.16.840.1.113883.3.464.1004.1460'
+valueset "HEDIS; TELEHEALTH MODIFIER": '2.16.840.1.113883.3.464.1004.1445'
+valueset "HEDIS; TELEPHONE VISITS": '2.16.840.1.113883.3.464.1004.1246'
+valueset "HEDIS; ADVANCED ILLNESS": '2.16.840.1.113883.3.464.1004.1465'
 
-valueset "NCQA; Dementia Medications": '' //FIXME: add OID
+valueset "NCQA; DEMENTIA MEDICATIONS": '' //FIXME: add OID
 
-valueset "HEDIS; Frailty Device": '2.16.840.1.113883.3.464.1004.1530'
-valueset "HEDIS; Frailty Diagnosis": '2.16.840.1.113883.3.464.1004.1531'
-valueset "HEDIS; Frailty Encounter": '2.16.840.1.113883.3.464.1004.1532'
-valueset "HEDIS; Frailty Symptom": '2.16.840.1.113883.3.464.1004.1533'
+valueset "HEDIS; FRAILTY DEVICE": '2.16.840.1.113883.3.464.1004.1530'
+valueset "HEDIS; FRAILTY DIAGNOSIS": '2.16.840.1.113883.3.464.1004.1531'
+valueset "HEDIS; FRAILTY ENCOUNTER": '2.16.840.1.113883.3.464.1004.1532'
+valueset "HEDIS; FRAILTY SYMPTOM": '2.16.840.1.113883.3.464.1004.1533'
+valueset "HEDIS; PALLIATIVE_CARE_ASSESSMENT": ''
+valueset "HEDIS; PALLIATIVE_CARE_ENCOUNTER": ''
+valueset "HEDIS; PALLIATIVE_CARE_INTERVENTION": ''
+
 
 valueset "Able; MMDF LTI": ''
-valueset "Able; MMDF Hospice": ''
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -56,15 +59,14 @@ context Patient
 HOSPICE
 ----------------------------------------------------*/
 define "Hospice":
-  (["Intervention, Performed": "HEDIS; Hospice Intervention"]
-  union ["Intervention, Performed": "Able; MMDF Hospice"]
-  union ["Encounter, Performed": "HEDIS; Hospice Encounter"]) Hospice
-  where Hospice.placeOfService != '81'
+  (["Clinical Activity": "HEDIS; Hospice Intervention"]
+  union ["Clinical Activity": "HEDIS; Hospice Encounter"]) Hospice
+  where Hospice.place_of_service != '81'
 
 define function "Hospice During Period"(Period Interval<DateTime>):
   exists(
     "Hospice" H
-      where H.relevantPeriod starts during Period
+      where H.start_date during Period
   )
 
 /*--------------------------------------------------
@@ -76,10 +78,10 @@ define "SNP"(Period Interval<DateTime>):
     ["Payer": "ALL PAYERS"] payer //ALL payers, don't restrict by value set
     where
       payer.value = 'SN2'
-      and payer.startDate <= end of Period
+      and payer.start_date <= end of Period
       and (
-          payer.endDate >= start of Period
-          or payer.endDate is null
+          payer.end_date >= start of Period
+          or payer.end_date is null
         )
 
 /*--------------------------------------------------
@@ -89,8 +91,8 @@ LTI
 ----------------------------------------------------*/
 define function "LTI During Period"(Period Interval<DateTime>):
   exists(
-    ["Intervention, Performed": "Able; MMDF LTI"] LTI
-      where LTI.relevantPeriod starts during Period
+    ["Clinical Activity": "Able; MMDF LTI"] LTI
+      where LTI.start_date during Period
   )
 
 
@@ -101,25 +103,25 @@ FRAILTY
 define function "Frailty: Diagnosis or Symptoms During Period"(Period Interval<DateTime>):
   ((["Diagnosis": "HEDIS; Frailty Diagnosis"]
   union ["Diagnosis": "HEDIS; Frailty Symptom"]
-  union ["Procedure, Performed": "HEDIS; Frailty Symptom"])FrailDxSx
-    where FrailDxSx.prevalencePeriod starts during Period)
+  union ["Clinical Activity": "HEDIS; Frailty Symptom"])FrailDxSx
+    where FrailDxSx.start_date during Period)
       and FrailDxSx.supplemental = false
-      and FrailDxSx.placeOfService != '81'
+      and FrailDxSx.place_of_service != '81'
 
 
 define function "Frailty: Encounter During Period"(Period Interval<DateTime>):
-  ["Encounter, Performed": "HEDIS; Frailty Encounter"]FrailEnc
-    where FrailEnc.relevantPeriod starts during Period
+  ["Clinical Activity": "HEDIS; Frailty Encounter"]FrailEnc
+    where Interval[FrailEnc.start_date,FrailEnc.end_date] starts during Period
       and FrailEnc.supplemental = false
-      and FrailEnc.placeOfService != '81'
+      and FrailEnc.place_of_service != '81'
 
 define function "Frailty: Device During Period"(Period Interval<DateTime>):
   (["Device, Applied": "HEDIS; Frailty Device"]
   union ["Device, Order": "HEDIS; Frailty Device"]
   union ["Device, Recommended": "HEDIS; Frailty Device"])FrailDevice
-    where FrailDevice.relevantPeriod starts during Period
+    where FrailDevice.start_date during Period
       and FrailDevice.supplemental = false
-      and FrailDevice.placeOfService != '81'
+      and FrailDevice.place_of_service != '81'
 
 /*
   At least one claim/encounter for frailty (Frailty Device Value Set; Frailty Diagnosis Value Set; Frailty Encounter Value Set; Frailty Symptom Value Set)
@@ -164,30 +166,30 @@ define function "Advanced Illness: Visit During Period - Outpatient, Obs, ED, No
     //observation visits (Observation Value Set)
     //ED visits (ED Value Set)
     //nonacute inpatient encounters (Nonacute Inpatient Value Set)
-    (["Encounter, Performed": "HEDIS; Outpatient"]
-      union ["Encounter, Performed": "HEDIS; Observation"]
-      union ["Encounter, Performed": "HEDIS; ED"]
-      union ["Encounter, Performed": "HEDIS; Nonacute Inpatient"]
+    (["Clinical Activity": "HEDIS; Outpatient"]
+      union ["Clinical Activity": "HEDIS; Observation"]
+      union ["Clinical Activity": "HEDIS; ED"]
+      union ["Clinical Activity": "HEDIS; Nonacute Inpatient"]
     ) QualifyingEncounters
-      with ["Diagnosis": "HEDIS; Advanced Illness"] D
-        such that D.claimId = QualifyingEncounters.claimId
+      with ["Diagnosis": "HEDIS; Advanced Illness"] AdvIllness
+        such that AdvIllness.claim_id = QualifyingEncounters.claim_id
         or (
-          D.claimId = null
-          and QualifyingEncounters.claimId = null
-          and end of QualifyingEncounters.relevantPeriod != null
-          and start of D.prevalencePeriod during QualifyingEncounters.relevantPeriod
+          AdvIllness.claim_id = null
+          and QualifyingEncounters.claim_id = null
+          and QualifyingEncounters.end_date != null
+          and AdvIllness.start_date during Interval[QualifyingEncounters.start_date, QualifyingEncounters.end_date]
         )
         or (
-          D.claimId = null
-          and QualifyingEncounters.claimId = null
-          and QualifyingEncounters.stopDate = null
-          and start of D.prevalencePeriod same day as start of QualifyingEncounters.relevantPeriod
+          AdvIllness.claim_id = null
+          and QualifyingEncounters.claim_id = null
+          and QualifyingEncounters.stop_date = null
+          and AdvIllness.start_date same day as QualifyingEncounters.start_date
         )
-      where QualifyingEncounters.relevantPeriod starts during Period
-        and Diagnosis.supplemental = false
-        and Diagnosis.placeOfService != '81'
+      where QualifyingEncounters.start_date during Period
+        and AdvIllness.supplemental = false
+        and AdvIllness.place_of_service != '81'
         and QualifyingEncounters.supplemental = false
-        and QualifyingEncounters.placeOfService != '81'
+        and QualifyingEncounters.place_of_service != '81'
 
 /*
 To identify a nonacute inpatient discharge:
@@ -198,58 +200,58 @@ To identify a nonacute inpatient discharge:
 define function "Advanced Illness: Non-Acute Inpatient DISCHARGE During Period"(Period Interval<DateTime>):
   (
     //nonacute inpatient discharges
-    ((["Encounter, Performed": "HEDIS; Inpatient Stay"])Inpatient
-      with (["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"])NonacuteIPFlag
-        such that Inpatient.claimId = NonacuteIPFlag.claimId
-          where Inpatient.dischargeDate during Period //NOTE: we're filtering by DISCHARGE DATE here
-          and Inpatient.placeOfService != '81'
+    ((["Clinical Activity": "HEDIS; Inpatient Stay"])Inpatient
+      with (["Clinical Activity": "HEDIS; Nonacute Inpatient Stay"])NonacuteIPFlag
+        such that Inpatient.claim_id = NonacuteIPFlag.claim_id
+          where Inpatient.discharge_date during Period //NOTE: we're filtering by DISCHARGE DATE here
+          and Inpatient.place_of_service != '81'
       )
   ) QualifyingEncounters
-  with ["Diagnosis": "HEDIS; Advanced Illness"] D
-    such that D.claimId = QualifyingEncounters.claimId
+  with ["Diagnosis": "HEDIS; Advanced Illness"] AdvIllness
+    such that AdvIllness.claim_id = QualifyingEncounters.claim_id
     or (
-      D.claimId = null
-      and QualifyingEncounters.claimId = null
-      and end of QualifyingEncounters.relevantPeriod != null
-      and start of D.prevalencePeriod during QualifyingEncounters.relevantPeriod
+      AdvIllness.claim_id = null
+      and QualifyingEncounters.claim_id = null
+      and end of QualifyingEncounters.end_date != null
+      and AdvIllness.start_date during Intetrval[QualifyingEncounters.start_date , QualifyingEncounters.end_date]
     )
     or (
-      D.claimId = null
-      and QualifyingEncounters.claimId = null
-      and QualifyingEncounters.stopDate = null
-      and start of D.prevalencePeriod same day as start of QualifyingEncounters.relevantPeriod
+      D.claim_id = null
+      and QualifyingEncounters.claim_id = null
+      and QualifyingEncounters.stop_date = null
+      and AdvIllness.start_date same day as QualifyingEncounters.start_date
     )
-  where Diagnosis.supplemental = false
-    and Diagnosis.placeOfService != '81'
+  where DiagAdvIllness.supplemental = false
+    and DiagAdvIllness.place_of_service != '81'
     and QualifyingEncounters.supplemental = false
-    and QualifyingEncounters.placeOfService != '81'
+    and QualifyingEncounters.place_of_service != '81'
 
 /*
 –	At least one acute inpatient encounter (Acute Inpatient Value Set)
   with an advanced illness diagnosis (Advanced Illness Value Set).
 */
 define function "Advanced Illness: Acute Inpatient Encounter During Period"(Period Interval<DateTime>):
-  ["Encounter, Performed": "HEDIS; Acute Inpatient"] QualifyingEncounters
-  with ["Diagnosis": "HEDIS; Advanced Illness"] D
-    such that D.claimId = QualifyingEncounters.claimId
+  ["Clinical Activity": "HEDIS; Acute Inpatient"] QualifyingEncounters
+  with ["Diagnosis": "HEDIS; Advanced Illness"] AdvIllness
+    such that AdvIllness.claim_id = QualifyingEncounters.claim_id
     or (
-      D.claimId = null
-      and QualifyingEncounters.claimId = null
-      and end of QualifyingEncounters.relevantPeriod != null
-      and start of D.prevalencePeriod during QualifyingEncounters.relevantPeriod
+      AdvIllness.claim_id = null
+      and QualifyingEncounters.claim_id = null
+      and QualifyingEncounters.end_date != null
+      and D.start_date during Interval[QualifyingEncounters.start_date, QualifyingEncounters.end_date]
     )
     or (
-      D.claimId = null
-      and QualifyingEncounters.claimId = null
-      and QualifyingEncounters.stopDate = null
-      and start of D.prevalencePeriod same day as start of QualifyingEncounters.relevantPeriod
+      AdvIllness.claim_id = null
+      and QualifyingEncounters.claim_id = null
+      and QualifyingEncounters.stop_date = null
+      and AdvIllness.start_date same day as QualifyingEncounters.start_date
     )
   where
-    Diagnosis.supplemental = false
-    and Diagnosis.placeOfService != '81'
+    AdvIllness.supplemental = false
+    and AdvIllness.place_of_service != '81'
     and QualifyingEncounters.supplemental = false
-    and QualifyingEncounters.relevantPeriod starts during Period
-    and QualifyingEncounters.placeOfService != '81'
+    and QualifyingEncounters.start_date during Period
+    and QualifyingEncounters.place_of_service != '81'
 
 /*
 //–	Acute inpatient DISCHARGE with an advanced illness diagnosis (Advanced Illness Value Set)
@@ -260,33 +262,33 @@ To identify an acute inpatient discharge:
 3.	Identify the discharge date for the stay.
 */
 define function "Advanced Illness: Acute Inpatient DISCHARGE During Period"(Period Interval<DateTime>):
-  ["Encounter, Performed": "HEDIS; Inpatient Stay"] QualifyingEncounters
-  with ["Diagnosis": "HEDIS; Advanced Illness"] D
-    such that D.claimId = QualifyingEncounters.claimId
+  ["Clinical Activity": "HEDIS; Inpatient Stay"] QualifyingEncounters
+  with ["Diagnosis": "HEDIS; Advanced Illness"] AdvIllness
+    such that AdvIllness.claim_id = QualifyingEncounters.claim_id
     or (
-      D.claimId = null
-      and QualifyingEncounters.claimId = null
-      and end of QualifyingEncounters.relevantPeriod != null
-      and start of D.prevalencePeriod during QualifyingEncounters.relevantPeriod
+      AdvIllness.claim_id = null
+      and QualifyingEncounters.claim_id = null
+      and QualifyingEncounters.end_date != null
+      and AdvIllness.start_date during Interval[QualifyingEncounters.start_date,QualifyingEncounters.end_date]
     )
     or (
-      D.claimId = null
-      and QualifyingEncounters.claimId = null
-      and QualifyingEncounters.stopDate = null
-      and start of D.prevalencePeriod same day as start of QualifyingEncounters.relevantPeriod
+      AdvIllness.claim_id = null
+      and QualifyingEncounters.claim_id = null
+      and QualifyingEncounters.stop_date = null
+      and AdvIllness.start_date same day as QualifyingEncounters.start_date
     )
   where
-    Diagnosis.supplemental = false
-    and Diagnosis.placeOfService != '81'
+    AdvIllness.supplemental = false
+    and AdvIllness.place_of_service != '81'
     and QualifyingEncounters.supplemental = false
-    and QualifyingEncounters.dischargeDate during Period
-    and QualifyingEncounters.placeOfService != '81'
+    and QualifyingEncounters.discharge_date during Period
+    and QualifyingEncounters.place_of_service != '81'
     and not exists (
       //There will be secondary non-acute inpatient Encounters
       //we have find ONLY the encounters where there is NOT
       //a related non-acute stay on the same claim
-      ["Encounter, Performed": "HEDIS; Nonacute Inpatient Stay"] Nonacute
-      such that QualifyingEncounters.claimId = Nonacute.claimId
+      ["Clinical Activity": "HEDIS; Nonacute Inpatient Stay"] Nonacute
+      such that QualifyingEncounters.claim_id = Nonacute.claim_id
     )
 
 /*
@@ -296,13 +298,13 @@ define function "Advanced Illness: Acute Inpatient DISCHARGE During Period"(Peri
 define function "Advanced Illness: Count of Distinct Visit Dates During Period"(Period Interval<DateTime>): //returns Integer:
   Count(distinct((((
        "Advanced Illness: Visit During Period"(Period)
-  ).relevantPeriod) start) date))
+  ).start_date)))
 
 // A dispensed dementia medication (Dementia Medications List).
 define function "Advanced Illness: Dementia Medication During Period"(Period Interval<DateTime>):
-  ["Medication, Dispensed": "NCQA; Dementia Medications"] M
-  where M.relevantPeriod starts during Period
-    and M.supplemental = false
+  ["Medication, Dispensed": "NCQA; Dementia Medications"] DementiaMed
+  where DementiaMed.start_date during Period
+    and DementiaMed.supplemental = false
 
 define function "Advanced Illness"(Period Interval<DateTime>) returns Boolean:
     // At least two outpatient visits...
@@ -327,7 +329,7 @@ define function "CumulativeDuration"(MedsListFromSpec List<"Medication, Dispense
 //receives medication list and period from the Medications Dispensed Relevant Periods function
 define function "Medication List in Measurement Period"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
   (MedsListFromSpec) MedicationDispensedList
-    where MedicationDispensedList.relevantPeriod starts during Period
+    where MedicationDispensedList.start_date during Period
 
 define function "Multiple Different Medication Same Day - Longest Supply Date"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
 //If multiple prescriptions for different medications are dispensed on the same day, calculate the number of days covered by a medication using the prescriptions with the longest days supply.
@@ -335,9 +337,9 @@ define function "Multiple Different Medication Same Day - Longest Supply Date"(M
   ("Medication List in Measurement Period"(MedsListFromSpec , Period)) medlist1,
   ("Medication List in Measurement Period"(MedsListFromSpec , Period)) medlist2
     where medlist1.code != medlist2.code
-    and medlist1.relevantPeriod starts same day as start of medlist2.relevantPeriod
-    and medlist1.relevantPeriod ends 1 day or more after end of medlist2.relevantPeriod
-  return medlist1.relevantPeriod
+    and medlist1.start_date same day as medlist2.start_date
+    and medlist1.end_date 1 day or more after medlist2.end_date
+  return Interval [medlist1.start_date, medlist1.end_date]
           intersect Period
 
 define function "Multiple Different Medications Diff Day - Overlapping Supply"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
@@ -347,8 +349,8 @@ define function "Multiple Different Medications Diff Day - Overlapping Supply"(M
         (("Medication List in Measurement Period"(MedsListFromSpec , Period)) medlist1,
         ("Medication List in Measurement Period"(MedsListFromSpec , Period)) medlist2
         	where medlist1.code != medlist2.code
-          	and medlist1.relevantPeriod overlaps medlist2.relevantPeriod) OverlapDiffMeds
-        return all Interval[start of OverlapDiffMeds.relevantPeriod, end of OverlapDiffMeds.relevantPeriod]
+          	and interval[medlist1.start_date, medlist1.end_date] overlaps Interval[medlist2.start_date,medlist2.end_date) OverlapDiffMeds
+        return all Interval[OverlapDiffMeds.start_date, OverlapDiffMeds.end_date]
 					intersect Period
     )
 
@@ -358,14 +360,14 @@ define function "Same Medication - Overlapping Supply"(MedsListFromSpec List<"Me
   (("Medication List in Measurement Period"(MedsListFromSpec , Period)) medlist1,
   ("Medication List in Measurement Period"(MedsListFromSpec , Period))) medlist2
     where medlist1.code ~ medlist2.code
-    and medlist1.relevantPeriod overlaps medlist2.relevantPeriod)OverlapSameMeds
-  return all Interval[start of OverlapSameMeds.relevantPeriod, end of OverlapSameMeds.relevantPeriod]
+    and Interval[medlist1.start_date,medlist1.end_date] overlaps Interval[medlist2.start_date,medlist2.end_date])OverlapSameMeds
+  return all Interval[OverlapSameMeds.start_date, OverlapSameMeds.end_date]
 		intersect Period
 
 define function "Non-overlapping Medications"(MedsListFromSpec List<"Medication, Dispensed">, Period Interval<DateTime>):
 // Identifies all intervals of medications, associated with the measurement period
   collapse (( "Medication List in Measurement Period"(MedsListFromSpec , Period)) medicationperiod
-      return medicationperiod.relevantPeriod
+      return Interval[medicationperiod.start_date, medicationperiod.end_date]
       intersect Period
       )
 
@@ -381,20 +383,20 @@ define function "Medications Dispensed Relevant Periods"(MedsListFromSpec List<"
 define function "Different Medications Dispensed Relevant Periods Valuesets"(specificMedList List<"Medication, Dispensed">,totalMedList List<"Medication, Dispensed">, Period Interval<DateTime>) returns Integer:
     collapse ("Same Day Different Meds Valuesets- Longest Supply Date Interval"(specificMedList, totalMedList, Period)
       union "Different Day Different Med Overlapping Supply Valuesets- Total of Period"(specificMedList, totalMedList, Period)
-    return medicationperiod.relevantPeriod
+    return Interval[medicationperiod.start_date, medicationperiod.end_date]
         )
 
 define function "Same Medications Dispensed Relevant Periods Valuesets"(specificMedList List<"Medication, Dispensed">, Period Interval<DateTime>) returns Integer:
     collapse (("Same Med- Multiple intervals"(specificMedList, Period)
-    return medicationperiod.relevantPeriod
+    return Interval[medicationperiod.start_date, medicationperiod.end_date]
         ))
 
 define function "Same Med- Multiple intervals"(specificMedList List<"Medication, Dispensed">, Period Interval<DateTime>):
     from
     (("Medication List in Measurement Period Valuesets"(specificMedList, Period)) medlist1,
     ("Medication List in Measurement Period Valuesets"(specificMedList, Period))) medlist2
-      where medlist1.relevantPeriod overlaps medlist2.relevantPeriod)OverlapSameMeds
-    return all Interval[start of OverlapSameMeds.relevantPeriod, end of OverlapSameMeds.relevantPeriod]
+      where Interval[medlist1.start_date,medlist1.end_date] overlaps Interval[medlist2.start_date,medlist2.end_date]) OverlapSameMeds
+    return all Interval[OverlapSameMeds.start_date,end of OverlapSameMeds.end_date]
       intersect Period
 
 
@@ -403,9 +405,9 @@ define function "Same Day Different Meds Valuesets- Longest Supply Date Interval
   from
   ("Medication List in Measurement Period"(specificMedList , Period)) medlist1,
   ("Medication List in Measurement Period"(totalMedList , Period)) medlist2
-    where medlist1.relevantPeriod starts same day as start of medlist2.relevantPeriod
-    and medlist1.relevantPeriod ends 1 day or more after end of medlist2.relevantPeriod
-  return medlist1.relevantPeriod
+    where medlist1.start_date same day as medlist2.start_date
+    and medlist1.end_date 1 day or more after medlist2.end_date
+  return Interval[medlist1.start_date, medlist1.end_date]
           intersect Period
 
 define function "Different Day Different Med Overlapping Supply Valuesets- Total of Period"(specificMedList List<"Medication, Dispensed">,totalMedList List<"Medication, Dispensed">, Period Interval<DateTime>):
@@ -414,7 +416,15 @@ define function "Different Day Different Med Overlapping Supply Valuesets- Total
   distinct (from
         (("Medication List in Measurement Period"(specificMedList , Period)) medlist1,
         ("Medication List in Measurement Period"(totalMedList , Period)) medlist2
-          	where medlist1.relevantPeriod overlaps medlist2.relevantPeriod) OverlapDiffMeds
-        return all Interval[start of OverlapDiffMeds.relevantPeriod, end of OverlapDiffMeds.relevantPeriod]
+          	where Interval[medlist1.start_date,medlist1.end_date] overlaps Interval[medlist2.start_date, medlist2.end_date]) OverlapDiffMeds //plcedit
+        return all Interval[OverlapDiffMeds.start_date, OverlapDiffMeds.end_date]
 					intersect Period
           )
+
+
+define function "Denominator Exclusion: Palliative Care"(Period Interval<DateTime>):
+  exists((["Clinical Activity": "HEDIS; PALLIATIVE_CARE_ASSESSMENT"]
+          union ["Clinical Activity": "HEDIS; PALLIATIVE_CARE_ENCOUNTER"]
+          union ["Clinical Activity": "HEDIS; PALLIATIVE_CARE_INTERVENTION"]) PalliativeCare
+    where PalliativeCare.start_date on or before end of "Period"
+      and PalliativeCare.place_of_service != '81')

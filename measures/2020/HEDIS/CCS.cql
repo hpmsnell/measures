@@ -23,9 +23,6 @@ valueset "HEDIS; HIGH_RISK_HPV_TEST_RESULT_OR_FINDING": '2.16.840.1.113883.3.464
 valueset "HEDIS; HYSTERECTOMY_WITH NO_RESIDUAL_CERVIX": '2.16.840.1.113883.3.464.1004.1523'
 valueset "HEDIS; ABSENCE_OF_CERVIX_DIAGNOSIS": '2.16.840.1.113883.3.464.1004.1522'
 valueset "HEDIS; ABSENCE_OF_CERVIX_DIAGNOSIS": '2.16.840.1.113883.3.464.1004.1522'
-valueset "HEDIS; PALLIATIVE_CARE_ASSESSMENT":
-valueset "HEDIS; PALLIATIVE_CARE_ENCOUNTER":
-valueset "HEDIS; PALLIATIVE_CARE_INTERVENTION":
 
 
 parameter "Measurement Period" Interval<DateTime>
@@ -52,22 +49,18 @@ define "Denominator Exclusion":
   /*
    * Option Id: exclusion_optional_cervix
    */
-  exists(["Clinical Activity": "HEDIS; HYSTERECTOMY_WITH_NO_RESIDUAL_CERVIX"] hyst_no_cervix
-    where hyst_no_cervix.start_date on or before end of "Measurement Period"
-      and hyst_no_cervix.place_of_service != '81')
-  or exists(["Diagnosis": "HEDIS; ABSENCE_OF_CERVIX_DIAGNOSIS"] diag_no_cervix
-    where diag_no_cervix.start_date on or before end of "Measurement Period"
-      and diag_no_cervix.place_of_service != '81')
+  exists(["Clinical Activity": "HEDIS; HYSTERECTOMY_WITH_NO_RESIDUAL_CERVIX"] HystNoCervix
+    where HystNoCervix.start_date on or before end of "Measurement Period"
+      and HystNoCervix.place_of_service != '81')
+  or exists(["Diagnosis": "HEDIS; ABSENCE_OF_CERVIX_DIAGNOSIS"] DiagNoCervix
+    where DiagNoCervix.start_date on or before end of "Measurement Period"
+      and DiagNoCervix.place_of_service != '81')
 
 define "Denominator Exclusion: Palliative Care":
   /*
    * Option Id: exclusion_palliative_care
    */
-  exists((["Clinical Activity": "HEDIS; PALLIATIVE_CARE_ASSESSMENT"]
-          union ["Clinical Activity": "HEDIS; PALLIATIVE_CARE_ENCOUNTER"]
-          union ["Clinical Activity": "HEDIS; PALLIATIVE_CARE_INTERVENTION"]) palliativecare
-    where palliativecare.start_date on or before end of "Measurement Period"
-      and palliativecare.place_of_service != '81')
+    exists("Denominator Exclusion: Palliative Care"("Measurement Period"))
 
 define "Numerator Performance Met":
   /*
