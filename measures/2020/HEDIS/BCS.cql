@@ -52,10 +52,16 @@ define "Denominator":
   "Initial Population"
 
 define "Exclusion: Hospice":
-   /*
-   * Option ID: exclusion_required_hospice
-   */
+  /*
+  * Option ID: exclusion_required_hospice
+  */
    exists("Hospice During Period"("Measurement Period"))
+
+define "Denominator Exclusion: Palliative Care":
+ /*
+  * Option Id: exclusion_palliative_care
+  */
+   exists("Palliative Care"("Measurement Period"))
 
 define "Denominator Exclusion: Mastectomy":
   /*
