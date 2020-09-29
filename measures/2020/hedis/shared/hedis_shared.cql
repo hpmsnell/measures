@@ -26,6 +26,7 @@ valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
 valueset "HEDIS; NONACUTE_INPATIENT": '2.16.840.1.113883.3.464.1004.1189'
 valueset "HEDIS; ACUTE_INPATIENT": '2.16.840.1.113883.3.464.1004.1017'
 valueset "HEDIS; OBSERVATION": '2.16.840.1.113883.3.464.1004.1191'
+valueset "HEDIS; ONLINE_ASSESSMENTS": ''
 
 valueset "HEDIS; INPATIENT_STAY": '2.16.840.1.113883.3.464.1004.1395'
 valueset "HEDIS; NONACUTE_INPATIENT_STAY": '2.16.840.1.113883.3.464.1004.1398'
@@ -116,8 +117,7 @@ define function "Frailty: Encounter During Period"(Period Interval<DateTime>):
 
 define function "Frailty: Device During Period"(Period Interval<DateTime>):
   (["Clinical Activity": "HEDIS; FRAILTY_DEVICE"]
-  union ["Order": "HEDIS; FRAILTY_DEVICE"]
-  union ["Device, Recommended": "HEDIS; FRAILTY_DEVICE"])FrailDevice
+  union ["Order": "HEDIS; FRAILTY_DEVICE"])FrailDevice
     where FrailDevice.start_date during Period
       and FrailDevice.supplemental = false
       and FrailDevice.place_of_service != '81'
@@ -160,7 +160,7 @@ most visits - EXCLUDING Nonacute Inpatient DISCHARGES
 - Nonacute Inpatient encounters (Nonacute Inpatient Value Set)
 ... with an Advanced Illness diagnosis (Advanced Illness Value Set)...
 */
-define function "Advanced Illness: Visit During Period - Outpatient, Obs, ED, Non-Acure Inpatient Encounters"(Period Interval<DateTime>):
+define function "Advanced Illness: Visit During Period - Outpatient, Obs, ED, Non-Acute Inpatient Encounters"(Period Interval<DateTime>):
     //outpatient visits (Outpatient Value Set)
     //observation visits (Observation Value Set)
     //ED visits (ED Value Set)
@@ -169,6 +169,8 @@ define function "Advanced Illness: Visit During Period - Outpatient, Obs, ED, No
       union ["Clinical Activity": "HEDIS; OBSERVATION"]
       union ["Clinical Activity": "HEDIS; ED"]
       union ["Clinical Activity": "HEDIS; NONACUTE_INPATIENT"]
+      union ["Clinical Activity": "HEDIS; TELEPHONE_VISITS"]
+      union ["Clinical Activity": "HEDIS; ONLINE_ASSESSMENTS"]
     ) QualifyingEncounters
       with ["Diagnosis": "HEDIS; ADVANCED_ILLNESS"] AdvIllness
         such that AdvIllness.claim_id = QualifyingEncounters.claim_id
