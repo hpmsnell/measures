@@ -20,7 +20,7 @@ valueset "MIPS; Only Urgent Care Visits M0121":
 valueset "MIPS; Hospice Service":
 valueset "MIPS; Performance Met: G9432":
 valueset "MIPS; MIPS Hospice Service":
-valueset "VSAC; Palliative Care":
+valueset "VSAC; Palliative Care Encounter":
 // Able value sets
 
 valueset "Able; Expired"
