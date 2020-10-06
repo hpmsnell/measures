@@ -65,7 +65,7 @@ define "Qualifying Encounter during Measurement Period":
   (
     //well-care encounter
     ["Clinical Activity": "HEDIS; WELL_CARE"]
-    //union ["Diagnosis, Performed": "HEDIS; WELL_CARE"]
+    union ["Diagnosis": "HEDIS; WELL_CARE"]
     union (
         //well-care dx or well-care procedure to ANY encounter, NOT just well-care visit
         (["Clinical Activity"]) AnyVisit //NOTE: NOT valid CQL, but ANY ENCOUNTER counts here
@@ -76,5 +76,8 @@ define "Qualifying Encounter during Measurement Period":
       )
   ) QualifyingEncounter
   where QualifyingEncounter.start_date during "Measurement Period"
-  and QualifyingEncounter.signingProvider.primaryCareProvider = true //plcedit
-  and QualifyingEncounter.place_of_service != '81'
+    and QualifyingEncounter.place_of_service != '81'
+  with (["Provider"] Provider
+      where Provider.primary_care_provider = true
+    )
+      such that Provider.external_id = QualifyingEncounter.provider_id
