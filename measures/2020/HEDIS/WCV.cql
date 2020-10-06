@@ -17,8 +17,7 @@ include "../shared/hedis_shared"  called HedisShared
 // HEDIS value sets
 
 valueset "HEDIS; WELL_CARE": '2.16.840.1.113883.3.464.1004.1262'
-valueset "HEDIS; TELEHEALTH_POS": '2.16.840.1.113883.3.464.1004.1460'
-valueset "HEDIS; TELEHEALTH_MODIFIER": '2.16.840.1.113883.3.464.1004.1445'
+
 
 parameter "Measurement Period" Interval<DateTime>
 
