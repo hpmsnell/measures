@@ -26,8 +26,6 @@ context Patient
 
 /*
 At least one well-child visit (Well-Care Value Set) with a PCP during the measurement year.
-Do not count visits billed with a telehealth modifier (Telehealth Modifier Value Set)
-  or billed with a telehealth POS code (Telehealth POS Value Set).
 The well-child visit must occur with a PCP, but the PCP does not have to be the practitioner assigned to the child.
 
 NOTE: Despite the logic saying "well-child visit," it includes procedures and diagnoses
@@ -36,9 +34,14 @@ NOTE: Despite the logic saying "well-child visit," it includes procedures and di
 */
 
 
-define "Denominator":
+//Populations
+
+define "Initial Population":
   AgeInYearsAt(end of "Measurement Period") >= 3
-  and AgeInYearsAt(end of "Measurement Period") < 7
+  and AgeInYearsAt(end of "Measurement Period") < 21
+
+define "Denominator":
+  "Initial Population"
 
 define "Exclusion: Hospice":
 	   /*
@@ -62,15 +65,15 @@ define "Numerator Performance Not Met":
 define "Qualifying Encounter during Measurement Period":
   (
     //well-care encounter
-    ["Physical Exam, Performed": "HEDIS; WELL_CARE"]
-    union ["Diagnosis, Performed": "HEDIS; WELL_CARE"]
+    ["Clinical Activity": "HEDIS; WELL_CARE"]
+    //union ["Diagnosis, Performed": "HEDIS; WELL_CARE"]
     union (
         //well-care dx or well-care procedure to ANY encounter, NOT just well-care visit
-        (["Encounter, Performed"]) AnyVisit //NOTE: NOT valid CQL, but ANY ENCOUNTER counts here
+        (["Clinical Activity"]) AnyVisit //NOTE: NOT valid CQL, but ANY ENCOUNTER counts here
         with (["Diagnosis": "HEDIS; WELL_CARE"]
-          union ["Physical Exam, Performed": "HEDIS; WELL_CARE"]) QualifyingEvent
+          union ["Clinical Activity": "HEDIS; WELL_CARE"]) QualifyingEvent
         such that AnyVisit.start_date same day as QualifyingEvent.start_date
-        where QualifyingEvent.place_of_service != '81' //just in case place of service says lab, filter it out
+        where QualifyingEvent.place_of_service != '81'
       )
   ) QualifyingEncounter
   where QualifyingEncounter.start_date during "Measurement Period"
