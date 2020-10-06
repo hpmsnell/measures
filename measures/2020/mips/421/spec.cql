@@ -55,7 +55,7 @@ define "Numerator Performance Met: G9542":
   */
   exists("Denominator Encounter" E
     with ["Procedure, Performed": "MIPS; Performance Met: G9542"] P
-      such that P.relevantPeriod starts on or before 3 months after start of E.relevantPeriod)
+      such that P.relevantPeriod starts during [start of E.relevantPeriod, 3 months after start of E.relevantPeriod])
 
 define "Numerator Performance Met: G9543":
  /*
@@ -63,7 +63,7 @@ define "Numerator Performance Met: G9543":
   */
   exists("Denominator Encounter" E
     with ["Procedure, Performed": "MIPS; Performance Met: G9543"] P
-      such that P.relevantPeriod starts on or before 3 months after start of E.relevantPeriod)
+      such that P.relevantPeriod starts during [start of E.relevantPeriod, 3 months after start of E.relevantPeriod])
 
 
 define "Numerator Performance Not Met: G9544":
