@@ -54,6 +54,12 @@ define "Exclusion: Hospice":
    */
    exists("Hospice During Period"("Measurement Period"))
 
+define "Denominator Exclusion: Palliative Care":
+ /*
+  * Option Id: exclusion_palliative_care
+  */
+   exists("Palliative Care"("Measurement Period"))
+
 define "Denominator Exclusion: Frailty or Advanced Illness":
   /*
    * Option ID: exclusion_required_frailty
