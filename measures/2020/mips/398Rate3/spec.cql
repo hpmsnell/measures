@@ -91,7 +91,7 @@ define "Numerator Performance Met: G9521_G9432":
    */
    exists(["Procedure, Performed": "MIPS; Performance Met: G9521"] P
      where P.relevantPeriod starts during "Measurement Period")
-   or exists(["Procedure, Performed": "MIPS; Performance Met: G9432"] P
+   and exists(["Procedure, Performed": "MIPS; Performance Met: G9432"] P
          where P.relevantPeriod starts during "Measurement Period")
 
 
