@@ -1,8 +1,8 @@
-library MIPS_398Rate4_2020 version '1'
+library MIPS_398Rate5_2020 version '1'
 
 /*
  * Source: MIPS
- * ID: 398Rate4
+ * ID: 398Rate5
  * Year: 2020
  * Version: 1
  * Author: Patrick Clark
@@ -32,8 +32,8 @@ context Patient
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 398 Encounter"] E
     where E.relevantPeriod starts during "Measurement Period"
-      and AgeInYearsAt(start of E.relevantPeriod) >= 5
-      and AgeInYearsAt(start of E.relevantPeriod) < 17
+      and AgeInYearsAt(start of E.relevantPeriod) >= 18
+      and AgeInYearsAt(start of E.relevantPeriod) < 50
       and E.signingProvider.hasMeasureMembership = true
 
 // Populations
@@ -56,7 +56,7 @@ define "Denominator Exclusion: Long Term Care"
   /*
    * config_link_id: exclusion_longterm
    */
-      exists( FrailtyLTIShared."Long Term Care Periods During Measurement Period" )
+      exists (FrailtyLTIShared."Long Term Care Periods During Measurement Period")
 
 
 define "Denominator Exclusion: Hospice":
