@@ -117,10 +117,7 @@ define "Absence of Left Breast":
 
 define "Absence of Left Breast Confirmed":
    "Absence of Left Breast" AbsentLt
-    where (
-      AbsentLt.start_date on or before end of "Measurement Period"
-      or AbsentLt.start_date on or before end of "Measurement Period"
-    )
+    where AbsentLt.start_date on or before end of "Measurement Period"
       and AbsentLt.place_of_service != '81'
 
 define "Absence of Right Breast":
@@ -135,10 +132,7 @@ define "Absence of Right Breast":
 
 define "Absence of Right Breast Confirmed":
   "Absence of Right Breast" AbsentRt
-    where (
-      AbsentRt.start_date on or before end of "Measurement Period"
-      or AbsentRt.start_date on or before end of "Measurement Period"
-    )
+    where AbsentRt.start_date on or before end of "Measurement Period"
       and AbsentRt.place_of_service != '81'
 
 define "Bilateral Mastectomy Procedure":
