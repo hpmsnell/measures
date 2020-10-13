@@ -65,7 +65,7 @@ define "Denominator Exclusion: Palliative Care":
 
 define "Denominator Exclusion: Mastectomy":
   /*
-   * Option ID: exclusion_1
+   * Option ID: exclusion_optional_mastectomy
    */
   exists "Bilateral Mastectomy Procedure"
     or exists "Bilateral Mastectomy Clinical Info"
