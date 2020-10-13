@@ -45,10 +45,7 @@ define "Numerator Performance Met":
   "Medication Review" MedReview
     with "Medication List" MedList
       such that MedReview.claim_id = MedList.claim_id
-  or exists(["Clinical Activity": "HEDIS; TRANSITIONAL_CARE_MANAGEMENT_SERVICES"] Trans
-    where Trans.start_date during "Measurement Period"
-      and Trans.place_of_service != '81'
-      and Trans.code_modifiers not in "HEDIS; CPT_CAT_II_MODIFIER")
+  or exists("Transitional Care")
 
 define "Numerator Performance Not Met":
   /*
@@ -62,6 +59,7 @@ define "Medication List":
   ["Clinical Activity": "HEDIS; MEDICATION_LIST"] MedList
     where MedList.start_date during "Measurement Period"
       and MedList.place_of_service != '81'
+      and FSA.place_of_service not in "HEDIS; ACUTE_INPATIENT_POS"
       and MedList.code_modifiers not in "HEDIS; CPT_CAT_II_MODIFIER"
     with (["Provider"] Provider
       where (
@@ -69,11 +67,24 @@ define "Medication List":
         or Provider.pharmacy_provider = true
       ))
       such that Provider.external_id = MedList.provider_id
+    without ["Clinical Activity": "HEDIS; ACUTE_INPATIENT"] Inpatient
+      such that (
+        (
+          FSA.claim_id != null
+          and FSA.claim_id = Inpatient.claim_id
+        )
+        or (
+          FSA.claim_id == null
+          and FSA.start_date = Inpatient.start_date
+        )
+      )
+    )
 
 define "Medication Review":
   ["Clinical Activity": "HEDIS; MEDICATION_REVIEW"] MedReview
   where MedReview.start_date during "Measurement Period"
     and MedReview.place_of_service != '81'
+    and FSA.place_of_service not in "HEDIS; ACUTE_INPATIENT_POS"
     and MedReview.code_modifiers not in "HEDIS; CPT_CAT_II_MODIFIER"
   with (["Provider"] Provider
     where (
@@ -81,3 +92,33 @@ define "Medication Review":
       or Provider.pharmacy_provider = true
     ))
     such that Provider.external_id = MedReview.provider_id
+  without ["Clinical Activity": "HEDIS; ACUTE_INPATIENT"] Inpatient
+    such that (
+      (
+        FSA.claim_id != null
+        and FSA.claim_id = Inpatient.claim_id
+      )
+      or (
+        FSA.claim_id == null
+        and FSA.start_date = Inpatient.start_date
+      )
+    )
+  )
+
+define "Transitional Care":
+  ["Clinical Activity": "HEDIS; TRANSITIONAL_CARE_MANAGEMENT_SERVICES"] Trans
+    where Trans.start_date during "Measurement Period"
+      and Trans.place_of_service != '81'
+      and FSA.place_of_service not in "HEDIS; ACUTE_INPATIENT_POS"
+      and Trans.code_modifiers not in "HEDIS; CPT_CAT_II_MODIFIER")
+    without ["Clinical Activity": "HEDIS; ACUTE_INPATIENT"] Inpatient
+      such that (
+        (
+          Trans.claim_id != null
+          and Trans.claim_id = Inpatient.claim_id
+        )
+        or (
+          Trans.claim_id == null
+          and Trans.start_date = Inpatient.start_date
+        )
+      )
