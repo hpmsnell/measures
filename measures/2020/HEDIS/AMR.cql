@@ -67,8 +67,8 @@ context Patient
 define "ED or Acute Inpatient No Telehealth - Current Year":
 // At least one acute inpatient encounter (Acute Inpatient Value Set), with a principal diagnosis of asthma (Asthma Value Set) without telehealth
   (["Clinical Activity": "HEDIS; ED"]
-  union ["Clinical Activity": "HEDIS; ACUTE_INPATIENT]) Enc
-    where Enc.Interval[start_date, end_date] during "Measurement Period"]
+  union ["Clinical Activity": "HEDIS; ACUTE_INPATIENT"]) Enc
+    where Interval[Enc.start_date, Enc.end_date] during "Measurement Period"]
       and not Enc.place_of_service in "HEDIS; TELEHEALTH_POS"
       and not Enc.code_modifier in "HEDIS; TELEHEALTH_MODIFIER"
     where exists(E.Diagnosis Dx
@@ -79,7 +79,7 @@ define "ED or Acute Inpatient No Telehealth - Current Year":
 define "ED or Acute Inpatient No Telehealth - Prior Year":
 // At least one acute inpatient encounter (Acute Inpatient Value Set), with a principal diagnosis of asthma (Asthma Value Set) without telehealth
   (["Clinical Activity": "HEDIS; ED"]
-  union ["Clinical Activity": "HEDIS; ACUTE_INPATIENT]) Enc
+  union ["Clinical Activity": "HEDIS; ACUTE_INPATIENT"]) Enc
     where Enc.relevantPeriod in Interval [start of "Measurement Period" - 12 Months, start of "Measurement Period"]
       and not Enc.place_of_service in "HEDIS; TELEHEALTH_POS"
       and not Enc.code_modifier in "HEDIS; TELEHEALTH_MODIFIER"
@@ -131,14 +131,14 @@ define "Outpatient Telehealth Visit":
 define "Outpatient Visits Current Year"
   "Outpatient Visit without Telehealth"
   union "Outpatient Telehealth Visit") OPVisit
-    where OPVisit.Interval[start_date, end_date] during during "Measurement Period"
+    where Interval[OPVisit.start_date, OPVisit.end_date] during during "Measurement Period"
     with(["Diagnosis": "HEDIS; ASTHMA"] D
       such that D.start_date during OPVisit.relevantPeriod)
 
 define "Outpatient Visits Prior Year":
   ("Outpatient Visit without Telehealth"
   union "Outpatient Telehealth Visit") OPVisit
-    where OPVisit.Interval[start_date, end_date] during during Interval [start of "Measurement Period" -12 months, start of "Measurement Period"]
+    where Interval[OPVisit.start_date, OPVisit.end_date] during during Interval [start of "Measurement Period" -12 months, start of "Measurement Period"]
     with(["Diagnosis": "HEDIS; ASTHMA"] D
       such that D.start_date during OPVisit.relevantPeriod)
 
