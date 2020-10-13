@@ -1,8 +1,8 @@
-library MIPS_398Rate4_2020 version '1'
+library MIPS_398Rate6_2020 version '1'
 
 /*
  * Source: MIPS
- * ID: 398Rate4
+ * ID: 398Rate6
  * Year: 2020
  * Version: 1
  * Author: Patrick Clark
@@ -18,7 +18,7 @@ valueset "MIPS; Asthma":
 valueset "MIPS; MIPS 398 Competing Conditions for Persistent Asthma"
 valueset "MIPS; Only Urgent Care Visits M0121":
 valueset "MIPS; Hospice Service":
-valueset "MIPS; Performance Met: G9432":
+valueset "MIPS; Performance Met: G9521":
 valueset "MIPS; MIPS Hospice Service":
 valueset "VSAC; Palliative Care Encounter":
 // Able value sets
@@ -49,14 +49,14 @@ define "Denominator Exclusion: Patient Died"
    * config_link_id: exclusion_patientdied
    */
   exists(["Diagnosis": "Able; Expired"] D
-    where D.prevalencePeriod starts on or before end of "Measurement Period")
+    where D.prevalencePeriod starts before end of "Measurement Period")
 
 
 define "Denominator Exclusion: Long Term Care"
-  /*
-   * config_link_id: exclusion_longterm
-   */
-      exists( FrailtyLTIShared."Long Term Care Periods During Measurement Period" )
+    /*
+     * config_link_id: exclusion_longterm
+     */
+      FrailtyLTIShared."Long Term Care Periods During Measurement Period"
 
 
 define "Denominator Exclusion: Hospice":
@@ -74,7 +74,7 @@ define "Denominator Exclusion: Competing Diagnoses"
   * config_link_id: competing_diagnosis
   */
   exists(["Diagnosis": "MIPS; MIPS 398 Competing Conditions for Persistent Asthma"] D
-    where D.prevalencePeriod starts on or before end of "Measurement Period")
+    where D.prevalencePeriod starts before end of "Measurement Period")
 
 
 define "Denominator Exclusion: Only Urgent Care Visits"
@@ -84,21 +84,21 @@ define "Denominator Exclusion: Only Urgent Care Visits"
   exists(["Procedure, Performed": "MIPS; Only Urgent Care Visits M0121" ] P
     where P.relevantPeriod starts during "Measurement Period")
 
-define "Numerator Performance Met: G9432":
+define "Numerator Performance Met: G9521":
   /*
-   * config_link_id: G9432
+   * config_link_id: G9521
    */
-  exists(["Procedure, Performed": "MIPS; Performance Met: G9432"] P
+  exists(["Procedure, Performed": "MIPS; Performance Met: G9521"] P
     where P.relevantPeriod starts during "Measurement Period")
 
 
-define "Numerator Performance Not Met: G9434":
+define "Numerator Performance Not Met: G9522":
   /*
-   * config_link_id: G9434
+   * config_link_id: G9522
    */
   not "Denominator Exclusion: Patient Died"
   and not "Denominator Exclusion: Long Term Care"
   and not "Denominator Exclusion: Hospice"
   and not "Denominator Exclusion: Competing Diagnoses"
   and not "Denominator Exclusion: Only Urgent Care Visits"
-  and not "Numerator Performance Met: G9432"
+  and not "Numerator Performance Met: G9521"

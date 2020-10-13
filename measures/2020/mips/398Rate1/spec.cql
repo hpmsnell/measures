@@ -19,6 +19,7 @@ valueset "MIPS; MIPS 398 Competing Conditions for Persistent Asthma"
 valueset "MIPS; Only Urgent Care Visits M0121":
 valueset "MIPS; Hospice Service":
 valueset "MIPS; Performance Met: G9432":
+valueset "MIPS; Performance Met: G9521":
 valueset "MIPS; MIPS Hospice Service":
 valueset "VSAC; Palliative Care Encounter":
 // Able value sets
@@ -31,9 +32,9 @@ context Patient
 
 define "Denominator Encounter":
   ["Encounter, Performed": "MIPS; MIPS 398 Encounter"] E
-    where E.relevantPeriod starts during "Denominator Period"
+    where E.relevantPeriod starts during "Measurement Period"
       and AgeInYearsAt(start of E.relevantPeriod) >= 5
-      and AgeInYearsAt(start of E.relevantPeriod) < 17
+      and AgeInYearsAt(start of E.relevantPeriod) < 50
       and E.signingProvider.hasMeasureMembership = true
 
 // Populations
@@ -64,7 +65,7 @@ define "Denominator Exclusion: Hospice":
    * config_link_id: exclusion_hospice
    */
   exists(["Procedure, Performed": "MIPS; MIPS Hospice Service"] P
-    where P.relevantPeriod starts during "Denominator Period")
+    where P.relevantPeriod starts during "Measurement Period")
   or exists(["Intervention, Performed": "VSAC; Palliative Care"] I
     where I.relevantPeriod overlaps "Measurement Period")
 
@@ -84,13 +85,14 @@ define "Denominator Exclusion: Only Urgent Care Visits"
   exists(["Procedure, Performed": "MIPS; Only Urgent Care Visits M0121" ] P
     where P.relevantPeriod starts during "Measurement Period")
 
-define "Numerator Performance Met: G9432":
+define "Numerator Performance Met: G9521_G9432":
   /*
-   * config_link_id: G9432
+   * config_link_id: G9521_G9432
    */
-  exists(["Procedure, Performed": "MIPS; Performance Met: G9432"] P
-    where P.relevantPeriod starts during "Measurement Period")
-
+   exists(["Procedure, Performed": "MIPS; Performance Met: G9521"] P
+     where P.relevantPeriod starts during "Measurement Period")
+   and exists(["Procedure, Performed": "MIPS; Performance Met: G9432"] P
+         where P.relevantPeriod starts during "Measurement Period")
 
 define "Numerator Performance Not Met: G9434":
   /*
@@ -101,4 +103,4 @@ define "Numerator Performance Not Met: G9434":
   and not "Denominator Exclusion: Hospice"
   and not "Denominator Exclusion: Competing Diagnoses"
   and not "Denominator Exclusion: Only Urgent Care Visits"
-  and not "Numerator Performance Met: G9432"
+  and not "Numerator Performance Met: G9521_G9432"
