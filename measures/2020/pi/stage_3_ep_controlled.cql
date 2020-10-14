@@ -32,7 +32,7 @@ define "Numerator Performance Met":
    * config_link_id: performance_met
    */
   "Denominator Medication" M
-    where M.sent_datetime during "Measurement Period"
+    where M.sent_datetime same year as start of "Measurement Period"
 
 define "Numerator Performance Not Met":
   /*
