@@ -49,9 +49,9 @@ define "Exclusion: Hospice":
 	 */
 	   exists("Hospice During Period"("Measurement Period"))
 
-define "Denominator Exclusion":
+define "Denominator Exception":
   /*
-   * Option ID: exclusion_optional_pregnancy
+   * Option ID: exception_optional_pregnancy
    */
   "Only Pregnancy Test Exists"
   and exists("Pregnancy Test Exclusion" PregTest

@@ -45,9 +45,9 @@ define "Exclusion: Hospice":
 	   */
 	   exists("Hospice During Period"("Measurement Period"))
 
-define "Denominator Exclusion":
+define "Denominator Exception":
   /*
-   * Option Id: exclusion_optional_cervix
+   * Option Id: exception_optional_cervix
    */
   exists(["Clinical Activity": "HEDIS; HYSTERECTOMY_WITH_NO_RESIDUAL_CERVIX"] HystNoCervix
     where HystNoCervix.start_date on or before end of "Measurement Period"

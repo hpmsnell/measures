@@ -41,9 +41,9 @@ and AgeInYearsAt(end of "Measurement Period") < 76
 define "Denominator":
   "Initial Population"
 
-define "Denominator Exclusion: Colectomy or Cancer":
+define "Denominator Exception: Colectomy or Cancer":
     /*
-     * Option ID: exclusion_optional_colon
+     * Option ID: exception_optional_colon
      */
     exists "Colorectal cancer"
       or exists "Total colectomy"
