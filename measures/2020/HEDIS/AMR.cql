@@ -15,25 +15,27 @@ using ADM v1
 include "../shared/hedis_shared"  called HedisShared
 
 // HEDIS value sets
+valueset "HEDIS; ACUTE_INPATIENT":  '2.16.840.1.113883.3.464.1004.1810'
+valueset "HEDIS; ACUTE_RESPIRATORY_FAILURE":  '2.16.840.1.113883.3.464.1004.1019'
+valueset "HEDIS; ASTHMA":  '2.16.840.1.113883.3.464.1004.1025'
+valueset "HEDIS; CHRONIC_RESPIRATORY_CONDITIONS_DUE_TO_FUMES_OR_VAPORS":  '2.16.840.1.113883.3.464.1004.1063'
+valueset "HEDIS; COPD":  '2.16.840.1.113883.3.464.1004.1053'
+valueset "HEDIS; CYSTIC_FIBROSIS":  '2.16.840.1.113883.3.464.1004.1068'
+valueset "HEDIS; ED":  '2.16.840.1.113883.3.464.1004.1086'
+valueset "HEDIS; EMPHYSEMA":  '2.16.840.1.113883.3.464.1004.1091'
+valueset "HEDIS; HOSPICE_ENCOUNTER":  '2.16.840.1.113883.3.464.1004.1761'
+valueset "HEDIS; HOSPICE_INTERVENTION":  '2.16.840.1.113883.3.464.1004.1762'
+valueset "HEDIS; INPATIENT_STAY":  '2.16.840.1.113883.3.464.1004.1395'
+valueset "HEDIS; NONACUTE_INPATIENT_STAY":  '2.16.840.1.113883.3.464.1004.1398'
+valueset "HEDIS; OBSERVATION":  '2.16.840.1.113883.3.464.1004.1191'
+valueset "HEDIS; OBSTRUCTIVE_CHRONIC_BRONCHITIS":  '2.16.840.1.113883.3.464.1004.1193'
+valueset "HEDIS; ONLINE_ASSESSMENTS":  '2.16.840.1.113883.3.464.1004.1446'
+valueset "HEDIS; OTHER_EMPHYSEMA":  '2.16.840.1.113883.3.464.1004.1200'
+valueset "HEDIS; OUTPATIENT":  '2.16.840.1.113883.3.464.1004.1202'
+valueset "HEDIS; TELEHEALTH_MODIFIER":  '2.16.840.1.113883.3.464.1004.1445'
+valueset "HEDIS; TELEHEALTH_POS":  '2.16.840.1.113883.3.464.1004.1460'
+valueset "HEDIS; TELEPHONE_VISITS":  '2.16.840.1.113883.3.464.1004.1246'
 
-valueset "HEDIS; OUTPATIENT": '2.16.840.1.113883.3.464.1004.1202'
-valueset "HEDIS; OBSERVATION": '2.16.840.1.113883.3.464.1004.1191'
-valueset "HEDIS; ED": '2.16.840.1.113883.3.464.1004.1086'
-valueset "HEDIS; ACUTE_INPATIENT": '2.16.840.1.113883.3.464.1004.1017'
-valueset "HEDIS; ASTHMA": '2.16.840.1.113883.3.464.1004.1025'
-valueset "HEDIS; EMPHYSEMA": '2.16.840.1.113883.3.464.1004.1091'
-valueset "HEDIS; OTHER_EMPHYSEMA": '2.16.840.1.113883.3.464.1004.1200'
-valueset "HEDIS; COPD": '2.16.840.1.113883.3.464.1004.1053'
-valueset "HEDIS; OBSTRUCTIVE_CHRONIC_BRONCHITIS": '2.16.840.1.113883.3.464.1004.1193'
-valueset "HEDIS; CHRONIC_RESPIRATORY_CONDITIONS_DUE_TO_FUMES_VAPORS": '2.16.840.1.113883.3.464.1004.1063'
-valueset "HEDIS; CYSTIC_FIBROSIS": '2.16.840.1.113883.3.464.1004.1068'
-valueset "HEDIS; ACUTE_RESPIRATORY_FAILURE": '2.16.840.1.113883.3.464.1004.1019'
-valueset "HEDIS; ONLINE_ASSESSMENTS": '2.16.840.1.113883.3.464.1004.1446'
-valueset "HEDIS; TELEHEALTH_MODIFIER": '2.16.840.1.113883.3.464.1004.1445'
-valueset "HEDIS; TELEHEALTH_POS": '2.16.840.1.113883.3.464.1004.1460'
-valueset "HEDIS; TELEPHONE_VISITS": '2.16.840.1.113883.3.464.1004.1246'
-valueset "HEDIS; NONACUTE_INPATIENT_STAY": '2.16.840.1.113883.3.464.1004.1398'
-valueset "HEDIS; INPATIENT_STAY": '2.16.840.1.113883.3.464.1004.1395'
 
 // NCQA medication list value sets
 
@@ -63,6 +65,45 @@ valueset "NCQA; Reslizumab Medications" // plcnotused
 parameter "Measurement Period" Interval<DateTime>
 
 context Patient
+
+/* Populations */
+
+define "Inital Population":
+AgeInYearsAt(end of "Measurement Period") >= 5
+and AgeInYearsAt(end of "Measurement Period") < 65
+
+define "Denominator":
+  "Inital Population"
+  and "Persistent Asthma Current Year"
+  and "Persistent Asthma Prior Year"
+
+define "Exclusion: Hospice":
+  /*
+  * Option ID: exclusion_required_hospice
+  */
+  exists("Hospice During Period"("Measurement Period"))
+
+define "Denominator Exclusion: Condition":
+  /*
+   * Option ID: exclusion_excluded_conditions
+   */
+  exists(["Excluded Condition"] D
+    where D.start_date before end of "Measurement Period")
+
+define "Denominator Exclusion: No Medication":
+  /*
+   * Option ID: exclusion_no_med
+   */
+  not exists("Asthma Medication" M
+    where M.start_date during "Measurement Period")
+
+define "Numerator Performance Met":
+  /*
+   * Option ID: performance_met
+   */
+  Round(Sum("Asthma Controller Quantity") / Sum("All Asthma Medication Quantity")) >= 0.5
+
+// Definitions
 
 define "ED or Acute Inpatient No Telehealth - Current Year":
 // At least one acute inpatient encounter (Acute Inpatient Value Set), with a principal diagnosis of asthma (Asthma Value Set) without telehealth
@@ -267,46 +308,3 @@ define "All Asthma Medication Quantity":
   "Asthma Medication" M
     where M.start_date during "Measurement Period"
     return M.quantity
-
-/* Populations */
-
-define "Denominator":
-  AgeInYearsAt(end of "Measurement Period") >= 5
-  and AgeInYearsAt(end of "Measurement Period") < 65
-  and "Persistent Asthma Current Year"
-  and "Persistent Asthma Prior Year"
-
-define "Exclusion: Hospice":
-  /*
-  * Option ID: exclusion_required_hospice
-  */
-  exists("Hospice During Period"("Measurement Period"))
-
-define "Denominator Exclusion: Condition":
-  /*
-   * Option ID: exclusion_1
-   */
-  exists(["Excluded Condition"] D
-    where D.start_date before end of "Measurement Period")
-
-define "Denominator Exclusion: No Medication":
-  /*
-   * Option ID: exclusion_2
-   */
-  not exists("Asthma Medication" M
-    where M.start_date during "Measurement Period")
-
-define "Numerator Performance Met":
-  /*
-   * Option ID: performance_met
-   */
-  Round(Sum("Asthma Controller Quantity") / Sum("All Asthma Medication Quantity")) >= 0.5
-
-define "Numerator Performance Not Met":
-  /*
-   * Option ID: performance_not_met
-   */
-  not "Denominator Exclusion: Hospice"
-  and not "Denominator Exclusion: Condition"
-  and not "Denominator Exclusion: No Medication"
-  and not "Numerator Performance Met"
