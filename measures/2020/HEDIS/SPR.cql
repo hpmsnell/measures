@@ -38,7 +38,7 @@ context Patient
 /* Populations */
 
 define "Initial Population":
-AgeInYearsAt(end of "Measurement Period") >= 42
+	AgeInYearsAt(end of "Measurement Period") >= 42
 
 define "Denominator":
 // Even per 2020 specifications "42 years or older as of December 31 of the measurement year"
@@ -71,9 +71,11 @@ define "Numerator Performance Not Met":
 // Definitions
 
 define "Outpatient Encounter":
-  (["Clinical Activity": "HEDIS; Outpatient"]
-  union ["Clinical Activity": "HEDIS; Observation"]
-  union ["Clinical Activity": "HEDIS; ED"])Encounter
+  (["Clinical Activity": "HEDIS; OUTPATIENT"]
+  union ["Clinical Activity": "HEDIS; OBSERVATION"]
+  union ["Clinical Activity": "HEDIS; ED"]
+	union ["Clinical Activity": "HEDIS; ONLINE_ASSESSMENTS"]
+	union ["Clinical Activity": "HEDIS; TELEPHONE_VISITS"])Encounter
 		where not Encounter.place_of_service in "HEDIS; TELEHEALTH_POS"
 			and not Encounter.code_modifier in "HEDIS; TELEHEALTH_MODIFIER"
 			and not ["Clinical Activity": "HEDIS; INPATIENT_STAY"] InptStay
@@ -130,8 +132,8 @@ define "First COPD During Index Period":
 define "Negative Diagnosis Outpatient Encounter":
 //with or without a telehealth modifier
 
-	(["Clinical Activity": "HEDIS; Outpatient"]
-	union ["Clinical Activity": "HEDIS; Observation"]
+	(["Clinical Activity": "HEDIS; OUTPATIENT"]
+	union ["Clinical Activity": "HEDIS; OBSERVATION"]
 	union ["Clinical Activity": "HEDIS; ED"]
 	union ["Clinical Activity": "HEDIS; TELEPHONE_VISITS"]
 	union ["Clinical Activity": "HEDIS; ONLINE_ASSESSMENTS"])Encounter
